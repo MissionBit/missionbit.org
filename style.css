@@ -26,10 +26,16 @@ html {
   box-sizing: inherit;
 }
 
-main > .landing {
-  position: relative;
+.index > header {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+}
+
+.landing {
+  position: relative;
   background: linear-gradient(0deg, #2881D0, #1B98A2, #FFFFFF);
+  height: 100%;
 }
 
 .landing-bridge {
@@ -38,10 +44,25 @@ main > .landing {
   top: 0;
   right: 0;
   bottom: 0;
-  background-image: url("bridge.svg");
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: contain;
+  background: no-repeat right bottom / contain url("bridge.svg");
+}
+
+.landing-content {
+  position: relative;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.bridge-text {
+  color: #fff;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 3rem;
 }
 
 .dot {
