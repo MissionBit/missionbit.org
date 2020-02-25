@@ -84,6 +84,11 @@ html {
   justify-items: center;
 }
 
+.landing-photo-wrapper {
+  padding: 77px 57px;
+  background: space url("circle.svg");
+}
+
 .bridge-text {
   color: #fff;
   text-align: center;
@@ -95,10 +100,6 @@ html {
 
 .bridge-text .line {
   display: inline-block;
-}
-
-.dot {
-  background-color: rgba(246, 117, 16, 0.47);
 }
 
 .main-footer {
