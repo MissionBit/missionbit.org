@@ -89,6 +89,75 @@ html {
   background: space url("circle.svg");
 }
 
+.landing-arrow-wrapper {
+  padding: 10px 40px;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.vertical-bounce {
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation: vertical-bounce 3.6s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes vertical-bounce {
+  0% {
+    transform: translateY(0);
+  }
+  5.55556% {
+    transform: translateY(0);
+  }
+  11.11111% {
+    transform: translateY(0);
+  }
+  22.22222% {
+    transform: translateY(-15px);
+  }
+  27.77778% {
+    transform: translateY(0);
+  }
+  33.33333% {
+    transform: translateY(-15px);
+  }
+  44.44444% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.stats {
+  width: 100%;
+  text-align: center;
+}
+
+.stats-line {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  margin: 3em;
+
+}
+
+.stats-value {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.stats-color-1 {
+  color: #C21981;
+}
+
+.stats-color-2 {
+  color: #0058A6;
+}
+
+.stats-color-3 {
+  color: #F67510;
+}
+
 .bridge-text {
   color: #fff;
   text-align: center;
@@ -100,6 +169,29 @@ html {
 
 .bridge-text .line {
   display: inline-block;
+}
+
+.event-copy {
+  color: #0058A6;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  line-height: 3rem;
+}
+
+.event-copy-text {
+  font-weight: bold;
+}
+
+.link-button {
+  border-radius: 0.35em;
+}
+
+.link-button-blue {
+  background: #0058A6;
+  color: white;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
 }
 
 .main-footer {
