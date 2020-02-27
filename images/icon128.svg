@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>missionbit_logo_horizontal</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <polygon id="path-1" points="59.5 16 92.841978 36.25 92.841978 76.75 59.5 97 26.158022 76.75 26.158022 36.25 "></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="missionbit_logo_horizontal" sketch:type="MSLayerGroup" transform="translate(5.000000, 2.000000)">
+            <g id="Polygon-1">
+                <use fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                <use fill="none" xlink:href="#path-1"></use>
+            </g>
+            <path d="M59.1997658,12 L21.1904502,33.8257148 L21,77.8163502 L58.8002342,100 L96.8095498,78.1534751 L97,34.1638802 L59.1997658,12 Z M92,39 L92,75.5050354 L72.871511,86 L72.871511,58.8371714 L58.9718989,66.3534014 L45.1326521,59.0070297 L45.1326521,86 L26,75.5050354 L26,39.3366094 L58.6336456,56.6321206 L58.674236,56.5513343 L58.7158672,56.6321206 L92,39 Z" id="Fill-4" fill="#424242" sketch:type="MSShapeGroup"></path>
+            <path d="M62,10.0657456 L79.0645775,0 L117.595425,21.7525624 L118,65.9818417 L101.020269,76 L100.603278,31.8596883" id="Fill-5" fill="#DC139C" sketch:type="MSShapeGroup"></path>
+            <path d="M56,10.0657456 L38.9366836,0 L0.407648961,21.7525624 L0,65.9818417 L16.9826143,76 L17.3985404,31.8596883" id="Fill-6" fill="#FB8B00" sketch:type="MSShapeGroup"></path>
+            <path d="M20,82.1697806 L20.0696024,101.992704 L58.6158309,124 L97,101.726645 L96.9314364,82 L58.6199862,104.217451" id="Fill-7" fill="#0169C9" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

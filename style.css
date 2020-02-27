@@ -26,6 +26,19 @@ html {
   box-sizing: inherit;
 }
 
+html.index {
+  scroll-behavior: smooth;
+}
+
+main {
+  /*
+    This prevents margin collapse, ensuring the #main scroll position
+    is at the very top of the stats section
+  */
+  display: flex;
+  flex-direction: column;
+}
+
 .main-navigation ul {
   display: flex;
   list-style-type: none;
@@ -132,6 +145,7 @@ html {
 .stats {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 
 .stats-line {
