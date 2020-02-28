@@ -1,0 +1,27 @@
+.copy {
+  color: #0058A6;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  line-height: 3rem;
+}
+
+.copyText {
+  font-weight: bold;
+}
+
+.button {
+  border-radius: 0.35em;
+  background: #0058A6;
+  color: white;
+  text-decoration: none;
+  padding: 0.25em 0.5em;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 1em;
+}

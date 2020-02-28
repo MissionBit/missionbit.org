@@ -1,0 +1,81 @@
+.section {
+  position: relative;
+  background: linear-gradient(0deg, #2881D0, #1B98A2, #FFFFFF);
+  height: 100%;
+}
+
+.bridge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: no-repeat right bottom / contain url("/images/landing/bridge.svg");
+}
+
+.bridgeText {
+  color: #fff;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 3rem;
+}
+
+.bridgeLine {
+  display: inline-block;
+}
+
+.content {
+  position: relative;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.photoWrapper {
+  padding: 77px 57px;
+  background: space url("/images/landing/circle.svg");
+}
+
+.arrowWrapper {
+  padding: 10px 40px;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.verticalBounce {
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation: verticalBounce 3.6s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes verticalBounce {
+  0% {
+    transform: translateY(0);
+  }
+  5.55556% {
+    transform: translateY(0);
+  }
+  11.11111% {
+    transform: translateY(0);
+  }
+  22.22222% {
+    transform: translateY(-15px);
+  }
+  27.77778% {
+    transform: translateY(0);
+  }
+  33.33333% {
+    transform: translateY(-15px);
+  }
+  44.44444% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

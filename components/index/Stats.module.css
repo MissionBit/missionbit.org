@@ -1,0 +1,29 @@
+.section {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.line {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  margin: 3em;
+
+}
+
+.value {
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.color1 {
+  color: #C21981;
+}
+
+.color2 {
+  color: #0058A6;
+}
+
+.color3 {
+  color: #F67510;
+}
