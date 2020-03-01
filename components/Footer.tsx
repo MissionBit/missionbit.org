@@ -1,10 +1,10 @@
 import * as React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import Subscribe from "./Subscribe";
 import styles from "./Footer.module.css";
 
 const Footer: React.SFC<{ className?: string }> = ({ className }) => (
-  <footer className={classNames(styles.footer, className)}>
+  <footer className={clsx(styles.footer, className)}>
     <Subscribe />
     <nav>
       <ul className={styles.ul}>

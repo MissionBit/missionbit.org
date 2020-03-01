@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useRef, useEffect } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 
 import styles from "./Students.module.css";
 
@@ -118,7 +118,7 @@ const Students: React.SFC<{}> = () => {
           <li
             key={idx}
             data-key={idx}
-            className={classNames({ [styles.selected]: idx === selected })}
+            className={clsx({ [styles.selected]: idx === selected })}
             onClick={event => {
               event.preventDefault();
               setSelected(idx);
