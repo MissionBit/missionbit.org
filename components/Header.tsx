@@ -2,7 +2,6 @@ import * as React from "react";
 import styles from "./Header.module.css";
 import HeaderMenuOption from "./HeaderMenuOption";
 import MenuItem from "@material-ui/core/MenuItem";
-import { PopupState } from "material-ui-popup-state/hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import clsx from "clsx";
@@ -16,10 +15,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const menuItems = (items: string[]) => (popupState: PopupState) =>
-  items.map((item, idx) => (
-    <MenuItem key={idx} onClick={popupState.close}>
-      {item}
+const menuItems = (href: string, items: { text: string; anchor: string }[]) =>
+  items.map(({ text, anchor }, idx) => (
+    <MenuItem key={idx} component="a" href={`${href}${anchor}`}>
+      {text}
     </MenuItem>
   ));
 
@@ -38,23 +37,29 @@ const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
             </a>
           </li>
           <li>
-            <HeaderMenuOption title="about" popupId="popup-about">
-              {menuItems([
-                "what we do",
-                "our values",
-                "our team",
-                "our supporters"
-              ])}
+            <HeaderMenuOption
+              title="about"
+              popupId="popup-about"
+              href="/about-us"
+            >
+              {() =>
+                menuItems("/about-us", [
+                  { text: "what we do", anchor: "" },
+                  { text: "our values", anchor: "#values" },
+                  { text: "our team", anchor: "#team" },
+                  { text: "our supporters", anchor: "#supporters" }
+                ])
+              }
             </HeaderMenuOption>
           </li>
           <li>
-            <Button href="#programs">programs</Button>
+            <Button href="/programs">programs</Button>
           </li>
           <li>
-            <Button href="#events">events</Button>
+            <Button href="/events">events</Button>
           </li>
           <li>
-            <Button href="#get-involved">get involved</Button>
+            <Button href="/get-involved">get involved</Button>
           </li>
           <li>
             <Button
@@ -66,7 +71,7 @@ const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
             </Button>
           </li>
           <li>
-            <Button variant="outlined" color="secondary" href="#get-updates">
+            <Button variant="outlined" color="secondary" href="/get-updates">
               get updates
             </Button>
           </li>

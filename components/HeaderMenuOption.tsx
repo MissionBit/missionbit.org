@@ -12,17 +12,21 @@ export interface HeaderMenuOptionProps {
   title: React.ReactNode;
   popupId: string;
   children: (popupState: PopupState) => React.ReactNode;
+  href?: string;
 }
 
 const HeaderMenuOption: React.SFC<HeaderMenuOptionProps> = ({
   title,
   popupId,
-  children
+  children,
+  href
 }) => {
   const popupState = usePopupState({ variant: "popover", popupId });
   return (
     <>
-      <Button {...bindHover(popupState)}>{title}</Button>
+      <Button href={href} {...bindHover(popupState)}>
+        {title}
+      </Button>
       <Menu
         {...bindMenu(popupState)}
         getContentAnchorEl={null}
