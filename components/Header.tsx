@@ -15,6 +15,18 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function focusGetUpdates(event: React.MouseEvent<HTMLAnchorElement>): void {
+  const section = document.querySelector(event.currentTarget.hash);
+  if (section instanceof HTMLElement) {
+    const el = section.querySelector("input");
+    if (el) {
+      section.scrollIntoView({ behavior: "smooth" });
+      el.focus({ preventScroll: true });
+      event.preventDefault();
+    }
+  }
+}
+
 const menuItems = (href: string, items: { text: string; anchor: string }[]) =>
   items.map(({ text, anchor }, idx) => (
     <MenuItem key={idx} component="a" href={`${href}${anchor}`}>
@@ -40,10 +52,10 @@ const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
             <HeaderMenuOption
               title="about"
               popupId="popup-about"
-              href="/about-us"
+              href="/about"
             >
               {() =>
-                menuItems("/about-us", [
+                menuItems("/about", [
                   { text: "what we do", anchor: "" },
                   { text: "our values", anchor: "#values" },
                   { text: "our team", anchor: "#team" },
@@ -71,7 +83,12 @@ const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
             </Button>
           </li>
           <li>
-            <Button variant="outlined" color="secondary" href="/get-updates">
+            <Button
+              variant="outlined"
+              color="secondary"
+              href="#get-updates"
+              onClick={focusGetUpdates}
+            >
               get updates
             </Button>
           </li>

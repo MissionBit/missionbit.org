@@ -23,7 +23,7 @@ const Footer: React.SFC<{ className?: string }> = ({ className }) => {
       <nav>
         <ul className={clsx(styles.ul, classes.root)}>
           <li>
-            <Button href="/about-us">about</Button>
+            <Button href="/about">about</Button>
           </li>
           <li>
             <Button href="/programs">programs</Button>

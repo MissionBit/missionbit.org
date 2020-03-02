@@ -9,7 +9,7 @@ import Supporters from "./Supporters";
 
 const Main: React.SFC<{}> = () => (
   <main id="main">
-    <section id="about-us">
+    <section id="about">
       <Typography variant="h4" component="h1" align="center">
         About Us
       </Typography>
