@@ -31,6 +31,9 @@ const useStyles = makeStyles(theme => ({
       paddingLeft: "2.5em",
       background: 'url("/images/missionbit-bw-bullet.svg") no-repeat left top'
     }
+  },
+  jobs: {
+    ...theme.typography.body1
   }
 }));
 
@@ -179,6 +182,18 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h4" component="h2" align="center">
           Job Openings
         </Typography>
+        <ul className={classes.jobs}>
+          <li>
+            <a href="/images/jobs/missionBitLeadInstructorJobDescription.pdf">
+              Lead Instructor
+            </a>
+          </li>
+          <li>
+            <a href="/images/jobs/missionBitInstructorsAssistantJobDescription.pdf">
+              Instructor's Assistant
+            </a>
+          </li>
+        </ul>
       </section>
       <section id="supporters">
         <Typography variant="h4" component="h2" align="center">
