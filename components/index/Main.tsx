@@ -6,7 +6,7 @@ import Social from "./Social";
 import Supporters from "./Supporters";
 import styles from "./Main.module.css";
 
-const Main: React.SFC<{}> = () => (
+const Main: React.FC<{}> = () => (
   <main id="main" className={styles.main}>
     <Stats />
     <Events />

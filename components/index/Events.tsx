@@ -1,7 +1,7 @@
 import * as React from "react";
 import styles from "./Events.module.css";
 
-const Events: React.SFC<{}> = () => (
+const Events: React.FC<{}> = () => (
   <section className={styles.section}>
     <div className={styles.copy}>
       <div className={styles.copyText}>

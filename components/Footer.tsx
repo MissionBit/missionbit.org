@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Footer: React.SFC<{ className?: string }> = ({ className }) => {
+const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
   return (
     <footer className={clsx(styles.footer, className)}>
@@ -35,7 +35,7 @@ const Footer: React.SFC<{ className?: string }> = ({ className }) => {
             <Button href="/get-involved">get involved</Button>
           </li>
           <li>
-            <Button href="/jobs">jobs</Button>
+            <Button href="/about#jobs">jobs</Button>
           </li>
           <li>
             <Button href="https://donate.missionbit.org/">donate</Button>

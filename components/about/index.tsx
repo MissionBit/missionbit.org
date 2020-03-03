@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   aboutContainer: {
     padding: "20px"
   },
+  valuesContainer: {
+    padding: "20px"
+  },
   team: {
     "& > img": {
       display: "block",
@@ -22,15 +25,30 @@ const useStyles = makeStyles(theme => ({
   },
   ul: {
     ...theme.typography.body1,
-    listStyle: "none",
+    listStyleType: "none",
     paddingLeft: 0,
     "& > li": {
-      margin: "1em"
+      margin: "1em",
+      paddingLeft: "2.5em",
+      background: 'url("/images/missionbit-bw-bullet.svg") no-repeat left top'
     }
   }
 }));
 
-const Main: React.SFC<{}> = () => {
+const Value: React.FC<{
+  title: React.ReactNode;
+  src: string;
+}> = ({ title, src, children }) => {
+  return (
+    <Grid item>
+      <img src={src} />
+      <Typography variant="h5">{title}</Typography>
+      {children}
+    </Grid>
+  );
+};
+
+const Main: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <main id="main">
@@ -89,10 +107,44 @@ const Main: React.SFC<{}> = () => {
         <Typography variant="h4" component="h2" align="center">
           Our Values
         </Typography>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          className={classes.valuesContainer}
+        >
+          <Value title="Community" src="/images/about/values-community.svg">
+            Cultivating a supportive environment of like-minded peers
+          </Value>
+          <Value
+            title="Social Justice"
+            src="/images/about/values-social-justice.svg"
+          >
+            Embracing the responsibility to inspire future generations
+          </Value>
+          <Value
+            title="Accountability"
+            src="/images/about/values-accountability.svg"
+          >
+            Providing equal opportunities for the underrepresented &amp;
+            under-resourced
+          </Value>
+          <Value title="Smart Risks" src="/images/about/values-smart-risks.svg">
+            Encouraging the pursuit of passions
+          </Value>
+          <Value title="Love" src="/images/about/values-love.svg">
+            Practicing empathy, honesty, and openness
+          </Value>
+        </Grid>
       </section>
       <section id="team">
         <Typography variant="h4" component="h2" align="center">
           Our Team
+        </Typography>
+      </section>
+      <section id="jobs">
+        <Typography variant="h4" component="h2" align="center">
+          Job Openings
         </Typography>
       </section>
       <section id="supporters">

@@ -1,5 +1,5 @@
 import * as React from "react";
 
-const Supporters: React.SFC<{}> = () => <section />;
+const Supporters: React.FC<{}> = () => <section />;
 
 export default Supporters;

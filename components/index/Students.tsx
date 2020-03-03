@@ -69,7 +69,7 @@ const testimonials: readonly StudentTestimonial[] = [
   }
 ];
 
-const Testimonial: React.SFC<StudentTestimonial> = ({
+const Testimonial: React.FC<StudentTestimonial> = ({
   name,
   program,
   quote,
@@ -87,7 +87,7 @@ const Testimonial: React.SFC<StudentTestimonial> = ({
   </div>
 );
 
-const Students: React.SFC<{}> = () => {
+const Students: React.FC<{}> = () => {
   const [selected, setSelected] = useState(0);
   const wrapperRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null

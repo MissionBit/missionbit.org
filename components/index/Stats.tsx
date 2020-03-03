@@ -2,7 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import styles from "./Stats.module.css";
 
-const Stats: React.SFC<{}> = () => (
+const Stats: React.FC<{}> = () => (
   <section className={styles.section}>
     <div className={styles.line}>
       Over <span className={clsx(styles.value, styles.color1)}>3,800</span>{" "}

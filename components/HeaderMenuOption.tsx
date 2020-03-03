@@ -15,7 +15,7 @@ export interface HeaderMenuOptionProps {
   href?: string;
 }
 
-const HeaderMenuOption: React.SFC<HeaderMenuOptionProps> = ({
+const HeaderMenuOption: React.FC<HeaderMenuOptionProps> = ({
   title,
   popupId,
   children,

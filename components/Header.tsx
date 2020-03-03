@@ -34,7 +34,7 @@ const menuItems = (href: string, items: { text: string; anchor: string }[]) =>
     </MenuItem>
   ));
 
-const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
+const Header: React.FC<{ className?: string }> = ({ children, className }) => {
   const classes = useStyles();
   return (
     <header className={className}>
@@ -49,11 +49,7 @@ const Header: React.SFC<{ className?: string }> = ({ children, className }) => {
             </a>
           </li>
           <li>
-            <HeaderMenuOption
-              title="about"
-              popupId="popup-about"
-              href="/about"
-            >
+            <HeaderMenuOption title="about" popupId="popup-about" href="/about">
               {() =>
                 menuItems("/about", [
                   { text: "what we do", anchor: "" },

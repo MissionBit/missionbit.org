@@ -1,5 +1,5 @@
 import * as React from "react";
 
-const Social: React.SFC<{}> = () => <section />;
+const Social: React.FC<{}> = () => <section />;
 
 export default Social;

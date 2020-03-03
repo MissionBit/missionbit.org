@@ -44,12 +44,5 @@ module.exports = {
       "ignoreRestSiblings": false
     }]
   },
-  overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        quotes: ["error", "double"],
-      }
-    }
-  ]
+  overrides: []
 };

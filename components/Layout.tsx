@@ -14,7 +14,7 @@ export interface LayoutProps {
   footerClassName?: string;
 }
 
-const ShortcutPng: React.SFC<{ size: number }> = ({ size }) => (
+const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
   <link
     rel="shortcut icon"
     href={`/images/icon${size}.png`}
@@ -23,7 +23,7 @@ const ShortcutPng: React.SFC<{ size: number }> = ({ size }) => (
   />
 );
 
-const Layout: React.SFC<LayoutProps> = ({
+const Layout: React.FC<LayoutProps> = ({
   title,
   children,
   headerClassName,

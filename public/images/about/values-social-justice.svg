@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.82 119.33">
+  <defs>
+    <style>
+      g {
+        fill: #e3097e;
+      }
+    </style>
+  </defs>
+  <g transform="translate(-204.59 -336.33)">
+    <path d="M211,452.67h89.89v-108L211,452.67m-6.4,3,99.29-119.34V455.67Z" />
+    <path d="M401,452.67l-89.89-108v108H401m6.4,3H308.12V336.33Z" />
+  </g>
+</svg>

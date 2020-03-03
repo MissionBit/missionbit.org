@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.1 85.11">
+  <defs>
+    <style>
+      g {
+        fill: none;
+        stroke-width: 3px;
+      }
+
+      .cls-1 {
+        stroke: #f47521;
+        stroke-linejoin: bevel;
+      }
+
+      .cls-2 {
+        stroke: #c21a81;
+      }
+
+      .cls-3 {
+        stroke: #0059a5;
+      }
+    </style>
+  </defs>
+  <g transform="translate(-218.45 -359.85)">
+    <path class="cls-1" d="M347.89,372.8c1.32.62-41.76,71.38-41.76,71.38L263.08,372.8S303,347,347.89,372.8Z" />
+    <path class="cls-2" d="M351.27,374.28c-.92-.58-42.13,69-42.13,69h82.65S385,400.1,351.27,374.28Z"/>
+    <path class="cls-3" d="M260.77,374.28c.92-.58,42.13,69,42.13,69H220.25S228.76,396.45,260.77,374.28Z"/>
+  </g>
+</svg>

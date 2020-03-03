@@ -9,7 +9,7 @@ function smoothScroll(event: React.MouseEvent<HTMLAnchorElement>): void {
   }
 }
 
-const Landing: React.SFC<{}> = () => (
+const Landing: React.FC<{}> = () => (
   <section className={styles.section}>
     <div className={styles.bridge} />
     <div className={styles.content}>
