@@ -2,9 +2,8 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import TeamData, { TeamMemberProps } from "./TeamData";
 /*
-import AboutUs from "./AboutUs";
-import Values from "./Values";
 import Team from "./Team";
 import Supporters from "./Supporters";
 */
@@ -47,6 +46,21 @@ const Value: React.FC<{
     </Grid>
   );
 };
+
+const TeamMember: React.FC<TeamMemberProps<string>> = ({
+  name,
+  title,
+  image
+}) => (
+  <Grid item>
+    <img
+      src={`/images/about/team/${image}`}
+      style={{ maxWidth: "10vw", borderRadius: "50%" }}
+    />
+    <Typography variant="h5">{name}</Typography>
+    <Typography variant="h6">{title}</Typography>
+  </Grid>
+);
 
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
@@ -141,6 +155,25 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h4" component="h2" align="center">
           Our Team
         </Typography>
+        {TeamData.map(({ section, members }, idx) => (
+          <React.Fragment key={section}>
+            {idx === 0 ? null : (
+              <Typography variant="h5" component="h3" align="center">
+                {section}
+              </Typography>
+            )}
+            <Grid container>
+              {members.map(({ name, title, image }) => (
+                <TeamMember
+                  key={name}
+                  name={name}
+                  title={title}
+                  image={image}
+                />
+              ))}
+            </Grid>
+          </React.Fragment>
+        ))}
       </section>
       <section id="jobs">
         <Typography variant="h4" component="h2" align="center">
