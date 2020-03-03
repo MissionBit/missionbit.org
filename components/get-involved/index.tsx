@@ -29,7 +29,7 @@ const Main: React.FC<{}> = () => {
     <main id="main">
       <Box id="landing" component="section" className={classes.landing}>
         <Typography variant="h2" component="h1" align="center">
-          Programs
+          Get Involved
         </Typography>
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
@@ -45,40 +45,28 @@ const Main: React.FC<{}> = () => {
       </Box>
       <section id="description">
         <Typography>
-          Mission Bit provides computer science courses that expose high school
-          students from underserved and underrepresented communities to multiple
-          coding languages. We design our classrooms with project based, small
-          group learning in mind. We offer our students a field trip to a Bay
-          Area tech company, career and college advising related to the
-          technology field, and an opportunity to showcase their group projects
-          to a large community of supporters during our Demo Day event at the
-          end of the term.
+          Your donation to Mission Bit helps educate and equip students to
+          pursue opportunities in tech. Your donation will help us:
+          <br />
+          1. Reach more students with our free programs
+          <br />
+          2. Find and train Facilitators and Teachers for our Semester Courses
+          and Summer Bootcamps
+          <br />
+          3. Create a world-class curriculum for our classrooms
+          <br />
+          4. Diversify the tech industry
+          <br />
         </Typography>
       </section>
-      <section id="enroll">
-        <Typography>
-          Sign up for Winter 2020 classes now! Registration deadline: 1/22/20
-        </Typography>
+      <section id="give">
+        <Typography>Ways to Give</Typography>
       </section>
-      <section id="workshops">
-        <Typography>
-          We also teach 90-minute workshops across the Bay Area!
-        </Typography>
-        <Typography>
-          Create your own portfolio and learning HTML, CSS, and Javascript!
-        </Typography>
-        <Typography>
-          Learn about gameplay, the Unity platform, and how to create your own
-          game!
-        </Typography>
-        <Typography>
-          Do you work with 8th graders or high schoolers and want Misison Bit to
-          come to your school site or community-based organization? Reach out to
-          <a href="mailto:cora@missionbit.org">cora@missionbit.org</a>!
-        </Typography>
+      <section id="volunteers">
+        <Typography>Our Volunteers</Typography>
       </section>
       <section id="faq">
-        <Typography>FAQ</Typography>
+        <Typography>Volunteer FAQ</Typography>
       </section>
       <section id="showcase">
         <Typography>
