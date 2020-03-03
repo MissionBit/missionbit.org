@@ -2,17 +2,17 @@ import { NextPage } from "next";
 import * as React from "react";
 import Layout from "../components/Layout";
 import Landing from "../components/index/Landing";
-import Main from "../components/index/Main";
+import Index from "../components/index";
 import styles from "../styles/index.module.css";
 
-const Home: NextPage<{}> = () => (
+const Page: NextPage<{}> = () => (
   <Layout
     title="Mission Bit"
     headerChildren={<Landing />}
     headerClassName={styles.header}
   >
-    <Main />
+    <Index />
   </Layout>
 );
 
-export default Home;
+export default Page;

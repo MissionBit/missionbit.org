@@ -3,10 +3,10 @@ import Stats from "./Stats";
 import Events from "./Events";
 import Students from "./Students";
 import Social from "./Social";
-import Supporters from "./Supporters";
-import styles from "./Main.module.css";
+import Supporters from "../Supporters";
+import styles from "./index.module.css";
 
-const Main: React.FC<{}> = () => (
+const Index: React.FC<{}> = () => (
   <main id="main" className={styles.main}>
     <Stats />
     <Events />
@@ -16,4 +16,4 @@ const Main: React.FC<{}> = () => (
   </main>
 );
 
-export default Main;
+export default Index;

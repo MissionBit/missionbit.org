@@ -3,10 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import TeamData, { TeamMemberProps } from "./TeamData";
-/*
-import Team from "./Team";
-import Supporters from "./Supporters";
-*/
+import Supporters from "../Supporters";
 
 const useStyles = makeStyles(theme => ({
   aboutContainer: {
@@ -195,11 +192,7 @@ const Main: React.FC<{}> = () => {
           </li>
         </ul>
       </section>
-      <section id="supporters">
-        <Typography variant="h4" component="h2" align="center">
-          Our Supporters
-        </Typography>
-      </section>
+      <Supporters />
     </main>
   );
 };
