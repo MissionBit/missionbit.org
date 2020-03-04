@@ -1,4 +1,5 @@
 import * as React from "react";
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +11,25 @@ const useStyles = makeStyles(theme => ({
     padding: "20px"
   },
   valuesContainer: {
-    padding: "20px"
+    display: "grid",
+    justifyContent: "center",
+    alignContent: "center",
+    gridGap: theme.spacing(3),
+    gridTemplateColumns: "repeat(5, 1fr)",
+    margin: "0 auto",
+    maxWidth: "90%",
+    padding: `${theme.spacing(3)}px 0`
+  },
+  value: {
+    "& > h5": {
+      textAlign: "center"
+    }
+  },
+  valueIcon: {
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    height: 140
   },
   team: {
     "& > img": {
@@ -38,12 +57,16 @@ const Value: React.FC<{
   title: React.ReactNode;
   src: string;
 }> = ({ title, src, children }) => {
+  const classes = useStyles();
   return (
-    <Grid item>
-      <img src={src} />
+    <div className={classes.value}>
+      <div
+        className={classes.valueIcon}
+        style={{ backgroundImage: `url(${src})` }}
+      />
       <Typography variant="h5">{title}</Typography>
       {children}
-    </Grid>
+    </div>
   );
 };
 
@@ -52,14 +75,14 @@ const TeamMember: React.FC<TeamMemberProps<string>> = ({
   title,
   image
 }) => (
-  <Grid item>
+  <div>
     <img
       src={`/images/about/team/${image}`}
       style={{ maxWidth: "10vw", borderRadius: "50%" }}
     />
     <Typography variant="h5">{name}</Typography>
     <Typography variant="h6">{title}</Typography>
-  </Grid>
+  </div>
 );
 
 const Main: React.FC<{}> = () => {
@@ -121,12 +144,7 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h4" component="h2" align="center">
           Our Values
         </Typography>
-        <Grid
-          container
-          justify="center"
-          alignItems="center"
-          className={classes.valuesContainer}
-        >
+        <Box className={classes.valuesContainer}>
           <Value title="Community" src="/images/about/values-community.svg">
             Cultivating a supportive environment of like-minded peers
           </Value>
@@ -149,7 +167,7 @@ const Main: React.FC<{}> = () => {
           <Value title="Love" src="/images/about/values-love.svg">
             Practicing empathy, honesty, and openness
           </Value>
-        </Grid>
+        </Box>
       </section>
       <section id="team">
         <Typography variant="h4" component="h2" align="center">
