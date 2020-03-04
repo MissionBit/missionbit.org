@@ -11,9 +11,7 @@ const useStyles = makeStyles(theme => ({
     gridAutoFlow: "dense",
     gridTemplateColumns: "repeat(auto-fit, 180px)",
     padding: theme.spacing(3),
-    "& > div": {
-      textAlign: "center"
-    },
+    textAlign: "center",
     "& > div > img": {
       minWidth: "100px",
       maxWidth: "150px",

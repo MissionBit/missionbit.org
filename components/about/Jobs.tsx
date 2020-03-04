@@ -3,17 +3,24 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
-  jobs: theme.typography.body1
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    "& > ul": {
+      margin: `${theme.spacing(3)}px auto`
+    }
+  }
 }));
 
 const Jobs: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <section id="jobs">
+    <section id="jobs" className={classes.root}>
       <Typography variant="h4" component="h2" align="center">
         Job Openings
       </Typography>
-      <ul className={classes.jobs}>
+      <Typography variant="h5" component="ul">
         <li>
           <a href="/images/jobs/missionBitLeadInstructorJobDescription.pdf">
             Lead Instructor
@@ -24,7 +31,7 @@ const Jobs: React.FC<{}> = () => {
             Instructor's Assistant
           </a>
         </li>
-      </ul>
+      </Typography>
     </section>
   );
 };

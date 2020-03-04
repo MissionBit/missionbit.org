@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
+import Roboto from "./fonts/Roboto";
 
 export interface LayoutProps {
   title: string;
@@ -49,6 +50,7 @@ const Layout: React.FC<LayoutProps> = ({
         {[64, 128, 256].map(size => (
           <ShortcutPng key={size} size={size} />
         ))}
+        <Roboto />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
