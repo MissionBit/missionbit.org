@@ -33,7 +33,7 @@ const Team: React.FC<{}> = () => {
     <div>
       <img src={`/images/about/team/${image}`} />
       <Typography variant="h5">{name}</Typography>
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant="body1">{title}</Typography>
     </div>
   );
 
