@@ -73,7 +73,7 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <Typography>
           Do you work with 8th graders or high schoolers and want Misison Bit to
-          come to your school site or community-based organization? Reach out to
+          come to your school site or community-based organization? Reach out to{" "}
           <a href="mailto:cora@missionbit.org">cora@missionbit.org</a>!
         </Typography>
       </section>

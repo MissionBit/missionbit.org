@@ -10,6 +10,7 @@ const useStyles = makeStyles(theme => ({
     gridGap: theme.spacing(2),
     gridAutoFlow: "dense",
     gridTemplateColumns: "repeat(auto-fit, 180px)",
+    justifyContent: "space-between",
     padding: theme.spacing(3),
     textAlign: "center",
     "& > div > img": {

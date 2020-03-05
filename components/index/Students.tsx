@@ -1,8 +1,10 @@
 import * as React from "react";
 import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
-
+import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import styles from "./Students.module.css";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
 
 interface StudentTestimonial {
   name: React.ReactNode;
@@ -69,29 +71,82 @@ const testimonials: readonly StudentTestimonial[] = [
   }
 ];
 
-const Testimonial: React.FC<StudentTestimonial> = ({
-  name,
-  program,
-  quote,
-  photo
-}) => (
-  <div className={styles.testimonial}>
-    Student
-    <div>
-      <span>{name}</span> <span>{program}</span>
-    </div>
-    <div>
-      <img src={photo} alt={`Photo of ${name}`} />
-    </div>
-    <div>{quote}</div>
-  </div>
-);
+const useStyles = makeStyles(theme => ({
+  testimonial: {
+    minWidth: "100vw",
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridColumnGap: theme.spacing(3),
+    padding: theme.spacing(3),
+    alignItems: "center",
+    justifyItems: "center"
+  },
+  title: {
+    justifySelf: "left",
+    gridColumn: "span 2"
+  },
+  name: {
+    ...theme.typography.h3,
+    color: "#333",
+    fontWeight: "bold"
+  },
+  program: {
+    ...theme.typography.h4,
+    color: "#666",
+    fontWeight: "bold"
+  },
+  quote: {
+    ...theme.typography.body1,
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    padding: theme.spacing(3),
+    position: "relative"
+  },
+  brQuote: {
+    position: "absolute",
+    right: "0",
+    bottom: "0",
+    transform: "translate(40%, 40%) scale(2)",
+    color: "rgba(51,51,51,0.56)"
+  },
+  tlQuote: {
+    position: "absolute",
+    left: "0",
+    top: "0",
+    transform: "translate(-40%, -40%) scale(-2)",
+    color: "rgba(51,51,51,0.56)"
+  }
+}));
 
 const Students: React.FC<{}> = () => {
   const [selected, setSelected] = useState(0);
   const wrapperRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
   );
+  const classes = useStyles();
+  const Testimonial: React.FC<StudentTestimonial> = ({
+    name,
+    program,
+    quote,
+    photo
+  }) => (
+    <div className={classes.testimonial}>
+      <div className={classes.title}>
+        <span className={classes.name}>{name}</span>{" "}
+        <span className={classes.program}>{program}</span>
+      </div>
+      <div>
+        <img src={photo} alt={`Photo of ${name}`} />
+      </div>
+      <Paper className={classes.quote}>
+        {quote}
+        <FormatQuoteIcon className={classes.tlQuote} />
+        <FormatQuoteIcon className={classes.brQuote} />
+      </Paper>
+    </div>
+  );
+
   useEffect(() => {
     const { current } = wrapperRef;
     if (current !== null) {
