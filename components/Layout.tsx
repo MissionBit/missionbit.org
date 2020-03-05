@@ -50,10 +50,10 @@ const Layout: React.FC<LayoutProps> = ({
         {[64, 128, 256].map(size => (
           <ShortcutPng key={size} size={size} />
         ))}
-        <Roboto />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Roboto />
         <Header className={headerClassName}>{headerChildren}</Header>
         {children}
         <Footer className={footerClassName} />
