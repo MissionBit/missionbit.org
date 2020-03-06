@@ -24,6 +24,7 @@
 
 .bridgeLine {
   display: inline-block;
+  margin: 0 0.29rem;
 }
 
 .content {

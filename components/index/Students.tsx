@@ -139,7 +139,7 @@ const Students: React.FC<{}> = () => {
       <div>
         <img src={photo} alt={`Photo of ${name}`} />
       </div>
-      <Paper className={classes.quote}>
+      <Paper className={classes.quote} elevation={0}>
         {quote}
         <FormatQuoteIcon className={classes.tlQuote} />
         <FormatQuoteIcon className={classes.brQuote} />

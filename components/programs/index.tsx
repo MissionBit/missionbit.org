@@ -33,13 +33,22 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
+            <img src="/images/program/girl-unity.jpg" />
+          </Grid>
+          <Grid item xs={4}>
+            <img src="/images/program/jada.jpg" />
+          </Grid>
+          <Grid item xs={4}>
+            <img src="/images/program/jesus.jpg" />
+          </Grid>
+          <Grid item xs={4}>
             <img src="/images/program/miguel_yanez.jpg" />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/nathan_powell.jpg" />
+            <img src="/images/program/safia_jaleel.jpg" />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/safia_jaleel.jpg" />
+            <img src="/images/program/nathan_powell.jpg" />
           </Grid>
         </Grid>
       </Box>
