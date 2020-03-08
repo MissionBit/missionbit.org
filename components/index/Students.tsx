@@ -2,7 +2,6 @@ import * as React from "react";
 import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import styles from "./Students.module.css";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -79,7 +78,46 @@ const useStyles = makeStyles(theme => ({
     gridColumnGap: theme.spacing(3),
     padding: theme.spacing(3),
     alignItems: "center",
-    justifyItems: "center"
+    justifyItems: "center",
+    scrollSnapAlign: "center"
+  },
+  scroller: {
+    overflow: "scroll",
+    "&::-webkit-scrollbar": {
+      display: "none"
+    }
+  },
+  wrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyItems: "center",
+    flexDirection: "row",
+    overflowX: "scroll",
+    scrollSnapType: "x mandatory"
+  },
+  ul: {
+    display: "flex",
+    listStyleType: "none",
+    alignItems: "center",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    fontWeight: "bold",
+    color: "#333",
+    padding: "1rem"
+  },
+  li: {
+    cursor: "pointer",
+    backgroundColor: "#111"
+  },
+  liSelected: {
+    cursor: "initial",
+    pointerEvents: "none",
+    backgroundColor: "#F5A362"
+  },
+  section: {
+    backgroundColor: "#F5A362",
+    overflowX: "hidden",
+    position: "relative",
+    minWidth: "100%"
   },
   title: {
     justifySelf: "left",
@@ -133,7 +171,7 @@ const Students: React.FC<{}> = () => {
   }) => (
     <div className={classes.testimonial}>
       <div className={classes.title}>
-        <span className={classes.name}>{name}</span>{" "}
+        <span className={classes.name}>{name} </span>
         <span className={classes.program}>{program}</span>
       </div>
       <div>
@@ -157,10 +195,10 @@ const Students: React.FC<{}> = () => {
     }
   }, [selected, wrapperRef.current]);
   return (
-    <section className={styles.section}>
-      <div className={styles.scroller} ref={wrapperRef}>
+    <section className={classes.section}>
+      <div className={classes.scroller} ref={wrapperRef}>
         <div
-          className={styles.wrapper}
+          className={classes.wrapper}
           style={{ width: `${testimonials.length * 100}vw` }}
         >
           {testimonials.map((testimonial, idx) => (
@@ -168,12 +206,14 @@ const Students: React.FC<{}> = () => {
           ))}
         </div>
       </div>
-      <ul className={styles.ul}>
+      <ul className={classes.ul}>
         {testimonials.map((_, idx) => (
           <li
             key={idx}
             data-key={idx}
-            className={clsx({ [styles.selected]: idx === selected })}
+            className={clsx(classes.li, {
+              [classes.liSelected]: idx === selected
+            })}
             onClick={event => {
               event.preventDefault();
               setSelected(idx);

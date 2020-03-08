@@ -32,7 +32,8 @@
     "material-ui-popup-state": "^1.5.3",
     "next": "^9.2.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "react-multi-carousel": "^2.5.2"
   },
   "devDependencies": {
     "@types/jest": "^25.1.3",
