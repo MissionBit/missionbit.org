@@ -1,10 +1,8 @@
 import * as React from "react";
-import { useState, useRef, useEffect } from "react";
-import clsx from "clsx";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import { debounce } from "ts-debounce";
+import Carousel from "../Carousel";
 
 interface StudentTestimonial {
   name: React.ReactNode;
@@ -82,41 +80,6 @@ const useStyles = makeStyles(theme => ({
     justifyItems: "center",
     scrollSnapAlign: "center"
   },
-  scroller: {
-    display: "flex",
-    overflowX: "scroll",
-    scrollSnapType: "x mandatory",
-    "&::-webkit-scrollbar": {
-      display: "none"
-    }
-  },
-  ul: {
-    display: "flex",
-    listStyleType: "none",
-    justifyContent: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
-    fontWeight: "bold",
-    color: "#333",
-    padding: "1rem",
-    flex: "1",
-    userSelect: "none"
-  },
-  li: {
-    cursor: "pointer",
-    color: theme.palette.common.white,
-    margin: `0 ${theme.spacing(1)}px`
-  },
-  liSelected: {
-    cursor: "initial",
-    pointerEvents: "none",
-    color: theme.palette.secondary.main
-  },
-  section: {
-    backgroundColor: "#F5A362",
-    overflowX: "hidden",
-    position: "relative",
-    minWidth: "100%"
-  },
   title: {
     alignSelf: "flex-start"
   },
@@ -169,11 +132,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Students: React.FC<{}> = () => {
-  const [selected, setSelected] = useState(0);
-  const [scrollWidth, setScrollWidth] = useState(0);
-  const scrollerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
-    null
-  );
   const classes = useStyles();
   const Testimonial: React.FC<StudentTestimonial> = ({
     name,
@@ -201,85 +159,12 @@ const Students: React.FC<{}> = () => {
     </div>
   );
 
-  useEffect(() => {
-    const handleResize = debounce(
-      () => {
-        const { current } = scrollerRef;
-        if (current !== null) {
-          setScrollWidth(current.scrollWidth);
-        }
-      },
-      100,
-      { isImmediate: false }
-    );
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
-  useEffect(() => {
-    const { current } = scrollerRef;
-    if (current !== null) {
-      current.scrollTo({
-        behavior: "smooth",
-        left: selected * (current.scrollWidth / testimonials.length)
-      });
-    }
-  }, [selected, scrollWidth, scrollerRef.current]);
-  const selectClosest = () => {
-    const { current } = scrollerRef;
-    if (current === null) {
-      return;
-    }
-    const children: HTMLElement[] = Array.from(current.children).filter(
-      (x): x is HTMLElement => x instanceof HTMLElement
-    );
-    for (let i = 0; i < children.length; i++) {
-      const el = children[i];
-      const { x, width } = el.getBoundingClientRect();
-      if (Math.abs(x) < 0.5 * width) {
-        console.log({ setClosest: i, selected });
-        setSelected(i);
-        break;
-      }
-    }
-  };
-  useEffect(() => {
-    const { current } = scrollerRef;
-    if (current === null) {
-      return;
-    }
-    const handleScroll = debounce(selectClosest, 100, { isImmediate: false });
-    current.addEventListener("scroll", handleScroll);
-    return () => {
-      current.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollerRef.current]);
   return (
-    <section className={classes.section}>
-      <div className={classes.scroller} ref={scrollerRef}>
-        {testimonials.map((testimonial, idx) => (
-          <Testimonial key={idx} {...testimonial} />
-        ))}
-      </div>
-      <ul className={classes.ul}>
-        {testimonials.map((_, idx) => (
-          <li
-            key={idx}
-            data-key={idx}
-            className={clsx(classes.li, {
-              [classes.liSelected]: idx === selected
-            })}
-            onClick={event => {
-              event.preventDefault();
-              setSelected(idx);
-            }}
-          >
-            ⬤
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Carousel>
+      {testimonials.map((testimonial, idx) => (
+        <Testimonial key={idx} {...testimonial} />
+      ))}
+    </Carousel>
   );
 };
 
