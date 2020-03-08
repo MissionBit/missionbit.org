@@ -33,7 +33,7 @@
     "next": "^9.2.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-multi-carousel": "^2.5.2"
+    "ts-debounce": "^2.0.1"
   },
   "devDependencies": {
     "@types/jest": "^25.1.3",

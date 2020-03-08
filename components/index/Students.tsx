@@ -4,6 +4,7 @@ import clsx from "clsx";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import { debounce } from "ts-debounce";
 
 interface StudentTestimonial {
   name: React.ReactNode;
@@ -72,46 +73,43 @@ const testimonials: readonly StudentTestimonial[] = [
 
 const useStyles = makeStyles(theme => ({
   testimonial: {
-    minWidth: "100vw",
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gridColumnGap: theme.spacing(3),
+    width: "100%",
+    display: "flex",
+    flex: "1 0 100%",
+    flexDirection: "column",
     padding: theme.spacing(3),
     alignItems: "center",
     justifyItems: "center",
     scrollSnapAlign: "center"
   },
   scroller: {
-    overflow: "scroll",
+    display: "flex",
+    overflowX: "scroll",
+    scrollSnapType: "x mandatory",
     "&::-webkit-scrollbar": {
       display: "none"
     }
   },
-  wrapper: {
-    display: "flex",
-    alignItems: "center",
-    justifyItems: "center",
-    flexDirection: "row",
-    overflowX: "scroll",
-    scrollSnapType: "x mandatory"
-  },
   ul: {
     display: "flex",
     listStyleType: "none",
-    alignItems: "center",
+    justifyContent: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     color: "#333",
-    padding: "1rem"
+    padding: "1rem",
+    flex: "1",
+    userSelect: "none"
   },
   li: {
     cursor: "pointer",
-    backgroundColor: "#111"
+    color: theme.palette.common.white,
+    margin: `0 ${theme.spacing(1)}px`
   },
   liSelected: {
     cursor: "initial",
     pointerEvents: "none",
-    backgroundColor: "#F5A362"
+    color: theme.palette.secondary.main
   },
   section: {
     backgroundColor: "#F5A362",
@@ -120,8 +118,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: "100%"
   },
   title: {
-    justifySelf: "left",
-    gridColumn: "span 2"
+    alignSelf: "flex-start"
   },
   name: {
     ...theme.typography.h3,
@@ -133,13 +130,27 @@ const useStyles = makeStyles(theme => ({
     color: "#666",
     fontWeight: "bold"
   },
+  photoQuote: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "stretch",
+    minHeight: 300
+  },
+  photo: {
+    display: "flex",
+    flex: "1",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    marginRight: theme.spacing(3)
+  },
   quote: {
     ...theme.typography.body1,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
+    flex: "1",
     padding: theme.spacing(3),
-    position: "relative"
+    position: "relative",
+    display: "flex",
+    alignItems: "center"
   },
   brQuote: {
     position: "absolute",
@@ -159,7 +170,8 @@ const useStyles = makeStyles(theme => ({
 
 const Students: React.FC<{}> = () => {
   const [selected, setSelected] = useState(0);
-  const wrapperRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
+  const [scrollWidth, setScrollWidth] = useState(0);
+  const scrollerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
   );
   const classes = useStyles();
@@ -174,37 +186,81 @@ const Students: React.FC<{}> = () => {
         <span className={classes.name}>{name} </span>
         <span className={classes.program}>{program}</span>
       </div>
-      <div>
-        <img src={photo} alt={`Photo of ${name}`} />
+      <div className={classes.photoQuote}>
+        <div
+          title={`Photo of ${name}`}
+          className={classes.photo}
+          style={{ backgroundImage: `url(${photo})` }}
+        />
+        <Paper className={classes.quote} elevation={0}>
+          {quote}
+          <FormatQuoteIcon className={classes.tlQuote} />
+          <FormatQuoteIcon className={classes.brQuote} />
+        </Paper>
       </div>
-      <Paper className={classes.quote} elevation={0}>
-        {quote}
-        <FormatQuoteIcon className={classes.tlQuote} />
-        <FormatQuoteIcon className={classes.brQuote} />
-      </Paper>
     </div>
   );
 
   useEffect(() => {
-    const { current } = wrapperRef;
+    const handleResize = debounce(
+      () => {
+        const { current } = scrollerRef;
+        if (current !== null) {
+          setScrollWidth(current.scrollWidth);
+        }
+      },
+      100,
+      { isImmediate: false }
+    );
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+  useEffect(() => {
+    const { current } = scrollerRef;
     if (current !== null) {
       current.scrollTo({
         behavior: "smooth",
         left: selected * (current.scrollWidth / testimonials.length)
       });
     }
-  }, [selected, wrapperRef.current]);
+  }, [selected, scrollWidth, scrollerRef.current]);
+  const selectClosest = () => {
+    const { current } = scrollerRef;
+    if (current === null) {
+      return;
+    }
+    const children: HTMLElement[] = Array.from(current.children).filter(
+      (x): x is HTMLElement => x instanceof HTMLElement
+    );
+    for (let i = 0; i < children.length; i++) {
+      const el = children[i];
+      const { x, width } = el.getBoundingClientRect();
+      if (Math.abs(x) < 0.5 * width) {
+        console.log({ setClosest: i, selected });
+        setSelected(i);
+        break;
+      }
+    }
+  };
+  useEffect(() => {
+    const { current } = scrollerRef;
+    if (current === null) {
+      return;
+    }
+    const handleScroll = debounce(selectClosest, 100, { isImmediate: false });
+    current.addEventListener("scroll", handleScroll);
+    return () => {
+      current.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollerRef.current]);
   return (
     <section className={classes.section}>
-      <div className={classes.scroller} ref={wrapperRef}>
-        <div
-          className={classes.wrapper}
-          style={{ width: `${testimonials.length * 100}vw` }}
-        >
-          {testimonials.map((testimonial, idx) => (
-            <Testimonial key={idx} {...testimonial} />
-          ))}
-        </div>
+      <div className={classes.scroller} ref={scrollerRef}>
+        {testimonials.map((testimonial, idx) => (
+          <Testimonial key={idx} {...testimonial} />
+        ))}
       </div>
       <ul className={classes.ul}>
         {testimonials.map((_, idx) => (
@@ -219,7 +275,7 @@ const Students: React.FC<{}> = () => {
               setSelected(idx);
             }}
           >
-            *
+            ⬤
           </li>
         ))}
       </ul>
