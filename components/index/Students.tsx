@@ -97,12 +97,13 @@ const useStyles = makeStyles(theme => ({
   photoQuote: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "stretch",
+    justifyContent: "space-evenly",
     height: "100%"
   },
   photo: {
     display: "flex",
     flex: "1",
+    maxWidth: "60%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
@@ -114,7 +115,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     position: "relative",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    maxWidth: 445
   },
   brQuote: {
     position: "absolute",
