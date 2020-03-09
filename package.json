@@ -30,7 +30,7 @@
     "@material-ui/icons": "^4.9.1",
     "clsx": "^1.1.0",
     "material-ui-popup-state": "^1.5.3",
-    "next": "^9.2.2",
+    "next": "^9.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "ts-debounce": "^2.0.1"
