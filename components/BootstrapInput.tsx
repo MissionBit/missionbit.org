@@ -1,4 +1,5 @@
 // import * as React from "react";
+// TODO: https://medium.com/google-design/the-evolution-of-material-designs-text-fields-603688b3fe03
 import { withStyles, fade } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 

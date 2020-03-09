@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import BootstrapInput from "./BootstrapInput";
-import defaultTheme from "../src/theme";
 
 const useStyles = makeStyles(theme => ({
   subscribe: {
@@ -28,13 +27,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const theme = createMuiTheme(defaultTheme, {
+const themeOverrides = {
   palette: {
     primary: {
       main: "#fff"
     }
   }
-});
+};
 
 const Subscribe: React.FC<{}> = () => {
   const classes = useStyles();
@@ -45,7 +44,7 @@ const Subscribe: React.FC<{}> = () => {
         <br />
         Subscribe to our mailing list below:
       </Typography>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme => createMuiTheme(theme, themeOverrides)}>
         <form>
           <FormControl className={classes.formControl}>
             <InputLabel shrink htmlFor="subscribe-email">
