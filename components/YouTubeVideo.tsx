@@ -17,7 +17,7 @@ const useStyles = makeStyles({
       border: 0
     }
   }
-})
+});
 
 const YouTubeVideo: React.FC<{ id: string }> = ({ id }) => {
   const classes = useStyles();
