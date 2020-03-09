@@ -2,7 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   section: {
     width: "100%",
     textAlign: "center",
@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
     color: "#C21981"
   },
   color2: {
-    color: "#0058A6"
+    color: theme.palette.secondary.main
   },
   color3: {
     color: "#F67510"

@@ -1,32 +1,50 @@
 import * as React from "react";
-import styles from "./Events.module.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import YouTubeVideo from "../YouTubeVideo";
 
-const Events: React.FC<{}> = () => (
-  <section className={styles.section}>
-    <div className={styles.copy}>
-      <div className={styles.copyText}>
-        The Mission Bit Gala was a success! Thank you to everyone who
-        participated!
-        <br />
-        <br />
+const useStyles = makeStyles(theme => ({
+  copy: {
+    color: theme.palette.secondary.main,
+    textAlign: "center",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    fontSize: "32px",
+    lineHeight: "3rem"
+  },
+
+  copyText: {
+    fontWeight: "bold"
+  },
+
+  section: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    alignItems: "center",
+    justifyItems: "center",
+    margin: "1em"
+  }
+}));
+
+const Events: React.FC<{}> = () => {
+  const classes = useStyles();
+  return (
+    <section className={classes.section}>
+      <div className={classes.copy}>
+        <div className={classes.copyText}>
+          The Mission Bit Gala was a success! Thank you to everyone who
+          participated!
+          <br />
+          <br />
+        </div>
+        <div>
+          <Button size="medium" variant="contained" color="secondary" href="#">
+            See More
+          </Button>
+        </div>
       </div>
-      <div>
-        <a className={styles.button} href="#">
-          See More
-        </a>
-      </div>
-    </div>
-    <div>
-      <iframe
-        width="1120"
-        height="630"
-        src="https://www.youtube-nocookie.com/embed/oTSNS227No4?rel=0&modestbranding=1"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-      />
-    </div>
-  </section>
-);
+      <YouTubeVideo id="oTSNS227No4" />
+    </section>
+  );
+};
 
 export default Events;
