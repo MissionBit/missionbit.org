@@ -8,6 +8,7 @@ type TeamTitle =
   | "Chief Executive Officer"
   | "Director of Curriculum"
   | "Program Manager"
+  | "Program Coordinator"
   | "Videographer";
 
 type BoardTitle = string;
@@ -29,6 +30,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     name: "Cynthia Chin",
     title: "Program Manager",
     image: "core/cynthia_chin.jpg"
+  },
+  {
+    name: "Genevieve Mossey",
+    title: "Program Coordinator",
+    image: "core/genevieve_mossey.jpg"
   },
   {
     name: "David Topete",
