@@ -70,14 +70,15 @@ const testimonials: readonly StudentTestimonial[] = [
 ];
 
 const useStyles = makeStyles(theme => ({
+  section: {
+    minHeight: "80vh"
+  },
   testimonial: {
     width: "100%",
     display: "flex",
     flex: "1 0 100%",
     flexDirection: "column",
     padding: theme.spacing(3),
-    alignItems: "center",
-    justifyItems: "center",
     scrollSnapAlign: "center"
   },
   title: {
@@ -97,7 +98,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "row",
     alignItems: "stretch",
-    minHeight: 300
+    height: "100%"
   },
   photo: {
     display: "flex",
@@ -160,7 +161,7 @@ const Students: React.FC<{}> = () => {
   );
 
   return (
-    <Carousel>
+    <Carousel classes={{ section: classes.section }}>
       {testimonials.map((testimonial, idx) => (
         <Testimonial key={idx} {...testimonial} />
       ))}

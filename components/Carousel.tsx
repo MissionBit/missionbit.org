@@ -8,6 +8,7 @@ const useStyles = makeStyles(theme => ({
   scroller: {
     display: "flex",
     overflowX: "scroll",
+    flex: "1 1 auto",
     scrollSnapType: "x mandatory",
     "&::-webkit-scrollbar": {
       display: "none"
@@ -21,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     color: "#333",
     padding: "1rem",
-    flex: "1",
     userSelect: "none"
   },
   li: {
@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
   section: {
     backgroundColor: "#F5A362",
-    overflowX: "hidden",
+    display: "flex",
+    flexDirection: "column",
     position: "relative",
     minWidth: "100%"
   }
