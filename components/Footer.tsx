@@ -1,26 +1,42 @@
 import * as React from "react";
 import clsx from "clsx";
 import Subscribe from "./Subscribe";
-import styles from "./Footer.module.css";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    display: "grid",
+    gridGap: "10px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
+    listStyleType: "none",
+    justifyItems: "center",
+    alignItems: "center",
+    fontFamily: "Arial, Helvetica, sans-serif",
+    color: "#333",
+    padding: "1rem",
     "& > li > *": {
       margin: theme.spacing(1),
       fontWeight: "inherit"
     }
+  },
+  footer: {
+    width: "100%",
+    textAlign: "center",
+    fontFamily: "Arial, Helvetica, sans-serif"
+  },
+  address: {
+    fontStyle: "normal"
   }
 }));
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
   return (
-    <footer className={clsx(styles.footer, className)}>
+    <footer className={clsx(classes.footer, className)}>
       <Subscribe />
       <nav>
-        <ul className={clsx(styles.ul, classes.root)}>
+        <ul className={classes.root}>
           <li>
             <Button href="/about">about</Button>
           </li>
@@ -49,7 +65,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           2020 © Mission Bit. A 501(c)3 Non-Profit. ALL Rights Reserved.
           <br />
         </span>
-        <address className={styles.address}>
+        <address className={classes.address}>
           Mission Bit, 101 A Clay St #121, San Francisco, CA 94111
           <br />
           EIN: 46-0945785, Phone: <a href="tel:+14158795380">(415) 879-5380</a>

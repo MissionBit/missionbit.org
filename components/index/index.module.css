@@ -1,8 +1,0 @@
-.main {
-  /*
-    This prevents margin collapse, ensuring the #main scroll position
-    is at the very top of the stats section
-  */
-  display: flex;
-  flex-direction: column;
-}
