@@ -16,7 +16,10 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center"
   },
   icons: {
-    margin: `${theme.spacing(2)}px`
+    margin: `${theme.spacing(2)}px`,
+    "& > a > span > svg": {
+      fontSize: "2rem"
+    }
   }
 }));
 
