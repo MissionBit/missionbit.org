@@ -45,15 +45,36 @@ const Subscribe: React.FC<{}> = () => {
         Subscribe to our mailing list below:
       </Typography>
       <ThemeProvider theme={theme => createMuiTheme(theme, themeOverrides)}>
-        <form>
+        <form
+          action="https://missionbit.us3.list-manage.com/subscribe/post?u=dca59ff0c46a6c1be0d20cf89&amp;id=ec36efa7f3"
+          method="post"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          noValidate
+        >
           <FormControl className={classes.formControl}>
             <InputLabel shrink htmlFor="subscribe-email">
               Email
             </InputLabel>
-            <BootstrapInput id="subscribe-email" name="email" type="email" />
+            <BootstrapInput
+              id="subscribe-email"
+              name="EMAIL"
+              type="email"
+              required
+            />
           </FormControl>
+          {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+          <div style={{ position: "absolute", left: -5000 }} aria-hidden="true">
+            <input
+              type="text"
+              name="b_dca59ff0c46a6c1be0d20cf89_ec36efa7f3"
+              tabIndex={-1}
+              defaultValue=""
+            />
+          </div>
           <br />
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" type="submit">
             Subscribe
           </Button>
         </form>
