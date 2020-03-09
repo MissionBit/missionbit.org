@@ -7,10 +7,11 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "grid",
-    width: "100%",
     gridGap: theme.spacing(2),
     gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
-    padding: theme.spacing(3)
+    width: "100%",
+    padding: theme.spacing(3),
+    textAlign: "center"
   }
 }));
 

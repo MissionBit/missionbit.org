@@ -16,6 +16,11 @@ const theme = createMuiTheme({
     background: {
       default: "#fff"
     }
+  },
+  typography: {
+    button: {
+      textTransform: "inherit"
+    }
   }
 });
 

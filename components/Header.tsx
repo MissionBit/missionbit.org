@@ -9,8 +9,7 @@ import clsx from "clsx";
 const useStyles = makeStyles(theme => ({
   root: {
     "& > li > *": {
-      margin: theme.spacing(1),
-      textTransform: "inherit"
+      margin: theme.spacing(1)
     }
   }
 }));

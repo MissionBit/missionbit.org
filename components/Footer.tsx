@@ -9,7 +9,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     "& > li > *": {
       margin: theme.spacing(1),
-      textTransform: "inherit",
       fontWeight: "inherit"
     }
   }
