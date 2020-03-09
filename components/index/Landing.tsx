@@ -59,12 +59,6 @@ const useStyles = makeStyles(theme => ({
   },
 
   "@keyframes verticalBounce": {
-    "0%": {
-      transform: "translateY(0)"
-    },
-    "5.55556%": {
-      transform: "translateY(0)"
-    },
     "11.11111%": {
       transform: "translateY(0)"
     },
@@ -78,9 +72,6 @@ const useStyles = makeStyles(theme => ({
       transform: "translateY(-15px)"
     },
     "44.44444%": {
-      transform: "translateY(0)"
-    },
-    "100%": {
       transform: "translateY(0)"
     }
   }
