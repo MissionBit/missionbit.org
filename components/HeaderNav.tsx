@@ -9,7 +9,6 @@ import {
   bindTrigger,
   bindMenu
 } from "material-ui-popup-state/hooks";
-import Hidden from "@material-ui/core/Hidden";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -71,6 +70,19 @@ const commonNav: NavMenuChoice[] = [
   }
 ];
 
+const useStyles = makeStyles(theme => ({
+  desktop: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  },
+  mobile: {
+    [theme.breakpoints.up("md")]: {
+      display: "none"
+    }
+  }
+}));
+
 const useStylesMobile = makeStyles(() => ({
   logo: {
     position: "relative",
@@ -79,8 +91,8 @@ const useStylesMobile = makeStyles(() => ({
   }
 }));
 
-const useStyles = makeStyles(() => ({
-  root: {
+const useStylesDesktop = makeStyles(() => ({
+  ul: {
     display: "flex",
     listStyleType: "none",
     alignItems: "center",
@@ -123,11 +135,11 @@ const menuItems = (
   ));
 };
 
-const DesktopHeaderNav: React.FC<{}> = () => {
-  const classes = useStyles();
+const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
+  const classes = useStylesDesktop();
   return (
-    <nav>
-      <ul className={classes.root}>
+    <nav className={className}>
+      <ul className={classes.ul}>
         <li>
           <LogoHome className={classes.logo} />
         </li>
@@ -159,14 +171,19 @@ const LogoHome: React.FC<{ className: string }> = ({ className }) => (
   </a>
 );
 
-const MobileHeaderNav: React.FC<{}> = () => {
+const MobileHeaderNav: React.FC<{ className: string }> = ({ className }) => {
   const classes = useStylesMobile();
   const popupState = usePopupState({
     variant: "popover",
     popupId: "mobile-menu"
   });
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar
+      position="static"
+      color="transparent"
+      component="nav"
+      className={className}
+    >
       <Toolbar>
         <IconButton
           edge="start"
@@ -191,15 +208,14 @@ const MobileHeaderNav: React.FC<{}> = () => {
   );
 };
 
-const HeaderNav: React.FC<{}> = () => (
-  <React.Fragment>
-    <Hidden smDown>
-      <DesktopHeaderNav />
-    </Hidden>
-    <Hidden mdUp>
-      <MobileHeaderNav />
-    </Hidden>
-  </React.Fragment>
-);
+const HeaderNav: React.FC<{}> = () => {
+  const classes = useStyles();
+  return (
+    <React.Fragment>
+      <DesktopHeaderNav className={classes.desktop} />
+      <MobileHeaderNav className={classes.mobile} />
+    </React.Fragment>
+  );
+};
 
 export default HeaderNav;
