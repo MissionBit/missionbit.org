@@ -107,13 +107,15 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
 ];
 
 const STUDENT_ADVISORY_BOARD: TeamMemberProps<never>[] = [
-  { name: "Alexander Peng", image: "2019-sab/alexander_peng.jpg" },
-  { name: "Bryan De Leon", image: "2019-sab/bryan_de_leon.jpg" },
-  { name: "Derick Du", image: "2019-sab/derick_du.jpg" },
-  { name: "Ernest Sarajyan", image: "2019-sab/ernest_sarajyan.jpg" },
-  { name: "Oscar Tiong", image: "2019-sab/oscar_tiong.jpg" },
-  { name: "Tara Tiong", image: "2019-sab/tara_tiong.jpg" },
-  { name: "Trent Taylor III", image: "2019-sab/trent_taylor_iii.jpg" }
+  { name: "Alexander Peng", image: "2020-spring-sab/alexander_peng.jpg" },
+  { name: "Alyssa Wu", image: "2020-spring-sab/alyssa_wu.jpg" },
+  { name: "Bryan De Leon", image: "2020-spring-sab/bryan_de_leon.jpg" },
+  { name: "Derick Du", image: "2020-spring-sab/derick_du.jpg" },
+  { name: "Ernest Sarajyan", image: "2020-spring-sab/ernest_sarajyan.jpg" },
+  { name: "Johnny Lin", image: "2020-spring-sab/johnny_lin.jpg" },
+  { name: "Joshua Pan", image: "2020-spring-sab/joshua_pan.jpg" },
+  { name: "Oscar Tiong", image: "2020-spring-sab/oscar_tiong.jpg" },
+  { name: "Tara Tiong", image: "2020-spring-sab/tara_tiong.jpg" }
 ];
 
 const BOARD: TeamMemberProps<BoardTitle>[] = [
