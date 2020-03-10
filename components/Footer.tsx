@@ -3,6 +3,8 @@ import clsx from "clsx";
 import Subscribe from "./Subscribe";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     listStyleType: "none",
     justifyItems: "center",
     alignItems: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
     color: "#333",
     padding: theme.spacing(1),
     "& > li > *": {
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   footer: {
     width: "100%",
     textAlign: "center",
-    fontFamily: "Arial, Helvetica, sans-serif"
+    paddingBottom: theme.spacing(3)
   },
   address: {
     fontStyle: "normal"
@@ -60,15 +61,21 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
         </ul>
       </nav>
       <section>
-        <span>
+        <Typography variant="body2">
           2020 © Mission Bit. A 501(c)3 Non-Profit. ALL Rights Reserved.
-          <br />
-        </span>
-        <address className={classes.address}>
+        </Typography>
+        <Typography
+          variant="body2"
+          component="address"
+          className={classes.address}
+        >
           Mission Bit, 101 A Clay St #121, San Francisco, CA 94111
           <br />
-          EIN: 46-0945785, Phone: <a href="tel:+14158795380">(415) 879-5380</a>
-        </address>
+          EIN: 46-0945785, Phone:{" "}
+          <Link color="secondary" href="tel:+14158795380">
+            (415) 879-5380
+          </Link>
+        </Typography>
       </section>
     </footer>
   );
