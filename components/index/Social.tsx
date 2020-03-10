@@ -38,6 +38,7 @@ const Social: React.FC<{}> = () => {
           href="https://twitter.com/missionbit"
           title="Twitter"
           target="_blank"
+          rel="noopener"
         >
           <TwitterIcon />
         </Button>
@@ -45,6 +46,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.instagram.com/missionbit/"
           title="Instagram"
           target="_blank"
+          rel="noopener"
         >
           <InstagramIcon />
         </Button>
@@ -52,6 +54,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.facebook.com/MissionBit/"
           title="Facebook"
           target="_blank"
+          rel="noopener"
         >
           <FacebookIcon />
         </Button>
@@ -59,6 +62,7 @@ const Social: React.FC<{}> = () => {
           href="https://github.com/missionbit"
           title="GitHub"
           target="_blank"
+          rel="noopener"
         >
           <GitHubIcon />
         </Button>
@@ -66,6 +70,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.youtube.com/channel/UCN07uXlUaHsvCYwXhHa2NPw"
           title="YouTube"
           target="_blank"
+          rel="noopener"
         >
           <YouTubeIcon />
         </Button>
@@ -73,6 +78,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.linkedin.com/company/mission-bit"
           title="LinkedIn"
           target="_blank"
+          rel="noopener"
         >
           <LinkedInIcon />
         </Button>

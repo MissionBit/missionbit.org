@@ -2,23 +2,28 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import SupporterData, { SupporterDataProps } from "./SupporterData";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "grid",
     gridGap: theme.spacing(2),
-    gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+    alignItems: "center",
     width: "100%",
     padding: theme.spacing(3),
-    textAlign: "center"
+    textAlign: "center",
+    "& img": {
+      maxWidth: 150,
+      maxHeight: 150,
+      objectFit: "contain"
+    }
   }
 }));
 
-const Supporter: React.FC<SupporterDataProps> = ({ name, title, href }) => (
-  <Button href={href} target="_blank" title={title} data-name={name}>
-    {title}
-  </Button>
+const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
+    <img src={`/images/supporters/${logo}`} alt={title} />
+  </a>
 );
 
 const Supporters: React.FC<{}> = () => {
@@ -29,8 +34,8 @@ const Supporters: React.FC<{}> = () => {
         Our supporters
       </Typography>
       <div className={classes.root}>
-        {SupporterData.map(({ name, title, href }) => (
-          <Supporter name={name} title={title} href={href} key={name} />
+        {SupporterData.map(props => (
+          <Supporter key={props.logo} {...props} />
         ))}
       </div>
     </section>

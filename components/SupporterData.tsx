@@ -1,64 +1,96 @@
 export interface SupporterDataProps {
-  name: string;
+  logo: string;
   href: string;
   title: string;
 }
 
 const SupporterData: SupporterDataProps[] = [
-  { name: "anthem", title: "Anthem", href: "https://www.antheminc.com/" },
+  { logo: "anthem.png", title: "Anthem", href: "https://www.antheminc.com/" },
   {
-    name: "sfbfa",
-    title: "SF Black Firefighters Association",
+    logo: "sfbfa.png",
+    title: "San Francisco Black Firefighters Association",
     href: "https://www.sfbfa.org/"
   },
-  { name: "ccpa", title: "CCPA", href: "https://www.ousd.org/ccpa" },
-  { name: "ccsf", title: "CCSF", href: "https://www.ccsf.edu/" },
-  { name: "clearbit", title: "Clearbit", href: "https://clearbit.com/" },
-  { name: "facebook", title: "Facebook", href: "https://www.facebook.com/" },
   {
-    name: "ghs",
-    title: "Gateway",
+    logo: "ccpa.png",
+    title: "Coliseum College Prep Academy",
+    href: "https://www.ousd.org/ccpa"
+  },
+  {
+    logo: "ccsf.png",
+    title: "City College of San Francisco",
+    href: "https://www.ccsf.edu/"
+  },
+  { logo: "clearbit.png", title: "Clearbit", href: "https://clearbit.com/" },
+  {
+    logo: "facebook.svg",
+    title: "Facebook",
+    href: "https://www.facebook.com/"
+  },
+  {
+    logo: "gateway.png",
+    title: "Gateway High School",
     href: "https://www.gatewaypublicschools.org/ghs"
   },
-  { name: "giants", title: "Giants", href: "https://www.mlb.com/giants" },
   {
-    name: "warriors",
-    title: "Warriors",
+    logo: "giants.png",
+    title: "San Francisco Giants",
+    href: "https://www.mlb.com/giants"
+  },
+  {
+    logo: "gsw.png",
+    title: "Golden State Warriors",
     href: "https://www.nba.com/warriors/"
   },
   {
-    name: "hackreactor",
+    logo: "hackreactor.png",
     title: "Hack Reactor",
     href: "https://www.hackreactor.com/"
   },
-  { name: "jyve", title: "Jyve", href: "https://jyve.com/" },
+  { logo: "jyve.svg", title: "Jyve", href: "https://jyve.com/" },
   {
-    name: "kapor",
+    logo: "kapor-center.svg",
     title: "Kapor Center",
     href: "https://www.kaporcenter.org/"
   },
   {
-    name: "leadership",
-    title: "Leadership High",
+    logo: "leadership.png",
+    title: "Leadership High School",
     href: "https://www.leadershiphigh.org/"
   },
   {
-    name: "ousd",
+    logo: "ousd.png",
     title: "Oakland Unified School District",
     href: "https://www.ousd.org/"
   },
   {
-    name: "shorenstein",
-    title: "Shorenstein",
+    logo: "shorenstein.png",
+    title: "Shorenstein Realty Services",
     href: "https://shorenstein.com/"
   },
-  { name: "svb", title: "Silicon Valley Bank", href: "https://www.svb.com/" },
-  { name: "oewd", title: "OEWD", href: "https://oewd.org/" },
-  { name: "sfusd", title: "SFUSD", href: "https://www.sfusd.edu/" },
-  { name: "tng", title: "TNG", href: "https://www.tng.com/" },
-  { name: "uber", title: "Uber", href: "https://www.uber.com/" },
-  { name: "unity", title: "Unity", href: "https://unity3d.com/" },
-  { name: "eastwood", title: "Eastwood", href: "https://eastwoodsf.com/" }
+  {
+    logo: "svb.svg",
+    title: "Silicon Valley Bank",
+    href: "https://www.svb.com/"
+  },
+  {
+    logo: "sfoewd.png",
+    title: "San Francisco Office of Economic and Workforce Development",
+    href: "https://oewd.org/"
+  },
+  {
+    logo: "sfusd.png",
+    title: "San Francisco Unified School District",
+    href: "https://www.sfusd.edu/"
+  },
+  { logo: "tng.png", title: "TNG", href: "http://www.tng.com/" },
+  { logo: "uber.png", title: "Uber", href: "https://www.uber.com/" },
+  { logo: "unity.svg", title: "Unity", href: "https://unity3d.com/" },
+  {
+    logo: "eastwood.png",
+    title: "Eastwood Development",
+    href: "https://eastwoodsf.com/"
+  }
 ];
 
 export default SupporterData;
