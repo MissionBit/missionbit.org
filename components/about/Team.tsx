@@ -17,6 +17,11 @@ const useStyles = makeStyles(theme => ({
       minWidth: "100px",
       maxWidth: "150px",
       borderRadius: "50%"
+    },
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "space-around",
+      padding: 0,
+      gridTemplateColumns: "repeat(auto-fit, 160px)"
     }
   }
 }));

@@ -26,6 +26,8 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
+    margin: "0 auto",
+    maxWidth: 180,
     height: 140
   }
 }));

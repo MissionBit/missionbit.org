@@ -5,7 +5,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "20px"
+    padding: "20px",
+    [theme.breakpoints.down("sm")]: {
+      padding: "20px 0"
+    }
   },
   team: {
     "& > img": {
@@ -20,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 0,
     "& > li": {
       margin: "1em",
+      [theme.breakpoints.down("sm")]: {
+        margin: "1em 0.5em"
+      },
       paddingLeft: "2.5em",
       background: 'url("/images/missionbit-bw-bullet.svg") no-repeat left top'
     }
