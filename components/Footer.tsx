@@ -7,16 +7,15 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "grid",
-    gridGap: "10px",
+    gridGap: theme.spacing(1),
     gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
     listStyleType: "none",
     justifyItems: "center",
     alignItems: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     color: "#333",
-    padding: "1rem",
+    padding: theme.spacing(1),
     "& > li > *": {
-      margin: theme.spacing(1),
       fontWeight: "inherit"
     }
   },

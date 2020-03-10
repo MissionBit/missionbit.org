@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import {
   usePopupState,
-  bindHover,
+  bindTrigger,
   bindMenu,
   PopupState
 } from "material-ui-popup-state/hooks";
@@ -19,13 +19,12 @@ export interface HeaderMenuOptionProps {
 const HeaderMenuOption: React.FC<HeaderMenuOptionProps> = ({
   title,
   popupId,
-  children,
-  href
+  children
 }) => {
   const popupState = usePopupState({ variant: "popover", popupId });
   return (
     <>
-      <Button href={href} {...bindHover(popupState)}>
+      <Button {...bindTrigger(popupState)}>
         {title} <ArrowDropDownIcon />
       </Button>
       <Menu
