@@ -24,12 +24,16 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     fontSize: "32px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "24px",
+      lineHeight: "2.5rem"
+    },
     lineHeight: "3rem"
   },
 
   bridgeLine: {
     display: "inline-block",
-    margin: "0 0.29rem"
+    margin: "0 0.29rem",
   },
 
   content: {
@@ -37,13 +41,32 @@ const useStyles = makeStyles(theme => ({
     display: "grid",
     height: "100%",
     gridTemplateColumns: "1fr 1fr",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+      padding: `${theme.spacing(3)}px 0`
+    },
     alignItems: "center",
     justifyItems: "center"
   },
 
   photoWrapper: {
     padding: "77px 57px",
-    background: 'space url("/images/landing/circle.svg")'
+    background: 'space url("/images/landing/circle.svg")',
+    [theme.breakpoints.down("sm")]: {
+      padding: `${theme.spacing(3)}px ${theme.spacing(5)}px`,
+      "& > img": {
+        maxWidth: "50vw",
+        height: "auto",
+        objectFit: "contain"
+      }
+    }
+  },
+
+  arrowContainer: {
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1rem"
+    }
   },
 
   arrowWrapper: {
@@ -107,7 +130,7 @@ const Landing: React.FC<{}> = () => {
             Empowering a New Generation of
           </span>
           <span className={classes.bridgeLine}>Innovators.</span>
-          <div>
+          <div className={classes.arrowContainer}>
             <a
               href="#main"
               className={classes.arrowWrapper}

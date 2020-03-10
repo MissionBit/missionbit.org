@@ -11,7 +11,11 @@ const useStyles = makeStyles(theme => ({
   line: {
     fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: "32px",
-    margin: "3em"
+    margin: "3em",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "24px",
+      margin: `${theme.spacing(4)}px ${theme.spacing(2)}px`
+    }
   },
   value: {
     fontSize: "120%",
