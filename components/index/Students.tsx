@@ -71,7 +71,10 @@ const testimonials: readonly StudentTestimonial[] = [
 
 const useStyles = makeStyles(theme => ({
   section: {
-    minHeight: "80vh"
+    minHeight: "80vh",
+    [theme.breakpoints.down("sm")]: {
+      minHeight: "100vh"
+    }
   },
   testimonial: {
     width: "100%",
@@ -79,26 +82,43 @@ const useStyles = makeStyles(theme => ({
     flex: "1 0 100%",
     flexDirection: "column",
     padding: theme.spacing(3),
-    scrollSnapAlign: "center"
+    scrollSnapAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      padding: `${theme.spacing(3)}px 0 0 0`
+    }
   },
   title: {
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(2),
+      padding: `0 ${theme.spacing(2)}px`
+    }
   },
   name: {
     ...theme.typography.h3,
     color: "#333",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    [theme.breakpoints.down("sm")]: {
+      display: "block"
+    }
   },
   program: {
     ...theme.typography.h4,
     color: "#666",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h5.fontSize
+    }
   },
   photoQuote: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    height: "100%"
+    height: "100%",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      justifyContent: "center"
+    }
   },
   photo: {
     display: "flex",
@@ -107,12 +127,20 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    marginRight: theme.spacing(3)
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "100%",
+      width: "100%",
+      height: "50vh"
+    }
   },
   quote: {
     ...theme.typography.body1,
     flex: "1",
     padding: theme.spacing(3),
+    [theme.breakpoints.down("sm")]: {
+      margin: `${theme.spacing(3)}px ${theme.spacing(3)}px`
+    },
     position: "relative",
     display: "flex",
     alignItems: "center",

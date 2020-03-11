@@ -64,9 +64,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   arrowContainer: {
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "1rem"
-    }
+    marginTop: "1rem"
   },
 
   arrowWrapper: {

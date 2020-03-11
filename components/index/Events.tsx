@@ -9,7 +9,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: "32px",
-    lineHeight: "3rem"
+    lineHeight: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "24px",
+      marginBottom: "1em",
+      padding: "0 1em"
+    }
   },
 
   copyText: {
@@ -21,7 +26,12 @@ const useStyles = makeStyles(theme => ({
     gridTemplateColumns: "1fr 1fr",
     alignItems: "center",
     justifyItems: "center",
-    margin: "1em"
+    margin: "1em",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+      margin: "1em 0"
+    }
   }
 }));
 
@@ -33,8 +43,6 @@ const Events: React.FC<{}> = () => {
         <div className={classes.copyText}>
           The Mission Bit Gala was a success! Thank you to everyone who
           participated!
-          <br />
-          <br />
         </div>
         <div>
           <Button size="medium" variant="contained" color="secondary" href="#">
