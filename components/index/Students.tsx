@@ -73,7 +73,8 @@ const useStyles = makeStyles(theme => ({
   section: {
     minHeight: "80vh",
     [theme.breakpoints.down("sm")]: {
-      minHeight: "100vh"
+      minHeight: "100vh",
+      maxHeight: "100vh"
     }
   },
   testimonial: {
@@ -84,14 +85,14 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     scrollSnapAlign: "center",
     [theme.breakpoints.down("sm")]: {
-      padding: `${theme.spacing(3)}px 0 0 0`
+      padding: `${theme.spacing(1)}px 0 0 0`
     }
   },
   title: {
     alignSelf: "flex-start",
     [theme.breakpoints.down("sm")]: {
       marginBottom: theme.spacing(2),
-      padding: `0 ${theme.spacing(2)}px`
+      padding: `0 ${theme.spacing(1)}px`
     }
   },
   name: {
@@ -99,6 +100,7 @@ const useStyles = makeStyles(theme => ({
     color: "#333",
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize,
       display: "block"
     }
   },
@@ -129,9 +131,11 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "contain",
     marginRight: theme.spacing(3),
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "100%",
-      width: "100%",
-      height: "50vh"
+      marginRight: 0,
+      maxWidth: "initial",
+      maxHeight: "calc(100vw * 0.667)",
+      height: "calc(100vw * 0.667)",
+      width: "100%"
     }
   },
   quote: {
@@ -139,7 +143,12 @@ const useStyles = makeStyles(theme => ({
     flex: "1",
     padding: theme.spacing(3),
     [theme.breakpoints.down("sm")]: {
-      margin: `${theme.spacing(3)}px ${theme.spacing(3)}px`
+      flex: "1 0",
+      fontSize: theme.typography.body2.fontSize,
+      borderRadius: 0,
+      margin: `${theme.spacing(3)}px 0 0 0`,
+      padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+      maxWidth: "initial"
     },
     position: "relative",
     display: "flex",
@@ -151,13 +160,19 @@ const useStyles = makeStyles(theme => ({
     right: "0",
     bottom: "0",
     transform: "translate(40%, 40%) scale(2)",
-    color: "rgba(51,51,51,0.56)"
+    color: "rgba(51,51,51,0.56)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "translate(-20%, -10%) scale(1)"
+    }
   },
   tlQuote: {
     position: "absolute",
     left: "0",
     top: "0",
     transform: "translate(-40%, -40%) scale(-2)",
+    [theme.breakpoints.down("sm")]: {
+      transform: "scale(-1)"
+    },
     color: "rgba(51,51,51,0.56)"
   }
 }));
@@ -179,7 +194,9 @@ const Students: React.FC<{}> = () => {
         <div
           title={`Photo of ${name}`}
           className={classes.photo}
-          style={{ backgroundImage: `url(${photo})` }}
+          style={{
+            backgroundImage: `url(${photo})`
+          }}
         />
         <Paper className={classes.quote} elevation={0}>
           {quote}

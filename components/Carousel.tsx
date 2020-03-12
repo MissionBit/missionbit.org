@@ -7,6 +7,7 @@ import { debounce } from "ts-debounce";
 const useStyles = makeStyles(theme => ({
   scroller: {
     display: "flex",
+    overflowY: "hidden",
     overflowX: "scroll",
     flex: "1 1 auto",
     scrollSnapType: "x mandatory",
@@ -22,17 +23,24 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     color: "#333",
     padding: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: 0,
+      padding: `${theme.spacing(2)}px 0`
+    },
     userSelect: "none"
   },
   li: {
     cursor: "pointer",
-    color: theme.palette.common.white,
-    margin: `0 ${theme.spacing(1)}px`
+    margin: `0 ${theme.spacing(1)}px`,
+    width: 12,
+    height: 12,
+    borderRadius: "50%",
+    backgroundColor: theme.palette.action.disabled
   },
   liSelected: {
     cursor: "initial",
     pointerEvents: "none",
-    color: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main
   },
   section: {
     backgroundColor: "#F5A362",
@@ -145,9 +153,7 @@ const Carousel: React.FC<CarouselProps> = ({
               event.preventDefault();
               setSelected(idx);
             }}
-          >
-            ⬤
-          </li>
+          />
         ))}
       </ul>
     </section>
