@@ -39,20 +39,20 @@ function focusGetUpdates(event: React.MouseEvent<HTMLElement>): void {
 
 const commonNav: NavMenuChoice[] = [
   {
-    text: "about",
+    text: "About",
     href: "/about",
     subMenu: [
-      { text: "what we do", anchor: "" },
-      { text: "our values", anchor: "#values" },
-      { text: "our team", anchor: "#team" },
-      { text: "our supporters", anchor: "#supporters" }
+      { text: "What we do", anchor: "" },
+      { text: "Our values", anchor: "#values" },
+      { text: "Our team", anchor: "#team" },
+      { text: "Our supporters", anchor: "#supporters" }
     ]
   },
-  { text: "programs", href: "/programs" },
-  { text: "events", href: "/events" },
-  { text: "get involved", href: "/get-involved" },
+  { text: "Programs", href: "/programs" },
+  { text: "Events", href: "/events" },
+  { text: "Get involved", href: "/get-involved" },
   {
-    text: "donate",
+    text: "Donate",
     href: "https://donate.missionbit.org/",
     buttonProps: {
       variant: "outlined",
@@ -60,7 +60,7 @@ const commonNav: NavMenuChoice[] = [
     }
   },
   {
-    text: "get updates",
+    text: "Get updates",
     href: "#get-updates",
     buttonProps: {
       variant: "outlined",

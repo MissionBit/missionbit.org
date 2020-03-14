@@ -4,7 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   section: {
     position: "relative",
-    background: "linear-gradient(0deg, #2881D0, #1B98A2, #FFFFFF)",
+    background:
+      "linear-gradient(0deg, #0058A6 0%, #5869C9 48%, #A4AEE2 72%, #FFFFFF 100%)",
     height: "100%"
   },
 
@@ -33,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 
   bridgeLine: {
     display: "inline-block",
-    margin: "0 0.29rem",
+    margin: "0 0.29rem"
   },
 
   content: {
@@ -64,13 +65,19 @@ const useStyles = makeStyles(theme => ({
   },
 
   arrowContainer: {
-    marginTop: "1rem"
+    gridColumn: "1 / -1",
+    gridRow: 2,
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flex: 1,
+      flexDirection: "column",
+      justifyContent: "flex-end"
+    }
   },
 
   arrowWrapper: {
     padding: "10px 40px",
-    backgroundColor: theme.palette.common.white,
-    borderRadius: "10%"
+    color: "white"
   },
 
   verticalBounce: {
@@ -128,18 +135,18 @@ const Landing: React.FC<{}> = () => {
             Empowering a New Generation of
           </span>
           <span className={classes.bridgeLine}>Innovators.</span>
-          <div className={classes.arrowContainer}>
-            <a
-              href="#main"
-              className={classes.arrowWrapper}
-              onClick={smoothScroll}
-            >
-              <img
-                src="/images/landing/down-arrow.svg"
-                className={classes.verticalBounce}
-              />
-            </a>
-          </div>
+        </div>
+        <div className={classes.arrowContainer}>
+          <a
+            href="#main"
+            className={classes.arrowWrapper}
+            onClick={smoothScroll}
+          >
+            <img
+              src="/images/landing/down-arrow.svg"
+              className={classes.verticalBounce}
+            />
+          </a>
         </div>
       </div>
     </section>
