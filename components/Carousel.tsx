@@ -3,8 +3,15 @@ import { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { debounce } from "ts-debounce";
+import Paper, { PaperProps } from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    minWidth: "100%"
+  },
   scroller: {
     display: "flex",
     overflowY: "hidden",
@@ -35,54 +42,29 @@ const useStyles = makeStyles(theme => ({
     width: 12,
     height: 12,
     borderRadius: "50%",
-    backgroundColor: theme.palette.action.disabled
+    backgroundColor: theme.palette.action.disabled,
+    "&$selected": {
+      cursor: "initial",
+      pointerEvents: "none",
+      backgroundColor: theme.palette.primary.main
+    }
   },
-  liSelected: {
-    cursor: "initial",
-    pointerEvents: "none",
-    backgroundColor: theme.palette.secondary.main
-  },
-  section: {
-    backgroundColor: theme.palette.primary.main,
-    display: "flex",
-    flexDirection: "column",
-    position: "relative",
-    minWidth: "100%"
-  }
+  selected: {}
 }));
 
-export interface CarouselProps {
+export interface CarouselProps extends PaperProps {
   children: React.ReactNodeArray;
-  classes?: Partial<ReturnType<typeof useStyles>>;
+  classes?: Partial<ReturnType<typeof useStyles> & PaperProps["classes"]>;
 }
 
-function mergeClasses<T extends Record<string, string>>(
-  defaults: T,
-  overrides?: Partial<T>
-) {
-  if (overrides === undefined) {
-    return defaults;
-  }
-  const classes = { ...defaults };
-  for (const k in defaults) {
-    const v = overrides[k];
-    if (typeof v === "string") {
-      classes[k as keyof T] = clsx(classes[k], v) as any;
-    }
-  }
-  return classes;
-}
-
-const Carousel: React.FC<CarouselProps> = ({
-  children,
-  classes: overrideClasses
-}) => {
+const Carousel: React.FC<CarouselProps> = props => {
+  const { children } = props;
   const [selected, setSelected] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
   const scrollerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
   );
-  const classes = mergeClasses(useStyles(), overrideClasses);
+  const classes = useStyles(props);
   useEffect(() => {
     const handleResize = debounce(
       () => {
@@ -136,8 +118,17 @@ const Carousel: React.FC<CarouselProps> = ({
       current.removeEventListener("scroll", handleScroll);
     };
   }, [scrollerRef.current]);
+  const defaults = {
+    elevation: 0,
+    square: true
+  };
   return (
-    <section className={classes.section}>
+    <Paper
+      component="section"
+      className={classes.root}
+      {...defaults}
+      {...props}
+    >
       <div className={classes.scroller} ref={scrollerRef}>
         {children}
       </div>
@@ -147,7 +138,7 @@ const Carousel: React.FC<CarouselProps> = ({
             key={idx}
             data-key={idx}
             className={clsx(classes.li, {
-              [classes.liSelected]: idx === selected
+              [classes.selected]: idx === selected
             })}
             onClick={event => {
               event.preventDefault();
@@ -156,7 +147,7 @@ const Carousel: React.FC<CarouselProps> = ({
           />
         ))}
       </ul>
-    </section>
+    </Paper>
   );
 };
 

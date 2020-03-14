@@ -1,8 +1,16 @@
 import * as React from "react";
 import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
 import Carousel from "../Carousel";
+import { useMemo } from "react";
+import {
+  ThemeOptions,
+  makeStyles,
+  ThemeProvider,
+  createMuiTheme,
+  useTheme,
+  Theme
+} from "@material-ui/core/styles";
+import { brand } from "../../src/colors";
 
 interface StudentTestimonial {
   name: React.ReactNode;
@@ -73,7 +81,7 @@ const useStyles = makeStyles(theme => ({
   section: {
     minHeight: "80vh",
     [theme.breakpoints.down("sm")]: {
-      minHeight: "100vh",
+      minHeight: "calc(min(100vh, 700px))",
       maxHeight: "100vh"
     }
   },
@@ -86,6 +94,10 @@ const useStyles = makeStyles(theme => ({
     scrollSnapAlign: "center",
     [theme.breakpoints.down("sm")]: {
       padding: `${theme.spacing(1)}px 0 0 0`
+    },
+    "--accent-color": brand.orange,
+    "&:nth-child(even)": {
+      "--accent-color": brand.ultra
     }
   },
   title: {
@@ -97,7 +109,7 @@ const useStyles = makeStyles(theme => ({
   },
   name: {
     ...theme.typography.h3,
-    color: "#333",
+    color: `var(--accent-color, ${brand.orange})`,
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h4.fontSize,
@@ -106,7 +118,7 @@ const useStyles = makeStyles(theme => ({
   },
   program: {
     ...theme.typography.h4,
-    color: "#666",
+    color: theme.palette.common.white,
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h5.fontSize
@@ -139,14 +151,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   quote: {
-    ...theme.typography.body1,
-    flex: "1",
+    ...theme.typography.h5,
     padding: theme.spacing(3),
+    alignSelf: "center",
     [theme.breakpoints.down("sm")]: {
-      flex: "1 0",
-      fontSize: theme.typography.body2.fontSize,
+      fontSize: theme.typography.body1.fontSize,
       borderRadius: 0,
-      margin: `${theme.spacing(3)}px 0 0 0`,
+      margin: `auto 0`,
       padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
       maxWidth: "initial"
     },
@@ -160,7 +171,7 @@ const useStyles = makeStyles(theme => ({
     right: "0",
     bottom: "0",
     transform: "translate(40%, 40%) scale(2)",
-    color: "rgba(51,51,51,0.56)",
+    color: `var(--accent-color, ${brand.orange})`,
     [theme.breakpoints.down("sm")]: {
       transform: "translate(-20%, -10%) scale(1)"
     }
@@ -170,14 +181,32 @@ const useStyles = makeStyles(theme => ({
     left: "0",
     top: "0",
     transform: "translate(-40%, -40%) scale(-2)",
+    color: `var(--accent-color, ${brand.orange})`,
     [theme.breakpoints.down("sm")]: {
       transform: "scale(-1)"
-    },
-    color: "rgba(51,51,51,0.56)"
+    }
   }
 }));
 
+const themeOverrides = (theme: Theme): ThemeOptions => ({
+  palette: {
+    type: "dark",
+    background: {
+      paper: brand.royal
+    },
+    primary: theme.palette.primary
+  },
+  typography: {
+    button: theme.typography.button
+  }
+});
+
 const Students: React.FC<{}> = () => {
+  const defaultTheme = useTheme();
+  const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
+    defaultTheme
+  ]);
+
   const classes = useStyles();
   const Testimonial: React.FC<StudentTestimonial> = ({
     name,
@@ -198,21 +227,23 @@ const Students: React.FC<{}> = () => {
             backgroundImage: `url(${photo})`
           }}
         />
-        <Paper className={classes.quote} elevation={0}>
+        <div className={classes.quote}>
           {quote}
           <FormatQuoteIcon className={classes.tlQuote} />
           <FormatQuoteIcon className={classes.brQuote} />
-        </Paper>
+        </div>
       </div>
     </div>
   );
 
   return (
-    <Carousel classes={{ section: classes.section }}>
-      {testimonials.map((testimonial, idx) => (
-        <Testimonial key={idx} {...testimonial} />
-      ))}
-    </Carousel>
+    <ThemeProvider theme={theme}>
+      <Carousel classes={{ root: classes.section }}>
+        {testimonials.map((testimonial, idx) => (
+          <Testimonial key={idx} {...testimonial} />
+        ))}
+      </Carousel>
+    </ThemeProvider>
   );
 };
 
