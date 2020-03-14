@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   section: {
-    backgroundColor: "#F5A362",
+    backgroundColor: theme.palette.primary.main,
     display: "flex",
     flexDirection: "column",
     position: "relative",

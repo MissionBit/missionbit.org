@@ -1,20 +1,21 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeOptions } from "@material-ui/core/styles";
 import red from "@material-ui/core/colors/red";
+import common from "@material-ui/core/colors/common";
+import { brand } from "./colors";
 
-// Create a theme instance.
-const theme = createMuiTheme({
+const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: "#F67510"
+      main: brand.orange
     },
     secondary: {
-      main: "#0058A6"
+      main: brand.blue
     },
     error: {
       main: red.A400
     },
     background: {
-      default: "#fff"
+      default: common.white
     }
   },
   typography: {
@@ -22,6 +23,6 @@ const theme = createMuiTheme({
       textTransform: "inherit"
     }
   }
-});
+};
 
-export default theme;
+export default themeOptions;

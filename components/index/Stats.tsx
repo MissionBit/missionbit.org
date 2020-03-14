@@ -1,6 +1,7 @@
 import * as React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles(theme => ({
   section: {
@@ -22,13 +23,13 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold"
   },
   color1: {
-    color: "#C21981"
+    color: brand.violet
   },
   color2: {
-    color: theme.palette.secondary.main
+    color: brand.blue
   },
   color3: {
-    color: "#F67510"
+    color: brand.orange
   }
 }));
 

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "../src/theme";
+import themeOptions from "../src/theme";
 import Roboto from "./fonts/Roboto";
 
 export interface LayoutProps {
@@ -38,6 +38,7 @@ const Layout: React.FC<LayoutProps> = ({
       jssStyles.parentElement!.removeChild(jssStyles);
     }
   });
+  const theme = useMemo(() => createMuiTheme(themeOptions), []);
   return (
     <>
       <Head>

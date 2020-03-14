@@ -22,8 +22,15 @@ const useStyles = makeStyles(theme => ({
   },
   footer: {
     width: "100%",
-    textAlign: "center",
-    paddingBottom: theme.spacing(3)
+    textAlign: "center"
+  },
+  copyright: {
+    borderTop: `1px solid ${theme.palette.primary.main}`,
+    padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
+    // Manually control where wrapping can happen
+    "& span": {
+      whiteSpace: "nowrap"
+    }
   },
   address: {
     fontStyle: "normal"
@@ -60,21 +67,26 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           </li>
         </ul>
       </nav>
-      <section>
+      <section className={classes.copyright}>
         <Typography variant="body2">
-          2020 © Mission Bit. A 501(c)3 Non-Profit. ALL Rights Reserved.
+          <span>2020 © Mission Bit.</span> <span>A 501(c)3 Non-Profit.</span>{" "}
+          <span>ALL Rights Reserved.</span>
         </Typography>
         <Typography
           variant="body2"
           component="address"
           className={classes.address}
         >
-          Mission Bit, 101 A Clay St #121, San Francisco, CA 94111
+          <span>Mission Bit,</span> <span>101 A Clay St #121,</span>{" "}
+          <span>San Francisco, CA 94111</span>
           <br />
-          EIN: 46-0945785, Phone:{" "}
-          <Link color="secondary" href="tel:+14158795380">
-            (415) 879-5380
-          </Link>
+          <span>EIN: 46-0945785</span>,{" "}
+          <span>
+            Phone:{" "}
+            <Link color="secondary" href="tel:+14158795380">
+              (415) 879-5380
+            </Link>
+          </span>
         </Typography>
       </section>
     </footer>

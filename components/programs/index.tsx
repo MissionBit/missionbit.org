@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     "& > h1": {
       marginBottom: theme.spacing(3),
       fontWeight: "bold",
-      color: "#fff"
+      color: theme.palette.common.white
     }
   },
   grid: {
