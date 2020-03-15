@@ -17,7 +17,10 @@ import { brand } from "../src/colors";
 
 const useStyles = makeStyles(theme => ({
   subscribe: {
-    padding: theme.spacing(3)
+    padding: theme.spacing(3),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   field: {
     margin: `${theme.spacing(2)}px 0`,
@@ -25,6 +28,15 @@ const useStyles = makeStyles(theme => ({
     maxWidth: "100%",
     "& > label": {
       fontWeight: "bold"
+    }
+  },
+  photo: {
+    maskImage: `url("images/subscribe/subscribe-mask.svg")`,
+    objectFit: "contain",
+    width: "calc(min(250px * 717/624, 20vw))",
+    height: "auto",
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
     }
   }
 }));
@@ -69,11 +81,7 @@ const Subscribe: React.FC<{}> = () => {
         className={classes.subscribe}
         id="get-updates"
       >
-        <Typography variant="h5">
-          Stay up-to-date on Mission Bit news and events!
-          <br />
-          Subscribe to our mailing list below:
-        </Typography>
+        <img src="images/subscribe/subscribe.jpg" className={classes.photo} />
         <form
           action="https://missionbit.us3.list-manage.com/subscribe/post?u=dca59ff0c46a6c1be0d20cf89&amp;id=ec36efa7f3"
           method="post"
@@ -82,6 +90,11 @@ const Subscribe: React.FC<{}> = () => {
           target="_blank"
           noValidate
         >
+          <Typography variant="h5">
+            Stay up-to-date on Mission Bit news and events!
+            <br />
+            Subscribe to our mailing list below:
+          </Typography>
           <TextField
             id="subscribe-email"
             name="EMAIL"
