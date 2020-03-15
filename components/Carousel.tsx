@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     overflowX: "scroll",
     flex: "1 1 auto",
     scrollSnapType: "x mandatory",
+    scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none"
     }

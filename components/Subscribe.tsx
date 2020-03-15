@@ -31,9 +31,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   photo: {
-    maskImage: `url("images/subscribe/subscribe-mask.svg")`,
-    objectFit: "contain",
-    width: "calc(min(250px * 717/624, 20vw))",
+    width: "20vw",
+    maxWidth: "288px",
     height: "auto",
     [theme.breakpoints.down("sm")]: {
       display: "none"
@@ -81,7 +80,10 @@ const Subscribe: React.FC<{}> = () => {
         className={classes.subscribe}
         id="get-updates"
       >
-        <img src="images/subscribe/subscribe.jpg" className={classes.photo} />
+        <object
+          data="images/subscribe/subscribe.svg"
+          className={classes.photo}
+        />
         <form
           action="https://missionbit.us3.list-manage.com/subscribe/post?u=dca59ff0c46a6c1be0d20cf89&amp;id=ec36efa7f3"
           method="post"

@@ -79,9 +79,9 @@ const testimonials: readonly StudentTestimonial[] = [
 
 const useStyles = makeStyles(theme => ({
   section: {
-    minHeight: "80vh",
+    height: "80vh",
     [theme.breakpoints.down("sm")]: {
-      minHeight: "calc(min(100vh, 700px))",
+      height: "700px",
       maxHeight: "100vh"
     }
   },
