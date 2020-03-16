@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     fontSize: "32px",
+    maxWidth: 500,
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
       lineHeight: "2.5rem"
@@ -38,14 +39,15 @@ const useStyles = makeStyles(theme => ({
   },
 
   content: {
+    display: "flex",
     position: "relative",
-    display: "grid",
     height: "100%",
-    gridTemplateColumns: "1fr 1fr",
     [theme.breakpoints.down("sm")]: {
-      display: "flex",
       flexDirection: "column",
       padding: `${theme.spacing(3)}px 0 0 0`
+    },
+    [theme.breakpoints.up("md")]: {
+      justifyContent: "space-around"
     },
     alignItems: "center",
     justifyItems: "center"
@@ -65,8 +67,12 @@ const useStyles = makeStyles(theme => ({
   },
 
   arrowContainer: {
-    gridColumn: "1 / -1",
-    gridRow: 2,
+    [theme.breakpoints.up("md")]: {
+      position: "absolute",
+      bottom: 0,
+      left: "50%",
+      transform: "translateX(-50%)"
+    },
     [theme.breakpoints.down("sm")]: {
       display: "flex",
       flex: 1,
@@ -132,9 +138,9 @@ const Landing: React.FC<{}> = () => {
         <div className={classes.bridgeText}>
           <span className={classes.bridgeLine}>Bridging the Tech Divide.</span>
           <span className={classes.bridgeLine}>
-            Empowering a New Generation of
+            Empowering a New Generation
           </span>
-          <span className={classes.bridgeLine}>Innovators.</span>
+          <span className={classes.bridgeLine}>of Innovators.</span>
         </div>
         <div className={classes.arrowContainer}>
           <a
