@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
       gridTemplateColumns: "repeat(auto-fit, 160px)"
     }
   },
+  heading: {
+    margin: `${theme.spacing(2)}px 0`,
+    fontWeight: "bold"
+  },
   imageBio: {
     position: "relative",
     "& img": {
@@ -107,13 +111,13 @@ const Team: React.FC<{}> = () => {
 
   return (
     <section id="team">
-      <Typography variant="h4" component="h2" align="center">
+      <Typography variant="h4" component="h2" align="center" className={classes.heading}>
         Our Team
       </Typography>
       {TeamData.map(({ section, members }, idx) => (
         <React.Fragment key={section}>
           {idx === 0 ? null : (
-            <Typography variant="h5" component="h3" align="center">
+            <Typography variant="h5" component="h3" align="center" className={classes.heading}>
               {section}
             </Typography>
           )}
