@@ -41,7 +41,8 @@ const useStyles = makeStyles(theme => ({
     bottom: -theme.spacing(1)
   },
   bioTypography: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
+    maxWidth: 600
   }
 }));
 
