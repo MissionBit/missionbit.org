@@ -6,6 +6,7 @@ import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Workshops from "./Workshops";
+import Faq from "./Faq";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,14 +71,17 @@ const Main: React.FC<{}> = () => {
       </Box>
       <Container component="section" id="description">
         <Typography>
-          Mission Bit provides computer science courses that expose high school
-          students from underserved and underrepresented communities to multiple
-          coding languages. We design our classrooms with project based, small
-          group learning in mind. We offer our students a field trip to a Bay
-          Area tech company, career and college advising related to the
-          technology field, and an opportunity to showcase their group projects
-          to a large community of supporters during our Demo Day event at the
-          end of the term.
+          Mission Bit provides free semester-long project-based coding courses
+          to high school students from underserved and underrepresented
+          communities. We offer our students career and college advising related
+          to the technology field, a field trip to a Bay Area tech company, and
+          an opportunity to showcase their group projects to a large community
+          of supporters during our Demo Day event at the end of the term. Our
+          program’s inclusive community fosters positive relationships between
+          students, their peers, and our experienced classroom leaders. Mission
+          Bit brings like-minded individuals together to form long-lasting
+          meaningful connections and gives students all the tools they need to
+          succeed in the tech industry.
         </Typography>
       </Container>
       <Container component="section" id="enroll">
@@ -87,7 +91,7 @@ const Main: React.FC<{}> = () => {
       </Container>
       <Workshops />
       <Container component="section" id="faq">
-        <Typography>FAQ</Typography>
+        <Faq />
       </Container>
       <Container component="section" id="showcase">
         <Typography>
