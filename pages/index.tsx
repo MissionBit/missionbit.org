@@ -16,7 +16,10 @@ const useStyles = makeStyles(() => ({
     overflowY: "hidden"
   },
   alerts: {
-    flex: "1 0 auto"
+    flex: "1 0 auto",
+    '& div[role="alert"]': {
+      alignItems: "center"
+    }
   }
 }));
 
