@@ -62,7 +62,17 @@ const SupporterData: SupporterDataProps[] = [
     href: "https://www.sfusd.edu/"
   },
   { logo: "uber.png", title: "Uber", href: "https://www.uber.com/" },
-  { logo: "unity.svg", title: "Unity", href: "https://unity3d.com/" }
+  { logo: "unity.svg", title: "Unity", href: "https://unity3d.com/" },
+  {
+    logo: "sff.png",
+    title: "San Francisco Foundation",
+    href: "https://sff.org/"
+  },
+  {
+    logo: "gsw-foundation.png",
+    title: "Golden State Warriors Foundation",
+    href: "https://www.nba.com/warriors/foundation"
+  }
 ];
 
 export default SupporterData;
