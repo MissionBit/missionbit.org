@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
       maxHeight: 150,
       objectFit: "contain"
     }
+  },
+  heading: {
+    marginBottom: "1rem"
   }
 }));
 
@@ -28,7 +31,12 @@ const Supporters: React.FC<{}> = () => {
   const midpoint = Math.floor(SupporterData.length / 2);
   return (
     <section id="supporters">
-      <Typography variant="h4" component="h2" align="center">
+      <Typography
+        variant="h4"
+        component="h2"
+        align="center"
+        className={classes.heading}
+      >
         Our supporters
       </Typography>
       <BackgroundSlider duration={40}>
