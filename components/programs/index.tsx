@@ -4,8 +4,24 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Workshops from "./Workshops";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    "& > section": {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+      "&:first-child": {
+        marginTop: 0
+      }
+    }
+  },
+  alert: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize
+    }
+  },
   landing: {
     padding: theme.spacing(3),
     background:
@@ -26,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <main id="main">
+    <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
         <Typography variant="h2" component="h1" align="center">
           Programs
@@ -52,7 +68,7 @@ const Main: React.FC<{}> = () => {
           </Grid>
         </Grid>
       </Box>
-      <section id="description">
+      <Container component="section" id="description">
         <Typography>
           Mission Bit provides computer science courses that expose high school
           students from underserved and underrepresented communities to multiple
@@ -63,37 +79,21 @@ const Main: React.FC<{}> = () => {
           to a large community of supporters during our Demo Day event at the
           end of the term.
         </Typography>
-      </section>
-      <section id="enroll">
-        <Typography>
-          Sign up for Winter 2020 classes now! Registration deadline: 1/22/20
+      </Container>
+      <Container component="section" id="enroll">
+        <Typography variant="h3" align="center" className={classes.alert}>
+          Sign up for Summer 2020 classes now! Registration deadline: 5/20/20
         </Typography>
-      </section>
-      <section id="workshops">
-        <Typography>
-          We also teach 90-minute workshops across the Bay Area!
-        </Typography>
-        <Typography>
-          Create your own portfolio and learning HTML, CSS, and Javascript!
-        </Typography>
-        <Typography>
-          Learn about gameplay, the Unity platform, and how to create your own
-          game!
-        </Typography>
-        <Typography>
-          Do you work with 8th graders or high schoolers and want Misison Bit to
-          come to your school site or community-based organization? Reach out to{" "}
-          <a href="mailto:cora@missionbit.org">cora@missionbit.org</a>!
-        </Typography>
-      </section>
-      <section id="faq">
+      </Container>
+      <Workshops />
+      <Container component="section" id="faq">
         <Typography>FAQ</Typography>
-      </section>
-      <section id="showcase">
+      </Container>
+      <Container component="section" id="showcase">
         <Typography>
           Games and websites created by Mission Bit students:
         </Typography>
-      </section>
+      </Container>
       <Supporters />
     </main>
   );
