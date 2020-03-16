@@ -10,6 +10,7 @@ import Roboto from "./fonts/Roboto";
 
 export interface LayoutProps {
   title: string;
+  alerts?: React.ReactNode;
   headerChildren?: React.ReactNode;
   headerClassName?: string;
   footerClassName?: string;
@@ -29,7 +30,8 @@ const Layout: React.FC<LayoutProps> = ({
   children,
   headerClassName,
   footerClassName,
-  headerChildren
+  headerChildren,
+  alerts
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -55,7 +57,9 @@ const Layout: React.FC<LayoutProps> = ({
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Roboto />
-        <Header className={headerClassName}>{headerChildren}</Header>
+        <Header className={headerClassName} alerts={alerts}>
+          {headerChildren}
+        </Header>
         {children}
         <Footer className={footerClassName} />
       </ThemeProvider>

@@ -1,9 +1,14 @@
 import * as React from "react";
 import HeaderNav from "./HeaderNav";
 
-const Header: React.FC<{ className?: string }> = ({ children, className }) => {
+const Header: React.FC<{ className?: string; alerts: React.ReactNode }> = ({
+  children,
+  className,
+  alerts
+}) => {
   return (
     <header className={className}>
+      {alerts}
       <HeaderNav />
       {children}
     </header>
