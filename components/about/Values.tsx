@@ -60,24 +60,24 @@ const Values: React.FC<{}> = () => {
         <Value title="Community" src="/images/about/values-community.svg">
           Cultivating a supportive environment of like-minded peers
         </Value>
-        <Value
-          title="Social Justice"
-          src="/images/about/values-social-justice.svg"
-        >
-          Embracing the responsibility to inspire future generations
+        <Value title="Love" src="/images/about/values-love.svg">
+          Practicing empathy, honesty, and openness
         </Value>
         <Value
           title="Accountability"
           src="/images/about/values-accountability.svg"
+        >
+          Embracing the responsibility to inspire future generations
+        </Value>
+        <Value
+          title="Social Justice"
+          src="/images/about/values-social-justice.svg"
         >
           Providing equal opportunities for the underrepresented &amp;
           under-resourced
         </Value>
         <Value title="Smart Risks" src="/images/about/values-smart-risks.svg">
           Encouraging the pursuit of passions
-        </Value>
-        <Value title="Love" src="/images/about/values-love.svg">
-          Practicing empathy, honesty, and openness
         </Value>
       </Box>
     </section>
