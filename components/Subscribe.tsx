@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     margin: `${theme.spacing(2)}px 0`,
     width: 340,
     maxWidth: "100%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%"
+    },
     "& > label": {
       fontWeight: "bold"
     }

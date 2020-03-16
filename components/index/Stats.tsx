@@ -66,14 +66,14 @@ const Stats: React.FC<{}> = () => {
   return (
     <section className={classes.section}>
       <div className={classes.line}>
-        <div className={clsx(classes.value, classes.color1)}>4,000+</div>
-        <div className={classes.copy}>students served</div>
-        <PeopleIcon className={clsx(classes.icon, classes.color1)} />
+        <div className={clsx(classes.value, classes.color1)}>25</div>
+        <div className={classes.copy}>classes taught</div>
+        <LaptopIcon className={clsx(classes.icon, classes.color1)} />
       </div>
       <div className={classes.line}>
-        <div className={clsx(classes.value, classes.color2)}>25</div>
-        <div className={classes.copy}>classes taught</div>
-        <LaptopIcon className={clsx(classes.icon, classes.color2)} />
+        <div className={clsx(classes.value, classes.color2)}>4,000+</div>
+        <div className={classes.copy}>students served</div>
+        <PeopleIcon className={clsx(classes.icon, classes.color2)} />
       </div>
       <div className={classes.line}>
         <div className={clsx(classes.value, classes.color3)}>14</div>

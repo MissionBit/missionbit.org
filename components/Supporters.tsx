@@ -2,17 +2,14 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import SupporterData, { SupporterDataProps } from "./SupporterData";
 import { makeStyles } from "@material-ui/core/styles";
+import BackgroundSlider from "./index/BackgroundSlider";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "grid",
-    gridGap: theme.spacing(2),
-    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+    display: "flex",
     alignItems: "center",
-    width: "100%",
-    padding: theme.spacing(3),
-    textAlign: "center",
     "& img": {
+      margin: `0 ${theme.spacing(3)}px`,
       maxWidth: 150,
       maxHeight: 150,
       objectFit: "contain"
@@ -28,16 +25,26 @@ const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
 
 const Supporters: React.FC<{}> = () => {
   const classes = useStyles();
+  const midpoint = Math.floor(SupporterData.length / 2);
   return (
     <section id="supporters">
       <Typography variant="h4" component="h2" align="center">
         Our supporters
       </Typography>
-      <div className={classes.root}>
-        {SupporterData.map(props => (
-          <Supporter key={props.logo} {...props} />
-        ))}
-      </div>
+      <BackgroundSlider duration={40}>
+        <div className={classes.root}>
+          {SupporterData.slice(0, midpoint).map(props => (
+            <Supporter key={props.logo} {...props} />
+          ))}
+        </div>
+      </BackgroundSlider>
+      <BackgroundSlider duration={50}>
+        <div className={classes.root}>
+          {SupporterData.slice(midpoint).map(props => (
+            <Supporter key={props.logo} {...props} />
+          ))}
+        </div>
+      </BackgroundSlider>
     </section>
   );
 };
