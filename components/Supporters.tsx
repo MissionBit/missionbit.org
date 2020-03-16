@@ -28,7 +28,6 @@ const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
 
 const Supporters: React.FC<{}> = () => {
   const classes = useStyles();
-  const midpoint = Math.floor(SupporterData.length / 2);
   return (
     <section id="supporters">
       <Typography
@@ -41,14 +40,7 @@ const Supporters: React.FC<{}> = () => {
       </Typography>
       <BackgroundSlider duration={40}>
         <div className={classes.root}>
-          {SupporterData.slice(0, midpoint).map(props => (
-            <Supporter key={props.logo} {...props} />
-          ))}
-        </div>
-      </BackgroundSlider>
-      <BackgroundSlider duration={50}>
-        <div className={classes.root}>
-          {SupporterData.slice(midpoint).map(props => (
+          {SupporterData.map(props => (
             <Supporter key={props.logo} {...props} />
           ))}
         </div>
