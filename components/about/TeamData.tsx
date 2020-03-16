@@ -1,7 +1,10 @@
+import * as React from "react";
+
 export interface TeamMemberProps<T extends string> {
   name: string;
   title?: T;
   image: string;
+  bio?: React.ReactNode;
 }
 
 type TeamTitle =
@@ -19,22 +22,60 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Christina Ortega",
     title: "Chief Executive Officer",
-    image: "core/christina_ortega.jpg"
+    image: "core/christina_ortega.jpg",
+    bio: (
+      <>
+        Christina Ortega has a Master's in Public Administration with an
+        emphasis in Public Policy. She has done extensive research on
+        after-school programming focusing on the academic success of inner-city
+        youth in San Francisco. She is a San Francisco native who is passionate
+        about providing Bay Area youth with the skills to compete in the tech
+        workforce.
+      </>
+    )
   },
   {
     name: "Cora Monokandilos",
     title: "Director of Curriculum",
-    image: "core/cora_monokandilos.jpg"
+    image: "core/cora_monokandilos.jpg",
+    bio: (
+      <>
+        Cora Monokandilos is a Mission Bit alum who studied Computer Science at
+        the University of California, Santa Cruz. She is a San Francisco native
+        and is extremely passionate about making tech more diverse and
+        accessible to youth from the Bay Area. In her free time, she could be
+        found exploring new places, reading, or learning how to draw.
+      </>
+    )
   },
   {
     name: "Cynthia Chin",
     title: "Program Manager",
-    image: "core/cynthia_chin.jpg"
+    image: "core/cynthia_chin.jpg",
+    bio: (
+      <>
+        Cynthia Chin is an education professional with over 6 years of
+        experience in the field. She has worked in San Francisco and abroad with
+        students of all ages. She is an SF native and is passionate about giving
+        back to her community. In her free time, she enjoys dancing, rock
+        climbing, and sailing.
+      </>
+    )
   },
   {
     name: "Genevieve Mossey",
     title: "Program Coordinator",
-    image: "core/genevieve_mossey.jpg"
+    image: "core/genevieve_mossey.jpg",
+    bio: (
+      <>
+        Genevieve Mossey has a Bachelor’s degree in Psychology from San
+        Francisco State University, where she focused on Cognition, Equity, and
+        Social Justice. She was born and raised in Salinas, CA and has over 5
+        years of experience working with youth of all ages in the Bay Area and
+        Salinas Valley. In her free time she enjoys being in nature, spending
+        time with her dog, and finding ways to be creative.
+      </>
+    )
   },
   {
     name: "David Topete",
