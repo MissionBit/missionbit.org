@@ -17,17 +17,11 @@ const useStyles = makeStyles(theme => ({
       height: "auto"
     }
   },
-  ul: {
+  dl: {
     ...theme.typography.body1,
-    listStyleType: "none",
-    paddingLeft: 0,
-    "& > li": {
-      margin: "1em",
-      [theme.breakpoints.down("sm")]: {
-        margin: "1em 0.5em"
-      },
-      paddingLeft: "2.5em",
-      background: 'url("/images/missionbit-bw-bullet.svg") no-repeat left top'
+    padding: theme.spacing(2),
+    "& > dd:nth-child(n + 2)": {
+      marginTop: "1em"
     }
   }
 }));
@@ -55,34 +49,36 @@ const About: React.FC<{}> = () => {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <ul className={classes.ul}>
-            <li>
-              Mission Bit provides free, interactive courses at local high
-              schools, where students of all backgrounds can unlock their
-              entrepreneurial potential; learning, growing, and collaborating
-              with their peers while creating original games, websites &amp;
-              mobile apps.
-            </li>
-            <li>
-              We believe that newly empowered tech innovators who reflect our
-              diversity, will develop solutions that serve our whole community,
-              while becoming the future leaders of the global technology
-              revolution.
-            </li>
-            <li>
-              Mission Bit provides free semester-long project-based coding
-              courses to high school students from underserved and
-              underrepresented communities. We offer students career and college
-              advising related to the field of technology, field trips to tech
-              companies, and an opportunity to showcase their group projects to
-              a community of supporters during our Demo Day event. Our program’s
-              inclusive community fosters positive relationships between
-              students, their peers, and our experienced classroom leaders.
-              Mission Bit brings like-minded individuals together to form
-              long-lasting meaningful connections and gives students the tools
-              they need to succeed in the tech industry.
-            </li>
-          </ul>
+          <dl className={classes.dl}>
+            <Typography variant="h4" component="dd">
+              Challenge
+            </Typography>
+            <Typography component="dt">
+              Despite being the heart of the tech industry, the Bay Area is home
+              to thousands of high school students who lack access to computer
+              science courses. The majority of these students are from
+              backgrounds that are underrepresented in tech (Black, Latinx,
+              female).
+            </Typography>
+            <Typography variant="h4" component="dd">
+              Mission
+            </Typography>
+            <Typography component="dt">
+              Mission Bit is dedicated to inspiring and empowering students to
+              unlock their full potential. We build professional pathways for
+              under resourced high school youth across the SF Bay Area by making
+              computer science more accessible through our free project-based
+              courses.
+            </Typography>
+            <Typography variant="h4" component="dd">
+              Belief
+            </Typography>
+            <Typography component="dt">
+              Mission Bit empowers young innovators who reflect our diversity to
+              become leaders of the global technology revolution, developing
+              solutions that serve our whole community.
+            </Typography>
+          </dl>
         </Grid>
       </Grid>
     </section>
