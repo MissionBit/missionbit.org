@@ -1,21 +1,39 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  heading: {
+    fontSize: theme.typography.pxToRem(17),
+    fontWeight: theme.typography.fontWeightRegular
+  }
+}));
 
 const FaqItem: React.FC<{
   question: React.ReactNode;
   children: React.ReactNode;
 }> = ({ question, children }) => {
+  const classes = useStyles();
   return (
-    <>
-      <Typography component="dt">{question}</Typography>
-      <Typography component="dd">{children}</Typography>
-    </>
+    <ExpansionPanel>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography className={classes.heading}>{question}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>{children}</Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   );
 };
 
 const Faq: React.FC<{}> = () => {
   return (
-    <dl>
+    <Container component="section" id="faq">
       <FaqItem question="Where are your classes?">
         Our classes are located throughout San Francisco and the Bay Area.
         Students can take our classes at any of our locations. Some students
@@ -48,7 +66,7 @@ const Faq: React.FC<{}> = () => {
       <FaqItem question="How can I sign up for a class?">
         You can scroll down and click on the Register Now button to apply!
       </FaqItem>
-    </dl>
+    </Container>
   );
 };
 
