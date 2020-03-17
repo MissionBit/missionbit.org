@@ -45,7 +45,7 @@ const testimonials: readonly StudentTestimonial[] = [
         are meaningful to them and create the change that they want to see.
       </>
     ),
-    photo: "/images/students/nicholas.jpg"
+    photo: "/images/students/abel.jpg"
   },
   {
     name: "Eric",
@@ -57,10 +57,10 @@ const testimonials: readonly StudentTestimonial[] = [
         neighborhood, Bayview Hunters Point.
       </>
     ),
-    photo: "/images/students/nicholas.jpg"
+    photo: "/images/students/eric.jpg"
   },
   {
-    name: "Gisella",
+    name: "Gisela",
     program: "Spring 2014 Semester",
     quote: (
       <>
@@ -73,7 +73,7 @@ const testimonials: readonly StudentTestimonial[] = [
         student.
       </>
     ),
-    photo: "/images/students/nicholas.jpg"
+    photo: "/images/students/gisela.jpg"
   }
 ];
 

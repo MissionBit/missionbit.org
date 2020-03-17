@@ -88,6 +88,42 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h3" align="center" className={classes.alert}>
           Sign up for Summer 2020 classes now! Registration deadline: 5/20/20
         </Typography>
+        <div>
+          <Typography variant="h5">Web Design 101</Typography>
+          <Typography variant="body1">
+            This course is specifically designed for students with little to no
+            coding experience. Students will learn HTML, CSS, and JavaScript, as
+            well as some core programming concepts through project based
+            instruction. Throughout the semester, students will build 3
+            websites: an adventure game, a portfolio, and a final project of
+            their choice.
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="h5">Android Game Design</Typography>
+          <Typography variant="body1">
+            Students will learn to design and build a Java game application for
+            Android devices using libGDX, a popular game framework. Topics will
+            include Java programming techniques, the Java Android software
+            development kit (SDK), LibGDX, principles of game design, and
+            version control using git and Github. To be eligible, students must
+            be in high school and have taken our intro courses (Unity or Web) or
+            have equivalent coding experience.
+          </Typography>
+        </div>
+        <div>
+          <Typography variant="h5">Unity Game Design</Typography>
+          <Typography variant="body1">
+            Students will learn to create with code as they program their own
+            exciting gaming projects from scratch while learning C#. As students
+            iterate with prototypes, tackle programming challenges, complete
+            quizzes, and develop their own personal project, they will transform
+            from an absolute beginner to a capable Unity developer. Our
+            project-based courses provide students with the ability to begin a
+            portfolio or add to their existing portfolio of projects that they
+            have created.
+          </Typography>
+        </div>
       </Container>
       <Workshops />
       <Container component="section" id="faq">

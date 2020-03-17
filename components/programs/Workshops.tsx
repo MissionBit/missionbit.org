@@ -61,14 +61,17 @@ const Workshops: React.FC<{}> = () => {
       >
         <Container className={classes.wrapper}>
           <Typography variant="h5">
-            We also teach 90-minute workshops across the Bay Area!
+            In addition to our semester long classes, we also teach 90-minute
+            workshops across the Bay Area.
           </Typography>
           <Typography variant="h6">
-            Create your own portfolio and learning HTML, CSS, and Javascript!
+            <strong>Web Design Workshop:</strong> Spend 90 minutes creating your
+            own portfolio and learning HTML, CSS, and Javascript.
           </Typography>
           <Typography variant="h6">
-            Learn about gameplay, the Unity platform, and how to create your own
-            game!
+            <strong>Unity Game Design Workshop:</strong> Spend 90 minutes
+            learning about gameplay, the Unity platform, and how to create your
+            own game.
           </Typography>
           <Typography variant="h5">
             Do you work with 8th graders or high schoolers and want Mission Bit
