@@ -6,6 +6,7 @@ import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Workshops from "./Workshops";
+import Courses from "./Courses";
 import Faq from "./Faq";
 
 const useStyles = makeStyles(theme => ({
@@ -88,47 +89,46 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h3" align="center" className={classes.alert}>
           Sign up for Summer 2020 classes now! Registration deadline: 5/20/20
         </Typography>
-        <div>
-          <Typography variant="h5">Web Design 101</Typography>
-          <Typography variant="body1">
-            This course is specifically designed for students with little to no
-            coding experience. Students will learn HTML, CSS, and JavaScript, as
-            well as some core programming concepts through project based
-            instruction. Throughout the semester, students will build 3
-            websites: an adventure game, a portfolio, and a final project of
-            their choice.
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="h5">Android Game Design</Typography>
-          <Typography variant="body1">
-            Students will learn to design and build a Java game application for
-            Android devices using libGDX, a popular game framework. Topics will
-            include Java programming techniques, the Java Android software
-            development kit (SDK), LibGDX, principles of game design, and
-            version control using git and Github. To be eligible, students must
-            be in high school and have taken our intro courses (Unity or Web) or
-            have equivalent coding experience.
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="h5">Unity Game Design</Typography>
-          <Typography variant="body1">
-            Students will learn to create with code as they program their own
-            exciting gaming projects from scratch while learning C#. As students
-            iterate with prototypes, tackle programming challenges, complete
-            quizzes, and develop their own personal project, they will transform
-            from an absolute beginner to a capable Unity developer. Our
-            project-based courses provide students with the ability to begin a
-            portfolio or add to their existing portfolio of projects that they
-            have created.
-          </Typography>
-        </div>
+        <Courses />
+      </Container>
+      <Container component="section" id="enroll-notes">
+        <Typography variant="h4">For Summer 2020 Courses:</Typography>
+        <ul>
+          <li>
+            Mission Bit has a selective admissions process. We seek to create a
+            strong learning community with committed young people who bring a
+            variety of perspectives to the classroom. We highly encourage all
+            interested students to apply.
+          </li>
+          <li>
+            To be considered for admissions, students are required to take part
+            in a group interview. Applicants will receive an invitation to be
+            interviewed after the registration deadline has passed.
+            <strong>
+              Interviews will take place on Wednesday, June 3rd, 2020.
+            </strong>
+            Please provide accurate email information to receive your
+            invitation.
+          </li>
+          <li>
+            Each term ends with Demo Day, which is a required event for
+            students. Friends and family are strongly encouraged to attend;
+            please mark your calendar for{" "}
+            <strong>Saturday, July 25th, 2020.</strong>
+          </li>
+          <li>
+            <strong>
+              Registration Deadline is Sunday, May 31, 2020 at 8pm.
+            </strong>
+          </li>
+        </ul>
+        <Typography>
+          For additional questions about registration, please contact us at{" "}
+          <a href="mailto:info@missionbit.org">info@missionbit.org.</a>
+        </Typography>
       </Container>
       <Workshops />
-      <Container component="section" id="faq">
-        <Faq />
-      </Container>
+      <Faq />
       <Container component="section" id="showcase">
         <Typography>
           Games and websites created by Mission Bit students:
