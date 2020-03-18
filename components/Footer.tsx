@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
   copyright: {
     borderTop: `1px solid ${theme.palette.primary.main}`,
-    padding: `${theme.spacing(3)}px ${theme.spacing(2)}px`,
+    padding: theme.spacing(3, 2),
     // Manually control where wrapping can happen
     "& span": {
       whiteSpace: "nowrap"

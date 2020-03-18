@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   heading: {
-    margin: `${theme.spacing(2)}px 0`,
+    margin: theme.spacing(2, 0),
     fontWeight: "bold"
   },
   imageBio: {

@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
       paddingRight: 0
     },
     "& > h4": {
-      margin: `${theme.spacing(2)}px 0`,
+      margin: theme.spacing(2, 0),
       textAlign: "center"
     }
   },

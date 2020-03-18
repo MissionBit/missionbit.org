@@ -16,7 +16,7 @@ import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: `${theme.spacing(2)}px 0`,
+    padding: theme.spacing(2, 0),
     textAlign: "center"
   },
   workshopHeading: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
       }
     },
     "& > *": {
-      margin: `${theme.spacing(2)}px 0`
+      margin: theme.spacing(2, 0)
     },
     "& > h5": {
       flex: "1 0 100%",

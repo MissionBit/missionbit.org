@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.body1,
     paddingLeft: theme.spacing(2),
     "& > li": {
-      margin: `${theme.spacing(1)}px 0`
+      margin: theme.spacing(1, 0)
     }
   }
 }));
@@ -95,7 +95,9 @@ const Main: React.FC<{}> = () => {
       </Container>
       <Container component="section" id="enroll">
         <Typography variant="h3" align="center" className={classes.alert}>
-          Sign up for Summer 2020 classes now! Registration deadline: 5/20/20
+          Sign up for Summer 2020 classes now!
+          <br />
+          Registration deadline: 5/20/20
         </Typography>
         <Courses />
       </Container>

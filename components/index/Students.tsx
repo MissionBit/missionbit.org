@@ -93,7 +93,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     scrollSnapAlign: "center",
     [theme.breakpoints.down("sm")]: {
-      padding: `${theme.spacing(1)}px 0 0 0`
+      padding: theme.spacing(1, 0, 0, 0)
     },
     "--accent-color": brand.orange,
     "&:nth-child(even)": {
@@ -104,7 +104,7 @@ const useStyles = makeStyles(theme => ({
     alignSelf: "flex-start",
     [theme.breakpoints.down("sm")]: {
       marginBottom: theme.spacing(2),
-      padding: `0 ${theme.spacing(1)}px`
+      padding: theme.spacing(0, 1)
     }
   },
   name: {
@@ -158,7 +158,7 @@ const useStyles = makeStyles(theme => ({
       fontSize: theme.typography.body1.fontSize,
       borderRadius: 0,
       margin: `auto 0`,
-      padding: `${theme.spacing(3)}px ${theme.spacing(1)}px`,
+      padding: theme.spacing(3, 1),
       maxWidth: "initial"
     },
     position: "relative",

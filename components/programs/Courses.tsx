@@ -9,10 +9,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: `${theme.spacing(2)}px 0`,
+    margin: theme.spacing(2, 0),
     padding: theme.spacing(2),
     "& > *": {
-      margin: `${theme.spacing(1)}px 0`
+      margin: theme.spacing(1, 0)
     }
   },
   mapLink: {

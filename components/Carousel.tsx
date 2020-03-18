@@ -33,13 +33,13 @@ const useStyles = makeStyles(theme => ({
     padding: "1rem",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
-      padding: `${theme.spacing(2)}px 0`
+      padding: theme.spacing(2, 0)
     },
     userSelect: "none"
   },
   li: {
     cursor: "pointer",
-    margin: `0 ${theme.spacing(1)}px`,
+    margin: theme.spacing(0, 1),
     width: 12,
     height: 12,
     borderRadius: "50%",

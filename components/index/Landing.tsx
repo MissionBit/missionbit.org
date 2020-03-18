@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      padding: `${theme.spacing(3)}px 0 0 0`
+      padding: theme.spacing(3, 0, 0, 0)
     },
     [theme.breakpoints.up("md")]: {
       justifyContent: "space-around"
@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     padding: "77px 57px",
     background: 'space url("/images/landing/circle.svg")',
     [theme.breakpoints.down("sm")]: {
-      padding: `${theme.spacing(3)}px ${theme.spacing(5)}px`,
+      padding: theme.spacing(3, 5),
       "& > img": {
         maxWidth: "50vw",
         height: "auto",

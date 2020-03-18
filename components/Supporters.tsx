@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     "& img": {
-      margin: `0 ${theme.spacing(3)}px`,
+      margin: theme.spacing(0, 3),
       maxWidth: 150,
       maxHeight: 150,
       objectFit: "contain"

@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center"
   },
   field: {
-    margin: `${theme.spacing(2)}px 0`,
+    margin: theme.spacing(2, 0),
     width: 340,
     maxWidth: "100%",
     [theme.breakpoints.down("sm")]: {

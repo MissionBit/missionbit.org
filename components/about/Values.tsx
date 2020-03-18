@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     margin: "0 auto",
     maxWidth: "90%",
-    padding: `${theme.spacing(3)}px 0`
+    padding: theme.spacing(3, 0)
   },
   value: {
     flex: "1 0 180px",
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     "& > h5": {
-      margin: `${theme.spacing(1)}px 0`
+      margin: theme.spacing(1, 0)
     }
   },
   icon: {
