@@ -8,6 +8,12 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: 0,
+      paddingRight: 0
+    }
+  },
   heading: {
     fontSize: theme.typography.pxToRem(17),
     fontWeight: theme.typography.fontWeightRegular
@@ -32,8 +38,9 @@ const FaqItem: React.FC<{
 };
 
 const Faq: React.FC<{}> = () => {
+  const classes = useStyles();
   return (
-    <Container component="section" id="faq">
+    <Container component="section" id="faq" className={classes.root}>
       <FaqItem question="Where are your classes?">
         Our classes are located throughout San Francisco and the Bay Area.
         Students can take our classes at any of our locations. Some students

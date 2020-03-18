@@ -38,6 +38,13 @@ const useStyles = makeStyles(theme => ({
     "& > div > img": {
       maxWidth: "100%"
     }
+  },
+  courseNotes: {
+    ...theme.typography.body1,
+    paddingLeft: theme.spacing(2),
+    "& > li": {
+      margin: `${theme.spacing(1)}px 0`
+    }
   }
 }));
 
@@ -92,8 +99,8 @@ const Main: React.FC<{}> = () => {
         <Courses />
       </Container>
       <Container component="section" id="enroll-notes">
-        <Typography variant="h4">For Summer 2020 Courses:</Typography>
-        <ul>
+        <Typography variant="h6">For Summer 2020 Courses:</Typography>
+        <ul className={classes.courseNotes}>
           <li>
             Mission Bit has a selective admissions process. We seek to create a
             strong learning community with committed young people who bring a
@@ -103,10 +110,10 @@ const Main: React.FC<{}> = () => {
           <li>
             To be considered for admissions, students are required to take part
             in a group interview. Applicants will receive an invitation to be
-            interviewed after the registration deadline has passed.
+            interviewed after the registration deadline has passed.{" "}
             <strong>
               Interviews will take place on Wednesday, June 3rd, 2020.
-            </strong>
+            </strong>{" "}
             Please provide accurate email information to receive your
             invitation.
           </li>
