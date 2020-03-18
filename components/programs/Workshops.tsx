@@ -19,11 +19,31 @@ const useStyles = makeStyles(theme => ({
     padding: `${theme.spacing(2)}px 0`,
     textAlign: "center"
   },
+  workshopHeading: {
+    [theme.breakpoints.up("md")]: {
+      display: "block"
+    }
+  },
   wrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center",
+    [theme.breakpoints.up("md")]: {
+      "& > h6": {
+        flex: "1 0 50%",
+        textAlign: "left"
+      },
+      "& > img": {
+        flex: 1,
+        marginLeft: theme.spacing(2)
+      }
+    },
     "& > *": {
       margin: `${theme.spacing(2)}px 0`
     },
     "& > h5": {
+      flex: "1 0 100%",
       fontWeight: "bold"
     },
     "& > img": {
@@ -70,7 +90,7 @@ const Workshops: React.FC<{}> = () => {
             workshops across the Bay Area.
           </Typography>
           <Typography variant="h6">
-            <strong>Web Design Workshop:</strong> Spend 90 minutes creating your
+            <strong className={classes.workshopHeading}>Web Design Workshop:</strong> Spend 90 minutes creating your
             own portfolio and learning HTML, CSS, and Javascript.
           </Typography>
           <img
@@ -78,7 +98,7 @@ const Workshops: React.FC<{}> = () => {
             alt="Student at laptop"
           />
           <Typography variant="h6">
-            <strong>Unity Game Design Workshop:</strong> Spend 90 minutes
+            <strong className={classes.workshopHeading}>Unity Game Design Workshop:</strong> Spend 90 minutes
             learning about gameplay, the Unity platform, and how to create your
             own game.
           </Typography>

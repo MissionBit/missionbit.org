@@ -8,6 +8,7 @@ import Container from "@material-ui/core/Container";
 import Workshops from "./Workshops";
 import Courses from "./Courses";
 import Faq from "./Faq";
+import Showcase from "./Showcase";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -136,11 +137,7 @@ const Main: React.FC<{}> = () => {
       </Container>
       <Workshops />
       <Faq />
-      <Container component="section" id="showcase">
-        <Typography>
-          Games and websites created by Mission Bit students:
-        </Typography>
-      </Container>
+      <Showcase />
       <Supporters />
     </main>
   );

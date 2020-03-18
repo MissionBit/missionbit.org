@@ -12,6 +12,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
       paddingRight: 0
+    },
+    "& > h4": {
+      margin: `${theme.spacing(2)}px 0`,
+      textAlign: "center"
     }
   },
   heading: {
@@ -41,6 +45,7 @@ const Faq: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Container component="section" id="faq" className={classes.root}>
+      <Typography variant="h4">Frequently Asked Questions</Typography>
       <FaqItem question="Where are your classes?">
         Our classes are located throughout San Francisco and the Bay Area.
         Students can take our classes at any of our locations. Some students
