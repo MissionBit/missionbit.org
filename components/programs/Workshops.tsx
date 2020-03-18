@@ -25,6 +25,11 @@ const useStyles = makeStyles(theme => ({
     },
     "& > h5": {
       fontWeight: "bold"
+    },
+    "& > img": {
+      maxWidth: "100%",
+      maxHeight: "25vh",
+      objectFit: "contain"
     }
   }
 }));
@@ -68,11 +73,19 @@ const Workshops: React.FC<{}> = () => {
             <strong>Web Design Workshop:</strong> Spend 90 minutes creating your
             own portfolio and learning HTML, CSS, and Javascript.
           </Typography>
+          <img
+            src="images/program/workshops/workshops-1.jpg"
+            alt="Student at laptop"
+          />
           <Typography variant="h6">
             <strong>Unity Game Design Workshop:</strong> Spend 90 minutes
             learning about gameplay, the Unity platform, and how to create your
             own game.
           </Typography>
+          <img
+            src="images/program/workshops/workshops-2.jpg"
+            alt="Student at laptop with mentor"
+          />
           <Typography variant="h5">
             Do you work with 8th graders or high schoolers and want Mission Bit
             to come to your school site or community-based organization? Reach
