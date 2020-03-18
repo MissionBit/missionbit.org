@@ -21,7 +21,13 @@ const CourseDescription: React.FC<ClassInstance> = ({
     <Typography>
       Dates: {startDate} - {endDate}
     </Typography>
-    <Button href={signupUrl} variant="contained" color="secondary" target="_blank" rel="noopener">
+    <Button
+      href={signupUrl}
+      variant="contained"
+      color="secondary"
+      target="_blank"
+      rel="noopener"
+    >
       Student Signup
     </Button>
     <Typography variant="body1">{course.description}</Typography>
