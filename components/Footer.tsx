@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import { useState } from "react";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -39,6 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
+  const [year] = useState(() => new Date().getFullYear());
   return (
     <footer className={clsx(classes.footer, className)}>
       <Subscribe />
@@ -63,13 +65,13 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
             <Button href="https://donate.missionbit.org/">donate</Button>
           </li>
           <li>
-            <Button href="/contact">contact</Button>
+            <Button href="mailto:info@missionbit.org">contact</Button>
           </li>
         </ul>
       </nav>
       <section className={classes.copyright}>
         <Typography variant="body2">
-          <span>2020 © Mission Bit.</span> <span>A 501(c)3 Non-Profit.</span>{" "}
+          <span>{year} © Mission Bit.</span> <span>A 501(c)3 Non-Profit.</span>{" "}
           <span>ALL Rights Reserved.</span>
         </Typography>
         <Typography
