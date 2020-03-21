@@ -1,22 +1,18 @@
 import * as React from "react";
-import { useMemo } from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import { brand } from "../../src/colors";
-import {
-  ThemeOptions,
-  makeStyles,
-  ThemeProvider,
-  createMuiTheme,
-  useTheme,
-  Theme
-} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(2, 0),
+    background: brand.orange,
+    padding: theme.spacing(4, 0)
+  },
+  heading: {
+    margin: theme.spacing(0, 0, 4, 0),
     textAlign: "center"
   },
   workshopHeading: {
@@ -29,6 +25,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "center",
+    padding: theme.spacing(4),
     [theme.breakpoints.up("md")]: {
       "& > h6": {
         flex: "1 0 50%",
@@ -54,37 +51,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const themeOverrides = (theme: Theme): ThemeOptions => ({
-  palette: {
-    type: "dark",
-    background: {
-      paper: brand.orange
-    },
-    text: {
-      primary: theme.palette.common.black
-    }
-  },
-  typography: {
-    button: theme.typography.button
-  }
-});
-
-const Workshops: React.FC<{}> = () => {
+const Volunteers: React.FC<{}> = () => {
   const classes = useStyles();
-  const defaultTheme = useTheme();
-  const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme
-  ]);
   return (
-    <ThemeProvider theme={theme}>
-      <Paper
-        elevation={0}
-        square
-        className={classes.root}
-        component="section"
-        id="workshops"
-      >
-        <Container className={classes.wrapper}>
+    <section id="volunteers" className={classes.root}>
+      <Container>
+        <Typography variant="h4" className={classes.heading}>
+          Our Volunteers
+        </Typography>
+        <Paper elevation={0} className={classes.wrapper}>
           <Typography variant="h5">
             In addition to our semester long classes, we also teach 90-minute
             workshops across the Bay Area.
@@ -117,10 +92,10 @@ const Workshops: React.FC<{}> = () => {
             out to{" "}
             <Link href="mailto:cora@missionbit.org">cora@missionbit.org</Link>!
           </Typography>
-        </Container>
-      </Paper>
-    </ThemeProvider>
+        </Paper>
+      </Container>
+    </section>
   );
 };
 
-export default Workshops;
+export default Volunteers;

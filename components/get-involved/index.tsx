@@ -1,11 +1,28 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
+import Faq from "./Faq";
+import Showcase from "../Showcase";
+import Volunteers from "./Volunteers";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    "& > section": {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+      "&:first-child": {
+        marginTop: 0
+      }
+    }
+  },
+  heading: {
+    margin: theme.spacing(2, 0),
+    textAlign: "center"
+  },
   landing: {
     padding: theme.spacing(3),
     background:
@@ -26,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <main id="main">
+    <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
         <Typography variant="h2" component="h1" align="center">
           Get Involved
@@ -43,7 +60,12 @@ const Main: React.FC<{}> = () => {
           </Grid>
         </Grid>
       </Box>
-      <section id="description">
+      <Container component="section" id="description">
+        <Typography>
+          Let's work together! Discover how you can make an impact in your
+          community to empower the next generation of innovators. Use your
+          talents to help us diversify the tech industry.
+        </Typography>
         <Typography>
           Your donation to Mission Bit helps educate and equip students to
           pursue opportunities in tech. Your donation will help us:
@@ -58,21 +80,15 @@ const Main: React.FC<{}> = () => {
           4. Diversify the tech industry
           <br />
         </Typography>
-      </section>
-      <section id="give">
-        <Typography>Ways to Give</Typography>
-      </section>
-      <section id="volunteers">
-        <Typography>Our Volunteers</Typography>
-      </section>
-      <section id="faq">
-        <Typography>Volunteer FAQ</Typography>
-      </section>
-      <section id="showcase">
-        <Typography>
-          Games and websites created by Mission Bit students:
+      </Container>
+      <Container component="section" id="give">
+        <Typography variant="h4" className={classes.heading}>
+          Ways to Give
         </Typography>
-      </section>
+      </Container>
+      <Volunteers />
+      <Faq />
+      <Showcase />
       <Supporters />
     </main>
   );
