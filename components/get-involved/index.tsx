@@ -3,10 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
 import Faq from "./Faq";
-import Showcase from "../Showcase";
 import Volunteers from "./Volunteers";
 
 const useStyles = makeStyles(theme => ({
@@ -88,8 +86,6 @@ const Main: React.FC<{}> = () => {
       </Container>
       <Volunteers />
       <Faq />
-      <Showcase />
-      <Supporters />
     </main>
   );
 };

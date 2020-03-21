@@ -4,9 +4,11 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import FaqItem from "../FaqItem";
+import SignUpButton from "./SignUpButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    textAlign: "center",
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
       paddingRight: 0
@@ -15,6 +17,9 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(2, 0),
       textAlign: "center"
     }
+  },
+  signUpButton: {
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -47,6 +52,7 @@ const Faq: React.FC<{}> = () => {
         partner to support our work. Scroll down to see our current partners and
         sponsors.
       </FaqItem>
+      <SignUpButton className={classes.signUpButton} />
     </Container>
   );
 };
