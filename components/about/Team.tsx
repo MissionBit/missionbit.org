@@ -89,7 +89,7 @@ const BioPopover: React.FC<{
 const Team: React.FC<{}> = () => {
   const classes = useStyles();
 
-  const TeamMember: React.FC<TeamMemberProps<string>> = ({
+  const TeamMember: React.FC<TeamMemberProps<React.ReactNode>> = ({
     name,
     title,
     image,

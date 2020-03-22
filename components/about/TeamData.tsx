@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface TeamMemberProps<T extends string> {
+export interface TeamMemberProps<T extends React.ReactNode> {
   name: string;
   title?: T;
   image: string;
@@ -14,7 +14,7 @@ type TeamTitle =
   | "Program Coordinator"
   | "Videographer";
 
-type BoardTitle = string;
+type BoardTitle = React.ReactNode;
 
 type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
 
@@ -161,6 +161,39 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<never>[] = [
 
 const BOARD: TeamMemberProps<BoardTitle>[] = [
   {
+    name: "Sam Purtill",
+    title: (
+      <>
+        <em>Board Chair</em>
+        <br />
+        Co-Founder &amp; CTO at Jyve
+      </>
+    ),
+    image: "board/sam_purtill.jpg"
+  },
+  {
+    name: "Jeff Schnitz",
+    title: (
+      <>
+        <em>Board Treasurer</em>
+        <br />
+        SVB Wealth Advisory, Inc.
+      </>
+    ),
+    image: "board/jeff_schnitz.jpg"
+  },
+  {
+    name: "Farid Vij",
+    title: (
+      <>
+        <em>Board Secretary</em>
+        <br />
+        Head of Corporate Development at Ciitizen
+      </>
+    ),
+    image: "board/farid_vij.jpg"
+  },
+  {
     name: "Brian Clark",
     title: "Engineering Manager at Cruise Automation",
     image: "board/brian_clark.jpg"
@@ -186,34 +219,19 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     image: "board/abhay_kumar.jpg"
   },
   {
+    name: "Saskia Leggett",
+    title: "Learning Experience Designer",
+    image: "board/saskia_leggett.jpg"
+  },
+  {
     name: "Jill McNay",
     title: "Marketing Professional",
     image: "board/jill_mcnay.jpg"
   },
   {
-    name: "Sam Purtill",
-    title: "Co-Founder & CTO at Jyve",
-    image: "board/sam_purtill.jpg"
-  },
-  {
-    name: "Jeff Schnitz",
-    title: "SVB Wealth Advisory, Inc.",
-    image: "board/jeff_schnitz.jpg"
-  },
-  {
-    name: "Farid Vij",
-    title: "Head of Corporate Development at Ciitizen",
-    image: "board/farid_vij.jpg"
-  },
-  {
     name: "Michael Walker",
     title: "Principal Consultant, BrandGeneering, Inc",
     image: "board/michael_walker.jpg"
-  },
-  {
-    name: "Saskia Leggett",
-    title: "Learning Experience Designer",
-    image: "board/saskia_leggett.jpg"
   }
 ];
 

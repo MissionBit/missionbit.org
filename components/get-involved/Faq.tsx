@@ -8,7 +8,9 @@ import SignUpButton from "./SignUpButton";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
       paddingRight: 0
