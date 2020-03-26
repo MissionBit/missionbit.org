@@ -14,6 +14,15 @@ type TeamTitle =
   | "Program Coordinator"
   | "Videographer";
 
+type School =
+  | "Lowell High School"
+  | "Skyline High School"
+  | "Wallenburg High School"
+  | "Washington High School"
+  | "Gateway High School";
+
+type StudentInfo = React.ReactNode;
+
 type BoardTitle = React.ReactNode;
 
 type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
@@ -147,16 +156,67 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   }
 ];
 
-const STUDENT_ADVISORY_BOARD: TeamMemberProps<never>[] = [
-  { name: "Alexander Peng", image: "2020-spring-sab/alexander_peng.jpg" },
-  { name: "Alyssa Wu", image: "2020-spring-sab/alyssa_wu.jpg" },
-  { name: "Bryan De Leon", image: "2020-spring-sab/bryan_de_leon.jpg" },
-  { name: "Derick Du", image: "2020-spring-sab/derick_du.jpg" },
-  { name: "Ernest Sarajyan", image: "2020-spring-sab/ernest_sarajyan.jpg" },
-  { name: "Johnny Lin", image: "2020-spring-sab/johnny_lin.jpg" },
-  { name: "Joshua Pan", image: "2020-spring-sab/joshua_pan.jpg" },
-  { name: "Oscar Tiong", image: "2020-spring-sab/oscar_tiong.jpg" },
-  { name: "Tara Tiong", image: "2020-spring-sab/tara_tiong.jpg" }
+function sabTitle(year: number, school: School): React.ReactNode {
+  return (
+    <>
+      {school}
+      <br />
+      Class of {year}
+    </>
+  );
+}
+
+const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
+  {
+    name: "Alexander Peng",
+    image: "2020-spring-sab/alexander_peng.jpg",
+    title: sabTitle(2020, "Lowell High School")
+  },
+  {
+    name: "Alyssa Wu",
+    image: "2020-spring-sab/alyssa_wu.jpg",
+    title: sabTitle(2022, "Lowell High School")
+  },
+  {
+    name: "Bryan De Leon",
+    image: "2020-spring-sab/bryan_de_leon.jpg",
+    title: sabTitle(2020, "Gateway High School")
+  },
+  {
+    name: "Derick Du",
+    image: "2020-spring-sab/derick_du.jpg",
+    title: sabTitle(2022, "Wallenburg High School")
+  },
+  {
+    name: "Ernest Sarajyan",
+    image: "2020-spring-sab/ernest_sarajyan.jpg",
+    title: sabTitle(2022, "Washington High School")
+  },
+  {
+    name: "Johnny Lin",
+    image: "2020-spring-sab/johnny_lin.jpg",
+    title: sabTitle(2022, "Washington High School")
+  },
+  {
+    name: "Joshua Pan",
+    image: "2020-spring-sab/joshua_pan.jpg",
+    title: sabTitle(2022, "Lowell High School")
+  },
+  {
+    name: "Oscar Tiong",
+    image: "2020-spring-sab/oscar_tiong.jpg",
+    title: sabTitle(2020, "Lowell High School")
+  },
+  {
+    name: "Tara Tiong",
+    image: "2020-spring-sab/tara_tiong.jpg",
+    title: sabTitle(2023, "Lowell High School")
+  },
+  {
+    name: "Trent Taylor III",
+    image: "2020-spring-sab/trent_taylor_iii.jpg",
+    title: sabTitle(2022, "Skyline High School")
+  }
 ];
 
 const BOARD: TeamMemberProps<BoardTitle>[] = [
