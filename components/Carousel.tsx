@@ -90,7 +90,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         left: selected * (current.scrollWidth / children.length),
       });
     }
-  }, [selected, scrollWidth, scrollerRef.current]);
+  }, [selected, scrollWidth, children.length]);
   const selectClosest = () => {
     const { current } = scrollerRef;
     if (current === null) {
@@ -118,7 +118,7 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     return () => {
       current.removeEventListener("scroll", handleScroll);
     };
-  }, [scrollerRef.current]);
+  }, []);
   const defaults = {
     elevation: 0,
     square: true,

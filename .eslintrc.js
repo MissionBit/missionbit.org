@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'react-hooks',
     '@typescript-eslint',
     'jest'
   ],
@@ -37,6 +38,8 @@ module.exports = {
     'no-unused-vars': 'off',
     'react/prop-types': 'off',
     'react/no-unescaped-entities': 'off',
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     'no-case-declarations': 'off',
     "@typescript-eslint/no-unused-vars": ["error", {
       "vars": "all",
