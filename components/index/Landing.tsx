@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
   bridgeText: {
     color: theme.palette.common.white,
+    flex: "1 0 40%",
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
@@ -41,13 +42,11 @@ const useStyles = makeStyles((theme) => ({
   content: {
     display: "flex",
     position: "relative",
+    flexWrap: "wrap",
     height: "100%",
+    justifyContent: "space-around",
     [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
       padding: theme.spacing(3, 0, 0, 0),
-    },
-    [theme.breakpoints.up("md")]: {
-      justifyContent: "space-around",
     },
     alignItems: "center",
     justifyItems: "center",
@@ -56,29 +55,23 @@ const useStyles = makeStyles((theme) => ({
   photoWrapper: {
     padding: "77px 57px",
     background: 'space url("/images/landing/circle.svg")',
+    flexShrink: 1,
+    "& > img": {
+      maxWidth: `calc(50vmin - ${theme.spacing(3)}px)`,
+      height: "auto",
+      objectFit: "contain",
+    },
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(3, 5),
-      "& > img": {
-        maxWidth: "50vw",
-        height: "auto",
-        objectFit: "contain",
-      },
     },
   },
 
   arrowContainer: {
-    [theme.breakpoints.up("md")]: {
-      position: "absolute",
-      bottom: 0,
-      left: "50%",
-      transform: "translateX(-50%)",
-    },
-    [theme.breakpoints.down("sm")]: {
-      display: "flex",
-      flex: 1,
-      flexDirection: "column",
-      justifyContent: "flex-end",
-    },
+    display: "flex",
+    flex: "1 0 100%",
+    flexDirection: "column",
+    alignSelf: "flex-end",
+    alignItems: "center",
   },
 
   arrowWrapper: {

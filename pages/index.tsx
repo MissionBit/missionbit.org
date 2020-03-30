@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     height: "100vh",
-    overflowY: "hidden",
   },
   alerts: {
     flex: "1 0 auto",
