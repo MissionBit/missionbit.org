@@ -5,18 +5,18 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& > h4": {
       margin: theme.spacing(2, 0),
-      textAlign: "center"
+      textAlign: "center",
     },
     "& img": {
       maxWidth: "100%",
       height: "auto",
-      objectFit: "contain"
-    }
-  }
+      objectFit: "contain",
+    },
+  },
 }));
 
 interface StudentProjectProps {
@@ -29,26 +29,26 @@ const StudentProjects: StudentProjectProps[] = [
   {
     href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
     imageUrl: "/images/showcase/dinosaur-game.png",
-    title: "Dinosaur Game"
+    title: "Dinosaur Game",
   },
   {
     href:
       "https://showcase.missionbit.org/2014/spring/group-projects/operation-peach/",
     imageUrl: "/images/showcase/peach-game.png",
-    title: "Operation Peach"
+    title: "Operation Peach",
   },
   {
     href:
       "https://showcase.missionbit.org/2014/spring/group-projects/veggie-jump/",
     imageUrl: "/images/showcase/jump-game.png",
-    title: "Veggie Jump"
-  }
+    title: "Veggie Jump",
+  },
 ];
 
 const StudentProject: React.FC<StudentProjectProps> = ({
   href,
   imageUrl,
-  title
+  title,
 }) => (
   <Grid item xs={4}>
     <Button href={href} title={title} target="_blank" rel="noopener">
@@ -65,7 +65,7 @@ const Showcase: React.FC<{}> = () => {
         Games and websites created by Mission Bit students
       </Typography>
       <Grid container spacing={3}>
-        {StudentProjects.map(props => (
+        {StudentProjects.map((props) => (
           <StudentProject key={props.href} {...props} />
         ))}
       </Grid>

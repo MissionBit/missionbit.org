@@ -13,14 +13,14 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     height: "100vh",
-    overflowY: "hidden"
+    overflowY: "hidden",
   },
   alerts: {
     flex: "1 0 auto",
     '& div[role="alert"]': {
-      alignItems: "center"
-    }
-  }
+      alignItems: "center",
+    },
+  },
 }));
 
 const Alerts: React.FC<{ className?: string }> = ({ className }) => {

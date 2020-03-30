@@ -7,7 +7,7 @@ const WEIGHTS = [
   { weight: 300, name: "Light" },
   { weight: 400, name: "Regular" },
   { weight: 500, name: "Medium" },
-  { weight: 700, name: "Bold" }
+  { weight: 700, name: "Bold" },
 ];
 
 const styles = {
@@ -18,15 +18,15 @@ const styles = {
           `local("Roboto ${name}")`,
           `local("Roboto-${name}")`,
           `url("/fonts/roboto-latin-${weight}.woff2") format("woff2")`,
-          `url("/fonts/roboto-latin-${weight}.woff") format("woff")`
+          `url("/fonts/roboto-latin-${weight}.woff") format("woff")`,
         ].join(","),
         fontFamily: "Roboto",
         fontStyle: "normal",
         fontDisplay: "swap",
-        fontWeight: weight
+        fontWeight: weight,
       })
-    )
-  }
+    ),
+  },
 };
 
 const Roboto: React.FC<{}> = () => (

@@ -3,27 +3,27 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: "20px",
     [theme.breakpoints.down("sm")]: {
-      padding: "20px 0"
-    }
+      padding: "20px 0",
+    },
   },
   team: {
     "& > img": {
       display: "block",
       width: "100%",
-      height: "auto"
-    }
+      height: "auto",
+    },
   },
   dl: {
     ...theme.typography.body1,
     padding: theme.spacing(2),
     "& > dd:nth-child(n + 2)": {
-      marginTop: "1em"
-    }
-  }
+      marginTop: "1em",
+    },
+  },
 }));
 
 const About: React.FC<{}> = () => {

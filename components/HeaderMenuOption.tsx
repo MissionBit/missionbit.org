@@ -5,7 +5,7 @@ import {
   usePopupState,
   bindTrigger,
   bindMenu,
-  PopupState
+  PopupState,
 } from "material-ui-popup-state/hooks";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
@@ -19,7 +19,7 @@ export interface HeaderMenuOptionProps {
 const HeaderMenuOption: React.FC<HeaderMenuOptionProps> = ({
   title,
   popupId,
-  children
+  children,
 }) => {
   const popupState = usePopupState({ variant: "popover", popupId });
   return (

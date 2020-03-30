@@ -7,19 +7,19 @@ import Box from "@material-ui/core/Box";
 import Faq from "./Faq";
 import Volunteers from "./Volunteers";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& > section": {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
       "&:first-child": {
-        marginTop: 0
-      }
-    }
+        marginTop: 0,
+      },
+    },
   },
   heading: {
     margin: theme.spacing(2, 0),
-    textAlign: "center"
+    textAlign: "center",
   },
   landing: {
     padding: theme.spacing(3),
@@ -28,14 +28,14 @@ const useStyles = makeStyles(theme => ({
     "& > h1": {
       marginBottom: theme.spacing(3),
       fontWeight: "bold",
-      color: theme.palette.common.white
-    }
+      color: theme.palette.common.white,
+    },
   },
   grid: {
     "& > div > img": {
-      maxWidth: "100%"
-    }
-  }
+      maxWidth: "100%",
+    },
+  },
 }));
 
 const Main: React.FC<{}> = () => {

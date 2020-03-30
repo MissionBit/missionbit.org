@@ -7,19 +7,19 @@ import RoomIcon from "@material-ui/icons/Room";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(2, 0),
     padding: theme.spacing(2),
     "& > *": {
-      margin: theme.spacing(1, 0)
-    }
+      margin: theme.spacing(1, 0),
+    },
   },
   mapLink: {
     display: "flex",
     alignItems: "center",
-    fontSize: theme.typography.subtitle1.fontSize
-  }
+    fontSize: theme.typography.subtitle1.fontSize,
+  },
 }));
 
 const CourseDescription: React.FC<ClassInstance> = ({
@@ -28,7 +28,7 @@ const CourseDescription: React.FC<ClassInstance> = ({
   meets,
   startDate,
   endDate,
-  signupUrl
+  signupUrl,
 }) => {
   const classes = useStyles();
   return (

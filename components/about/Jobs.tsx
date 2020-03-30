@@ -2,15 +2,15 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     "& > ul": {
-      margin: `${theme.spacing(3)}px auto`
-    }
-  }
+      margin: `${theme.spacing(3)}px auto`,
+    },
+  },
 }));
 
 const Jobs: React.FC<{}> = () => {

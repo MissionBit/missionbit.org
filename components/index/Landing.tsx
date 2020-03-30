@@ -1,12 +1,12 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   section: {
     position: "relative",
     background:
       "linear-gradient(0deg, #0058A6 0%, #5869C9 48%, #A4AEE2 72%, #FFFFFF 100%)",
-    height: "100%"
+    height: "100%",
   },
 
   bridge: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     bottom: 0,
     background:
-      'no-repeat right bottom / contain url("/images/landing/bridge.svg")'
+      'no-repeat right bottom / contain url("/images/landing/bridge.svg")',
   },
 
   bridgeText: {
@@ -28,14 +28,14 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 500,
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
-      lineHeight: "2.5rem"
+      lineHeight: "2.5rem",
     },
-    lineHeight: "3rem"
+    lineHeight: "3rem",
   },
 
   bridgeLine: {
     display: "inline-block",
-    margin: "0 0.29rem"
+    margin: "0 0.29rem",
   },
 
   content: {
@@ -44,13 +44,13 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      padding: theme.spacing(3, 0, 0, 0)
+      padding: theme.spacing(3, 0, 0, 0),
     },
     [theme.breakpoints.up("md")]: {
-      justifyContent: "space-around"
+      justifyContent: "space-around",
     },
     alignItems: "center",
-    justifyItems: "center"
+    justifyItems: "center",
   },
 
   photoWrapper: {
@@ -61,9 +61,9 @@ const useStyles = makeStyles(theme => ({
       "& > img": {
         maxWidth: "50vw",
         height: "auto",
-        objectFit: "contain"
-      }
-    }
+        objectFit: "contain",
+      },
+    },
   },
 
   arrowContainer: {
@@ -71,44 +71,44 @@ const useStyles = makeStyles(theme => ({
       position: "absolute",
       bottom: 0,
       left: "50%",
-      transform: "translateX(-50%)"
+      transform: "translateX(-50%)",
     },
     [theme.breakpoints.down("sm")]: {
       display: "flex",
       flex: 1,
       flexDirection: "column",
-      justifyContent: "flex-end"
-    }
+      justifyContent: "flex-end",
+    },
   },
 
   arrowWrapper: {
     padding: "10px 40px",
-    color: "white"
+    color: "white",
   },
 
   verticalBounce: {
     animationIterationCount: "infinite",
     animation: "$verticalBounce 3.6s ease infinite",
-    transformOrigin: "50% 50%"
+    transformOrigin: "50% 50%",
   },
 
   "@keyframes verticalBounce": {
     "11.11111%": {
-      transform: "translateY(0)"
+      transform: "translateY(0)",
     },
     "22.22222%": {
-      transform: "translateY(-15px)"
+      transform: "translateY(-15px)",
     },
     "27.77778%": {
-      transform: "translateY(0)"
+      transform: "translateY(0)",
     },
     "33.33333%": {
-      transform: "translateY(-15px)"
+      transform: "translateY(-15px)",
     },
     "44.44444%": {
-      transform: "translateY(0)"
-    }
-  }
+      transform: "translateY(0)",
+    },
+  },
 }));
 
 function smoothScroll(event: React.MouseEvent<HTMLAnchorElement>): void {

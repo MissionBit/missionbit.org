@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import YouTubeVideo from "../YouTubeVideo";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   copy: {
     color: theme.palette.secondary.main,
     textAlign: "center",
@@ -13,12 +13,12 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
       marginBottom: "1em",
-      padding: "0 1em"
-    }
+      padding: "0 1em",
+    },
   },
 
   copyText: {
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
 
   section: {
@@ -30,9 +30,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       display: "flex",
       flexDirection: "column",
-      margin: "1em 0"
-    }
-  }
+      margin: "1em 0",
+    },
+  },
 }));
 
 const Events: React.FC<{}> = () => {

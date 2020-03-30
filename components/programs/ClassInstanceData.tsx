@@ -7,7 +7,7 @@ export interface Course {
 
 export enum City {
   SanFrancisco = "San Francisco",
-  Oakland = "Oakland"
+  Oakland = "Oakland",
 }
 
 export interface Campus {
@@ -44,7 +44,7 @@ export const Courses = courseRecord({
         instruction. Throughout the semester, students will build 3 websites: an
         adventure game, a portfolio, and a final project of their choice.
       </>
-    )
+    ),
   },
   game_bootcamp: {
     title: "Unity Game Design Bootcamp",
@@ -54,7 +54,7 @@ export const Courses = courseRecord({
         will learn how to create a 3D game in Unity and script in C#. No
         previous experience required.
       </>
-    )
+    ),
   },
   app_bootcamp: {
     title: "Android App Design Bootcamp",
@@ -64,21 +64,21 @@ export const Courses = courseRecord({
         learn how to program in Java and make their own app on Android phones.
         Some prior experience in coding is necessary.
       </>
-    )
-  }
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
   ccsf_mission: {
     name: "CCSF Mission Campus",
     city: City.SanFrancisco,
-    mapUrl: "https://goo.gl/maps/SkcKNk4FpfcTLwxy8"
+    mapUrl: "https://goo.gl/maps/SkcKNk4FpfcTLwxy8",
   },
   college_track_oakland: {
     name: "College Track Oakland",
     city: City.Oakland,
-    mapUrl: "https://goo.gl/maps/sqaDkSqmYtfnkQ4u6"
-  }
+    mapUrl: "https://goo.gl/maps/sqaDkSqmYtfnkQ4u6",
+  },
 });
 
 function summerClass(
@@ -92,7 +92,7 @@ function summerClass(
     meets: "Monday - Friday 9am-2pm, Wednesday 9am-12pm",
     startDate: "June 15th",
     endDate: "June 25th",
-    signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`
+    signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -100,7 +100,7 @@ export const SummerClassInstances: ClassInstance[] = [
   summerClass(Courses.web_bootcamp, Campuses.ccsf_mission, "tfa_2247"),
   summerClass(Courses.game_bootcamp, Campuses.ccsf_mission, "tfa_2248"),
   summerClass(Courses.app_bootcamp, Campuses.ccsf_mission, "tfa_2261"),
-  summerClass(Courses.web_bootcamp, Campuses.college_track_oakland, "tfa_2245")
+  summerClass(Courses.web_bootcamp, Campuses.college_track_oakland, "tfa_2245"),
 ];
 
 export default SummerClassInstances;

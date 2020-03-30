@@ -4,7 +4,7 @@ import HeaderNav from "./HeaderNav";
 const Header: React.FC<{ className?: string; alerts: React.ReactNode }> = ({
   children,
   className,
-  alerts
+  alerts,
 }) => {
   return (
     <header className={className}>

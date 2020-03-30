@@ -5,12 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { debounce } from "ts-debounce";
 import Paper, { PaperProps } from "@material-ui/core/Paper";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    minWidth: "100%"
+    minWidth: "100%",
   },
   scroller: {
     display: "flex",
@@ -20,8 +20,8 @@ const useStyles = makeStyles(theme => ({
     scrollSnapType: "x mandatory",
     scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
-      display: "none"
-    }
+      display: "none",
+    },
   },
   ul: {
     display: "flex",
@@ -33,9 +33,9 @@ const useStyles = makeStyles(theme => ({
     padding: "1rem",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
-      padding: theme.spacing(2, 0)
+      padding: theme.spacing(2, 0),
     },
-    userSelect: "none"
+    userSelect: "none",
   },
   li: {
     cursor: "pointer",
@@ -47,10 +47,10 @@ const useStyles = makeStyles(theme => ({
     "&$selected": {
       cursor: "initial",
       pointerEvents: "none",
-      backgroundColor: theme.palette.primary.main
-    }
+      backgroundColor: theme.palette.primary.main,
+    },
   },
-  selected: {}
+  selected: {},
 }));
 
 export interface CarouselProps extends PaperProps {
@@ -58,7 +58,7 @@ export interface CarouselProps extends PaperProps {
   classes?: Partial<ReturnType<typeof useStyles> & PaperProps["classes"]>;
 }
 
-const Carousel: React.FC<CarouselProps> = props => {
+const Carousel: React.FC<CarouselProps> = (props) => {
   const { children } = props;
   const [selected, setSelected] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
@@ -87,7 +87,7 @@ const Carousel: React.FC<CarouselProps> = props => {
     if (current !== null) {
       current.scrollTo({
         behavior: "smooth",
-        left: selected * (current.scrollWidth / children.length)
+        left: selected * (current.scrollWidth / children.length),
       });
     }
   }, [selected, scrollWidth, scrollerRef.current]);
@@ -121,7 +121,7 @@ const Carousel: React.FC<CarouselProps> = props => {
   }, [scrollerRef.current]);
   const defaults = {
     elevation: 0,
-    square: true
+    square: true,
   };
   return (
     <Paper
@@ -139,9 +139,9 @@ const Carousel: React.FC<CarouselProps> = props => {
             key={idx}
             data-key={idx}
             className={clsx(classes.li, {
-              [classes.selected]: idx === selected
+              [classes.selected]: idx === selected,
             })}
-            onClick={event => {
+            onClick={(event) => {
               event.preventDefault();
               setSelected(idx);
             }}

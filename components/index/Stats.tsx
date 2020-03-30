@@ -6,7 +6,7 @@ import PeopleIcon from "@material-ui/icons/People";
 import LaptopIcon from "@material-ui/icons/Laptop";
 import SchoolIcon from "@material-ui/icons/School";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   section: {
     width: "100%",
     textAlign: "center",
@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "space-around",
     [theme.breakpoints.down("xs")]: {
-      flexDirection: "column"
-    }
+      flexDirection: "column",
+    },
   },
   line: {
     fontFamily: "Arial, Helvetica, sans-serif",
@@ -23,42 +23,42 @@ const useStyles = makeStyles(theme => ({
     margin: "3em",
     [theme.breakpoints.down("sm")]: {
       fontSize: "24px",
-      margin: theme.spacing(2)
-    }
+      margin: theme.spacing(2),
+    },
   },
   value: {
     fontSize: "120%",
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
-      display: "inline-block"
-    }
+      display: "inline-block",
+    },
   },
   copy: {
     [theme.breakpoints.down("xs")]: {
       display: "inline-block",
       "&::before": {
         content: `"\\00a0"`,
-        display: "inline-block"
-      }
-    }
+        display: "inline-block",
+      },
+    },
   },
   icon: {
     fontSize: "500%",
     [theme.breakpoints.down("xs")]: {
       fontSize: "400%",
       display: "block",
-      margin: "0 auto"
-    }
+      margin: "0 auto",
+    },
   },
   color1: {
-    color: brand.violet
+    color: brand.violet,
   },
   color2: {
-    color: brand.blue
+    color: brand.blue,
   },
   color3: {
-    color: brand.orange
-  }
+    color: brand.orange,
+  },
 }));
 
 const Stats: React.FC<{}> = () => {

@@ -7,7 +7,7 @@ import {
   usePopupState,
   PopupState,
   bindTrigger,
-  bindMenu
+  bindMenu,
 } from "material-ui-popup-state/hooks";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -45,8 +45,8 @@ const commonNav: NavMenuChoice[] = [
       { text: "What we do", anchor: "" },
       { text: "Our values", anchor: "#values" },
       { text: "Our team", anchor: "#team" },
-      { text: "Our supporters", anchor: "#supporters" }
-    ]
+      { text: "Our supporters", anchor: "#supporters" },
+    ],
   },
   { text: "Programs", href: "/programs" },
   { text: "Events", href: "/events" },
@@ -56,8 +56,8 @@ const commonNav: NavMenuChoice[] = [
     href: "https://donate.missionbit.org/",
     buttonProps: {
       variant: "outlined",
-      color: "primary"
-    }
+      color: "primary",
+    },
   },
   {
     text: "Get updates",
@@ -65,30 +65,30 @@ const commonNav: NavMenuChoice[] = [
     buttonProps: {
       variant: "outlined",
       color: "secondary",
-      onClick: focusGetUpdates
-    }
-  }
+      onClick: focusGetUpdates,
+    },
+  },
 ];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   desktop: {
     [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
   mobile: {
     [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
-  }
+      display: "none",
+    },
+  },
 }));
 
 const useStylesMobile = makeStyles(() => ({
   logo: {
     position: "relative",
     maxHeight: "2.75rem",
-    top: "1px"
-  }
+    top: "1px",
+  },
 }));
 
 const useStylesDesktop = makeStyles(() => ({
@@ -104,18 +104,18 @@ const useStylesDesktop = makeStyles(() => ({
       marginRight: "2em",
       "&:first-child": {
         flexGrow: 1,
-        marginRight: 0
+        marginRight: 0,
       },
       "&:last-child": {
-        marginRight: 0
-      }
-    }
+        marginRight: 0,
+      },
+    },
   },
   logo: {
     position: "relative",
     maxHeight: "3rem",
-    top: "1px"
-  }
+    top: "1px",
+  },
 }));
 
 const menuItems = (
@@ -155,7 +155,7 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
                 popupId={`popup-${text}`}
                 href={href}
               >
-                {popupState => menuItems(href, popupState, subMenu)}
+                {(popupState) => menuItems(href, popupState, subMenu)}
               </HeaderMenuOption>
             )}
           </li>
@@ -175,7 +175,7 @@ const MobileHeaderNav: React.FC<{ className: string }> = ({ className }) => {
   const classes = useStylesMobile();
   const popupState = usePopupState({
     variant: "popover",
-    popupId: "mobile-menu"
+    popupId: "mobile-menu",
   });
   return (
     <AppBar

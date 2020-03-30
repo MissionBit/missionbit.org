@@ -6,23 +6,23 @@ import { brand } from "./colors";
 const themeOptions: ThemeOptions = {
   palette: {
     primary: {
-      main: brand.orange
+      main: brand.orange,
     },
     secondary: {
-      main: brand.blue
+      main: brand.blue,
     },
     error: {
-      main: red.A400
+      main: red.A400,
     },
     background: {
-      default: common.white
-    }
+      default: common.white,
+    },
   },
   typography: {
     button: {
-      textTransform: "inherit"
-    }
-  }
+      textTransform: "inherit",
+    },
+  },
 };
 
 export default themeOptions;

@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     margin: "0 auto",
     maxWidth: "90%",
-    padding: theme.spacing(3, 0)
+    padding: theme.spacing(3, 0),
   },
   value: {
     flex: "1 0 180px",
@@ -19,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2),
     textAlign: "center",
     "& > h5": {
-      margin: theme.spacing(1, 0)
-    }
+      margin: theme.spacing(1, 0),
+    },
   },
   icon: {
     backgroundPosition: "center",
@@ -28,8 +28,8 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "contain",
     margin: "0 auto",
     maxWidth: 180,
-    height: 140
-  }
+    height: 140,
+  },
 }));
 
 const Values: React.FC<{}> = () => {

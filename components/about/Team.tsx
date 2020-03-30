@@ -9,10 +9,10 @@ import Popover from "@material-ui/core/Popover";
 import {
   bindTrigger,
   usePopupState,
-  bindPopover
+  bindPopover,
 } from "material-ui-popup-state/hooks";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   container: {
     display: "grid",
     gridGap: theme.spacing(2),
@@ -24,30 +24,30 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-around",
       padding: 0,
-      gridTemplateColumns: "repeat(auto-fit, 160px)"
-    }
+      gridTemplateColumns: "repeat(auto-fit, 160px)",
+    },
   },
   heading: {
     margin: theme.spacing(2, 0),
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   imageBio: {
     position: "relative",
     "& img": {
       minWidth: "100px",
       maxWidth: "150px",
-      borderRadius: "50%"
-    }
+      borderRadius: "50%",
+    },
   },
   bio: {
     position: "absolute",
     right: -theme.spacing(1),
-    bottom: -theme.spacing(1)
+    bottom: -theme.spacing(1),
   },
   bioTypography: {
     padding: theme.spacing(1),
-    maxWidth: 600
-  }
+    maxWidth: 600,
+  },
 }));
 
 const BioPopover: React.FC<{
@@ -56,7 +56,7 @@ const BioPopover: React.FC<{
 }> = ({ name, children, className }) => {
   const popupState = usePopupState({
     variant: "popover",
-    popupId: `bio-${name.replace(/\s/g, "-")}`
+    popupId: `bio-${name.replace(/\s/g, "-")}`,
   });
   return (
     <>
@@ -73,11 +73,11 @@ const BioPopover: React.FC<{
         {...bindPopover(popupState)}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "center"
+          horizontal: "center",
         }}
         transformOrigin={{
           vertical: "top",
-          horizontal: "center"
+          horizontal: "center",
         }}
       >
         {children}
@@ -93,7 +93,7 @@ const Team: React.FC<{}> = () => {
     name,
     title,
     image,
-    bio
+    bio,
   }) => (
     <div>
       <div className={classes.imageBio}>
@@ -132,7 +132,7 @@ const Team: React.FC<{}> = () => {
             </Typography>
           )}
           <Box className={classes.container}>
-            {members.map(props => (
+            {members.map((props) => (
               <TeamMember key={props.name} {...props} />
             ))}
           </Box>

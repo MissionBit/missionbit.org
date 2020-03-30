@@ -6,24 +6,24 @@ import { brand } from "../../src/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import SignUpButton from "./SignUpButton";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: brand.orange,
-    padding: theme.spacing(4, 0)
+    padding: theme.spacing(4, 0),
   },
   heading: {
     margin: theme.spacing(0, 0, 4, 0),
-    textAlign: "center"
+    textAlign: "center",
   },
   wrapper: {
     padding: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
   },
   signUp: {
-    marginTop: theme.spacing(2)
-  }
+    marginTop: theme.spacing(2),
+  },
 }));
 
 const Volunteers: React.FC<{}> = () => {

@@ -13,8 +13,8 @@ const useStyles = makeStyles(() => ({
       is at the very top of the stats section
     */
     display: "flex",
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+  },
 }));
 
 const Index: React.FC<{}> = () => {

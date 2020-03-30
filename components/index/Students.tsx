@@ -8,7 +8,7 @@ import {
   ThemeProvider,
   createMuiTheme,
   useTheme,
-  Theme
+  Theme,
 } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
 
@@ -31,7 +31,7 @@ const testimonials: readonly StudentTestimonial[] = [
         either a professional gamer or software engineer.
       </>
     ),
-    photo: "/images/students/nicholas.jpg"
+    photo: "/images/students/nicholas.jpg",
   },
   {
     name: "Abel",
@@ -45,7 +45,7 @@ const testimonials: readonly StudentTestimonial[] = [
         are meaningful to them and create the change that they want to see.
       </>
     ),
-    photo: "/images/students/abel.jpg"
+    photo: "/images/students/abel.jpg",
   },
   {
     name: "Eric",
@@ -57,7 +57,7 @@ const testimonials: readonly StudentTestimonial[] = [
         neighborhood, Bayview Hunters Point.
       </>
     ),
-    photo: "/images/students/eric.jpg"
+    photo: "/images/students/eric.jpg",
   },
   {
     name: "Gisela",
@@ -73,17 +73,17 @@ const testimonials: readonly StudentTestimonial[] = [
         student.
       </>
     ),
-    photo: "/images/students/gisela.jpg"
-  }
+    photo: "/images/students/gisela.jpg",
+  },
 ];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   section: {
     height: "80vh",
     [theme.breakpoints.down("sm")]: {
       height: "700px",
-      maxHeight: "100vh"
-    }
+      maxHeight: "100vh",
+    },
   },
   testimonial: {
     width: "100%",
@@ -93,19 +93,19 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3),
     scrollSnapAlign: "center",
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(1, 0, 0, 0)
+      padding: theme.spacing(1, 0, 0, 0),
     },
     "--accent-color": brand.orange,
     "&:nth-child(even)": {
-      "--accent-color": brand.ultra
-    }
+      "--accent-color": brand.ultra,
+    },
   },
   title: {
     alignSelf: "flex-start",
     [theme.breakpoints.down("sm")]: {
       marginBottom: theme.spacing(2),
-      padding: theme.spacing(0, 1)
-    }
+      padding: theme.spacing(0, 1),
+    },
   },
   name: {
     ...theme.typography.h3,
@@ -113,16 +113,16 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h4.fontSize,
-      display: "block"
-    }
+      display: "block",
+    },
   },
   program: {
     ...theme.typography.h4,
     color: theme.palette.common.white,
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h5.fontSize
-    }
+      fontSize: theme.typography.h5.fontSize,
+    },
   },
   photoQuote: {
     display: "flex",
@@ -131,8 +131,8 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      justifyContent: "center"
-    }
+      justifyContent: "center",
+    },
   },
   photo: {
     display: "flex",
@@ -147,8 +147,8 @@ const useStyles = makeStyles(theme => ({
       maxWidth: "initial",
       maxHeight: "calc(100vw * 0.667)",
       height: "calc(100vw * 0.667)",
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   quote: {
     ...theme.typography.h5,
@@ -159,12 +159,12 @@ const useStyles = makeStyles(theme => ({
       borderRadius: 0,
       margin: `auto 0`,
       padding: theme.spacing(3, 1),
-      maxWidth: "initial"
+      maxWidth: "initial",
     },
     position: "relative",
     display: "flex",
     alignItems: "center",
-    maxWidth: 445
+    maxWidth: 445,
   },
   brQuote: {
     position: "absolute",
@@ -173,8 +173,8 @@ const useStyles = makeStyles(theme => ({
     transform: "translate(40%, 40%) scale(2)",
     color: `var(--accent-color, ${brand.orange})`,
     [theme.breakpoints.down("sm")]: {
-      transform: "translate(-20%, -10%) scale(1)"
-    }
+      transform: "translate(-20%, -10%) scale(1)",
+    },
   },
   tlQuote: {
     position: "absolute",
@@ -183,28 +183,28 @@ const useStyles = makeStyles(theme => ({
     transform: "translate(-40%, -40%) scale(-2)",
     color: `var(--accent-color, ${brand.orange})`,
     [theme.breakpoints.down("sm")]: {
-      transform: "scale(-1)"
-    }
-  }
+      transform: "scale(-1)",
+    },
+  },
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
   palette: {
     type: "dark",
     background: {
-      paper: brand.royal
+      paper: brand.royal,
     },
-    primary: theme.palette.primary
+    primary: theme.palette.primary,
   },
   typography: {
-    button: theme.typography.button
-  }
+    button: theme.typography.button,
+  },
 });
 
 const Students: React.FC<{}> = () => {
   const defaultTheme = useTheme();
   const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme
+    defaultTheme,
   ]);
 
   const classes = useStyles();
@@ -212,7 +212,7 @@ const Students: React.FC<{}> = () => {
     name,
     program,
     quote,
-    photo
+    photo,
   }) => (
     <div className={classes.testimonial}>
       <div className={classes.title}>
@@ -224,7 +224,7 @@ const Students: React.FC<{}> = () => {
           title={`Photo of ${name}`}
           className={classes.photo}
           style={{
-            backgroundImage: `url(${photo})`
+            backgroundImage: `url(${photo})`,
           }}
         />
         <div className={classes.quote}>

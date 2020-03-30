@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({
   headerClassName,
   footerClassName,
   headerChildren,
-  alerts
+  alerts,
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -50,7 +50,7 @@ const Layout: React.FC<LayoutProps> = ({
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        {[64, 128, 256].map(size => (
+        {[64, 128, 256].map((size) => (
           <ShortcutPng key={size} size={size} />
         ))}
       </Head>

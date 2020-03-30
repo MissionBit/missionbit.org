@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { useState } from "react";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
     gridGap: theme.spacing(1),
@@ -18,24 +18,24 @@ const useStyles = makeStyles(theme => ({
     color: "#333",
     padding: theme.spacing(1),
     "& > li > *": {
-      fontWeight: "inherit"
-    }
+      fontWeight: "inherit",
+    },
   },
   footer: {
     width: "100%",
-    textAlign: "center"
+    textAlign: "center",
   },
   copyright: {
     borderTop: `1px solid ${theme.palette.primary.main}`,
     padding: theme.spacing(3, 2),
     // Manually control where wrapping can happen
     "& span": {
-      whiteSpace: "nowrap"
-    }
+      whiteSpace: "nowrap",
+    },
   },
   address: {
-    fontStyle: "normal"
-  }
+    fontStyle: "normal",
+  },
 }));
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => {

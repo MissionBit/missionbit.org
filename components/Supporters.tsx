@@ -4,7 +4,7 @@ import SupporterData, { SupporterDataProps } from "./SupporterData";
 import { makeStyles } from "@material-ui/core/styles";
 import BackgroundSlider from "./index/BackgroundSlider";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     alignItems: "center",
@@ -12,12 +12,12 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(0, 3),
       maxWidth: 150,
       maxHeight: 150,
-      objectFit: "contain"
-    }
+      objectFit: "contain",
+    },
   },
   heading: {
-    marginBottom: "1rem"
-  }
+    marginBottom: "1rem",
+  },
 }));
 
 const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
@@ -40,7 +40,7 @@ const Supporters: React.FC<{}> = () => {
       </Typography>
       <BackgroundSlider duration={40}>
         <div className={classes.root}>
-          {SupporterData.map(props => (
+          {SupporterData.map((props) => (
             <Supporter key={props.logo} {...props} />
           ))}
         </div>

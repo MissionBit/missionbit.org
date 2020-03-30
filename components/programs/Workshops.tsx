@@ -10,19 +10,19 @@ import {
   ThemeProvider,
   createMuiTheme,
   useTheme,
-  Theme
+  Theme,
 } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2, 0),
-    textAlign: "center"
+    textAlign: "center",
   },
   workshopHeading: {
     [theme.breakpoints.up("md")]: {
-      display: "block"
-    }
+      display: "block",
+    },
   },
   wrapper: {
     display: "flex",
@@ -32,48 +32,48 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("md")]: {
       "& > h6": {
         flex: "1 0 50%",
-        textAlign: "left"
+        textAlign: "left",
       },
       "& > img": {
         flex: 1,
-        marginLeft: theme.spacing(2)
-      }
+        marginLeft: theme.spacing(2),
+      },
     },
     "& > *": {
-      margin: theme.spacing(2, 0)
+      margin: theme.spacing(2, 0),
     },
     "& > h5": {
       flex: "1 0 100%",
-      fontWeight: "bold"
+      fontWeight: "bold",
     },
     "& > img": {
       maxWidth: "100%",
       maxHeight: "25vh",
-      objectFit: "contain"
-    }
-  }
+      objectFit: "contain",
+    },
+  },
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
   palette: {
     type: "dark",
     background: {
-      paper: brand.orange
+      paper: brand.orange,
     },
     text: {
-      primary: theme.palette.common.black
-    }
+      primary: theme.palette.common.black,
+    },
   },
   typography: {
-    button: theme.typography.button
-  }
+    button: theme.typography.button,
+  },
 });
 
 const Workshops: React.FC<{}> = () => {
   const classes = useStyles();
   const defaultTheme = useTheme();
   const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme
+    defaultTheme,
   ]);
   return (
     <ThemeProvider theme={theme}>

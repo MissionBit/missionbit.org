@@ -7,7 +7,7 @@ import {
   ThemeProvider,
   createMuiTheme,
   useTheme,
-  Theme
+  Theme,
 } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -15,64 +15,64 @@ import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { brand } from "../src/colors";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   subscribe: {
     padding: theme.spacing(3),
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   field: {
     margin: theme.spacing(2, 0),
     width: 340,
     maxWidth: "100%",
     [theme.breakpoints.down("sm")]: {
-      width: "100%"
+      width: "100%",
     },
     "& > label": {
-      fontWeight: "bold"
-    }
+      fontWeight: "bold",
+    },
   },
   photo: {
     width: "20vw",
     maxWidth: "288px",
     height: "auto",
     [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
-  }
+      display: "none",
+    },
+  },
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
   palette: {
     type: "dark",
     background: {
-      paper: brand.royal
+      paper: brand.royal,
     },
-    primary: theme.palette.primary
+    primary: theme.palette.primary,
   },
   typography: {
-    button: theme.typography.button
-  }
+    button: theme.typography.button,
+  },
 });
 
-const SubscribeButton = withStyles(theme => ({
+const SubscribeButton = withStyles((theme) => ({
   outlinedPrimary: {
     color: theme.palette.primary.main,
     border: `2px solid ${theme.palette.primary.main}`,
     "&:hover": {
       border: `2px solid ${theme.palette.primary.main}`,
       backgroundColor: theme.palette.primary.main,
-      color: theme.palette.text.primary
-    }
-  }
+      color: theme.palette.text.primary,
+    },
+  },
 }))(Button);
 
 const Subscribe: React.FC<{}> = () => {
   const classes = useStyles();
   const defaultTheme = useTheme();
   const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme
+    defaultTheme,
   ]);
   return (
     <ThemeProvider theme={theme}>

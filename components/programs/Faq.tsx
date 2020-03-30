@@ -4,17 +4,17 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import FaqItem from "../FaqItem";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
-      paddingRight: 0
+      paddingRight: 0,
     },
     "& > h4": {
       margin: theme.spacing(2, 0),
-      textAlign: "center"
-    }
-  }
+      textAlign: "center",
+    },
+  },
 }));
 
 const Faq: React.FC<{}> = () => {

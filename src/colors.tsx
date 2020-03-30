@@ -3,5 +3,5 @@ export const brand = {
   blue: "#0169C9",
   violet: "#DC139C",
   royal: "#4B5798",
-  ultra: "#FF5CCC"
+  ultra: "#FF5CCC",
 };
