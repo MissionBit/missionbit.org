@@ -2,7 +2,7 @@ import * as React from "react";
 import AddToCalendar from "./AddToCalendar";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import YouTubeVideo from "../YouTubeVideo";
+import GalaVideo from "./GalaVideo";
 import {
   Sponsors,
   SponsorData,
@@ -96,8 +96,8 @@ const Gala: React.FC<{}> = () => {
         </Typography>
         <Typography>
           For more information on sponsorships, see our{" "}
-          <a href="/gala/sponsorship/">Gala Sponsorship Packages</a>
-          or contact us at{" "}
+          <a href="/gala/sponsorship/">Gala Sponsorship Packages</a> or contact
+          us at{" "}
           <a href="mailto:development@missionbit.org">
             development@missionbit.org
           </a>
@@ -123,13 +123,13 @@ const Gala: React.FC<{}> = () => {
           For any questions regarding{" "}
           <a href="/gala/sponsorship/">Gala Sponsorship Packages</a>,
           {/* or to use a payment method other than credit card, */ " "}
-          please contact us at
+          please contact us at{" "}
           <a href="mailto:development@missionbit.org">
             development@missionbit.org
           </a>
           .
         </Typography>
-        <YouTubeVideo id="oTSNS227No4" />
+        <GalaVideo />
       </Container>
       <Container component="section" className={classes.sponsorSection}>
         {SponsorLevels.map((level) => {
