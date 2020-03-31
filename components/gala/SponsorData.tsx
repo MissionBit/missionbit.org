@@ -7,9 +7,10 @@ export interface SponsorData {
   level: SponsorLevel;
 }
 
-type SponsorLevel = "platinum" | "gold" | "silver" | "bronze";
+export const SponsorLevels = ["platinum", "gold", "silver", "bronze"] as const;
+export type SponsorLevel = typeof SponsorLevels[number];
 
-const SPONSORS: SponsorData[] = [
+export const Sponsors: SponsorData[] = [
   {
     href: "https://www.facebook.com/",
     title: "Facebook",
@@ -100,4 +101,4 @@ const SPONSORS: SponsorData[] = [
   },
 ];
 
-export default SPONSORS;
+export default Sponsors;
