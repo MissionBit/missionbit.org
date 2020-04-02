@@ -55,9 +55,9 @@ const useStyles = makeStyles((theme) => ({
   },
   galaSponsors: {
     display: "grid",
-    gridGap: "20px",
+    gridGap: theme.spacing(4),
     gridTemplateColumns: "repeat(auto-fit, minmax(60px, 1fr))",
-    gridTemplateRows: "repeat(auto-fit, minmax(60px, 120px))",
+    gridTemplateRows: "repeat(auto-fit, 60px)",
     "& a": {
       margin: 0,
       alignSelf: "center",
@@ -83,8 +83,7 @@ const Gala: React.FC<{}> = () => {
     <main id="main">
       <Container component="section">
         <Typography variant="h2" className="gala-save-the-date-heading">
-          Save the Date
-          <AddToCalendar />
+          Save the Date <AddToCalendar />
         </Typography>
         <Typography variant="h2" className="gala-save-the-date">
           November 12, 2020, 6pm-10pm, San Francisco

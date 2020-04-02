@@ -1,4 +1,8 @@
 import * as React from "react";
+import EventableLogo from "./EventableLogo";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import useScript from "react-script-hook";
 
 export interface EventableEvent {
   readonly key: string;
@@ -10,24 +14,32 @@ const DEFAULT_EVENT: EventableEvent = {
   eventId: "5def5f83eed98e001c61f0c8",
 };
 
+const useStyles = makeStyles({
+  logo: {
+    height: "1rem",
+    width: "1rem",
+    marginRight: "0.5rem",
+  },
+});
+
 const AddToCalendar: React.FC<{ event?: EventableEvent }> = ({ event }) => {
   const { key, eventId } = event ?? DEFAULT_EVENT;
+  const classes = useStyles();
+  useScript({ src: "https://plugins.eventable.com/eventable.js" });
   return (
-    <a
+    <Button
       href={`https://add.eventable.com/events/${key}/${eventId}/`}
-      className="eventable-link"
+      variant="contained"
+      color="secondary"
       target="_blank"
       rel="noopener noreferrer"
       data-key={key}
       data-event={eventId}
       data-style="1"
     >
-      <img
-        className="eventable-img"
-        src="https://plugins.eventable.com/assets/eventable-logo.svg"
-      />
+      <EventableLogo className={classes.logo} />
       <span>Add to Calendar</span>
-    </a>
+    </Button>
   );
 };
 
