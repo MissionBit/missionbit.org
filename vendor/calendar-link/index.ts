@@ -1,0 +1,162 @@
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import { stringify } from "query-string";
+
+import {
+  CalendarEvent as ICalendarEvent,
+  NormalizedCalendarEvent,
+  Google,
+  Outlook,
+  Yahoo,
+} from "./interfaces";
+import { TimeFormats } from "./utils";
+
+// Babel workaround
+export type CalendarEvent = ICalendarEvent;
+
+dayjs.extend(utc);
+
+function formatTimes(
+  { allDay, startUtc, endUtc }: NormalizedCalendarEvent,
+  dateTimeFormat: Exclude<keyof typeof TimeFormats, "allDay">
+): { start: string; end: string } {
+  const format = TimeFormats[allDay ? "allDay" : dateTimeFormat];
+  return { start: startUtc.format(format), end: endUtc.format(format) };
+}
+
+export const eventify = (event: CalendarEvent): NormalizedCalendarEvent => {
+  const { start, end, duration, ...rest } = event;
+  const startUtc = dayjs(start).utc();
+  const endUtc = end
+    ? dayjs(end).utc()
+    : (() => {
+        if (event.allDay) {
+          return startUtc.add(1, "day");
+        }
+        if (duration && duration.length == 2) {
+          const value = Number(duration[0]);
+          const unit = duration[1];
+          return startUtc.add(value, unit);
+        }
+        return dayjs().utc();
+      })();
+  if (!rest.url && typeof document == "object") {
+    rest.url = document.URL;
+  }
+  return {
+    ...rest,
+    startUtc,
+    endUtc,
+  };
+};
+
+export const google = (calendarEvent: CalendarEvent): string => {
+  const event = eventify(calendarEvent);
+  const { start, end } = formatTimes(event, "dateTimeUTC");
+  const details: Google = {
+    action: "TEMPLATE",
+    text: event.title,
+    details: event.description,
+    location: event.location,
+    trp: event.busy,
+    dates: start + "/" + end,
+  };
+  if (event.guests && event.guests.length) {
+    details.add = event.guests.join();
+  }
+  return `https://calendar.google.com/calendar/render?${stringify(details)}`;
+};
+
+export const outlook = (calendarEvent: CalendarEvent): string => {
+  const event = eventify(calendarEvent);
+  const { start, end } = formatTimes(event, "dateTime");
+  const details: Outlook = {
+    path: "/calendar/action/compose",
+    rru: "addevent",
+    startdt: start,
+    enddt: end,
+    subject: event.title,
+    body: event.description,
+    location: event.location,
+  };
+  return `https://outlook.live.com/owa/?${stringify(details)}`;
+};
+
+export const yahoo = (calendarEvent: CalendarEvent): string => {
+  const event = eventify(calendarEvent);
+  const { start, end } = formatTimes(event, "dateTimeUTC");
+  const details: Yahoo = {
+    v: 60,
+    title: event.title,
+    st: start,
+    et: end,
+    desc: event.description,
+    in_loc: event.location,
+  };
+  return `https://calendar.yahoo.com/?${stringify(details)}`;
+};
+
+export const ics = (calendarEvent: CalendarEvent): string => {
+  const event = eventify(calendarEvent);
+  const formattedDescription: string = (event.description || "")
+    .replace(/\n/gm, "\\n")
+    .replace(/(\\n)[\s\t]+/gm, "\\n");
+
+  const { start, end } = formatTimes(event, "dateTimeUTC");
+  const calendarChunks = [
+    {
+      key: "BEGIN",
+      value: "VCALENDAR",
+    },
+    {
+      key: "VERSION",
+      value: "2.0",
+    },
+    {
+      key: "BEGIN",
+      value: "VEVENT",
+    },
+    {
+      key: "URL",
+      value: event.url,
+    },
+    {
+      key: "DTSTART",
+      value: start,
+    },
+    {
+      key: "DTEND",
+      value: end,
+    },
+    {
+      key: "SUMMARY",
+      value: event.title,
+    },
+    {
+      key: "DESCRIPTION",
+      value: formattedDescription,
+    },
+    {
+      key: "LOCATION",
+      value: event.location,
+    },
+    {
+      key: "END",
+      value: "VEVENT",
+    },
+    {
+      key: "END",
+      value: "VCALENDAR",
+    },
+  ];
+
+  let calendarUrl: string = "";
+
+  calendarChunks.forEach((chunk) => {
+    if (chunk.value) {
+      calendarUrl += `${chunk.key}:${encodeURIComponent(`${chunk.value}\n`)}`;
+    }
+  });
+
+  return `data:text/calendar;charset=utf8,${calendarUrl}`;
+};
