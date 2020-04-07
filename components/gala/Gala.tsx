@@ -75,17 +75,26 @@ const useStyles = makeStyles((theme) => ({
   sponsorSection: {
     paddingBottom: theme.spacing(4),
   },
+  copySection: {
+    "& > p": {
+      margin: theme.spacing(2, 0),
+    },
+  },
 }));
 
 const Gala: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <main id="main">
-      <Container component="section">
-        <Typography variant="h2" className="gala-save-the-date-heading">
+      <Container component="section" className={classes.copySection}>
+        <Typography
+          variant="h2"
+          align="center"
+          className="gala-save-the-date-heading"
+        >
           Save the Date <AddToCalendar />
         </Typography>
-        <Typography variant="h2" className="gala-save-the-date">
+        <Typography variant="h3" align="center" className="gala-save-the-date">
           November 12, 2020, 6pm-10pm, San Francisco
         </Typography>
         <Typography>
@@ -95,7 +104,7 @@ const Gala: React.FC<{}> = () => {
         </Typography>
         <Typography>
           For more information on sponsorships, see our{" "}
-          <a href="/gala/sponsorship/">Gala Sponsorship Packages</a> or contact
+          <a href="/gala/sponsorship">Gala Sponsorship Packages</a> or contact
           us at{" "}
           <a href="mailto:development@missionbit.org">
             development@missionbit.org
@@ -120,7 +129,7 @@ const Gala: React.FC<{}> = () => {
         </Typography>
         <Typography>
           For any questions regarding{" "}
-          <a href="/gala/sponsorship/">Gala Sponsorship Packages</a>,
+          <a href="/gala/sponsorship">Gala Sponsorship Packages</a>,
           {/* or to use a payment method other than credit card, */ " "}
           please contact us at{" "}
           <a href="mailto:development@missionbit.org">

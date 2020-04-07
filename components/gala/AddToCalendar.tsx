@@ -34,11 +34,7 @@ const CalendarOptions: CalendarOption[] = [
     key: "google",
     title: (
       <>
-        <GoogleLogo
-          fontSize="small"
-          style={{ verticalAlign: "top", marginRight: "0.25rem" }}
-        />{" "}
-        Google Calendar
+        <GoogleLogo fontSize="small" /> Google Calendar
       </>
     ),
     eventUrl: google,
@@ -47,11 +43,7 @@ const CalendarOptions: CalendarOption[] = [
     key: "apple",
     title: (
       <>
-        <AppleLogo
-          fontSize="small"
-          style={{ verticalAlign: "top", marginRight: "0.25rem" }}
-        />{" "}
-        Apple Calendar
+        <AppleLogo fontSize="small" /> Apple Calendar
       </>
     ),
     eventUrl: ics,
@@ -60,11 +52,7 @@ const CalendarOptions: CalendarOption[] = [
     key: "outlook-desktop",
     title: (
       <>
-        <WindowsLogo
-          fontSize="small"
-          style={{ verticalAlign: "top", marginRight: "0.25rem" }}
-        />{" "}
-        Outlook Desktop
+        <WindowsLogo fontSize="small" /> Outlook Desktop
       </>
     ),
     eventUrl: ics,
@@ -74,11 +62,7 @@ const CalendarOptions: CalendarOption[] = [
     title: (
       <>
         {" "}
-        <OutlookLogo
-          fontSize="small"
-          style={{ verticalAlign: "top", marginRight: "0.25rem" }}
-        />{" "}
-        Outlook.com
+        <OutlookLogo fontSize="small" /> Outlook.com
       </>
     ),
     eventUrl: outlook,
@@ -87,10 +71,7 @@ const CalendarOptions: CalendarOption[] = [
     key: "yahoo",
     title: (
       <>
-        <YahooLogo
-          fontSize="small"
-          style={{ verticalAlign: "top", marginRight: "0.25rem" }}
-        />
+        <YahooLogo fontSize="small" />
         Yahoo Calendar
       </>
     ),
@@ -111,6 +92,12 @@ const useStyles = makeStyles({
     height: "1rem",
     width: "1rem",
     marginRight: "0.5rem",
+  },
+  link: {
+    "& svg": {
+      verticalAlign: "top",
+      marginRight: "0.25rem",
+    },
   },
 });
 
@@ -143,6 +130,7 @@ const AddToCalendar: React.FC<{ event?: CalendarEvent }> = ({
           <MenuItem key={key} onClick={closePopup}>
             <Link
               href={eventUrl(event)}
+              className={classes.link}
               color="textPrimary"
               underline="none"
               target="_blank"
