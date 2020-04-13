@@ -97,7 +97,7 @@ const Workshops: React.FC<{}> = () => {
             and Javascript.
           </Typography>
           <img
-            src="images/program/workshops/workshops-1.jpg"
+            src="/images/program/workshops/workshops-1.jpg"
             alt="Student at laptop"
           />
           <Typography variant="h6">
@@ -108,7 +108,7 @@ const Workshops: React.FC<{}> = () => {
             how to create your own game.
           </Typography>
           <img
-            src="images/program/workshops/workshops-2.jpg"
+            src="/images/program/workshops/workshops-2.jpg"
             alt="Student at laptop with mentor"
           />
           <Typography variant="h5">

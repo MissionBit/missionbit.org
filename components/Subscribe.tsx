@@ -84,7 +84,7 @@ const Subscribe: React.FC<{}> = () => {
         id="get-updates"
       >
         <object
-          data="images/subscribe/subscribe.svg"
+          data="/images/subscribe/subscribe.svg"
           className={classes.photo}
         />
         <form
