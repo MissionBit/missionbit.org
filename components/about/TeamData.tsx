@@ -269,11 +269,6 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     image: "board/bob_ippolito.jpg",
   },
   {
-    name: "Mark Jacobson",
-    title: "Founder & CEO at Terrain Advisors",
-    image: "board/mark_jacobson.jpg",
-  },
-  {
     name: "Abhay Kumar",
     title: "Investor and Advisor",
     image: "board/abhay_kumar.jpg",
