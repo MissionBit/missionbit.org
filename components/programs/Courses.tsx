@@ -1,9 +1,10 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
-import ClassInstances, { ClassInstance } from "./ClassInstanceData";
+import { City, ClassOrWorkshopInstance } from "./ClassInstanceData";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
+import PublicIcon from "@material-ui/icons/Public";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1, 0),
     },
   },
+  worldIcon: {
+    marginRight: "0.2rem",
+  },
   mapLink: {
     display: "flex",
     alignItems: "center",
@@ -22,33 +26,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CourseDescription: React.FC<ClassInstance> = ({
-  course,
-  campus,
-  meets,
-  startDate,
-  endDate,
-  signupUrl,
+const CourseDescription: React.FC<{ instance: ClassOrWorkshopInstance }> = ({
+  instance,
 }) => {
   const classes = useStyles();
+  const { course, campus, meets, signupUrl } = instance;
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
       <Typography variant="h5">{course.title}</Typography>
       <Typography>
         <strong>Meets:</strong> {meets}
       </Typography>
-      <Typography>
-        <strong>Dates:</strong> {startDate} - {endDate}
-      </Typography>
-      <Link
-        href={campus.mapUrl}
-        color="secondary"
-        target="_blank"
-        rel="noopener"
-        className={classes.mapLink}
-      >
-        <RoomIcon /> {campus.name}
-      </Link>
+      {instance.type === "class" ? (
+        <Typography>
+          <strong>Dates:</strong> {instance.startDate} - {instance.endDate}
+        </Typography>
+      ) : null}
+      {campus.city === City.Online ? (
+        <span className={classes.mapLink}>
+          <PublicIcon className={classes.worldIcon} /> {campus.name}
+        </span>
+      ) : (
+        <Link
+          href={campus.mapUrl}
+          color="secondary"
+          target="_blank"
+          rel="noopener"
+          className={classes.mapLink}
+        >
+          <RoomIcon /> {campus.name}
+        </Link>
+      )}
       <Button
         href={signupUrl}
         variant="contained"
@@ -63,11 +71,13 @@ const CourseDescription: React.FC<ClassInstance> = ({
   );
 };
 
-const Courses: React.FC<{}> = () => {
+const Courses: React.FC<{ instances: ClassOrWorkshopInstance[] }> = ({
+  instances,
+}) => {
   return (
     <>
-      {ClassInstances.map((props, i) => (
-        <CourseDescription key={i} {...props} />
+      {instances.map((props, i) => (
+        <CourseDescription key={i} instance={props} />
       ))}
     </>
   );

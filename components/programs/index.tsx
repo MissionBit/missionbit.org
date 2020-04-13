@@ -9,6 +9,9 @@ import Workshops from "./Workshops";
 import Courses from "./Courses";
 import Faq from "./Faq";
 import Showcase from "../Showcase";
+import SummerClassInstances, {
+  SpringClassInstances,
+} from "./ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -92,14 +95,25 @@ const Main: React.FC<{}> = () => {
           meaningful connections and gives students all the tools they need to
           succeed in the tech industry.
         </Typography>
+        <Typography>
+          There are no GPA requirements and any San Francisco public or charter
+          school student is encouraged to apply. Given the lack of diversity in
+          the tech industry and our focus on equity, we accept applications from
+          students of color and girls who attend private schools in San
+          Francisco, as well.
+        </Typography>
       </Container>
       <Container component="section" id="enroll">
         <Typography variant="h3" align="center" className={classes.alert}>
+          Spring 2020 Workshops:
+        </Typography>
+        <Courses instances={SpringClassInstances} />
+        <Typography variant="h3" align="center" className={classes.alert}>
           Sign up for Summer 2020 classes now!
           <br />
-          Registration deadline: 5/20/20
+          Registration deadline: Sunday, May 31, 2020 at 8pm
         </Typography>
-        <Courses />
+        <Courses instances={SummerClassInstances} />
       </Container>
       <Container component="section" id="enroll-notes">
         <Typography variant="h6">For Summer 2020 Courses:</Typography>

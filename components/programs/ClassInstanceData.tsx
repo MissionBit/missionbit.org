@@ -8,22 +8,35 @@ export interface Course {
 export enum City {
   SanFrancisco = "San Francisco",
   Oakland = "Oakland",
+  Online = "Online",
 }
 
-export interface Campus {
+export interface LocalCampus {
   name: React.ReactNode;
   mapUrl: string;
-  city: City;
+  city: Exclude<City, typeof City.Online>;
 }
 
-export interface ClassInstance {
+type Campus = { name: "Online"; city: typeof City.Online } | LocalCampus;
+
+export interface MeetInstance {
   course: Course;
   campus: Campus;
   meets: React.ReactNode;
-  startDate: string;
-  endDate: string;
   signupUrl: string;
 }
+
+export interface ClassInstance extends MeetInstance {
+  type: "class";
+  startDate: string;
+  endDate: string;
+}
+
+export interface WorkshopInstance extends MeetInstance {
+  type: "workshop";
+}
+
+export type ClassOrWorkshopInstance = ClassInstance | WorkshopInstance;
 
 function courseRecord<T extends Record<string, Course>>(x: T): T {
   return x;
@@ -66,9 +79,22 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  beginner_unity_workshop: {
+    title: "Beginner Unity Game Design Workshop",
+    description: (
+      <>
+        This is an introductory workshop facilitated by Mission Bit Student
+        Ambassadors. No game design or coding experience necessary.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
+  online: {
+    name: "Online",
+    city: City.Online,
+  },
   ccsf_mission: {
     name: "CCSF Mission Campus",
     city: City.SanFrancisco,
@@ -87,6 +113,7 @@ function summerClass(
   formAssemblyId: string
 ): ClassInstance {
   return {
+    type: "class",
     course,
     campus,
     meets: "Monday - Friday 9am-2pm, Wednesday 9am-12pm",
@@ -96,11 +123,20 @@ function summerClass(
   };
 }
 
-export const SummerClassInstances: ClassInstance[] = [
+export const SummerClassInstances: ClassOrWorkshopInstance[] = [
   summerClass(Courses.web_bootcamp, Campuses.ccsf_mission, "tfa_2247"),
   summerClass(Courses.game_bootcamp, Campuses.ccsf_mission, "tfa_2248"),
-  summerClass(Courses.app_bootcamp, Campuses.ccsf_mission, "tfa_2261"),
   summerClass(Courses.web_bootcamp, Campuses.college_track_oakland, "tfa_2245"),
+];
+
+export const SpringClassInstances: ClassOrWorkshopInstance[] = [
+  {
+    type: "workshop",
+    course: Courses.beginner_unity_workshop,
+    campus: Campuses.online,
+    meets: "Thursday April 23rd, 3:30pm - 5pm PDT",
+    signupUrl: "https://www.tfaforms.com/4816324",
+  },
 ];
 
 export default SummerClassInstances;
