@@ -70,15 +70,6 @@ const Main: React.FC<{}> = () => {
           <Grid item xs={4}>
             <img src="/images/program/jesus.jpg" />
           </Grid>
-          <Grid item xs={4}>
-            <img src="/images/program/miguel_yanez.jpg" />
-          </Grid>
-          <Grid item xs={4}>
-            <img src="/images/program/safia_jaleel.jpg" />
-          </Grid>
-          <Grid item xs={4}>
-            <img src="/images/program/nathan_powell.jpg" />
-          </Grid>
         </Grid>
       </Box>
       <Container component="section" id="description">

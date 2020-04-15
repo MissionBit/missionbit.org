@@ -6,6 +6,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Faq from "./Faq";
 import Volunteers from "./Volunteers";
+import PhotoText from "./PhotoText";
+import WaysToGive from "./WaysToGive";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,10 +18,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 0,
       },
     },
-  },
-  heading: {
-    margin: theme.spacing(2, 0),
-    textAlign: "center",
   },
   landing: {
     padding: theme.spacing(3),
@@ -59,31 +57,30 @@ const Main: React.FC<{}> = () => {
         </Grid>
       </Box>
       <Container component="section" id="description">
-        <Typography>
-          Let's work together! Discover how you can make an impact in your
-          community to empower the next generation of innovators. Use your
-          talents to help us diversify the tech industry.
-        </Typography>
-        <Typography>
-          Your donation to Mission Bit helps educate and equip students to
-          pursue opportunities in tech. Your donation will help us:
-          <br />
-          1. Reach more students with our free programs
-          <br />
-          2. Find and train Facilitators and Teachers for our Semester Courses
-          and Summer Bootcamps
-          <br />
-          3. Create a world-class curriculum for our classrooms
-          <br />
-          4. Diversify the tech industry
-          <br />
-        </Typography>
+        <PhotoText src="/images/get-involved/volunteer-1.jpg">
+          <Typography>
+            Let's work together! Discover how you can make an impact in your
+            community to empower the next generation of innovators. Use your
+            talents to help us diversify the tech industry.
+          </Typography>
+          <Typography>
+            Your donation to Mission Bit helps educate and equip students to
+            pursue opportunities in tech. Your donation will help us:
+            <br />
+            <br />
+            1. Reach more students with our free programs
+            <br />
+            2. Find and train Facilitators and Teachers for our Semester Courses
+            and Summer Bootcamps
+            <br />
+            3. Create a world-class curriculum for our classrooms
+            <br />
+            4. Diversify the tech industry
+            <br />
+          </Typography>
+        </PhotoText>
       </Container>
-      <Container component="section" id="give">
-        <Typography variant="h4" className={classes.heading}>
-          Ways to Give
-        </Typography>
-      </Container>
+      <WaysToGive />
       <Volunteers />
       <Faq />
     </main>
