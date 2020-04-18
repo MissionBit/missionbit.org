@@ -17,7 +17,7 @@ export interface LocalCampus {
   city: Exclude<City, typeof City.Online>;
 }
 
-type Campus = { name: "Online"; city: typeof City.Online } | LocalCampus;
+type Campus = { name: React.ReactNode; city: typeof City.Online } | LocalCampus;
 
 export interface MeetInstance {
   course: Course;
@@ -95,6 +95,14 @@ export const Campuses = campusRecord({
     name: "Online",
     city: City.Online,
   },
+  online_sf: {
+    name: "Online (For San Francisco Students)",
+    city: City.Online,
+  },
+  online_oakland: {
+    name: "Online (For Oakland Students)",
+    city: City.Online,
+  },
   ccsf_mission: {
     name: "CCSF Mission Campus",
     city: City.SanFrancisco,
@@ -116,7 +124,7 @@ function summerClass(
     type: "class",
     course,
     campus,
-    meets: "Monday - Friday 9am-2pm, Wednesday 9am-12pm",
+    meets: "Monday, Wednesday, Friday 10:30am - 2:30pm",
     startDate: "June 15th",
     endDate: "June 25th",
     signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
@@ -124,10 +132,19 @@ function summerClass(
 }
 
 export const SummerClassInstances: ClassOrWorkshopInstance[] = [
-  summerClass(Courses.web_bootcamp, Campuses.ccsf_mission, "tfa_2247"),
-  summerClass(Courses.game_bootcamp, Campuses.ccsf_mission, "tfa_2248"),
-  summerClass(Courses.web_bootcamp, Campuses.college_track_oakland, "tfa_2245"),
+  summerClass(Courses.web_bootcamp, Campuses.online_sf, "tfa_2247"),
+  summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
+  summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
 ];
+export const SummerRegistrationDeadline: React.FC<{}> = () => (
+  <>Sunday, May 24, 2020 at 8pm</>
+);
+export const SummerInterviewDate: React.FC<{}> = () => (
+  <>Wednesday, May 27th, 2020</>
+);
+export const SummerDemoDayDate: React.FC<{}> = () => (
+  <>Saturday, July 25th, 2020</>
+);
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   {
@@ -138,5 +155,3 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     signupUrl: "https://www.tfaforms.com/4816324",
   },
 ];
-
-export default SummerClassInstances;

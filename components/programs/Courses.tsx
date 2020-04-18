@@ -43,9 +43,15 @@ const CourseDescription: React.FC<{ instance: ClassOrWorkshopInstance }> = ({
         </Typography>
       ) : null}
       {campus.city === City.Online ? (
-        <span className={classes.mapLink}>
+        <Link
+          href={signupUrl}
+          color="secondary"
+          target="_blank"
+          rel="noopener"
+          className={classes.mapLink}
+        >
           <PublicIcon className={classes.worldIcon} /> {campus.name}
-        </span>
+        </Link>
       ) : (
         <Link
           href={campus.mapUrl}

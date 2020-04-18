@@ -9,8 +9,12 @@ import Workshops from "./Workshops";
 import Courses from "./Courses";
 import Faq from "./Faq";
 import Showcase from "../Showcase";
-import SummerClassInstances, {
+import {
+  SummerClassInstances,
   SpringClassInstances,
+  SummerRegistrationDeadline,
+  SummerInterviewDate,
+  SummerDemoDayDate,
 } from "./ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
@@ -102,7 +106,7 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h3" align="center" className={classes.alert}>
           Sign up for Summer 2020 classes now!
           <br />
-          Registration deadline: Sunday, May 31, 2020 at 8pm
+          Registration deadline: <SummerRegistrationDeadline />
         </Typography>
         <Courses instances={SummerClassInstances} />
       </Container>
@@ -120,7 +124,7 @@ const Main: React.FC<{}> = () => {
             in a group interview. Applicants will receive an invitation to be
             interviewed after the registration deadline has passed.{" "}
             <strong>
-              Interviews will take place on Wednesday, June 3rd, 2020.
+              Interviews will take place on <SummerInterviewDate />.
             </strong>{" "}
             Please provide accurate email information to receive your
             invitation.
@@ -129,11 +133,13 @@ const Main: React.FC<{}> = () => {
             Each term ends with Demo Day, which is a required event for
             students. Friends and family are strongly encouraged to attend;
             please mark your calendar for{" "}
-            <strong>Saturday, July 25th, 2020.</strong>
+            <strong>
+              <SummerDemoDayDate />.
+            </strong>
           </li>
           <li>
             <strong>
-              Registration Deadline is Sunday, May 31, 2020 at 8pm.
+              Registration Deadline is <SummerRegistrationDeadline />.
             </strong>
           </li>
         </ul>

@@ -21,15 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Address: React.FC<{}> = () => (
-  <address>
-    Mission Bit
-    <br />
-    101A Clay St., #121 <br />
-    San Francisco, CA 94111
-    <br />
-  </address>
-);
+// const Address: React.FC<{}> = () => (
+//   <address>
+//     Mission Bit
+//     <br />
+//     101A Clay St., #121 <br />
+//     San Francisco, CA 94111
+//     <br />
+//   </address>
+// );
 
 const DevelopmentEmail: React.FC<{}> = () => (
   <Link href="mailto:development@missionbit.org">
@@ -54,6 +54,7 @@ const WaysToGive: React.FC<{}> = () => {
         commitment to provide computer science education for free by choosing
         "Monthly".
       </FaqItem>
+      {/*
       <FaqItem question="By Mail">
         Please fill out our Donation Form and address all incoming mail to:
         <br />
@@ -71,6 +72,7 @@ const WaysToGive: React.FC<{}> = () => {
         <br />
         <Address />
       </FaqItem>
+      */}
       <FaqItem question="Planned Giving">
         Planned giving allows you to make a significant impact in changing the
         culture around diversity in tech. Consider making a gift through planned
