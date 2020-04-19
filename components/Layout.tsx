@@ -31,7 +31,7 @@ const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
 function getOrigin(): string {
   const defaultOrigin = "https://www.missionbit.org";
   if (typeof window === "undefined" && typeof process !== "undefined") {
-    return process.env.NOW_URL || defaultOrigin;
+    return process.env.URL?.replace(/\/$/, "") || defaultOrigin;
   }
   return defaultOrigin;
 }
