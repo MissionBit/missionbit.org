@@ -8,6 +8,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import themeOptions from "../src/theme";
 import Roboto from "./fonts/Roboto";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 export interface LayoutProps {
   title: string;
@@ -88,6 +89,7 @@ const Layout: React.FC<LayoutProps> = ({
         {[64, 128, 256].map((size) => (
           <ShortcutPng key={size} size={size} />
         ))}
+        <GoogleAnalytics />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
