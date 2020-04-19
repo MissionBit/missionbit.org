@@ -1,8 +1,3 @@
 {
-  "build": {
-    "env": {
-      "URL": "@NOW_URL"
-    }
-  },
   "trailingSlash": false
 }
