@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import { useEffect, useMemo } from "react";
 import Head from "next/head";
 import Header from "./Header";
@@ -14,6 +15,8 @@ export interface LayoutProps {
   headerChildren?: React.ReactNode;
   headerClassName?: string;
   footerClassName?: string;
+  pageImage?: string;
+  pageDescription?: string;
 }
 
 const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
@@ -25,6 +28,21 @@ const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
   />
 );
 
+function getOrigin(): string {
+  const defaultOrigin = "https://www.missionbit.org";
+  if (typeof window === "undefined" && typeof process !== "undefined") {
+    return process.env.NOW_URL || defaultOrigin;
+  }
+  return defaultOrigin;
+}
+
+function absoluteUrl(pathOrUrl: string) {
+  return pathOrUrl.startsWith("/") ? `${getOrigin()}${pathOrUrl}` : pathOrUrl;
+}
+
+const DEFAULT_DESCRIPTION: string =
+  "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";
+
 const Layout: React.FC<LayoutProps> = ({
   title,
   children,
@@ -32,6 +50,8 @@ const Layout: React.FC<LayoutProps> = ({
   footerClassName,
   headerChildren,
   alerts,
+  pageImage,
+  pageDescription,
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -41,6 +61,7 @@ const Layout: React.FC<LayoutProps> = ({
     }
   });
   const theme = useMemo(() => createMuiTheme(themeOptions), []);
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -49,6 +70,20 @@ const Layout: React.FC<LayoutProps> = ({
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@missionbit" />
+        <meta
+          property="og:image"
+          content={absoluteUrl(pageImage ?? "/images/social/logo-fb.png")}
+        />
+        <meta property="og:title" content={title} />
+        <meta property="og:site_name" content="Mission Bit" />
+        <meta property="og:type" content="non_profit" />
+        <meta property="og:url" content={absoluteUrl(router.asPath)} />
+        <meta
+          property="og:description"
+          content={pageDescription ?? DEFAULT_DESCRIPTION}
         />
         {[64, 128, 256].map((size) => (
           <ShortcutPng key={size} size={size} />

@@ -25,6 +25,7 @@ const legacyRedirects = [
 }));
 
 const nextConfig = {
+  target: "serverless",
   experimental: {
     redirects() {
       return [...slashRedirects, ...legacyRedirects];
