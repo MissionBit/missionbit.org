@@ -16,7 +16,7 @@ export interface LayoutProps {
   headerClassName?: string;
   footerClassName?: string;
   pageImage?: string;
-  pageDescription?: string;
+  description?: string;
 }
 
 const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
@@ -51,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({
   headerChildren,
   alerts,
   pageImage,
-  pageDescription,
+  description,
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -83,7 +83,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta property="og:url" content={absoluteUrl(router.asPath)} />
         <meta
           property="og:description"
-          content={pageDescription ?? DEFAULT_DESCRIPTION}
+          content={description ?? DEFAULT_DESCRIPTION}
         />
         {[64, 128, 256].map((size) => (
           <ShortcutPng key={size} size={size} />
