@@ -4,7 +4,7 @@
   "description": "Mission Bit's website",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next",
     "build": "next build",
     "export": "next export",
     "start": "next start",

@@ -16,6 +16,7 @@ import {
   SummerInterviewDate,
   SummerDemoDayDate,
 } from "./ClassInstanceData";
+import YouTubePreview from "./YouTubePreview";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -147,6 +148,16 @@ const Main: React.FC<{}> = () => {
           For additional questions about registration, please contact us at{" "}
           <a href="mailto:info@missionbit.org">info@missionbit.org.</a>
         </Typography>
+        <br />
+        <Typography variant="h6">Videos from Summer 2019:</Typography>
+        <Box>
+          <YouTubePreview id="RZgGXRmfdh0">Orientation</YouTubePreview>
+          <YouTubePreview id="9HqfU7-DCao">Demo Day</YouTubePreview>
+          <YouTubePreview id="-e0v7Zx-fy0">Mini-Doc Ep 1</YouTubePreview>
+          <YouTubePreview id="z9Iz6Z-XH8o">Mini-Doc Ep 2</YouTubePreview>
+          <YouTubePreview id="de8JieFe88Y">Mini-Doc Ep 3</YouTubePreview>
+          <YouTubePreview id="1eJZBmQtJu0">Mini-Doc Ep 4</YouTubePreview>
+        </Box>
       </Container>
       <Workshops />
       <Faq />
