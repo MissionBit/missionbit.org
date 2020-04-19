@@ -54,3 +54,23 @@ ext install editorconfig.editorconfig
 ext install dbaeumer.vscode-eslint
 ext install esbenp.prettier-vscode
 ```
+
+## Coding Conventions
+
+This site is built with the [Next.js](https://nextjs.org/) framework in
+[Typescript](https://www.typescriptlang.org/) using
+[React](https://reactjs.org/).
+
+The user interface is primarily built using components from
+[Material-UI](https://material-ui.com/) and we use Material-UI's styling
+solution [@material-ui/styles](https://material-ui.com/styles/basics/)
+to manage CSS.
+
+Code formatting and style is managed automatically with
+[Prettier](https://prettier.io/) and [ESLint](https://eslint.org/).
+This is automatically run before each git commit by
+[husky](https://github.com/typicode/husky).
+
+At this time, the entirety of the site is built in a way such that
+it can be statically rendered as plain HTML with `next export`, there
+are no routes that depend on any server-side code other than the redirects.
