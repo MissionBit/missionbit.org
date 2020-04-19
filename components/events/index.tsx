@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 import YouTubePreview from "../YouTubePreview";
 import { makeStyles } from "@material-ui/core/styles";
 import YouTubePreviews from "../YouTubePreviews";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -37,9 +38,11 @@ const Upcoming: React.FC<{ date: string; href: string }> = ({
   children,
 }) => {
   return (
-    <div>
-      {date} <a href={href}>{children}</a>
-    </div>
+    <Box>
+      <Typography variant="h5" align="center">
+        {date} - <a href={href}>{children}</a>
+      </Typography>
+    </Box>
   );
 };
 
