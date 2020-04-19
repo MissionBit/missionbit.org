@@ -16,7 +16,8 @@ import {
   SummerInterviewDate,
   SummerDemoDayDate,
 } from "./ClassInstanceData";
-import YouTubePreview from "./YouTubePreview";
+import YouTubePreview from "../YouTubePreview";
+import YouTubePreviews from "../YouTubePreviews";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -150,14 +151,14 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <br />
         <Typography variant="h6">Videos from Summer 2019:</Typography>
-        <Box>
+        <YouTubePreviews>
           <YouTubePreview id="RZgGXRmfdh0">Orientation</YouTubePreview>
           <YouTubePreview id="9HqfU7-DCao">Demo Day</YouTubePreview>
           <YouTubePreview id="-e0v7Zx-fy0">Mini-Doc Ep 1</YouTubePreview>
           <YouTubePreview id="z9Iz6Z-XH8o">Mini-Doc Ep 2</YouTubePreview>
           <YouTubePreview id="de8JieFe88Y">Mini-Doc Ep 3</YouTubePreview>
           <YouTubePreview id="1eJZBmQtJu0">Mini-Doc Ep 4</YouTubePreview>
-        </Box>
+        </YouTubePreviews>
       </Container>
       <Workshops />
       <Faq />

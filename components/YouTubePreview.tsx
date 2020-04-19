@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +14,13 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     alignItems: "center",
     "&:hover $overlay": {
-      color: "red",
+      opacity: "100%",
+      "&$youTube": {
+        color: "red",
+      },
+      "&$playArrow": {
+        color: theme.palette.common.white,
+      },
     },
   },
   title: {
@@ -25,9 +32,19 @@ const useStyles = makeStyles((theme) => ({
   },
   overlay: {
     position: "absolute",
-    right: theme.spacing(1),
-    bottom: theme.spacing(1),
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+    opacity: "80%",
+    transition: theme.transitions.easing.easeIn,
+  },
+  youTube: {
+    fontSize: "3rem",
     color: theme.palette.common.white,
+  },
+  playArrow: {
+    fontSize: "1.455rem",
+    color: theme.palette.common.black,
   },
   wrapper: {
     position: "relative",
@@ -48,9 +65,10 @@ const YouTubePreview: React.FC<{ id: string }> = ({ id, children }) => {
           src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}
           className={classes.img}
         />
-        <YouTubeIcon className={classes.overlay} />
+        <YouTubeIcon className={`${classes.overlay} ${classes.youTube}`} />
+        <PlayArrowIcon className={`${classes.overlay} ${classes.playArrow}`} />
       </Box>
-      <Typography variant="h4" className={classes.title}>
+      <Typography variant="h5" className={classes.title}>
         {children}
       </Typography>
     </Link>
