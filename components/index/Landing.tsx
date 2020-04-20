@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
-    fontSize: "32px",
+    fontSize: theme.typography.pxToRem(32),
     maxWidth: 500,
     [theme.breakpoints.down("sm")]: {
-      fontSize: "24px",
+      fontSize: theme.typography.pxToRem(24),
       lineHeight: "2.5rem",
     },
     lineHeight: "3rem",

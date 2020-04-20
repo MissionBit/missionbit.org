@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
-    fontSize: "32px",
+    fontSize: theme.typography.pxToRem(32),
     lineHeight: "3rem",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "24px",
+      fontSize: theme.typography.pxToRem(24),
       marginBottom: "1em",
       padding: "0 1em",
     },

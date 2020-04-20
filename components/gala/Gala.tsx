@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
     paddingLeft: 0,
     textIndent: 0,
-    fontSize: "16px",
+    fontSize: theme.typography.pxToRem(16),
     "& > li[data-bullet]": {
       display: "flex",
       minHeight: "2em",

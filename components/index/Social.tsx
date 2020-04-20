@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
+    padding: theme.spacing(2, 0),
   },
   icons: {
     margin: theme.spacing(2),
