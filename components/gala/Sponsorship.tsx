@@ -5,6 +5,7 @@ import GalaVideo from "./GalaVideo";
 import { Sponsors, SponsorData } from "./SponsorData";
 import { makeStyles } from "@material-ui/core/styles";
 import AdobePdfLogo from "./brands/AdobePdfLogo";
+import { galaStartEnd } from "./GalaDates";
 
 const useStyles = makeStyles((theme) => ({
   sponsors: {
@@ -56,7 +57,7 @@ const Sponsorship: React.FC<{}> = () => {
           Sponsor the 2020 Mission Bit Gala
         </Typography>
         <Typography variant="h3" align="center">
-          November 12, 2019, 6pm-10pm, San Francisco
+          {galaStartEnd()}, San Francisco
         </Typography>
         <Typography>
           <a href="/gala">Mission Bit's Fourth Annual Gala</a> is a celebration

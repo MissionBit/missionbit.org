@@ -9,6 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import themeOptions from "../src/theme";
 import Roboto from "./fonts/Roboto";
 import GoogleAnalytics from "./GoogleAnalytics";
+import absoluteUrl from "../src/absoluteUrl";
 
 export interface LayoutProps {
   title: string;
@@ -28,18 +29,6 @@ const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
     type="image/png"
   />
 );
-
-function getOrigin(): string {
-  const defaultOrigin = "https://www.missionbit.org";
-  if (typeof window === "undefined" && typeof process !== "undefined") {
-    return process.env.URL?.replace(/\/$/, "") || defaultOrigin;
-  }
-  return defaultOrigin;
-}
-
-function absoluteUrl(pathOrUrl: string) {
-  return pathOrUrl.startsWith("/") ? `${getOrigin()}${pathOrUrl}` : pathOrUrl;
-}
 
 const DEFAULT_DESCRIPTION: string =
   "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";

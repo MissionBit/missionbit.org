@@ -79,14 +79,6 @@ const CalendarOptions: CalendarOption[] = [
   },
 ];
 
-const DEFAULT_EVENT: CalendarEvent = {
-  title: "Mission Bit Gala 2020",
-  start: "2020-11-12T18:00-08:00",
-  end: "2020-11-12T22:00-08:00",
-  location: "San Francisco, CA",
-  url: "https://www.missionbit.org/gala/",
-};
-
 const useStyles = makeStyles({
   logo: {
     height: "1rem",
@@ -101,9 +93,7 @@ const useStyles = makeStyles({
   },
 });
 
-const AddToCalendar: React.FC<{ event?: CalendarEvent }> = ({
-  event = DEFAULT_EVENT,
-}) => {
+const AddToCalendar: React.FC<{ event: CalendarEvent }> = ({ event }) => {
   const classes = useStyles();
   const popupState = usePopupState({
     variant: "popover",

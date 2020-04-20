@@ -34,6 +34,8 @@ export interface ClassInstance extends MeetInstance {
 
 export interface WorkshopInstance extends MeetInstance {
   type: "workshop";
+  date: number;
+  minutes: number;
 }
 
 export type ClassOrWorkshopInstance = ClassInstance | WorkshopInstance;
@@ -150,5 +152,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     campus: Campuses.online,
     meets: "Thursday April 23rd, 3:30pm - 5pm PDT",
     signupUrl: "https://www.tfaforms.com/4816324",
+    date: Date.parse("2020-04-23T15:30:00-07:00"),
+    minutes: 90,
   },
 ];

@@ -10,6 +10,7 @@ import {
   SponsorLevels,
 } from "./SponsorData";
 import { makeStyles } from "@material-ui/core/styles";
+import { GalaCalendarEvent, galaStartEnd } from "./GalaDates";
 
 const Sponsor: React.FC<SponsorData> = (props) => (
   <a
@@ -92,10 +93,10 @@ const Gala: React.FC<{}> = () => {
           align="center"
           className="gala-save-the-date-heading"
         >
-          Save the Date <AddToCalendar />
+          Save the Date <AddToCalendar event={GalaCalendarEvent} />
         </Typography>
         <Typography variant="h3" align="center" className="gala-save-the-date">
-          November 12, 2020, 6pm-10pm, San Francisco
+          {galaStartEnd()}, San Francisco
         </Typography>
         <Typography>
           Mission Bit's Fourth Annual Gala is a celebration of seven years of
