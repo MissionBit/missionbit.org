@@ -35,15 +35,16 @@ const legacyRedirects = [
   { source: "/laptop/mac.html", destination: "/laptop/mac" },
   {
     source: "/laptop/mac",
+    statusCode: 302,
     destination:
       "https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub",
   },
   // TODO:
   // * /teacher-resources
-].map(({ source, destination }) => ({
+].map(({ source, destination, statusCode = 301 }) => ({
   source,
   destination,
-  statusCode: 301,
+  statusCode,
 }));
 
 const nextConfig = {
