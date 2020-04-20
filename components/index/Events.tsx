@@ -45,7 +45,12 @@ const Events: React.FC<{}> = () => {
           participated!
         </div>
         <div>
-          <Button size="medium" variant="contained" color="secondary" href="#">
+          <Button
+            size="medium"
+            variant="contained"
+            color="secondary"
+            href="/gala"
+          >
             See More
           </Button>
         </div>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Stats from "./Stats";
-import Events from "./Events";
+// import Events from "./Events";
 import Students from "./Students";
 import Social from "./Social";
 import Supporters from "../Supporters";
@@ -22,7 +22,7 @@ const Index: React.FC<{}> = () => {
   return (
     <main id="main" className={classes.main}>
       <Stats />
-      <Events />
+      {/*<Events />*/}
       <Students />
       <Social />
       <Supporters />
