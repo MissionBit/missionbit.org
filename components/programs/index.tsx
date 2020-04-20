@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
+import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import Workshops from "./Workshops";
 import Courses from "./Courses";
@@ -28,9 +29,22 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  description: {
+    "& > p": {
+      marginBottom: theme.spacing(2),
+    },
+  },
+  deadline: {
+    marginTop: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      "& > strong": {
+        display: "block",
+      },
+    },
+  },
   alert: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h4.fontSize,
+      fontSize: theme.typography.h5.fontSize,
     },
   },
   landing: {
@@ -77,26 +91,27 @@ const Main: React.FC<{}> = () => {
           </Grid>
         </Grid>
       </Box>
-      <Container component="section" id="description">
+      <Container
+        component="section"
+        id="description"
+        className={classes.description}
+      >
         <Typography>
-          Mission Bit provides free semester-long project-based coding courses
-          to high school students from underserved and underrepresented
-          communities. We offer our students career and college advising related
-          to the technology field, a field trip to a Bay Area tech company, and
-          an opportunity to showcase their group projects to a large community
-          of supporters during our Demo Day event at the end of the term. Our
+          Mission Bit provides free after-school coding courses,{" "}
+          <Link href="#workshops">workshops</Link>, and{" "}
+          <Link href="#courses">summer programs</Link> to high school students
+          from underserved and underrepresented communities.
+        </Typography>
+        <Typography>
+          We offer our students career and college advising related to the
+          technology field, a field trip to a Bay Area tech company, and an
+          opportunity to showcase their group projects to a large community of
+          supporters during our Demo Day event at the end of the term. Our
           program’s inclusive community fosters positive relationships between
           students, their peers, and our experienced classroom leaders. Mission
           Bit brings like-minded individuals together to form long-lasting
           meaningful connections and gives students all the tools they need to
           succeed in the tech industry.
-        </Typography>
-        <Typography>
-          There are no GPA requirements and any San Francisco public or charter
-          school student is encouraged to apply. Given the lack of diversity in
-          the tech industry and our focus on equity, we accept applications from
-          students of color and girls who attend private schools in San
-          Francisco, as well.
         </Typography>
       </Container>
       <Container component="section" id="enroll">
@@ -116,9 +131,12 @@ const Main: React.FC<{}> = () => {
           id="courses"
         >
           Sign up for Summer 2020 classes now!
-          <br />
+        </Typography>
+        <Typography align="center" className={classes.deadline}>
           Registration deadline:{" "}
-          {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
+          <strong>
+            {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
+          </strong>
         </Typography>
         <Courses instances={SummerClassInstances} />
       </Container>

@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      "& > form > h5": {
+        fontSize: theme.typography.h6.fontSize,
+      },
+    },
   },
   field: {
     margin: theme.spacing(2, 0),

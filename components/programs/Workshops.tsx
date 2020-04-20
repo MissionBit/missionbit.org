@@ -29,6 +29,14 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      "& > h5": {
+        fontSize: theme.typography.h6.fontSize,
+      },
+      "& > h6": {
+        fontSize: theme.typography.body1.fontSize,
+      },
+    },
     [theme.breakpoints.up("md")]: {
       "& > h6": {
         flex: "1 0 50%",
