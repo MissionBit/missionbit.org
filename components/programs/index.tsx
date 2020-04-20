@@ -68,13 +68,13 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
-            <img src="/images/program/girl-unity.jpg" />
+            <img src={require("../../public/images/program/girl-unity.jpg")} />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/jada.jpg" />
+            <img src={require("../../public/images/program/jada.jpg")} />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/jesus.jpg" />
+            <img src={require("../../public/images/program/jesus.jpg")} />
           </Grid>
         </Grid>
       </Box>

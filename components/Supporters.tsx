@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
-    <img src={`/images/supporters/${logo}`} alt={title} />
+    <img src={require(`../public/images/supporters/${logo}`)} alt={title} />
   </a>
 );
 

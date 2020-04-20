@@ -36,7 +36,9 @@ const Volunteers: React.FC<{}> = () => {
           Our Volunteers
         </Typography>
         <Paper elevation={0} className={classes.wrapper}>
-          <PhotoText src="/images/get-involved/volunteer-2.jpg">
+          <PhotoText
+            src={require("../../public/images/get-involved/volunteer-2.jpg")}
+          >
             <Typography variant="body1">
               Mission Bit's volunteers are the heart and soul of the
               organization. Our classroom volunteers play an essential role in

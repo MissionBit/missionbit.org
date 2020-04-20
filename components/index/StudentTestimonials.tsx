@@ -21,7 +21,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         it's like in the tech industry.
       </>
     ),
-    photo: "/images/students/alyssa.jpg",
+    photo: require("../../public/images/students/alyssa.jpg"),
   },
   {
     name: "Vincent",
@@ -37,7 +37,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         interested in coding.
       </>
     ),
-    photo: "/images/students/vincent.jpg",
+    photo: require("../../public/images/students/vincent.jpg"),
   },
   {
     name: "Nicholas",
@@ -50,7 +50,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         either a professional gamer or software engineer.
       </>
     ),
-    photo: "/images/students/nicholas.jpg",
+    photo: require("../../public/images/students/nicholas.jpg"),
   },
   {
     name: "Abel",
@@ -64,7 +64,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         are meaningful to them and create the change that they want to see.
       </>
     ),
-    photo: "/images/students/abel.jpg",
+    photo: require("../../public/images/students/abel.jpg"),
   },
   {
     name: "Eric",
@@ -76,7 +76,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         neighborhood, Bayview Hunters Point.
       </>
     ),
-    photo: "/images/students/eric.jpg",
+    photo: require("../../public/images/students/eric.jpg"),
   },
   {
     name: "Gisela",
@@ -92,6 +92,6 @@ export const testimonials: readonly StudentTestimonial[] = [
         student.
       </>
     ),
-    photo: "/images/students/gisela.jpg",
+    photo: require("../../public/images/students/gisela.jpg"),
   },
 ];

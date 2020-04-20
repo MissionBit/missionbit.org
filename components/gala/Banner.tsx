@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {
-    background:
-      "url(/images/gala/2020-poster-save-the-date.jpg) no-repeat center/100%",
+    background: `url(${require("../../public/images/gala/2020-poster-save-the-date.jpg")}) no-repeat center/100%`,
     width: "100%",
     height: 0,
     overflow: "hidden",

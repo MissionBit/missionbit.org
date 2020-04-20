@@ -167,7 +167,10 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
 
 const LogoHome: React.FC<{ className: string }> = ({ className }) => (
   <a href="/">
-    <img src="/images/missionbit-logo-horizontal.svg" className={className} />
+    <img
+      src={require("../public/images/missionbit-logo-horizontal.svg")}
+      className={className}
+    />
   </a>
 );
 

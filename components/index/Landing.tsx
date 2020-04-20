@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     bottom: 0,
-    background:
-      'no-repeat right bottom / contain url("/images/landing/bridge.svg")',
+    background: `no-repeat right bottom / contain url(${require("../../public/images/landing/bridge.svg")})`,
   },
 
   bridgeText: {
@@ -54,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
   photoWrapper: {
     padding: "77px 57px",
-    background: 'space url("/images/landing/circle.svg")',
+    background: `space url(${require("../../public/images/landing/circle.svg")})`,
     flexShrink: 1,
     "& > img": {
       maxWidth: `calc(50vmin - ${theme.spacing(3)}px)`,
@@ -121,7 +120,7 @@ const Landing: React.FC<{}> = () => {
         <div>
           <div className={classes.photoWrapper}>
             <img
-              src="/images/landing/landing-photo.jpg"
+              src={require("../../public/images/landing/landing-photo.jpg")}
               width="485"
               height="498"
               alt="Two students at a laptop"
@@ -142,7 +141,7 @@ const Landing: React.FC<{}> = () => {
             onClick={smoothScroll}
           >
             <img
-              src="/images/landing/down-arrow.svg"
+              src={require("../../public/images/landing/down-arrow.svg")}
               className={classes.verticalBounce}
             />
           </a>

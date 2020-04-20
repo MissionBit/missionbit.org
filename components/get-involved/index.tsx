@@ -46,18 +46,26 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
-            <img src="/images/program/miguel_yanez.jpg" />
+            <img
+              src={require("../../public/images/program/miguel_yanez.jpg")}
+            />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/nathan_powell.jpg" />
+            <img
+              src={require("../../public/images/program/nathan_powell.jpg")}
+            />
           </Grid>
           <Grid item xs={4}>
-            <img src="/images/program/safia_jaleel.jpg" />
+            <img
+              src={require("../../public/images/program/safia_jaleel.jpg")}
+            />
           </Grid>
         </Grid>
       </Box>
       <Container component="section" id="description">
-        <PhotoText src="/images/get-involved/volunteer-1.jpg">
+        <PhotoText
+          src={require("../../public/images/get-involved/volunteer-1.jpg")}
+        >
           <Typography>
             Let's work together! Discover how you can make an impact in your
             community to empower the next generation of innovators. Use your

@@ -3,6 +3,14 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+const images = {
+  community: require("../../public/images/about/values-community.svg"),
+  love: require("../../public/images/about/values-love.svg"),
+  accountability: require("../../public/images/about/values-accountability.svg"),
+  socialJustice: require("../../public/images/about/values-social-justice.svg"),
+  smartRisks: require("../../public/images/about/values-smart-risks.svg"),
+};
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -57,26 +65,20 @@ const Values: React.FC<{}> = () => {
         Our Values
       </Typography>
       <Box className={classes.root}>
-        <Value title="Community" src="/images/about/values-community.svg">
+        <Value title="Community" src={images.community}>
           Cultivating a supportive environment of like-minded peers
         </Value>
-        <Value title="Love" src="/images/about/values-love.svg">
+        <Value title="Love" src={images.love}>
           Practicing empathy, honesty, and openness
         </Value>
-        <Value
-          title="Accountability"
-          src="/images/about/values-accountability.svg"
-        >
+        <Value title="Accountability" src={images.accountability}>
           Embracing the responsibility to inspire future generations
         </Value>
-        <Value
-          title="Social Justice"
-          src="/images/about/values-social-justice.svg"
-        >
+        <Value title="Social Justice" src={images.socialJustice}>
           Providing equal opportunities for the underrepresented &amp;
           under-resourced
         </Value>
-        <Value title="Smart Risks" src="/images/about/values-smart-risks.svg">
+        <Value title="Smart Risks" src={images.smartRisks}>
           Encouraging the pursuit of passions
         </Value>
       </Box>

@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { brand } from "../src/colors";
+import SubscribeImage from "./SubscribeImage";
 
 const useStyles = makeStyles((theme) => ({
   subscribe: {
@@ -83,10 +84,7 @@ const Subscribe: React.FC<{}> = () => {
         className={classes.subscribe}
         id="get-updates"
       >
-        <object
-          data="/images/subscribe/subscribe.svg"
-          className={classes.photo}
-        />
+        <SubscribeImage className={classes.photo} />
         <form
           action="https://missionbit.us3.list-manage.com/subscribe/post?u=dca59ff0c46a6c1be0d20cf89&amp;id=ec36efa7f3"
           method="post"
