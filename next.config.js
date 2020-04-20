@@ -8,6 +8,9 @@ const slashRedirects = [
   "programs",
   "events",
   "get-involved",
+  "laptop",
+  "laptop/windows",
+  "laptop/mac",
 ].map((path) => ({
   source: `/${path}/`,
   statusCode: 301,
@@ -21,6 +24,22 @@ const legacyRedirects = [
   { source: "/volunteer/", destination: "/get-involved" },
   { source: "/demo-day/", destination: "/events" },
   { source: "/studentProjects/", destination: "/programs" },
+  { source: "/showcase/", destination: "/programs" },
+  { source: "/30k30days/", destination: "/get-involved" },
+  { source: "/donate/", destination: "https://donate.missionbit.org/" },
+  { source: "/employment/", destination: "/programs" },
+  { source: "/exposure/", destination: "/programs" },
+  { source: "/hackathon/", destination: "/programs" },
+  { source: "/jobs/instructor.html", destination: "/about#jobs" },
+  { source: "/jobs/ta.html", destination: "/about#jobs" },
+  { source: "/laptop/mac.html", destination: "/laptop/mac" },
+  {
+    source: "/laptop/mac",
+    destination:
+      "https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub",
+  },
+  // TODO:
+  // * /teacher-resources
 ].map(({ source, destination }) => ({
   source,
   destination,
