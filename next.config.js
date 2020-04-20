@@ -55,10 +55,8 @@ module.exports = withPlugins(
         optimizationLevel: 3,
       },
       pngquant: false,
-      gifsicle: {
-        interlaced: true,
-        optimizationLevel: 3,
-      },
+      // Disabled gifsicle, does not compile in zeit environment and we do not use gifs
+      gifsicle: false,
       svgo: {
         // enable/disable svgo plugins here
       },
