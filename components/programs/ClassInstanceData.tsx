@@ -136,15 +136,12 @@ export const SummerClassInstances: ClassOrWorkshopInstance[] = [
   summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
   summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
 ];
-export const SummerRegistrationDeadline: React.FC<{}> = () => (
-  <>Sunday, May 24, 2020 at 8pm</>
-);
-export const SummerInterviewDate: React.FC<{}> = () => (
-  <>Wednesday, May 27th, 2020</>
-);
-export const SummerDemoDayDate: React.FC<{}> = () => (
-  <>Saturday, July 25th, 2020</>
-);
+
+export const SummerDates = {
+  registrationDeadline: Date.parse("2020-05-24T20:00:00-07:00"),
+  interview: Date.parse("2020-05-27T12:00:00-07:00"),
+  demoDay: Date.parse("2020-07-25T13:00:00-07:00"),
+};
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   {

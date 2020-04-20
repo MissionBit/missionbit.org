@@ -1,12 +1,15 @@
 import { NextPage } from "next";
 import * as React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
 import Layout from "../components/Layout";
 import Landing from "../components/index/Landing";
 import Index from "../components/index";
+import { SummerDates } from "../components/programs/ClassInstanceData";
+import { ShortDateFormat } from "../src/dates";
 
 const useStyles = makeStyles(() => ({
   header: {
@@ -23,16 +26,18 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Alerts: React.FC<{ className?: string }> = ({ className }) => {
-  const isValid = () => {
-    const reference = Date.parse("2020-05-21T00:00:00-07:00");
-    return reference - Date.now() > 0;
-  };
+  const deadline = SummerDates.registrationDeadline;
+  const isValid = useCallback(() => deadline - Date.now() > 0, [deadline]);
   const [open, setOpen] = useState(isValid);
-  useEffect(() => setOpen(isValid()), []);
+  useEffect(() => setOpen(isValid()), [isValid]);
   return (
     <Collapse in={open} className={className}>
       <Alert severity="info" onClose={() => setOpen(false)}>
-        Sign up for our Summer 2020 Bootcamp now! Deadline 5/20/20
+        <Link color="inherit" underline="always" href="/programs">
+          Sign up
+        </Link>{" "}
+        for our Online Summer 2020 Courses now! Deadline{" "}
+        {ShortDateFormat.format(deadline)}
       </Alert>
     </Collapse>
   );

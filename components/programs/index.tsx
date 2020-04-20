@@ -12,12 +12,11 @@ import Showcase from "../Showcase";
 import {
   SummerClassInstances,
   SpringClassInstances,
-  SummerRegistrationDeadline,
-  SummerInterviewDate,
-  SummerDemoDayDate,
+  SummerDates,
 } from "./ClassInstanceData";
 import YouTubePreview from "../YouTubePreview";
 import YouTubePreviews from "../YouTubePreviews";
+import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -118,7 +117,8 @@ const Main: React.FC<{}> = () => {
         >
           Sign up for Summer 2020 classes now!
           <br />
-          Registration deadline: <SummerRegistrationDeadline />
+          Registration deadline:{" "}
+          {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
         </Typography>
         <Courses instances={SummerClassInstances} />
       </Container>
@@ -136,7 +136,8 @@ const Main: React.FC<{}> = () => {
             in a group interview. Applicants will receive an invitation to be
             interviewed after the registration deadline has passed.{" "}
             <strong>
-              Interviews will take place on <SummerInterviewDate />.
+              Interviews will take place on{" "}
+              {LongDateFormat.format(SummerDates.interview)}.
             </strong>{" "}
             Please provide accurate email information to receive your
             invitation.
@@ -145,13 +146,12 @@ const Main: React.FC<{}> = () => {
             Each term ends with Demo Day, which is a required event for
             students. Friends and family are strongly encouraged to attend;
             please mark your calendar for{" "}
-            <strong>
-              <SummerDemoDayDate />.
-            </strong>
+            <strong>{LongDateFormat.format(SummerDates.demoDay)}.</strong>
           </li>
           <li>
             <strong>
-              Registration Deadline is <SummerRegistrationDeadline />.
+              Registration Deadline is{" "}
+              {LongDateTimeFormat.format(SummerDates.registrationDeadline)}.
             </strong>
           </li>
         </ul>
