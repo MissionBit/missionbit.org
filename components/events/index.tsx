@@ -22,9 +22,12 @@ interface PastEvent {
 }
 
 const PastEvents: PastEvent[] = [
+  { id: "f2NVEq00A38", title: "Game Design Workshop" },
+  { id: "J4VEhVk0eME", title: "Code Meets Girl" },
   { id: "oTSNS227No4", title: "Third Annual Gala" },
   { id: "o_1sd_F54NQ", title: "Fall 2019 Demo Day" },
   { id: "9HqfU7-DCao", title: "Summer 2019 Demo Day" },
+  { id: "rmNEBaDVMlI", title: "MLK Codes Day 2019" },
   { id: "ptGX9yNXnjE", title: "Spring 2019 Demo Day" },
   { id: "QG88ydg_5Rk", title: "Second Annual Gala" },
   { id: "PGih3MelgwQ", title: "Fall 2018 Demo Day" },
@@ -54,6 +57,9 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h2" component="h1" className={classes.heading}>
           Upcoming Events
         </Typography>
+        <Upcoming date="April 23, 2020" href="/programs#workshops">
+          Beginner Unity Game Design Workshop
+        </Upcoming>
         <Upcoming date="November 12, 2020" href="/gala">
           Fourth Annual Mission Bit Gala
         </Upcoming>

@@ -101,11 +101,21 @@ const Main: React.FC<{}> = () => {
         </Typography>
       </Container>
       <Container component="section" id="enroll">
-        <Typography variant="h3" align="center" className={classes.alert}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.alert}
+          id="workshops"
+        >
           Spring 2020 Workshops:
         </Typography>
         <Courses instances={SpringClassInstances} />
-        <Typography variant="h3" align="center" className={classes.alert}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.alert}
+          id="courses"
+        >
           Sign up for Summer 2020 classes now!
           <br />
           Registration deadline: <SummerRegistrationDeadline />
