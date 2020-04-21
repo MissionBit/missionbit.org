@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     background:
       "linear-gradient(0deg, #0058A6 0%, #5869C9 48%, #A4AEE2 72%, #FFFFFF 100%)",
     height: "100%",
+    width: "100%",
   },
 
   bridge: {
