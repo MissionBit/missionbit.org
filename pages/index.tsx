@@ -49,7 +49,7 @@ function updateDocumentHeight() {
     return;
   }
   const el = document.documentElement;
-  el.style.setProperty("--document-height", String(el.clientHeight));
+  el.style.setProperty("--document-height", `${el.clientHeight}px`);
 }
 
 const Page: NextPage<{}> = () => {
