@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     height: "100vh",
+    maxHeight: "var(--document-height, 100vh)",
   },
   alerts: {
     flex: "1 0 auto",
@@ -43,8 +44,21 @@ const Alerts: React.FC<{ className?: string }> = ({ className }) => {
   );
 };
 
+function updateDocumentHeight() {
+  if (typeof document === "undefined") {
+    return;
+  }
+  const el = document.documentElement;
+  el.style.setProperty("--document-height", String(el.clientHeight));
+}
+
 const Page: NextPage<{}> = () => {
   const classes = useStyles();
+  useEffect(() => {
+    updateDocumentHeight();
+    window.addEventListener("resize", updateDocumentHeight);
+    return () => window.removeEventListener("resize", updateDocumentHeight);
+  }, []);
   return (
     <Layout
       title="Mission Bit"

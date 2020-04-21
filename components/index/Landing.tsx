@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     flexWrap: "wrap",
     height: "100%",
+    width: "100%",
     justifyContent: "space-around",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(3, 0, 0, 0),
