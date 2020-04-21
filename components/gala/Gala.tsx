@@ -72,6 +72,10 @@ const useStyles = makeStyles((theme) => ({
   },
   sponsorHeading: {
     margin: theme.spacing(4, 0),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h5.fontSize,
+      fontWeight: theme.typography.h6.fontWeight,
+    },
   },
   sponsorSection: {
     paddingBottom: theme.spacing(4),
@@ -81,22 +85,43 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 0),
     },
   },
+  saveTheDateHeading: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+      fontWeight: theme.typography.h6.fontWeight,
+      "& > button": {
+        display: "block",
+        margin: `${theme.spacing(2)}px auto`,
+      },
+    },
+  },
+  saveTheDate: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.25rem",
+      fontWeight: theme.typography.h6.fontWeight,
+    },
+  },
 }));
 
 const Gala: React.FC<{}> = () => {
   const classes = useStyles();
+  const { date, time } = galaStartEnd();
   return (
     <main id="main">
       <Container component="section" className={classes.copySection}>
         <Typography
           variant="h2"
           align="center"
-          className="gala-save-the-date-heading"
+          className={classes.saveTheDateHeading}
         >
           Save the Date <AddToCalendar event={GalaCalendarEvent} />
         </Typography>
-        <Typography variant="h3" align="center" className="gala-save-the-date">
-          {galaStartEnd()}, San Francisco
+        <Typography variant="h3" align="center" className={classes.saveTheDate}>
+          {date}
+          <br />
+          {time}
+          <br />
+          San Francisco
         </Typography>
         <Typography>
           Mission Bit's Fourth Annual Gala is a celebration of seven years of

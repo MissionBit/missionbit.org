@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     gridGap: "20px",
     gridTemplateColumns: "repeat(auto-fit, minmax(60px, 1fr))",
     gridTemplateTows: "repeat(auto-fit, minmax(60px, 120px))",
+    marginBottom: theme.spacing(2),
     "& a": {
       margin: 0,
       alignSelf: "center",
@@ -29,6 +30,37 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 0),
     },
     "& ul": theme.typography.body1,
+    [theme.breakpoints.down("sm")]: {
+      "& > $saveTheDate": {
+        fontSize: "1.25rem",
+      },
+      "& > h3": {
+        fontSize: theme.typography.h5.fontSize,
+        fontWeight: theme.typography.h6.fontWeight,
+      },
+      "& > h4": {
+        fontSize: "1.25rem",
+        fontWeight: theme.typography.h6.fontWeight,
+      },
+      "& ul": {
+        paddingLeft: "1.25rem",
+      },
+    },
+  },
+  sponsorHeading: {
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+      fontWeight: theme.typography.h6.fontWeight,
+    },
+  },
+  saveTheDate: {},
+  thankYouHeading: {
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h5.fontSize,
+      fontWeight: theme.typography.h6.fontWeight,
+    },
   },
 }));
 
@@ -50,14 +82,23 @@ const Sponsor: React.FC<SponsorData> = (props) => (
 
 const Sponsorship: React.FC<{}> = () => {
   const classes = useStyles();
+  const { date, time } = galaStartEnd();
   return (
     <main id="main">
       <Container component="section" className={classes.copySection}>
-        <Typography variant="h2" align="center">
+        <Typography
+          variant="h2"
+          align="center"
+          className={classes.sponsorHeading}
+        >
           Sponsor the 2020 Mission Bit Gala
         </Typography>
-        <Typography variant="h3" align="center">
-          {galaStartEnd()}, San Francisco
+        <Typography variant="h3" align="center" className={classes.saveTheDate}>
+          {date}
+          <br />
+          {time}
+          <br />
+          San Francisco
         </Typography>
         <Typography>
           <a href="/gala">Mission Bit's Fourth Annual Gala</a> is a celebration
@@ -148,7 +189,11 @@ const Sponsorship: React.FC<{}> = () => {
         </Typography>
       </Container>
       <Container component="section">
-        <Typography variant="h3" align="center">
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.thankYouHeading}
+        >
           Thank you to our 2019 Gala Sponsors
         </Typography>
         <div className={classes.sponsors}>

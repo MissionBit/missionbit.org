@@ -1,5 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.h5,
     "& > p": {
       marginBottom: "1rem",
+      "&:last-child": {
+        marginBottom: "inherit",
+      },
     },
     padding: theme.spacing(3),
     alignSelf: "center",
@@ -49,10 +53,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PhotoText: React.FC<{ src: string }> = ({ children, src }) => {
+const PhotoText: React.FC<{ src: string; className?: string }> = ({
+  children,
+  src,
+  className,
+}) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={clsx(classes.root, className)}>
       <div
         className={classes.photo}
         style={{ backgroundImage: `url("${src}")` }}
