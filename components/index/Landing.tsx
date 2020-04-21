@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   section: {
+    display: "flex",
     position: "relative",
     background:
       "linear-gradient(0deg, #0058A6 0%, #5869C9 48%, #A4AEE2 72%, #FFFFFF 100%)",
