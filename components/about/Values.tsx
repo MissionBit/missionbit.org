@@ -1,5 +1,6 @@
 import * as React from "react";
 import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -60,7 +61,7 @@ const Values: React.FC<{}> = () => {
   );
 
   return (
-    <section id="values">
+    <Container component="section" id="values">
       <Typography variant="h4" component="h2" align="center">
         Our Values
       </Typography>
@@ -82,7 +83,7 @@ const Values: React.FC<{}> = () => {
           Encouraging the pursuit of passions
         </Value>
       </Box>
-    </section>
+    </Container>
   );
 };
 

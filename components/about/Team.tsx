@@ -1,5 +1,6 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import TeamData, { TeamMemberProps } from "./TeamData";
 import { makeStyles } from "@material-ui/core/styles";
@@ -110,7 +111,7 @@ const Team: React.FC<{}> = () => {
   );
 
   return (
-    <section id="team">
+    <Container component="section" id="team">
       <Typography
         variant="h4"
         component="h2"
@@ -138,7 +139,7 @@ const Team: React.FC<{}> = () => {
           </Box>
         </React.Fragment>
       ))}
-    </section>
+    </Container>
   );
 };
 
