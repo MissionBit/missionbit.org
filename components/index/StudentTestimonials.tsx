@@ -5,6 +5,19 @@ export interface StudentTestimonial {
   program: React.ReactNode;
   quote: React.ReactNode;
   photo: string;
+  width: number;
+  height: number;
+}
+
+function requirePhoto(
+  filename: string
+): { photo: string; width: number; height: number } {
+  const photo = require(`../../public/images/students/${filename}`);
+  const {
+    width,
+    height,
+  } = require(`../../public/images/students/${filename}?resize`);
+  return { photo, width, height };
 }
 
 export const testimonials: readonly StudentTestimonial[] = [
@@ -21,7 +34,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         it's like in the tech industry.
       </>
     ),
-    photo: require("../../public/images/students/alyssa.jpg"),
+    ...requirePhoto("alyssa.jpg"),
   },
   {
     name: "Vincent",
@@ -37,7 +50,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         interested in coding.
       </>
     ),
-    photo: require("../../public/images/students/vincent.jpg"),
+    ...requirePhoto("vincent.jpg"),
   },
   {
     name: "Nicholas",
@@ -50,7 +63,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         either a professional gamer or software engineer.
       </>
     ),
-    photo: require("../../public/images/students/nicholas.jpg"),
+    ...requirePhoto("nicholas.jpg"),
   },
   {
     name: "Abel",
@@ -64,7 +77,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         are meaningful to them and create the change that they want to see.
       </>
     ),
-    photo: require("../../public/images/students/abel.jpg"),
+    ...requirePhoto("abel.jpg"),
   },
   {
     name: "Eric",
@@ -76,7 +89,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         neighborhood, Bayview Hunters Point.
       </>
     ),
-    photo: require("../../public/images/students/eric.jpg"),
+    ...requirePhoto("eric.jpg"),
   },
   {
     name: "Gisela",
@@ -92,6 +105,6 @@ export const testimonials: readonly StudentTestimonial[] = [
         student.
       </>
     ),
-    photo: require("../../public/images/students/gisela.jpg"),
+    ...requirePhoto("gisela.jpg"),
   },
 ];

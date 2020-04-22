@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     background: `space url(${require("../../public/images/landing/circle.svg")})`,
     flexShrink: 1,
     "& > img": {
-      maxWidth: `calc(50vmin - ${theme.spacing(3)}px)`,
+      maxWidth: `calc(42vmin - ${theme.spacing(3)}px)`,
       height: "auto",
       objectFit: "contain",
     },

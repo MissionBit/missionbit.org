@@ -73,14 +73,15 @@ const useStyles = makeStyles((theme) => ({
   photo: {
     display: "flex",
     flex: "1",
-    maxWidth: "60%",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-    marginRight: theme.spacing(3),
+    [theme.breakpoints.up("md")]: {
+      marginRight: theme.spacing(3),
+      maxWidth: "60%",
+    },
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
-      maxWidth: "initial",
       maxHeight: "calc(100vw * 0.667)",
       height: "calc(100vw * 0.667)",
       width: "100%",
@@ -149,6 +150,8 @@ const Students: React.FC<{}> = () => {
     program,
     quote,
     photo,
+    width,
+    height,
   }) => (
     <div className={classes.testimonial}>
       <div className={classes.title}>
@@ -162,6 +165,8 @@ const Students: React.FC<{}> = () => {
           style={{
             backgroundImage: `url(${photo})`,
           }}
+          data-width={width}
+          data-height={height}
         />
         <div className={classes.quote}>
           {quote}
