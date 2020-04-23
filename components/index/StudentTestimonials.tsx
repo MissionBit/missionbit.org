@@ -22,6 +22,21 @@ function requirePhoto(
 
 export const testimonials: readonly StudentTestimonial[] = [
   {
+    name: "Sarai",
+    program: "Fall 2019",
+    quote: (
+      <>
+        I was always encouraged to explore coding by my older brother, and I
+        knew I needed to start somewhere. After completing a semester of Intro
+        to Web Design at Mission Bit, I have taken an interest in coding and
+        have been eager to learn more. I am unsure of what I want to be when I
+        grow up, but I know that what I learned at Mission Bit will help mold my
+        career path.
+      </>
+    ),
+    ...requirePhoto("sarai.jpg"),
+  },
+  {
     name: "Alyssa",
     program: "Fall 2019",
     quote: (
