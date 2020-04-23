@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "relative",
     background:
-      "linear-gradient(0deg, #0058A6 0%, #5869C9 48%, #A4AEE2 72%, #FFFFFF 100%)",
+      "linear-gradient(0deg, #5869C9 0%, #707ED1 33%, #BEC5EA 82%, #FFFFFF 100%)",
     height: "100%",
     width: "100%",
   },
@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   bridgeText: {
+    position: "relative",
     color: theme.palette.common.white,
     flex: "1 0 40%",
+    justifySelf: "flex-end",
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
@@ -54,18 +56,27 @@ const useStyles = makeStyles((theme) => ({
     justifyItems: "center",
   },
 
-  photoWrapper: {
-    padding: "77px 57px",
-    background: `space url(${require("../../public/images/landing/circle.svg")})`,
-    flexShrink: 1,
-    "& > img": {
-      maxWidth: `calc(42vmin - ${theme.spacing(3)}px)`,
-      height: "auto",
-      objectFit: "contain",
-    },
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(3, 5),
-    },
+  hillStudents: {
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    top: 0,
+    right: "40%",
+    overflow: "hidden",
+  },
+  students: {
+    position: "absolute",
+    left: "40%",
+    bottom: "20%",
+    width: "70%",
+    transform: "translate(-50%, 0)",
+  },
+  hill: {
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    width: "100%",
+    transform: "translate(0, 36%)",
   },
 
   arrowContainer: {
@@ -120,15 +131,15 @@ const Landing: React.FC<{}> = () => {
     <section className={classes.section}>
       <div className={classes.bridge} />
       <div className={classes.content}>
-        <div>
-          <div className={classes.photoWrapper}>
-            <img
-              src={require("../../public/images/landing/landing-photo.jpg")}
-              width="485"
-              height="498"
-              alt="Two students at a laptop"
-            />
-          </div>
+        <div className={classes.hillStudents}>
+          <img
+            src={require("../../public/images/landing/hill.svg")}
+            className={classes.hill}
+          />
+          <img
+            src={require("../../public/images/landing/students.svg")}
+            className={classes.students}
+          />
         </div>
         <div className={classes.bridgeText}>
           <span className={classes.bridgeLine}>Bridging the Tech Divide.</span>
