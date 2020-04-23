@@ -4,6 +4,8 @@ import Stats from "./Stats";
 import Students from "./Students";
 import Social from "./Social";
 import Supporters from "../Supporters";
+import SupportOurYouth from "./SupportOurYouth";
+import Register from "./Register";
 import MissionStatement from "./MissionStatement";
 import CoreValues from "./CoreValues";
 import { makeStyles } from "@material-ui/core/styles";
@@ -27,9 +29,11 @@ const Index: React.FC<{}> = () => {
       <MissionStatement />
       <CoreValues />
       {/*<Events />*/}
+      <Register />
       <Students />
       <Social />
       <Supporters />
+      <SupportOurYouth />
     </main>
   );
 };
