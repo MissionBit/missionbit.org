@@ -4,4 +4,5 @@ export const brand = {
   violet: "#DC139C",
   royal: "#4B5798",
   ultra: "#FF5CCC",
+  gray: "#7E7E7E",
 };

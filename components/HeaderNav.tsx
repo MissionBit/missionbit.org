@@ -1,11 +1,9 @@
 import * as React from "react";
-import HeaderMenuOption from "./HeaderMenuOption";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import Button, { ButtonProps } from "@material-ui/core/Button";
 import {
   usePopupState,
-  PopupState,
   bindTrigger,
   bindMenu,
 } from "material-ui-popup-state/hooks";
@@ -20,7 +18,6 @@ interface NavMenuChoice {
   text: string;
   href: string;
   buttonProps?: ButtonProps;
-  subMenu?: { text: string; anchor: string }[];
 }
 
 function focusGetUpdates(event: React.MouseEvent<HTMLElement>): void {
@@ -41,12 +38,6 @@ const commonNav: NavMenuChoice[] = [
   {
     text: "About",
     href: "/about",
-    subMenu: [
-      { text: "What we do", anchor: "" },
-      { text: "Our values", anchor: "#values" },
-      { text: "Our team", anchor: "#team" },
-      { text: "Our supporters", anchor: "#supporters" },
-    ],
   },
   { text: "Programs", href: "/programs" },
   { text: "Events", href: "/events" },
@@ -118,23 +109,6 @@ const useStylesDesktop = makeStyles(() => ({
   },
 }));
 
-const menuItems = (
-  href: string,
-  popupState: PopupState,
-  items: { text: string; anchor: string }[]
-) => {
-  const closePopup = () => {
-    popupState.close();
-  };
-  return items.map(({ text, anchor }, idx) => (
-    <MenuItem key={idx} onClick={closePopup}>
-      <Link href={`${href}${anchor}`} color="textPrimary" underline="none">
-        {text}
-      </Link>
-    </MenuItem>
-  ));
-};
-
 const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
   const classes = useStylesDesktop();
   return (
@@ -143,21 +117,11 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
         <li>
           <LogoHome className={classes.logo} />
         </li>
-        {commonNav.map(({ text, href, subMenu, buttonProps }) => (
+        {commonNav.map(({ text, href, buttonProps }) => (
           <li key={href}>
-            {subMenu === undefined ? (
-              <Button href={href} {...(buttonProps ?? {})}>
-                {text}
-              </Button>
-            ) : (
-              <HeaderMenuOption
-                title={text}
-                popupId={`popup-${text}`}
-                href={href}
-              >
-                {(popupState) => menuItems(href, popupState, subMenu)}
-              </HeaderMenuOption>
-            )}
+            <Button href={href} {...(buttonProps ?? {})}>
+              {text}
+            </Button>
           </li>
         ))}
       </ul>

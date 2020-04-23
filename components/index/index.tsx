@@ -4,6 +4,8 @@ import Stats from "./Stats";
 import Students from "./Students";
 import Social from "./Social";
 import Supporters from "../Supporters";
+import MissionStatement from "./MissionStatement";
+import CoreValues from "./CoreValues";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
@@ -22,6 +24,8 @@ const Index: React.FC<{}> = () => {
   return (
     <main id="main" className={classes.main}>
       <Stats />
+      <MissionStatement />
+      <CoreValues />
       {/*<Events />*/}
       <Students />
       <Social />
