@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
+  ...theme,
   palette: {
     type: "dark",
     background: {
@@ -71,9 +72,6 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
     text: {
       primary: theme.palette.common.black,
     },
-  },
-  typography: {
-    button: theme.typography.button,
   },
 });
 

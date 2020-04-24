@@ -126,15 +126,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
+  ...theme,
   palette: {
     type: "dark",
     background: {
       paper: brand.royal,
     },
     primary: theme.palette.primary,
-  },
-  typography: {
-    button: theme.typography.button,
   },
 });
 

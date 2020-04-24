@@ -23,6 +23,28 @@ const themeOptions: ThemeOptions = {
       textTransform: "inherit",
     },
   },
+  overrides: {
+    MuiButton: {
+      outlinedPrimary: {
+        color: brand.orange,
+        border: `2px solid ${brand.orange}`,
+        "&:hover": {
+          border: `2px solid ${brand.orange}`,
+          backgroundColor: brand.orange,
+          color: common.white,
+        },
+      },
+      outlinedSecondary: {
+        color: brand.blue,
+        border: `2px solid ${brand.blue}`,
+        "&:hover": {
+          border: `2px solid ${brand.blue}`,
+          backgroundColor: brand.blue,
+          color: common.white,
+        },
+      },
+    },
+  },
 };
 
 export default themeOptions;

@@ -3,7 +3,6 @@ import { useMemo } from "react";
 import {
   ThemeOptions,
   makeStyles,
-  withStyles,
   ThemeProvider,
   createMuiTheme,
   useTheme,
@@ -50,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
+  ...theme,
   palette: {
     type: "dark",
     background: {
@@ -61,18 +61,6 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
     button: theme.typography.button,
   },
 });
-
-const SubscribeButton = withStyles((theme) => ({
-  outlinedPrimary: {
-    color: theme.palette.primary.main,
-    border: `2px solid ${theme.palette.primary.main}`,
-    "&:hover": {
-      border: `2px solid ${theme.palette.primary.main}`,
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.text.primary,
-    },
-  },
-}))(Button);
 
 const Subscribe: React.FC<{}> = () => {
   const classes = useStyles();
@@ -123,14 +111,9 @@ const Subscribe: React.FC<{}> = () => {
             />
           </div>
           <br />
-          <SubscribeButton
-            variant="outlined"
-            color="primary"
-            size="large"
-            type="submit"
-          >
+          <Button variant="outlined" color="primary" size="large" type="submit">
             Subscribe
-          </SubscribeButton>
+          </Button>
         </form>
       </Paper>
     </ThemeProvider>
