@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   section: {
     display: "flex",
+    justifyContent: "flex-end",
     position: "relative",
     background:
       "linear-gradient(0deg, #5869C9 0%, #707ED1 33%, #BEC5EA 82%, #FFFFFF 100%)",
@@ -22,19 +23,28 @@ const useStyles = makeStyles((theme) => ({
 
   bridgeText: {
     position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     color: theme.palette.common.white,
-    flex: "1 0 40%",
-    justifySelf: "flex-end",
     textAlign: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
-    fontSize: theme.typography.pxToRem(32),
-    maxWidth: 500,
+    padding: theme.spacing(2),
+    flex: "0 0 55%",
+    textShadow: "-1px 2px rgba(0,0,0,0.8)",
+    [theme.breakpoints.down("xs")]: {
+      flex: 1,
+    },
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(24),
       lineHeight: "2.5rem",
     },
-    lineHeight: "3rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: theme.typography.pxToRem(32),
+      lineHeight: "3rem",
+    },
   },
 
   bridgeLine: {
@@ -42,48 +52,26 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 0.29rem",
   },
 
-  content: {
-    display: "flex",
-    position: "relative",
-    flexWrap: "wrap",
-    height: "100%",
-    width: "100%",
-    justifyContent: "space-around",
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(3, 0, 0, 0),
-    },
-    alignItems: "center",
-    justifyItems: "center",
-  },
-
   hillStudents: {
     position: "absolute",
     left: 0,
     bottom: 0,
-    top: 0,
+    top: "20%",
     right: "40%",
     overflow: "hidden",
-  },
-  students: {
-    position: "absolute",
-    left: "40%",
-    bottom: "20%",
-    width: "70%",
-    transform: "translate(-50%, 0)",
-  },
-  hill: {
-    position: "absolute",
-    left: 0,
-    bottom: 0,
-    width: "100%",
-    transform: "translate(0, 36%)",
+    backgroundImage: `url(${require("../../public/images/landing/hill-students.svg")})`,
+    backgroundPosition: "bottom left",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
   },
 
   arrowContainer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
     display: "flex",
-    flex: "1 0 100%",
     flexDirection: "column",
-    alignSelf: "flex-end",
     alignItems: "center",
   },
 
@@ -130,36 +118,19 @@ const Landing: React.FC<{}> = () => {
   return (
     <section className={classes.section}>
       <div className={classes.bridge} />
-      <div className={classes.content}>
-        <div className={classes.hillStudents}>
+      <div className={classes.hillStudents} />
+      <div className={classes.bridgeText}>
+        <span className={classes.bridgeLine}>Bridging the Tech Divide.</span>
+        <span className={classes.bridgeLine}>Empowering a New Generation</span>
+        <span className={classes.bridgeLine}>of Innovators.</span>
+      </div>
+      <div className={classes.arrowContainer}>
+        <a href="#main" className={classes.arrowWrapper} onClick={smoothScroll}>
           <img
-            src={require("../../public/images/landing/hill.svg")}
-            className={classes.hill}
+            src={require("../../public/images/landing/down-arrow.svg")}
+            className={classes.verticalBounce}
           />
-          <img
-            src={require("../../public/images/landing/students.svg")}
-            className={classes.students}
-          />
-        </div>
-        <div className={classes.bridgeText}>
-          <span className={classes.bridgeLine}>Bridging the Tech Divide.</span>
-          <span className={classes.bridgeLine}>
-            Empowering a New Generation
-          </span>
-          <span className={classes.bridgeLine}>of Innovators.</span>
-        </div>
-        <div className={classes.arrowContainer}>
-          <a
-            href="#main"
-            className={classes.arrowWrapper}
-            onClick={smoothScroll}
-          >
-            <img
-              src={require("../../public/images/landing/down-arrow.svg")}
-              className={classes.verticalBounce}
-            />
-          </a>
-        </div>
+        </a>
       </div>
     </section>
   );
