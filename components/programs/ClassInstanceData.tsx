@@ -30,6 +30,7 @@ export interface ClassInstance extends MeetInstance {
   type: "class";
   startDate: string;
   endDate: string;
+  classDates: ClassDates;
 }
 
 export interface WorkshopInstance extends MeetInstance {
@@ -39,6 +40,12 @@ export interface WorkshopInstance extends MeetInstance {
 }
 
 export type ClassOrWorkshopInstance = ClassInstance | WorkshopInstance;
+
+export interface ClassDates {
+  registrationDeadline: number;
+  interview: number;
+  demoDay: number;
+}
 
 function courseRecord<T extends Record<string, Course>>(x: T): T {
   return x;
@@ -117,6 +124,12 @@ export const Campuses = campusRecord({
   },
 });
 
+export const SummerDates: ClassDates = {
+  registrationDeadline: Date.parse("2020-05-24T20:00:00-07:00"),
+  interview: Date.parse("2020-05-27T12:00:00-07:00"),
+  demoDay: Date.parse("2020-07-25T13:00:00-07:00"),
+};
+
 function summerClass(
   course: Course,
   campus: Campus,
@@ -126,6 +139,7 @@ function summerClass(
     type: "class",
     course,
     campus,
+    classDates: SummerDates,
     meets: "Monday, Wednesday, Friday 10:30am - 2:30pm",
     startDate: "June 15th",
     endDate: "June 25th",
@@ -138,12 +152,6 @@ export const SummerClassInstances: ClassOrWorkshopInstance[] = [
   summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
   summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
 ];
-
-export const SummerDates = {
-  registrationDeadline: Date.parse("2020-05-24T20:00:00-07:00"),
-  interview: Date.parse("2020-05-27T12:00:00-07:00"),
-  demoDay: Date.parse("2020-07-25T13:00:00-07:00"),
-};
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   {

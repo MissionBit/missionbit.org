@@ -115,30 +115,32 @@ const Main: React.FC<{}> = () => {
         </Typography>
       </Container>
       <Container component="section" id="enroll">
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.alert}
-          id="workshops"
-        >
-          Spring 2020 Workshops:
-        </Typography>
-        <Courses instances={SpringClassInstances} />
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.alert}
-          id="courses"
-        >
-          Sign up for Summer 2020 classes now!
-        </Typography>
-        <Typography align="center" className={classes.deadline}>
-          Registration deadline:{" "}
-          <strong>
-            {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
-          </strong>
-        </Typography>
-        <Courses instances={SummerClassInstances} />
+        <Courses instances={SpringClassInstances}>
+          <Typography
+            variant="h3"
+            align="center"
+            className={classes.alert}
+            id="workshops"
+          >
+            Spring 2020 Workshops:
+          </Typography>
+        </Courses>
+        <Courses instances={SummerClassInstances}>
+          <Typography
+            variant="h3"
+            align="center"
+            className={classes.alert}
+            id="courses"
+          >
+            Sign up for Summer 2020 classes now!
+          </Typography>
+          <Typography align="center" className={classes.deadline}>
+            Registration deadline:{" "}
+            <strong>
+              {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
+            </strong>
+          </Typography>
+        </Courses>
       </Container>
       <Container component="section" id="enroll-notes">
         <Typography variant="h6">For Summer 2020 Courses:</Typography>

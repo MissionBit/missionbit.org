@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useCallback, useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { City, ClassOrWorkshopInstance } from "./ClassInstanceData";
 import Link from "@material-ui/core/Link";
@@ -26,11 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CourseDescription: React.FC<{ instance: ClassOrWorkshopInstance }> = ({
-  instance,
-}) => {
+const CourseDescription: React.FC<{
+  instance: ClassOrWorkshopInstance;
+  now: number;
+}> = ({ instance, now }) => {
   const classes = useStyles();
   const { course, campus, meets, signupUrl } = instance;
+  const disabled =
+    now >=
+    (instance.type === "workshop"
+      ? instance.date
+      : instance.classDates.registrationDeadline);
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
       <Typography variant="h5">{course.title}</Typography>
@@ -69,8 +76,9 @@ const CourseDescription: React.FC<{ instance: ClassOrWorkshopInstance }> = ({
         color="secondary"
         target="_blank"
         rel="noopener"
+        disabled={disabled}
       >
-        Student Signup
+        {disabled ? "Registration closed" : "Student Signup"}
       </Button>
       <Typography variant="body1">{course.description}</Typography>
     </Paper>
@@ -78,12 +86,23 @@ const CourseDescription: React.FC<{ instance: ClassOrWorkshopInstance }> = ({
 };
 
 const Courses: React.FC<{ instances: ClassOrWorkshopInstance[] }> = ({
+  children,
   instances,
 }) => {
-  return (
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => setNow(Date.now()), []);
+  // Skip workshops that have started already
+  const courseFilter = useCallback(
+    (instance: ClassOrWorkshopInstance): boolean =>
+      !(instance.type === "workshop" && now >= instance.date),
+    [now]
+  );
+  const courses = instances.filter(courseFilter);
+  return courses.length === 0 ? null : (
     <>
-      {instances.map((props, i) => (
-        <CourseDescription key={i} instance={props} />
+      {children}
+      {courses.map((props, i) => (
+        <CourseDescription key={i} instance={props} now={now} />
       ))}
     </>
   );
