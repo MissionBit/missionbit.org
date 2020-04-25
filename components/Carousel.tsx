@@ -1,9 +1,11 @@
 import * as React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { debounce } from "ts-debounce";
 import Paper, { PaperProps } from "@material-ui/core/Paper";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightcon from "@material-ui/icons/ChevronRight";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     listStyleType: "none",
     justifyContent: "center",
+    alignItems: "center",
     fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     color: "#333",
@@ -50,6 +53,16 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
     },
   },
+  liPrevNext: {
+    display: "flex",
+    cursor: "pointer",
+    margin: theme.spacing(0),
+    color: theme.palette.action.active,
+    textAlign: "center",
+    "& > svg": {
+      fontSize: theme.typography.pxToRem(16),
+    },
+  },
   selected: {},
 }));
 
@@ -60,12 +73,27 @@ export interface CarouselProps extends PaperProps {
 
 const Carousel: React.FC<CarouselProps> = (props) => {
   const { children } = props;
+  const numChildren = children.length;
   const [selected, setSelected] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
   const scrollerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
     null
   );
   const classes = useStyles(props);
+  const selectPrev = useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+      setSelected((numChildren + selected - 1) % numChildren);
+    },
+    [numChildren, selected]
+  );
+  const selectNext = useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+      setSelected((numChildren + selected + 1) % numChildren);
+    },
+    [numChildren, selected]
+  );
   useEffect(() => {
     const handleResize = debounce(
       () => {
@@ -134,6 +162,13 @@ const Carousel: React.FC<CarouselProps> = (props) => {
         {children}
       </div>
       <ul className={classes.ul}>
+        <li
+          onClick={selectPrev}
+          className={classes.liPrevNext}
+          title="Previous"
+        >
+          <ChevronLeftIcon />
+        </li>
         {children.map((_, idx) => (
           <li
             key={idx}
@@ -147,6 +182,9 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             }}
           />
         ))}
+        <li onClick={selectNext} className={classes.liPrevNext} title="Next">
+          <ChevronRightcon />
+        </li>
       </ul>
     </Paper>
   );

@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h4.fontSize,
-      display: "block",
     },
   },
   program: {
