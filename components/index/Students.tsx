@@ -15,11 +15,8 @@ import { StudentTestimonial, testimonials } from "./StudentTestimonials";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    height: "80vh",
-    [theme.breakpoints.down("sm")]: {
-      height: "700px",
-      maxHeight: "100vh",
-    },
+    height: "100vh",
+    maxHeight: "var(--document-height, 100vh)",
   },
   testimonial: {
     width: "100%",
@@ -88,19 +85,19 @@ const useStyles = makeStyles((theme) => ({
   },
   quote: {
     ...theme.typography.h5,
-    padding: theme.spacing(3),
+    display: "flex",
+    position: "relative",
     alignSelf: "center",
+    alignItems: "center",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.body1.fontSize,
-      borderRadius: 0,
       margin: `auto 0`,
       padding: theme.spacing(3, 1),
-      maxWidth: "initial",
     },
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
-    maxWidth: 445,
+    [theme.breakpoints.up("md")]: {
+      maxWidth: 445,
+      padding: theme.spacing(3),
+    },
   },
   brQuote: {
     position: "absolute",
