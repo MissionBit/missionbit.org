@@ -16,20 +16,21 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function updateDocumentHeight() {
+function updateDocumentSize() {
   if (typeof document === "undefined") {
     return;
   }
   const el = document.documentElement;
+  el.style.setProperty("--document-width", `${el.clientWidth}px`);
   el.style.setProperty("--document-height", `${el.clientHeight}px`);
 }
 
 const Page: NextPage<{}> = () => {
   const classes = useStyles();
   useEffect(() => {
-    updateDocumentHeight();
-    window.addEventListener("resize", updateDocumentHeight);
-    return () => window.removeEventListener("resize", updateDocumentHeight);
+    updateDocumentSize();
+    window.addEventListener("resize", updateDocumentSize);
+    return () => window.removeEventListener("resize", updateDocumentSize);
   }, []);
   return (
     <Layout
