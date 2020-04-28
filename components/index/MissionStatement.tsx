@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
+import AsteriskIcon from "./AsteriskIcon";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
 
@@ -30,14 +30,14 @@ const MissionStatement: React.FC<{}> = () => {
   return (
     <Box component="section" id="mission" className={classes.root}>
       <Container>
-        <StarBorderIcon className={classes.flourish} />
+        <AsteriskIcon className={classes.flourish} />
         <Typography variant="h4" className={classes.copy}>
           Mission Bit is dedicated to inspiring and empowering students to
           unlock their full potential. We build professional pathways for under
           resourced high school youth across the SF Bay Area by making computer
           science more accessible through our free project-based courses.
         </Typography>
-        <StarBorderIcon className={classes.flourish} />
+        <AsteriskIcon className={classes.flourish} />
       </Container>
     </Box>
   );

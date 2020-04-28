@@ -5,11 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 const images = {
-  community: require("../../public/images/about/values-community.svg"),
-  love: require("../../public/images/about/values-love.svg"),
-  accountability: require("../../public/images/about/values-accountability.svg"),
-  socialJustice: require("../../public/images/about/values-social-justice.svg"),
-  smartRisks: require("../../public/images/about/values-smart-risks.svg"),
+  community: require("../../public/images/about/values/community.svg"),
+  love: require("../../public/images/about/values/love.svg"),
+  accountability: require("../../public/images/about/values/accountability.svg"),
+  socialJustice: require("../../public/images/about/values/social-justice.svg"),
+  smartRisks: require("../../public/images/about/values/smart-risks.svg"),
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -69,11 +69,11 @@ const Values: React.FC<{}> = () => {
         <Value title="Community" src={images.community}>
           Cultivating a supportive environment of like-minded peers
         </Value>
-        <Value title="Love" src={images.love}>
-          Practicing empathy, honesty, and openness
-        </Value>
         <Value title="Accountability" src={images.accountability}>
           Embracing the responsibility to inspire future generations
+        </Value>
+        <Value title="Love" src={images.love}>
+          Practicing empathy, honesty, and openness
         </Value>
         <Value title="Social Justice" src={images.socialJustice}>
           Providing equal opportunities for the underrepresented &amp;
