@@ -27,10 +27,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   value: {
-    fontSize: "120%",
+    fontSize: "5rem",
+    WebkitTextStrokeWidth: "4px",
+    "@supports (-webkit-text-stroke-color: #000)": {
+      color: "transparent !important",
+      WebkitTextStrokeColor: "var(--value-color, black)",
+      WebkitTextStrokeWidth: "3px",
+    },
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
-      display: "inline-block",
+      fontSize: "3rem",
+      "@supports (-webkit-text-stroke-color: #000)": {
+        WebkitTextStrokeWidth: "2px",
+      },
     },
   },
   copy: {
@@ -43,20 +52,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    fontSize: "500%",
+    fontSize: "8rem",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "400%",
+      fontSize: "5rem",
       display: "block",
       margin: "0 auto",
     },
   },
   color1: {
+    "--value-color": brand.violet,
     color: brand.violet,
   },
   color2: {
+    "--value-color": brand.blue,
     color: brand.blue,
   },
   color3: {
+    "--value-color": brand.orange,
     color: brand.orange,
   },
 }));

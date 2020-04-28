@@ -13,15 +13,25 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     textAlign: "center",
     marginBottom: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+    },
   },
   copy: {
     fontWeight: theme.typography.fontWeightLight,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
   flourish: {
     display: "block",
     margin: `${theme.spacing(4)}px auto`,
     color: brand.orange,
     fontSize: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1rem",
+      margin: `${theme.spacing(2)}px auto`,
+    },
   },
 }));
 

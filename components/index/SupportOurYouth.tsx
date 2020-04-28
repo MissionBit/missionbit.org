@@ -12,14 +12,23 @@ const useStyles = makeStyles((theme) => ({
   heading: {
     color: "#0058A6",
     fontSize: "4rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "3rem",
+    },
   },
   buttons: {
     textAlign: "center",
     padding: theme.spacing(4, 0, 2, 0),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2, 0, 1, 0),
+    },
   },
   button: {
     margin: theme.spacing(0, 2),
     fontSize: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.25rem",
+    },
   },
 }));
 
