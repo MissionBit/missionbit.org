@@ -1,4 +1,5 @@
 import * as React from "react";
+import { hourStartEndParts } from "../../src/dates";
 
 export interface Course {
   title: React.ReactNode;
@@ -97,6 +98,15 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  beginner_web_workshop: {
+    title: "Beginner Web Design Workshop",
+    description: (
+      <>
+        This is an introductory workshop where students will be able to build a
+        portfolio. No web design or coding experience necessary.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -153,14 +163,41 @@ export const SummerClassInstances: ClassOrWorkshopInstance[] = [
   summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
 ];
 
-export const SpringClassInstances: ClassOrWorkshopInstance[] = [
-  {
+function summerWorkshop({
+  course,
+  dateString,
+  minutes,
+  signupUrl,
+}: {
+  course: Course;
+  dateString: string;
+  minutes: number;
+  signupUrl: string;
+}): WorkshopInstance {
+  const date = Date.parse(dateString);
+  const parts = hourStartEndParts(date, date + minutes * 60 * 1000);
+  return {
     type: "workshop",
-    course: Courses.beginner_unity_workshop,
+    course,
     campus: Campuses.online,
-    meets: "Thursday April 23rd, 3:30pm - 5pm PDT",
-    signupUrl: "https://www.tfaforms.com/4816324",
-    date: Date.parse("2020-04-23T15:30:00-07:00"),
+    meets: `${parts.date} ${parts.time}`,
+    signupUrl,
+    date,
     minutes: 90,
-  },
+  };
+}
+
+export const SpringClassInstances: ClassOrWorkshopInstance[] = [
+  summerWorkshop({
+    course: Courses.beginner_unity_workshop,
+    dateString: "2020-05-06T15:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4821878",
+  }),
+  summerWorkshop({
+    course: Courses.beginner_web_workshop,
+    dateString: "2020-05-07T15:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4821550",
+  }),
 ];
