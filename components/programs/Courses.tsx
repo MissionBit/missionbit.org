@@ -32,7 +32,7 @@ const CourseDescription: React.FC<{
   now: number;
 }> = ({ instance, now }) => {
   const classes = useStyles();
-  const { course, campus, meets, signupUrl } = instance;
+  const { extra, course, campus, meets, signupUrl } = instance;
   const disabled =
     now >=
     (instance.type === "workshop"
@@ -41,14 +41,6 @@ const CourseDescription: React.FC<{
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
       <Typography variant="h5">{course.title}</Typography>
-      <Typography>
-        <strong>Meets:</strong> {meets}
-      </Typography>
-      {instance.type === "class" ? (
-        <Typography>
-          <strong>Dates:</strong> {instance.startDate} - {instance.endDate}
-        </Typography>
-      ) : null}
       {campus.city === City.Online ? (
         <Link
           href={signupUrl}
@@ -70,6 +62,26 @@ const CourseDescription: React.FC<{
           <RoomIcon /> {campus.name}
         </Link>
       )}
+      {instance.type === "class" ? (
+        <>
+          <Typography>
+            <strong>Meets:</strong> {meets}
+          </Typography>
+          <Typography>
+            <strong>Dates:</strong> {instance.startDate} - {instance.endDate}
+          </Typography>
+        </>
+      ) : (
+        <>
+          <Typography>
+            <strong>When:</strong> {meets}
+          </Typography>
+          <Typography>
+            <strong>Who:</strong> {instance.who}
+          </Typography>
+        </>
+      )}
+      {extra ? <Typography variant="body1">{extra}</Typography> : null}
       <Button
         href={signupUrl}
         variant="contained"

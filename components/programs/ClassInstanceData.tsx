@@ -25,6 +25,7 @@ export interface MeetInstance {
   campus: Campus;
   meets: React.ReactNode;
   signupUrl: string;
+  extra?: React.ReactNode;
 }
 
 export interface ClassInstance extends MeetInstance {
@@ -36,6 +37,7 @@ export interface ClassInstance extends MeetInstance {
 
 export interface WorkshopInstance extends MeetInstance {
   type: "workshop";
+  who: React.ReactNode;
   date: number;
   minutes: number;
 }
@@ -168,11 +170,13 @@ function summerWorkshop({
   dateString,
   minutes,
   signupUrl,
+  extra,
 }: {
   course: Course;
   dateString: string;
   minutes: number;
   signupUrl: string;
+  extra?: React.ReactNode;
 }): WorkshopInstance {
   const date = Date.parse(dateString);
   const parts = hourStartEndParts(date, date + minutes * 60 * 1000);
@@ -181,6 +185,8 @@ function summerWorkshop({
     course,
     campus: Campuses.online,
     meets: `${parts.date} ${parts.time}`,
+    who: "Grades 7th - 12th",
+    extra,
     signupUrl,
     date,
     minutes: 90,
@@ -193,6 +199,12 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     dateString: "2020-05-06T15:30:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4821878",
+    extra: (
+      <>
+        Join us early from <strong>3pm - 3:30pm</strong> for a prepping session
+        (includes help with downloading Unity and the game kit).
+      </>
+    ),
   }),
   summerWorkshop({
     course: Courses.beginner_web_workshop,
