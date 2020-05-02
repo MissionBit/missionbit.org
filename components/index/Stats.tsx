@@ -82,6 +82,7 @@ const Stats: React.FC<{}> = () => {
         <img
           src={require("../../public/images/stats/classes-taught.svg")}
           className={classes.icon}
+          alt="Graduation cap on top of a text editor window"
         />
       </div>
       <div className={classes.line}>
@@ -90,6 +91,7 @@ const Stats: React.FC<{}> = () => {
         <img
           src={require("../../public/images/stats/students.svg")}
           className={classes.icon}
+          alt="Three students, two holding laptops with Mission Bit stickers"
         />
       </div>
       <div className={classes.line}>
@@ -98,6 +100,7 @@ const Stats: React.FC<{}> = () => {
         <img
           src={require("../../public/images/stats/mission-high-school.svg")}
           className={classes.icon}
+          alt="Mission High School"
         />
       </div>
     </section>
