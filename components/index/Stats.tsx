@@ -2,9 +2,6 @@ import * as React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
-import PeopleIcon from "@material-ui/icons/People";
-import LaptopIcon from "@material-ui/icons/Laptop";
-import SchoolIcon from "@material-ui/icons/School";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -52,9 +49,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    fontSize: "8rem",
+    objectFit: "contain",
+    height: "8rem",
+    maxWidth: "100%",
     [theme.breakpoints.down("xs")]: {
-      fontSize: "5rem",
+      height: "5rem",
       display: "block",
       margin: "0 auto",
     },
@@ -80,17 +79,26 @@ const Stats: React.FC<{}> = () => {
       <div className={classes.line}>
         <div className={clsx(classes.value, classes.color1)}>85</div>
         <div className={classes.copy}>classes taught</div>
-        <LaptopIcon className={clsx(classes.icon, classes.color1)} />
+        <img
+          src={require("../../public/images/stats/classes-taught.svg")}
+          className={classes.icon}
+        />
       </div>
       <div className={classes.line}>
         <div className={clsx(classes.value, classes.color2)}>4,000+</div>
         <div className={classes.copy}>students served</div>
-        <PeopleIcon className={clsx(classes.icon, classes.color2)} />
+        <img
+          src={require("../../public/images/stats/students.svg")}
+          className={classes.icon}
+        />
       </div>
       <div className={classes.line}>
         <div className={clsx(classes.value, classes.color3)}>14</div>
         <div className={classes.copy}>school sites</div>
-        <SchoolIcon className={clsx(classes.icon, classes.color3)} />
+        <img
+          src={require("../../public/images/stats/mission-high-school.svg")}
+          className={classes.icon}
+        />
       </div>
     </section>
   );

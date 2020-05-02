@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732.31 550.26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #626364;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #59595b;
+      }
+
+      .cls-13, .cls-14, .cls-2 {
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-3 {
+        fill: #aaaaab;
+      }
+
+      .cls-4 {
+        fill: #9ed5b5;
+      }
+
+      .cls-5 {
+        fill: #a1ddf8;
+      }
+
+      .cls-6 {
+        fill: #cfe2ad;
+      }
+
+      .cls-7 {
+        fill: #9f9fcf;
+      }
+
+      .cls-8 {
+        fill: #c3a2cc;
+      }
+
+      .cls-9 {
+        fill: #f69da0;
+      }
+
+      .cls-10 {
+        fill: #f0bd92;
+      }
+
+      .cls-11 {
+        fill: #f6d996;
+      }
+
+      .cls-12 {
+        fill: #c3a1cb;
+      }
+
+      .cls-13, .cls-14 {
+        fill: #4e4e4f;
+      }
+
+      .cls-13 {
+        stroke: #464648;
+      }
+
+      .cls-14 {
+        stroke: #474649;
+      }
+    </style>
+  </defs>
+  <g id="Layer_4" data-name="Layer 4">
+    <rect class="cls-1" x="3.66" y="201.17" width="597.89" height="344.63"/>
+  </g>
+  <g id="Layer_2" data-name="Layer 2">
+    <rect class="cls-2" x="3" y="148.55" width="600.86" height="398.71" rx="15.14"/>
+    <circle class="cls-3" cx="30.78" cy="174.08" r="10.42"/>
+    <circle class="cls-3" cx="64.02" cy="174.08" r="10.42"/>
+    <circle class="cls-3" cx="98.23" cy="174.08" r="10.42"/>
+  </g>
+  <g id="Layer_5" data-name="Layer 5">
+    <rect class="cls-4" x="67.49" y="243.59" width="59.15" height="18.47" rx="9.24"/>
+    <rect class="cls-5" x="149.43" y="243.59" width="151.72" height="18.47" rx="9.24"/>
+    <rect class="cls-6" x="129.12" y="284.84" width="102.97" height="18.47" rx="9.24"/>
+    <rect class="cls-7" x="254.33" y="284.84" width="83.33" height="18.47" rx="9.24"/>
+    <rect class="cls-8" x="357.64" y="284.84" width="36.66" height="18.47" rx="7.27"/>
+    <rect class="cls-9" x="412.36" y="284.84" width="59.15" height="18.47" rx="9.24"/>
+    <rect class="cls-10" x="132.02" y="328.29" width="65.85" height="18.47" rx="9.24"/>
+    <rect class="cls-8" x="221.82" y="328.29" width="103.91" height="18.47" rx="9.24"/>
+    <rect class="cls-4" x="346.4" y="328.29" width="59.15" height="18.47" rx="9.24"/>
+    <rect class="cls-11" x="426.84" y="328.29" width="104.62" height="18.47" rx="9.24"/>
+    <rect class="cls-4" x="67.49" y="372.06" width="81.94" height="18.47" rx="9.24"/>
+    <rect class="cls-11" x="129.12" y="408.11" width="71.87" height="18.47" rx="9.24"/>
+    <rect class="cls-8" x="220.85" y="408.11" width="35.02" height="18.47" rx="7.11"/>
+    <rect class="cls-9" x="280.07" y="408.11" width="81.36" height="18.47" rx="9.24"/>
+    <rect class="cls-11" x="382.78" y="408.11" width="72.38" height="18.47" rx="9.24"/>
+    <rect class="cls-12" x="475.12" y="408.11" width="35.54" height="18.47" rx="7.16"/>
+    <rect class="cls-10" x="129.01" y="452.92" width="84.88" height="18.47" rx="9.24"/>
+    <rect class="cls-4" x="232.8" y="452.92" width="81.94" height="18.47" rx="9.24"/>
+    <rect class="cls-5" x="333.28" y="452.92" width="151.72" height="18.47" rx="9.24"/>
+    <rect class="cls-9" x="67.78" y="487.93" width="81.36" height="18.47" rx="9.24"/>
+    <rect class="cls-11" x="172.98" y="487.93" width="104.62" height="18.47" rx="9.24"/>
+  </g>
+  <g id="Layer_3" data-name="Layer 3">
+    <line class="cls-2" x1="5.08" y1="200.91" x2="602.05" y2="200.72"/>
+  </g>
+  <g id="Layer_8" data-name="Layer 8">
+    <path class="cls-13" d="M391.18,56.52S348.55,124.31,347,146.65c-.28,4.1,3.64,11.84,5.53,15.5,35.57,49.33,95.24,81.79,153.29,97.08,30.71,5.63,78.5,25,100.89-4.83,3.29-5,10.17-21.6,10.17-21.6l29-72.18L523,93.07,428.52,53Z"/>
+  </g>
+  <g id="Layer_7" data-name="Layer 7">
+    <path class="cls-14" d="M320.78,3.26C318.68,7,467.67,132.77,467.67,132.77s260,58.87,261.63,53c1.56-5.66-189.48-119.95-189.48-119.95S323.51-1.65,320.78,3.26Z"/>
+  </g>
+  <g id="Layer_9" data-name="Layer 9">
+    <path class="cls-11" d="M632.73,167,534,92c-3.25-2.47-8.36-.49-10.26,2.69-2.29,3.83-.52,7.82,2.69,10.26l95.82,72.83q-6,51-12,101.91a30.93,30.93,0,0,0-8.68,9.22,6.72,6.72,0,0,0-1,3.85c-.09,3.4,2.27,6.17,5.5,7.4,5.59,2.13,11.28,2.3,17.13,1.5,4-.55,6.26-5.74,5.24-9.23a33.66,33.66,0,0,1-1.37-6.95,8.62,8.62,0,0,0-1.91-4.71q6.29-53.37,12.56-106.75C638.09,170.84,635.6,168.06,632.73,167Z"/>
+  </g>
+</svg>
