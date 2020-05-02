@@ -4,6 +4,8 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import YouTubeVideo from "../YouTubeVideo";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,8 +25,10 @@ const Register: React.FC<{}> = () => {
     <Box component="section" id="mission" className={classes.root}>
       <Container>
         <Typography variant="h4">
-          Register for online summer classes now!
+          <Link href="/programs#courses">Register</Link> for online summer
+          classes now!
         </Typography>
+        <YouTubeVideo id="bF5XmVRDWBk" />
         <Button
           href="/programs#courses"
           variant="outlined"
