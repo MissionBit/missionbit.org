@@ -7,13 +7,17 @@ import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
 import PublicIcon from "@material-ui/icons/Public";
 import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import MuiExpansionPanel from "@material-ui/core/ExpansionPanel";
+import MuiExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import MuiExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(2, 0),
     padding: theme.spacing(2),
-    "& > *": {
+    "& > *:not(:last-child)": {
       margin: theme.spacing(1, 0),
     },
   },
@@ -25,7 +29,57 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     fontSize: theme.typography.subtitle1.fontSize,
   },
+  learnMoreHeading: {
+    color: theme.palette.secondary.main,
+    textDecoration: "underline",
+    textDecorationStyle: "dotted",
+  },
 }));
+
+const ExpansionPanel = withStyles({
+  root: {
+    boxShadow: "none",
+    "&:not(:last-child)": {
+      borderBottom: 0,
+    },
+    "&:before": {
+      display: "none",
+    },
+    "&$expanded": {
+      margin: "auto",
+    },
+  },
+  expanded: {},
+})(MuiExpansionPanel);
+
+const ExpansionPanelSummary = withStyles((theme) => ({
+  root: {
+    padding: 0,
+    marginBottom: -1,
+    minHeight: 56,
+    justifyContent: "flex-start",
+    "&$expanded": {
+      minHeight: 56,
+    },
+  },
+  expandIcon: {
+    padding: 0,
+    color: theme.palette.secondary.main,
+  },
+  content: {
+    flexGrow: 0,
+    "&$expanded": {
+      margin: "12px 0",
+    },
+  },
+  expanded: {},
+}))(MuiExpansionPanelSummary);
+
+const ExpansionPanelDetails = withStyles(() => ({
+  root: {
+    padding: 0,
+  },
+}))(MuiExpansionPanelDetails);
 
 const CourseDescription: React.FC<{
   instance: ClassOrWorkshopInstance;
@@ -92,7 +146,16 @@ const CourseDescription: React.FC<{
       >
         {disabled ? "Registration closed" : "Student Signup"}
       </Button>
-      <Typography variant="body1">{course.description}</Typography>
+      <ExpansionPanel square>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.learnMoreHeading}>
+            Learn More
+          </Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>{course.description}</Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     </Paper>
   );
 };
