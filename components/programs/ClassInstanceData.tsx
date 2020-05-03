@@ -1,5 +1,6 @@
 import * as React from "react";
 import { hourStartEndParts } from "../../src/dates";
+import Box from "@material-ui/core/Box";
 
 export interface Course {
   title: React.ReactNode;
@@ -152,7 +153,14 @@ function summerClass(
     course,
     campus,
     classDates: SummerDates,
-    meets: "Monday, Wednesday, Friday 10:30am - 2:30pm",
+    meets: (
+      <>
+        Monday, Wednesday, Friday{" "}
+        <Box component="span" display="inline-block">
+          10:30am - 2:30pm
+        </Box>
+      </>
+    ),
     startDate: "June 15th",
     endDate: "June 25th",
     signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
@@ -184,7 +192,14 @@ function summerWorkshop({
     type: "workshop",
     course,
     campus: Campuses.online,
-    meets: `${parts.date} ${parts.time}`,
+    meets: (
+      <>
+        {parts.date}{" "}
+        <Box component="span" display="inline-block">
+          {parts.time}
+        </Box>
+      </>
+    ),
     who: "Grades 7th - 12th",
     extra,
     signupUrl,

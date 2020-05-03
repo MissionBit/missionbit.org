@@ -2,6 +2,7 @@ import * as React from "react";
 import { useCallback, useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { City, ClassOrWorkshopInstance } from "./ClassInstanceData";
+import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
@@ -13,12 +14,17 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: theme.spacing(2, 0),
-    padding: theme.spacing(2),
-    "& > *:not(:last-child)": {
-      margin: theme.spacing(1, 0),
-    },
+    padding: 0,
     textAlign: "center",
+  },
+  gridContainer: {
+    padding: theme.spacing(1, 0),
+  },
+  content: {
+    padding: theme.spacing(1),
+    "& > *:not(:first-child)": {
+      margin: theme.spacing(1, 0, 0, 0),
+    },
   },
   image: {
     width: "100%",
@@ -54,75 +60,77 @@ const CourseDescription: React.FC<{
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
       <img src={image} className={classes.image} />
-      <Typography variant="h5">{course.title}</Typography>
-      {campus.city === City.Online ? (
-        <Link
+      <Box padding={1} className={classes.content}>
+        <Typography variant="h5">{course.title}</Typography>
+        {campus.city === City.Online ? (
+          <Link
+            href={signupUrl}
+            color="secondary"
+            target="_blank"
+            rel="noopener"
+            className={classes.mapLink}
+          >
+            <PublicIcon className={classes.worldIcon} /> {campus.name}
+          </Link>
+        ) : (
+          <Link
+            href={campus.mapUrl}
+            color="secondary"
+            target="_blank"
+            rel="noopener"
+            className={classes.mapLink}
+          >
+            <RoomIcon /> {campus.name}
+          </Link>
+        )}
+        {instance.type === "class" ? (
+          <>
+            <Typography>
+              <strong>Meets:</strong>
+              <br />
+              {meets}
+            </Typography>
+            <Typography>
+              <strong>Dates:</strong>
+              <br />
+              {instance.startDate} - {instance.endDate}
+            </Typography>
+          </>
+        ) : (
+          <>
+            <Typography>
+              <strong>When:</strong>
+              <br />
+              {meets}
+            </Typography>
+            <Typography>
+              <strong>Who:</strong>
+              <br />
+              {instance.who}
+            </Typography>
+          </>
+        )}
+        {extra ? <Typography variant="body1">{extra}</Typography> : null}
+        <Button
           href={signupUrl}
+          variant="contained"
           color="secondary"
           target="_blank"
           rel="noopener"
-          className={classes.mapLink}
+          disabled={disabled}
         >
-          <PublicIcon className={classes.worldIcon} /> {campus.name}
-        </Link>
-      ) : (
-        <Link
-          href={campus.mapUrl}
-          color="secondary"
-          target="_blank"
-          rel="noopener"
-          className={classes.mapLink}
+          {disabled ? "Registration closed" : "Student Signup"}
+        </Button>
+        <ExpansionLink
+          summary={
+            <Typography className={classes.learnMoreHeading}>
+              Learn More
+            </Typography>
+          }
         >
-          <RoomIcon /> {campus.name}
-        </Link>
-      )}
-      {instance.type === "class" ? (
-        <>
-          <Typography>
-            <strong>Meets:</strong>
-            <br />
-            {meets}
-          </Typography>
-          <Typography>
-            <strong>Dates:</strong>
-            <br />
-            {instance.startDate} - {instance.endDate}
-          </Typography>
-        </>
-      ) : (
-        <>
-          <Typography>
-            <strong>When:</strong>
-            <br />
-            {meets}
-          </Typography>
-          <Typography>
-            <strong>Who:</strong>
-            <br />
-            {instance.who}
-          </Typography>
-        </>
-      )}
-      {extra ? <Typography variant="body1">{extra}</Typography> : null}
-      <Button
-        href={signupUrl}
-        variant="contained"
-        color="secondary"
-        target="_blank"
-        rel="noopener"
-        disabled={disabled}
-      >
-        {disabled ? "Registration closed" : "Student Signup"}
-      </Button>
-      <ExpansionLink
-        summary={
-          <Typography className={classes.learnMoreHeading}>
-            Learn More
-          </Typography>
-        }
-      >
-        <Typography>{course.description}</Typography>
-      </ExpansionLink>
+          <Typography>{course.description}</Typography>
+        </ExpansionLink>
+      </Box>
     </Paper>
   );
 };
@@ -140,10 +148,11 @@ const Courses: React.FC<{
     [now]
   );
   const courses = instances.filter(courseFilter);
+  const classes = useStyles();
   return courses.length === 0 ? null : (
     <>
       {children}
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className={classes.gridContainer}>
         {courses.map((props, i) => (
           <Grid item xs={12} sm={6} md={4} key={i}>
             <CourseDescription instance={props} now={now} image={nextImage()} />
