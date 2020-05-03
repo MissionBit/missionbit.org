@@ -26,7 +26,7 @@ const ExpansionPanelSummary = withStyles((theme) => ({
     padding: 0,
     marginBottom: -1,
     minHeight: 56,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     "&$expanded": {
       minHeight: 56,
     },

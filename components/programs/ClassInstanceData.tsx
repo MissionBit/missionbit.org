@@ -117,7 +117,7 @@ export const Campuses = campusRecord({
     city: City.Online,
   },
   online_sf: {
-    name: "Online (For San Francisco Students)",
+    name: "Online (For SF Students)",
     city: City.Online,
   },
   online_oakland: {

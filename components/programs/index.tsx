@@ -19,6 +19,24 @@ import YouTubePreview from "../YouTubePreview";
 import YouTubePreviews from "../YouTubePreviews";
 import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
 
+const programImageNames = [
+  "safia_jaleel",
+  "girl-unity",
+  "jada",
+  "jesus",
+  "miguel_yanez",
+  "nathan_powell",
+] as const;
+
+const programImages = Object.fromEntries(
+  programImageNames.map((name) => [
+    name,
+    require(`../../public/images/program/${name}.jpg`),
+  ])
+) as {
+  [name in typeof programImageNames[number]]: string;
+};
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > section": {
@@ -73,6 +91,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
+  let i = 0;
+  const images = Object.values(programImages);
+  const nextImage = () => images[i++ % images.length];
   return (
     <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
@@ -81,13 +102,13 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
-            <img src={require("../../public/images/program/girl-unity.jpg")} />
+            <img src={programImages["girl-unity"]} />
           </Grid>
           <Grid item xs={4}>
-            <img src={require("../../public/images/program/jada.jpg")} />
+            <img src={programImages["jada"]} />
           </Grid>
           <Grid item xs={4}>
-            <img src={require("../../public/images/program/jesus.jpg")} />
+            <img src={programImages["jesus"]} />
           </Grid>
         </Grid>
       </Box>
@@ -115,7 +136,7 @@ const Main: React.FC<{}> = () => {
         </Typography>
       </Container>
       <Container component="section" id="enroll">
-        <Courses instances={SpringClassInstances}>
+        <Courses instances={SpringClassInstances} nextImage={nextImage}>
           <Typography
             variant="h3"
             align="center"
@@ -125,7 +146,7 @@ const Main: React.FC<{}> = () => {
             Spring 2020 Workshops:
           </Typography>
         </Courses>
-        <Courses instances={SummerClassInstances}>
+        <Courses instances={SummerClassInstances} nextImage={nextImage}>
           <Typography
             variant="h3"
             align="center"

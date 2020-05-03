@@ -9,6 +9,7 @@ import PublicIcon from "@material-ui/icons/Public";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionLink from "./ExpansionLink";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     "& > *:not(:last-child)": {
       margin: theme.spacing(1, 0),
     },
+    textAlign: "center",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
   },
   worldIcon: {
     marginRight: "0.2rem",
@@ -24,19 +30,20 @@ const useStyles = makeStyles((theme) => ({
   mapLink: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     fontSize: theme.typography.subtitle1.fontSize,
   },
   learnMoreHeading: {
     color: theme.palette.secondary.main,
-    textDecoration: "underline",
-    textDecorationStyle: "dotted",
+    textAlign: "center",
   },
 }));
 
 const CourseDescription: React.FC<{
   instance: ClassOrWorkshopInstance;
   now: number;
-}> = ({ instance, now }) => {
+  image: string;
+}> = ({ instance, now, image }) => {
   const classes = useStyles();
   const { extra, course, campus, meets, signupUrl } = instance;
   const disabled =
@@ -46,6 +53,7 @@ const CourseDescription: React.FC<{
       : instance.classDates.registrationDeadline);
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
+      <img src={image} className={classes.image} />
       <Typography variant="h5">{course.title}</Typography>
       {campus.city === City.Online ? (
         <Link
@@ -71,19 +79,27 @@ const CourseDescription: React.FC<{
       {instance.type === "class" ? (
         <>
           <Typography>
-            <strong>Meets:</strong> {meets}
+            <strong>Meets:</strong>
+            <br />
+            {meets}
           </Typography>
           <Typography>
-            <strong>Dates:</strong> {instance.startDate} - {instance.endDate}
+            <strong>Dates:</strong>
+            <br />
+            {instance.startDate} - {instance.endDate}
           </Typography>
         </>
       ) : (
         <>
           <Typography>
-            <strong>When:</strong> {meets}
+            <strong>When:</strong>
+            <br />
+            {meets}
           </Typography>
           <Typography>
-            <strong>Who:</strong> {instance.who}
+            <strong>Who:</strong>
+            <br />
+            {instance.who}
           </Typography>
         </>
       )}
@@ -111,10 +127,10 @@ const CourseDescription: React.FC<{
   );
 };
 
-const Courses: React.FC<{ instances: ClassOrWorkshopInstance[] }> = ({
-  children,
-  instances,
-}) => {
+const Courses: React.FC<{
+  instances: ClassOrWorkshopInstance[];
+  nextImage: () => string;
+}> = ({ children, instances, nextImage }) => {
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => setNow(Date.now()), []);
   // Skip workshops that have started already
@@ -127,9 +143,13 @@ const Courses: React.FC<{ instances: ClassOrWorkshopInstance[] }> = ({
   return courses.length === 0 ? null : (
     <>
       {children}
-      {courses.map((props, i) => (
-        <CourseDescription key={i} instance={props} now={now} />
-      ))}
+      <Grid container spacing={1}>
+        {courses.map((props, i) => (
+          <Grid item xs={12} sm={6} md={4} key={i}>
+            <CourseDescription instance={props} now={now} image={nextImage()} />
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 };
