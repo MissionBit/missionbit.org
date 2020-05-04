@@ -58,15 +58,13 @@ const UpcomingEvents: UpcomingEvent[] = [
   },
   ...SpringClassInstances.map((props) =>
     props.type === "workshop"
-      ? [
-          {
-            date: props.date,
-            title: props.course.title,
-            href: "/programs#workshops",
-          },
-        ]
-      : []
-  ).flat(1),
+      ? {
+          date: props.date,
+          title: props.course.title,
+          href: "/programs#workshops",
+        }
+      : null
+  ).filter((props) => props !== null),
 ].sort((a, b) => a.date - b.date);
 
 const PastEvents: PastEvent[] = [
