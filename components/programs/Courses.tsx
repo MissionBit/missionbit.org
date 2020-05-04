@@ -136,9 +136,8 @@ const CourseDescription: React.FC<{
 };
 
 const Courses: React.FC<{
-  instances: ClassOrWorkshopInstance[];
-  nextImage: () => string;
-}> = ({ children, instances, nextImage }) => {
+  instances: (ClassOrWorkshopInstance & { image: string })[];
+}> = ({ children, instances }) => {
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => setNow(Date.now()), []);
   // Skip workshops that have started already
@@ -153,9 +152,9 @@ const Courses: React.FC<{
     <>
       {children}
       <Grid container spacing={1} className={classes.gridContainer}>
-        {courses.map((props, i) => (
+        {courses.map(({ image, ...props }, i) => (
           <Grid item xs={12} sm={6} md={4} key={i}>
-            <CourseDescription instance={props} now={now} image={nextImage()} />
+            <CourseDescription instance={props} now={now} image={image} />
           </Grid>
         ))}
       </Grid>

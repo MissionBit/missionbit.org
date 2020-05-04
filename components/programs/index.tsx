@@ -13,6 +13,7 @@ import {
   SummerClassInstances,
   SpringClassInstances,
   SummerDates,
+  ClassOrWorkshopInstance,
 } from "./ClassInstanceData";
 import YouTubePreview from "../YouTubePreview";
 import YouTubePreviews from "../YouTubePreviews";
@@ -102,7 +103,13 @@ const Main: React.FC<{}> = () => {
   const classes = useStyles();
   let i = 0;
   const images = Object.values(programImages);
-  const nextImage = () => images[i++ % images.length];
+  const addImage = (props: ClassOrWorkshopInstance) => ({
+    image: images[i++ % images.length],
+    ...props,
+  });
+  const springClassInstances = SpringClassInstances.map(addImage);
+  const summerClassInstances = SummerClassInstances.map(addImage);
+
   return (
     <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
@@ -149,7 +156,7 @@ const Main: React.FC<{}> = () => {
         </Typography>
       </Container>
       <Container component="section" id="enroll">
-        <Courses instances={SpringClassInstances} nextImage={nextImage}>
+        <Courses instances={springClassInstances}>
           <Typography
             variant="h3"
             align="center"
@@ -159,7 +166,7 @@ const Main: React.FC<{}> = () => {
             Spring 2020 Workshops:
           </Typography>
         </Courses>
-        <Courses instances={SummerClassInstances} nextImage={nextImage}>
+        <Courses instances={summerClassInstances}>
           <Typography
             variant="h3"
             align="center"
