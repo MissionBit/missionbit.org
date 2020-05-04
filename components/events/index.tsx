@@ -64,7 +64,7 @@ const UpcomingEvents: UpcomingEvent[] = [
           href: "/programs#workshops",
         }
       : null
-  ).filter((props) => props !== null),
+  ).filter((props): props is UpcomingEvent => props !== null),
 ].sort((a, b) => a.date - b.date);
 
 const PastEvents: PastEvent[] = [
