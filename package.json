@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next",
     "build": "next build",
-    "export": "next export",
+    "export": "npm run build && next export",
     "start": "next start",
     "fix": "eslint --fix --ext js,jsx,ts,tsx .",
     "test": "jest",
