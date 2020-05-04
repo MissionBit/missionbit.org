@@ -5,19 +5,21 @@ export interface StudentTestimonial {
   program: React.ReactNode;
   quote: React.ReactNode;
   photo: string;
+  photoWebp: string;
   width: number;
   height: number;
 }
 
 function requirePhoto(
   filename: string
-): { photo: string; width: number; height: number } {
+): { photo: string; photoWebp: string; width: number; height: number } {
   const photo = require(`../../public/images/students/${filename}`);
+  const photoWebp = require(`../../public/images/students/${filename}?webp`);
   const {
     width,
     height,
   } = require(`../../public/images/students/${filename}?resize`);
-  return { photo, width, height };
+  return { photo, photoWebp, width, height };
 }
 
 export const testimonials: readonly StudentTestimonial[] = [

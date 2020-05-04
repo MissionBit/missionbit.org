@@ -69,17 +69,18 @@ const useStyles = makeStyles((theme) => ({
   photo: {
     display: "flex",
     flex: "1",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
     [theme.breakpoints.up("md")]: {
-      marginRight: theme.spacing(3),
       maxWidth: "60%",
+      marginRight: theme.spacing(3),
     },
     [theme.breakpoints.down("sm")]: {
-      marginRight: 0,
       maxHeight: "calc(100vw * 0.667)",
       height: "calc(100vw * 0.667)",
+      width: "100%",
+      marginRight: 0,
+    },
+    "& > img": {
+      objectFit: "contain",
       width: "100%",
     },
   },
@@ -144,6 +145,7 @@ const Students: React.FC<{}> = () => {
     program,
     quote,
     photo,
+    photoWebp,
     width,
     height,
   }) => (
@@ -153,15 +155,15 @@ const Students: React.FC<{}> = () => {
         <span className={classes.program}>{program}</span>
       </div>
       <div className={classes.photoQuote}>
-        <div
-          title={`Photo of ${name}`}
-          className={classes.photo}
-          style={{
-            backgroundImage: `url(${photo})`,
-          }}
-          data-width={width}
-          data-height={height}
-        />
+        <picture className={classes.photo}>
+          <source type="image/webp" srcSet={photoWebp} />
+          <img
+            alt={`Photo of ${name}`}
+            src={photo}
+            data-width={width}
+            data-height={height}
+          />
+        </picture>
         <div className={classes.quote}>
           {quote}
           <FormatQuoteIcon className={classes.tlQuote} />
@@ -173,7 +175,7 @@ const Students: React.FC<{}> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Carousel classes={{ root: classes.section }}>
+      <Carousel classes={{ root: classes.section }} id="testimonials">
         {testimonials.map((testimonial, idx) => (
           <Testimonial key={idx} {...testimonial} />
         ))}
