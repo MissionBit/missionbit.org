@@ -36,7 +36,7 @@ const SupportOurYouth: React.FC<{}> = () => {
   const classes = useStyles();
 
   return (
-    <Box component="section" id="values" className={classes.root}>
+    <Box component="section" id="support" className={classes.root}>
       <Typography
         variant="h4"
         component="h2"
