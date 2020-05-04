@@ -18,6 +18,7 @@ import {
 import YouTubePreview from "../YouTubePreview";
 import YouTubePreviews from "../YouTubePreviews";
 import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
+import fromKeyMap from "../../src/fromKeyMap";
 
 const programImageNames = [
   "safia_jaleel",
@@ -28,14 +29,9 @@ const programImageNames = [
   "nathan_powell",
 ] as const;
 
-const programImages = Object.fromEntries(
-  programImageNames.map((name) => [
-    name,
-    require(`../../public/images/program/${name}.jpg`),
-  ])
-) as {
-  [name in typeof programImageNames[number]]: string;
-};
+const programImages = fromKeyMap(programImageNames, (name) =>
+  require(`../../public/images/program/${name}.jpg`)
+);
 
 const useStyles = makeStyles((theme) => ({
   root: {
