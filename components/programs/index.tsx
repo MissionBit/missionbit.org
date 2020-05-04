@@ -1,6 +1,5 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Supporters from "../Supporters";
 import Box from "@material-ui/core/Box";
@@ -65,8 +64,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h5.fontSize,
     },
   },
+  landingTitle: {
+    padding: theme.spacing(0, 3),
+  },
   landing: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(3, 0),
+    textAlign: "center",
     background:
       "transparent linear-gradient(180deg, #2881D0 0%, #1B98A2 39%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
     "& > h1": {
@@ -75,9 +78,15 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.common.white,
     },
   },
-  grid: {
-    "& > div > img": {
-      maxWidth: "100%",
+  landingPhoto: {
+    maxWidth: "100%",
+    margin: "0 auto",
+    "& > img": {
+      maxWidth: 1380,
+      maxHeight: 300,
+      width: "100%",
+      objectFit: "cover",
+      margin: "0 auto",
     },
   },
   courseNotes: {
@@ -97,20 +106,24 @@ const Main: React.FC<{}> = () => {
   return (
     <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
-        <Typography variant="h2" component="h1" align="center">
+        <Typography
+          variant="h2"
+          component="h1"
+          align="center"
+          className={classes.landingTitle}
+        >
           Programs
         </Typography>
-        <Grid container className={classes.grid} spacing={3}>
-          <Grid item xs={4}>
-            <img src={programImages["girl-unity"]} />
-          </Grid>
-          <Grid item xs={4}>
-            <img src={programImages["jada"]} />
-          </Grid>
-          <Grid item xs={4}>
-            <img src={programImages["jesus"]} />
-          </Grid>
-        </Grid>
+        <picture className={classes.landingPhoto}>
+          <source
+            type="image/webp"
+            srcSet={require("../../public/images/program/students-header.jpg?webp")}
+          />
+          <img
+            alt="Photo of students"
+            src={require("../../public/images/program/students-header.jpg")}
+          />
+        </picture>
       </Box>
       <Container
         component="section"
