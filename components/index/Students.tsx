@@ -13,114 +13,122 @@ import {
 import { brand } from "../../src/colors";
 import { StudentTestimonial, testimonials } from "./StudentTestimonials";
 
-const useStyles = makeStyles((theme) => ({
-  section: {
-    height: "100vh",
-    maxHeight: "var(--document-height, 100vh)",
-  },
-  testimonial: {
-    width: "100%",
-    display: "flex",
-    flex: "1 0 100%",
-    flexDirection: "column",
-    padding: theme.spacing(3),
-    scrollSnapAlign: "center",
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(1, 0, 0, 0),
+const useStyles = makeStyles((theme) => {
+  const paddingTop = theme.spacing(2);
+  const titleHeight = 39 + theme.spacing(2);
+  const ulHeight = 16 + theme.spacing(4 * 2);
+  const quoteHeight = 252;
+  const photoHeightMax = `calc(100vh - ${
+    paddingTop + titleHeight + ulHeight + quoteHeight
+  }px)`;
+  return {
+    section: {
+      height: "100vh",
+      maxHeight: "var(--document-height, 100vh)",
     },
-    "--accent-color": brand.orange,
-    "&:nth-child(even)": {
-      "--accent-color": brand.ultra,
-    },
-  },
-  title: {
-    alignSelf: "flex-start",
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(2),
-      padding: theme.spacing(0, 1),
-    },
-  },
-  name: {
-    ...theme.typography.h3,
-    color: `var(--accent-color, ${brand.orange})`,
-    fontWeight: "bold",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h4.fontSize,
-    },
-  },
-  program: {
-    ...theme.typography.h4,
-    color: theme.palette.common.white,
-    fontWeight: "bold",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h5.fontSize,
-    },
-  },
-  photoQuote: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    height: "100%",
-    [theme.breakpoints.down("sm")]: {
+    testimonial: {
+      width: "100%",
+      display: "flex",
+      flex: "1 0 100%",
       flexDirection: "column",
-      justifyContent: "center",
-    },
-  },
-  photo: {
-    display: "flex",
-    flex: "1",
-    [theme.breakpoints.up("md")]: {
-      maxWidth: "60%",
-      marginRight: theme.spacing(3),
-    },
-    [theme.breakpoints.down("sm")]: {
-      maxHeight: "calc(100vw * 0.667)",
-      height: "calc(100vw * 0.667)",
-      width: "100%",
-      marginRight: 0,
-    },
-    "& > img": {
-      objectFit: "contain",
-      width: "100%",
-    },
-  },
-  quote: {
-    ...theme.typography.h5,
-    display: "flex",
-    position: "relative",
-    alignSelf: "center",
-    alignItems: "center",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.body1.fontSize,
-      margin: `auto 0`,
-      padding: theme.spacing(3, 1),
-    },
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 445,
       padding: theme.spacing(3),
+      scrollSnapAlign: "center",
+      [theme.breakpoints.down("sm")]: {
+        padding: theme.spacing(1, 0, 0, 0),
+      },
+      "--accent-color": brand.orange,
+      "&:nth-child(even)": {
+        "--accent-color": brand.ultra,
+      },
     },
-  },
-  brQuote: {
-    position: "absolute",
-    right: "0",
-    bottom: "0",
-    transform: "translate(40%, 40%) scale(2)",
-    color: `var(--accent-color, ${brand.orange})`,
-    [theme.breakpoints.down("sm")]: {
-      transform: "translate(-20%, -10%) scale(1)",
+    title: {
+      alignSelf: "flex-start",
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: theme.spacing(1),
+        padding: theme.spacing(0, 1),
+      },
     },
-  },
-  tlQuote: {
-    position: "absolute",
-    left: "0",
-    top: "0",
-    transform: "translate(-40%, -40%) scale(-2)",
-    color: `var(--accent-color, ${brand.orange})`,
-    [theme.breakpoints.down("sm")]: {
-      transform: "scale(-1)",
+    name: {
+      ...theme.typography.h3,
+      color: `var(--accent-color, ${brand.orange})`,
+      fontWeight: "bold",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.h4.fontSize,
+      },
     },
-  },
-}));
+    program: {
+      ...theme.typography.h4,
+      color: theme.palette.common.white,
+      fontWeight: "bold",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.h5.fontSize,
+      },
+    },
+    photoQuote: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      height: "100%",
+      [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        justifyContent: "center",
+      },
+    },
+    photo: {
+      display: "flex",
+      flex: "1",
+      [theme.breakpoints.up("md")]: {
+        maxWidth: "60%",
+        marginRight: theme.spacing(3),
+      },
+      [theme.breakpoints.down("sm")]: {
+        maxHeight: photoHeightMax,
+        width: "100%",
+        marginRight: 0,
+      },
+      "& > img": {
+        objectFit: "contain",
+        width: "100%",
+      },
+    },
+    quote: {
+      ...theme.typography.h5,
+      display: "flex",
+      position: "relative",
+      alignSelf: "center",
+      alignItems: "center",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.body1.fontSize,
+        margin: `auto 0`,
+        padding: theme.spacing(3, 1),
+      },
+      [theme.breakpoints.up("md")]: {
+        maxWidth: 445,
+        padding: theme.spacing(3),
+      },
+    },
+    brQuote: {
+      position: "absolute",
+      right: "0",
+      bottom: "0",
+      transform: "translate(40%, 40%) scale(2)",
+      color: `var(--accent-color, ${brand.orange})`,
+      [theme.breakpoints.down("sm")]: {
+        transform: "translate(-20%, -10%) scale(1)",
+      },
+    },
+    tlQuote: {
+      position: "absolute",
+      left: "0",
+      top: "0",
+      transform: "translate(-40%, -40%) scale(-2)",
+      color: `var(--accent-color, ${brand.orange})`,
+      [theme.breakpoints.down("sm")]: {
+        transform: "scale(-1)",
+      },
+    },
+  };
+});
 
 const themeOverrides = (theme: Theme): ThemeOptions => ({
   ...theme,
