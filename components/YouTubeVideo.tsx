@@ -28,6 +28,7 @@ const YouTubeVideo: React.FC<{ id: string }> = ({ id }) => {
         frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen
+        title="YouTube Video"
       />
     </div>
   );

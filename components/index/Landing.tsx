@@ -129,6 +129,7 @@ const Landing: React.FC<{}> = () => {
           <img
             src={require("../../public/images/landing/down-arrow.svg")}
             className={classes.verticalBounce}
+            alt="Scroll down arrow"
           />
         </a>
       </div>

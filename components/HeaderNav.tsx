@@ -133,6 +133,7 @@ const LogoHome: React.FC<{ className: string }> = ({ className }) => (
   <a href="/">
     <img
       src={require("../public/images/missionbit-logo-horizontal.svg")}
+      alt="Mission Bit logo"
       className={className}
     />
   </a>
