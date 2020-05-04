@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
 import { StudentTestimonial, testimonials } from "./StudentTestimonials";
+import { CSSProperties } from "@material-ui/core/styles/withStyles";
 
 const useStyles = makeStyles((theme) => {
   const paddingTop = theme.spacing(2);
@@ -21,6 +22,16 @@ const useStyles = makeStyles((theme) => {
   const photoHeightMax = `calc(100vh - ${
     paddingTop + titleHeight + ulHeight + quoteHeight
   }px)`;
+  const portraitQ = "(max-aspect-ratio:1/1)";
+  const landscapeQ = "(min-aspect-ratio:1/1)";
+  const mediaSmallTextP = `@media (max-width:727.95px) and ${portraitQ}`;
+  const mediaSmallTextL = `@media (max-height:727.95px) and ${landscapeQ}`;
+  const smallTextSel = (styles: CSSProperties) => ({
+    [mediaSmallTextP]: styles,
+    [mediaSmallTextL]: styles,
+  });
+  const mediaPortrait = `@media ${portraitQ}`;
+
   return {
     section: {
       height: "100vh",
@@ -30,10 +41,14 @@ const useStyles = makeStyles((theme) => {
       width: "100%",
       display: "flex",
       flex: "1 0 100%",
-      flexDirection: "column",
+      flexDirection: "row",
       padding: theme.spacing(3),
       scrollSnapAlign: "center",
-      [theme.breakpoints.down("sm")]: {
+      ...smallTextSel({
+        padding: theme.spacing(1, 0, 0, 0),
+      }),
+      [mediaPortrait]: {
+        flexDirection: "column",
         padding: theme.spacing(1, 0, 0, 0),
       },
       "--accent-color": brand.orange,
@@ -42,47 +57,36 @@ const useStyles = makeStyles((theme) => {
       },
     },
     title: {
-      alignSelf: "flex-start",
-      [theme.breakpoints.down("sm")]: {
-        marginBottom: theme.spacing(1),
-        padding: theme.spacing(0, 1),
-      },
+      padding: theme.spacing(0, 1, 1, 1),
     },
     name: {
       ...theme.typography.h3,
       color: `var(--accent-color, ${brand.orange})`,
       fontWeight: "bold",
-      [theme.breakpoints.down("sm")]: {
+      ...smallTextSel({
         fontSize: theme.typography.h4.fontSize,
-      },
+      }),
     },
     program: {
       ...theme.typography.h4,
+      display: "inline-block",
       color: theme.palette.common.white,
       fontWeight: "bold",
-      [theme.breakpoints.down("sm")]: {
+      ...smallTextSel({
         fontSize: theme.typography.h5.fontSize,
-      },
+      }),
     },
-    photoQuote: {
+    photoTitle: {
       display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-evenly",
-      height: "100%",
-      [theme.breakpoints.down("sm")]: {
-        flexDirection: "column",
-        justifyContent: "center",
-      },
+      flexDirection: "column",
+      flex: "1",
     },
     photo: {
       display: "flex",
       flex: "1",
-      [theme.breakpoints.up("md")]: {
-        maxWidth: "60%",
-        marginRight: theme.spacing(3),
-      },
-      [theme.breakpoints.down("sm")]: {
+      [mediaPortrait]: {
         maxHeight: photoHeightMax,
+        maxWidth: "100%",
         width: "100%",
         marginRight: 0,
       },
@@ -94,38 +98,47 @@ const useStyles = makeStyles((theme) => {
     quote: {
       ...theme.typography.h5,
       display: "flex",
+      flex: "1",
       position: "relative",
       alignSelf: "center",
       alignItems: "center",
-      [theme.breakpoints.down("sm")]: {
+      padding: `1rem 2rem`,
+      marginBottom: "1rem",
+      width: "50%",
+      minWidth: 360,
+      [mediaPortrait]: {
+        width: "100%",
+        minWidth: "100%",
+        maxWidth: "100%",
+      },
+      ...smallTextSel({
         fontSize: theme.typography.body1.fontSize,
         margin: `auto 0`,
         padding: theme.spacing(3, 1),
-      },
-      [theme.breakpoints.up("md")]: {
-        maxWidth: 445,
-        padding: theme.spacing(3),
-      },
+      }),
     },
-    brQuote: {
-      position: "absolute",
-      right: "0",
-      bottom: "0",
-      transform: "translate(40%, 40%) scale(2)",
-      color: `var(--accent-color, ${brand.orange})`,
-      [theme.breakpoints.down("sm")]: {
-        transform: "translate(-20%, -10%) scale(1)",
-      },
+    quoteWrapper: {
+      position: "relative",
     },
     tlQuote: {
       position: "absolute",
       left: "0",
       top: "0",
-      transform: "translate(-40%, -40%) scale(-2)",
+      transform: "translate(-1rem, -2rem) scale(-2)",
       color: `var(--accent-color, ${brand.orange})`,
-      [theme.breakpoints.down("sm")]: {
-        transform: "scale(-1)",
-      },
+      ...smallTextSel({
+        transform: "translate(-0.5rem, -1.5rem) scale(-1)",
+      }),
+    },
+    brQuote: {
+      position: "absolute",
+      right: "0",
+      bottom: "0",
+      transform: "translate(1rem, 2rem) scale(2)",
+      color: `var(--accent-color, ${brand.orange})`,
+      ...smallTextSel({
+        transform: "translate(0.5rem, 1.5rem) scale(1)",
+      }),
     },
   };
 });
@@ -158,11 +171,11 @@ const Students: React.FC<{}> = () => {
     height,
   }) => (
     <div className={classes.testimonial}>
-      <div className={classes.title}>
-        <span className={classes.name}>{name} </span>
-        <span className={classes.program}>{program}</span>
-      </div>
-      <div className={classes.photoQuote}>
+      <div className={classes.photoTitle}>
+        <div className={classes.title}>
+          <span className={classes.name}>{name} </span>
+          <span className={classes.program}>{program}</span>
+        </div>
         <picture className={classes.photo}>
           <source type="image/webp" srcSet={photoWebp} />
           <img
@@ -172,7 +185,9 @@ const Students: React.FC<{}> = () => {
             data-height={height}
           />
         </picture>
-        <div className={classes.quote}>
+      </div>
+      <div className={classes.quote}>
+        <div className={classes.quoteWrapper}>
           {quote}
           <FormatQuoteIcon className={classes.tlQuote} />
           <FormatQuoteIcon className={classes.brQuote} />
