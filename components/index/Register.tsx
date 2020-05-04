@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const Register: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Box component="section" id="mission" className={classes.root}>
+    <Box component="section" id="register" className={classes.root}>
       <Container>
         <Typography variant="h4">
           <Link href="/programs#courses">Register</Link> for online summer
