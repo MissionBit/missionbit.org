@@ -75,6 +75,7 @@ const Layout: React.FC<LayoutProps> = ({
           property="og:description"
           content={description ?? DEFAULT_DESCRIPTION}
         />
+        <meta name="description" content={description ?? DEFAULT_DESCRIPTION} />
         {[64, 128, 256].map((size) => (
           <ShortcutPng key={size} size={size} />
         ))}
