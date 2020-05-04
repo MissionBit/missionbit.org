@@ -68,6 +68,7 @@ module.exports = withPlugins(
       handleImages: ["jpeg", "png", "svg", "webp", "gif"],
       optimizeImages: true,
       optimizeImagesInDev: false,
+      responsive: {},
       mozjpeg: {
         quality: 80,
       },

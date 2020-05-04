@@ -20,11 +20,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
-    <img src={require(`../public/images/supporters/${logo}`)} alt={title} />
-  </a>
-);
+const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
+      <img src={logo} alt={title} />
+    </a>
+  );
+};
 
 const Supporters: React.FC<{}> = () => {
   const classes = useStyles();
