@@ -19,8 +19,11 @@ const useStyles = makeStyles((theme) => {
   const titleHeight = 39 + theme.spacing(2);
   const ulHeight = 16 + theme.spacing(4 * 2);
   const quoteHeight = 252;
-  const photoHeightMax = `calc(100vh - ${
+  const photoHeightMaxP = `calc(100vh - ${
     paddingTop + titleHeight + ulHeight + quoteHeight
+  }px)`;
+  const photoHeightMaxL = `calc(100vh - ${
+    paddingTop + titleHeight + ulHeight
   }px)`;
   const portraitQ = "(max-aspect-ratio:1/1)";
   const landscapeQ = "(min-aspect-ratio:1/1)";
@@ -78,14 +81,16 @@ const useStyles = makeStyles((theme) => {
     },
     photoTitle: {
       display: "flex",
+      position: "relative",
       flexDirection: "column",
       flex: "1",
     },
     photo: {
       display: "flex",
       flex: "1",
+      maxHeight: photoHeightMaxL,
       [mediaPortrait]: {
-        maxHeight: photoHeightMax,
+        maxHeight: photoHeightMaxP,
         maxWidth: "100%",
         width: "100%",
         marginRight: 0,
@@ -102,11 +107,12 @@ const useStyles = makeStyles((theme) => {
       position: "relative",
       alignSelf: "center",
       alignItems: "center",
-      padding: `1rem 2rem`,
+      padding: `6.25rem 2rem 1rem 2rem`,
       marginBottom: "1rem",
       width: "50%",
       minWidth: 360,
       [mediaPortrait]: {
+        paddingTop: "1rem",
         width: "100%",
         minWidth: "100%",
         maxWidth: "100%",
