@@ -1,0 +1,54 @@
+[build]
+  publish = "out/"
+  command = "npm run export"
+
+# Legacy redirects for netlify, see also next.config.js
+[[redirects]]
+  from = "/about-us/"
+  to = "/about"
+[[redirects]]
+  from = "/workshops/"
+  to = "/programs"
+[[redirects]]
+  from = "/careerprep/"
+  to = "/programs"
+[[redirects]]
+  from = "/volunteer/"
+  to = "/get-involved"
+[[redirects]]
+  from = "/demo-day/"
+  to = "/events"
+[[redirects]]
+  from = "/studentProjects/"
+  to = "/programs"
+[[redirects]]
+  from = "/showcase/"
+  to = "/programs"
+[[redirects]]
+  from = "/30k30days/"
+  to = "/get-involved"
+[[redirects]]
+  from = "/donate/"
+  to = "https://donate.missionbit.org/"
+[[redirects]]
+  from = "/employment/"
+  to = "/programs"
+[[redirects]]
+  from = "/exposure/"
+  to = "/programs"
+[[redirects]]
+  from = "/hackathon/"
+  to = "/programs"
+[[redirects]]
+  from = "/jobs/instructor.html"
+  to = "/about#jobs"
+[[redirects]]
+  from = "/jobs/ta.html"
+  to = "/about#jobs"
+[[redirects]]
+  from = "/laptop/mac.html"
+  to = "/laptop/mac"
+[[redirects]]
+  from = "/laptop/mac"
+  to = "https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub"
+  status = 302

@@ -53,6 +53,7 @@ ext install msjsdiag.debugger-for-chrome
 ext install editorconfig.editorconfig
 ext install dbaeumer.vscode-eslint
 ext install esbenp.prettier-vscode
+ext install bungcip.better-toml
 ```
 
 ## Coding Conventions
