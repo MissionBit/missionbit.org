@@ -154,7 +154,7 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
   palette: {
     type: "dark",
     background: {
-      paper: brand.royal,
+      paper: brand.indigo,
     },
     primary: theme.palette.primary,
   },

@@ -16,13 +16,19 @@ const SubscribeImage: React.FC<{ className?: string }> = ({ className }) => (
         <use xlinkHref="#paths" fill="white" />
       </mask>
     </defs>
-    <image
-      href={require("../public/images/subscribe/subscribe.jpg")}
-      x="0"
-      y="0"
-      height="100%"
-      width="100%"
-    />
+    <foreignObject x="0" y="0" height="100%" width="100%" mask="url(#mask)">
+      <picture>
+        <source
+          type="image/webp"
+          srcSet={require("../public/images/subscribe/subscribe.jpg?webp")}
+        />
+        <img
+          src={require("../public/images/subscribe/subscribe.jpg")}
+          width="100%"
+          height="100%"
+        />
+      </picture>
+    </foreignObject>
     <use
       xlinkHref="#paths"
       stroke="#FB8B00"

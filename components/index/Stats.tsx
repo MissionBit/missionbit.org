@@ -77,31 +77,31 @@ const Stats: React.FC<{}> = () => {
   return (
     <section className={classes.section}>
       <div className={classes.line}>
-        <div className={clsx(classes.value, classes.color1)}>85</div>
-        <div className={classes.copy}>classes taught</div>
         <img
           src={require("../../public/images/stats/classes-taught.svg")}
           className={classes.icon}
           alt="Graduation cap on top of a text editor window"
         />
+        <div className={clsx(classes.value, classes.color1)}>88</div>
+        <div className={classes.copy}>classes taught</div>
       </div>
       <div className={classes.line}>
-        <div className={clsx(classes.value, classes.color2)}>4,000+</div>
-        <div className={classes.copy}>students served</div>
         <img
           src={require("../../public/images/stats/students.svg")}
           className={classes.icon}
           alt="Three students, two holding laptops with Mission Bit stickers"
         />
+        <div className={clsx(classes.value, classes.color2)}>4,000+</div>
+        <div className={classes.copy}>students served</div>
       </div>
       <div className={classes.line}>
-        <div className={clsx(classes.value, classes.color3)}>14</div>
-        <div className={classes.copy}>school sites</div>
         <img
           src={require("../../public/images/stats/mission-high-school.svg")}
           className={classes.icon}
           alt="Mission High School"
         />
+        <div className={clsx(classes.value, classes.color3)}>14</div>
+        <div className={classes.copy}>school sites</div>
       </div>
     </section>
   );

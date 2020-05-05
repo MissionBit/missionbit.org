@@ -9,7 +9,7 @@ import { brand } from "../../src/colors";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(0, 2),
-    backgroundColor: brand.gray,
+    backgroundColor: brand.indigo,
     color: theme.palette.common.white,
     textAlign: "center",
     marginBottom: "3rem",
