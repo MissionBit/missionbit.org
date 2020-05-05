@@ -1,6 +1,9 @@
 const withPlugins = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 const withSourceMaps = require("@zeit/next-source-maps");
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const slashRedirects = [
   "about",
@@ -59,6 +62,7 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
+    withBundleAnalyzer,
     withSourceMaps,
     [
       optimizedImages,

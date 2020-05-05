@@ -1,5 +1,3 @@
-import _ from "lodash";
-
 export const timeZone: string = "America/Los_Angeles";
 
 export const LongDateTimeFormat = new Intl.DateTimeFormat("en-US", {
@@ -35,8 +33,26 @@ export const ShortDateFormat = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
+function dropWhile<T>(collection: T[], predicate: (x: T) => boolean): T[] {
+  for (let i = 0; i < collection.length; i++) {
+    if (!predicate(collection[i])) {
+      return collection.slice(i);
+    }
+  }
+  return [];
+}
+
+function dropRightWhile<T>(collection: T[], predicate: (x: T) => boolean): T[] {
+  for (let i = collection.length; i > 0; i--) {
+    if (!predicate(collection[i - 1])) {
+      return collection.slice(0, i);
+    }
+  }
+  return [];
+}
+
 function span<T>(collection: T[], predicate: (x: T) => boolean): [T[], T[]] {
-  const suffix = _.dropWhile(collection, predicate);
+  const suffix = dropWhile(collection, predicate);
   return [collection.slice(0, collection.length - suffix.length), suffix];
 }
 
@@ -53,11 +69,9 @@ export function hourStartEndParts(
     LongDateTimeFormat.formatToParts(start),
     notHour
   );
-  const endHour = _.dropWhile(LongDateTimeFormat.formatToParts(end), notHour);
-  const dateParts: string[] = _.dropRightWhile(startDate, notYear).map(
-    getValue
-  );
-  const timeParts: string[] = _.dropRightWhile(startHour, notDayPeriod).map(
+  const endHour = dropWhile(LongDateTimeFormat.formatToParts(end), notHour);
+  const dateParts: string[] = dropRightWhile(startDate, notYear).map(getValue);
+  const timeParts: string[] = dropRightWhile(startHour, notDayPeriod).map(
     getValue
   );
   timeParts.push(" - ", ...endHour.map(getValue));
