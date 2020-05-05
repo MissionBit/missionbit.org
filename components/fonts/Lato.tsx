@@ -6,8 +6,7 @@ import * as CSS from "csstype";
 const WEIGHTS = [
   { weight: 300, name: "Light" },
   { weight: 400, name: "Regular" },
-  { weight: 500, name: "Medium" },
-  { weight: 700, name: "Bold" },
+  { weight: 700, name: "Black" },
 ];
 
 const styles = {
@@ -15,12 +14,16 @@ const styles = {
     "@font-face": WEIGHTS.map(
       ({ name, weight }): CSS.FontFace => ({
         src: [
-          `local("Roboto ${name}")`,
-          `local("Roboto-${name}")`,
-          `url("/fonts/roboto-latin-${weight}.woff2") format("woff2")`,
-          `url("/fonts/roboto-latin-${weight}.woff") format("woff")`,
+          `local("Lato")`,
+          `local("Lato ${name}")`,
+          `local("Lato-${name}")`,
+          `local("LatoLatin")`,
+          `local("LatoLatin ${name}")`,
+          `local("LatoLatin-${name}")`,
+          `url("/fonts/LatoLatin-${name}.woff2") format("woff2")`,
+          `url("/fonts/LatoLatin-${name}.woff") format("woff")`,
         ].join(","),
-        fontFamily: "Roboto",
+        fontFamily: "Lato",
         fontStyle: "normal",
         fontDisplay: "swap",
         fontWeight: weight,
@@ -29,13 +32,13 @@ const styles = {
   },
 };
 
-const Roboto: React.FC<{}> = () => (
+const Lato: React.FC<{}> = () => (
   <Head>
-    {WEIGHTS.map(({ weight }) => (
+    {WEIGHTS.map(({ name }) => (
       <link
-        key={weight}
+        key={name}
         rel="preload"
-        href={`/fonts/roboto-latin-${weight}.woff2`}
+        href={`/fonts/LatoLatin-${name}.woff2`}
         as="font"
         crossOrigin=""
       />
@@ -43,4 +46,4 @@ const Roboto: React.FC<{}> = () => (
   </Head>
 );
 
-export default withStyles(styles)(Roboto);
+export default withStyles(styles)(Lato);

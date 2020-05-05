@@ -87,7 +87,6 @@ const useStylesDesktop = makeStyles(() => ({
     display: "flex",
     listStyleType: "none",
     alignItems: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     color: "#333",
     padding: "1rem",

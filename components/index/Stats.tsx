@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   line: {
-    fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: theme.typography.pxToRem(32),
     margin: "3rem",
     [theme.breakpoints.down("sm")]: {

@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     listStyleType: "none",
     justifyContent: "center",
     alignItems: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     color: "#333",
     padding: "1rem",

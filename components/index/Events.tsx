@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
   copy: {
     color: theme.palette.secondary.main,
     textAlign: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: theme.typography.pxToRem(32),
     lineHeight: "3rem",
     [theme.breakpoints.down("sm")]: {

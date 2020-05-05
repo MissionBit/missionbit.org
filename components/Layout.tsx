@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import themeOptions from "../src/theme";
-import Roboto from "./fonts/Roboto";
+import Lato from "./fonts/Lato";
 import GoogleAnalytics from "./GoogleAnalytics";
 import absoluteUrl from "../src/absoluteUrl";
 
@@ -83,7 +83,7 @@ const Layout: React.FC<LayoutProps> = ({
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Roboto />
+        <Lato />
         <Header className={headerClassName} alerts={alerts}>
           {headerChildren}
         </Header>

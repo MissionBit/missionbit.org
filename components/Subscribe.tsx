@@ -58,6 +58,7 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
     primary: theme.palette.primary,
   },
   typography: {
+    fontFamily: theme.typography.fontFamily,
     button: theme.typography.button,
   },
 });

@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     color: theme.palette.common.white,
     textAlign: "center",
-    fontFamily: "Arial, Helvetica, sans-serif",
     fontWeight: "bold",
     padding: theme.spacing(2),
     flex: "0 0 55%",
