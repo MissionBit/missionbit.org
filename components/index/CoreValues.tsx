@@ -66,18 +66,18 @@ const CoreValues: React.FC<{}> = () => {
         Core Values
       </Typography>
       <Box className={classes.root}>
+        <Value title="Social Justice" src={images.socialJustice}>
+          Providing equal opportunities for the underrepresented &amp;
+          under-resourced
+        </Value>
         <Value title="Community" src={images.community}>
           Cultivating a supportive environment of like-minded peers
-        </Value>
-        <Value title="Accountability" src={images.accountability}>
-          Embracing the responsibility to inspire future generations
         </Value>
         <Value title="Love" src={images.love}>
           Practicing empathy, honesty, and openness
         </Value>
-        <Value title="Social Justice" src={images.socialJustice}>
-          Providing equal opportunities for the underrepresented &amp;
-          under-resourced
+        <Value title="Accountability" src={images.accountability}>
+          Embracing the responsibility to inspire future generations
         </Value>
         <Value title="Smart Risks" src={images.smartRisks}>
           Encouraging the pursuit of passions
