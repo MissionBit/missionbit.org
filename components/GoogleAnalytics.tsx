@@ -40,6 +40,8 @@ export const GoogleAnalytics: React.FC<{}> = () => (
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://i.ytimg.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <script
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
