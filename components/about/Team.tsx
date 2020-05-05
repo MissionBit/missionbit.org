@@ -98,7 +98,7 @@ const Team: React.FC<{}> = () => {
   }) => (
     <div>
       <div className={classes.imageBio}>
-        <img src={require(`../../public/images/about/team/${image}`)} />
+        <img {...image} />
         {bio ? (
           <BioPopover name={name} className={classes.bio}>
             <Typography className={classes.bioTypography}>{bio}</Typography>

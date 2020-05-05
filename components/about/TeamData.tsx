@@ -3,7 +3,7 @@ import * as React from "react";
 export interface TeamMemberProps<T extends React.ReactNode> {
   name: string;
   title?: T;
-  image: string;
+  image: { src: string };
   bio?: React.ReactNode;
 }
 
@@ -27,11 +27,15 @@ type BoardTitle = React.ReactNode;
 
 type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
 
+function image(path: string): { image: { src: string } } {
+  return { image: { src: require(`../../public/images/about/team/${path}`) } };
+}
+
 const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Christina Ortega",
     title: "Chief Executive Officer",
-    image: "core/christina_ortega.jpg",
+    ...image("core/christina_ortega.jpg"),
     bio: (
       <>
         Christina Ortega has a Master's in Public Administration with an
@@ -46,7 +50,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Cora Monokandilos",
     title: "Director of Curriculum",
-    image: "core/cora_monokandilos.jpg",
+    ...image("core/cora_monokandilos.jpg"),
     bio: (
       <>
         Cora Monokandilos is a Mission Bit alum who studied Computer Science at
@@ -60,7 +64,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Cynthia Chin",
     title: "Program Manager",
-    image: "core/cynthia_chin.jpg",
+    ...image("core/cynthia_chin.jpg"),
     bio: (
       <>
         Cynthia Chin is an education professional with over 6 years of
@@ -74,7 +78,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Genevieve Mossey",
     title: "Program Coordinator",
-    image: "core/genevieve_mossey.jpg",
+    ...image("core/genevieve_mossey.jpg"),
     bio: (
       <>
         Genevieve Mossey has a Bachelor’s degree in Psychology from San
@@ -89,7 +93,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "David Topete",
     title: "Videographer",
-    image: "core/david_topete.jpg",
+    ...image("core/david_topete.jpg"),
   },
 ];
 
@@ -97,62 +101,62 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
     name: "Shinjini Nunna",
     title: "Lead Instructor",
-    image: "2020-spring/shinjini_nunna.jpg",
+    ...image("2020-spring/shinjini_nunna.jpg"),
   },
   {
     name: "Christopher Louie",
     title: "Lead Instructor",
-    image: "2020-spring/christopher_louie.jpg",
+    ...image("2020-spring/christopher_louie.jpg"),
   },
   {
     name: "Georgina Cruz",
     title: "Lead Instructor",
-    image: "2020-spring/georgina_cruz.jpg",
+    ...image("2020-spring/georgina_cruz.jpg"),
   },
   {
     name: "Gustavo Salas",
     title: "Lead Instructor",
-    image: "2020-spring/gustavo_salas.jpg",
+    ...image("2020-spring/gustavo_salas.jpg"),
   },
   {
     name: "Stephen Yu",
     title: "Lead Instructor",
-    image: "2020-spring/stephen_yu.jpg",
+    ...image("2020-spring/stephen_yu.jpg"),
   },
   {
     name: "Hunter Rocha",
     title: "Lead Instructor",
-    image: "2020-spring/hunter_rocha.jpg",
+    ...image("2020-spring/hunter_rocha.jpg"),
   },
   {
     name: "Imani Dawson",
     title: "Instructor's Assistant",
-    image: "2020-spring/imani_dawson.jpg",
+    ...image("2020-spring/imani_dawson.jpg"),
   },
   {
     name: "Martin Linenweber",
     title: "Instructor's Assistant",
-    image: "2020-spring/martin_linenweber.jpg",
+    ...image("2020-spring/martin_linenweber.jpg"),
   },
   {
     name: "Anthony Hizon",
     title: "Instructor's Assistant",
-    image: "2020-spring/anthony_hizon.jpg",
+    ...image("2020-spring/anthony_hizon.jpg"),
   },
   {
     name: "Minh Phuc Tran",
     title: "Instructor's Assistant",
-    image: "2020-spring/minh_phuc_tran.jpg",
+    ...image("2020-spring/minh_phuc_tran.jpg"),
   },
   {
     name: "Robert Macaibay",
     title: "Instructor's Assistant",
-    image: "2020-spring/robert_macaibay.jpg",
+    ...image("2020-spring/robert_macaibay.jpg"),
   },
   {
     name: "Nico Magaña",
     title: "Instructor's Assistant",
-    image: "2020-spring/nico_magana.jpg",
+    ...image("2020-spring/nico_magana.jpg"),
   },
 ];
 
@@ -169,52 +173,52 @@ function sabTitle(year: number, school: School): React.ReactNode {
 const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
   {
     name: "Alexander Peng",
-    image: "2020-spring-sab/alexander_peng.jpg",
+    ...image("2020-spring-sab/alexander_peng.jpg"),
     title: sabTitle(2020, "Lowell High School"),
   },
   {
     name: "Alyssa Wu",
-    image: "2020-spring-sab/alyssa_wu.jpg",
+    ...image("2020-spring-sab/alyssa_wu.jpg"),
     title: sabTitle(2022, "Lowell High School"),
   },
   {
     name: "Bryan De Leon",
-    image: "2020-spring-sab/bryan_de_leon.jpg",
+    ...image("2020-spring-sab/bryan_de_leon.jpg"),
     title: sabTitle(2020, "Gateway High School"),
   },
   {
     name: "Derick Du",
-    image: "2020-spring-sab/derick_du.jpg",
+    ...image("2020-spring-sab/derick_du.jpg"),
     title: sabTitle(2022, "Wallenburg High School"),
   },
   {
     name: "Ernest Sarajyan",
-    image: "2020-spring-sab/ernest_sarajyan.jpg",
+    ...image("2020-spring-sab/ernest_sarajyan.jpg"),
     title: sabTitle(2022, "Washington High School"),
   },
   {
     name: "Johnny Lin",
-    image: "2020-spring-sab/johnny_lin.jpg",
+    ...image("2020-spring-sab/johnny_lin.jpg"),
     title: sabTitle(2022, "Washington High School"),
   },
   {
     name: "Joshua Pan",
-    image: "2020-spring-sab/joshua_pan.jpg",
+    ...image("2020-spring-sab/joshua_pan.jpg"),
     title: sabTitle(2022, "Lowell High School"),
   },
   {
     name: "Oscar Tiong",
-    image: "2020-spring-sab/oscar_tiong.jpg",
+    ...image("2020-spring-sab/oscar_tiong.jpg"),
     title: sabTitle(2020, "Lowell High School"),
   },
   {
     name: "Tara Tiong",
-    image: "2020-spring-sab/tara_tiong.jpg",
+    ...image("2020-spring-sab/tara_tiong.jpg"),
     title: sabTitle(2023, "Lowell High School"),
   },
   {
     name: "Trent Taylor III",
-    image: "2020-spring-sab/trent_taylor_iii.jpg",
+    ...image("2020-spring-sab/trent_taylor_iii.jpg"),
     title: sabTitle(2022, "Skyline High School"),
   },
 ];
@@ -229,7 +233,7 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
         Co-Founder &amp; CTO at Jyve
       </>
     ),
-    image: "board/sam_purtill.jpg",
+    ...image("board/sam_purtill.jpg"),
   },
   {
     name: "Jeff Schnitz",
@@ -240,7 +244,7 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
         SVB Wealth Advisory, Inc.
       </>
     ),
-    image: "board/jeff_schnitz.jpg",
+    ...image("board/jeff_schnitz.jpg"),
   },
   {
     name: "Farid Vij",
@@ -251,42 +255,42 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
         Head of Corporate Development at Ciitizen
       </>
     ),
-    image: "board/farid_vij.jpg",
+    ...image("board/farid_vij.jpg"),
   },
   {
     name: "Brian Clark",
     title: "Engineering Manager at Cruise Automation",
-    image: "board/brian_clark.jpg",
+    ...image("board/brian_clark.jpg"),
   },
   {
     name: "Clive Downie",
     title: "CMO, Unity Technologies",
-    image: "board/clive_downie.jpg",
+    ...image("board/clive_downie.jpg"),
   },
   {
     name: "Bob Ippolito",
     title: "Entrepreneur, Maker of Things",
-    image: "board/bob_ippolito.jpg",
+    ...image("board/bob_ippolito.jpg"),
   },
   {
     name: "Abhay Kumar",
     title: "Investor and Advisor",
-    image: "board/abhay_kumar.jpg",
+    ...image("board/abhay_kumar.jpg"),
   },
   {
     name: "Saskia Leggett",
     title: "Learning Experience Designer",
-    image: "board/saskia_leggett.jpg",
+    ...image("board/saskia_leggett.jpg"),
   },
   {
     name: "Jill McNay",
     title: "Marketing Professional",
-    image: "board/jill_mcnay.jpg",
+    ...image("board/jill_mcnay.jpg"),
   },
   {
     name: "Michael Walker",
     title: "Principal Consultant, BrandGeneering, Inc",
-    image: "board/michael_walker.jpg",
+    ...image("board/michael_walker.jpg"),
   },
 ];
 

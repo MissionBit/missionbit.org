@@ -4,19 +4,11 @@ import SupporterData, { SupporterDataProps } from "./SupporterData";
 import { makeStyles } from "@material-ui/core/styles";
 import BackgroundSlider from "./index/BackgroundSlider";
 
-const Logo: React.FC<{ alt: string; logo: string }> = ({ alt, logo }) => {
-  if (logo.endsWith(".svg")) {
-    return (
-      <img src={require(`../public/images/supporters/${logo}`)} alt={alt} />
-    );
-  }
-  const [
-    src,
-    src2x,
-  ] = require(`../public/images/supporters/${logo}?resize&size[]=150&size[]=300`).images.map(
-    (image: { path: string; height: number; width: number }) => image.path
-  );
-  return <img src={src} alt={alt} srcSet={`${src}, ${src2x} 2x`} />;
+const Logo: React.FC<{
+  alt: string;
+  logo: { src: string; srcSet?: string };
+}> = ({ alt, logo }) => {
+  return <img {...logo} alt={alt} />;
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +50,7 @@ const Supporters: React.FC<{}> = () => {
       <BackgroundSlider duration={40}>
         <div className={classes.root}>
           {SupporterData.map((props) => (
-            <Supporter key={props.logo} {...props} />
+            <Supporter key={props.logo.src} {...props} />
           ))}
         </div>
       </BackgroundSlider>

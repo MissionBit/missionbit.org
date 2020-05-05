@@ -18,20 +18,15 @@ import {
 import YouTubePreview from "../YouTubePreview";
 import YouTubePreviews from "../YouTubePreviews";
 import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
-import fromKeyMap from "../../src/fromKeyMap";
 
-const programImageNames = [
+const programImages = [
   "safia_jaleel",
   "girl-unity",
   "jada",
   "jesus",
   "miguel_yanez",
   "nathan_powell",
-] as const;
-
-const programImages = fromKeyMap(programImageNames, (name) =>
-  require(`../../public/images/program/${name}.jpg`)
-);
+].map((name) => require(`../../public/images/program/${name}.jpg`));
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -98,9 +93,8 @@ const useStyles = makeStyles((theme) => ({
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
   let i = 0;
-  const images = Object.values(programImages);
   const addImage = (props: ClassOrWorkshopInstance) => ({
-    image: images[i++ % images.length],
+    image: programImages[i++ % programImages.length],
     ...props,
   });
   const springClassInstances = SpringClassInstances.map(addImage);

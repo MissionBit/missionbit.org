@@ -59,7 +59,7 @@ const nextConfig = {
 
 module.exports = withPlugins(
   [
-    [withSourceMaps],
+    withSourceMaps,
     [
       optimizedImages,
       {
