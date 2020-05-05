@@ -37,6 +37,9 @@ export const event = ({
 
 export const GoogleAnalytics: React.FC<{}> = () => (
   <>
+    <link rel="dns-prefetch" href="https://www.google.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
     <script
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
