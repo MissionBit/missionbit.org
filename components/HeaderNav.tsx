@@ -13,6 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import Link from "@material-ui/core/Link";
+import { brand } from "../src/colors";
 
 interface NavMenuChoice {
   text: string;
@@ -82,14 +83,19 @@ const useStylesMobile = makeStyles(() => ({
   },
 }));
 
-const useStylesDesktop = makeStyles(() => ({
+const useStylesDesktop = makeStyles((theme) => ({
   ul: {
     display: "flex",
     listStyleType: "none",
     alignItems: "center",
-    fontWeight: "bold",
-    color: "#333",
     padding: "1rem",
+    "& .MuiButton-root": {
+      fontWeight: "bold",
+      fontSize: theme.typography.pxToRem(15),
+    },
+    "& .MuiButton-text": {
+      color: brand.gray,
+    },
     "& > li": {
       marginRight: "2em",
       "&:first-child": {
