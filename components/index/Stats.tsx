@@ -22,19 +22,34 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2),
     },
   },
+  front: {},
+  shadow: {
+    position: "absolute",
+    transform: `translate(${theme.typography.pxToRem(-2)}, 0)`,
+    display: "none",
+  },
   value: {
+    display: "flex",
+    justifyContent: "center",
+    position: "relative",
     fontSize: "5rem",
-    WebkitTextStrokeWidth: "4px",
     "@supports (-webkit-text-stroke-color: #000)": {
-      color: "transparent !important",
+      "& $front": {
+        position: "relative",
+        color: "#fff",
+      },
+      "& $shadow": {
+        position: "absolute",
+        display: "inline",
+      },
       WebkitTextStrokeColor: "var(--value-color, black)",
-      WebkitTextStrokeWidth: "3px",
+      WebkitTextStrokeWidth: theme.typography.pxToRem(2),
     },
     fontWeight: "bold",
     [theme.breakpoints.down("xs")]: {
       fontSize: "3rem",
-      "@supports (-webkit-text-stroke-color: #000)": {
-        WebkitTextStrokeWidth: "2px",
+      "& $shadow": {
+        transform: `translate(${theme.typography.pxToRem(-1)}, 0)`,
       },
     },
   },
@@ -71,37 +86,58 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Line: React.FC<{
+  color: "color1" | "color2" | "color3";
+  img: { src: string; alt: string };
+  value: string;
+  copy: string;
+}> = ({ color, img, value, copy }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.line}>
+      <img className={classes.icon} {...img} />
+      <div className={clsx(classes.value, classes[color])}>
+        <span aria-hidden="true" className={classes.shadow}>
+          {value}
+        </span>
+        <span className={classes.front}>{value}</span>
+      </div>
+      <div className={classes.copy}>{copy}</div>
+    </div>
+  );
+};
+
 const Stats: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <section className={classes.section}>
-      <div className={classes.line}>
-        <img
-          src={require("../../public/images/stats/classes-taught.svg")}
-          className={classes.icon}
-          alt="Graduation cap on top of a text editor window"
-        />
-        <div className={clsx(classes.value, classes.color1)}>88</div>
-        <div className={classes.copy}>classes taught</div>
-      </div>
-      <div className={classes.line}>
-        <img
-          src={require("../../public/images/stats/students.svg")}
-          className={classes.icon}
-          alt="Three students, two holding laptops with Mission Bit stickers"
-        />
-        <div className={clsx(classes.value, classes.color2)}>4,000+</div>
-        <div className={classes.copy}>students served</div>
-      </div>
-      <div className={classes.line}>
-        <img
-          src={require("../../public/images/stats/mission-high-school.svg")}
-          className={classes.icon}
-          alt="Mission High School"
-        />
-        <div className={clsx(classes.value, classes.color3)}>14</div>
-        <div className={classes.copy}>school sites</div>
-      </div>
+      <Line
+        img={{
+          src: require("../../public/images/stats/classes-taught.svg"),
+          alt: "Graduation cap on top of a text editor window",
+        }}
+        color="color1"
+        value="88"
+        copy="classes taught"
+      />
+      <Line
+        img={{
+          src: require("../../public/images/stats/students.svg"),
+          alt: "Three students, two holding laptops with Mission Bit stickers",
+        }}
+        color="color2"
+        value="4,000+"
+        copy="students served"
+      />
+      <Line
+        img={{
+          src: require("../../public/images/stats/mission-high-school.svg"),
+          alt: "Mission High School",
+        }}
+        color="color3"
+        value="14"
+        copy="school sites"
+      />
     </section>
   );
 };
