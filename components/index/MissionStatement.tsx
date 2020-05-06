@@ -18,14 +18,15 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   copy: {
-    fontWeight: theme.typography.fontWeightLight,
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(32),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h6.fontSize,
     },
   },
   flourish: {
     display: "block",
-    margin: `${theme.spacing(4)}px auto`,
+    margin: `${theme.spacing(6)}px auto`,
     color: brand.orange,
     fontSize: "2rem",
     [theme.breakpoints.down("sm")]: {
@@ -41,7 +42,7 @@ const MissionStatement: React.FC<{}> = () => {
     <Box component="section" id="mission" className={classes.root}>
       <Container>
         <AsteriskIcon className={classes.flourish} />
-        <Typography variant="h4" className={classes.copy}>
+        <Typography className={classes.copy}>
           Mission Bit is dedicated to inspiring and empowering students to
           unlock their full potential. We build professional pathways for under
           resourced high school youth across the SF Bay Area by making computer

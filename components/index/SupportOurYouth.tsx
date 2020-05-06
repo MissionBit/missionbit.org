@@ -3,15 +3,16 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3, 0),
-    borderTop: "1px solid #4B5798",
+    borderTop: `1px solid ${brand.victoria}`,
   },
   heading: {
-    color: "#0058A6",
-    fontSize: "4rem",
+    color: brand.blue,
+    fontSize: theme.typography.pxToRem(60),
     [theme.breakpoints.down("sm")]: {
       fontSize: "3rem",
     },

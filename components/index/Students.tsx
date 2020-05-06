@@ -60,21 +60,21 @@ const useStyles = makeStyles((theme) => {
       },
     },
     title: {
+      ...theme.typography.body1,
+      fontWeight: theme.typography.fontWeightBold,
       padding: theme.spacing(0, 1, 1, 1),
     },
     name: {
-      ...theme.typography.h3,
       color: `var(--accent-color, ${brand.orange})`,
-      fontWeight: "bold",
+      fontSize: theme.typography.pxToRem(53),
       ...smallTextSel({
         fontSize: theme.typography.h4.fontSize,
       }),
     },
     program: {
-      ...theme.typography.h4,
       display: "inline-block",
       color: theme.palette.common.white,
-      fontWeight: "bold",
+      fontSize: theme.typography.pxToRem(33),
       ...smallTextSel({
         fontSize: theme.typography.h5.fontSize,
       }),
@@ -101,7 +101,9 @@ const useStyles = makeStyles((theme) => {
       },
     },
     quote: {
-      ...theme.typography.h5,
+      ...theme.typography.body1,
+      fontSize: theme.typography.pxToRem(23),
+      fontWeight: theme.typography.fontWeightBold,
       display: "flex",
       flex: "1",
       position: "relative",

@@ -5,4 +5,6 @@ export const brand = {
   carnation: "#ffa0ce",
   indigo: "#5B6CCA",
   gray: "#585858",
+  lightGray: "#333333",
+  victoria: "#4B5798",
 };

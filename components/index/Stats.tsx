@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     position: "relative",
-    fontSize: "5rem",
+    fontSize: theme.typography.pxToRem(90),
     "@supports (-webkit-text-stroke-color: #000)": {
       "& $front": {
         position: "relative",
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
       WebkitTextStrokeColor: "var(--value-color, black)",
       WebkitTextStrokeWidth: theme.typography.pxToRem(2),
     },
-    fontWeight: "bold",
+    fontWeight: theme.typography.fontWeightBold,
     [theme.breakpoints.down("xs")]: {
       fontSize: "3rem",
       "& $shadow": {
@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   copy: {
+    color: brand.lightGray,
+    fontSize: theme.typography.pxToRem(30),
+    fontWeight: theme.typography.fontWeightLight,
     [theme.breakpoints.down("xs")]: {
       display: "inline-block",
       "&::before": {

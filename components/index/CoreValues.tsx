@@ -62,7 +62,7 @@ const CoreValues: React.FC<{}> = () => {
 
   return (
     <Container component="section" id="values">
-      <Typography variant="h4" component="h2" align="center">
+      <Typography variant="h3" align="center">
         Core Values
       </Typography>
       <Box className={classes.root}>

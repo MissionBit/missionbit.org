@@ -8,6 +8,7 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import themeOptions from "../src/theme";
 import Lato from "./fonts/Lato";
+import Poppins from "./fonts/Poppins";
 import GoogleAnalytics from "./GoogleAnalytics";
 import absoluteUrl from "../src/absoluteUrl";
 
@@ -84,6 +85,7 @@ const Layout: React.FC<LayoutProps> = ({
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Lato />
+        <Poppins />
         <Header className={headerClassName} alerts={alerts}>
           {headerChildren}
         </Header>
