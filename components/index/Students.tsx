@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => {
       },
       "--accent-color": brand.orange,
       "&:nth-child(even)": {
-        "--accent-color": brand.ultra,
+        "--accent-color": brand.carnation,
       },
     },
     title: {
