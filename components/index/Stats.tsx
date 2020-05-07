@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   copy: {
-    fontSize: theme.typography.pxToRem(30),
+    fontSize: theme.typography.pxToRem(28),
     fontWeight: theme.typography.fontWeightLight,
     [theme.breakpoints.down("xs")]: {
       display: "inline-block",
