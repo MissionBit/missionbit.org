@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
   },
   heading: {
-    marginBottom: theme.spacing(4),
     textAlign: "center",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h4.fontSize,
@@ -24,16 +23,19 @@ const useStyles = makeStyles((theme) => ({
   section: {
     marginBottom: theme.spacing(4),
   },
+  events: {
+    marginTop: theme.spacing(4),
+  },
   upcoming: {
     marginBottom: theme.spacing(2),
-    "& > h5": {
-      [theme.breakpoints.down("sm")]: {
-        "& > span": {
-          display: "none",
-        },
-        "& > a": {
-          display: "block",
-        },
+    fontSize: theme.typography.h5.fontSize,
+    textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      "& > span": {
+        display: "none",
+      },
+      "& > a": {
+        display: "block",
       },
     },
   },
@@ -89,11 +91,9 @@ const Upcoming: React.FC<{ date: string; href: string; className: string }> = ({
 }) => {
   return (
     <Box className={className}>
-      <Typography variant="h5" align="center">
-        {date}
-        <span> - </span>
-        <a href={href}>{children}</a>
-      </Typography>
+      {date}
+      <span> - </span>
+      <a href={href}>{children}</a>
     </Box>
   );
 };
@@ -106,16 +106,18 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h2" component="h1" className={classes.heading}>
           Upcoming Events
         </Typography>
-        {UpcomingEvents.map(({ date, href, title }, i) => (
-          <Upcoming
-            key={i}
-            date={MediumDateFormat.format(date)}
-            href={href}
-            className={classes.upcoming}
-          >
-            {title}
-          </Upcoming>
-        ))}
+        <Box className={classes.events}>
+          {UpcomingEvents.map(({ date, href, title }, i) => (
+            <Upcoming
+              key={i}
+              date={MediumDateFormat.format(date)}
+              href={href}
+              className={classes.upcoming}
+            >
+              {title}
+            </Upcoming>
+          ))}
+        </Box>
       </section>
       <section id="past" className={classes.section}>
         <Typography variant="h2" className={classes.heading}>
