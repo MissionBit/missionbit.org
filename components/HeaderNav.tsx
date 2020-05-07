@@ -94,7 +94,7 @@ const useStylesDesktop = makeStyles((theme) => ({
       fontSize: theme.typography.pxToRem(15),
     },
     "& .MuiButton-text": {
-      color: brand.gray,
+      color: brand.navGray,
     },
     "& > li": {
       marginRight: "2em",

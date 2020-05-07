@@ -35,11 +35,11 @@ const timedAlerts: TimedAlert[] = [
     hideAfter: SummerDates.registrationDeadline,
     content: (
       <>
-        <Link color="inherit" underline="always" href="/programs">
-          Sign up
-        </Link>{" "}
-        for our Online Summer 2020 Courses now! Deadline{" "}
-        {ShortDateFormat.format(SummerDates.registrationDeadline)}
+        <Link color="inherit" href="/programs">
+          <span style={{ textDecoration: "underline" }}>Sign up</span> for our
+          Online Summer 2020 Courses now! Deadline{" "}
+          {ShortDateFormat.format(SummerDates.registrationDeadline)}
+        </Link>
       </>
     ),
   },

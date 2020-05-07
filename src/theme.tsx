@@ -17,6 +17,8 @@ const commonFontFamilies = [
 
 const baseFontFamily = ["Lato", ...commonFontFamilies].join(",");
 const headerFontFamily = ["Poppins", ...commonFontFamilies].join(",");
+const headerStyles = { fontFamily: headerFontFamily };
+const bigHeaderStyles = { ...headerStyles, color: brand.headingGray };
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -34,17 +36,17 @@ const themeOptions: ThemeOptions = {
     },
     text: {
       primary: brand.darkGray,
-      secondary: brand.gray,
+      secondary: brand.headingGray,
     },
   },
   typography: {
     fontFamily: baseFontFamily,
-    h1: { fontFamily: headerFontFamily },
-    h2: { fontFamily: headerFontFamily },
-    h3: { fontFamily: headerFontFamily },
-    h4: { fontFamily: headerFontFamily },
-    h5: { fontFamily: headerFontFamily },
-    h6: { fontFamily: headerFontFamily },
+    h1: bigHeaderStyles,
+    h2: bigHeaderStyles,
+    h3: bigHeaderStyles,
+    h4: headerStyles,
+    h5: headerStyles,
+    h6: headerStyles,
     button: {
       textTransform: "inherit",
     },

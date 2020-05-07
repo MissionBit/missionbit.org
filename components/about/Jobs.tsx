@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    paddingTop: theme.spacing(4),
   },
   openings: {
     margin: `${theme.spacing(3)}px auto`,
