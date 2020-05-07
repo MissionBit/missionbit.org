@@ -10,7 +10,7 @@ import VioletButton from "../VioletButton";
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
-    marginBottom: "3rem",
+    padding: theme.spacing(6, 0),
     display: "flex",
   },
   container: {
