@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import FaqItem from "../FaqItem";
+import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
+import { SummerDates } from "./ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +24,29 @@ const Faq: React.FC<{}> = () => {
   return (
     <Container component="section" id="faq" className={classes.root}>
       <Typography variant="h4">Frequently Asked Questions</Typography>
+      <FaqItem question="Should I apply for a summer 2020 bootcamp?">
+        Mission Bit has a selective admissions process, but we highly encourage
+        all interested students to apply! We seek to create a strong learning
+        community with committed young people who bring a variety of
+        perspectives to the classroom. To be considered for admissions, students
+        are required to take part in a Student Admissions Phone Screening that
+        will take place on {LongDateFormat.format(SummerDates.interview)}.
+        Please provide accurate email information for the screening.
+      </FaqItem>
+
+      <FaqItem question="What is the registration deadline for summer 2020?">
+        The registration deadline is{" "}
+        {LongDateTimeFormat.format(SummerDates.registrationDeadline)}.
+      </FaqItem>
+
+      <FaqItem question="What is Demo Day?">
+        Demo Day is the culminating event of the term, where students showcase
+        their final projects to friends, family, and the Mission Bit community.
+        This event is required for students. Friends and family are strongly
+        encouraged to attend, so mark your calendar for{" "}
+        {LongDateFormat.format(SummerDates.demoDay)}!
+      </FaqItem>
+
       <FaqItem question="Where are your classes?">
         Our classes are located throughout San Francisco and the Bay Area.
         Students can take our classes at any of our locations. Some students
