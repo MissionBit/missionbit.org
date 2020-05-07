@@ -4,8 +4,8 @@ import { brand } from "../src/colors";
 import { ExtendButtonBase } from "@material-ui/core/ButtonBase";
 import buttonStyles from "../src/buttonStyles";
 
-export const VioletButton = withStyles(buttonStyles(brand.violet))(
+export const IndigoButton = withStyles(buttonStyles(brand.indigo))(
   MuiButton
 ) as ExtendButtonBase<ButtonTypeMap>;
 
-export default VioletButton;
+export default IndigoButton;
