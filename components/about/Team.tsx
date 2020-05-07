@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "50%",
     },
   },
+  name: {
+    fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.h5.fontSize,
+  },
   bio: {
     position: "absolute",
     right: -theme.spacing(1),
@@ -105,7 +109,7 @@ const Team: React.FC<{}> = () => {
           </BioPopover>
         ) : null}
       </div>
-      <Typography variant="h5">{name}</Typography>
+      <Typography className={classes.name}>{name}</Typography>
       <Typography variant="body1">{title}</Typography>
     </div>
   );
@@ -113,7 +117,7 @@ const Team: React.FC<{}> = () => {
   return (
     <Container component="section" id="team">
       <Typography
-        variant="h4"
+        variant="h3"
         component="h2"
         align="center"
         className={classes.heading}
@@ -124,7 +128,7 @@ const Team: React.FC<{}> = () => {
         <React.Fragment key={section}>
           {idx === 0 ? null : (
             <Typography
-              variant="h5"
+              variant="h4"
               component="h3"
               align="center"
               className={classes.heading}

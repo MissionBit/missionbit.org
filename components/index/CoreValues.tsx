@@ -26,9 +26,11 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 140,
     padding: theme.spacing(2),
     textAlign: "center",
-    "& > h5": {
-      margin: theme.spacing(1, 0),
-    },
+  },
+  title: {
+    margin: theme.spacing(1, 0),
+    fontSize: theme.typography.h5.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
   },
   icon: {
     backgroundPosition: "center",
@@ -52,7 +54,7 @@ const CoreValues: React.FC<{}> = () => {
         className={classes.icon}
         style={{ backgroundImage: `url(${src})` }}
       />
-      <Typography variant="h5">{title}</Typography>
+      <Typography className={classes.title}>{title}</Typography>
       <Typography variant="body1" component="div">
         {children}
       </Typography>

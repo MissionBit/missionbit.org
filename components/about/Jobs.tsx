@@ -7,9 +7,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    "& > ul": {
-      margin: `${theme.spacing(3)}px auto`,
-    },
+  },
+  openings: {
+    margin: `${theme.spacing(3)}px auto`,
+    fontSize: theme.typography.h5.fontSize,
   },
 }));
 
@@ -20,7 +21,7 @@ const Jobs: React.FC<{}> = () => {
       <Typography variant="h4" component="h2" align="center">
         Job Openings
       </Typography>
-      <Typography variant="h5" component="ul">
+      <Typography className={classes.openings} component="ul">
         <li>
           <a href="/images/jobs/missionBitLeadInstructorJobDescription.pdf">
             Lead Instructor

@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
   dl: {
     ...theme.typography.body1,
     padding: theme.spacing(2),
+    "& > dd": {
+      fontSize: theme.typography.h4.fontSize,
+      fontWeight: theme.typography.fontWeightBold,
+    },
     "& > dd:nth-child(n + 2)": {
       marginTop: "1em",
     },
@@ -30,7 +34,7 @@ const About: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <section id="about">
-      <Typography variant="h4" component="h1" align="center">
+      <Typography variant="h2" component="h1" align="center">
         About Us
       </Typography>
       <Grid
@@ -50,9 +54,7 @@ const About: React.FC<{}> = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <dl className={classes.dl}>
-            <Typography variant="h4" component="dd">
-              Challenge
-            </Typography>
+            <Typography component="dd">Challenge</Typography>
             <Typography component="dt">
               Despite being the heart of the tech industry, the Bay Area is home
               to thousands of high school students who lack access to computer
@@ -60,9 +62,7 @@ const About: React.FC<{}> = () => {
               backgrounds that are underrepresented in tech (Black, Latinx,
               female).
             </Typography>
-            <Typography variant="h4" component="dd">
-              Mission
-            </Typography>
+            <Typography component="dd">Mission</Typography>
             <Typography component="dt">
               Mission Bit is dedicated to inspiring and empowering students to
               unlock their full potential. We build professional pathways for
@@ -70,9 +70,7 @@ const About: React.FC<{}> = () => {
               computer science more accessible through our free project-based
               courses.
             </Typography>
-            <Typography variant="h4" component="dd">
-              Belief
-            </Typography>
+            <Typography component="dd">Belief</Typography>
             <Typography component="dt">
               Mission Bit empowers young innovators who reflect our diversity to
               become leaders of the global technology revolution, developing
