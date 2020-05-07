@@ -1,6 +1,6 @@
 import * as React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import MuiButton, { ButtonProps } from "@material-ui/core/Button";
+import MuiButton from "@material-ui/core/Button";
 import { brand } from "../src/colors";
 
 const color = brand.violet;
@@ -15,6 +15,8 @@ export const VioletButton = withStyles((theme) => ({
       color: theme.palette.common.white,
     },
   },
-}))((props: ButtonProps) => <MuiButton variant="outlined" {...props} />);
+}))((props: React.ComponentProps<typeof MuiButton>) => (
+  <MuiButton variant="outlined" {...props} />
+));
 
 export default VioletButton;
