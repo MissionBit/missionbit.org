@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(4),
     backgroundColor: brand.indigo,
-    color: theme.palette.common.white,
     textAlign: "center",
     marginBottom: "3rem",
     [theme.breakpoints.down("sm")]: {
@@ -19,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   copy: {
     marginLeft: "auto",
     marginRight: "auto",
+    color: theme.palette.common.white,
     fontWeight: theme.typography.fontWeightBold,
     fontSize: "5rem",
     lineHeight: "7.5rem",
