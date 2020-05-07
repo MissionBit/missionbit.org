@@ -13,6 +13,9 @@ const Logo: React.FC<{
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    padding: theme.spacing(4, 0),
+  },
+  supporters: {
     display: "flex",
     alignItems: "center",
     "& img": {
@@ -38,7 +41,7 @@ const Supporter: React.FC<SupporterDataProps> = ({ logo, title, href }) => {
 const Supporters: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <section id="supporters">
+    <section id="supporters" className={classes.root}>
       <Typography
         variant="h4"
         component="h2"
@@ -48,7 +51,7 @@ const Supporters: React.FC<{}> = () => {
         Our supporters
       </Typography>
       <BackgroundSlider duration={40}>
-        <div className={classes.root}>
+        <div className={classes.supporters}>
           {SupporterData.map((props) => (
             <Supporter key={props.logo.src} {...props} />
           ))}

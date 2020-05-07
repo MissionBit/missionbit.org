@@ -32,10 +32,10 @@ const Index: React.FC<{}> = () => {
       {/*<Events />*/}
       <Register />
       <Students />
-      <Social />
       <Supporters />
       <NetlifyBanner />
       <SupportOurYouth />
+      <Social />
     </main>
   );
 };

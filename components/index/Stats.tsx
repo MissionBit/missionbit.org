@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     display: "flex",
     justifyContent: "space-around",
+    padding: theme.spacing(4, 0),
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
