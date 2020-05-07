@@ -1,5 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -33,17 +34,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.h1.fontFamily,
     padding: theme.spacing(2),
     flex: "0 0 55%",
-    textShadow: "-1px 2px rgba(0,0,0,0.8)",
     [theme.breakpoints.down("xs")]: {
       flex: 1,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(24),
       lineHeight: theme.typography.pxToRem(35),
+      textShadow: `${theme.typography.pxToRem(-3)} 0 ${brand.darkSlateBlue}`,
     },
     [theme.breakpoints.up("md")]: {
       fontSize: theme.typography.pxToRem(40),
       lineHeight: theme.typography.pxToRem(58),
+      textShadow: `${theme.typography.pxToRem(-6)} 0 ${brand.darkSlateBlue}`,
     },
   },
 

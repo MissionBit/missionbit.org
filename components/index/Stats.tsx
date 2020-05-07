@@ -3,6 +3,13 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
 
+function iconHeightRem(heightRem: number): { width: string; height: string } {
+  return {
+    width: `${heightRem * (8 / 5)}rem`,
+    height: `${heightRem}rem`,
+  };
+}
+
 const useStyles = makeStyles((theme) => ({
   section: {
     width: "100%",
@@ -16,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   line: {
     fontSize: theme.typography.pxToRem(32),
-    margin: "3rem",
+    margin: "3rem 1rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(24),
       margin: theme.spacing(2),
@@ -46,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
       WebkitTextStrokeWidth: theme.typography.pxToRem(2),
     },
     fontWeight: theme.typography.fontWeightBold,
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: "3rem",
       "& $shadow": {
         transform: `translate(${theme.typography.pxToRem(-1)}, 0)`,
@@ -66,10 +73,11 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     objectFit: "contain",
-    height: "8rem",
     maxWidth: "100%",
+    ...iconHeightRem(12),
+    [theme.breakpoints.between("sm", "md")]: iconHeightRem(8),
     [theme.breakpoints.down("xs")]: {
-      height: "5rem",
+      ...iconHeightRem(7),
       display: "block",
       margin: "0 auto",
     },

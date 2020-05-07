@@ -29,7 +29,7 @@ const Poppins: React.FC<{}> = () => (
       <link
         key={weight}
         rel="preload"
-        href={`/fonts//fonts/poppins-v9-latin-${weight}.woff2`}
+        href={`/fonts/poppins-v9-latin-${weight}.woff2`}
         as="font"
         crossOrigin=""
       />
