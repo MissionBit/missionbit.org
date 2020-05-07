@@ -1,6 +1,5 @@
 import { ThemeOptions } from "@material-ui/core/styles";
-import red from "@material-ui/core/colors/red";
-import common from "@material-ui/core/colors/common";
+import { red, common } from "@material-ui/core/colors";
 import { brand } from "./colors";
 
 const commonFontFamilies = [
@@ -32,6 +31,10 @@ const themeOptions: ThemeOptions = {
     },
     background: {
       default: common.white,
+    },
+    text: {
+      primary: brand.darkGray,
+      secondary: brand.gray,
     },
   },
   typography: {

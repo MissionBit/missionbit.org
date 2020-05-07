@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   icons: {
     margin: theme.spacing(2),
     "& > a > span > svg": {
+      color: theme.palette.common.black,
       fontSize: "2rem",
     },
   },

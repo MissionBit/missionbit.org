@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   copy: {
-    color: brand.lightGray,
     fontSize: theme.typography.pxToRem(30),
     fontWeight: theme.typography.fontWeightLight,
     [theme.breakpoints.down("xs")]: {
