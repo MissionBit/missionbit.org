@@ -1,9 +1,9 @@
 import * as React from "react";
-import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
+import VioletButton from "../VioletButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,26 +47,24 @@ const SupportOurYouth: React.FC<{}> = () => {
         Support Our Youth
       </Typography>
       <Box className={classes.buttons}>
-        <Button
+        <VioletButton
           href="https://donate.missionbit.org/"
           variant="outlined"
-          color="primary"
           rel="noopener noreferrer"
           target="_blank"
           size="large"
           className={classes.button}
         >
           Donate
-        </Button>
-        <Button
+        </VioletButton>
+        <VioletButton
           href="/get-involved"
           variant="outlined"
-          color="secondary"
           size="large"
           className={classes.button}
         >
           Volunteer
-        </Button>
+        </VioletButton>
       </Box>
     </Box>
   );

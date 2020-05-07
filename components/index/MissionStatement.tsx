@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   flourish: {
     display: "block",
     margin: `${theme.spacing(6)}px auto`,
-    color: brand.orange,
+    color: brand.orangeFlourish,
     fontSize: "2rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: "1rem",

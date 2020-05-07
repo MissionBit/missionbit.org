@@ -48,6 +48,9 @@ const themeOptions: ThemeOptions = {
   },
   overrides: {
     MuiButton: {
+      outlined: {
+        fontWeight: 700,
+      },
       outlinedPrimary: {
         color: brand.orange,
         border: `2px solid ${brand.orange}`,
