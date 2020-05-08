@@ -9,31 +9,71 @@ import {
 } from "./ClassInstanceData";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
+import CheckIcon from "@material-ui/icons/Check";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
-import ExpansionLink from "./ExpansionLink";
-import Grid from "@material-ui/core/Grid";
 import FlourishSeparator from "./FlourishSeparator";
+import VioletButton from "../VioletButton";
+import IndigoButton from "../IndigoButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: "flex",
     padding: 0,
-    textAlign: "center",
   },
-  gridContainer: {
-    padding: theme.spacing(1, 0),
+  imageWrapper: {
+    display: "flex",
+    flex: "0 1 20%",
+    padding: theme.spacing(0, 4),
+    backgroundColor: `var(--accent-color, ${theme.palette.common.white})`,
   },
   content: {
-    padding: theme.spacing(1),
-    "& > *:not(:first-child)": {
-      margin: theme.spacing(1, 0, 0, 0),
-    },
+    display: "flex",
+    flexDirection: "column",
+    flex: "1",
+    padding: theme.spacing(2),
+  },
+  mainInfo: {
+    display: "flex",
+  },
+  locationSkills: {
+    display: "flex",
+  },
+  infoText: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+  },
+  action: {
+    flexBasis: "20%",
+    textAlign: "center",
+    alignSelf: "center",
   },
   image: {
     width: "100%",
-    height: "auto",
+    maxWidth: "100%",
+    objectFit: "contain",
+  },
+  skills: {
+    display: "flex",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 0,
+    padding: 0,
+  },
+  skill: {
+    display: "flex",
+    fontSize: theme.typography.pxToRem(22),
+    fontWeight: theme.typography.fontWeightBold,
+    marginLeft: theme.spacing(2),
+    padding: 0,
+  },
+  skillCheck: {
+    color: theme.palette.primary.main,
+    fontSize: theme.typography.pxToRem(30),
+    marginRight: "0.25rem",
   },
   mapLink: {
     display: "flex",
@@ -58,79 +98,98 @@ const CourseDescription: React.FC<{
     (instance.type === "workshop"
       ? instance.date
       : instance.classDates.registrationDeadline);
+  const RegButton = instance.type === "workshop" ? VioletButton : IndigoButton;
+  // Use an article component to allow it to be distinguished from its
+  // siblings for the background color effect in css
   return (
-    <Paper className={classes.root} variant="outlined" elevation={0}>
-      <img {...course.image} className={classes.image} />
+    <Paper
+      component="article"
+      className={classes.root}
+      variant="outlined"
+      elevation={0}
+    >
+      <Box className={classes.imageWrapper}>
+        <img {...course.image} className={classes.image} />
+      </Box>
       <Box padding={1} className={classes.content}>
-        <Typography variant="h5">{course.title}</Typography>
-        {campus.city === City.Online ? (
-          <Link
-            href={signupUrl}
-            color="secondary"
-            target="_blank"
-            rel="noopener"
-            className={classes.mapLink}
-          >
-            <RoomIcon /> {campus.name}
-          </Link>
-        ) : (
-          <Link
-            href={campus.mapUrl}
-            color="secondary"
-            target="_blank"
-            rel="noopener"
-            className={classes.mapLink}
-          >
-            <RoomIcon /> {campus.name}
-          </Link>
-        )}
-        {instance.type === "class" ? (
-          <>
-            <Typography>
-              <strong>Meets:</strong>
-              <br />
-              {meets}
-            </Typography>
-            <Typography>
-              <strong>Dates:</strong>
-              <br />
-              {instance.startDate} - {instance.endDate}
-            </Typography>
-          </>
-        ) : (
-          <>
-            <Typography>
-              <strong>When:</strong>
-              <br />
-              {meets}
-            </Typography>
-            <Typography>
-              <strong>Who:</strong>
-              <br />
-              {instance.who}
-            </Typography>
-          </>
-        )}
-        {extra ? <Typography variant="body1">{extra}</Typography> : null}
-        <Button
-          href={signupUrl}
-          variant="contained"
-          color="secondary"
-          target="_blank"
-          rel="noopener"
-          disabled={disabled}
-        >
-          {disabled ? "Registration closed" : "Student Signup"}
-        </Button>
-        <ExpansionLink
-          summary={
-            <Typography className={classes.learnMoreHeading}>
-              Learn More
-            </Typography>
-          }
-        >
-          <Typography>{course.description}</Typography>
-        </ExpansionLink>
+        <Box className={classes.mainInfo}>
+          <Box className={classes.infoText}>
+            <Typography variant="h5">{course.title}</Typography>
+            <Typography>{course.description}</Typography>
+            {instance.type === "class" ? (
+              <>
+                <Typography>
+                  <strong>Meets:</strong>
+                  <br />
+                  {meets}
+                </Typography>
+                <Typography>
+                  <strong>Dates:</strong>
+                  <br />
+                  {instance.startDate} - {instance.endDate}
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography>
+                  <strong>When:</strong>
+                  <br />
+                  {meets}
+                </Typography>
+                <Typography>
+                  <strong>Who:</strong>
+                  <br />
+                  {instance.who}
+                </Typography>
+              </>
+            )}
+            {extra && !disabled ? (
+              <Typography variant="body1">{extra}</Typography>
+            ) : null}
+          </Box>
+          <Box className={classes.action}>
+            <RegButton
+              href={signupUrl}
+              variant="contained"
+              color="secondary"
+              target="_blank"
+              rel="noopener"
+              disabled={disabled}
+            >
+              {disabled ? "Registration closed" : "Student Sign Up"}
+            </RegButton>
+          </Box>
+        </Box>
+        <Box className={classes.locationSkills}>
+          {campus.city === City.Online ? (
+            <Link
+              href={signupUrl}
+              color="secondary"
+              target="_blank"
+              rel="noopener"
+              className={classes.mapLink}
+            >
+              <RoomIcon /> {campus.name}
+            </Link>
+          ) : (
+            <Link
+              href={campus.mapUrl}
+              color="secondary"
+              target="_blank"
+              rel="noopener"
+              className={classes.mapLink}
+            >
+              <RoomIcon /> {campus.name}
+            </Link>
+          )}
+          <ul className={classes.skills}>
+            {course.skills.map((skill, i) => (
+              <li key={i} className={classes.skill}>
+                <CheckIcon className={classes.skillCheck} /> {skill}
+              </li>
+            ))}
+          </ul>
+        </Box>
       </Box>
     </Paper>
   );
@@ -168,18 +227,13 @@ const Courses: React.FC<{
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => setNow(Date.now()), []);
   const courses = filterCourses(now, instances);
-  const classes = useStyles();
   return courses.length === 0 ? null : (
     <>
       <FlourishSeparator />
       {children}
-      <Grid container spacing={1} className={classes.gridContainer}>
-        {courses.map((props, i) => (
-          <Grid item xs={12} sm={6} md={4} key={i}>
-            <CourseDescription instance={props} now={now} />
-          </Grid>
-        ))}
-      </Grid>
+      {courses.map((props, i) => (
+        <CourseDescription key={i} instance={props} now={now} />
+      ))}
     </>
   );
 };

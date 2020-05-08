@@ -10,19 +10,36 @@ import {
 import { LongDateTimeFormat } from "../../src/dates";
 import FlourishSeparator from "./FlourishSeparator";
 import Courses from "./Courses";
+import { brand } from "../../src/colors";
+
+const accentStyles = [
+  brand.indigo,
+  brand.meadow,
+  brand.wisteria,
+  brand.skyBlue,
+  brand.lightPink,
+].reduce((acc, color, i, arr) => {
+  acc[`&:nth-of-type(${arr.length}n + ${i})`] = {
+    "--accent-color": color,
+  };
+  return acc;
+}, {} as { [k: string]: { "--accent-color": string } });
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > section": {
+    "& > article": {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
       "&:first-child": {
         marginTop: 0,
       },
+      ...accentStyles,
     },
   },
-  deadline: {
+  copy: {
+    textAlign: "center",
     marginTop: theme.spacing(2),
+    fontSize: theme.typography.pxToRem(35),
   },
   deadlineEmphasis: {
     fontWeight: theme.typography.fontWeightBold,
@@ -35,19 +52,12 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h5.fontSize,
     },
   },
-  courseNotes: {
-    ...theme.typography.body1,
-    paddingLeft: theme.spacing(2),
-    "& > li": {
-      margin: theme.spacing(1, 0),
-    },
-  },
 }));
 
 const Enroll: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Container component="section" id="enroll">
+    <Container component="section" id="enroll" className={classes.root}>
       <Courses instances={SpringClassInstances}>
         <Typography
           variant="h3"
@@ -57,7 +67,7 @@ const Enroll: React.FC<{}> = () => {
         >
           Spring 2020 Workshops
         </Typography>
-        <Typography align="center">
+        <Typography className={classes.copy}>
           A 90-minute window into the exciting world of tech.
         </Typography>
       </Courses>
@@ -70,7 +80,7 @@ const Enroll: React.FC<{}> = () => {
         >
           Summer 2020 Bootcamps
         </Typography>
-        <Typography align="center" className={classes.deadline}>
+        <Typography className={classes.copy}>
           Spend 6 weeks learning how to develop websites or games.
           <br />
           <span className={classes.deadlineEmphasis}>
