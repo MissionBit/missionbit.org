@@ -9,15 +9,7 @@ import Landing from "./Landing";
 import Description from "./Description";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > section": {
-      marginTop: theme.spacing(2),
-      marginBottom: theme.spacing(2),
-      "&:first-child": {
-        marginTop: 0,
-      },
-    },
-  },
+  root: {},
   deadline: {
     marginTop: theme.spacing(2),
   },
