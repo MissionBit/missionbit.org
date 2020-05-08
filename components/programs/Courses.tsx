@@ -55,6 +55,10 @@ const useStyles = makeStyles((theme) => ({
   title: {},
   description: {
     margin: theme.spacing(2, 0),
+    fontSize: theme.typography.pxToRem(20),
+  },
+  dates: {
+    fontSize: theme.typography.pxToRem(20),
   },
   image: {
     width: "100%",
@@ -97,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
   },
   campusName: {
     fontWeight: theme.typography.fontWeightBold,
+    fontSize: theme.typography.pxToRem(22),
   },
   learnMoreHeading: {
     color: theme.palette.secondary.main,
@@ -139,20 +144,20 @@ const CourseDescription: React.FC<{
             </Typography>
             {instance.type === "class" ? (
               <>
-                <Typography>
+                <Typography className={classes.dates}>
                   <strong>Meets:</strong> {meets}
                 </Typography>
-                <Typography>
+                <Typography className={classes.dates}>
                   <strong>Dates:</strong> {instance.startDate} -{" "}
                   {instance.endDate}
                 </Typography>
               </>
             ) : (
               <>
-                <Typography>
+                <Typography className={classes.dates}>
                   <strong>When:</strong> {meets}
                 </Typography>
-                <Typography>
+                <Typography className={classes.dates}>
                   <strong>Who:</strong> {instance.who}
                 </Typography>
               </>
