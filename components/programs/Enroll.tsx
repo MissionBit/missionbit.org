@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
   copy: {
     textAlign: "center",
-    marginTop: theme.spacing(2),
+    margin: theme.spacing(2, 0, 4, 0),
     fontSize: theme.typography.pxToRem(35),
   },
   deadlineEmphasis: {

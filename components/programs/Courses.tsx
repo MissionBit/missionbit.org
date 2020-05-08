@@ -16,6 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import FlourishSeparator from "./FlourishSeparator";
 import VioletButton from "../VioletButton";
 import IndigoButton from "../IndigoButton";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   locationSkills: {
     display: "flex",
+    paddingTop: theme.spacing(2),
   },
   infoText: {
     display: "flex",
@@ -49,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: "20%",
     textAlign: "center",
     alignSelf: "center",
+  },
+  title: {},
+  description: {
+    margin: theme.spacing(2, 0),
   },
   image: {
     width: "100%",
@@ -80,6 +86,17 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     fontSize: theme.typography.subtitle1.fontSize,
+    marginRight: "0.25rem",
+    color: brand.violet,
+  },
+  location: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  campusName: {
+    fontWeight: theme.typography.fontWeightBold,
   },
   learnMoreHeading: {
     color: theme.palette.secondary.main,
@@ -114,32 +131,29 @@ const CourseDescription: React.FC<{
       <Box padding={1} className={classes.content}>
         <Box className={classes.mainInfo}>
           <Box className={classes.infoText}>
-            <Typography variant="h5">{course.title}</Typography>
-            <Typography>{course.description}</Typography>
+            <Typography variant="h5" className={classes.title}>
+              {course.title}
+            </Typography>
+            <Typography className={classes.description}>
+              {course.description}
+            </Typography>
             {instance.type === "class" ? (
               <>
                 <Typography>
-                  <strong>Meets:</strong>
-                  <br />
-                  {meets}
+                  <strong>Meets:</strong> {meets}
                 </Typography>
                 <Typography>
-                  <strong>Dates:</strong>
-                  <br />
-                  {instance.startDate} - {instance.endDate}
+                  <strong>Dates:</strong> {instance.startDate} -{" "}
+                  {instance.endDate}
                 </Typography>
               </>
             ) : (
               <>
                 <Typography>
-                  <strong>When:</strong>
-                  <br />
-                  {meets}
+                  <strong>When:</strong> {meets}
                 </Typography>
                 <Typography>
-                  <strong>Who:</strong>
-                  <br />
-                  {instance.who}
+                  <strong>Who:</strong> {instance.who}
                 </Typography>
               </>
             )}
@@ -161,27 +175,19 @@ const CourseDescription: React.FC<{
           </Box>
         </Box>
         <Box className={classes.locationSkills}>
-          {campus.city === City.Online ? (
+          <Box className={classes.location}>
             <Link
-              href={signupUrl}
-              color="secondary"
+              href={campus.city === City.Online ? signupUrl : campus.mapUrl}
               target="_blank"
               rel="noopener"
               className={classes.mapLink}
             >
-              <RoomIcon /> {campus.name}
-            </Link>
-          ) : (
-            <Link
-              href={campus.mapUrl}
-              color="secondary"
-              target="_blank"
-              rel="noopener"
-              className={classes.mapLink}
-            >
-              <RoomIcon /> {campus.name}
-            </Link>
-          )}
+              <RoomIcon />
+            </Link>{" "}
+            <Typography className={classes.campusName}>
+              {campus.name}
+            </Typography>
+          </Box>
           <ul className={classes.skills}>
             {course.skills.map((skill, i) => (
               <li key={i} className={classes.skill}>
