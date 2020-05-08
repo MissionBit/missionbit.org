@@ -5,9 +5,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import FaqItem from "../FaqItem";
 import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
 import { SummerDates } from "./ClassInstanceData";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    "& .MuiExpansionPanel-root:before": {
+      backgroundColor: brand.orange,
+    },
+    "& .MuiExpansionPanelSummary-expandIcon": {
+      color: brand.orange,
+    },
+    "& .MuiPaper-elevation1": {
+      boxShadow: `0px 2px 1px -1px ${brand.orange}, 0px 1px 1px 0px ${brand.orange}, 0px 1px 3px 0px ${brand.orange}`,
+    },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
       paddingRight: 0,

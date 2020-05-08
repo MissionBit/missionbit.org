@@ -6,11 +6,11 @@ import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
-import PublicIcon from "@material-ui/icons/Public";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import ExpansionLink from "./ExpansionLink";
 import Grid from "@material-ui/core/Grid";
+import FlourishSeparator from "./FlourishSeparator";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "auto",
   },
-  worldIcon: {
-    marginRight: "0.2rem",
-  },
   mapLink: {
     display: "flex",
     alignItems: "center",
@@ -48,8 +45,7 @@ const useStyles = makeStyles((theme) => ({
 const CourseDescription: React.FC<{
   instance: ClassOrWorkshopInstance;
   now: number;
-  image: string;
-}> = ({ instance, now, image }) => {
+}> = ({ instance, now }) => {
   const classes = useStyles();
   const { extra, course, campus, meets, signupUrl } = instance;
   const disabled =
@@ -59,7 +55,7 @@ const CourseDescription: React.FC<{
       : instance.classDates.registrationDeadline);
   return (
     <Paper className={classes.root} variant="outlined" elevation={0}>
-      <img src={image} className={classes.image} />
+      <img {...course.image} className={classes.image} />
       <Box padding={1} className={classes.content}>
         <Typography variant="h5">{course.title}</Typography>
         {campus.city === City.Online ? (
@@ -70,7 +66,7 @@ const CourseDescription: React.FC<{
             rel="noopener"
             className={classes.mapLink}
           >
-            <PublicIcon className={classes.worldIcon} /> {campus.name}
+            <RoomIcon /> {campus.name}
           </Link>
         ) : (
           <Link
@@ -136,7 +132,7 @@ const CourseDescription: React.FC<{
 };
 
 const Courses: React.FC<{
-  instances: (ClassOrWorkshopInstance & { image: string })[];
+  instances: ClassOrWorkshopInstance[];
 }> = ({ children, instances }) => {
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => setNow(Date.now()), []);
@@ -150,11 +146,12 @@ const Courses: React.FC<{
   const classes = useStyles();
   return courses.length === 0 ? null : (
     <>
+      <FlourishSeparator />
       {children}
       <Grid container spacing={1} className={classes.gridContainer}>
-        {courses.map(({ image, ...props }, i) => (
+        {courses.map((props, i) => (
           <Grid item xs={12} sm={6} md={4} key={i}>
-            <CourseDescription instance={props} now={now} image={image} />
+            <CourseDescription instance={props} now={now} />
           </Grid>
         ))}
       </Grid>

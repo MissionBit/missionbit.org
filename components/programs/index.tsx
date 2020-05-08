@@ -13,20 +13,11 @@ import {
   SummerClassInstances,
   SpringClassInstances,
   SummerDates,
-  ClassOrWorkshopInstance,
 } from "./ClassInstanceData";
-import YouTubePreview from "../YouTubePreview";
-import YouTubePreviews from "../YouTubePreviews";
-import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
-
-const programImages = [
-  "safia_jaleel",
-  "girl-unity",
-  "jada",
-  "jesus",
-  "miguel_yanez",
-  "nathan_powell",
-].map((name) => require(`../../public/images/program/${name}.jpg`));
+import { LongDateTimeFormat } from "../../src/dates";
+import VioletButton from "../VioletButton";
+import IndigoButton from "../IndigoButton";
+import FlourishSeparator from "./FlourishSeparator";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,10 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   deadline: {
     marginTop: theme.spacing(2),
+  },
+  deadlineEmphasis: {
+    color: theme.palette.primary.main,
+    fontWeight: theme.typography.fontWeightBold,
     [theme.breakpoints.down("sm")]: {
-      "& > strong": {
-        display: "block",
-      },
+      display: "block",
     },
   },
   alert: {
@@ -62,12 +55,9 @@ const useStyles = makeStyles((theme) => ({
   landing: {
     padding: theme.spacing(3, 0),
     textAlign: "center",
-    background:
-      "transparent linear-gradient(180deg, #2881D0 0%, #1B98A2 39%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
     "& > h1": {
       marginBottom: theme.spacing(3),
       fontWeight: "bold",
-      color: theme.palette.common.white,
     },
   },
   landingPhoto: {
@@ -92,14 +82,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
-  let i = 0;
-  const addImage = (props: ClassOrWorkshopInstance) => ({
-    image: programImages[i++ % programImages.length],
-    ...props,
-  });
-  const springClassInstances = SpringClassInstances.map(addImage);
-  const summerClassInstances = SummerClassInstances.map(addImage);
-
   return (
     <main id="main" className={classes.root}>
       <Box id="landing" component="section" className={classes.landing}>
@@ -109,120 +91,90 @@ const Main: React.FC<{}> = () => {
           align="center"
           className={classes.landingTitle}
         >
-          Programs
+          Become an Innovator
         </Typography>
-        <picture className={classes.landingPhoto}>
-          <source
-            type="image/webp"
-            srcSet={require("../../public/images/program/students-header.jpg?webp")}
-          />
-          <img
-            alt="Photo of students"
-            src={require("../../public/images/program/students-header.jpg")}
-          />
-        </picture>
+        <Typography>
+          Mission Bit provides free after-school coding courses,{" "}
+          <Link href="#workshops">workshops</Link>, and{" "}
+          <Link href="#courses">summer bootcamps</Link> to high school students
+          from underserved and underrepresented communities.
+        </Typography>
+        <img src={require("../../public/images/program/programs-page.svg")} />
+        <Box>
+          <VioletButton variant="contained" href="#workshops" size="large">
+            Workshops
+          </VioletButton>
+          <IndigoButton variant="contained" href="#courses" size="large">
+            Classes
+          </IndigoButton>
+        </Box>
       </Box>
       <Container
         component="section"
         id="description"
         className={classes.description}
       >
+        <picture className={classes.landingPhoto}>
+          <source
+            type="image/webp"
+            srcSet={require("../../public/images/program/safia_jaleel.jpg?webp")}
+          />
+          <img
+            alt="Photo of student"
+            src={require("../../public/images/program/safia_jaleel.jpg")}
+          />
+        </picture>
+
         <Typography>
-          Mission Bit provides free after-school coding courses,{" "}
-          <Link href="#workshops">workshops</Link>, and{" "}
-          <Link href="#courses">summer programs</Link> to high school students
-          from underserved and underrepresented communities.
+          We offer our students a field trip to a Bay Area tech company, career
+          and college advising related to the technology field, and an
+          opportunity to showcase their group projects to a large community of
+          supporters during our Demo Day event at the end of the term.
         </Typography>
         <Typography>
-          We offer our students career and college advising related to the
-          technology field, a field trip to a Bay Area tech company, and an
-          opportunity to showcase their group projects to a large community of
-          supporters during our Demo Day event at the end of the term. Our
-          program’s inclusive community fosters positive relationships between
-          students, their peers, and our experienced classroom leaders. Mission
-          Bit brings like-minded individuals together to form long-lasting
-          meaningful connections and gives students all the tools they need to
-          succeed in the tech industry.
+          Our program’s inclusive community fosters positive relationships
+          between students, their peers, and our experienced classroom leaders.
+          Mission Bit brings like-minded individuals together to form
+          long-lasting meaningful connections and gives students all the tools
+          they need to succeed in the tech industry.
         </Typography>
       </Container>
       <Container component="section" id="enroll">
-        <Courses instances={springClassInstances}>
+        <Courses instances={SpringClassInstances}>
           <Typography
             variant="h3"
             align="center"
             className={classes.alert}
             id="workshops"
           >
-            Spring 2020 Workshops:
+            Spring 2020 Workshops
+          </Typography>
+          <Typography align="center">
+            A 90-minute window into the exciting world of tech.
           </Typography>
         </Courses>
-        <Courses instances={summerClassInstances}>
+        <Courses instances={SummerClassInstances}>
           <Typography
             variant="h3"
             align="center"
             className={classes.alert}
             id="courses"
           >
-            Sign up for Summer 2020 classes now!
+            Summer 2020 Bootcamps
           </Typography>
           <Typography align="center" className={classes.deadline}>
-            Registration deadline:{" "}
-            <strong>
-              {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
-            </strong>
+            Spend 6 weeks learning how to develop websites or games.
+            <br />
+            <span className={classes.deadlineEmphasis}>
+              Registration deadline:
+            </span>{" "}
+            {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
           </Typography>
         </Courses>
+        <FlourishSeparator />
       </Container>
-      <Container component="section" id="enroll-notes">
-        <Typography variant="h6">For Summer 2020 Courses:</Typography>
-        <ul className={classes.courseNotes}>
-          <li>
-            Mission Bit has a selective admissions process. We seek to create a
-            strong learning community with committed young people who bring a
-            variety of perspectives to the classroom. We highly encourage all
-            interested students to apply.
-          </li>
-          <li>
-            To be considered for admissions, students are required to take part
-            in a group interview. Applicants will receive an invitation to be
-            interviewed after the registration deadline has passed.{" "}
-            <strong>
-              Interviews will take place on{" "}
-              {LongDateFormat.format(SummerDates.interview)}.
-            </strong>{" "}
-            Please provide accurate email information to receive your
-            invitation.
-          </li>
-          <li>
-            Each term ends with Demo Day, which is a required event for
-            students. Friends and family are strongly encouraged to attend;
-            please mark your calendar for{" "}
-            <strong>{LongDateFormat.format(SummerDates.demoDay)}.</strong>
-          </li>
-          <li>
-            <strong>
-              Registration Deadline is{" "}
-              {LongDateTimeFormat.format(SummerDates.registrationDeadline)}.
-            </strong>
-          </li>
-        </ul>
-        <Typography>
-          For additional questions about registration, please contact us at{" "}
-          <a href="mailto:info@missionbit.org">info@missionbit.org.</a>
-        </Typography>
-        <br />
-        <Typography variant="h6">Videos from Summer 2019:</Typography>
-        <YouTubePreviews>
-          <YouTubePreview id="RZgGXRmfdh0">Orientation</YouTubePreview>
-          <YouTubePreview id="9HqfU7-DCao">Demo Day</YouTubePreview>
-          <YouTubePreview id="-e0v7Zx-fy0">Mini-Doc Ep 1</YouTubePreview>
-          <YouTubePreview id="z9Iz6Z-XH8o">Mini-Doc Ep 2</YouTubePreview>
-          <YouTubePreview id="de8JieFe88Y">Mini-Doc Ep 3</YouTubePreview>
-          <YouTubePreview id="1eJZBmQtJu0">Mini-Doc Ep 4</YouTubePreview>
-        </YouTubePreviews>
-      </Container>
-      <Workshops />
       <Faq />
+      <Workshops />
       <Showcase />
       <Supporters />
     </main>

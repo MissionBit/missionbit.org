@@ -11,10 +11,21 @@ export const CourseSkills = [
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
+const webImage = {
+  src: require("../../public/images/program/web.svg"),
+  alt: "Image of a terminal window",
+};
+
+const controllerImage = {
+  src: require("../../public/images/program/controller.svg"),
+  alt: "Image of a game controller",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
   skills: CourseSkill[];
+  image: { src: string; alt: string };
 }
 
 export enum City {
@@ -73,6 +84,7 @@ export const Courses = courseRecord({
   web_bootcamp: {
     title: "Web Design Bootcamp",
     skills: ["Web Design", "HTML", "CSS"],
+    image: webImage,
     description: (
       <>
         This course allows students to explore website design techniques using
@@ -85,6 +97,7 @@ export const Courses = courseRecord({
   game_bootcamp: {
     title: "Unity Game Design Bootcamp",
     skills: ["Unity", "C#"],
+    image: controllerImage,
     description: (
       <>
         This course opens up the world of gaming and places it at our students’
@@ -97,6 +110,7 @@ export const Courses = courseRecord({
   beginner_unity_workshop: {
     title: "Beginner Unity Game Design Workshop",
     skills: ["Unity"],
+    image: controllerImage,
     description: (
       <>
         This is an introductory workshop facilitated by Mission Bit Student
@@ -107,6 +121,7 @@ export const Courses = courseRecord({
   beginner_web_workshop: {
     title: "Beginner Web Design Workshop",
     skills: ["Web Design", "HTML", "CSS"],
+    image: webImage,
     description: (
       <>
         This is an introductory workshop where students will be able to build a
