@@ -1,7 +1,12 @@
 import * as React from "react";
-import { useCallback, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
-import { City, ClassOrWorkshopInstance } from "./ClassInstanceData";
+import {
+  City,
+  ClassOrWorkshopInstance,
+  WorkshopInstance,
+  Course,
+} from "./ClassInstanceData";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
@@ -131,18 +136,38 @@ const CourseDescription: React.FC<{
   );
 };
 
+function filterCourses(
+  now: number,
+  instances: ClassOrWorkshopInstance[]
+): ClassOrWorkshopInstance[] {
+  // Return a new course list that removes any workshops that have already
+  // occurred if there is a later instance of that workshop available
+  const latestWorkshops: Map<Course, WorkshopInstance> = new Map();
+  // Find the latest of each workshop course
+  for (const instance of instances) {
+    if (instance.type === "workshop") {
+      const seen = latestWorkshops.get(instance.course);
+      if (seen === undefined || seen.date < instance.date) {
+        latestWorkshops.set(instance.course, instance);
+      }
+    }
+  }
+  return instances.filter(
+    (instance) =>
+      !(
+        instance.type === "workshop" &&
+        now >= instance.date &&
+        latestWorkshops.get(instance.course) !== instance
+      )
+  );
+}
+
 const Courses: React.FC<{
   instances: ClassOrWorkshopInstance[];
 }> = ({ children, instances }) => {
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => setNow(Date.now()), []);
-  // Skip workshops that have started already
-  const courseFilter = useCallback(
-    (instance: ClassOrWorkshopInstance): boolean =>
-      !(instance.type === "workshop" && now >= instance.date),
-    [now]
-  );
-  const courses = instances.filter(courseFilter);
+  const courses = filterCourses(now, instances);
   const classes = useStyles();
   return courses.length === 0 ? null : (
     <>
