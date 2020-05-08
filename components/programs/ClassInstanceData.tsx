@@ -2,9 +2,19 @@ import * as React from "react";
 import { hourStartEndParts } from "../../src/dates";
 import Box from "@material-ui/core/Box";
 
+export const CourseSkills = [
+  "Unity",
+  "C#",
+  "Web Design",
+  "HTML",
+  "CSS",
+] as const;
+export type CourseSkill = typeof CourseSkills[number];
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
+  skills: CourseSkill[];
 }
 
 export enum City {
@@ -62,38 +72,31 @@ function campusRecord<T extends Record<string, Campus>>(x: T): T {
 export const Courses = courseRecord({
   web_bootcamp: {
     title: "Web Design Bootcamp",
+    skills: ["Web Design", "HTML", "CSS"],
     description: (
       <>
-        This course is specifically designed for students with little to no
-        coding experience. Students will learn HTML, CSS, and JavaScript, as
-        well as some core programming concepts through project based
-        instruction. Throughout the semester, students will build 3 websites: an
-        adventure game, a portfolio, and a final project of their choice.
+        This course allows students to explore website design techniques using
+        HTML, CSS, and design thinking. Students will learn about user
+        experience and user interfaces to make creative and thoughtful websites.
+        This class is suitable for beginners.
       </>
     ),
   },
   game_bootcamp: {
     title: "Unity Game Design Bootcamp",
+    skills: ["Unity", "C#"],
     description: (
       <>
-        In this class, students will learn the fundamentals of game design. They
-        will learn how to create a 3D game in Unity and script in C#. No
-        previous experience required.
-      </>
-    ),
-  },
-  app_bootcamp: {
-    title: "Android App Design Bootcamp",
-    description: (
-      <>
-        In this class, students will learn the Android App Design. They will
-        learn how to program in Java and make their own app on Android phones.
-        Some prior experience in coding is necessary.
+        This course opens up the world of gaming and places it at our students’
+        fingertips. Students will learn about the Unity platform, how to write
+        scripts in C#, and make awesome games in 3D. This class is suitable for
+        beginners.
       </>
     ),
   },
   beginner_unity_workshop: {
     title: "Beginner Unity Game Design Workshop",
+    skills: ["Unity"],
     description: (
       <>
         This is an introductory workshop facilitated by Mission Bit Student
@@ -103,6 +106,7 @@ export const Courses = courseRecord({
   },
   beginner_web_workshop: {
     title: "Beginner Web Design Workshop",
+    skills: ["Web Design", "HTML", "CSS"],
     description: (
       <>
         This is an introductory workshop where students will be able to build a
