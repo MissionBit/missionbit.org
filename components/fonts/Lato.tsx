@@ -6,6 +6,7 @@ import * as CSS from "csstype";
 const WEIGHTS = [
   { weight: 300, name: "Light" },
   { weight: 400, name: "Regular" },
+  { weight: 500, name: "Bold" },
   { weight: 700, name: "Black" },
 ];
 

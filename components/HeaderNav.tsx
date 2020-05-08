@@ -90,7 +90,7 @@ const useStylesDesktop = makeStyles((theme) => ({
     alignItems: "center",
     padding: "1rem",
     "& .MuiButton-root": {
-      fontWeight: "bold",
+      fontWeight: theme.typography.fontWeightBold,
       fontSize: theme.typography.pxToRem(15),
     },
     "& .MuiButton-text": {

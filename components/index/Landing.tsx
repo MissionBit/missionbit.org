@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     color: theme.palette.common.white,
     textAlign: "center",
-    fontWeight: "bold",
+    fontWeight: theme.typography.fontWeightBold,
     fontFamily: theme.typography.h1.fontFamily,
     padding: theme.spacing(2),
     flex: "0 0 55%",

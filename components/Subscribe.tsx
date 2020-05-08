@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     "& > label": {
-      fontWeight: "bold",
+      fontWeight: theme.typography.fontWeightBold,
     },
   },
   photo: {

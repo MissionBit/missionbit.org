@@ -7,7 +7,7 @@ import { SummerDates } from "../programs/ClassInstanceData";
 import { ShortDateFormat } from "../../src/dates";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flex: "1 0 auto",
     '& div[role="alert"]': {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
       },
       "& .MuiAlert-message": {
         width: "100%",
-        fontWeight: "bold",
+        fontWeight: theme.typography.fontWeightBold,
         textAlign: "center",
       },
     },

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     marginBottom: "3rem",
     [theme.breakpoints.down("sm")]: {
-      padding: 0,
+      padding: theme.spacing(4, 0),
     },
   },
   copy: {
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1200,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h6.fontSize,
+      lineHeight: theme.typography.h6.lineHeight,
     },
     marginBottom: theme.spacing(4),
   },
@@ -32,13 +33,17 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
     padding: theme.spacing(1, 6),
     fontSize: theme.typography.pxToRem(40),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0.5, 3),
+      fontSize: theme.typography.pxToRem(24),
+    },
   },
 }));
 
-const Workshops: React.FC<{}> = () => {
+const CommunityWorkshops: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Box component="section" id="mission" className={classes.root}>
+    <Box component="section" id="community-workshops" className={classes.root}>
       <Typography variant="h1" component="h2" className={classes.copy}>
         Want to bring Mission Bit workshops to your community?
       </Typography>
@@ -55,4 +60,4 @@ const Workshops: React.FC<{}> = () => {
   );
 };
 
-export default Workshops;
+export default CommunityWorkshops;

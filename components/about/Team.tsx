@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     margin: theme.spacing(2, 0),
-    fontWeight: "bold",
+    fontWeight: theme.typography.fontWeightBold,
   },
   imageBio: {
     position: "relative",

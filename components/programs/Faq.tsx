@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiExpansionPanelSummary-expandIcon": {
       color: brand.orange,
+      "& .MuiSvgIcon-root": {
+        fontSize: theme.typography.pxToRem(48),
+      },
     },
     "& .MuiPaper-elevation1": {
       boxShadow: `0px 2px 1px -1px ${brand.orange}, 0px 1px 1px 0px ${brand.orange}, 0px 1px 3px 0px ${brand.orange}`,

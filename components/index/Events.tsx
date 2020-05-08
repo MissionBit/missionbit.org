@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   copyText: {
-    fontWeight: "bold",
+    fontWeight: theme.typography.fontWeightBold,
   },
 
   section: {

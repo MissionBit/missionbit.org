@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       "transparent linear-gradient(180deg, #2881D0 0%, #1B98A2 39%, #FFFFFF 100%) 0% 0% no-repeat padding-box",
     "& > h1": {
       marginBottom: theme.spacing(3),
-      fontWeight: "bold",
+      fontWeight: theme.typography.fontWeightBold,
       color: theme.palette.common.white,
     },
   },
@@ -47,17 +47,17 @@ const Main: React.FC<{}> = () => {
         <Grid container className={classes.grid} spacing={3}>
           <Grid item xs={4}>
             <img
-              src={require("../../public/images/program/miguel_yanez.jpg")}
+              src={require("../../public/images/get-involved/miguel_yanez.jpg")}
             />
           </Grid>
           <Grid item xs={4}>
             <img
-              src={require("../../public/images/program/nathan_powell.jpg")}
+              src={require("../../public/images/get-involved/nathan_powell.jpg")}
             />
           </Grid>
           <Grid item xs={4}>
             <img
-              src={require("../../public/images/program/safia_jaleel.jpg")}
+              src={require("../../public/images/get-involved/safia_jaleel.jpg")}
             />
           </Grid>
         </Grid>
