@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => {
     quote: {
       ...theme.typography.body1,
       fontSize: theme.typography.pxToRem(23),
-      fontWeight: theme.typography.fontWeightBold,
+      fontWeight: theme.typography.fontWeightMedium,
       display: "flex",
       flex: "1",
       position: "relative",
@@ -120,7 +120,7 @@ const useStyles = makeStyles((theme) => {
         maxWidth: "100%",
       },
       ...smallTextSel({
-        fontSize: theme.typography.body1.fontSize,
+        fontSize: theme.typography.pxToRem(14),
         margin: `auto 0`,
         padding: theme.spacing(3, 1),
       }),
