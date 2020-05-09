@@ -1,5 +1,4 @@
 import * as React from "react";
-import FormatQuoteIcon from "@material-ui/icons/FormatQuote";
 import Carousel from "../Carousel";
 import { useMemo } from "react";
 import {
@@ -11,6 +10,7 @@ import {
   Theme,
 } from "@material-ui/core/styles";
 import { brand } from "../../src/colors";
+import FormatQuoteIcon from "../icons/FormatQuote";
 import { StudentTestimonial, testimonials } from "./StudentTestimonials";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 
