@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(4),
   },
   button: {
-    fontWeight: theme.typography.fontWeightRegular,
     padding: theme.spacing(1, 6),
     fontSize: theme.typography.pxToRem(40),
     [theme.breakpoints.down("sm")]: {

@@ -53,6 +53,9 @@ const themeOptions: ThemeOptions = {
   },
   overrides: {
     MuiButton: {
+      contained: {
+        fontWeight: 700,
+      },
       outlined: {
         fontWeight: 700,
       },

@@ -9,8 +9,8 @@ import {
 } from "./ClassInstanceData";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
-import RoomIcon from "@material-ui/icons/Room";
-import CheckIcon from "@material-ui/icons/Check";
+import PinIcon from "../icons/Pin";
+import CheckIcon from "../icons/Check";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import FlourishSeparator from "./FlourishSeparator";
@@ -79,10 +79,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightBold,
     marginLeft: theme.spacing(2),
     padding: 0,
+    lineHeight: "3rem",
   },
   skillCheck: {
     color: theme.palette.primary.main,
-    fontSize: theme.typography.pxToRem(30),
+    fontSize: "3rem",
     marginRight: "0.25rem",
   },
   mapLink: {
@@ -187,7 +188,7 @@ const CourseDescription: React.FC<{
               rel="noopener"
               className={classes.mapLink}
             >
-              <RoomIcon />
+              <PinIcon />
             </Link>{" "}
             <Typography className={classes.campusName}>
               {campus.name}
