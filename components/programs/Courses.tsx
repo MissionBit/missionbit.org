@@ -101,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     [theme.breakpoints.down("sm")]: {
       flexWrap: "wrap",
+      justifyContent: "flex-start",
     },
   },
   skill: {
@@ -112,26 +113,39 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "3rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.body1.fontSize,
+      marginLeft: 0,
     },
   },
   skillCheck: {
     color: theme.palette.primary.main,
     fontSize: "3rem",
     marginRight: "0.25rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.75rem",
+      marginRight: 0,
+    },
   },
   mapLink: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: theme.typography.subtitle1.fontSize,
-    marginRight: "0.25rem",
     color: brand.violet,
+  },
+  pin: {
+    fontSize: "2rem",
+    margin: "0 0.4rem 0 0",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0.4rem",
+    },
   },
   location: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "flex-start",
+    },
   },
   campusName: {
     fontWeight: theme.typography.fontWeightBold,
@@ -148,6 +162,10 @@ const useStyles = makeStyles((theme) => ({
   datesExtra: {
     display: "flex",
     flex: "1",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      marginBottom: theme.spacing(2),
+    },
   },
   datesWrapper: {
     flexGrow: 1,
@@ -156,13 +174,17 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
       flexShrink: 1,
-      marginBottom: theme.spacing(4),
     },
   },
   extra: {
     flexGrow: 1,
     textAlign: "center",
     fontWeight: theme.typography.fontWeightMedium,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(2),
+      textAlign: "left",
+      fontSize: theme.typography.body2.fontSize,
+    },
   },
 }));
 
@@ -250,7 +272,7 @@ const CourseDescription: React.FC<{
               rel="noopener"
               className={classes.mapLink}
             >
-              <PinIcon />
+              <PinIcon className={classes.pin} />
             </Link>{" "}
             <Typography className={classes.campusName}>
               {campus.name}

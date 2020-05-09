@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
     "& > h4": {
       margin: theme.spacing(2, 0),
       textAlign: "center",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.h5.fontSize,
+      },
     },
   },
 }));
