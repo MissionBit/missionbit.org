@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.pxToRem(17),
     },
   },
+  expand: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(17),
+    },
+  },
 }));
 
 const FaqItem: React.FC<{
@@ -26,7 +31,9 @@ const FaqItem: React.FC<{
   const classes = useStyles();
   return (
     <ExpansionPanel className={classes.root}>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <ExpansionPanelSummary
+        expandIcon={<ExpandMoreIcon className={classes.expand} />}
+      >
         <Typography className={classes.heading}>{question}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>

@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
       color: brand.orange,
       "& .MuiSvgIcon-root": {
         fontSize: theme.typography.pxToRem(48),
+        [theme.breakpoints.down("sm")]: {
+          fontSize: theme.typography.pxToRem(28),
+        },
       },
     },
     "& .MuiPaper-elevation1": {
