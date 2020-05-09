@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   deadlineEmphasis: {
-    fontWeight: theme.typography.fontWeightBold,
+    fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },

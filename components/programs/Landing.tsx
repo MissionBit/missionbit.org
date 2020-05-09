@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontSize: theme.typography.pxToRem(25),
-    fontWeight: theme.typography.fontWeightBold,
     width: "12rem",
     "&:nth-child(n + 2)": {
       marginLeft: theme.spacing(2),

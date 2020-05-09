@@ -30,7 +30,6 @@ const useStyles = makeStyles((theme) => ({
     listStyleType: "none",
     justifyContent: "center",
     alignItems: "center",
-    fontWeight: theme.typography.fontWeightBold,
     color: "#333",
     padding: "1rem",
     [theme.breakpoints.down("sm")]: {

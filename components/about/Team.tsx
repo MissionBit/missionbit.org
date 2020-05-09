@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   name: {
-    fontWeight: theme.typography.fontWeightBold,
+    fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.h5.fontSize,
   },
   bio: {

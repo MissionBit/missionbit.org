@@ -29,7 +29,6 @@ const Index: React.FC<{}> = () => {
       <Stats />
       <MissionStatement />
       <CoreValues />
-      {/*<Events />*/}
       <Register />
       <Students />
       <Supporters />
