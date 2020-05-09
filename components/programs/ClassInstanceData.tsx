@@ -1,5 +1,5 @@
 import * as React from "react";
-import { hourStartEndParts } from "../../src/dates";
+import { hourStartEndParts, CourseDateTimeFormat } from "../../src/dates";
 import Box from "@material-ui/core/Box";
 
 export const CourseSkills = [
@@ -206,7 +206,10 @@ function summerWorkshop({
   extra?: React.ReactNode;
 }): WorkshopInstance {
   const date = Date.parse(dateString);
-  const parts = hourStartEndParts(date, date + minutes * 60 * 1000);
+  const parts = hourStartEndParts(date, date + minutes * 60 * 1000, {
+    format: CourseDateTimeFormat,
+    ordinalDay: true,
+  });
   return {
     type: "workshop",
     course,
@@ -245,5 +248,17 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     dateString: "2020-05-07T15:30:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4821550",
+  }),
+  summerWorkshop({
+    course: Courses.beginner_unity_workshop,
+    dateString: "2020-06-03T15:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4821878",
+    extra: (
+      <>
+        * Join us early from 3pm - 3:30pm for a prepping session (includes help
+        with downloading Unity and the game kit).
+      </>
+    ),
   }),
 ];

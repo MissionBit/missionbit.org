@@ -33,6 +33,14 @@ export const ShortDateFormat = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
+export const CourseDateTimeFormat = new Intl.DateTimeFormat("en-US", {
+  timeZone,
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+});
+
 function dropWhile<T>(collection: T[], predicate: (x: T) => boolean): T[] {
   for (let i = 0; i < collection.length; i++) {
     if (!predicate(collection[i])) {
@@ -56,20 +64,43 @@ function span<T>(collection: T[], predicate: (x: T) => boolean): [T[], T[]] {
   return [collection.slice(0, collection.length - suffix.length), suffix];
 }
 
+interface HourStartEndPartsOpts {
+  format: Intl.DateTimeFormat;
+  ordinalDay: boolean;
+}
+
+const hourStartEndPartsOptsDefaults: HourStartEndPartsOpts = {
+  format: LongDateFormat,
+  ordinalDay: false,
+};
+
+function ordinalSuffix(n: number): string {
+  const suffixMap: { [k: number]: string } = {
+    1: "st",
+    2: "nd",
+    3: "rd",
+  };
+  return `${n}${suffixMap[n % 10] ?? "th"}`;
+}
+
 export function hourStartEndParts(
   start: number,
-  end: number
+  end: number,
+  opts?: Partial<HourStartEndPartsOpts>
 ): { date: string; time: string } {
+  const { format, ordinalDay } = {
+    ...hourStartEndPartsOptsDefaults,
+    ...(opts ?? {}),
+  };
   const notHour = ({ type }: Intl.DateTimeFormatPart) => type !== "hour";
-  const notYear = ({ type }: Intl.DateTimeFormatPart) => type !== "year";
+  const notYear = ({ type }: Intl.DateTimeFormatPart) =>
+    type !== "year" && type !== "day";
   const notDayPeriod = ({ type }: Intl.DateTimeFormatPart) =>
     type !== "dayPeriod";
-  const getValue = ({ value }: Intl.DateTimeFormatPart) => value;
-  const [startDate, startHour] = span(
-    LongDateTimeFormat.formatToParts(start),
-    notHour
-  );
-  const endHour = dropWhile(LongDateTimeFormat.formatToParts(end), notHour);
+  const getValue = ({ type, value }: Intl.DateTimeFormatPart) =>
+    type === "day" && ordinalDay ? ordinalSuffix(+value) : value;
+  const [startDate, startHour] = span(format.formatToParts(start), notHour);
+  const endHour = dropWhile(format.formatToParts(end), notHour);
   const dateParts: string[] = dropRightWhile(startDate, notYear).map(getValue);
   const timeParts: string[] = dropRightWhile(startHour, notDayPeriod).map(
     getValue

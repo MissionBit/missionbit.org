@@ -108,6 +108,21 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textAlign: "center",
   },
+
+  datesExtra: {
+    display: "flex",
+    flex: "1",
+  },
+  datesWrapper: {
+    flexGrow: 1,
+    flexShrink: 0,
+    marginRight: theme.spacing(4),
+  },
+  extra: {
+    flexGrow: 1,
+    textAlign: "center",
+    fontWeight: theme.typography.fontWeightMedium,
+  },
 }));
 
 const CourseDescription: React.FC<{
@@ -143,29 +158,35 @@ const CourseDescription: React.FC<{
             <Typography className={classes.description}>
               {course.description}
             </Typography>
-            {instance.type === "class" ? (
-              <>
-                <Typography className={classes.dates}>
-                  <strong>Meets:</strong> {meets}
+            <Box className={classes.datesExtra}>
+              <Box className={classes.datesWrapper}>
+                {instance.type === "class" ? (
+                  <>
+                    <Typography className={classes.dates}>
+                      <strong>Meets:</strong> {meets}
+                    </Typography>
+                    <Typography className={classes.dates}>
+                      <strong>Dates:</strong> {instance.startDate} -{" "}
+                      {instance.endDate}
+                    </Typography>
+                  </>
+                ) : (
+                  <>
+                    <Typography className={classes.dates}>
+                      <strong>When:</strong> {meets}
+                    </Typography>
+                    <Typography className={classes.dates}>
+                      <strong>Who:</strong> {instance.who}
+                    </Typography>
+                  </>
+                )}
+              </Box>
+              {extra && !disabled ? (
+                <Typography variant="body1" className={classes.extra}>
+                  {extra}
                 </Typography>
-                <Typography className={classes.dates}>
-                  <strong>Dates:</strong> {instance.startDate} -{" "}
-                  {instance.endDate}
-                </Typography>
-              </>
-            ) : (
-              <>
-                <Typography className={classes.dates}>
-                  <strong>When:</strong> {meets}
-                </Typography>
-                <Typography className={classes.dates}>
-                  <strong>Who:</strong> {instance.who}
-                </Typography>
-              </>
-            )}
-            {extra && !disabled ? (
-              <Typography variant="body1">{extra}</Typography>
-            ) : null}
+              ) : null}
+            </Box>
           </Box>
           <Box className={classes.action}>
             <RegButton
