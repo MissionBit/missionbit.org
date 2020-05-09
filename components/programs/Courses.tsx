@@ -8,7 +8,6 @@ import {
   Course,
 } from "./ClassInstanceData";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
 import PinIcon from "../icons/Pin";
 import CheckIcon from "../icons/Check";
 import Paper from "@material-ui/core/Paper";
@@ -17,6 +16,7 @@ import FlourishSeparator from "./FlourishSeparator";
 import VioletButton from "../VioletButton";
 import IndigoButton from "../IndigoButton";
 import { brand } from "../../src/colors";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -266,14 +266,15 @@ const CourseDescription: React.FC<{
         </Box>
         <Box className={classes.locationSkills}>
           <Box className={classes.location}>
-            <Link
+            <Button
               href={campus.city === City.Online ? signupUrl : campus.mapUrl}
               target="_blank"
               rel="noopener"
               className={classes.mapLink}
+              disabled={campus.city === City.Online && disabled}
             >
               <PinIcon className={classes.pin} />
-            </Link>{" "}
+            </Button>{" "}
             <Typography className={classes.campusName}>
               {campus.name}
             </Typography>
