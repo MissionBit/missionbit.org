@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     padding: theme.spacing(6, 0),
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 0, 6, 0),
+    },
   },
   container: {
     display: "flex",
