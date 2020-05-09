@@ -53,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingTop: theme.spacing(2),
     flexWrap: "wrap",
+    alignItems: "flex-start",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "-0.5rem",
+    },
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
@@ -112,11 +116,11 @@ const useStyles = makeStyles((theme) => ({
   skill: {
     display: "flex",
     flexShrink: 0,
+    alignItems: "center",
     fontSize: theme.typography.pxToRem(22),
     fontWeight: theme.typography.fontWeightBold,
     marginLeft: theme.spacing(2),
     padding: 0,
-    lineHeight: "3rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.body1.fontSize,
       marginLeft: 0,
@@ -134,7 +138,6 @@ const useStyles = makeStyles((theme) => ({
   mapLink: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
     color: brand.violet,
     minWidth: "inherit",
     padding: 0,
@@ -144,16 +147,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   pin: {
+    // These should add up to the same height as skillCheck for
+    // vertical alignment with skills
     fontSize: "2rem",
+    margin: "0.5rem 0",
+    [theme.breakpoints.down("sm")]: {
+      margin: 0,
+    },
   },
   location: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "flex-start",
-    },
   },
   campusName: {
     fontWeight: theme.typography.fontWeightBold,

@@ -47,11 +47,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(2),
     fontSize: theme.typography.pxToRem(50),
-    lineHeight: theme.typography.pxToRem(75),
+    lineHeight: 1.5,
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2, 2, 0, 2),
       fontSize: theme.typography.pxToRem(24),
-      lineHeight: theme.typography.pxToRem(36),
     },
   },
   button: {

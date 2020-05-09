@@ -20,12 +20,15 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "auto",
     color: theme.palette.common.white,
     fontWeight: theme.typography.fontWeightBold,
-    fontSize: "5rem",
-    lineHeight: "7.5rem",
+    fontSize: theme.typography.pxToRem(71),
+    padding: theme.spacing(0, 2),
+    lineHeight: 1.5,
     maxWidth: 1200,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       fontSize: theme.typography.h6.fontSize,
-      lineHeight: theme.typography.h6.lineHeight,
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: theme.typography.h3.fontSize,
     },
     marginBottom: theme.spacing(4),
   },

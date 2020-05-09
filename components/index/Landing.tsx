@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: theme.typography.fontWeightBold,
     fontFamily: theme.typography.h1.fontFamily,
+    lineHeight: 1.5,
     padding: theme.spacing(2),
     flex: "0 0 55%",
     [theme.breakpoints.down("xs")]: {
@@ -39,12 +40,10 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(24),
-      lineHeight: theme.typography.pxToRem(35),
       textShadow: `${theme.typography.pxToRem(-3)} 0 ${brand.darkSlateBlue}`,
     },
     [theme.breakpoints.up("md")]: {
       fontSize: theme.typography.pxToRem(40),
-      lineHeight: theme.typography.pxToRem(58),
       textShadow: `${theme.typography.pxToRem(-6)} 0 ${brand.darkSlateBlue}`,
     },
   },

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textAlign: "center",
     fontSize: theme.typography.pxToRem(32),
-    lineHeight: "3rem",
+    lineHeight: 1.5,
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(24),
       marginBottom: "1em",
