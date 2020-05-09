@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
   locationSkills: {
     display: "flex",
     paddingTop: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
+    flexWrap: "wrap",
+    [theme.breakpoints.down("xs")]: {
       flexDirection: "column",
     },
   },
@@ -62,9 +63,11 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   action: {
-    flexBasis: "20%",
     textAlign: "center",
     alignSelf: "center",
+    [theme.breakpoints.up("md")]: {
+      marginLeft: theme.spacing(2),
+    },
   },
   title: {
     [theme.breakpoints.down("sm")]: {
@@ -82,6 +85,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(20),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.body1.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
       "& > strong": {
         display: "block",
       },
@@ -106,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
   },
   skill: {
     display: "flex",
+    flexShrink: 0,
     fontSize: theme.typography.pxToRem(22),
     fontWeight: theme.typography.fontWeightBold,
     marginLeft: theme.spacing(2),
@@ -246,7 +252,7 @@ const CourseDescription: React.FC<{
                   </>
                 )}
               </Box>
-              {extra && !disabled ? (
+              {extra && (!disabled || disabled) ? (
                 <Typography variant="body1" className={classes.extra}>
                   {extra}
                 </Typography>

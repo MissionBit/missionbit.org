@@ -8,6 +8,7 @@ import Box from "@material-ui/core/Box";
 import GalaCalendarEvent from "../gala/GalaDates";
 import { SpringClassInstances } from "../programs/ClassInstanceData";
 import { MediumDateFormat } from "../../src/dates";
+import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,6 +101,8 @@ const Upcoming: React.FC<{ date: string; href: string; className: string }> = ({
 
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => setNow(Date.now()), []);
   return (
     <Container component="main" id="main" className={classes.root}>
       <section id="current" className={classes.section}>
@@ -107,16 +110,18 @@ const Main: React.FC<{}> = () => {
           Upcoming Events
         </Typography>
         <Box className={classes.events}>
-          {UpcomingEvents.map(({ date, href, title }, i) => (
-            <Upcoming
-              key={i}
-              date={MediumDateFormat.format(date)}
-              href={href}
-              className={classes.upcoming}
-            >
-              {title}
-            </Upcoming>
-          ))}
+          {UpcomingEvents.map(({ date, href, title }, i) =>
+            date < now ? null : (
+              <Upcoming
+                key={i}
+                date={MediumDateFormat.format(date)}
+                href={href}
+                className={classes.upcoming}
+              >
+                {title}
+              </Upcoming>
+            )
+          )}
         </Box>
       </section>
       <section id="past" className={classes.section}>
