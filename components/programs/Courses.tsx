@@ -130,13 +130,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     color: brand.violet,
-  },
-  pin: {
-    fontSize: "2rem",
+    minWidth: "inherit",
+    padding: 0,
     margin: "0 0.4rem 0 0",
     [theme.breakpoints.down("sm")]: {
       margin: "0.4rem",
     },
+  },
+  pin: {
+    fontSize: "2rem",
   },
   location: {
     display: "flex",
