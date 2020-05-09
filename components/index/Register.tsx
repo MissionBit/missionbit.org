@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   videoContainer: {
     position: "relative",
     flexGrow: 1,
+    margin: theme.spacing(0, 2),
   },
   videoOutline: {
     position: "absolute",
@@ -44,19 +45,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   heading: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(2),
+    padding: theme.spacing(3, 2, 2, 2),
     fontSize: theme.typography.pxToRem(50),
     lineHeight: 1.5,
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.pxToRem(40),
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.pxToRem(24),
+    },
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2, 2, 0, 2),
-      fontSize: theme.typography.pxToRem(24),
     },
   },
   button: {
     marginTop: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(4),
     },
     fontSize: theme.typography.pxToRem(35),
   },
