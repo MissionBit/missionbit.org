@@ -22,12 +22,20 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     padding: 0,
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   imageWrapper: {
     display: "flex",
     flex: "0 1 20%",
     padding: theme.spacing(0, 4),
     backgroundColor: `var(--accent-color, ${theme.palette.common.white})`,
+    [theme.breakpoints.down("sm")]: {
+      flex: "1",
+      maxHeight: "20vh",
+      padding: theme.spacing(2, 4),
+    },
   },
   content: {
     display: "flex",
@@ -37,10 +45,16 @@ const useStyles = makeStyles((theme) => ({
   },
   mainInfo: {
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   locationSkills: {
     display: "flex",
     paddingTop: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   infoText: {
     display: "flex",
@@ -52,13 +66,26 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     alignSelf: "center",
   },
-  title: {},
+  title: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
+  },
   description: {
     margin: theme.spacing(2, 0),
     fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
   },
   dates: {
     fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+      "& > strong": {
+        display: "block",
+      },
+    },
   },
   image: {
     width: "100%",
@@ -72,6 +99,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     margin: 0,
     padding: 0,
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "wrap",
+    },
   },
   skill: {
     display: "flex",
@@ -80,6 +110,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(2),
     padding: 0,
     lineHeight: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
   },
   skillCheck: {
     color: theme.palette.primary.main,
@@ -103,6 +136,9 @@ const useStyles = makeStyles((theme) => ({
   campusName: {
     fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.pxToRem(22),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
   },
   learnMoreHeading: {
     color: theme.palette.secondary.main,
@@ -117,6 +153,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     flexShrink: 0,
     marginRight: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginRight: 0,
+      flexShrink: 1,
+      marginBottom: theme.spacing(4),
+    },
   },
   extra: {
     flexGrow: 1,

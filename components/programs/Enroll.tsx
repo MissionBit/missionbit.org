@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     margin: theme.spacing(2, 0, 4, 0),
     fontSize: theme.typography.pxToRem(35),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
   deadlineEmphasis: {
     fontWeight: theme.typography.fontWeightBold,
@@ -49,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   alert: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h5.fontSize,
+      fontSize: theme.typography.h4.fontSize,
     },
   },
 }));

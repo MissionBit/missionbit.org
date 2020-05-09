@@ -11,19 +11,38 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     padding: theme.spacing(3, 0),
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
   },
   column: {
     flex: "0 0 50%",
     padding: theme.spacing(0, 3),
+    [theme.breakpoints.between("xs", "sm")]: {
+      flex: "0 0 70%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      flex: 1,
+    },
   },
   title: {
     marginBottom: theme.spacing(3),
     fontWeight: theme.typography.fontWeightBold,
+    lineHeight: 1.5,
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h3.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
   },
   copy: {
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.pxToRem(28),
-    lineHeight: theme.typography.pxToRem(49),
+    lineHeight: 1.75,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
   buttons: {
     marginTop: theme.spacing(4),
@@ -35,15 +54,28 @@ const useStyles = makeStyles((theme) => ({
     "&:nth-child(n + 2)": {
       marginLeft: theme.spacing(2),
     },
+    [theme.breakpoints.between("xs", "sm")]: {
+      width: "10rem",
+      fontSize: theme.typography.h6.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "7.5rem",
+      fontSize: "1rem",
+    },
   },
   imageWrapper: {
     display: "flex",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    paddingRight: theme.spacing(4),
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   image: {
     width: "33vw",
+    maxWidth: "100%",
     height: "auto",
     objectFit: "contain",
   },

@@ -7,10 +7,16 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   copy: {
     marginBottom: theme.spacing(2),
     fontSize: theme.typography.pxToRem(24),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
   },
   imageColumn: {
     display: "flex",
@@ -20,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   copyColumn: {
     flex: 1,
     marginLeft: theme.spacing(6),
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(2),
+      marginLeft: 0,
+    },
   },
   photo: {
     width: "100%",
