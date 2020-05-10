@@ -195,10 +195,10 @@ const Students: React.FC<{}> = () => {
             alt={`Photo of ${name}`}
             src={photos["@0.25x"].jpg}
             srcSet={[
-              `${photos[""].webp} 2048w`,
-              `${photos["@0.75x"].webp} 1536w`,
-              `${photos["@0.5x"].webp} 1024w`,
-              `${photos["@0.25x"].webp}`,
+              `${photos[""].jpg} 2048w`,
+              `${photos["@0.75x"].jpg} 1536w`,
+              `${photos["@0.5x"].jpg} 1024w`,
+              `${photos["@0.25x"].jpg}`,
             ].join(",")}
           />
         </picture>
