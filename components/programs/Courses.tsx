@@ -257,7 +257,7 @@ const CourseDescription: React.FC<{
                   </>
                 )}
               </Box>
-              {extra && (!disabled || disabled) ? (
+              {extra && !disabled ? (
                 <Typography variant="body1" className={classes.extra}>
                   {extra}
                 </Typography>
