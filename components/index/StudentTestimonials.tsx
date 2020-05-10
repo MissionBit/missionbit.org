@@ -1,25 +1,31 @@
 import * as React from "react";
 
+const PhotoResolutions = ["", "@0.75x", "@0.5x", "@0.25x"] as const;
+
+export type StudentPhotos = {
+  [k in typeof PhotoResolutions[number]]: StudentPhoto;
+};
+
+export interface StudentPhoto {
+  jpg: string;
+  webp: string;
+}
+
 export interface StudentTestimonial {
   name: React.ReactNode;
   program: React.ReactNode;
   quote: React.ReactNode;
-  photo: string;
-  photoWebp: string;
-  width: number;
-  height: number;
+  photos: StudentPhotos;
 }
 
-function requirePhoto(
-  filename: string
-): { photo: string; photoWebp: string; width: number; height: number } {
-  const photo = require(`../../public/images/students/${filename}`);
-  const photoWebp = require(`../../public/images/students/${filename}?webp`);
-  const {
-    width,
-    height,
-  } = require(`../../public/images/students/${filename}?resize`);
-  return { photo, photoWebp, width, height };
+function requirePhoto(prefix: string): { photos: StudentPhotos } {
+  const photos = {} as StudentPhotos;
+  for (const suffix of PhotoResolutions) {
+    const jpg = require(`../../public/images/students/${prefix}${suffix}.jpg`);
+    const webp = require(`../../public/images/students/${prefix}${suffix}.jpg?webp`);
+    photos[suffix] = { jpg, webp };
+  }
+  return { photos };
 }
 
 export const testimonials: readonly StudentTestimonial[] = [
@@ -36,7 +42,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         career path.
       </>
     ),
-    ...requirePhoto("sarai.jpg"),
+    ...requirePhoto("sarai"),
   },
   {
     name: "Alyssa",
@@ -51,7 +57,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         it's like in the tech industry.
       </>
     ),
-    ...requirePhoto("alyssa.jpg"),
+    ...requirePhoto("alyssa"),
   },
   {
     name: "Vincent",
@@ -67,7 +73,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         interested in coding.
       </>
     ),
-    ...requirePhoto("vincent.jpg"),
+    ...requirePhoto("vincent"),
   },
   {
     name: "Nicholas",
@@ -80,7 +86,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         either a professional gamer or software engineer.
       </>
     ),
-    ...requirePhoto("nicholas.jpg"),
+    ...requirePhoto("nicholas"),
   },
   {
     name: "Abel",
@@ -94,7 +100,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         are meaningful to them and create the change that they want to see.
       </>
     ),
-    ...requirePhoto("abel.jpg"),
+    ...requirePhoto("abel"),
   },
   {
     name: "Eric",
@@ -106,7 +112,7 @@ export const testimonials: readonly StudentTestimonial[] = [
         neighborhood, Bayview Hunters Point.
       </>
     ),
-    ...requirePhoto("eric.jpg"),
+    ...requirePhoto("eric"),
   },
   {
     name: "Gisela",
@@ -122,6 +128,6 @@ export const testimonials: readonly StudentTestimonial[] = [
         student.
       </>
     ),
-    ...requirePhoto("gisela.jpg"),
+    ...requirePhoto("gisela"),
   },
 ];

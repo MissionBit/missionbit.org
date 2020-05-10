@@ -173,10 +173,7 @@ const Students: React.FC<{}> = () => {
     name,
     program,
     quote,
-    photo,
-    photoWebp,
-    width,
-    height,
+    photos,
   }) => (
     <div className={classes.testimonial}>
       <div className={classes.photoTitle}>
@@ -185,12 +182,24 @@ const Students: React.FC<{}> = () => {
           <span className={classes.program}>{program}</span>
         </div>
         <picture className={classes.photo}>
-          <source type="image/webp" srcSet={photoWebp} />
+          <source
+            type="image/webp"
+            srcSet={[
+              `${photos[""].webp} 2048w`,
+              `${photos["@0.75x"].webp} 1536w`,
+              `${photos["@0.5x"].webp} 1024w`,
+              `${photos["@0.25x"].webp}`,
+            ].join(",")}
+          />
           <img
             alt={`Photo of ${name}`}
-            src={photo}
-            data-width={width}
-            data-height={height}
+            src={photos["@0.25x"].jpg}
+            srcSet={[
+              `${photos[""].webp} 2048w`,
+              `${photos["@0.75x"].webp} 1536w`,
+              `${photos["@0.5x"].webp} 1024w`,
+              `${photos["@0.25x"].webp}`,
+            ].join(",")}
           />
         </picture>
       </div>
