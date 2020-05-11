@@ -15,12 +15,6 @@ const styles = {
     "@font-face": WEIGHTS.map(
       ({ name, weight }): CSS.FontFace => ({
         src: [
-          `local("Lato")`,
-          `local("Lato ${name}")`,
-          `local("Lato-${name}")`,
-          `local("LatoLatin")`,
-          `local("LatoLatin ${name}")`,
-          `local("LatoLatin-${name}")`,
           `url("/fonts/LatoLatin-${name}.woff2") format("woff2")`,
           `url("/fonts/LatoLatin-${name}.woff") format("woff")`,
         ].join(","),

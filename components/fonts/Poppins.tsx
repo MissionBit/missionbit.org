@@ -10,7 +10,6 @@ const styles = {
     "@font-face": WEIGHTS.map(
       (weight): CSS.FontFace => ({
         src: [
-          `local("Poppins")`,
           `url("/fonts/poppins-v9-latin-${weight}.woff2") format("woff2")`,
           `url("/fonts/poppins-v9-latin-${weight}.woff") format("woff")`,
         ].join(","),
