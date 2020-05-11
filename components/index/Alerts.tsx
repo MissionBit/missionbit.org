@@ -5,7 +5,8 @@ import Collapse from "@material-ui/core/Collapse";
 import { useEffect, useState } from "react";
 import { SummerDates } from "../programs/ClassInstanceData";
 import { ShortDateFormat } from "../../src/dates";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, darken } from "@material-ui/core/styles";
+import { brand } from "../../src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,12 +14,36 @@ const useStyles = makeStyles((theme) => ({
     '& div[role="alert"]': {
       borderRadius: 0,
       "& .MuiAlert-icon": {
-        display: "none",
+        "& > *": {
+          display: "none",
+        },
+        padding: 0,
+        margin: 0,
+        minWidth: theme.typography.pxToRem(48),
+      },
+      "&.MuiAlert-filledWarning": {
+        backgroundColor: brand.violet,
+        padding: 0,
+      },
+      "& .MuiAlert-action": {
+        margin: 0,
+        backgroundColor: darken(brand.violet, 0.2),
+        padding: 0,
+        "& > .MuiButtonBase-root": {
+          height: "100%",
+          minWidth: theme.typography.pxToRem(48),
+        },
       },
       "& .MuiAlert-message": {
+        display: "flex",
         width: "100%",
         fontWeight: theme.typography.fontWeightBold,
         textAlign: "center",
+        padding: 0,
+        "& > a": {
+          padding: theme.spacing(1.75, 1),
+          flex: 1,
+        },
       },
     },
   },
@@ -35,9 +60,8 @@ const timedAlerts: TimedAlert[] = [
     hideAfter: SummerDates.registrationDeadline,
     content: (
       <>
-        <Link color="inherit" href="/programs">
-          <span style={{ textDecoration: "underline" }}>Sign up</span> for our
-          Online Summer 2020 Courses now! Deadline{" "}
+        <Link color="inherit" href="/programs" title="Sign Up!">
+          Sign up for our Online Summer 2020 Courses now! Deadline{" "}
           {ShortDateFormat.format(SummerDates.registrationDeadline)}
         </Link>
       </>
