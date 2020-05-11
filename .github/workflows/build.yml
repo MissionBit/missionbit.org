@@ -13,7 +13,6 @@ jobs:
       NEXT_TELEMETRY_DISABLED: 1
     steps:
       - uses: actions/checkout@v2
-      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - run: npm install
       - uses: actions/cache@v1
         id: cache-build
