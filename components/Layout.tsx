@@ -24,7 +24,7 @@ export interface LayoutProps {
 
 const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
   <link
-    rel="shortcut icon"
+    rel="icon"
     href={`/images/icon${size}.png`}
     sizes={`${size}x${size}`}
     type="image/png"
@@ -77,7 +77,13 @@ const Layout: React.FC<LayoutProps> = ({
           content={description ?? DEFAULT_DESCRIPTION}
         />
         <meta name="description" content={description ?? DEFAULT_DESCRIPTION} />
-        {[64, 128, 256].map((size) => (
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          sizes="any"
+          href="/images/icon128.svg"
+        />
+        {[256, 128, 64].map((size) => (
           <ShortcutPng key={size} size={size} />
         ))}
         <GoogleAnalytics />
