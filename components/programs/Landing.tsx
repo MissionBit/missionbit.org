@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
-import VioletButton from "../VioletButton";
-import IndigoButton from "../IndigoButton";
+import VioletButton from "components/VioletButton";
+import IndigoButton from "components/IndigoButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -115,7 +115,7 @@ const Landing: React.FC<{}> = () => {
       </Box>
       <Box className={classes.imageWrapper}>
         <img
-          src={require("../../public/images/program/programs-page.svg")}
+          src={require("public/images/program/programs-page.svg")}
           className={classes.image}
         />
       </Box>

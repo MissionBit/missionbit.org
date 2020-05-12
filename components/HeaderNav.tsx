@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import Link from "@material-ui/core/Link";
-import { brand } from "../src/colors";
+import { brand } from "src/colors";
 
 interface NavMenuChoice {
   text: string;
@@ -137,7 +137,7 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
 const LogoHome: React.FC<{ className: string }> = ({ className }) => (
   <a href="/">
     <img
-      src={require("../public/images/missionbit-logo-horizontal.svg")}
+      src={require("public/images/missionbit-logo-horizontal.svg")}
       alt="Mission Bit logo"
       className={className}
     />

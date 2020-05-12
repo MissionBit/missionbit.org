@@ -12,7 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
-import { brand } from "../src/colors";
+import { brand } from "src/colors";
 import SubscribeImage from "./SubscribeImage";
 
 const useStyles = makeStyles((theme) => ({

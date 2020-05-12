@@ -7,10 +7,10 @@ import {
   SpringClassInstances,
   SummerDates,
 } from "./ClassInstanceData";
-import { LongDateTimeFormat } from "../../src/dates";
+import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
 import Courses from "./Courses";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 
 const accentStyles = [
   brand.indigo,

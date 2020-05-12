@@ -2,10 +2,10 @@ import { NextPage } from "next";
 import * as React from "react";
 import { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Layout from "../components/Layout";
-import Landing from "../components/index/Landing";
-import Index from "../components/index";
-import Alerts from "../components/index/Alerts";
+import Layout from "components/Layout";
+import Landing from "components/index/Landing";
+import Index from "components/index";
+import Alerts from "components/index/Alerts";
 
 const useStyles = makeStyles(() => ({
   header: {

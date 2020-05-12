@@ -1,5 +1,5 @@
 import * as React from "react";
-import { hourStartEndParts, CourseDateTimeFormat } from "../../src/dates";
+import { hourStartEndParts, CourseDateTimeFormat } from "src/dates";
 import Box from "@material-ui/core/Box";
 
 export const CourseSkills = [
@@ -12,12 +12,12 @@ export const CourseSkills = [
 export type CourseSkill = typeof CourseSkills[number];
 
 const webImage = {
-  src: require("../../public/images/program/web.svg"),
+  src: require("public/images/program/web.svg"),
   alt: "Image of a terminal window",
 };
 
 const controllerImage = {
-  src: require("../../public/images/program/controller.svg"),
+  src: require("public/images/program/controller.svg"),
   alt: "Image of a game controller",
 };
 

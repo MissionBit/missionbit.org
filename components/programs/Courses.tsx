@@ -8,14 +8,14 @@ import {
   Course,
 } from "./ClassInstanceData";
 import Box from "@material-ui/core/Box";
-import PinIcon from "../icons/Pin";
-import CheckIcon from "../icons/Check";
+import PinIcon from "components/icons/Pin";
+import CheckIcon from "components/icons/Check";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import FlourishSeparator from "./FlourishSeparator";
-import VioletButton from "../VioletButton";
-import IndigoButton from "../IndigoButton";
-import { brand } from "../../src/colors";
+import VioletButton from "components/VioletButton";
+import IndigoButton from "components/IndigoButton";
+import { brand } from "src/colors";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({

@@ -46,7 +46,7 @@ const About: React.FC<{}> = () => {
       >
         <Grid item xs={12} md={6} className={classes.team}>
           <img
-            src={require("../../public/images/about/full-team.jpg")}
+            src={require("public/images/about/full-team.jpg")}
             width="2048"
             height="1073"
             alt="Mission Bit Team"

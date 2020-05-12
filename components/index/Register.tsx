@@ -3,9 +3,9 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import YouTubeVideo from "../YouTubeVideo";
+import YouTubeVideo from "components/YouTubeVideo";
 import Link from "@material-ui/core/Link";
-import VioletButton from "../VioletButton";
+import VioletButton from "components/VioletButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {

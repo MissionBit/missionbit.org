@@ -20,10 +20,10 @@ const SubscribeImage: React.FC<{ className?: string }> = ({ className }) => (
       <picture>
         <source
           type="image/webp"
-          srcSet={require("../public/images/subscribe/subscribe.jpg?webp")}
+          srcSet={require("public/images/subscribe/subscribe.jpg?webp")}
         />
         <img
-          src={require("../public/images/subscribe/subscribe.jpg")}
+          src={require("public/images/subscribe/subscribe.jpg")}
           width="100%"
           height="100%"
         />

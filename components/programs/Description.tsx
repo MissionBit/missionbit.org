@@ -49,11 +49,11 @@ const Description: React.FC<{}> = () => {
         <picture className={classes.photo}>
           <source
             type="image/webp"
-            srcSet={require("../../public/images/program/safia_jaleel.jpg?webp")}
+            srcSet={require("public/images/program/safia_jaleel.jpg?webp")}
           />
           <img
             alt="Photo of student"
-            src={require("../../public/images/program/safia_jaleel.jpg")}
+            src={require("public/images/program/safia_jaleel.jpg")}
           />
         </picture>
       </Box>

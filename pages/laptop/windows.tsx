@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import * as React from "react";
-import Layout from "../../components/Layout";
+import Layout from "components/Layout";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 

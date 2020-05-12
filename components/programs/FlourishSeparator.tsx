@@ -1,8 +1,8 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import AsteriskIcon from "../icons/Asterisk";
-import { brand } from "../../src/colors";
+import AsteriskIcon from "components/icons/Asterisk";
+import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {

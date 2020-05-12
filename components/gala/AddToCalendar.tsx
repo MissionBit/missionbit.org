@@ -8,7 +8,7 @@ import {
   outlook,
   yahoo,
   ics,
-} from "../../vendor/calendar-link";
+} from "vendor/calendar-link";
 import EventAvailableIcon from "@material-ui/icons/EventAvailable";
 import Menu from "@material-ui/core/Menu";
 import {
