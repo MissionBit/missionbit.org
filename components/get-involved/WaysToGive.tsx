@@ -2,7 +2,7 @@ import * as React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import FaqItem from "../FaqItem";
+import FaqItem from "components/FaqItem";
 import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({

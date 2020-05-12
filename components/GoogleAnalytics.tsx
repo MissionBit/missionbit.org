@@ -1,5 +1,5 @@
 import * as React from "react";
-import oneLine from "../src/oneLine";
+import oneLine from "src/oneLine";
 
 export const GA_TRACKING_ID = "UA-47473369-1";
 

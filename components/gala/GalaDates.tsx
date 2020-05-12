@@ -1,6 +1,6 @@
-import { CalendarEvent } from "../../vendor/calendar-link";
-import absoluteUrl from "../../src/absoluteUrl";
-import { hourStartEndParts } from "../../src/dates";
+import { CalendarEvent } from "vendor/calendar-link";
+import absoluteUrl from "src/absoluteUrl";
+import { hourStartEndParts } from "src/dates";
 
 export const GalaCalendarEvent: CalendarEvent = {
   title: "Mission Bit Gala 2020",

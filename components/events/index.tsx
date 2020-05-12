@@ -1,13 +1,13 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import YouTubePreview from "../YouTubePreview";
+import YouTubePreview from "components/YouTubePreview";
 import { makeStyles } from "@material-ui/core/styles";
-import YouTubePreviews from "../YouTubePreviews";
+import YouTubePreviews from "components/YouTubePreviews";
 import Box from "@material-ui/core/Box";
-import GalaCalendarEvent from "../gala/GalaDates";
-import { SpringClassInstances } from "../programs/ClassInstanceData";
-import { MediumDateFormat } from "../../src/dates";
+import GalaCalendarEvent from "components/gala/GalaDates";
+import { SpringClassInstances } from "components/programs/ClassInstanceData";
+import { MediumDateFormat } from "src/dates";
 import { useEffect, useState } from "react";
 
 const useStyles = makeStyles((theme) => ({

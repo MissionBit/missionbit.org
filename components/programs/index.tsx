@@ -1,10 +1,10 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CommunityWorkshops from "./CommunityWorkshops";
-import Supporters from "../Supporters";
+import Supporters from "components/Supporters";
 import Enroll from "./Enroll";
 import Faq from "./Faq";
-import Showcase from "../Showcase";
+import Showcase from "components/Showcase";
 import Landing from "./Landing";
 import Description from "./Description";
 

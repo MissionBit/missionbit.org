@@ -1,9 +1,9 @@
 import { NextPage } from "next";
 import * as React from "react";
-import Layout from "../../components/Layout";
-import Sponsorship from "../../components/gala/Sponsorship";
-import Banner from "../../components/gala/Banner";
-import oneLine from "../../src/oneLine";
+import Layout from "components/Layout";
+import Sponsorship from "components/gala/Sponsorship";
+import Banner from "components/gala/Banner";
+import oneLine from "src/oneLine";
 
 const description = oneLine`
 Mission Bit's Fourth Annual Gala is a celebration of seven years of growth,

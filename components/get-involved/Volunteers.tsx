@@ -2,7 +2,7 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import SignUpButton from "./SignUpButton";
 import PhotoText from "./PhotoText";
@@ -37,7 +37,7 @@ const Volunteers: React.FC<{}> = () => {
         </Typography>
         <Paper elevation={0} className={classes.wrapper}>
           <PhotoText
-            src={require("../../public/images/get-involved/volunteer-2.jpg")}
+            src={require("public/images/get-involved/volunteer-2.jpg")}
           >
             <Typography variant="body1">
               Mission Bit's volunteers are the heart and soul of the

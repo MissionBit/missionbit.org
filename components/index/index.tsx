@@ -1,9 +1,8 @@
 import * as React from "react";
 import Stats from "./Stats";
-// import Events from "./Events";
 import Students from "./Students";
 import Social from "./Social";
-import Supporters from "../Supporters";
+import Supporters from "components/Supporters";
 import SupportOurYouth from "./SupportOurYouth";
 import Register from "./Register";
 import MissionStatement from "./MissionStatement";

@@ -3,10 +3,10 @@ import Link from "@material-ui/core/Link";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
 import { useEffect, useState } from "react";
-import { SummerDates } from "../programs/ClassInstanceData";
-import { ShortDateFormat } from "../../src/dates";
+import { SummerDates } from "components/programs/ClassInstanceData";
+import { ShortDateFormat } from "src/dates";
 import { makeStyles, darken } from "@material-ui/core/styles";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {

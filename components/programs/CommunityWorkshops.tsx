@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({

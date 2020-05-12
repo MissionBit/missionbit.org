@@ -5,11 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 const images = {
-  community: require("../../public/images/about/values/community.svg"),
-  love: require("../../public/images/about/values/love.svg"),
-  accountability: require("../../public/images/about/values/accountability.svg"),
-  socialJustice: require("../../public/images/about/values/social-justice.svg"),
-  smartRisks: require("../../public/images/about/values/smart-risks.svg"),
+  community: require("public/images/about/values/community.svg"),
+  love: require("public/images/about/values/love.svg"),
+  accountability: require("public/images/about/values/accountability.svg"),
+  socialJustice: require("public/images/about/values/social-justice.svg"),
+  smartRisks: require("public/images/about/values/smart-risks.svg"),
 };
 
 const useStyles = makeStyles((theme) => ({

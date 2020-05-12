@@ -1,7 +1,7 @@
 import * as React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 
 function iconHeightRem(heightRem: number): { width: string; height: string } {
   return {
@@ -124,7 +124,7 @@ const Stats: React.FC<{}> = () => {
     <section className={classes.section}>
       <Line
         img={{
-          src: require("../../public/images/stats/classes-taught.svg"),
+          src: require("public/images/stats/classes-taught.svg"),
           alt: "Graduation cap on top of a text editor window",
         }}
         color="color1"
@@ -133,7 +133,7 @@ const Stats: React.FC<{}> = () => {
       />
       <Line
         img={{
-          src: require("../../public/images/stats/students.svg"),
+          src: require("public/images/stats/students.svg"),
           alt: "Three students, two holding laptops with Mission Bit stickers",
         }}
         color="color2"
@@ -142,7 +142,7 @@ const Stats: React.FC<{}> = () => {
       />
       <Line
         img={{
-          src: require("../../public/images/stats/mission-high-school.svg"),
+          src: require("public/images/stats/mission-high-school.svg"),
           alt: "Mission High School",
         }}
         color="color3"

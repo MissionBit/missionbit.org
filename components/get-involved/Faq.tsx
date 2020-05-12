@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import FaqItem from "../FaqItem";
+import FaqItem from "components/FaqItem";
 import SignUpButton from "./SignUpButton";
 
 const useStyles = makeStyles((theme) => ({

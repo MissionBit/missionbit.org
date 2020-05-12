@@ -2,10 +2,10 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
-import FaqItem from "../FaqItem";
-import { LongDateFormat, LongDateTimeFormat } from "../../src/dates";
+import FaqItem from "components/FaqItem";
+import { LongDateFormat, LongDateTimeFormat } from "src/dates";
 import { SummerDates } from "./ClassInstanceData";
-import { brand } from "../../src/colors";
+import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {

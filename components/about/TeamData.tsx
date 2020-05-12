@@ -28,7 +28,7 @@ type BoardTitle = React.ReactNode;
 type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
 
 function image(path: string): { image: { src: string } } {
-  return { image: { src: require(`../../public/images/about/team/${path}`) } };
+  return { image: { src: require(`public/images/about/team/${path}`) } };
 }
 
 const TEAM: TeamMemberProps<TeamTitle>[] = [

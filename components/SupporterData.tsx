@@ -5,14 +5,14 @@ export interface SupporterDataProps {
 }
 
 function svg(logo: string): { src: string } {
-  return { src: require(`../public/images/supporters/${logo}.svg`) };
+  return { src: require(`public/images/supporters/${logo}.svg`) };
 }
 
 function png(logo: string): { src: string; srcSet: string } {
   const [
     src,
     src2x,
-  ] = require(`../public/images/supporters/${logo}.png?resize&size[]=150&size[]=300`).images.map(
+  ] = require(`public/images/supporters/${logo}.png?resize&size[]=150&size[]=300`).images.map(
     (image: { path: string; height: number; width: number }) => image.path
   );
   return { src, srcSet: `${src}, ${src2x} 2x` };
