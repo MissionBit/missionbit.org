@@ -181,7 +181,7 @@ function summerClass(
       </>
     ),
     startDate: "June 15th",
-    endDate: "June 25th",
+    endDate: "July 25th",
     signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
   };
 }
