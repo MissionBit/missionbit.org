@@ -160,7 +160,8 @@ The Netlify dashboard is at
 Contact bob@missionbit.org or cora@missionbit.org if you need access to this
 team for some reason.
 
-DNS is currently hosted by
-Cloudflare (missionbit.com) or
-Azure (missionbit.org, missionbits.com, missionbits.org).
-We may choose to consolidate these or move them to Netlify.
+DNS is currently hosted by:
+
+* Cloudflare (missionbit.com)
+* Azure (missionbit.org)
+* [Netlify](https://app.netlify.com/teams/missionbit/dns) (missionbits.com, missionbits.org)
