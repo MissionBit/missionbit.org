@@ -55,3 +55,35 @@ package = "netlify-plugin-cache-nextjs"
   from = "/laptop/mac"
   to = "https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub"
   status = 302
+
+# Typo domain redirects
+[[redirects]]
+  from = "https://www.missionbit.com/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://missionbit.com/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.missionbits.com/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://missionbits.com/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.missionbits.org/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://missionbits.org/*"
+  to = "https://www.missionbit.org/:splat"
+  status = 301
+  force = true
