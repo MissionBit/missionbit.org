@@ -14,6 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import Link from "@material-ui/core/Link";
 import { brand } from "src/colors";
+import CloseIcon from "@material-ui/icons/Close";
 
 interface NavMenuChoice {
   text: string;
@@ -36,6 +37,7 @@ function focusGetUpdates(event: React.MouseEvent<HTMLElement>): void {
 }
 
 const commonNav: NavMenuChoice[] = [
+  { text: "Home", href: "/" },
   {
     text: "About",
     href: "/about",
@@ -75,11 +77,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const useStylesMobile = makeStyles(() => ({
+const useStylesMobile = makeStyles((theme) => ({
   logo: {
     position: "relative",
     maxHeight: "2.75rem",
     top: "1px",
+  },
+  toolbar: {
+    justifyContent: "space-between",
+  },
+  button: {
+    marginLeft: 0,
+    marginRight: theme.spacing(-1.5),
+  },
+  popoverPaper: {
+    backgroundColor: brand.indigo,
+    borderRadius: 0,
+    boxShadow: "none",
+    maxWidth: "100%",
+    maxHeight: "100%",
+    minWidth: "100%",
+    minHeight: "100%",
+  },
+  menuItem: {
+    ...theme.typography.h3,
+    fontSize: theme.typography.pxToRem(36),
+    padding: theme.spacing(0.75, 4),
+  },
+  closeMenuItem: {
+    display: "flex",
+    justifyContent: "flex-end",
+    padding: 0,
+  },
+  closeMenuButton: {
+    color: theme.palette.common.white,
+  },
+  link: {
+    color: theme.palette.common.white,
   },
 }));
 
@@ -157,25 +191,52 @@ const MobileHeaderNav: React.FC<{ className: string }> = ({ className }) => {
       component="nav"
       className={className}
     >
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
+        <LogoHome className={classes.logo} />
         <IconButton
           edge="start"
           color="inherit"
           aria-label="menu"
+          className={classes.button}
           {...bindTrigger(popupState)}
         >
           <MenuIcon />
         </IconButton>
-        <Menu {...bindMenu(popupState)}>
+        <Menu
+          {...bindMenu(popupState)}
+          anchorReference="anchorPosition"
+          anchorPosition={{ left: 0, top: 0 }}
+          marginThreshold={0}
+          classes={{ paper: classes.popoverPaper }}
+        >
+          <div className={classes.closeMenuItem}>
+            <IconButton
+              size="medium"
+              aria-label="Close"
+              title="Close"
+              className={classes.closeMenuButton}
+              onClick={popupState.close}
+            >
+              <CloseIcon fontSize="large" />
+            </IconButton>
+          </div>
           {commonNav.map(({ text, href }) => (
-            <MenuItem key={text} onClick={popupState.close}>
-              <Link href={href} color="textPrimary" underline="none">
+            <MenuItem
+              key={text}
+              onClick={popupState.close}
+              classes={{ root: classes.menuItem }}
+            >
+              <Link
+                href={href}
+                color="textPrimary"
+                underline="none"
+                classes={{ root: classes.link }}
+              >
                 {text}
               </Link>
             </MenuItem>
           ))}
         </Menu>
-        <LogoHome className={classes.logo} />
       </Toolbar>
     </AppBar>
   );
