@@ -33,14 +33,19 @@ const Social: React.FC<{}> = () => {
         Connect with us on social
       </Typography>
       <Box className={classes.icons}>
-        <Button href="mailto:info@missionbit.org" title="Email">
+        <Button
+          href="mailto:info@missionbit.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Email"
+        >
           <EmailIcon />
         </Button>
         <Button
           href="https://twitter.com/missionbit"
           title="Twitter"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <TwitterIcon />
         </Button>
@@ -48,7 +53,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.instagram.com/missionbit/"
           title="Instagram"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <InstagramIcon />
         </Button>
@@ -56,7 +61,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.facebook.com/MissionBit/"
           title="Facebook"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <FacebookIcon />
         </Button>
@@ -64,7 +69,7 @@ const Social: React.FC<{}> = () => {
           href="https://github.com/missionbit"
           title="GitHub"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <GitHubIcon />
         </Button>
@@ -72,7 +77,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.youtube.com/channel/UCN07uXlUaHsvCYwXhHa2NPw"
           title="YouTube"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <YouTubeIcon />
         </Button>
@@ -80,7 +85,7 @@ const Social: React.FC<{}> = () => {
           href="https://www.linkedin.com/company/mission-bit"
           title="LinkedIn"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <LinkedInIcon />
         </Button>

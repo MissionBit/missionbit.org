@@ -277,7 +277,7 @@ const CourseDescription: React.FC<{
               variant="contained"
               color="secondary"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               disabled={disabled}
             >
               {disabled ? "Registration closed" : "Student Sign Up"}
@@ -289,7 +289,7 @@ const CourseDescription: React.FC<{
             <Button
               href={campus.city === City.Online ? signupUrl : campus.mapUrl}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className={classes.mapLink}
               disabled={campus.city === City.Online && disabled}
             >

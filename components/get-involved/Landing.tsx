@@ -3,21 +3,21 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
+import VioletButton from "components/VioletButton";
 import IndigoButton from "components/IndigoButton";
-import { brand } from "src/colors";
-import VolunteerCollage from "./VolunteerCollage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    padding: 0,
+    padding: theme.spacing(3, 0, 0, 0),
     [theme.breakpoints.down("xs")]: {
-      flexDirection: "column-reverse",
+      padding: theme.spacing(3, 0),
+      flexDirection: "column",
     },
   },
   column: {
     flex: "0 0 50%",
-    padding: theme.spacing(0, 3),
+    padding: theme.spacing(0, 3, 3, 3),
     [theme.breakpoints.between("xs", "sm")]: {
       flex: "0 0 70%",
     },
@@ -26,99 +26,118 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    margin: theme.spacing(3, 0),
-    textAlign: "center",
+    marginBottom: theme.spacing(3),
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: 1.5,
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: theme.typography.h3.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: theme.typography.h4.fontSize,
-      margin: theme.spacing(1.5, 0),
+      fontSize: theme.typography.pxToRem(36),
+      marginBottom: theme.spacing(3),
+      textAlign: "center",
     },
   },
   copy: {
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.typography.pxToRem(28),
     lineHeight: 1.75,
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h6.fontSize,
-    },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: theme.typography.pxToRem(12),
+      fontSize: theme.typography.pxToRem(16),
+      textAlign: "center",
     },
   },
   buttons: {
-    margin: theme.spacing(4, 0),
-    textAlign: "center",
+    marginTop: theme.spacing(4),
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
   button: {
     fontSize: theme.typography.pxToRem(25),
+    width: "12rem",
+    "&:nth-child(n + 2)": {
+      [theme.breakpoints.up("sm")]: {
+        marginLeft: theme.spacing(2),
+      },
+      [theme.breakpoints.down("xs")]: {
+        marginTop: theme.spacing(3),
+      },
+    },
     [theme.breakpoints.between("xs", "sm")]: {
+      width: "10rem",
       fontSize: theme.typography.h6.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
+      width: "7.5rem",
       fontSize: "1rem",
     },
   },
   imageWrapper: {
     display: "flex",
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-end",
     justifyContent: "center",
-    width: "33vw",
-    backgroundColor: brand.indigo,
+    overflow: "hidden",
     position: "relative",
     [theme.breakpoints.down("xs")]: {
-      padding: 0,
-      width: "100%",
-      height: "auto",
+      display: "none",
     },
   },
   image: {
     position: "relative",
+    bottom: "-5%",
+    maxWidth: "40vw",
     width: "100%",
-    maxWidth: "100%",
     height: "auto",
     objectFit: "contain",
   },
 }));
 
-const Volunteers: React.FC<{}> = () => {
+const Landing: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Container id="volunteer" component="section" className={classes.root}>
+    <Container id="landing" component="section" className={classes.root}>
       <Box className={classes.column}>
         <Typography variant="h2" component="h1" className={classes.title}>
-          Our Volunteers
+          Get
+          <br />
+          Involved
         </Typography>
         <Typography className={classes.copy}>
-          Mission Bit’s volunteers are the heart and soul of the organization.
-          Our classroom volunteers play an essential role in providing one on
-          one support to our students and assisting our instructors. We also
-          recruit volunteers for one-time events (no technical skills required)
-          who support us during the year. These events include our workshops,
-          Demo Day, and our annual gala.
+          Let’s work together! Discover how you can make an impact in your
+          community to empower the next generation of innovators. Use your
+          talent to help us diversify the tech industry.
         </Typography>
         <Box className={classes.buttons}>
           <IndigoButton
             variant="contained"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSddADoXnDOTw9Y-dlgn47P_hcSyO_BtZpbhB4pntEygKQzMCg/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#volunteer"
             size="large"
             className={classes.button}
           >
-            Become a Volunteer
+            Volunteer
           </IndigoButton>
+          <VioletButton
+            variant="contained"
+            href="#donate"
+            size="large"
+            className={classes.button}
+          >
+            Donate
+          </VioletButton>
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>
-        <VolunteerCollage className={classes.image} />
+        <img
+          src={require("public/images/get-involved/hands.svg")}
+          className={classes.image}
+        />
       </Box>
     </Container>
   );
 };
 
-export default Volunteers;
+export default Landing;
