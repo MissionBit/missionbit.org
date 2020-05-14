@@ -171,7 +171,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     textAlign: "center",
   },
-
+  buttonExtra: {
+    fontWeight: theme.typography.fontWeightBold,
+    color: brand.violet,
+    marginBottom: theme.spacing(2),
+  },
   datesExtra: {
     display: "flex",
     flex: "1",
@@ -206,7 +210,7 @@ const CourseDescription: React.FC<{
   now: number;
 }> = ({ instance, now }) => {
   const classes = useStyles();
-  const { extra, course, campus, meets, signupUrl } = instance;
+  const { extra, buttonExtra, course, campus, meets, signupUrl } = instance;
   const disabled =
     now >=
     (instance.type === "workshop"
@@ -265,6 +269,9 @@ const CourseDescription: React.FC<{
             </Box>
           </Box>
           <Box className={classes.action}>
+            {disabled ? null : (
+              <Box className={classes.buttonExtra}>{buttonExtra}</Box>
+            )}
             <RegButton
               href={signupUrl}
               variant="contained"
