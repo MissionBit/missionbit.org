@@ -71,7 +71,7 @@ const Enroll: React.FC<{}> = () => {
           Spring 2020 Workshops
         </Typography>
         <Typography className={classes.copy}>
-          A 90-minute window into the exciting world of tech.
+          Learn something new and get hands-on experience with our workshops.
         </Typography>
       </Courses>
       <Courses instances={SummerClassInstances}>
