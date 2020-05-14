@@ -96,7 +96,9 @@ export function hourStartEndParts(
   const notYear = ({ type }: Intl.DateTimeFormatPart) =>
     type !== "year" && type !== "day";
   const notDayPeriod = ({ type }: Intl.DateTimeFormatPart) =>
-    type !== "dayPeriod";
+    // Workaround for node 10 bug that uses dayperiod instead of dayPeriod
+    // https://github.com/zapier/intl-dateformat/issues/4
+    !/^day[Pp]eriod$/.test(type);
   const getValue = ({ type, value }: Intl.DateTimeFormatPart) =>
     type === "day" && ordinalDay ? ordinalSuffix(+value) : value;
   const [startDate, startHour] = span(format.formatToParts(start), notHour);
