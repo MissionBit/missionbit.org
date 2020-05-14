@@ -54,6 +54,8 @@ const CommunityWorkshops: React.FC<{}> = () => {
         size="large"
         variant="outlined"
         color="primary"
+        target="_blank"
+        rel="noopener noreferrer"
         className={classes.button}
       >
         Reach Out

@@ -113,7 +113,11 @@ const Sponsorship: React.FC<{}> = () => {
           </a>{" "}
           for more about our vision and current impact. If you have any
           questions, please contact us at{" "}
-          <a href="mailto:development@missionbit.org">
+          <a
+            href="mailto:development@missionbit.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             development@missionbit.org
           </a>
           .
@@ -165,7 +169,11 @@ const Sponsorship: React.FC<{}> = () => {
           For any questions regarding Gala Sponsorship,
           {/*or to use a payment method other than credit card, */ " "}
           please contact us at{" "}
-          <a href="mailto:development@missionbit.org">
+          <a
+            href="mailto:development@missionbit.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             development@missionbit.org
           </a>
           . For more information about the Gala and individual tickets, visit{" "}
@@ -182,7 +190,11 @@ const Sponsorship: React.FC<{}> = () => {
           across the San Francisco Bay Area by building computer programming and
           professional opportunity pathways for public schools students. For
           more information, contact us at{" "}
-          <a href="mailto:development@missionbit.org">
+          <a
+            href="mailto:development@missionbit.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             development@missionbit.org
           </a>
           .
