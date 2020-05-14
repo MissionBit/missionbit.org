@@ -65,7 +65,13 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
             <Button href="https://donate.missionbit.org/">donate</Button>
           </li>
           <li>
-            <Button href="mailto:info@missionbit.org">contact</Button>
+            <Button
+              href="mailto:info@missionbit.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              contact
+            </Button>
           </li>
         </ul>
       </nav>

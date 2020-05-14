@@ -132,7 +132,11 @@ const Gala: React.FC<{}> = () => {
           For more information on sponsorships, see our{" "}
           <a href="/gala/sponsorship">Gala Sponsorship Packages</a> or contact
           us at{" "}
-          <a href="mailto:development@missionbit.org">
+          <a
+            href="mailto:development@missionbit.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             development@missionbit.org
           </a>
           .
@@ -158,7 +162,11 @@ const Gala: React.FC<{}> = () => {
           <a href="/gala/sponsorship">Gala Sponsorship Packages</a>,
           {/* or to use a payment method other than credit card, */ " "}
           please contact us at{" "}
-          <a href="mailto:development@missionbit.org">
+          <a
+            href="mailto:development@missionbit.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             development@missionbit.org
           </a>
           .
