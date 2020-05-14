@@ -75,7 +75,7 @@ const Faq: React.FC<{}> = () => {
       <FaqItem question="How long are your classes?">
         Our Fall and Spring courses are 2-hour classes twice a week after
         school, running for 11 weeks. During the summer, we run intensive
-        introductory and advanced courses that are 5 days a week for 6 weeks.
+        introductory and advanced courses that are 3 days a week for 6 weeks.
       </FaqItem>
 
       <FaqItem question="What are your eligibility requirements?">
@@ -84,10 +84,10 @@ const Faq: React.FC<{}> = () => {
       </FaqItem>
 
       <FaqItem question="Which class should I sign up for?">
-        All our classes are taught at an introductory level, but our Web Design
-        and Unity Game Design classes provide a solid foundation for beginners.
-        You can take our Android Game Design class with no experience, but the
-        class is more fast-paced compared to the others.
+        All our classes are taught at an introductory level and provide a solid
+        foundation for beginners. Our Web Design class focuses on design and
+        learning how users experience websites while our Unity Game Design class
+        focuses more on creating engaging gameplay for video games.
       </FaqItem>
 
       <FaqItem question="Who teaches Mission Bit classes?">
@@ -96,7 +96,7 @@ const Faq: React.FC<{}> = () => {
       </FaqItem>
 
       <FaqItem question="How can I sign up for a class?">
-        You can scroll down and click on the Register Now button to apply!
+        You can scroll up and click on the Student Sign Up button to apply!
       </FaqItem>
     </Container>
   );
