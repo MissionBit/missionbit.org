@@ -8,6 +8,8 @@ export const CourseSkills = [
   "Web Design",
   "HTML",
   "CSS",
+  "Resume Building",
+  "Career Preparation",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -19,6 +21,11 @@ const webImage = {
 const controllerImage = {
   src: require("public/images/program/controller.svg"),
   alt: "Image of a game controller",
+};
+
+const resumeImage = {
+  src: require("public/images/program/resume.svg"),
+  alt: "Image of a resume",
 };
 
 export interface Course {
@@ -129,6 +136,18 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  careerprep_resume_workshop: {
+    title: "Resume Building Workshop",
+    skills: ["Resume Building", "Career Preparation"],
+    image: resumeImage,
+    description: (
+      <>
+        Come to this workshop empty handed and leave with a full resume! Learn
+        the do’s and don’ts of resume writing and turn your professional
+        experiences into strengths that will allow you to shine.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -198,12 +217,14 @@ function summerWorkshop({
   minutes,
   signupUrl,
   extra,
+  who = "Grades 7th - 12th",
 }: {
   course: Course;
   dateString: string;
   minutes: number;
   signupUrl: string;
   extra?: React.ReactNode;
+  who?: React.ReactNode;
 }): WorkshopInstance {
   const date = Date.parse(dateString);
   const parts = hourStartEndParts(date, date + minutes * 60 * 1000, {
@@ -222,7 +243,7 @@ function summerWorkshop({
         </Box>
       </>
     ),
-    who: "Grades 7th - 12th",
+    who,
     extra,
     signupUrl,
     date,
@@ -232,21 +253,29 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.beginner_unity_workshop,
-    dateString: "2020-05-06T15:30:00-07:00",
+    course: Courses.careerprep_resume_workshop,
+    dateString: "2020-05-21T15:30:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4821878",
-    extra: (
-      <>
-        Join us early from <strong>3pm - 3:30pm</strong> for a prepping session
-        (includes help with downloading Unity and the game kit).
-      </>
-    ),
+    signupUrl: "https://www.tfaforms.com/4824976",
+    who: "16 - 24 year olds",
+    extra: <>Only 10 spots available!</>,
   }),
-  summerWorkshop({
-    course: Courses.beginner_web_workshop,
-    dateString: "2020-05-07T15:30:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4821550",
-  }),
+  // summerWorkshop({
+  //   course: Courses.beginner_unity_workshop,
+  //   dateString: "2020-05-06T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4821878",
+  //   extra: (
+  //     <>
+  //       Join us early from <strong>3pm - 3:30pm</strong> for a prepping session
+  //       (includes help with downloading Unity and the game kit).
+  //     </>
+  //   ),
+  // }),
+  // summerWorkshop({
+  //   course: Courses.beginner_web_workshop,
+  //   dateString: "2020-05-07T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4821550",
+  // }),
 ];
