@@ -259,7 +259,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
     course: Courses.careerprep_resume_workshop,
     dateString: "2020-05-21T15:30:00-07:00",
-    minutes: 90,
+    minutes: 120,
     signupUrl: "https://www.tfaforms.com/4824976",
     who: "16 - 24 year olds",
     buttonExtra: <>Only 10 spots available!</>,
