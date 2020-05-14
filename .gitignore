@@ -7,3 +7,5 @@ out
 .eslintcache
 
 .now
+# Local Netlify folder
+.netlify
