@@ -70,7 +70,7 @@ interface HourStartEndPartsOpts {
 }
 
 const hourStartEndPartsOptsDefaults: HourStartEndPartsOpts = {
-  format: LongDateFormat,
+  format: LongDateTimeFormat,
   ordinalDay: false,
 };
 
@@ -106,6 +106,11 @@ export function hourStartEndParts(
     getValue
   );
   timeParts.push(" - ", ...endHour.map(getValue));
+  console.log({
+    startHour,
+    startParts: format.formatToParts(start),
+    timeParts,
+  });
   return {
     date: dateParts.join(""),
     time: timeParts.join("").replace(/:00/g, ""),
