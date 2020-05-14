@@ -55,6 +55,7 @@ export interface MeetInstance {
   meets: React.ReactNode;
   signupUrl: string;
   extra?: React.ReactNode;
+  buttonExtra?: React.ReactNode;
 }
 
 export interface ClassInstance extends MeetInstance {
@@ -217,12 +218,14 @@ function summerWorkshop({
   minutes,
   signupUrl,
   extra,
+  buttonExtra,
   who = "Grades 7th - 12th",
 }: {
   course: Course;
   dateString: string;
   minutes: number;
   signupUrl: string;
+  buttonExtra?: React.ReactNode;
   extra?: React.ReactNode;
   who?: React.ReactNode;
 }): WorkshopInstance {
@@ -245,9 +248,10 @@ function summerWorkshop({
     ),
     who,
     extra,
+    buttonExtra,
     signupUrl,
     date,
-    minutes: 90,
+    minutes,
   };
 }
 
@@ -258,7 +262,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4824976",
     who: "16 - 24 year olds",
-    extra: <>Only 10 spots available!</>,
+    buttonExtra: <>Only 10 spots available!</>,
   }),
   // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
