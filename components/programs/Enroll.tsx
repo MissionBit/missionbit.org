@@ -90,6 +90,8 @@ const Enroll: React.FC<{}> = () => {
             Registration deadline:
           </span>{" "}
           {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
+          <br />
+          Missed the deadline? Email cynthia@missionbit.org.
         </Typography>
       </Courses>
       <FlourishSeparator />
