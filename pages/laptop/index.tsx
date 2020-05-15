@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import * as React from "react";
-import Layout from "components/Layout";
+import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import { useRouter } from "next/router";
 import Container from "@material-ui/core/Container";
 
@@ -36,10 +36,11 @@ const QRCodeInfo: React.FC<{}> = () => {
   );
 };
 
-const Page: NextPage<{}> = () => (
-  <Layout title="Mission Bit – Laptop">
+const Page: NextPage<LayoutStaticProps> = (props) => (
+  <Layout {...props} title="Mission Bit – Laptop">
     <QRCodeInfo />
   </Layout>
 );
 
+export { getStaticProps };
 export default Page;

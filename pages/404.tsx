@@ -1,5 +1,5 @@
 import * as React from "react";
-import Layout from "components/Layout";
+import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import { NextPage } from "next";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page: NextPage<{}> = () => (
-  <Layout title="Mission Bit – 404 Not Found">
+const Page: NextPage<LayoutStaticProps> = (props) => (
+  <Layout {...props} title="Mission Bit – 404 Not Found">
     <Container component="main" className={useStyles().root}>
       <Typography variant="h1">HTTP 404 Not Found</Typography>
       <Typography>
@@ -30,4 +30,5 @@ const Page: NextPage<{}> = () => (
   </Layout>
 );
 
+export { getStaticProps };
 export default Page;

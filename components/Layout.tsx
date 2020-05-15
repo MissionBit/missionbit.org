@@ -1,4 +1,5 @@
 import * as React from "react";
+import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useMemo } from "react";
 import Head from "next/head";
@@ -11,8 +12,13 @@ import Lato from "./fonts/Lato";
 import Poppins from "./fonts/Poppins";
 import GoogleAnalytics from "./GoogleAnalytics";
 import absoluteUrl from "src/absoluteUrl";
+import { BuildTimeContext } from "./BuildTimeContext";
 
-export interface LayoutProps {
+export interface LayoutStaticProps {
+  buildTime: number;
+}
+
+export interface LayoutProps extends LayoutStaticProps {
   title: string;
   alerts?: React.ReactNode;
   headerChildren?: React.ReactNode;
@@ -34,7 +40,7 @@ const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
 const DEFAULT_DESCRIPTION: string =
   "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";
 
-const Layout: React.FC<LayoutProps> = ({
+export const Layout: React.FC<LayoutProps> = ({
   title,
   children,
   headerClassName,
@@ -43,6 +49,7 @@ const Layout: React.FC<LayoutProps> = ({
   alerts,
   pageImage,
   description,
+  buildTime,
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -54,7 +61,7 @@ const Layout: React.FC<LayoutProps> = ({
   const theme = useMemo(() => createMuiTheme(themeOptions), []);
   const router = useRouter();
   return (
-    <>
+    <BuildTimeContext.Provider value={buildTime}>
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -98,8 +105,13 @@ const Layout: React.FC<LayoutProps> = ({
         {children}
         <Footer className={footerClassName} />
       </ThemeProvider>
-    </>
+    </BuildTimeContext.Provider>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const props: LayoutStaticProps = { buildTime: Date.now() };
+  return { props };
 };
 
 export default Layout;

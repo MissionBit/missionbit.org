@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import * as React from "react";
 import { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Layout from "components/Layout";
+import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Landing from "components/index/Landing";
 import Index from "components/index";
 import Alerts from "components/index/Alerts";
@@ -25,7 +25,7 @@ function updateDocumentSize() {
   el.style.setProperty("--document-height", `${el.clientHeight}px`);
 }
 
-const Page: NextPage<{}> = () => {
+const Page: NextPage<LayoutStaticProps> = (props) => {
   const classes = useStyles();
   useEffect(() => {
     updateDocumentSize();
@@ -34,6 +34,7 @@ const Page: NextPage<{}> = () => {
   }, []);
   return (
     <Layout
+      {...props}
       title="Mission Bit"
       alerts={<Alerts />}
       headerChildren={<Landing />}
@@ -44,4 +45,5 @@ const Page: NextPage<{}> = () => {
   );
 };
 
+export { getStaticProps };
 export default Page;

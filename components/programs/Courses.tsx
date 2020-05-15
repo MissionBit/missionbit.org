@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import {
   City,
@@ -17,6 +16,7 @@ import VioletButton from "components/VioletButton";
 import IndigoButton from "components/IndigoButton";
 import { brand } from "src/colors";
 import Button from "@material-ui/core/Button";
+import { useRenderTime } from "components/BuildTimeContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -341,8 +341,7 @@ function filterCourses(
 const Courses: React.FC<{
   instances: ClassOrWorkshopInstance[];
 }> = ({ children, instances }) => {
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => setNow(Date.now()), []);
+  const now = useRenderTime();
   const courses = filterCourses(now, instances);
   return courses.length === 0 ? null : (
     <>
