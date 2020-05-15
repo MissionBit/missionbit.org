@@ -8,7 +8,7 @@ import Box from "@material-ui/core/Box";
 import GalaCalendarEvent from "components/gala/GalaDates";
 import { SpringClassInstances } from "components/programs/ClassInstanceData";
 import { MediumDateFormat } from "src/dates";
-import { useEffect, useState } from "react";
+import { useRenderTime } from "components/BuildTimeContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -101,8 +101,7 @@ const Upcoming: React.FC<{ date: string; href: string; className: string }> = ({
 
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => setNow(Date.now()), []);
+  const now = useRenderTime();
   return (
     <Container component="main" id="main" className={classes.root}>
       <section id="current" className={classes.section}>

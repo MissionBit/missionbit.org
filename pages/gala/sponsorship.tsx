@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import * as React from "react";
-import Layout from "components/Layout";
+import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Sponsorship from "components/gala/Sponsorship";
 import Banner from "components/gala/Banner";
 import oneLine from "src/oneLine";
@@ -11,8 +11,9 @@ impact, and learning. Join us for this inspiring event, meet our students,
 hear their stories, and help us reach our 2021 goals!
 `;
 
-const Page: NextPage<{}> = () => (
+const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
+    {...props}
     title="Mission Bit – 2020 Mission Bit Gala Sponsorship"
     headerChildren={<Banner />}
     description={description}
@@ -22,4 +23,5 @@ const Page: NextPage<{}> = () => (
   </Layout>
 );
 
+export { getStaticProps };
 export default Page;

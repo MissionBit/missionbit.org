@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import * as React from "react";
-import Layout from "components/Layout";
+import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,10 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Page: NextPage<{}> = () => {
+const Page: NextPage<LayoutStaticProps> = (props) => {
   const classes = useStyles();
   return (
-    <Layout title="Mission Bit – Windows Laptops">
+    <Layout {...props} title="Mission Bit – Windows Laptops">
       <Container component="main">
         <h1>For existing MB laptops:</h1>
         <ol>
@@ -98,4 +98,5 @@ const Page: NextPage<{}> = () => {
   );
 };
 
+export { getStaticProps };
 export default Page;

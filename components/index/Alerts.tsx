@@ -2,11 +2,12 @@ import * as React from "react";
 import Link from "@material-ui/core/Link";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SummerDates } from "components/programs/ClassInstanceData";
 import { ShortDateFormat } from "src/dates";
 import { makeStyles, darken } from "@material-ui/core/styles";
 import { brand } from "src/colors";
+import { useRenderTime } from "components/BuildTimeContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -77,21 +78,18 @@ function firstAlert(now: number): React.ReactNode | undefined {
   )?.content;
 }
 
-const firstAlertNow = () => firstAlert(Date.now());
-
 const Alerts: React.FC<{}> = () => {
   const classes = useStyles();
-  const [alert, setAlert] = useState<React.ReactNode | undefined>(
-    firstAlertNow
-  );
-  useEffect(() => setAlert(firstAlertNow()), []);
+  const now = useRenderTime();
+  const [closed, setClosed] = useState<boolean>(false);
+  const alert = closed ? undefined : firstAlert(now);
   return (
     <Collapse in={alert !== undefined} className={classes.root}>
       <Alert
         severity="info"
         variant="filled"
         color="warning"
-        onClose={() => setAlert(undefined)}
+        onClose={() => setClosed(true)}
       >
         {alert}
       </Alert>
