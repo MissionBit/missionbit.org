@@ -2,8 +2,8 @@
   publish = "out/"
   command = "npm run export"
 
-[[plugins]]
-package = "netlify-plugin-cache-nextjs"
+# [[plugins]]
+# package = "netlify-plugin-cache-nextjs"
 
 # Legacy redirects for netlify, see also next.config.js
 [[redirects]]
