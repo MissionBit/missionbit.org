@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     gridArea: "title",
-    marginBottom: theme.spacing(3),
     padding: theme.spacing(0, 4),
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: 1.5,

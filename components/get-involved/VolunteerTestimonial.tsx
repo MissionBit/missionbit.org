@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
     padding: theme.spacing(8, 0),
-    gridGap: theme.spacing(2),
+    gridGap: theme.spacing(2, 6),
     gridTemplateColumns: "2fr 3fr",
     gridTemplateRows: "auto",
     gridTemplateAreas: `
@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "quote",
     fontSize: theme.typography.pxToRem(35),
     fontStyle: "italic",
+    textAlign: "center",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h6.fontSize,
     },
