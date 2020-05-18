@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     `,
     [theme.breakpoints.down("md")]: {
       padding: theme.spacing(0, 4),
+      gridGap: theme.spacing(2, 4),
     },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "1fr",
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   name: {
     gridArea: "name",
     textAlign: "center",
+    alignSelf: "center",
     fontSize: theme.typography.pxToRem(53),
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: theme.typography.h3.fontSize,
@@ -45,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     gridArea: "title",
     textAlign: "center",
+    alignSelf: "center",
     fontSize: theme.typography.pxToRem(35),
     [theme.breakpoints.down("xs")]: {
       fontSize: theme.typography.pxToRem(24),
