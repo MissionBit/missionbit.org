@@ -5,11 +5,12 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
+import RectImage from "components/RectImage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
-    gridGap: theme.spacing(2),
+    gridGap: theme.spacing(4),
     gridTemplateColumns: "2fr 3fr",
     gridTemplateRows: "auto",
     gridTemplateAreas: `
@@ -71,22 +72,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
-    [theme.breakpoints.down("xs")]: {
-      paddingBottom: theme.spacing(4),
-      "&:before": {
-        content: '""',
-        position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        top: "30%",
-        backgroundColor: brand.indigo,
-      },
-    },
   },
   image: {
     position: "relative",
-    width: "75%",
+    width: "100%",
     height: "auto",
     objectFit: "contain",
   },
@@ -97,14 +86,22 @@ const Donate: React.FC<{}> = () => {
   return (
     <Container id="donate" component="section" className={classes.root}>
       <Box className={classes.imageWrapper}>
-        <img
+        <RectImage
           src={require("public/images/get-involved/demo-day-students.jpg")}
           srcSet={[
             `${require("public/images/get-involved/demo-day-students.jpg")} 726w`,
             `${require("public/images/get-involved/demo-day-students@0.5x.jpg")}`,
           ].join(",")}
-          alt="Students at Demo Day"
+          width={608.5}
+          height={745.5}
+          left={-107}
+          top={-174}
+          right={107}
+          bottom={-275.5}
+          id="donate-students"
+          desc="Students at Demo Day"
           className={classes.image}
+          fill={brand.indigo}
         />
       </Box>
       <Typography variant="h2" component="h1" className={classes.title}>

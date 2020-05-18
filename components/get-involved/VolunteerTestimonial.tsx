@@ -4,10 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { brand } from "src/colors";
+import RectImage from "components/RectImage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
+    padding: theme.spacing(8, 0),
     gridGap: theme.spacing(2),
     gridTemplateColumns: "2fr 3fr",
     gridTemplateRows: "auto",
@@ -93,13 +95,22 @@ const Volunteers: React.FC<{}> = () => {
       className={classes.root}
     >
       <Box className={classes.imageWrapper}>
-        <img
+        <RectImage
           src={require("public/images/get-involved/indya-dodson@0.5x.jpg")}
           srcSet={[
             `${require("public/images/get-involved/indya-dodson.jpg")} 1000w`,
             `${require("public/images/get-involved/indya-dodson@0.5x.jpg")}`,
           ].join(",")}
+          width={519}
+          height={452}
+          left={-48}
+          top={-33}
+          right={-81}
+          bottom={-39}
+          id="volunteer-indya-dodson"
+          desc="Photo of Indya Dodson"
           className={classes.image}
+          fill={brand.indigo}
         />
       </Box>
       <Typography variant="h2" component="h1" className={classes.name}>

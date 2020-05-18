@@ -5,12 +5,12 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import IndigoButton from "components/IndigoButton";
 import { brand } from "src/colors";
-import VolunteerCollage from "./VolunteerCollage";
+import VolunteerCollage, { VolunteerImage } from "./VolunteerCollage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    padding: 0,
+    padding: theme.spacing(0, 0, 8, 0),
     [theme.breakpoints.down("xs")]: {
       flexDirection: "column-reverse",
     },
@@ -68,8 +68,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     width: "33vw",
-    backgroundColor: brand.indigo,
     position: "relative",
+    [theme.breakpoints.up("md")]: {
+      backgroundColor: brand.indigo,
+    },
     [theme.breakpoints.down("xs")]: {
       padding: 0,
       width: "100%",
@@ -82,6 +84,16 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     height: "auto",
     objectFit: "contain",
+  },
+  largeImage: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+  smallImage: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
   },
 }));
 
@@ -115,7 +127,10 @@ const Volunteers: React.FC<{}> = () => {
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>
-        <VolunteerCollage className={classes.image} />
+        <VolunteerCollage
+          className={`${classes.image} ${classes.largeImage}`}
+        />
+        <VolunteerImage className={`${classes.image} ${classes.smallImage}`} />
       </Box>
     </Container>
   );
