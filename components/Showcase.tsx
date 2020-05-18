@@ -54,7 +54,7 @@ const StudentProject: React.FC<StudentProjectProps> = ({
   title,
 }) => (
   <Grid item xs={4}>
-    <Button href={href} title={title} target="_blank" rel="noopener">
+    <Button href={href} title={title} target="_blank" rel="noopener noreferrer">
       <img src={imageUrl} alt={`${title} screenshot`} />
     </Button>
   </Grid>

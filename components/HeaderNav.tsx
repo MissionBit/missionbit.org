@@ -85,6 +85,7 @@ const useStylesMobile = makeStyles((theme) => ({
   },
   toolbar: {
     justifyContent: "space-between",
+    padding: theme.spacing(1.5, 2.5),
   },
   button: {
     marginLeft: 0,
@@ -190,6 +191,7 @@ const MobileHeaderNav: React.FC<{ className: string }> = ({ className }) => {
       color="transparent"
       component="nav"
       className={className}
+      elevation={0}
     >
       <Toolbar className={classes.toolbar}>
         <LogoHome className={classes.logo} />

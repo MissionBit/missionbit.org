@@ -14,7 +14,7 @@ import { brand } from "src/colors";
 
 const accentStyles = [
   brand.indigo,
-  brand.meadow,
+  brand.greenPearl,
   brand.wisteria,
   brand.skyBlue,
   brand.lightPink,

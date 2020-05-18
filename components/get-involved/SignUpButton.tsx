@@ -10,7 +10,7 @@ const SignUpButton: React.FC<{ className?: string }> = ({ className }) => {
       color="secondary"
       href="https://docs.google.com/forms/d/e/1FAIpQLSddADoXnDOTw9Y-dlgn47P_hcSyO_BtZpbhB4pntEygKQzMCg/viewform"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       Become a Volunteer
     </Button>

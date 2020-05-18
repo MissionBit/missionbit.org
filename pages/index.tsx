@@ -1,6 +1,5 @@
 import { NextPage } from "next";
 import * as React from "react";
-import { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Landing from "components/index/Landing";
@@ -16,22 +15,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function updateDocumentSize() {
-  if (typeof document === "undefined") {
-    return;
-  }
-  const el = document.documentElement;
-  el.style.setProperty("--document-width", `${el.clientWidth}px`);
-  el.style.setProperty("--document-height", `${el.clientHeight}px`);
-}
-
 const Page: NextPage<LayoutStaticProps> = (props) => {
   const classes = useStyles();
-  useEffect(() => {
-    updateDocumentSize();
-    window.addEventListener("resize", updateDocumentSize);
-    return () => window.removeEventListener("resize", updateDocumentSize);
-  }, []);
   return (
     <Layout
       {...props}
@@ -39,6 +24,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
       alerts={<Alerts />}
       headerChildren={<Landing />}
       headerClassName={classes.header}
+      requireDocumentSize={true}
     >
       <Index />
     </Layout>

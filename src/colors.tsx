@@ -10,7 +10,7 @@ export const brand = {
   headingGray: "#4E4E4F",
   darkGray: "#333333",
   victoria: "#4B5798",
-  meadow: "#1ABC9B",
+  greenPearl: "#61D397",
   wisteria: "#C3A2CC",
   skyBlue: "#7FBFF4",
   lightPink: "#FFA0CE",

@@ -1,59 +1,141 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
-import { brand } from "src/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import SignUpButton from "./SignUpButton";
-import PhotoText from "./PhotoText";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import IndigoButton from "components/IndigoButton";
+import { brand } from "src/colors";
+import VolunteerCollage, { VolunteerImage } from "./VolunteerCollage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: brand.orange,
-    padding: theme.spacing(4, 0),
+    display: "flex",
+    padding: theme.spacing(0, 0, 8, 0),
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column-reverse",
+    },
   },
-  heading: {
-    margin: theme.spacing(0, 0, 4, 0),
+  column: {
+    flex: "0 0 50%",
+    padding: theme.spacing(0, 3),
+    [theme.breakpoints.between("xs", "sm")]: {
+      flex: "0 0 70%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      flex: 1,
+    },
+  },
+  title: {
+    margin: theme.spacing(3, 0),
+    textAlign: "center",
+    fontWeight: theme.typography.fontWeightBold,
+    lineHeight: 1.5,
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h3.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.h4.fontSize,
+      margin: theme.spacing(1.5, 0),
+    },
+  },
+  copy: {
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(28),
+    lineHeight: 1.75,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.pxToRem(12),
+    },
+  },
+  buttons: {
+    margin: theme.spacing(4, 0),
     textAlign: "center",
   },
-  wrapper: {
-    padding: theme.spacing(4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+  button: {
+    fontSize: theme.typography.pxToRem(25),
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+    },
   },
-  signUp: {
-    marginTop: theme.spacing(2),
+  imageWrapper: {
+    display: "flex",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "33vw",
+    position: "relative",
+    [theme.breakpoints.up("md")]: {
+      backgroundColor: brand.indigo,
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      padding: theme.spacing(0, 1),
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: 0,
+      width: "100%",
+      height: "auto",
+    },
+  },
+  image: {
+    position: "relative",
+    width: "100%",
+    maxWidth: "100%",
+    height: "auto",
+    objectFit: "contain",
+  },
+  largeImage: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  smallImage: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
   },
 }));
 
 const Volunteers: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <section id="volunteers" className={classes.root}>
-      <Container>
-        <Typography variant="h4" className={classes.heading}>
+    <Container id="volunteer" component="section" className={classes.root}>
+      <Box className={classes.column}>
+        <Typography variant="h2" component="h1" className={classes.title}>
           Our Volunteers
         </Typography>
-        <Paper elevation={0} className={classes.wrapper}>
-          <PhotoText
-            src={require("public/images/get-involved/volunteer-2.jpg")}
+        <Typography className={classes.copy}>
+          Mission Bit’s volunteers are the heart and soul of the organization.
+          Our classroom volunteers play an essential role in providing one on
+          one support to our students and assisting our instructors. We also
+          recruit volunteers for one-time events (no technical skills required)
+          who support us during the year. These events include our workshops,
+          Demo Day, and our annual gala.
+        </Typography>
+        <Box className={classes.buttons}>
+          <IndigoButton
+            variant="contained"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSddADoXnDOTw9Y-dlgn47P_hcSyO_BtZpbhB4pntEygKQzMCg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="large"
+            className={classes.button}
           >
-            <Typography variant="body1">
-              Mission Bit's volunteers are the heart and soul of the
-              organization. Our classroom volunteers play an essential role in
-              providing one on one support to our students and assisting our
-              instructors. As a classroom volunteer, you will engage a diverse
-              group of students through a project-based coding course. We also
-              recruit volunteers for one-time events (no coding knowledge
-              required) who support Mission Bit throughout the year. These
-              events include our workshops, Demo Day, and our annual gala.
-            </Typography>
-          </PhotoText>
-          <SignUpButton className={classes.signUp} />
-        </Paper>
-      </Container>
-    </section>
+            Become a Volunteer
+          </IndigoButton>
+        </Box>
+      </Box>
+      <Box className={classes.imageWrapper}>
+        <VolunteerCollage
+          className={`${classes.image} ${classes.largeImage}`}
+        />
+        <VolunteerImage className={`${classes.image} ${classes.smallImage}`} />
+      </Box>
+    </Container>
   );
 };
 

@@ -11,7 +11,7 @@ const ExpansionPanel = withStyles({
     "&:not(:last-child)": {
       borderBottom: 0,
     },
-    "&:before": {
+    "&::before": {
       display: "none",
     },
     "&$expanded": {

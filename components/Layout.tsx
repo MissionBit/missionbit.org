@@ -26,6 +26,7 @@ export interface LayoutProps extends LayoutStaticProps {
   footerClassName?: string;
   pageImage?: string;
   description?: string;
+  requireDocumentSize?: boolean;
 }
 
 const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
@@ -40,6 +41,15 @@ const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
 const DEFAULT_DESCRIPTION: string =
   "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";
 
+function updateDocumentSize() {
+  if (typeof document === "undefined") {
+    return;
+  }
+  const el = document.documentElement;
+  el.style.setProperty("--document-width", `${el.clientWidth}px`);
+  el.style.setProperty("--document-height", `${el.clientHeight}px`);
+}
+
 export const Layout: React.FC<LayoutProps> = ({
   title,
   children,
@@ -50,6 +60,7 @@ export const Layout: React.FC<LayoutProps> = ({
   pageImage,
   description,
   buildTime,
+  requireDocumentSize = false,
 }) => {
   useEffect(() => {
     // Remove the server-side injected CSS.
@@ -57,7 +68,14 @@ export const Layout: React.FC<LayoutProps> = ({
     if (jssStyles) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
-  });
+  }, []);
+  useEffect(() => {
+    updateDocumentSize();
+    if (requireDocumentSize) {
+      window.addEventListener("resize", updateDocumentSize);
+      return () => window.removeEventListener("resize", updateDocumentSize);
+    }
+  }, [requireDocumentSize]);
   const theme = useMemo(() => createMuiTheme(themeOptions), []);
   const router = useRouter();
   return (
