@@ -81,13 +81,13 @@ const Register: React.FC<{}> = () => {
             className={classes.heading}
             color="secondary"
           >
-            <Link href="/programs#courses" color="secondary">
+            <Link href="/programs#workshops" color="secondary">
               Register
             </Link>{" "}
-            for online summer classes now!
+            for our online workshops now!
           </Typography>
           <VioletButton
-            href="/programs#courses"
+            href="/programs#workshops"
             size="large"
             variant="outlined"
             className={classes.button}
