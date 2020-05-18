@@ -1,5 +1,4 @@
 import * as React from "react";
-import Landing from "./Landing";
 import Faq from "./Faq";
 import Volunteers from "./Volunteers";
 import VolunteerTestimonial from "./VolunteerTestimonial";
@@ -9,7 +8,6 @@ import Donate from "./Donate";
 const Main: React.FC<{}> = () => {
   return (
     <main id="main">
-      <Landing />
       <Volunteers />
       <VolunteerTestimonial />
       <Faq />
