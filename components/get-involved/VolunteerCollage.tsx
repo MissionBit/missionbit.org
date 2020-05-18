@@ -3,26 +3,24 @@ import { InlineAsteriskIcon } from "components/icons/Asterisk";
 
 export const VolunteerImage: React.FC<{
   className?: string;
-  width?: string | number;
-  height?: string | number;
-}> = ({ className, width, height }) => (
+}> = ({ className }) => (
   <picture className={className}>
     {/* 338.68 x 226.18 */}
     <source
       type="image/webp"
       srcSet={[
+        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg?webp")} 338w`,
         `${require("public/images/get-involved/demo-day-judges-1.jpg?webp")} 681w`,
-        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg?webp")}`,
       ].join(",")}
     />
     <img
       src={require("public/images/get-involved/demo-day-judges-1@0.5x.jpg")}
       srcSet={[
+        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg")} 338w`,
         `${require("public/images/get-involved/demo-day-judges-1.jpg")} 681w`,
-        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg")}`,
       ].join(",")}
-      width={width}
-      height={height}
+      width="100%"
+      height="100%"
     />
   </picture>
 );
@@ -51,15 +49,15 @@ export const VolunteerCollage: React.FC<{ className?: string }> = ({
         <source
           type="image/webp"
           srcSet={[
+            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg?webp")} 292w`,
             `${require("public/images/get-involved/demo-day-judges-2.jpg?webp")} 581w`,
-            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg?webp")}`,
           ].join(",")}
         />
         <img
           src={require("public/images/get-involved/demo-day-judges-2@0.5x.jpg")}
           srcSet={[
+            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg")} 292w`,
             `${require("public/images/get-involved/demo-day-judges-2.jpg")} 581w`,
-            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg")}`,
           ].join(",")}
           width="100%"
           height="100%"
@@ -69,7 +67,7 @@ export const VolunteerCollage: React.FC<{ className?: string }> = ({
     <use xlinkHref="#asterisk" x={1166 + 368} y={949} />
     <rect x="1009" y="1299" width="347" height="145" fill="#fff" />
     <foreignObject x="885" y="1123" width="435" height="290.5">
-      <VolunteerImage width="100%" height="100%" />
+      <VolunteerImage />
     </foreignObject>
     <use xlinkHref="#asterisk" x={885} y={1123 + 290.5} />
   </svg>

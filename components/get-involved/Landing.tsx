@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     padding: theme.spacing(3, 0, 0, 0),
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(3, 0),
       flexDirection: "column",
     },
@@ -18,10 +18,7 @@ const useStyles = makeStyles((theme) => ({
   column: {
     flex: "0 0 50%",
     padding: theme.spacing(0, 3, 3, 3),
-    [theme.breakpoints.between("xs", "sm")]: {
-      flex: "0 0 70%",
-    },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       flex: 1,
     },
   },
@@ -34,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: theme.typography.pxToRem(36),
+    },
+    [theme.breakpoints.down("sm")]: {
       marginBottom: theme.spacing(3),
       textAlign: "center",
     },
@@ -49,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttons: {
     marginTop: theme.spacing(4),
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -59,10 +58,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(25),
     width: "12rem",
     "&:nth-child(n + 2)": {
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("md")]: {
         marginLeft: theme.spacing(2),
       },
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("sm")]: {
         marginTop: theme.spacing(3),
       },
     },
@@ -82,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     overflow: "hidden",
     position: "relative",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },

@@ -10,6 +10,7 @@ import RectImage from "components/RectImage";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
+    padding: 0,
     gridGap: theme.spacing(4),
     gridTemplateColumns: "2fr 3fr",
     gridTemplateRows: "auto",
@@ -17,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
       "photo title"
       "photo info"
     `,
+    [theme.breakpoints.between("sm", "md")]: {
+      gridTemplateAreas: `
+        "title title"
+        "photo info"
+      `,
+    },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "1fr",
       gridTemplateAreas: `
@@ -29,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     gridArea: "title",
     marginBottom: theme.spacing(3),
+    padding: theme.spacing(0, 4),
     fontWeight: theme.typography.fontWeightBold,
     lineHeight: 1.5,
     [theme.breakpoints.between("xs", "sm")]: {
@@ -43,8 +51,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(28),
     lineHeight: 1.75,
+    padding: theme.spacing(0, 4),
+    [theme.breakpoints.between("sm", "md")]: {
+      fontSize: theme.typography.pxToRem(20),
+    },
+    [theme.breakpoints.between("md", "lg")]: {
+      fontSize: theme.typography.pxToRem(24),
+    },
     [theme.breakpoints.down("xs")]: {
-      fontSize: theme.typography.pxToRem(12),
+      fontSize: theme.typography.pxToRem(14),
     },
   },
   ol: {
@@ -72,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
+    [theme.breakpoints.up("sm")]: {
+      padding: theme.spacing(8, 0),
+    },
   },
   image: {
     position: "relative",
@@ -89,8 +107,12 @@ const Donate: React.FC<{}> = () => {
         <RectImage
           src={require("public/images/get-involved/demo-day-students.jpg")}
           srcSet={[
+            `${require("public/images/get-involved/demo-day-students@0.5x.jpg")} 364w`,
             `${require("public/images/get-involved/demo-day-students.jpg")} 726w`,
-            `${require("public/images/get-involved/demo-day-students@0.5x.jpg")}`,
+          ].join(",")}
+          srcSetWebP={[
+            `${require("public/images/get-involved/demo-day-students@0.5x.jpg?webp")} 364w`,
+            `${require("public/images/get-involved/demo-day-students.jpg?webp")} 726w`,
           ].join(",")}
           width={608.5}
           height={745.5}

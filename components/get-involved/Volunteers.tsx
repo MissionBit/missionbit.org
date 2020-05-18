@@ -72,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       backgroundColor: brand.indigo,
     },
+    [theme.breakpoints.between("sm", "md")]: {
+      padding: theme.spacing(0, 1),
+    },
     [theme.breakpoints.down("xs")]: {
       padding: 0,
       width: "100%",
@@ -86,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "contain",
   },
   largeImage: {
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },

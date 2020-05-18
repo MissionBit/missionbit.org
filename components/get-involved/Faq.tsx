@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(8),
     marginTop: theme.spacing(8),
-    "& .MuiExpansionPanel-root:before": {
+    "& .MuiExpansionPanel-root::before": {
       backgroundColor: accentColor,
     },
     "& .MuiExpansionPanelSummary-expandIcon": {

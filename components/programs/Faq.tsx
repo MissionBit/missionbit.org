@@ -9,7 +9,7 @@ import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& .MuiExpansionPanel-root:before": {
+    "& .MuiExpansionPanel-root::before": {
       backgroundColor: brand.orange,
     },
     "& .MuiExpansionPanelSummary-expandIcon": {
