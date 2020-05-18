@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "flex",
       flexDirection: "column",
-      height: "100vh",
-      maxHeight: "var(--document-height, 100vh)",
+      minHeight: "var(--document-height, 100vh)",
     },
   },
 }));

@@ -9,7 +9,7 @@ import IndigoButton from "components/IndigoButton";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flex: 1,
+    flexGrow: 1,
     padding: theme.spacing(3, 0, 0, 0),
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(3, 0),
