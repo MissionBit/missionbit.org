@@ -12,7 +12,7 @@ export interface RectImageProps {
   right: number;
   bottom: number;
   fill: string;
-  desc: React.ReactNode;
+  desc: string;
   id: string;
 }
 
@@ -50,7 +50,13 @@ const RectImage: React.FC<RectImageProps> = ({
       <foreignObject width={width} height={height}>
         <picture>
           {srcSetWebP ? <source type="image/webp" srcSet={srcSetWebP} /> : null}
-          <img src={src} srcSet={srcSet} width="100%" height="100%" />
+          <img
+            src={src}
+            srcSet={srcSet}
+            alt={desc}
+            width="100%"
+            height="100%"
+          />
         </picture>
       </foreignObject>
     </svg>

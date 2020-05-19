@@ -3,7 +3,7 @@ import * as React from "react";
 export interface TeamMemberProps<T extends React.ReactNode> {
   name: string;
   title?: T;
-  image: { src: string };
+  image: { jpg: string; webp: string };
   bio?: React.ReactNode;
 }
 
@@ -27,8 +27,13 @@ type BoardTitle = React.ReactNode;
 
 type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
 
-function image(path: string): { image: { src: string } } {
-  return { image: { src: require(`public/images/about/team/${path}`) } };
+function image(path: string): { image: { jpg: string; webp: string } } {
+  return {
+    image: {
+      jpg: require(`public/images/about/team/${path}`),
+      webp: require(`public/images/about/team/${path}?webp`),
+    },
+  };
 }
 
 const TEAM: TeamMemberProps<TeamTitle>[] = [

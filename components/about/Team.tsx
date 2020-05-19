@@ -102,7 +102,10 @@ const Team: React.FC<{}> = () => {
   }) => (
     <div>
       <div className={classes.imageBio}>
-        <img {...image} />
+        <picture>
+          <source type="image/webp" srcSet={image.webp} />
+          <img alt={name} src={image.jpg} />
+        </picture>
         {bio ? (
           <BioPopover name={name} className={classes.bio}>
             <Typography className={classes.bioTypography}>{bio}</Typography>

@@ -192,7 +192,7 @@ const Students: React.FC<{}> = () => {
             ].join(",")}
           />
           <img
-            alt={`Photo of ${name}`}
+            alt={name}
             src={photos["@0.25x"].jpg}
             srcSet={[
               `${photos[""].jpg} 2048w`,

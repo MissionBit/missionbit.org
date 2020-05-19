@@ -59,17 +59,23 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const YouTubePreview: React.FC<{ id: string }> = ({ id, children }) => {
+const YouTubePreview: React.FC<{ id: string; title: string }> = ({
+  id,
+  children,
+  title,
+}) => {
   const classes = useStyles();
   return (
     <Link
       href={`https://www.youtube.com/watch?v=${id}`}
       target="_blank"
       rel="noopener noreferrer"
+      title={title}
       className={classes.root}
     >
       <Box className={classes.wrapper}>
         <img
+          alt={`${title} video preview`}
           src={`https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`}
           className={classes.img}
         />
@@ -77,7 +83,7 @@ const YouTubePreview: React.FC<{ id: string }> = ({ id, children }) => {
         <PlayArrowIcon className={`${classes.overlay} ${classes.playArrow}`} />
       </Box>
       <Typography variant="h5" className={classes.title}>
-        {children}
+        {children ?? title}
       </Typography>
     </Link>
   );
