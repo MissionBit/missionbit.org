@@ -21,6 +21,7 @@ export const VolunteerImage: React.FC<{
       ].join(",")}
       width="100%"
       height="100%"
+      alt=""
     />
   </picture>
 );
@@ -61,6 +62,7 @@ export const VolunteerCollage: React.FC<{ className?: string }> = ({
           ].join(",")}
           width="100%"
           height="100%"
+          alt=""
         />
       </picture>
     </foreignObject>

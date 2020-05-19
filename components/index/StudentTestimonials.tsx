@@ -12,7 +12,7 @@ export interface StudentPhoto {
 }
 
 export interface StudentTestimonial {
-  name: React.ReactNode;
+  name: string;
   program: React.ReactNode;
   quote: React.ReactNode;
   photos: StudentPhotos;

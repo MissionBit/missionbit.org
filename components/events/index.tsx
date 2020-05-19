@@ -44,13 +44,13 @@ const useStyles = makeStyles((theme) => ({
 
 interface PastEvent {
   id: string;
-  title: React.ReactNode;
+  title: string;
 }
 
 interface UpcomingEvent {
   date: number;
   href: string;
-  title: React.ReactNode;
+  title: string;
 }
 
 const UpcomingEvents: UpcomingEvent[] = [
@@ -129,9 +129,7 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <YouTubePreviews>
           {PastEvents.map(({ id, title }) => (
-            <YouTubePreview key={id} id={id}>
-              {title}
-            </YouTubePreview>
+            <YouTubePreview key={id} id={id} title={title} />
           ))}
         </YouTubePreviews>
       </section>

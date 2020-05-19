@@ -58,11 +58,11 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
               </li>
               <li>
                 Press Windows and type "This". Right-click "This PC", select
-                Properties, and click Activate Windows >> Change product key.
-                The product key is on a sticker underneath the laptop. If you
-                can’t find it, keep power cable connected, remove battery, and
-                look for the product key under battery slot. Type in the product
-                key, click next >> activate.
+                Properties, and click Activate Windows &gt;&gt; Change product
+                key. The product key is on a sticker underneath the laptop. If
+                you can’t find it, keep power cable connected, remove battery,
+                and look for the product key under battery slot. Type in the
+                product key, click next &gt;&gt; activate.
               </li>
             </ol>
           </ol>

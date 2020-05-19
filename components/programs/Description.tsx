@@ -52,7 +52,7 @@ const Description: React.FC<{}> = () => {
             srcSet={require("public/images/program/safia_jaleel.jpg?webp")}
           />
           <img
-            alt="Photo of student"
+            alt="Mission Bit student"
             src={require("public/images/program/safia_jaleel.jpg")}
           />
         </picture>

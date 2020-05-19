@@ -24,6 +24,7 @@ const SubscribeImage: React.FC<{ className?: string }> = ({ className }) => (
         />
         <img
           src={require("public/images/subscribe/subscribe.jpg")}
+          alt=""
           width="100%"
           height="100%"
         />

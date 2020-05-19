@@ -6,6 +6,7 @@ import { debounce } from "ts-debounce";
 import Paper, { PaperProps } from "@material-ui/core/Paper";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightcon from "@material-ui/icons/ChevronRight";
+import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
   },
-  ul: {
+  nav: {
     display: "flex",
     listStyleType: "none",
     justifyContent: "center",
@@ -92,6 +93,20 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     },
     [numChildren, selected]
   );
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLElement>) => {
+      const keyMap: { [key: string]: number | undefined } = {
+        ArrowLeft: -1,
+        ArrowRight: 1,
+      };
+      const dir = keyMap[event.key];
+      if (dir !== undefined) {
+        event.preventDefault();
+        setSelected((numChildren + selected + dir) % numChildren);
+      }
+    },
+    [numChildren, selected]
+  );
   useEffect(() => {
     const handleResize = debounce(
       () => {
@@ -153,22 +168,23 @@ const Carousel: React.FC<CarouselProps> = (props) => {
     <Paper
       component="section"
       className={classes.root}
+      onKeyDown={handleKeyDown}
       {...defaults}
       {...props}
     >
       <div className={classes.scroller} ref={scrollerRef}>
         {children}
       </div>
-      <ul className={classes.ul}>
-        <li
+      <nav className={classes.nav}>
+        <IconButton
           onClick={selectPrev}
           className={classes.liPrevNext}
           title="Previous"
         >
           <ChevronLeftIcon />
-        </li>
-        {children.map((_, idx) => (
-          <li
+        </IconButton>
+        {children.map((props, idx) => (
+          <IconButton
             key={idx}
             data-key={idx}
             className={clsx(classes.li, {
@@ -180,10 +196,14 @@ const Carousel: React.FC<CarouselProps> = (props) => {
             }}
           />
         ))}
-        <li onClick={selectNext} className={classes.liPrevNext} title="Next">
+        <IconButton
+          onClick={selectNext}
+          className={classes.liPrevNext}
+          title="Next"
+        >
           <ChevronRightcon />
-        </li>
-      </ul>
+        </IconButton>
+      </nav>
     </Paper>
   );
 };

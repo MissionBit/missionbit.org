@@ -102,11 +102,11 @@ const Line: React.FC<{
   img: { src: string; alt: string };
   value: string;
   copy: string;
-}> = ({ color, img, value, copy }) => {
+}> = ({ color, img: { src, alt }, value, copy }) => {
   const classes = useStyles();
   return (
     <div className={classes.line}>
-      <img className={classes.icon} {...img} />
+      <img className={classes.icon} alt={alt} src={src} />
       <div className={clsx(classes.value, classes[color])}>
         <span aria-hidden="true" className={classes.shadow}>
           {value}

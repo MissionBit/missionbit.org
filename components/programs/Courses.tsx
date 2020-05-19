@@ -227,7 +227,7 @@ const CourseDescription: React.FC<{
       elevation={0}
     >
       <Box className={classes.imageWrapper}>
-        <img {...course.image} className={classes.image} />
+        <img {...course.image} alt="" className={classes.image} />
       </Box>
       <Box padding={1} className={classes.content}>
         <Box className={classes.mainInfo}>

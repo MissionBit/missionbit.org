@@ -108,7 +108,7 @@ const Volunteers: React.FC<{}> = () => {
           right={-81}
           bottom={-39}
           id="volunteer-indya-dodson"
-          desc="Photo of Indya Dodson"
+          desc="Indya Dodson"
           className={classes.image}
           fill={brand.indigo}
         />

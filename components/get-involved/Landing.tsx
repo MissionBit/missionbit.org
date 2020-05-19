@@ -134,6 +134,7 @@ const Landing: React.FC<{}> = () => {
         <img
           src={require("public/images/get-involved/hands.svg")}
           className={classes.image}
+          alt=""
         />
       </Box>
     </Container>
