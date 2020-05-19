@@ -56,10 +56,11 @@ const Faq: React.FC<{}> = () => {
         volunteers who are passionate about our mission.
       </FaqItem>
       <FaqItem question="What computer languages do we teach?">
-        In the classroom, we teach web design with HTML, CSS, and JavaScript and
-        we teach game design with C# and Java. Although all of our classes are
-        introductory, having a basic understanding of the languages taught in
-        the specified course is required.
+        In the classroom, we teach HTML and CSS for web design and C# for game
+        design. Although all of our classes are introductory, having a basic
+        understanding of the languages taught in the specified course is
+        required. Experience with design thinking practices, UI, UX, or video
+        game design is encouraged!
       </FaqItem>
       <FaqItem question="Where are your partner schools?">
         Visit the <Link href="/programs">programs</Link> page for a list of

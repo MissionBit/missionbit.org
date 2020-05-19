@@ -126,8 +126,8 @@ const Donate: React.FC<{}> = () => {
         />
       </Box>
       <Typography variant="h2" component="h1" className={classes.title}>
-        Your donation helps educate and equip students to pursue opportunities
-        in tech.
+        Your donation equips students with skills to pursue opportunities in
+        tech.
       </Typography>
       <Typography className={classes.info} component="div">
         Your donation will help us:
