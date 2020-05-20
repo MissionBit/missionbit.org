@@ -29,7 +29,7 @@ const resumeImage = {
 };
 
 export interface Course {
-  title: React.ReactNode;
+  title: string;
   description: React.ReactNode;
   skills: CourseSkill[];
   image: { src: string; alt: string };

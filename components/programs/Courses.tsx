@@ -205,6 +205,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function localSignupUrl(signupUrl: string): string {
+  const prefix = "https://www.tfaforms.com/";
+  if (signupUrl.startsWith(prefix)) {
+    return `/programs/enroll/${signupUrl.replace(prefix, "")}`;
+  }
+  return signupUrl;
+}
+
+function hrefProps(
+  originalHref: string
+): { href: string; target?: string; rel?: string } {
+  const href = localSignupUrl(originalHref);
+  if (href.startsWith("/")) {
+    return { href };
+  }
+  return { href, target: "_blank", rel: "noopener noreferrer" };
+}
+
 const CourseDescription: React.FC<{
   instance: ClassOrWorkshopInstance;
   now: number;
@@ -273,11 +291,9 @@ const CourseDescription: React.FC<{
               <Box className={classes.buttonExtra}>{buttonExtra}</Box>
             )}
             <RegButton
-              href={signupUrl}
+              {...hrefProps(signupUrl)}
               variant="contained"
               color="secondary"
-              target="_blank"
-              rel="noopener noreferrer"
               disabled={disabled}
             >
               {disabled ? "Registration closed" : "Student Sign Up"}
@@ -287,9 +303,9 @@ const CourseDescription: React.FC<{
         <Box className={classes.locationSkills}>
           <Box className={classes.location}>
             <Button
-              href={campus.city === City.Online ? signupUrl : campus.mapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...hrefProps(
+                campus.city === City.Online ? signupUrl : campus.mapUrl
+              )}
               className={classes.mapLink}
               disabled={campus.city === City.Online && disabled}
             >
