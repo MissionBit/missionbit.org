@@ -10,6 +10,8 @@ export const CourseSkills = [
   "CSS",
   "Resume Building",
   "Career Preparation",
+  "Scratch",
+  "Block Coding",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -26,6 +28,16 @@ const controllerImage = {
 const resumeImage = {
   src: require("public/images/program/resume.svg"),
   alt: "Image of a resume",
+};
+
+const hackWindowImage = {
+  src: require("public/images/program/hack-window.jpg"),
+  alt: "Image of an open window",
+};
+
+const scratchCatImage = {
+  src: require("public/images/program/scratch-cat.svg"),
+  alt: "Image of a cat",
 };
 
 export interface Course {
@@ -149,6 +161,38 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  scratch_window_workshop: {
+    title: "Hack Your Window with Scratch",
+    skills: ["Scratch", "Block Coding"],
+    image: hackWindowImage,
+    description: (
+      <>
+        In this hands-on workshop, we’ll combine art and technology to create
+        and code our own interactive stories with Scratch. We’ll be exploring
+        the “Hack Your Window” challenge to build projects that let you
+        creatively reimagine your surroundings through the lens of Mission Bit’s
+        values. We’ll begin with a quick intro to creative coding and Scratch,
+        plan our ideas together, then spend time creating our projects and
+        experimenting with code. We’ll end by sharing ideas and questions and
+        resources to continue learning more. Beginner coders welcome! (Hack Your
+        Window idea and photo credit to{" "}
+        <a href="https://hackart.eduard.cat/"> HackArt</a>.)
+      </>
+    ),
+  },
+  scratch_animation_workshop: {
+    title: "Scratch Animation Workshop",
+    skills: ["Scratch", "Block Coding"],
+    image: scratchCatImage,
+    description: (
+      <>
+        Come to this workshop and learn how to make your own cartoon in Scratch
+        with the power of coding. Personalize your skit with your own recorded
+        voice and hand drawn character, whilst learning about the vast world of
+        animation.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -264,6 +308,21 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     who: "16 - 24 year olds",
     buttonExtra: <>Only 10 spots available!</>,
   }),
+  summerWorkshop({
+    course: Courses.scratch_animation_workshop,
+    dateString: "2020-05-28T15:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4827761",
+    who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.scratch_window_workshop,
+    dateString: "2020-06-03T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4827910",
+    who: "7th - 12th graders",
+  }),
+
   // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
