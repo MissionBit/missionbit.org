@@ -9,6 +9,9 @@ import GalaCalendarEvent from "components/gala/GalaDates";
 import { SpringClassInstances } from "components/programs/ClassInstanceData";
 import { MediumDateFormat } from "src/dates";
 import { useRenderTime } from "components/BuildTimeContext";
+import Landing from "./Landing";
+import SummerTalkSeries from "./SummerTalkSeries";
+import FlourishSeparator from "components/programs/FlourishSeparator";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,8 +106,12 @@ const Main: React.FC<{}> = () => {
   const classes = useStyles();
   const now = useRenderTime();
   return (
-    <Container component="main" id="main" className={classes.root}>
-      <section id="current" className={classes.section}>
+    <main id="main">
+      <Landing />
+      <FlourishSeparator />
+      <SummerTalkSeries />
+      <FlourishSeparator />
+      <Container component="section" id="current" className={classes.section}>
         <Typography variant="h2" component="h1" className={classes.heading}>
           Upcoming Events
         </Typography>
@@ -122,8 +129,8 @@ const Main: React.FC<{}> = () => {
             )
           )}
         </Box>
-      </section>
-      <section id="past" className={classes.section}>
+      </Container>
+      <Container component="section" id="past" className={classes.section}>
         <Typography variant="h2" className={classes.heading}>
           Past Events
         </Typography>
@@ -132,8 +139,8 @@ const Main: React.FC<{}> = () => {
             <YouTubePreview key={id} id={id} title={title} />
           ))}
         </YouTubePreviews>
-      </section>
-    </Container>
+      </Container>
+    </main>
   );
 };
 
