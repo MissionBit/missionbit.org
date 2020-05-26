@@ -2,7 +2,6 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { CourseDateTimeFormat, hourStartEndParts } from "src/dates";
 import Box from "@material-ui/core/Box";
@@ -15,8 +14,16 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
     objectFit: "contain",
   },
+  events: {
+    display: "grid",
+    justifyContent: "center",
+    margin: theme.spacing(6, 0, 4, 0),
+    gridGap: theme.spacing(3),
+    gridTemplate: "auto / repeat(auto-fill, minmax(380px, 1fr))",
+  },
   description: {
     margin: theme.spacing(2, 0),
+    flexGrow: 1,
   },
   event: {
     padding: theme.spacing(3),
@@ -185,7 +192,7 @@ const Event: React.FC<{ event: EventData }> = ({ event }) => {
   );
 
   return (
-    <Paper className={classes.event} square={true} elevation={10}>
+    <Paper className={classes.event} square={true} elevation={1}>
       <img className={classes.logo} src={event.logo} alt={event.alt} />
       <Typography className={classes.title} variant="h5">
         {event.title}
@@ -223,13 +230,11 @@ const SummerTalkSeries: React.FC<{}> = () => {
       <Typography variant="h3" align="center" className={classes.heading}>
         Share a Bit: Summer Career Talk Series
       </Typography>
-      <Grid container spacing={3}>
+      <Box className={classes.events}>
         {Events.map((event) => (
-          <Grid item xs={12} md={4} key={event.title}>
-            <Event event={event} key={event.title} />
-          </Grid>
+          <Event event={event} key={event.title} />
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 };
