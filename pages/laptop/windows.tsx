@@ -3,6 +3,7 @@ import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
+import Head from "next/head";
 
 const useStyles = makeStyles((theme) => ({
   indent: {
@@ -14,6 +15,9 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
   const classes = useStyles();
   return (
     <Layout {...props} title="Mission Bit – Windows Laptops">
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <Container component="main">
         <h1>For existing MB laptops:</h1>
         <ol>
