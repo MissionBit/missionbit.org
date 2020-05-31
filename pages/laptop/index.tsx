@@ -3,6 +3,7 @@ import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import { useRouter } from "next/router";
 import Container from "@material-ui/core/Container";
+import Head from "next/head";
 
 const QRCodeInfo: React.FC<{}> = () => {
   const { query } = useRouter();
@@ -38,6 +39,9 @@ const QRCodeInfo: React.FC<{}> = () => {
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout {...props} title="Mission Bit – Laptop">
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
     <QRCodeInfo />
   </Layout>
 );
