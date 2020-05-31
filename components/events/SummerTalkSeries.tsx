@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(6, 0, 4, 0),
     gridGap: theme.spacing(3),
     gridTemplate: "auto / repeat(auto-fill, minmax(380px, 1fr))",
+    [theme.breakpoints.down("xs")]: {
+      gridTemplate: "auto / auto",
+    },
   },
   description: {
     margin: theme.spacing(2, 0),
