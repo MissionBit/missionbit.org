@@ -1,4 +1,4 @@
-export const timeZone: string = "America/Los_Angeles";
+const timeZone = "America/Los_Angeles";
 
 export const LongDateTimeFormat = new Intl.DateTimeFormat("en-US", {
   timeZone,
