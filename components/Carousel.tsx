@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     "&::-webkit-scrollbar": {
       display: "none",
     },
+    "-ms-overflow-style": "none",
   },
   nav: {
     display: "flex",
