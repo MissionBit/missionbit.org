@@ -317,7 +317,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   }),
   summerWorkshop({
     course: Courses.scratch_window_workshop,
-    dateString: "2020-06-03T16:00:00-07:00",
+    dateString: "2020-06-10T16:00:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4827910",
     who: "7th - 12th graders",
