@@ -186,11 +186,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     ...image("2020-spring-sab/alyssa_wu.jpg"),
     title: sabTitle(2022, "Lowell High School"),
   },
-  {
-    name: "Bryan De Leon",
-    ...image("2020-spring-sab/bryan_de_leon.jpg"),
-    title: sabTitle(2020, "Gateway High School"),
-  },
+  // {
+  //   name: "Bryan De Leon",
+  //   ...image("2020-spring-sab/bryan_de_leon.jpg"),
+  //   title: sabTitle(2020, "Gateway High School"),
+  // },
   {
     name: "Derick Du",
     ...image("2020-spring-sab/derick_du.jpg"),
