@@ -104,64 +104,34 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
-    name: "Shinjini Nunna",
-    title: "Lead Instructor",
-    ...image("2020-spring/shinjini_nunna.jpg"),
-  },
-  {
     name: "Christopher Louie",
     title: "Lead Instructor",
-    ...image("2020-spring/christopher_louie.jpg"),
-  },
-  {
-    name: "Georgina Cruz",
-    title: "Lead Instructor",
-    ...image("2020-spring/georgina_cruz.jpg"),
-  },
-  {
-    name: "Gustavo Salas",
-    title: "Lead Instructor",
-    ...image("2020-spring/gustavo_salas.jpg"),
-  },
-  {
-    name: "Stephen Yu",
-    title: "Lead Instructor",
-    ...image("2020-spring/stephen_yu.jpg"),
+    ...image("2020-summer/christopher_louie.jpg"),
   },
   {
     name: "Hunter Rocha",
     title: "Lead Instructor",
-    ...image("2020-spring/hunter_rocha.jpg"),
+    ...image("2020-summer/hunter_rocha.jpg"),
   },
   {
     name: "Imani Dawson",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/imani_dawson.jpg"),
+    title: "Lead Instructor",
+    ...image("2020-summer/imani_dawson.jpg"),
   },
   {
-    name: "Martin Linenweber",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/martin_linenweber.jpg"),
+    name: "Karena Huang",
+    title: "Lead Instructor",
+    ...image("2020-summer/karena_huang.jpg"),
   },
   {
-    name: "Anthony Hizon",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/anthony_hizon.jpg"),
+    name: "Stephen Justo",
+    title: "Lead Instructor",
+    ...image("2020-summer/stephen_justo.jpg"),
   },
   {
-    name: "Minh Phuc Tran",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/minh_phuc_tran.jpg"),
-  },
-  {
-    name: "Robert Macaibay",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/robert_macaibay.jpg"),
-  },
-  {
-    name: "Nico Magaña",
-    title: "Instructor's Assistant",
-    ...image("2020-spring/nico_magana.jpg"),
+    name: "Stephen Yu",
+    title: "Lead Instructor",
+    ...image("2020-summer/stephen_yu.jpg"),
   },
 ];
 
