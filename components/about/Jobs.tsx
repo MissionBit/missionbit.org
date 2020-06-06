@@ -23,7 +23,11 @@ const Jobs: React.FC<{}> = () => {
         Job Openings
       </Typography>
       <Typography className={classes.openings} component="ul">
-        <li>
+        <p>
+          We are no longer hiring for the summer. Please check back in August!
+        </p>
+
+        {/* <li>
           <a href="/images/jobs/missionBitLeadInstructorJobDescription.pdf">
             Lead Instructor
           </a>
@@ -32,7 +36,7 @@ const Jobs: React.FC<{}> = () => {
           <a href="/images/jobs/missionBitInstructorsAssistantJobDescription.pdf">
             Instructor's Assistant
           </a>
-        </li>
+        </li> */}
       </Typography>
     </section>
   );
