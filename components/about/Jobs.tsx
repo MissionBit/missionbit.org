@@ -15,6 +15,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface JobOpening {
+  href: string;
+  title: string;
+}
+
+const JobOpenings: JobOpening[] = [
+  // {
+  //   href: "/images/jobs/missionBitLeadInstructorJobDescription.pdf",
+  //   title: "Lead Instructor",
+  // },
+  // {
+  //   href: "/images/jobs/missionBitInstructorsAssistantJobDescription.pdf",
+  //   title: "Instructor's Assistant",
+  // },
+];
+
 const Jobs: React.FC<{}> = () => {
   const classes = useStyles();
   return (
@@ -22,18 +38,19 @@ const Jobs: React.FC<{}> = () => {
       <Typography variant="h4" component="h2" align="center">
         Job Openings
       </Typography>
-      <Typography className={classes.openings} component="ul">
-        <li>
-          <a href="/images/jobs/missionBitLeadInstructorJobDescription.pdf">
-            Lead Instructor
-          </a>
-        </li>
-        <li>
-          <a href="/images/jobs/missionBitInstructorsAssistantJobDescription.pdf">
-            Instructor's Assistant
-          </a>
-        </li>
-      </Typography>
+      {JobOpenings.length === 0 ? (
+        <Typography className={classes.openings}>
+          We are no longer hiring for the summer. Please check back in August!
+        </Typography>
+      ) : (
+        <Typography className={classes.openings} component="ul">
+          {JobOpenings.map(({ href, title }, i) => (
+            <li key={i}>
+              <a href={href}>{title}</a>
+            </li>
+          ))}
+        </Typography>
+      )}
     </section>
   );
 };
