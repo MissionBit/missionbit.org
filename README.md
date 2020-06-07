@@ -11,6 +11,12 @@
 
 These are the Terminal commands to work with the site:
 
+Update the dependencies (make sure to do this if package.json has changed, often after a git pull):
+
+```bash
+npm install
+```
+
 Run the development server:
 
 ```bash
@@ -117,6 +123,8 @@ name as the page it is associated with.
 Other images (JPG, PNG) such as photos on the site are passed through
 [next-optimized-images](https://github.com/cyrilwanner/next-optimized-images). The source
 resolution on our site is typically the highest resolution that they may be displayed.
+For example, the team headshots are currently saved at 400x400, which is much smaller than
+the original photos.
 Ideally, we host at least two versions of each image (jpg or png, and webp) as an
 optimization for modern browsers. In some cases, such as the large photos for
 student testimonials, we also have multiple sizes of each image. This is a trade-off
