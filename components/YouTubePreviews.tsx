@@ -1,5 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import YouTubePreview from "./YouTubePreview";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,9 +18,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const YouTubePreviews: React.FC<{}> = ({ children }) => {
+const YouTubePreviews: React.FC<{
+  values: React.ComponentProps<typeof YouTubePreview>[];
+}> = ({ values }) => {
   const classes = useStyles();
-  return <div className={classes.root}>{children}</div>;
+  return (
+    <div className={classes.root}>
+      {values.map(({ id, title }) => (
+        <YouTubePreview key={id} id={id} title={title} />
+      ))}
+    </div>
+  );
 };
 
 export default YouTubePreviews;

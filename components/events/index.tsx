@@ -163,7 +163,7 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
 ].sort((a, b) => a.date - b.date);
 
-const PastEvents: PastEvent[] = [
+const PastEvents: React.ComponentProps<typeof YouTubePreview>[] = [
   { id: "f2NVEq00A38", title: "Game Design Workshop" },
   { id: "J4VEhVk0eME", title: "Code Meets Girl" },
   { id: "oTSNS227No4", title: "Third Annual Gala" },
@@ -200,11 +200,7 @@ const Main: React.FC<{}> = () => {
         <Typography variant="h2" className={classes.heading}>
           Past Events
         </Typography>
-        <YouTubePreviews>
-          {PastEvents.map(({ id, title }) => (
-            <YouTubePreview key={id} id={id} title={title} />
-          ))}
-        </YouTubePreviews>
+        <YouTubePreviews values={PastEvents} />
       </Container>
     </main>
   );
