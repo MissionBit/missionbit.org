@@ -101,6 +101,13 @@ function eventData({
   };
 }
 
+// Cruise: https://www.tfaforms.com/4830394
+// Willis: https://www.tfaforms.com/4830962
+// Boundless Brilliance: https://www.tfaforms.com/4830965
+// Twilio: https://www.tfaforms.com/4830966
+// Redfin: https://www.tfaforms.com/4830967
+// MB Alumni: https://www.tfaforms.com/4830968
+
 const Events: EventData[] = [
   eventData({
     alt: "Cruise logo",
@@ -113,7 +120,7 @@ const Events: EventData[] = [
         self-driving car company, is doing in 2020.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830394",
   }),
   eventData({
     alt: "Catchafire logo",
@@ -127,7 +134,7 @@ const Events: EventData[] = [
         marketing experience.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830962",
   }),
   eventData({
     alt: "Boundless Brilliance logo",
@@ -140,7 +147,7 @@ const Events: EventData[] = [
         non-profit organization in college.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830965",
   }),
   eventData({
     alt: "Twilio logo",
@@ -153,7 +160,7 @@ const Events: EventData[] = [
         helps keep 3,000+ employees informed and aligned to the company.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830966",
   }),
   eventData({
     alt: "Redfin logo",
@@ -166,7 +173,7 @@ const Events: EventData[] = [
         driven features to drive the company’s most important metrics.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830967",
   }),
   eventData({
     alt: "Bridging the Gap (Mission Bit) logo",
@@ -179,7 +186,7 @@ const Events: EventData[] = [
         driven features to drive the company’s most important metrics.
       </>
     ),
-    url: "",
+    url: "https://www.tfaforms.com/4830968",
   }),
 ];
 
