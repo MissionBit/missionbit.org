@@ -79,6 +79,9 @@ export const Featured: React.FC<FeaturedEvent> = ({
   bottomLeftImage,
 }) => {
   const classes = useStyles();
+  const buttonProps = /^https?:/.test(href)
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
   return (
     <Box className={classes.root}>
       <Box className={classes.titleDate}>
@@ -92,6 +95,7 @@ export const Featured: React.FC<FeaturedEvent> = ({
       <Box className={classes.descriptionButton}>
         <Typography className={classes.description}>{description}</Typography>
         <Button
+          {...buttonProps}
           className={classes.button}
           href={href}
           size="large"

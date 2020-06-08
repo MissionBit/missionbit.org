@@ -39,6 +39,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     "& svg": {
       fontSize: theme.typography.pxToRem(48),
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.pxToRem(32),
+      },
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
     },
   },
   selected: {},

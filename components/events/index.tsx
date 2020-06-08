@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
   section: {
     marginBottom: theme.spacing(4),
   },
+  pastEvents: {
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+    },
+  },
 }));
 
 interface PastEvent {
@@ -197,7 +202,11 @@ const Main: React.FC<{}> = () => {
           )
         )}
       </Container>
-      <Container component="section" id="past" className={classes.section}>
+      <Container
+        component="section"
+        id="past"
+        className={`${classes.section} ${classes.pastEvents}`}
+      >
         <Typography variant="h2" className={classes.heading}>
           Past Events
         </Typography>

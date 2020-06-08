@@ -8,6 +8,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
 const useStyles = makeStyles((theme) => {
   const width = 300;
+  const smScale = 260 / 300;
   const padding = theme.spacing(2);
   const imgWidth = 300 - 2 * padding;
   const imgHeight = (720 / 1280) * imgWidth;
@@ -29,14 +30,24 @@ const useStyles = makeStyles((theme) => {
           color: theme.palette.common.white,
         },
       },
+      [theme.breakpoints.down("sm")]: {
+        width: smScale * width,
+      },
     },
     title: {
       marginTop: theme.spacing(2),
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.pxToRem(16),
+      },
     },
     img: {
       width: imgWidth,
       height: imgHeight,
       maxWidth: "100%",
+      [theme.breakpoints.down("sm")]: {
+        width: smScale * imgWidth,
+        height: smScale * imgHeight,
+      },
     },
     overlay: {
       position: "absolute",
