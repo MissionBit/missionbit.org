@@ -101,7 +101,7 @@ export const Featured: React.FC<FeaturedEvent> = ({
           className={classes.button}
           href={href}
           size="large"
-          variant="outlined"
+          variant="contained"
           color="secondary"
         >
           {linkTitle}
