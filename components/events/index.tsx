@@ -40,6 +40,7 @@ interface PastEvent {
 
 const FeaturedEvents: FeaturedEvent[] = [
   {
+    id: "demo-day",
     date: SummerDates.demoDay,
     href:
       "https://www.eventbrite.com/e/mission-bit-presents-summer-2020-demo-day-tickets-108626591058?utm_source=mb&utm_medium=web&utm_campaign=events",
@@ -104,6 +105,7 @@ const FeaturedEvents: FeaturedEvent[] = [
     },
   },
   {
+    id: "gala",
     date: Date.parse(GalaCalendarEvent.start),
     href: "/gala",
     linkTitle: "Learn More",
@@ -193,9 +195,9 @@ const Main: React.FC<{}> = () => {
       <SummerTalkSeries />
       <FlourishSeparator />
       <Container component="section" id="current" className={classes.section}>
-        {FeaturedEvents.map((props, i) =>
+        {FeaturedEvents.map((props) =>
           props.date < now ? null : (
-            <React.Fragment key={i}>
+            <React.Fragment key={props.id}>
               <Featured {...props} />
               <FlourishSeparator />
             </React.Fragment>

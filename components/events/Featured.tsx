@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export interface FeaturedEvent {
+  id: string;
   date: number;
   href: string;
   title: string;
@@ -70,6 +71,7 @@ export interface FeaturedEvent {
 }
 
 export const Featured: React.FC<FeaturedEvent> = ({
+  id,
   date,
   href,
   title,
@@ -83,7 +85,7 @@ export const Featured: React.FC<FeaturedEvent> = ({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} id={id}>
       <Box className={classes.titleDate}>
         <Typography className={classes.title} variant="h2">
           {title}
