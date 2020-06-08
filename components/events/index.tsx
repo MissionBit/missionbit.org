@@ -36,7 +36,8 @@ interface PastEvent {
 const FeaturedEvents: FeaturedEvent[] = [
   {
     date: SummerDates.demoDay,
-    href: "#",
+    href:
+      "https://www.eventbrite.com/e/mission-bit-presents-summer-2020-demo-day-tickets-108626591058?utm_source=mb&utm_medium=web&utm_campaign=events",
     linkTitle: "Register",
     title: "Summer Demo Day",
     description: (

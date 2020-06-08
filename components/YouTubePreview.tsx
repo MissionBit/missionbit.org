@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: "inline-flex",
+      flexShrink: 0,
       flexDirection: "column",
       padding,
       width,
@@ -71,6 +72,7 @@ const YouTubePreview: React.FC<{ id: string; title: string }> = ({
       target="_blank"
       rel="noopener noreferrer"
       title={title}
+      underline="none"
       className={classes.root}
     >
       <Box className={classes.wrapper}>
@@ -82,7 +84,7 @@ const YouTubePreview: React.FC<{ id: string; title: string }> = ({
         <YouTubeIcon className={`${classes.overlay} ${classes.youTube}`} />
         <PlayArrowIcon className={`${classes.overlay} ${classes.playArrow}`} />
       </Box>
-      <Typography variant="h5" className={classes.title}>
+      <Typography variant="h6" className={classes.title} color="textSecondary">
         {children ?? title}
       </Typography>
     </Link>
