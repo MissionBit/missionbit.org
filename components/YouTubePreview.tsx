@@ -8,6 +8,7 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
 const useStyles = makeStyles((theme) => {
   const width = 300;
+  const smScale = 260 / 300;
   const padding = theme.spacing(2);
   const imgWidth = 300 - 2 * padding;
   const imgHeight = (720 / 1280) * imgWidth;
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => {
   return {
     root: {
       display: "inline-flex",
+      flexShrink: 0,
       flexDirection: "column",
       padding,
       width,
@@ -28,14 +30,24 @@ const useStyles = makeStyles((theme) => {
           color: theme.palette.common.white,
         },
       },
+      [theme.breakpoints.down("sm")]: {
+        width: smScale * width,
+      },
     },
     title: {
       marginTop: theme.spacing(2),
+      [theme.breakpoints.down("sm")]: {
+        fontSize: theme.typography.pxToRem(16),
+      },
     },
     img: {
       width: imgWidth,
       height: imgHeight,
       maxWidth: "100%",
+      [theme.breakpoints.down("sm")]: {
+        width: smScale * imgWidth,
+        height: smScale * imgHeight,
+      },
     },
     overlay: {
       position: "absolute",
@@ -71,6 +83,7 @@ const YouTubePreview: React.FC<{ id: string; title: string }> = ({
       target="_blank"
       rel="noopener noreferrer"
       title={title}
+      underline="none"
       className={classes.root}
     >
       <Box className={classes.wrapper}>
@@ -82,7 +95,7 @@ const YouTubePreview: React.FC<{ id: string; title: string }> = ({
         <YouTubeIcon className={`${classes.overlay} ${classes.youTube}`} />
         <PlayArrowIcon className={`${classes.overlay} ${classes.playArrow}`} />
       </Box>
-      <Typography variant="h5" className={classes.title}>
+      <Typography variant="h6" className={classes.title} color="textSecondary">
         {children ?? title}
       </Typography>
     </Link>

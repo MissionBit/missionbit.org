@@ -4,11 +4,13 @@ import Container from "@material-ui/core/Container";
 import YouTubePreview from "components/YouTubePreview";
 import { makeStyles } from "@material-ui/core/styles";
 import YouTubePreviews from "components/YouTubePreviews";
-import Box from "@material-ui/core/Box";
 import GalaCalendarEvent from "components/gala/GalaDates";
-import { SpringClassInstances } from "components/programs/ClassInstanceData";
-import { MediumDateFormat } from "src/dates";
 import { useRenderTime } from "components/BuildTimeContext";
+import Landing from "./Landing";
+import SummerTalkSeries from "./SummerTalkSeries";
+import FlourishSeparator from "components/programs/FlourishSeparator";
+import Featured, { FeaturedEvent } from "./Featured";
+import { SummerDates } from "components/programs/ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,20 +26,9 @@ const useStyles = makeStyles((theme) => ({
   section: {
     marginBottom: theme.spacing(4),
   },
-  events: {
-    marginTop: theme.spacing(4),
-  },
-  upcoming: {
-    marginBottom: theme.spacing(2),
-    fontSize: theme.typography.h5.fontSize,
-    textAlign: "center",
+  pastEvents: {
     [theme.breakpoints.down("sm")]: {
-      "& > span": {
-        display: "none",
-      },
-      "& > a": {
-        display: "block",
-      },
+      padding: 0,
     },
   },
 }));
@@ -47,30 +38,140 @@ interface PastEvent {
   title: string;
 }
 
-interface UpcomingEvent {
-  date: number;
-  href: string;
-  title: string;
-}
-
-const UpcomingEvents: UpcomingEvent[] = [
+const FeaturedEvents: FeaturedEvent[] = [
   {
+    id: "demo-day",
+    date: SummerDates.demoDay,
+    href:
+      "https://www.eventbrite.com/e/mission-bit-presents-summer-2020-demo-day-tickets-108626591058?utm_source=mb&utm_medium=web&utm_campaign=events",
+    linkTitle: "Register",
+    title: "Summer Demo Day",
+    description: (
+      <>
+        Join us in celebrating our incredibly talented students at our Summer
+        2020 Demo Day, a culminating showcase where our students display their
+        amazing projects to our community of supporters!
+      </>
+    ),
+    topRightImage: {
+      desc: "Family attending demo day",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Attendee checking out student project at Demo Day",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-2.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-2.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/demo-day/demo-day-collage-2@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
+    id: "gala",
     date: Date.parse(GalaCalendarEvent.start),
     href: "/gala",
-    title: "Fourth Annual Mission Bit Gala",
+    linkTitle: "Learn More",
+    title: "Fourth Annual Gala",
+    description: (
+      <>
+        Mission Bit’s Fourth Annual Gala is a celebration of seven years of
+        growth, impact, and learning. Join us for this inspiring event, meet our
+        students, hear their stories, and help us reach our 2021 goals!
+      </>
+    ),
+    topRightImage: {
+      desc:
+        "Mayor London Breed at 2019 Gala watching students demonstrate their project",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/gala/gala-collage-1.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/gala/gala-collage-1.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Student speaker at 2019 Gala",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/gala/gala-collage-2.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/gala/gala-collage-2.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
   },
-  ...SpringClassInstances.map((props) =>
-    props.type === "workshop"
-      ? {
-          date: props.date,
-          title: props.course.title,
-          href: "/programs#workshops",
-        }
-      : null
-  ).filter((props): props is UpcomingEvent => props !== null),
 ].sort((a, b) => a.date - b.date);
 
-const PastEvents: PastEvent[] = [
+const PastEvents: React.ComponentProps<typeof YouTubePreview>[] = [
   { id: "f2NVEq00A38", title: "Game Design Workshop" },
   { id: "J4VEhVk0eME", title: "Code Meets Girl" },
   { id: "oTSNS227No4", title: "Third Annual Gala" },
@@ -84,56 +185,36 @@ const PastEvents: PastEvent[] = [
   { id: "AFS9kJrrPoY", title: "Fall 2017 Demo Day" },
 ];
 
-const Upcoming: React.FC<{ date: string; href: string; className: string }> = ({
-  date,
-  href,
-  children,
-  className,
-}) => {
-  return (
-    <Box className={className}>
-      {date}
-      <span> - </span>
-      <a href={href}>{children}</a>
-    </Box>
-  );
-};
-
 const Main: React.FC<{}> = () => {
   const classes = useStyles();
   const now = useRenderTime();
   return (
-    <Container component="main" id="main" className={classes.root}>
-      <section id="current" className={classes.section}>
-        <Typography variant="h2" component="h1" className={classes.heading}>
-          Upcoming Events
-        </Typography>
-        <Box className={classes.events}>
-          {UpcomingEvents.map(({ date, href, title }, i) =>
-            date < now ? null : (
-              <Upcoming
-                key={i}
-                date={MediumDateFormat.format(date)}
-                href={href}
-                className={classes.upcoming}
-              >
-                {title}
-              </Upcoming>
-            )
-          )}
-        </Box>
-      </section>
-      <section id="past" className={classes.section}>
+    <main id="main">
+      <Landing />
+      <FlourishSeparator />
+      <SummerTalkSeries />
+      <FlourishSeparator />
+      <Container component="section" id="current" className={classes.section}>
+        {FeaturedEvents.map((props) =>
+          props.date < now ? null : (
+            <React.Fragment key={props.id}>
+              <Featured {...props} />
+              <FlourishSeparator />
+            </React.Fragment>
+          )
+        )}
+      </Container>
+      <Container
+        component="section"
+        id="past"
+        className={`${classes.section} ${classes.pastEvents}`}
+      >
         <Typography variant="h2" className={classes.heading}>
           Past Events
         </Typography>
-        <YouTubePreviews>
-          {PastEvents.map(({ id, title }) => (
-            <YouTubePreview key={id} id={id} title={title} />
-          ))}
-        </YouTubePreviews>
-      </section>
-    </Container>
+        <YouTubePreviews values={PastEvents} />
+      </Container>
+    </main>
   );
 };
 

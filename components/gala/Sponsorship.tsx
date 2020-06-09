@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridGap: "20px",
     gridTemplateColumns: "repeat(auto-fit, minmax(60px, 1fr))",
-    gridTemplateTows: "repeat(auto-fit, minmax(60px, 120px))",
+    gridTemplateRows: "repeat(auto-fit, minmax(60px, 120px))",
     marginBottom: theme.spacing(2),
     "& a": {
       margin: 0,
