@@ -186,3 +186,6 @@ DNS is currently hosted by:
 * Cloudflare (missionbit.com)
 * Azure (missionbit.org)
 * [Netlify](https://app.netlify.com/teams/missionbit/dns) (missionbits.com, missionbits.org)
+
+Errors are collected with sentry.io at
+[sentry.io/organizations/mission-bit/issues/?project=5269525](https://sentry.io/organizations/mission-bit/issues/?project=5269525)
