@@ -61,57 +61,55 @@ const useStyles = makeStyles((theme) => ({
 
 interface EventData {
   logo: string;
-  alt: string;
+  brandName: string;
   title: string;
   date: number;
   minutes: number;
   who: string;
   description: React.ReactNode;
   url: string;
+  logoUrl?: string;
 }
 
 function eventData({
   logo,
-  alt,
+  brandName,
   title,
   date,
   minutes = 90,
   who = "14-24 year olds",
   description,
   url,
+  logoUrl,
 }: {
   logo: string;
-  alt: string;
+  brandName: string;
   title: string;
   date: number;
   minutes?: number;
   who?: string;
   description: React.ReactNode;
   url: string;
+  logoUrl?: string;
 }): EventData {
   return {
     logo,
-    alt,
+    brandName,
     title,
     date,
     minutes,
     who,
     description,
     url,
+    logoUrl,
   };
 }
 
-// Cruise: https://www.tfaforms.com/4830394
-// Willis: https://www.tfaforms.com/4830962
-// Boundless Brilliance: https://www.tfaforms.com/4830965
-// Twilio: https://www.tfaforms.com/4830966
-// Redfin: https://www.tfaforms.com/4830967
-// MB Alumni: https://www.tfaforms.com/4830968
-
 const Events: EventData[] = [
   eventData({
-    alt: "Cruise logo",
+    brandName: "Cruise",
     logo: require("public/images/events/summer-talk-series/cruise.png"),
+    logoUrl: "https://www.getcruise.com/",
     title: "Cruise",
     date: Date.parse("2020-06-18T17:00:00-07:00"),
     description: (
@@ -123,8 +121,9 @@ const Events: EventData[] = [
     url: "https://www.tfaforms.com/4830394",
   }),
   eventData({
-    alt: "Catchafire logo",
+    brandName: "Catchafire",
     logo: require("public/images/events/summer-talk-series/catchafire.png"),
+    logoUrl: "https://www.catchafire.org/",
     title: "Digital Marketing Strategist",
     date: Date.parse("2020-06-25T17:00:00-07:00"),
     description: (
@@ -137,8 +136,9 @@ const Events: EventData[] = [
     url: "https://www.tfaforms.com/4830962",
   }),
   eventData({
-    alt: "Boundless Brilliance logo",
+    brandName: "Boundless Brilliance",
     logo: require("public/images/events/summer-talk-series/boundless-brilliance.png"),
+    logoUrl: "https://www.boundlessbrilliance.org/",
     title: "Boundless Brilliance",
     date: Date.parse("2020-07-02T17:00:00-07:00"),
     description: (
@@ -150,8 +150,9 @@ const Events: EventData[] = [
     url: "https://www.tfaforms.com/4830965",
   }),
   eventData({
-    alt: "Twilio logo",
+    brandName: "Twilio",
     logo: require("public/images/events/summer-talk-series/twilio.png"),
+    logoUrl: "https://www.twilio.com/",
     title: "Communications Manager",
     date: Date.parse("2020-07-09T17:00:00-07:00"),
     description: (
@@ -163,8 +164,9 @@ const Events: EventData[] = [
     url: "https://www.tfaforms.com/4830966",
   }),
   eventData({
-    alt: "Redfin logo",
+    brandName: "Redfin",
     logo: require("public/images/events/summer-talk-series/redfin.svg"),
+    logoUrl: "https://www.redfin.com/city/17151/CA/San-Francisco",
     title: "Software Engineer",
     date: Date.parse("2020-07-16T17:00:00-07:00"),
     description: (
@@ -176,14 +178,14 @@ const Events: EventData[] = [
     url: "https://www.tfaforms.com/4830967",
   }),
   eventData({
-    alt: "Bridging the Gap (Mission Bit) logo",
+    brandName: "Bridging the Gap (Mission Bit)",
     logo: require("public/images/events/summer-talk-series/bridging-the-gap.svg"),
     title: "Mission Bit Alumni",
     date: Date.parse("2020-07-23T17:00:00-07:00"),
     description: (
       <>
-        Eddie is a software engineer on the customer growth team, building data
-        driven features to drive the company’s most important metrics.
+        Join us to learn more about what awesome things our alumni working at
+        Chan Zuckerberg Initiative and Strava are doing post Mission Bit.
       </>
     ),
     url: "https://www.tfaforms.com/4830968",
@@ -201,9 +203,27 @@ const Event: React.FC<{ event: EventData }> = ({ event }) => {
     }
   );
 
+  const img = (
+    <img
+      className={classes.logo}
+      src={event.logo}
+      alt={`${event.brandName} logo`}
+    />
+  );
   return (
     <Paper className={classes.event} square={true} elevation={1}>
-      <img className={classes.logo} src={event.logo} alt={event.alt} />
+      {event.logoUrl ? (
+        <a
+          href={event.logoUrl}
+          title={event.brandName}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {img}
+        </a>
+      ) : (
+        img
+      )}
       <Typography className={classes.title} variant="h5">
         {event.title}
       </Typography>
