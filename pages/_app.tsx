@@ -8,6 +8,7 @@ import * as Sentry from "@sentry/browser";
 if (typeof window !== "undefined") {
   smoothscroll.polyfill();
   Sentry.init({
+    enabled: process.env.NODE_ENV === "production",
     dsn:
       "https://6ca28441da284613b31785b8fc80f743@o404841.ingest.sentry.io/5269525",
   });
