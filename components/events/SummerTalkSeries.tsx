@@ -122,7 +122,7 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Catchafire",
-    logo: require("public/images/events/summer-talk-series/catchafire.png"),
+    logo: require("public/images/events/summer-talk-series/catchafire.svg"),
     logoUrl: "https://www.catchafire.org/",
     title: "Digital Marketing Strategist",
     date: Date.parse("2020-06-25T17:00:00-07:00"),
