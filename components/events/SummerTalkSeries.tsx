@@ -151,7 +151,7 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Twilio",
-    logo: require("public/images/events/summer-talk-series/twilio.png"),
+    logo: require("public/images/events/summer-talk-series/twilio.svg"),
     logoUrl: "https://www.twilio.com/",
     title: "Communications Manager",
     date: Date.parse("2020-07-09T17:00:00-07:00"),
