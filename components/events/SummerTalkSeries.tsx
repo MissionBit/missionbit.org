@@ -108,7 +108,7 @@ function eventData({
 const Events: EventData[] = [
   eventData({
     brandName: "Cruise",
-    logo: require("public/images/events/summer-talk-series/cruise.png"),
+    logo: require("public/images/events/summer-talk-series/cruise.svg"),
     logoUrl: "https://www.getcruise.com/",
     title: "Cruise",
     date: Date.parse("2020-06-18T17:00:00-07:00"),
