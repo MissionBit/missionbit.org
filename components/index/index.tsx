@@ -8,7 +8,7 @@ import Register from "./Register";
 import MissionStatement from "./MissionStatement";
 import CoreValues from "./CoreValues";
 import { makeStyles } from "@material-ui/core/styles";
-import NetlifyBanner from "./NetlifyBanner";
+import WebTechSupporters from "./WebTechSupporters";
 
 const useStyles = makeStyles(() => ({
   main: {
@@ -31,7 +31,7 @@ const Index: React.FC<{}> = () => {
       <Register />
       <Students />
       <Supporters />
-      <NetlifyBanner />
+      <WebTechSupporters />
       <SupportOurYouth />
       <Social />
     </main>
