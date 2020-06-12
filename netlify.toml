@@ -43,9 +43,6 @@
   from = "/30k30days/"
   to = "/get-involved"
 [[redirects]]
-  from = "/donate/"
-  to = "https://donate.missionbit.org/"
-[[redirects]]
   from = "/employment/"
   to = "/programs"
 [[redirects]]

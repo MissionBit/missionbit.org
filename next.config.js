@@ -67,7 +67,6 @@ const legacyRedirects = [
   { source: "/studentProjects/", destination: "/programs" },
   { source: "/showcase/", destination: "/programs" },
   { source: "/30k30days/", destination: "/get-involved" },
-  { source: "/donate/", destination: "https://donate.missionbit.org/" },
   { source: "/employment/", destination: "/programs" },
   { source: "/exposure/", destination: "/programs" },
   { source: "/hackathon/", destination: "/programs" },

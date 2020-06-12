@@ -47,7 +47,7 @@ const commonNav: NavMenuChoice[] = [
   { text: "Get involved", href: "/get-involved" },
   {
     text: "Donate",
-    href: "https://donate.missionbit.org/",
+    href: "/donate",
     buttonProps: {
       variant: "outlined",
       color: "primary",
