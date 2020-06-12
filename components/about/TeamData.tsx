@@ -124,6 +124,11 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
     ...image("2020-summer/karena_huang.jpg"),
   },
   {
+    name: "Memo Gonzalez",
+    title: "Lead Instructor",
+    ...image("2020-summer/memo_gonzalez.jpg"),
+  },
+  {
     name: "Stephen Justo",
     title: "Lead Instructor",
     ...image("2020-summer/stephen_justo.jpg"),
