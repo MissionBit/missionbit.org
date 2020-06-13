@@ -1,6 +1,7 @@
 export const brand = {
   orange: "#FF962C",
   orangeFlourish: "#FFBA65",
+  lightOrange: "#FEBA65",
   blue: "#0058A6",
   violet: "#C21981",
   carnation: "#ffa0ce",
