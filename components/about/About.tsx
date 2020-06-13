@@ -1,16 +1,32 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: "grid",
     padding: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+    gridGap: theme.spacing(3),
+    gridAutoColumns: "1fr",
+    gridTemplateAreas: `
+      "team content"
+    `,
     [theme.breakpoints.down("sm")]: {
       padding: "20px 0",
+      gridTemplateAreas: `
+        "team"
+        "content"
+      `,
     },
   },
+  content: {
+    gridArea: "content",
+  },
   team: {
+    gridArea: "team",
     "& > img": {
       display: "block",
       width: "100%",
@@ -37,22 +53,16 @@ const About: React.FC<{}> = () => {
       <Typography variant="h2" component="h1" align="center">
         About Us
       </Typography>
-      <Grid
-        container
-        spacing={3}
-        justify="center"
-        alignItems="center"
-        className={classes.root}
-      >
-        <Grid item xs={12} md={6} className={classes.team}>
+      <Box className={classes.root}>
+        <Box className={classes.team}>
           <img
             src={require("public/images/about/full-team.jpg")}
             width="2048"
             height="1073"
             alt="Mission Bit Team"
           />
-        </Grid>
-        <Grid item xs={12} md={6}>
+        </Box>
+        <Box className={classes.content}>
           <dl className={classes.dl}>
             <Typography component="dd">Challenge</Typography>
             <Typography component="dt">
@@ -77,8 +87,8 @@ const About: React.FC<{}> = () => {
               solutions that serve our whole community.
             </Typography>
           </dl>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </section>
   );
 };

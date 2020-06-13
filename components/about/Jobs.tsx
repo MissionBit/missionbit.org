@@ -1,6 +1,7 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,7 @@ const JobOpenings: JobOpening[] = [
 const Jobs: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <section id="jobs" className={classes.root}>
+    <Container component="section" id="jobs" className={classes.root}>
       <Typography variant="h4" component="h2" align="center">
         Job Openings
       </Typography>
@@ -51,7 +52,7 @@ const Jobs: React.FC<{}> = () => {
           ))}
         </Typography>
       )}
-    </section>
+    </Container>
   );
 };
 
