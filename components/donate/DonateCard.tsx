@@ -5,11 +5,51 @@ import clsx from "clsx";
 import { brand } from "src/colors";
 import BaseToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
+import BaseOutlinedInput from "@material-ui/core/OutlinedInput";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
+import BaseInputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { useCallback, useState } from "react";
+import IndigoButton from "components/IndigoButton";
+import ArrowRightIcon from "components/icons/ArrowRightIcon";
+
+const InputLabel = withStyles({
+  root: {
+    "&$focused": {
+      color: brand.indigo,
+    },
+  },
+  focused: {},
+})(BaseInputLabel);
+
+const OutlinedInput = withStyles((theme) => ({
+  root: {
+    "&:hover $notchedOutline": {
+      borderColor: brand.indigo,
+    },
+    // Reset on touch devices, it doesn't add specificity
+    "@media (hover: none)": {
+      "&:hover $notchedOutline": {
+        borderColor: brand.indigo,
+      },
+    },
+    "&$focused $notchedOutline": {
+      borderColor: brand.indigo,
+    },
+    "&$error $notchedOutline": {
+      borderColor: theme.palette.error.main,
+    },
+    "&$disabled $notchedOutline": {
+      borderColor: theme.palette.action.disabled,
+    },
+  },
+  focused: {},
+  error: {},
+  disabled: {},
+  notchedOutline: {
+    borderColor: brand.lightGray,
+  },
+}))(BaseOutlinedInput);
 
 const ToggleButton = withStyles((theme) => ({
   root: {
@@ -42,10 +82,11 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     ...theme.typography.body1,
-    display: "flex",
-    alignItems: "center",
-    flexDirection: "column",
-    border: "1px solid #707070",
+    display: "grid",
+    gridTemplate: "auto / 1fr",
+    gridGap: theme.spacing(2),
+    justifyItems: "center",
+    border: `1px solid ${brand.lightGray}`,
     padding: theme.spacing(2, 2, 4, 2),
   },
   margin: {},
@@ -75,6 +116,7 @@ export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
   const [frequency, setFrequency] = useState<Frequency>("once");
   const [amountString, setAmountString] = useState<string>("");
   const amountCents = parseCents(amountString);
+  const disabled = (amountCents ?? 0) <= 0;
   const handleFrequency = useCallback((_event, newFrequency) => {
     if (FREQUENCIES.indexOf(newFrequency) >= 0) {
       setFrequency(newFrequency);
@@ -123,7 +165,9 @@ export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
             labelWidth={60}
           />
         </FormControl>
-        <Box>Button</Box>
+        <IndigoButton variant="contained" disabled={disabled}>
+          Donate with card <ArrowRightIcon />
+        </IndigoButton>
       </Box>
     </Box>
   );

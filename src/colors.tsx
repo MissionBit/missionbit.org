@@ -7,6 +7,7 @@ export const brand = {
   carnation: "#ffa0ce",
   indigo: "#5B6CCA",
   darkSlateBlue: "#4754A0",
+  lightGray: "#707070",
   navGray: "#585858",
   headingGray: "#4E4E4F",
   darkGray: "#333333",
