@@ -108,7 +108,10 @@ const Sponsorship: React.FC<{}> = () => {
         </Typography>
         <Typography>
           Check out our{" "}
-          <a href="/annual-reports/2018/mission-bit-annual-report-2018.pdf">
+          <a
+            href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
+            target="_blank"
+          >
             <AdobePdfLogo fontSize="small" /> 2018 Annual Report
           </a>{" "}
           for more about our vision and current impact. If you have any

@@ -181,6 +181,21 @@ The Netlify dashboard is at
 Contact bob@missionbit.org or cora@missionbit.org if you need access to this
 team for some reason.
 
+The deployment configuration is at
+[app.netlify.com/sites/missionbit/settings/deploys](https://app.netlify.com/sites/missionbit/settings/deploys).
+These environment variables are used by APIs on the site:
+
+* `SENTRY_AUTH_TOKEN` - Sentry authorization token (for marking releases)
+* `SENTRY_ORG` - Set to mission-bit
+* `SENTRY_PROJECT` - Set to mission-bit
+* `SENDGRID_API_KEY` - API key for sending email
+* `STRIPE_PK_LIVE` - Publishable key for missionbit.org
+* `STRIPE_SK_LIVE` - Secret key for missionbit.org
+* `STRIPE_WEBHOOK_SIGNING_SECRET_LIVE` - Webhook signing key for missionbit.org
+* `STRIPE_PK_TEST` - Publishable key for testing (PR builds)
+* `STRIPE_SK_TEST` - Secret key for testing (PR builds)
+* `STRIPE_WEBHOOK_SIGNING_SECRET_TEST` - Webhook signing key for testing (PR builds)
+
 DNS is currently hosted by:
 
 * Cloudflare (missionbit.com)
@@ -189,3 +204,19 @@ DNS is currently hosted by:
 
 Errors are collected with sentry.io at
 [sentry.io/organizations/mission-bit/issues/?project=5269525](https://sentry.io/organizations/mission-bit/issues/?project=5269525)
+
+Donations are processed with [Stripe](https://dashboard.stripe.com/dashboard).
+
+In order to test the Stripe integration locally, you must set the environment
+variables `STRIPE_PK_TEST` and `STRIPE_SK_TEST`. You can find their values
+from the netlify dashboard or from Stripe's Developer settings while viewing
+test data.
+
+The easiest way to ensure they are set is to create a `.env` file in this
+directory with the following format
+(actual key suffixes replaced by REDACTED):
+
+```bash
+STRIPE_PK_TEST=pk_test_REDACTED
+STRIPE_SK_TEST=sk_test_REDACTED
+```

@@ -87,12 +87,19 @@ const legacyRedirects = [
   statusCode,
 }));
 
+const STRIPE_PK_NAME =
+  process.env.NODE_ENV === "production" ? "STRIPE_PK_LIVE" : "STRIPE_PK_TEST";
+
 const nextConfig = {
   target: "serverless",
   experimental: {
     redirects() {
       return [...slashRedirects, ...legacyRedirects];
     },
+  },
+  env: {
+    STRIPE_PK: process.env[STRIPE_PK_NAME],
+    STRIPE_PK_NAME,
   },
 };
 

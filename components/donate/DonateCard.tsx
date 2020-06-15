@@ -1,6 +1,7 @@
 import * as React from "react";
 import { fade, withStyles, makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import { useStripe } from "@stripe/react-stripe-js";
 import clsx from "clsx";
 import { brand } from "src/colors";
 import BaseToggleButton from "@material-ui/lab/ToggleButton";
@@ -12,6 +13,14 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { useCallback, useState } from "react";
 import IndigoButton from "components/IndigoButton";
 import ArrowRightIcon from "components/icons/ArrowRightIcon";
+import {
+  parseCents,
+  Frequency,
+  FREQUENCIES,
+  trackCheckoutEvent,
+} from "src/stripeHelpers";
+import { Stripe } from "@stripe/stripe-js";
+import { Typography } from "@material-ui/core";
 
 const InputLabel = withStyles({
   root: {
@@ -92,31 +101,47 @@ const useStyles = makeStyles((theme) => ({
   margin: {},
 }));
 
-const FREQUENCIES = ["once", "monthly"] as const;
-type Frequency = typeof FREQUENCIES[number];
-
 const PRESET_AMOUNT_CENTS = [25000, 10000, 5000] as const;
-type PresetAmountCents = typeof PRESET_AMOUNT_CENTS[number];
 
-function parseCents(s: string): number | null {
-  /* Parse a string representing a dollar value to cents */
-
-  var m = /^\s*\$?([1-9]\d*)((?:,\d\d\d)*)(?:\.(\d\d))?\s*$/.exec(s);
-  if (!m) {
-    return null;
+async function checkoutDonation(
+  stripe: Stripe,
+  amount: number,
+  frequency: Frequency,
+  metadata: { [k: string]: string } = {}
+) {
+  trackCheckoutEvent(amount, frequency, "Stripe Checkout");
+  const response = await fetch("/api/checkout-sessions", {
+    method: "POST",
+    body: JSON.stringify({
+      amount,
+      frequency,
+      metadata,
+    }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Could not connect to server, please try again.");
   }
-  var leading = m[1];
-  var comma_groups = m[2] || "";
-  var cents = m[3] || "00";
-  return Number(leading + comma_groups.replace(/,/g, "") + cents);
+  console.log({ response });
+  const json = await response.json();
+  console.log({ json });
+  const result = await stripe.redirectToCheckout(json);
+  console.log({ result });
+  throw new Error(result.error.message);
 }
 
 export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
+  const stripe = useStripe();
   const [frequency, setFrequency] = useState<Frequency>("once");
   const [amountString, setAmountString] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const amountCents = parseCents(amountString);
-  const disabled = (amountCents ?? 0) <= 0;
+  const disabled = stripe === null || loading || (amountCents ?? 0) <= 0;
   const handleFrequency = useCallback((_event, newFrequency) => {
     if (FREQUENCIES.indexOf(newFrequency) >= 0) {
       setFrequency(newFrequency);
@@ -130,8 +155,25 @@ export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
   const handleChangeAmount = useCallback((event) => {
     setAmountString(event.currentTarget.value);
   }, []);
+  const handleOnSubmit = useCallback(
+    async (event) => {
+      event.preventDefault();
+      if (disabled || stripe === null || amountCents === null) {
+        return;
+      }
+      try {
+        setLoading(true);
+        await checkoutDonation(stripe, amountCents, frequency);
+      } catch (err) {
+        setLoading(false);
+        console.error(err);
+        setErrorMessage(err.message);
+      }
+    },
+    [disabled, stripe, amountCents, frequency]
+  );
   return (
-    <Box className={clsx(classes.root, className)}>
+    <form className={clsx(classes.root, className)} onSubmit={handleOnSubmit}>
       <Box className={classes.heading}>Choose amount</Box>
       <Box className={classes.content}>
         <ToggleButtonGroup
@@ -165,11 +207,12 @@ export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
             labelWidth={60}
           />
         </FormControl>
-        <IndigoButton variant="contained" disabled={disabled}>
+        <IndigoButton variant="contained" disabled={disabled} type="submit">
           Donate with card <ArrowRightIcon />
         </IndigoButton>
+        {errorMessage ? <Typography>{errorMessage}</Typography> : null}
       </Box>
-    </Box>
+    </form>
   );
 };
 

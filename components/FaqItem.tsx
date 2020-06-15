@@ -37,7 +37,7 @@ const FaqItem: React.FC<{
         <Typography className={classes.heading}>{question}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Typography>{children}</Typography>
+        <Typography component="div">{children}</Typography>
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );
