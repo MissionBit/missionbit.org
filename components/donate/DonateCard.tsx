@@ -125,11 +125,8 @@ async function checkoutDonation(
   if (!response.ok) {
     throw new Error("Could not connect to server, please try again.");
   }
-  console.log({ response });
   const json = await response.json();
-  console.log({ json });
   const result = await stripe.redirectToCheckout(json);
-  console.log({ result });
   throw new Error(result.error.message);
 }
 

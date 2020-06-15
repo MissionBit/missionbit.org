@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import getStripe from "src/getStripe";
 import { Frequency, FREQUENCIES } from "src/stripeHelpers";
+import { getOrigin } from "src/absoluteUrl";
 
 const MONTHLY_PLAN_ID = "mb-monthly-001";
 
@@ -93,21 +94,8 @@ export default async function handler(
       }
       const { amount, frequency, metadata } = body;
       // Create Checkout Sessions from body params.
-      console.log(
-        session_args(
-          req.headers.origin ?? "https://donate.missionbit.org",
-          amount,
-          frequency,
-          metadata
-        )
-      );
       const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(
-        session_args(
-          req.headers.origin ?? "https://donate.missionbit.org",
-          amount,
-          frequency,
-          metadata
-        )
+        session_args(getOrigin(req.headers.origin), amount, frequency, metadata)
       );
 
       res.status(200).json({ sessionId: checkoutSession.id });

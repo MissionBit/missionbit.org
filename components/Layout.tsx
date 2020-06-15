@@ -128,8 +128,12 @@ export const Layout: React.FC<LayoutProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const props: LayoutStaticProps = { buildTime: Date.now() };
+  const props = await getLayoutStaticProps();
   return { props };
 };
+
+export async function getLayoutStaticProps(): Promise<LayoutStaticProps> {
+  return { buildTime: Date.now() };
+}
 
 export default Layout;

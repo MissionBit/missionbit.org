@@ -1,4 +1,7 @@
-export function getOrigin(): string {
+export function getOrigin(origin?: string): string {
+  if (origin !== undefined) {
+    return origin;
+  }
   const defaultOrigin = "https://www.missionbit.org";
   if (typeof window !== "undefined") {
     return window.location.origin;

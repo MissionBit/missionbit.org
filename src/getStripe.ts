@@ -7,7 +7,6 @@ export function getStripe(): Stripe {
   if (STRIPE_SK === undefined) {
     throw new Error(`Missing ${STRIPE_SK_NAME} environment variable`);
   }
-  console.log({ STRIPE_SK_NAME, STRIPE_SK });
   return new Stripe(STRIPE_SK, {
     // https://github.com/stripe/stripe-node#configuration
     apiVersion: "2020-03-02",
