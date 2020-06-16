@@ -11,17 +11,17 @@ import stripeSessionInfo, { StripeSessionInfo } from "src/stripeSessionInfo";
 const Page: NextPage<
   LayoutStaticProps & { sessionInfo: StripeSessionInfo }
 > = ({ sessionInfo, ...props }) => (
-  <Layout {...props} title="Mission Bit – Donate">
+  <Layout {...props} title="Mission Bit – Thank You For Your Donation!">
     <DonateResult sessionInfo={sessionInfo} />
   </Layout>
 );
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { query, res } = ctx;
+  const { res } = ctx;
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
-  const session_id = query.session_id;
+  const { session_id } = ctx.query;
   if (typeof session_id !== "string") {
     res.statusCode = 404;
     res.end();

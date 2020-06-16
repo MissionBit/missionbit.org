@@ -5,7 +5,7 @@ function sendgrid_safe_name(name: string): string {
   return name.replace(/([,;]\s*)+/g, " ");
 }
 
-function billing_details_to(
+export function billing_details_to(
   billing_details: Stripe.PaymentMethod.BillingDetails
 ) {
   return {
@@ -34,7 +34,7 @@ const CARD_BRANDS: { [k: string]: string } = {
   visa: "Visa",
 };
 
-function format_payment_method_details_source(
+export function format_payment_method_details_source(
   payment_method_details:
     | Stripe.PaymentMethod
     | Stripe.Charge.PaymentMethodDetails
