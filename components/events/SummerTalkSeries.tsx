@@ -76,7 +76,7 @@ function eventData({
   brandName,
   title,
   date,
-  minutes = 90,
+  minutes = 45,
   who = "14-24 year olds",
   description,
   url,
