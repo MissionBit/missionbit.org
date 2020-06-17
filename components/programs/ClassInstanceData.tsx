@@ -328,7 +328,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.video_sensing_workshop,
     dateString: "2020-06-24T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4824976",
+    signupUrl: "https://www.tfaforms.com/4833176",
     who: "7th - 12th graders",
   }),
   // summerWorkshop({
