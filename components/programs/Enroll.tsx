@@ -68,7 +68,7 @@ const Enroll: React.FC<{}> = () => {
           className={classes.alert}
           id="workshops"
         >
-          Spring 2020 Workshops
+          Summer 2020 Workshops
         </Typography>
         <Typography className={classes.copy}>
           Learn something new and get hands-on experience with our workshops.
