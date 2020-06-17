@@ -40,6 +40,11 @@ const scratchCatImage = {
   alt: "Image of a cat",
 };
 
+const videoSensingImage = {
+  src: require("public/images/program/video-sensing.jpg"),
+  alt: "Image of a couch with eyes",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
@@ -193,6 +198,25 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  video_sensing_workshop: {
+    title: "Video Sensing with Scratch",
+    skills: ["Scratch", "Block Coding"],
+    image: videoSensingImage,
+    description: (
+      <>
+        In this hands-on workshop, you'll combine the physical and digital
+        worlds with Scratch Video sensing to create dynamic projects that
+        respond to the world around you. We'll begin with a quick intro to
+        creative coding and Scratch, plan our ideas together, then spend time
+        creating our projects and experimenting with video-sensing code. We'll
+        end by sharing ideas and questions and resources to continue learning
+        more. Beginner coders welcome!
+        <br></br>
+        <br></br>
+        Please note that this workshop requires a computer with a webcam.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -301,28 +325,34 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.careerprep_resume_workshop,
-    dateString: "2020-05-21T15:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4824976",
-    who: "16 - 24 year olds",
-    buttonExtra: <>Only 10 spots available!</>,
-  }),
-  summerWorkshop({
-    course: Courses.scratch_animation_workshop,
-    dateString: "2020-05-28T15:30:00-07:00",
+    course: Courses.video_sensing_workshop,
+    dateString: "2020-06-24T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4827761",
+    signupUrl: "https://www.tfaforms.com/4833176",
     who: "7th - 12th graders",
   }),
-  summerWorkshop({
-    course: Courses.scratch_window_workshop,
-    dateString: "2020-06-10T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4827910",
-    who: "7th - 12th graders",
-  }),
-
+  // summerWorkshop({
+  //   course: Courses.careerprep_resume_workshop,
+  //   dateString: "2020-05-21T15:30:00-07:00",
+  //   minutes: 120,
+  //   signupUrl: "https://www.tfaforms.com/4824976",
+  //   who: "16 - 24 year olds",
+  //   buttonExtra: <>Only 10 spots available!</>,
+  // }),
+  // summerWorkshop({
+  //   course: Courses.scratch_animation_workshop,
+  //   dateString: "2020-05-28T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4827761",
+  //   who: "7th - 12th graders",
+  // }),
+  // summerWorkshop({
+  //   course: Courses.scratch_window_workshop,
+  //   dateString: "2020-06-10T16:00:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4827910",
+  //   who: "7th - 12th graders",
+  // }),
   // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
