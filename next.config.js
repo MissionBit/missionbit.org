@@ -88,7 +88,9 @@ const legacyRedirects = [
 }));
 
 const STRIPE_PK_NAME =
-  process.env.NODE_ENV === "production" ? "STRIPE_PK_LIVE" : "STRIPE_PK_TEST";
+  process.env.NODE_ENV === "production" && process.env.CONTEXT === "production"
+    ? "STRIPE_PK_LIVE"
+    : "STRIPE_PK_TEST";
 
 const nextConfig = {
   target: "serverless",
