@@ -383,7 +383,6 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4833569",
     who: "16 - 24 year olds",
-    buttonExtra: <>Only 10 spots available!</>,
   }),
   // summerWorkshop({
   //   course: Courses.careerprep_resume_workshop,
