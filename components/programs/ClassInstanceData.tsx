@@ -12,6 +12,9 @@ export const CourseSkills = [
   "Career Preparation",
   "Scratch",
   "Block Coding",
+  "Interviewing",
+  "p5.js",
+  "Javascript",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -38,6 +41,21 @@ const hackWindowImage = {
 const scratchCatImage = {
   src: require("public/images/program/scratch-cat.svg"),
   alt: "Image of a cat",
+};
+
+const videoSensingImage = {
+  src: require("public/images/program/video-sensing.jpg"),
+  alt: "Image of a couch with eyes",
+};
+
+const interviewingImage = {
+  src: require("public/images/program/interviewing.svg"),
+  alt: "Two people at a table",
+};
+
+const p5jsImage = {
+  src: require("public/images/program/p5js.svg"),
+  alt: "p5.js logo",
 };
 
 export interface Course {
@@ -193,6 +211,51 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  video_sensing_workshop: {
+    title: "Video Sensing with Scratch",
+    skills: ["Scratch", "Block Coding"],
+    image: videoSensingImage,
+    description: (
+      <>
+        In this hands-on workshop, you'll combine the physical and digital
+        worlds with Scratch Video sensing to create dynamic projects that
+        respond to the world around you. We'll begin with a quick intro to
+        creative coding and Scratch, plan our ideas together, then spend time
+        creating our projects and experimenting with video-sensing code. We'll
+        end by sharing ideas and questions and resources to continue learning
+        more. Beginner coders welcome!
+        <br></br>
+        <br></br>
+        Please note that this workshop requires a computer with a webcam.
+      </>
+    ),
+  },
+  interviewing_workshop: {
+    title: "Interviewing 101",
+    skills: ["Interviewing", "Career Preparation"],
+    image: interviewingImage,
+    description: (
+      <>
+        This workshop is for youth looking to develop their skills in
+        interviewing. Learn how to tell your story in a professional setting and
+        practice your new skills with peers. We're here to help you prepare for
+        the next phase of your career- let's nail that interview!
+      </>
+    ),
+  },
+  p5js_workshop: {
+    title: "Coding with p5.js",
+    skills: ["p5.js", "Javascript"],
+    image: p5jsImage,
+    description: (
+      <>
+        Join our workshop to learn about p5.js, a fun Javascript library made
+        accessible to everyone, especially beginners! In this workshop, we’ll
+        explore the basics of text-based coding and specific elements of p5.js
+        while getting creative with individual projects.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -301,28 +364,48 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.careerprep_resume_workshop,
-    dateString: "2020-05-21T15:30:00-07:00",
+    course: Courses.video_sensing_workshop,
+    dateString: "2020-06-24T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4833176",
+    who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.p5js_workshop,
+    dateString: "2020-06-29T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4833610",
+    who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.interviewing_workshop,
+    dateString: "2020-07-01T15:30:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4824976",
+    signupUrl: "https://www.tfaforms.com/4833569",
     who: "16 - 24 year olds",
-    buttonExtra: <>Only 10 spots available!</>,
   }),
-  summerWorkshop({
-    course: Courses.scratch_animation_workshop,
-    dateString: "2020-05-28T15:30:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4827761",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
-    course: Courses.scratch_window_workshop,
-    dateString: "2020-06-10T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4827910",
-    who: "7th - 12th graders",
-  }),
-
+  // summerWorkshop({
+  //   course: Courses.careerprep_resume_workshop,
+  //   dateString: "2020-05-21T15:30:00-07:00",
+  //   minutes: 120,
+  //   signupUrl: "https://www.tfaforms.com/4824976",
+  //   who: "16 - 24 year olds",
+  //   buttonExtra: <>Only 10 spots available!</>,
+  // }),
+  // summerWorkshop({
+  //   course: Courses.scratch_animation_workshop,
+  //   dateString: "2020-05-28T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4827761",
+  //   who: "7th - 12th graders",
+  // }),
+  // summerWorkshop({
+  //   course: Courses.scratch_window_workshop,
+  //   dateString: "2020-06-10T16:00:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4827910",
+  //   who: "7th - 12th graders",
+  // }),
   // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
