@@ -387,7 +387,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.interviewing_workshop,
     dateString: "2020-07-01T15:30:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4833176",
+    signupUrl: "https://www.tfaforms.com/4833569",
     who: "16 - 24 year olds",
     buttonExtra: <>Only 10 spots available!</>,
   }),
