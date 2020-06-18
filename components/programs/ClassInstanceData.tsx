@@ -12,6 +12,9 @@ export const CourseSkills = [
   "Career Preparation",
   "Scratch",
   "Block Coding",
+  "Interviewing",
+  "p5.js",
+  "Javascript",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -43,6 +46,16 @@ const scratchCatImage = {
 const videoSensingImage = {
   src: require("public/images/program/video-sensing.jpg"),
   alt: "Image of a couch with eyes",
+};
+
+const interviewingImage = {
+  src: require("public/images/program/interviewing.svg"),
+  alt: "Two people at a table",
+};
+
+const p5jsImage = {
+  src: require("public/images/program/p5js.svg"),
+  alt: "p5.js logo",
 };
 
 export interface Course {
@@ -217,6 +230,32 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  interviewing_workshop: {
+    title: "Interviewing 101",
+    skills: ["Interviewing", "Career Preparation"],
+    image: interviewingImage,
+    description: (
+      <>
+        This workshop is for youth looking to develop their skills in
+        interviewing. Learn how to tell your story in a professional setting and
+        practice your new skills with peers. We're here to help you prepare for
+        the next phase of your career- let's nail that interview!
+      </>
+    ),
+  },
+  p5js_workshop: {
+    title: "Coding with p5.js",
+    skills: ["p5.js", "Javascript"],
+    image: p5jsImage,
+    description: (
+      <>
+        Join our workshop to learn about p5.js, a fun Javascript library made
+        accessible to everyone, especially beginners! In this workshop, we’ll
+        explore the basics of text-based coding and specific elements of p5.js
+        while getting creative with individual projects.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -330,6 +369,21 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4833176",
     who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.p5js_workshop,
+    dateString: "2020-06-29T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4833610",
+    who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.interviewing_workshop,
+    dateString: "2020-07-01T15:30:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4833569",
+    who: "16 - 24 year olds",
+    buttonExtra: <>Only 10 spots available!</>,
   }),
   // summerWorkshop({
   //   course: Courses.careerprep_resume_workshop,
