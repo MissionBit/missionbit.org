@@ -236,16 +236,10 @@ export const Courses = courseRecord({
     image: interviewingImage,
     description: (
       <>
-        In this hands-on workshop, you'll combine the physical and digital
-        worlds with Scratch Video sensing to create dynamic projects that
-        respond to the world around you. We'll begin with a quick intro to
-        creative coding and Scratch, plan our ideas together, then spend time
-        creating our projects and experimenting with video-sensing code. We'll
-        end by sharing ideas and questions and resources to continue learning
-        more. Beginner coders welcome!
-        <br></br>
-        <br></br>
-        Please note that this workshop requires a computer with a webcam.
+        This workshop is for youth looking to develop their skills in
+        interviewing. Learn how to tell your story in a professional setting and
+        practice your new skills with peers. We're here to help you prepare for
+        the next phase of your career- let's nail that interview!
       </>
     ),
   },
@@ -380,7 +374,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.p5js_workshop,
     dateString: "2020-06-29T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4833176",
+    signupUrl: "https://www.tfaforms.com/4833610",
     who: "7th - 12th graders",
   }),
   summerWorkshop({
