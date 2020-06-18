@@ -58,14 +58,25 @@ interface TimedAlert {
 
 const timedAlerts: TimedAlert[] = [
   {
+    content: (
+      <Link
+        color="inherit"
+        href="https://medium.com/@missionbit/a-message-from-mission-bit-48eb7405bbea"
+        title="Message"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Black Lives Matter. A message from the Mission Bit Team.
+      </Link>
+    ),
+  },
+  {
     hideAfter: SummerDates.registrationDeadline,
     content: (
-      <>
-        <Link color="inherit" href="/programs" title="Sign Up!">
-          Sign up for our Online Summer 2020 Courses now! Deadline{" "}
-          {ShortDateFormat.format(SummerDates.registrationDeadline)}
-        </Link>
-      </>
+      <Link color="inherit" href="/programs" title="Sign Up!">
+        Sign up for our Online Summer 2020 Courses now! Deadline{" "}
+        {ShortDateFormat.format(SummerDates.registrationDeadline)}
+      </Link>
     ),
   },
 ];
