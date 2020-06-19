@@ -1,0 +1,24 @@
+# Typo domain redirects
+https://www.missionbit.com/* https://www.missionbit.org/:splat 301!
+https://missionbit.com/* https://www.missionbit.org/:splat 301!
+https://www.missionbits.com/* https://www.missionbit.org/:splat 301!
+https://missionbits.com/* https://www.missionbit.org/:splat 301!
+https://www.missionbits.org/* https://www.missionbit.org/:splat 301!
+https://missionbits.org/* https://www.missionbit.org/:splat 301!
+
+# Legacy redirects for netlify, see also next.config.js
+/about-us/ /about
+/workshops/ /programs
+/careerprep/ /programs
+/volunteer/ /get-involved
+/demo-day/ /events
+/studentProjects/ /programs
+/showcase/ /programs
+/30k30days/ /get-involved
+/employment/ /programs
+/exposure/ /programs
+/hackathon/ /programs
+/jobs/instructor.html /about#jobs
+/jobs/ta.html /about#jobs
+/laptop/mac.html /laptop/mac
+/laptop/mac https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub 302
