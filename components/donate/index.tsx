@@ -7,6 +7,7 @@ import SupportOurWork from "./SupportOurWork";
 import MakeAnOnlineGift from "./MakeAnOnlineGift";
 import LearnMore from "./LearnMore";
 import OtherWaysToGive from "./OtherWaysToGive";
+import PhotoFooter from "./PhotoFooter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,15 +20,17 @@ const useStyles = makeStyles((theme) => ({
       "flourishMiddle flourishMiddle"
       "learnMore      otherWaysToGive"
       "flourishBottom flourishBottom"
+      "photoFooter    photoFooter"
     `,
     [theme.breakpoints.down("sm")]: {
       gridTemplateColumns: "1fr",
       gridTemplateAreas: `
         "makeAnOnlineGift"
         "learnMore"
+        "supportOurWork"
         "otherWaysToGive"
+        "photoFooter"
       `,
-      "& $supportOurWork": { display: "none" },
       "& $flourishMiddle": { display: "none" },
       "& $flourishBottom": { display: "none" },
     },
@@ -50,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
   flourishBottom: {
     gridArea: "flourishBottom",
   },
+  photoFooter: {
+    gridArea: "photoFooter",
+  },
 }));
 
 const Main: React.FC<{}> = () => {
@@ -64,6 +70,7 @@ const Main: React.FC<{}> = () => {
         <LearnMore className={classes.learnMore} />
         <OtherWaysToGive className={classes.otherWaysToGive} />
         <FlourishSeparator className={classes.flourishBottom} />
+        <PhotoFooter className={classes.photoFooter} />
       </Container>
     </main>
   );

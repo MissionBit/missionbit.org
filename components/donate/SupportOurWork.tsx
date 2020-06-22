@@ -4,14 +4,32 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import VioletButton from "components/VioletButton";
+import { Photo } from "./PhotoFooter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(4),
+    [theme.breakpoints.down("xs")]: {
+      paddingBottom: theme.spacing(4),
+    },
   },
-  title: {},
+  title: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
   body: {
     margin: theme.spacing(4, 0),
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+  mobilePhoto: {
+    display: "none",
+    [theme.breakpoints.down("xs")]: {
+      display: "flex",
+      marginBottom: theme.spacing(4),
+    },
   },
   button: {},
   actions: {
@@ -43,6 +61,7 @@ export const SupportOurWork: React.FC<{ className?: string }> = ({
         that our students continue to have access to our educational experiences
         and our incredible community.
       </Typography>
+      <Photo photo="1" className={classes.mobilePhoto} />
       <Box className={classes.actions}>
         <VioletButton
           href="mailto:donate@missionbit.org"

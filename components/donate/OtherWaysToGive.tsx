@@ -17,6 +17,8 @@ const Link = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    paddingLeft: 0,
+    paddingRight: 0,
     "& .MuiPaper-root": {
       backgroundColor: brand.indigo,
       color: theme.palette.common.white,
@@ -35,10 +37,6 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiPaper-elevation1": {
       boxShadow: `0px 2px 1px -1px ${accentColor}, 0px 1px 1px 0px ${accentColor}, 0px 1px 3px 0px ${accentColor}`,
-    },
-    [theme.breakpoints.down("xs")]: {
-      paddingLeft: 0,
-      paddingRight: 0,
     },
   },
   title: {
