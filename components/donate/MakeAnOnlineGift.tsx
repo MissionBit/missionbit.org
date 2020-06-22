@@ -38,7 +38,7 @@ export const MakeAnOnlineGift: React.FC<{ className?: string }> = ({
   return (
     <Box component="section" className={clsx(classes.root, className)}>
       <Typography variant="h2" className={classes.title}>
-        Make an Online Gift
+        Make an online gift
       </Typography>
       <Elements stripe={stripePromise}>
         <DonateCard className={classes.donateCard} />

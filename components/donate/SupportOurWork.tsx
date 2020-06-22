@@ -13,16 +13,9 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(4),
     },
   },
-  title: {
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
-  },
+  title: {},
   body: {
     margin: theme.spacing(4, 0),
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
   },
   mobilePhoto: {
     display: "none",
@@ -44,7 +37,7 @@ export const SupportOurWork: React.FC<{ className?: string }> = ({
   return (
     <Box component="section" className={clsx(classes.root, className)}>
       <Typography variant="h2" className={classes.title}>
-        Support Our Work
+        Support our work
       </Typography>
       <Typography className={classes.body}>
         Mission Bit is a 501(c)(3) not-for-profit organization founded in 2012

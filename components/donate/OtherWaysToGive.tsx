@@ -40,9 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h5.fontSize,
-    },
+    margin: theme.spacing(4, 0),
   },
   address: {
     marginTop: theme.spacing(2),
@@ -61,7 +59,7 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
       className={clsx(classes.root, className)}
     >
       <Typography variant="h2" className={classes.title}>
-        Other Ways To Give
+        Other ways to give
       </Typography>
       <FaqItem question="Check">
         <Typography>

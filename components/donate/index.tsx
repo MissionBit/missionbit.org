@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme) => ({
         "learnMore"
         "supportOurWork"
         "otherWaysToGive"
+        "flourishBottom"
         "photoFooter"
       `,
       "& $flourishMiddle": { display: "none" },
-      "& $flourishBottom": { display: "none" },
     },
   },
   supportOurWork: {

@@ -32,7 +32,7 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
   return (
     <Box component="section" className={clsx(classes.root, className)}>
-      <Typography variant="h2">Learn More</Typography>
+      <Typography variant="h2">Learn more</Typography>
       <Typography variant="body1">
         Check out our Annual Reports to learn more about our work and impact
       </Typography>
