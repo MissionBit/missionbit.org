@@ -5,6 +5,7 @@ import { Frequency, FREQUENCIES } from "src/stripeHelpers";
 import { getOrigin } from "src/absoluteUrl";
 
 const MONTHLY_PLAN_ID = "mb-monthly-001";
+const APP = "www.missionbit.org";
 
 const stripe = getStripe();
 
@@ -19,6 +20,14 @@ interface PostBody {
 
 function isFrequency(s: any): s is Frequency {
   return FREQUENCIES.indexOf(s) >= 0;
+}
+
+function stringObject(obj: unknown): { [k: string]: string } {
+  return obj && typeof obj === "object"
+    ? Object.fromEntries(
+        Object.entries(obj).filter((kv) => typeof kv[1] === "string")
+      )
+    : {};
 }
 
 function parseBody(body: any): PostBody | undefined {
@@ -36,7 +45,7 @@ function parseBody(body: any): PostBody | undefined {
   if (!isFrequency(frequency)) {
     return undefined;
   }
-  return { amount, frequency, metadata: metadata ?? {} };
+  return { amount, frequency, metadata: stringObject(metadata) };
 }
 
 function session_args(
@@ -93,9 +102,14 @@ export default async function handler(
         return;
       }
       const { amount, frequency, metadata } = body;
+      const origin = getOrigin(req.headers.origin);
       // Create Checkout Sessions from body params.
       const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(
-        session_args(getOrigin(req.headers.origin), amount, frequency, metadata)
+        session_args(origin, amount, frequency, {
+          ...metadata,
+          origin,
+          app: APP,
+        })
       );
 
       res.status(200).json({ sessionId: checkoutSession.id });

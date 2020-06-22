@@ -18,6 +18,7 @@ import {
   Frequency,
   FREQUENCIES,
   trackCheckoutEvent,
+  isFrequency,
 } from "src/stripeHelpers";
 import { Stripe } from "@stripe/stripe-js";
 import { Typography } from "@material-ui/core";
@@ -130,11 +131,46 @@ async function checkoutDonation(
   throw new Error(result.error.message);
 }
 
-export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
+function formatCents(cents: number): string {
+  return Math.floor(cents / 100).toFixed(0);
+}
+
+export interface DonatePrefill {
+  frequency: Frequency;
+  amount: string;
+}
+
+const DEFAULT_PREFILL: DonatePrefill = {
+  frequency: "once",
+  amount: "",
+};
+
+export function parseDonatePrefill(obj: {
+  frequency?: unknown;
+  dollars?: unknown;
+}): DonatePrefill {
+  const { frequency, dollars } = obj;
+  const rval = { ...DEFAULT_PREFILL };
+  if (typeof frequency === "string" && isFrequency(frequency)) {
+    rval.frequency = frequency;
+  }
+  if (typeof dollars === "string") {
+    const cents = parseCents(dollars);
+    if (cents) {
+      rval.amount = formatCents(cents);
+    }
+  }
+  return rval;
+}
+
+export const DonateCard: React.FC<{
+  className?: string;
+  prefill?: DonatePrefill;
+}> = ({ className, prefill = DEFAULT_PREFILL }) => {
   const classes = useStyles();
   const stripe = useStripe();
-  const [frequency, setFrequency] = useState<Frequency>("once");
-  const [amountString, setAmountString] = useState<string>("");
+  const [frequency, setFrequency] = useState<Frequency>(prefill.frequency);
+  const [amountString, setAmountString] = useState<string>(prefill.amount);
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const amountCents = parseCents(amountString);
@@ -146,7 +182,7 @@ export const DonateCard: React.FC<{ className?: string }> = ({ className }) => {
   }, []);
   const handleAmountCents = useCallback((_event, newAmountCents) => {
     if (newAmountCents) {
-      setAmountString(Math.floor(newAmountCents / 100).toFixed(0));
+      setAmountString(formatCents(newAmountCents));
     }
   }, []);
   const handleChangeAmount = useCallback((event) => {

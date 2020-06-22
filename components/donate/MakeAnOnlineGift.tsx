@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
-import DonateCard from "./DonateCard";
+import DonateCard, { DonatePrefill } from "./DonateCard";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -31,9 +31,10 @@ async function loadStripePromise() {
 
 const stripePromise = loadStripePromise();
 
-export const MakeAnOnlineGift: React.FC<{ className?: string }> = ({
-  className,
-}) => {
+export const MakeAnOnlineGift: React.FC<{
+  className?: string;
+  prefill?: DonatePrefill;
+}> = ({ className, prefill }) => {
   const classes = useStyles();
   return (
     <Box component="section" className={clsx(classes.root, className)}>
@@ -41,7 +42,7 @@ export const MakeAnOnlineGift: React.FC<{ className?: string }> = ({
         Make an online gift
       </Typography>
       <Elements stripe={stripePromise}>
-        <DonateCard className={classes.donateCard} />
+        <DonateCard className={classes.donateCard} prefill={prefill} />
       </Elements>
     </Box>
   );

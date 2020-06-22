@@ -8,6 +8,7 @@ import MakeAnOnlineGift from "./MakeAnOnlineGift";
 import LearnMore from "./LearnMore";
 import OtherWaysToGive from "./OtherWaysToGive";
 import PhotoFooter from "./PhotoFooter";
+import { DonatePrefill } from "./DonateCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,14 +59,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Main: React.FC<{}> = () => {
+export interface DonateProps {
+  prefill?: DonatePrefill;
+}
+
+const Main: React.FC<DonateProps> = ({ prefill }) => {
   const classes = useStyles();
   return (
     <main id="main">
       <Landing />
       <Container className={classes.root}>
         <SupportOurWork className={classes.supportOurWork} />
-        <MakeAnOnlineGift className={classes.makeAnOnlineGift} />
+        <MakeAnOnlineGift
+          className={classes.makeAnOnlineGift}
+          prefill={prefill}
+        />
         <FlourishSeparator className={classes.flourishMiddle} />
         <LearnMore className={classes.learnMore} />
         <OtherWaysToGive className={classes.otherWaysToGive} />

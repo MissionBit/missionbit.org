@@ -7,6 +7,10 @@ export type PaymentMethod = typeof PAYMENT_METHODS[number];
 const gtag =
   (typeof window === "undefined" ? undefined : window.gtag) ?? (() => {});
 
+export function isFrequency(frequency: string): frequency is Frequency {
+  return FREQUENCIES.includes(frequency as any);
+}
+
 export function donationItem(amount: number, frequency: Frequency) {
   return {
     id: frequency === "monthly" ? "web-donation-monthly" : "web-donation-once",
