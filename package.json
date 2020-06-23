@@ -57,7 +57,7 @@
     "material-ui-popup-state": "^1.5.4",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",
-    "next-on-netlify": "github:etrepum/next-on-netlify#custom-redirects",
+    "next-on-netlify": "^2.2.0",
     "next-optimized-images": "^2.6.1",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
