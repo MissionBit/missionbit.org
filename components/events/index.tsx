@@ -40,6 +40,71 @@ interface PastEvent {
 
 const FeaturedEvents: FeaturedEvent[] = [
   {
+    id: "mb-hackathon",
+    date: Date.parse("2020-07-11T09:00:00-07:00"),
+    href: "https://cloud.hackthefog.com/",
+    linkTitle: "Register",
+    title: "Hack the Cloud",
+    description: (
+      <>
+        In March 2018, San Francisco’s first high school hackathon, Hack the Fog
+        1.0, made history. It was a massive success. This year, Hack the Cloud
+        is happening for 48 hours on July 11th - 12th, 2020. Join us for our
+        online hackathon!
+      </>
+    ),
+    topRightImage: {
+      desc: "Hack the Cloud's website",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/hackathon/hackathon-collage-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/hackathon/hackathon-collage-0.5.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/hackathon/hackathon-collage-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/hackathon/hackathon-collage-0.5.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Student holding laptop",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/hackathon/jada-collage-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/hackathon/jada-collage-0.5.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/hackathon/jada-collage-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/hackathon/jada-collage-0.5.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
     id: "demo-day",
     date: SummerDates.demoDay,
     href:
