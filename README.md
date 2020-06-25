@@ -196,6 +196,12 @@ These environment variables are used by APIs on the site:
 * `STRIPE_SK_TEST` - Secret key for testing (PR builds)
 * `STRIPE_WEBHOOK_SIGNING_SECRET_TEST` - Webhook signing key for testing (PR builds)
 
+The webhook for Stripe should be at `https://www.missionbit.org/api/webhook` for the following event types:
+
+* `checkout.session.completed`
+* `invoice.payment_succeeded`
+* `invoice.payment_failed`
+
 DNS is currently hosted by:
 
 * Cloudflare (missionbit.com)
