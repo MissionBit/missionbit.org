@@ -1,24 +1,21 @@
 import Stripe from "stripe";
+import { capitalizeFirst } from "./stripeHelpers";
 
-function sendgrid_safe_name(name: string): string {
+function sendgridSafeName(name: string): string {
   // The to.name, cc.name, and bcc.name personalizations cannot include either the ; or , characters.
   return name.replace(/([,;]\s*)+/g, " ");
 }
 
-export function billing_details_to(
+export function billingDetailsTo(
   billing_details: Stripe.PaymentMethod.BillingDetails
 ) {
   return {
-    name: sendgrid_safe_name(billing_details.name ?? ""),
+    name: sendgridSafeName(billing_details.name ?? ""),
     email: billing_details.email ?? "",
   };
 }
 
-function capitalizeFirst(s: string): string {
-  return s.length >= 1 ? `${s.charAt(0).toUpperCase()}${s.substr(1)}` : s;
-}
-
-function format_identifier(s: string): string {
+function formatIdentifier(s: string): string {
   // >>> format_identifier('apple_pay')
   // 'Apple Pay'
   return s.split("_").map(capitalizeFirst).join(" ");
@@ -34,7 +31,7 @@ const CARD_BRANDS: { [k: string]: string } = {
   visa: "Visa",
 };
 
-export function format_payment_method_details_source(
+export function formatPaymentMethodDetailsSource(
   payment_method_details:
     | Stripe.PaymentMethod
     | Stripe.Charge.PaymentMethodDetails
@@ -56,12 +53,12 @@ export function format_payment_method_details_source(
       }
       parts.push("card");
       if (details.wallet) {
-        parts.push(`(${format_identifier(details.wallet.type)})`);
+        parts.push(`(${formatIdentifier(details.wallet.type)})`);
       }
       return parts.join(" ");
     }
   }
-  return format_identifier(payment_type);
+  return formatIdentifier(payment_type);
 }
 
 export interface StripeSessionInfo {
@@ -100,11 +97,11 @@ export function stripeSessionInfo(
       }
 
       return {
-        ...billing_details_to(pm.billing_details),
+        ...billingDetailsTo(pm.billing_details),
         id: subscription.id,
         frequency: "monthly",
         amount: plan.amount * quantity,
-        payment_method: format_payment_method_details_source(pm),
+        payment_method: formatPaymentMethodDetailsSource(pm),
       };
     }
     case "payment": {
@@ -132,11 +129,11 @@ export function stripeSessionInfo(
         );
       }
       return {
-        ...billing_details_to(charge.billing_details),
+        ...billingDetailsTo(charge.billing_details),
         id: charge.id,
         frequency: "one-time",
         amount: charge.amount,
-        payment_method: format_payment_method_details_source(
+        payment_method: formatPaymentMethodDetailsSource(
           payment_method_details
         ),
       };

@@ -7,17 +7,13 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { Frequency } from "src/stripeHelpers";
 import { useState, useCallback } from "react";
+import usdFormatter from "src/usdFormatter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
   },
 }));
-
-const usdFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
 
 export interface DonateSubscriptionProps {
   id: string;

@@ -5,17 +5,13 @@ import Landing from "./Landing";
 import { StripeSessionInfo } from "src/stripeSessionInfo";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import usdFormatter from "src/usdFormatter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
   },
 }));
-
-const usdFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
 
 const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
   sessionInfo,

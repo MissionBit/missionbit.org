@@ -9,8 +9,8 @@ import DonateSubscription, {
   DonateSubscriptionProps,
 } from "components/donate/DonateSubscription";
 import {
-  billing_details_to,
-  format_payment_method_details_source,
+  billingDetailsTo,
+  formatPaymentMethodDetailsSource,
 } from "src/stripeSessionInfo";
 import { LongDateFormat } from "src/dates";
 
@@ -64,11 +64,11 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     props: {
       ...(await getLayoutStaticProps()),
       subscriptionInfo: {
-        ...billing_details_to(pm.billing_details),
+        ...billingDetailsTo(pm.billing_details),
         id: subscription.id,
         frequency: "monthly",
         amount: subscription.plan.amount * subscription.quantity,
-        paymentMethod: format_payment_method_details_source(pm),
+        paymentMethod: formatPaymentMethodDetailsSource(pm),
         nextCycle,
       },
     },

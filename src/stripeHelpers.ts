@@ -11,10 +11,18 @@ export function isFrequency(frequency: string): frequency is Frequency {
   return FREQUENCIES.includes(frequency as any);
 }
 
+export function frequencyName(frequency: Frequency) {
+  return frequency === "monthly" ? "monthly" : "one-time";
+}
+
+export function capitalizeFirst(s: string): string {
+  return s.length >= 1 ? `${s.charAt(0).toUpperCase()}${s.substr(1)}` : s;
+}
+
 export function donationItem(amount: number, frequency: Frequency) {
   return {
     id: frequency === "monthly" ? "web-donation-monthly" : "web-donation-once",
-    name: frequency === "monthly" ? "Monthly Donation" : "One-time Donation",
+    name: `${capitalizeFirst(frequencyName(frequency))} Donation`,
     price: amount / 100,
     quantity: 1,
   };

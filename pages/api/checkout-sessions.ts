@@ -3,9 +3,9 @@ import Stripe from "stripe";
 import getStripe from "src/getStripe";
 import { Frequency, FREQUENCIES } from "src/stripeHelpers";
 import { getOrigin } from "src/absoluteUrl";
+import { APP } from "src/stripeMetadata";
 
 const MONTHLY_PLAN_ID = "mb-monthly-001";
-const APP = "www.missionbit.org";
 
 const stripe = getStripe();
 
