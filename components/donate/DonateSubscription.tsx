@@ -1,10 +1,12 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Landing from "./Landing";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { Frequency } from "src/stripeHelpers";
+import { useState, useCallback } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,12 +34,36 @@ const DonateSubscription: React.FC<DonateSubscriptionProps> = ({
   amount,
   frequency,
   paymentMethod,
-  nextCycle,
+  nextCycle: initialNextCycle,
   name,
   email,
 }) => {
   const classes = useStyles();
   const donateEmail = "donate@missionbit.org";
+  const [nextCycle, setNextCycle] = useState<string | null>(initialNextCycle);
+  const [loading, setLoading] = useState<boolean>(false);
+  const handleSubmit = useCallback(
+    async (event) => {
+      event.preventDefault();
+      setLoading(true);
+      try {
+        const result = await fetch("/api/cancel-subscription", {
+          method: "POST",
+          body: JSON.stringify({ id }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+        if (result.ok) {
+          setNextCycle(null);
+        }
+      } finally {
+        setLoading(false);
+      }
+    },
+    [id]
+  );
   return (
     <main id="main">
       <Landing />
@@ -76,17 +102,17 @@ const DonateSubscription: React.FC<DonateSubscriptionProps> = ({
           <Link href="/donate">Back to the donate page</Link>
         </Typography>
         {nextCycle ? (
-          <form method="post">
-            {" "}
+          <form onSubmit={handleSubmit}>
             <Typography>
               To change your payment method or contribution level, cancel your
               donation below and create a new one. If you would like to cancel
               your monthly donation,{" "}
-              <Link component="button" type="submit">
+              <Link component="button" type="submit" disabled={loading}>
                 click here
               </Link>
               .
             </Typography>
+            {loading && <CircularProgress />}
           </form>
         ) : null}
       </Container>
