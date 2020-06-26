@@ -6,6 +6,7 @@ import { StripeSessionInfo } from "src/stripeSessionInfo";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import usdFormatter from "src/usdFormatter";
+import { DONATE_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +19,6 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
 }) => {
   const classes = useStyles();
   const { amount, email, frequency, payment_method, id } = sessionInfo;
-  const donate_email = "donate@missionbit.org";
   return (
     <main id="main">
       <Landing />
@@ -40,11 +40,11 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
           If you have any questions about your {frequency} donation, contact us
           at{" "}
           <a
-            href={`mailto:${donate_email}`}
+            href={`mailto:${DONATE_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {donate_email}
+            {DONATE_EMAIL}
           </a>
           .
         </Typography>

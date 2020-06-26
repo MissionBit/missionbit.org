@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 import Landing from "./Landing";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import { DONATE_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 
 const DonateCancel: React.FC<{}> = () => {
   const classes = useStyles();
-  const donate_email = "donate@missionbit.org";
   return (
     <main id="main">
       <Landing />
@@ -23,11 +23,11 @@ const DonateCancel: React.FC<{}> = () => {
           Your donation has been canceled. If you have any questions about
           donations, contact us at{" "}
           <a
-            href={`mailto:${donate_email}`}
+            href={`mailto:${DONATE_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {donate_email}
+            {DONATE_EMAIL}
           </a>
           .
         </Typography>
