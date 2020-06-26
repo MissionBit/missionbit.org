@@ -7,11 +7,15 @@ import {
 } from "components/Layout";
 import DonateResult from "components/donate/DonateResult";
 import stripeSessionInfo, { StripeSessionInfo } from "src/stripeSessionInfo";
+import Head from "next/head";
 
 const Page: NextPage<
   LayoutStaticProps & { sessionInfo: StripeSessionInfo }
 > = ({ sessionInfo, ...props }) => (
   <Layout {...props} title="Mission Bit – Thank You For Your Donation!">
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
     <DonateResult sessionInfo={sessionInfo} />
   </Layout>
 );

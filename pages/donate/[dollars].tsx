@@ -12,7 +12,7 @@ const Page: NextPage<{ layout: LayoutStaticProps; donate: DonateProps }> = ({
   layout,
   donate,
 }) => (
-  <Layout {...layout} title="Mission Bit – Donate">
+  <Layout {...layout} canonicalPath="/donate" title="Mission Bit – Donate">
     <Donate {...donate} />
   </Layout>
 );
@@ -20,7 +20,10 @@ const Page: NextPage<{ layout: LayoutStaticProps; donate: DonateProps }> = ({
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   return {
     props: {
-      layout: await getLayoutStaticProps(),
+      layout: {
+        ...(await getLayoutStaticProps()),
+        origin: ctx.req.headers.origin,
+      },
       donate: {
         prefill: parseDonatePrefill({ ...ctx.query, ...(ctx.params ?? {}) }),
       },

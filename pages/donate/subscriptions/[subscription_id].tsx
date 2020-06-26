@@ -13,11 +13,15 @@ import {
   formatPaymentMethodDetailsSource,
 } from "src/stripeSessionInfo";
 import { LongDateFormat } from "src/dates";
+import Head from "next/head";
 
 const Page: NextPage<
   LayoutStaticProps & { subscriptionInfo: DonateSubscriptionProps }
 > = ({ subscriptionInfo, ...props }) => (
   <Layout {...props} title="Mission Bit – Manage Your Subscription">
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
     <DonateSubscription {...subscriptionInfo} />
   </Layout>
 );
