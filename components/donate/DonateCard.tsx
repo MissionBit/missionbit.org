@@ -21,7 +21,7 @@ import {
   isFrequency,
 } from "src/stripeHelpers";
 import { Stripe } from "@stripe/stripe-js";
-import { Typography } from "@material-ui/core";
+import { Typography, Theme } from "@material-ui/core";
 
 const InputLabel = withStyles({
   root: {
@@ -31,6 +31,55 @@ const InputLabel = withStyles({
   },
   focused: {},
 })(BaseInputLabel);
+
+const FontSize = {
+  large: {
+    arrow: 28,
+    heading: 28,
+    smallInput: 16,
+    input: 24,
+  },
+  small: {
+    arrow: 24,
+    heading: 24,
+    smallInput: 14,
+    input: 20,
+  },
+};
+
+function mkFontSize(
+  theme: Theme,
+  k: "arrow" | "heading" | "smallInput" | "input"
+) {
+  return {
+    fontSize: FontSize.large[k],
+    [theme.breakpoints.down("sm")]: {
+      fontSize: FontSize.small[k],
+    },
+  };
+}
+
+const AmountToggleButtonGroup = withStyles((theme) => ({
+  root: {
+    width: "100%",
+    display: "grid",
+    gridGap: theme.spacing(3),
+    gridTemplateColumns: "repeat(3, 1fr)",
+  },
+  groupedHorizontal: {
+    ...mkFontSize(theme, "input"),
+    "&:not(:first-child)": {
+      borderTopLeftRadius: "inherit",
+      borderBottomLeftRadius: "inherit",
+      borderLeft: "1px solid",
+      marginLeft: "inherit",
+    },
+    "&:not(:last-child)": {
+      borderTopRightRadius: "inherit",
+      borderBottomRightRadius: "inherit",
+    },
+  },
+}))(ToggleButtonGroup);
 
 const OutlinedInput = withStyles((theme) => ({
   root: {
@@ -84,20 +133,34 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
+  form: {
+    ...theme.typography.body1,
+    margin: "0 auto",
+    display: "grid",
+    gridTemplate: "auto / 1fr",
+    gridGap: theme.spacing(2),
+    justifyItems: "center",
+    maxWidth: 550,
+  },
+  inputText: mkFontSize(theme, "input"),
+  button: {
+    ...mkFontSize(theme, "heading"),
+    margin: theme.spacing(2, 0),
+  },
+  frequency: {
+    margin: theme.spacing(2, 0),
+  },
+  arrowIcon: mkFontSize(theme, "arrow"),
   heading: {
     ...theme.typography.body1,
+    ...mkFontSize(theme, "heading"),
     backgroundColor: brand.indigo,
     color: theme.palette.common.white,
     padding: theme.spacing(2),
   },
   content: {
-    ...theme.typography.body1,
-    display: "grid",
-    gridTemplate: "auto / 1fr",
-    gridGap: theme.spacing(2),
-    justifyItems: "center",
     border: `1px solid ${brand.lightGray}`,
-    padding: theme.spacing(2, 2, 4, 2),
+    padding: theme.spacing(2),
   },
   margin: {},
 }));
@@ -206,46 +269,64 @@ export const DonateCard: React.FC<{
     [disabled, stripe, amountCents, frequency]
   );
   return (
-    <form className={clsx(classes.root, className)} onSubmit={handleOnSubmit}>
+    <Box className={clsx(classes.root, className)}>
       <Box className={classes.heading}>Choose amount</Box>
       <Box className={classes.content}>
-        <ToggleButtonGroup
-          value={frequency}
-          exclusive
-          onChange={handleFrequency}
-          aria-label="Donation frequency"
-        >
-          <ToggleButton value="once">One-time</ToggleButton>
-          <ToggleButton value="monthly">Monthly</ToggleButton>
-        </ToggleButtonGroup>
-        <ToggleButtonGroup
-          value={amountCents}
-          exclusive
-          onChange={handleAmountCents}
-          aria-label="Preset donation amounts"
-        >
-          {PRESET_AMOUNT_CENTS.map((cents) => (
-            <ToggleButton key={cents} value={cents}>
-              ${(cents / 100).toFixed(0)}
-            </ToggleButton>
-          ))}
-        </ToggleButtonGroup>
-        <FormControl fullWidth className={classes.margin} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-amount"
-            value={amountString}
-            onChange={handleChangeAmount}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-            labelWidth={60}
-          />
-        </FormControl>
-        <IndigoButton variant="contained" disabled={disabled} type="submit">
-          Donate with card <ArrowRightIcon />
-        </IndigoButton>
-        {errorMessage ? <Typography>{errorMessage}</Typography> : null}
+        <form className={classes.form} onSubmit={handleOnSubmit}>
+          <ToggleButtonGroup
+            value={frequency}
+            exclusive
+            onChange={handleFrequency}
+            aria-label="Donation frequency"
+            className={classes.frequency}
+          >
+            <ToggleButton value="once">One-time</ToggleButton>
+            <ToggleButton value="monthly">Monthly</ToggleButton>
+          </ToggleButtonGroup>
+          <AmountToggleButtonGroup
+            value={amountCents}
+            exclusive
+            onChange={handleAmountCents}
+            aria-label="Preset donation amounts"
+          >
+            {PRESET_AMOUNT_CENTS.map((cents) => (
+              <ToggleButton key={cents} value={cents}>
+                ${(cents / 100).toFixed(0)}
+              </ToggleButton>
+            ))}
+          </AmountToggleButtonGroup>
+          <FormControl fullWidth className={classes.margin} variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-amount"
+              value={amountString}
+              onChange={handleChangeAmount}
+              className={classes.inputText}
+              startAdornment={
+                <InputAdornment position="start">
+                  <Typography
+                    color="textSecondary"
+                    className={classes.inputText}
+                  >
+                    $
+                  </Typography>
+                </InputAdornment>
+              }
+              labelWidth={60}
+            />
+          </FormControl>
+          {errorMessage ? <Typography>{errorMessage}</Typography> : null}
+          <IndigoButton
+            variant="contained"
+            disabled={disabled}
+            type="submit"
+            className={classes.button}
+          >
+            Donate with card <ArrowRightIcon className={classes.arrowIcon} />
+          </IndigoButton>
+        </form>
       </Box>
-    </form>
+    </Box>
   );
 };
 
