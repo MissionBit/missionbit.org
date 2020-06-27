@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontSize: theme.typography.pxToRem(71),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(40),
+    },
   },
   extendedTitle: {
     [theme.breakpoints.down("sm")]: {
@@ -27,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     fontSize: theme.typography.pxToRem(35),
     fontWeight: theme.typography.fontWeightMedium,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(16),
+    },
   },
 }));
 

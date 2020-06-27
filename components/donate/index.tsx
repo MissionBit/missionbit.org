@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
       "photoFooter    photoFooter"
     `,
     [theme.breakpoints.down("sm")]: {
+      padding: 0,
       gridTemplateColumns: "1fr",
       gridTemplateAreas: `
         "makeAnOnlineGift"

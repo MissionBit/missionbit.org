@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import VioletButton from "components/VioletButton";
 import { Photo } from "./PhotoFooter";
+import { DONATE_EMAIL } from "src/emails";
+import SectionHeading from "./SectionHeading";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(4),
     },
   },
-  title: {},
   body: {
     margin: theme.spacing(4, 0),
   },
@@ -36,9 +37,7 @@ export const SupportOurWork: React.FC<{ className?: string }> = ({
   const classes = useStyles();
   return (
     <Box component="section" className={clsx(classes.root, className)}>
-      <Typography variant="h2" className={classes.title}>
-        Support our work
-      </Typography>
+      <SectionHeading>Support our work</SectionHeading>
       <Typography className={classes.body}>
         Mission Bit is a 501(c)(3) not-for-profit organization founded in 2012
         to bridge the digital divide in the San Francisco Bay Area. To date, we
@@ -57,7 +56,7 @@ export const SupportOurWork: React.FC<{ className?: string }> = ({
       <Photo photo="1" className={classes.mobilePhoto} />
       <Box className={classes.actions}>
         <VioletButton
-          href="mailto:donate@missionbit.org"
+          href={`mailto:${DONATE_EMAIL}`}
           target="_blank"
           rel="noopener noreferrer"
           variant="contained"

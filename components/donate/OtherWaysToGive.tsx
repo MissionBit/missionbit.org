@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 import FaqItem from "components/FaqItem";
 import { brand } from "src/colors";
 import BaseLink from "@material-ui/core/Link";
+import SectionHeading from "./SectionHeading";
 
 const accentColor = brand.indigo;
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    margin: theme.spacing(4, 0),
+    marginBottom: theme.spacing(2),
   },
   address: {
     marginTop: theme.spacing(2),
@@ -58,9 +59,9 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
       id="other-ways-to-give"
       className={clsx(classes.root, className)}
     >
-      <Typography variant="h2" className={classes.title}>
+      <SectionHeading className={classes.title}>
         Other ways to give
-      </Typography>
+      </SectionHeading>
       <FaqItem question="Check">
         <Typography>
           Make checks payable to <strong>Mission Bit</strong>. To receive a

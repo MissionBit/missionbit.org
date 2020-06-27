@@ -7,6 +7,7 @@ import IndigoButton from "components/IndigoButton";
 import AdobePdfLogo from "components/gala/brands/AdobePdfLogo";
 import { ExtendButtonBase } from "@material-ui/core/ButtonBase";
 import { ButtonTypeMap } from "@material-ui/core/Button";
+import SectionHeading from "./SectionHeading";
 
 const LearnMoreButton = withStyles((theme) => ({
   contained: {
@@ -32,7 +33,7 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
   const classes = useStyles();
   return (
     <Box component="section" className={clsx(classes.root, className)}>
-      <Typography variant="h2">Learn more</Typography>
+      <SectionHeading>Learn more</SectionHeading>
       <Typography variant="body1">
         Check out our Annual Reports to learn more about our work and impact
       </Typography>
