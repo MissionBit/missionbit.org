@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: 0,
     paddingRight: 0,
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: theme.spacing(4),
+    },
     "& .MuiPaper-root": {
       backgroundColor: brand.indigo,
       color: theme.palette.common.white,

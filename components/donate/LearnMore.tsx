@@ -14,6 +14,13 @@ const LearnMoreButton = withStyles((theme) => ({
     borderRadius: 0,
     padding: theme.spacing(3),
     ...theme.typography.h5,
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      display: "block",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(20),
+    },
     "& svg": {
       marginRight: "0.25rem",
     },
@@ -25,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 2),
     "& > *:nth-child(n + 2)": {
       marginTop: theme.spacing(2),
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: theme.spacing(4),
+      textAlign: "center",
     },
   },
 }));

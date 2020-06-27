@@ -11,18 +11,25 @@ import SectionHeading from "./SectionHeading";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: theme.spacing(4),
-    [theme.breakpoints.down("xs")]: {
-      paddingBottom: theme.spacing(4),
-    },
   },
   body: {
     margin: theme.spacing(4, 0),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 4),
+    },
   },
   mobilePhoto: {
     display: "none",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "flex",
       marginBottom: theme.spacing(4),
+      width: "auto",
+      maxHeight: "50vh",
+      objectFit: "contain",
+      "& img": {
+        objectFit: "contain",
+        maxHeight: "50vh",
+      },
     },
   },
   button: {},

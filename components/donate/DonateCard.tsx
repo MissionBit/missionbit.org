@@ -132,6 +132,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 2),
+    },
   },
   form: {
     ...theme.typography.body1,
