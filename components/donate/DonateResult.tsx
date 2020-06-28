@@ -4,10 +4,11 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { StripeSessionInfo } from "src/stripeSessionInfo";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import usdFormatter from "src/usdFormatter";
 import { DONATE_EMAIL } from "src/emails";
 import ReceiptPhotos from "./ReceiptPhotos";
+import { LongDateTimeFormat } from "src/dates";
+import { MAILING_ADDRESS, PHONE_NUMBER, EIN } from "src/orgInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,22 +16,69 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateAreas: `
       "photos receipt"
     `,
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "1fr 2fr",
     padding: theme.spacing(2),
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateColumns: "1fr",
+      gridGap: theme.spacing(4),
+      gridTemplateAreas: `
+        "receipt"
+        "photos"
+      `,
+      padding: theme.spacing(0, 0, 2, 0),
+    },
   },
   receipt: {
     gridArea: "receipt",
-    padding: theme.spacing(2),
+    padding: theme.spacing(0, 2),
   },
   photos: {
     gridArea: "photos",
   },
   heading: {
     textTransform: "uppercase",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(40),
+      marginBottom: theme.spacing(2),
+    },
   },
   subHeading: {
     marginTop: theme.spacing(4),
     textTransform: "uppercase",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(28),
+      marginBottom: theme.spacing(2),
+    },
+  },
+  dl: {
+    fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(16),
+    },
+    marginTop: theme.spacing(2),
+    "& > dt": {
+      [theme.breakpoints.up("sm")]: {
+        display: "inline",
+      },
+    },
+    "& > dd": {
+      fontWeight: theme.typography.fontWeightMedium,
+      marginLeft: "1rem",
+      [theme.breakpoints.up("sm")]: {
+        display: "inline",
+        marginLeft: "0.25rem",
+      },
+    },
+    "& > dd::after": {
+      content: '""',
+      display: "block",
+    },
+    "& > dt::after": {
+      content: `": "`,
+    },
+  },
+  body: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -38,7 +86,15 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
   sessionInfo,
 }) => {
   const classes = useStyles();
-  const { amount, name, email, frequency, payment_method, id } = sessionInfo;
+  const {
+    amount,
+    name,
+    email,
+    frequency,
+    payment_method,
+    created,
+    id,
+  } = sessionInfo;
   return (
     <Container component="main" id="main" className={classes.root}>
       <ReceiptPhotos className={classes.photos} />
@@ -64,32 +120,45 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
         <Typography variant="h2" className={classes.subHeading}>
           Donation Receipt
         </Typography>
-        <Typography>
-          Your <strong>{usdFormatter.format(amount / 100)}</strong> {frequency}{" "}
-          donation by {payment_method} has been collected and a receipt has been
-          sent to:
-          <br />
-          {email}
-          <br />
-          <br />
-          Transaction ID:
-          <br />
-          {id}
-          <br />
-          <br />
-          If you have any questions about your {frequency} donation, contact us
-          at{" "}
-          <a
-            href={`mailto:${DONATE_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {DONATE_EMAIL}
-          </a>
-          .
+        <Typography component="dl" className={classes.dl}>
+          <dt>Donor Name</dt>
+          <dd>{name}</dd>
+          <dt>Donor Email</dt>
+          <dd>{email}</dd>
+          <dt>Contribution ({frequency})</dt>
+          <dd>{usdFormatter.format(amount / 100)} USD</dd>
+          <dt>Payment Method</dt>
+          <dd>{payment_method}</dd>
+          <dt>Date Received</dt>
+          <dd>{LongDateTimeFormat.format(created)}</dd>
+          <dt>Transaction ID</dt>
+          <dd>{id}</dd>
         </Typography>
-        <Typography>
-          <Link href="/donate">Back to the donate page</Link>
+        <Typography component="dl" className={classes.dl}>
+          <dt>Organization Name</dt>
+          <dd>Mission Bit</dd>
+          <dt>Address</dt>
+          <dd>{MAILING_ADDRESS}</dd>
+          <dt>Phone Number</dt>
+          <dd>{PHONE_NUMBER}</dd>
+          <dt>Contact Email</dt>
+          <dd>
+            <a
+              href={`mailto:${DONATE_EMAIL}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {DONATE_EMAIL}
+            </a>
+          </dd>
+          <dt>EIN</dt>
+          <dd>{EIN}</dd>
+        </Typography>
+        <Typography className={classes.body}>
+          Mission Bit is a 501(c)(3) nonprofit organization. Your contribution
+          is tax-deductible to the extent allowed by law. No goods or services
+          were provided in exchange for your generous financial donation. Thank
+          you.
         </Typography>
       </Box>
     </Container>

@@ -4,14 +4,14 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "grid",
-    gridGap: theme.spacing(2),
-    gridTemplateRows: "repeat(3, 1fr)",
-    [theme.breakpoints.down("xs")]: {
-      gridTemplateColumns: "1fr",
-      "& > *:nth-child(odd)": {
-        display: "none",
-      },
+    display: "flex",
+    flexDirection: "column",
+    margin: -theme.spacing(1, 0),
+    overflow: "hidden",
+    "& img": {
+      height: "auto",
+      objectFit: "contain",
+      margin: theme.spacing(1, 0),
     },
   },
 }));

@@ -68,6 +68,7 @@ export interface StripeSessionInfo {
   payment_method: string;
   name: string;
   email: string;
+  created: number;
 }
 
 export function stripeSessionInfo(
@@ -102,6 +103,7 @@ export function stripeSessionInfo(
         frequency: "monthly",
         amount: plan.amount * quantity,
         payment_method: formatPaymentMethodDetailsSource(pm),
+        created: subscription.created * 1000,
       };
     }
     case "payment": {
@@ -136,6 +138,7 @@ export function stripeSessionInfo(
         payment_method: formatPaymentMethodDetailsSource(
           payment_method_details
         ),
+        created: charge.created,
       };
     }
     default: {
