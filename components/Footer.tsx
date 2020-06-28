@@ -6,6 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { useState } from "react";
+import {
+  PHONE_HREF,
+  PHONE_NUMBER,
+  STREET_ADDRESS,
+  CITY_STATE_ZIP,
+  EIN,
+} from "src/orgInfo";
+import { INFO_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +74,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           </li>
           <li>
             <Button
-              href="mailto:info@missionbit.org"
+              href={`mailto:${INFO_EMAIL}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -85,14 +93,14 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
           component="address"
           className={classes.address}
         >
-          <span>Mission Bit,</span> <span>101 A Clay St #121,</span>{" "}
-          <span>San Francisco, CA 94111</span>
+          <span>Mission Bit,</span> <span>{STREET_ADDRESS},</span>{" "}
+          <span>{CITY_STATE_ZIP}</span>
           <br />
-          <span>EIN: 46-0945785</span>,{" "}
+          <span>EIN: {EIN}</span>,{" "}
           <span>
             Phone:{" "}
-            <Link color="secondary" href="tel:+14158795380">
-              (415) 879-5380
+            <Link color="secondary" href={PHONE_HREF}>
+              {PHONE_NUMBER}
             </Link>
           </span>
         </Typography>

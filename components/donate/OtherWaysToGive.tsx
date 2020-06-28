@@ -7,6 +7,14 @@ import FaqItem from "components/FaqItem";
 import { brand } from "src/colors";
 import BaseLink from "@material-ui/core/Link";
 import SectionHeading from "./SectionHeading";
+import {
+  EIN,
+  STREET_ADDRESS,
+  CITY_STATE_ZIP,
+  PHONE_NUMBER,
+  PHONE_HREF,
+} from "src/orgInfo";
+import { INFO_EMAIL, DEVELOPMENT_EMAIL } from "src/emails";
 
 const accentColor = brand.indigo;
 
@@ -74,16 +82,16 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
         <Typography component="address" className={classes.address}>
           Mission Bit
           <br />
-          101 A Clay Street Ste. 121
+          {STREET_ADDRESS}
           <br />
-          San Francisco, CA 94111
+          {CITY_STATE_ZIP}
           <br />
           <br />
-          EIN: 46-0945785
+          EIN: {EIN}
           <br />
-          Phone: (415) 879-5380
+          Phone: {PHONE_NUMBER}
           <br />
-          Contact: info@missionbit.org
+          Contact: {INFO_EMAIL}
           <br />
           Mission Bit is a 501 (c)(3)
         </Typography>
@@ -102,7 +110,7 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
       <FaqItem question="In-Kind Gift">
         We accept in-kind donations of laptops and other equipment.{" "}
         <Link
-          href="mailto:info@missionbit.org"
+          href={`mailto:${INFO_EMAIL}`}
           target="_blank"
           underline="always"
           rel="noopener noreferrer"
@@ -114,21 +122,21 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
       <FaqItem question="Anything else?">
         For more information or assistance, please contact us by email at{" "}
         <Link
-          href="mailto:development@missionbit.org"
+          href={`mailto:${DEVELOPMENT_EMAIL}`}
           target="_blank"
           underline="always"
           rel="noopener noreferrer"
         >
-          development@missionbit.org
+          {DEVELOPMENT_EMAIL}
         </Link>{" "}
         or by phone at{" "}
         <Link
-          href="tel:+14158795380"
+          href={PHONE_HREF}
           target="_blank"
           underline="always"
           rel="noopener noreferrer"
         >
-          (415) 879-5380
+          {PHONE_NUMBER}
         </Link>
         .
       </FaqItem>

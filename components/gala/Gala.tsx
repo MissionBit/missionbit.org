@@ -11,6 +11,7 @@ import {
 } from "./SponsorData";
 import { makeStyles } from "@material-ui/core/styles";
 import { GalaCalendarEvent, galaStartEnd } from "./GalaDates";
+import { DEVELOPMENT_EMAIL } from "src/emails";
 
 const Sponsor: React.FC<SponsorData> = (props) => (
   <a
@@ -133,11 +134,11 @@ const Gala: React.FC<{}> = () => {
           <a href="/gala/sponsorship">Gala Sponsorship Packages</a> or contact
           us at{" "}
           <a
-            href="mailto:development@missionbit.org"
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            development@missionbit.org
+            {DEVELOPMENT_EMAIL}
           </a>
           .
         </Typography>
@@ -163,11 +164,11 @@ const Gala: React.FC<{}> = () => {
           {/* or to use a payment method other than credit card, */ " "}
           please contact us at{" "}
           <a
-            href="mailto:development@missionbit.org"
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            development@missionbit.org
+            {DEVELOPMENT_EMAIL}
           </a>
           .
         </Typography>
