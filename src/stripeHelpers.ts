@@ -1,4 +1,4 @@
-export const FREQUENCIES = ["once", "monthly"] as const;
+export const FREQUENCIES = ["one-time", "monthly"] as const;
 export type Frequency = typeof FREQUENCIES[number];
 
 export const PAYMENT_METHODS = ["Stripe Checkout"] as const;
@@ -11,18 +11,17 @@ export function isFrequency(frequency: string): frequency is Frequency {
   return FREQUENCIES.includes(frequency as any);
 }
 
-export function frequencyName(frequency: Frequency) {
-  return frequency === "monthly" ? "monthly" : "one-time";
-}
-
 export function capitalizeFirst(s: string): string {
   return s.length >= 1 ? `${s.charAt(0).toUpperCase()}${s.substr(1)}` : s;
 }
 
 export function donationItem(amount: number, frequency: Frequency) {
   return {
-    id: frequency === "monthly" ? "web-donation-monthly" : "web-donation-once",
-    name: `${capitalizeFirst(frequencyName(frequency))} Donation`,
+    id:
+      frequency === "one-time"
+        ? "web-donation-once"
+        : `web-donation-${frequency}`,
+    name: `${capitalizeFirst(frequency)} Donation`,
     price: amount / 100,
     quantity: 1,
   };
@@ -55,18 +54,4 @@ export function trackCheckoutEvent(
     checkout_option: "payment method",
     value: paymentMethod,
   });
-  // fbq("track", "InitiateCheckout", {
-  //   value: item.price,
-  //   currency: "USD",
-  //   contents: [
-  //     {
-  //       id: item.id,
-  //       quantity: item.quantity,
-  //       item_price: item.price,
-  //     },
-  //   ],
-  //   content_ids: [item.id],
-  //   content_type: "product",
-  //   payment_method: paymentMethod,
-  // });
 }

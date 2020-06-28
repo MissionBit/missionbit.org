@@ -130,7 +130,7 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
           <dt>Payment Method</dt>
           <dd>{payment_method}</dd>
           <dt>Date Received</dt>
-          <dd>{LongDateTimeFormat.format(created)}</dd>
+          <dd>{LongDateTimeFormat.format(created * 1000)}</dd>
           <dt>Transaction ID</dt>
           <dd>{id}</dd>
         </Typography>

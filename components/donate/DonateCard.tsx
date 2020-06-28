@@ -207,7 +207,7 @@ export interface DonatePrefill {
 }
 
 const DEFAULT_PREFILL: DonatePrefill = {
-  frequency: "once",
+  frequency: "one-time",
   amount: "",
 };
 
@@ -283,7 +283,7 @@ export const DonateCard: React.FC<{
             aria-label="Donation frequency"
             className={classes.frequency}
           >
-            <ToggleButton value="once">One-time</ToggleButton>
+            <ToggleButton value="one-time">One-time</ToggleButton>
             <ToggleButton value="monthly">Monthly</ToggleButton>
           </ToggleButtonGroup>
           <AmountToggleButtonGroup

@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { capitalizeFirst } from "./stripeHelpers";
+import { capitalizeFirst, Frequency } from "./stripeHelpers";
 
 function sendgridSafeName(name: string): string {
   // The to.name, cc.name, and bcc.name personalizations cannot include either the ; or , characters.
@@ -63,7 +63,7 @@ export function formatPaymentMethodDetailsSource(
 
 export interface StripeSessionInfo {
   id: string;
-  frequency: string;
+  frequency: Frequency;
   amount: number;
   payment_method: string;
   name: string;
@@ -90,7 +90,7 @@ export function stripeSessionInfo(
           )}`
         );
       }
-      const { plan, quantity } = subscription;
+      const { plan, quantity, created } = subscription;
       if (typeof plan?.amount !== "number" || typeof quantity !== "number") {
         throw new Error(
           `Expected non-null subscription plan ${JSON.stringify(session)}`
@@ -103,7 +103,7 @@ export function stripeSessionInfo(
         frequency: "monthly",
         amount: plan.amount * quantity,
         payment_method: formatPaymentMethodDetailsSource(pm),
-        created: subscription.created * 1000,
+        created,
       };
     }
     case "payment": {
@@ -119,7 +119,7 @@ export function stripeSessionInfo(
           `Expected charge to be present ${JSON.stringify(session)}`
         );
       }
-      const { payment_method_details } = charge;
+      const { payment_method_details, id, amount, created } = charge;
       if (
         typeof payment_method_details !== "object" ||
         !payment_method_details
@@ -132,13 +132,13 @@ export function stripeSessionInfo(
       }
       return {
         ...billingDetailsTo(charge.billing_details),
-        id: charge.id,
+        id,
         frequency: "one-time",
-        amount: charge.amount,
+        amount,
         payment_method: formatPaymentMethodDetailsSource(
           payment_method_details
         ),
-        created: charge.created,
+        created,
       };
     }
     default: {

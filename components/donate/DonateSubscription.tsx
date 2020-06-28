@@ -8,6 +8,7 @@ import Link from "@material-ui/core/Link";
 import { Frequency } from "src/stripeHelpers";
 import { useState, useCallback } from "react";
 import usdFormatter from "src/usdFormatter";
+import { DONATE_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +36,6 @@ const DonateSubscription: React.FC<DonateSubscriptionProps> = ({
   email,
 }) => {
   const classes = useStyles();
-  const donateEmail = "donate@missionbit.org";
   const [nextCycle, setNextCycle] = useState<string | null>(initialNextCycle);
   const [loading, setLoading] = useState<boolean>(false);
   const handleSubmit = useCallback(
@@ -86,11 +86,11 @@ const DonateSubscription: React.FC<DonateSubscriptionProps> = ({
           If you have any questions about your {frequency} donation, contact us
           at{" "}
           <a
-            href={`mailto:${donateEmail}`}
+            href={`mailto:${DONATE_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {donateEmail}
+            {DONATE_EMAIL}
           </a>
           .
         </Typography>

@@ -10,7 +10,7 @@ import { APP } from "src/stripeMetadata";
 import getSendGrid from "src/getSendgrid";
 import { DONATE_EMAIL } from "src/emails";
 import usdFormatter from "src/usdFormatter";
-import { Frequency, frequencyName } from "src/stripeHelpers";
+import { Frequency } from "src/stripeHelpers";
 import { MailDataRequired } from "@sendgrid/mail";
 import { ShortDateFormat, LongDateFormat } from "src/dates";
 import { getOrigin } from "src/absoluteUrl";
@@ -94,7 +94,7 @@ function emailTemplateData({
         to: [billingDetailsTo(charge.billing_details)],
         dynamicTemplateData: {
           transaction_id: charge.id,
-          frequency: frequencyName(frequency),
+          frequency,
           total: usdFormatter.format(charge.amount / 100),
           date: ShortDateFormat.format(charge.created * 1000),
           payment_method: payment_method,
@@ -123,7 +123,7 @@ async function stripeCheckoutSessionCompletedPayment(
     emailTemplateData({
       templateId: RECEIPT_TEMPLATE_ID,
       charge,
-      frequency: "once",
+      frequency: "one-time",
     })
   );
   // track_donation(
