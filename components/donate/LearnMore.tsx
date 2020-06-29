@@ -1,13 +1,13 @@
 import * as React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import clsx from "clsx";
 import IndigoButton from "components/IndigoButton";
 import AdobePdfLogo from "components/gala/brands/AdobePdfLogo";
 import { ExtendButtonBase } from "@material-ui/core/ButtonBase";
 import { ButtonTypeMap } from "@material-ui/core/Button";
 import SectionHeading from "./SectionHeading";
+import BodyText from "./BodyText";
 
 const LearnMoreButton = withStyles((theme) => ({
   contained: {
@@ -45,9 +45,9 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <Box component="section" className={clsx(classes.root, className)}>
       <SectionHeading>Learn more</SectionHeading>
-      <Typography variant="body1">
+      <BodyText>
         Check out our Annual Reports to learn more about our work and impact.
-      </Typography>
+      </BodyText>
       <LearnMoreButton
         variant="contained"
         href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
