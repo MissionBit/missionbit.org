@@ -46,7 +46,7 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
     <Box component="section" className={clsx(classes.root, className)}>
       <SectionHeading>Learn more</SectionHeading>
       <Typography variant="body1">
-        Check out our Annual Reports to learn more about our work and impact
+        Check out our Annual Reports to learn more about our work and impact.
       </Typography>
       <LearnMoreButton
         variant="contained"
