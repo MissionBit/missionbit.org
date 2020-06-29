@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     width: "100%",
     textAlign: "center",
+    "@media print": {
+      display: "none",
+    },
   },
   copyright: {
     borderTop: `1px solid ${theme.palette.primary.main}`,

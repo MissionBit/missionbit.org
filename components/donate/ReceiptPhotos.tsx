@@ -4,6 +4,9 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    "@media print": {
+      display: "none",
+    },
     display: "flex",
     flexDirection: "column",
     margin: -theme.spacing(1, 0),

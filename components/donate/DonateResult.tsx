@@ -7,8 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import usdFormatter from "src/usdFormatter";
 import { DONATE_EMAIL } from "src/emails";
 import ReceiptPhotos from "./ReceiptPhotos";
-import { LongDateTimeFormat } from "src/dates";
-import { MAILING_ADDRESS, PHONE_NUMBER, EIN } from "src/orgInfo";
+import { LongDateFormat } from "src/dates";
+import { PHONE_NUMBER, EIN, MAILING_ADDRESS } from "src/orgInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     `,
     gridTemplateColumns: "1fr 2fr",
     padding: theme.spacing(2),
+    "@media print": {
+      gridTemplateColumns: "1fr",
+      gridTemplateAreas: `"receipt"`,
+    },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "1fr",
       gridGap: theme.spacing(4),
@@ -36,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "photos",
   },
   heading: {
-    textTransform: "uppercase",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(40),
       marginBottom: theme.spacing(2),
@@ -44,34 +47,45 @@ const useStyles = makeStyles((theme) => ({
   },
   subHeading: {
     marginTop: theme.spacing(4),
-    textTransform: "uppercase",
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(28),
       marginBottom: theme.spacing(2),
     },
   },
+  orgInfo: {
+    marginTop: theme.spacing(4),
+    fontStyle: "inherit",
+  },
   dl: {
+    "@media print": {
+      display: "grid",
+      gridTemplateColumns: "max-content auto",
+      "& > dt": {
+        gridColumnStart: 1,
+      },
+      "& > dd": {
+        gridColumnStart: 2,
+        marginLeft: "1rem",
+      },
+    },
+    [theme.breakpoints.up("md")]: {
+      display: "grid",
+      gridTemplateColumns: "max-content auto",
+      "& > dt": {
+        gridColumnStart: 1,
+      },
+      "& > dd": {
+        gridColumnStart: 2,
+        marginLeft: "1rem",
+      },
+    },
     fontSize: theme.typography.pxToRem(20),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.pxToRem(16),
     },
     marginTop: theme.spacing(2),
-    "& > dt": {
-      [theme.breakpoints.up("sm")]: {
-        display: "inline",
-      },
-    },
     "& > dd": {
       fontWeight: theme.typography.fontWeightMedium,
-      marginLeft: "1rem",
-      [theme.breakpoints.up("sm")]: {
-        display: "inline",
-        marginLeft: "0.25rem",
-      },
-    },
-    "& > dd::after": {
-      content: '""',
-      display: "block",
     },
     "& > dt::after": {
       content: `": "`,
@@ -94,6 +108,7 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
     payment_method,
     created,
     id,
+    subscriptionId,
   } = sessionInfo;
   return (
     <Container component="main" id="main" className={classes.root}>
@@ -118,7 +133,7 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
           CEO, Mission Bit
         </Typography>
         <Typography variant="h2" className={classes.subHeading}>
-          Donation Receipt
+          Donation receipt
         </Typography>
         <Typography component="dl" className={classes.dl}>
           <dt>Donor Name</dt>
@@ -129,30 +144,38 @@ const DonateResult: React.FC<{ sessionInfo: StripeSessionInfo }> = ({
           <dd>{usdFormatter.format(amount / 100)} USD</dd>
           <dt>Payment Method</dt>
           <dd>{payment_method}</dd>
-          <dt>Date Received</dt>
-          <dd>{LongDateTimeFormat.format(created * 1000)}</dd>
+          <dt>Charge Date</dt>
+          <dd>{LongDateFormat.format(created * 1000)}</dd>
+          {subscriptionId ? (
+            <>
+              <dt>Subscription ID</dt>
+              <dd>
+                <a href={`/donate/subscriptions/${subscriptionId}`}>
+                  {subscriptionId}
+                </a>
+              </dd>
+            </>
+          ) : null}
           <dt>Transaction ID</dt>
           <dd>{id}</dd>
         </Typography>
-        <Typography component="dl" className={classes.dl}>
-          <dt>Organization Name</dt>
-          <dd>Mission Bit</dd>
-          <dt>Address</dt>
-          <dd>{MAILING_ADDRESS}</dd>
-          <dt>Phone Number</dt>
-          <dd>{PHONE_NUMBER}</dd>
-          <dt>Contact Email</dt>
-          <dd>
-            <a
-              href={`mailto:${DONATE_EMAIL}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {DONATE_EMAIL}
-            </a>
-          </dd>
-          <dt>EIN</dt>
-          <dd>{EIN}</dd>
+        <Typography component="address" className={classes.orgInfo}>
+          Mission Bit
+          <br />
+          Tax ID: {EIN}
+          <br />
+          {MAILING_ADDRESS}
+          <br />
+          {PHONE_NUMBER}
+          <br />
+          <a
+            href={`mailto:${DONATE_EMAIL}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {DONATE_EMAIL}
+          </a>
+          <br />
         </Typography>
         <Typography className={classes.body}>
           Mission Bit is a 501(c)(3) nonprofit organization. Your contribution

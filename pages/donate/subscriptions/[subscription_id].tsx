@@ -64,11 +64,22 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ? LongDateFormat.format(subscription.current_period_end * 1000)
       : null;
 
+  const { data: invoices } = await stripe.invoices.list({
+    subscription: subscription.id,
+    limit: 60,
+    status: "paid",
+  });
+
   return {
     props: {
       ...(await getLayoutStaticProps()),
       subscriptionInfo: {
         ...billingDetailsTo(pm.billing_details),
+        paidInvoices: invoices.map((invoice) => ({
+          created: invoice.created,
+          amount: invoice.amount_paid,
+          id: invoice.charge,
+        })),
         id: subscription.id,
         frequency: "monthly",
         amount: subscription.plan.amount * subscription.quantity,

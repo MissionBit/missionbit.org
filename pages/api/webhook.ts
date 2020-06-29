@@ -213,7 +213,7 @@ async function stripeInvoicePaymentFailed(event: Stripe.Event) {
         charge.amount / 100
       )}?frequency=monthly`,
       subscription_id: subscription.id,
-      subscription_url: `${origin}/subscriptions/${subscription.id}`,
+      subscription_url: `${origin}/donate/subscriptions/${subscription.id}`,
     })
   );
 

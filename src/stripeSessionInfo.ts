@@ -69,6 +69,29 @@ export interface StripeSessionInfo {
   name: string;
   email: string;
   created: number;
+  subscriptionId: string | null;
+}
+
+export function stripeSessionInfoFromCharge(
+  charge: Stripe.Charge,
+  frequency: Frequency = "one-time",
+  subscriptionId: string | null = null
+): StripeSessionInfo {
+  const { payment_method_details, id, amount, created } = charge;
+  if (typeof payment_method_details !== "object" || !payment_method_details) {
+    throw new Error(
+      `Expected payment_method_details to be expanded ${JSON.stringify(charge)}`
+    );
+  }
+  return {
+    ...billingDetailsTo(charge.billing_details),
+    id,
+    frequency,
+    amount,
+    payment_method: formatPaymentMethodDetailsSource(payment_method_details),
+    created,
+    subscriptionId,
+  };
 }
 
 export function stripeSessionInfo(
@@ -76,35 +99,25 @@ export function stripeSessionInfo(
 ): StripeSessionInfo {
   switch (session.mode) {
     case "subscription": {
-      if (typeof session.subscription !== "object" || !session.subscription) {
+      const { subscription } = session;
+      if (typeof subscription !== "object" || !subscription) {
         throw new Error(
           `Expected subscription to be expanded ${JSON.stringify(session)}`
         );
       }
-      const { subscription } = session;
-      const pm = subscription.default_payment_method;
-      if (typeof pm !== "object" || !pm) {
+      const { latest_invoice } = subscription;
+      if (typeof latest_invoice !== "object" || !latest_invoice) {
         throw new Error(
-          `Expected default_payment_method to be expanded ${JSON.stringify(
-            session
-          )}`
+          `Expected latest_invoice to be expanded ${JSON.stringify(session)}`
         );
       }
-      const { plan, quantity, created } = subscription;
-      if (typeof plan?.amount !== "number" || typeof quantity !== "number") {
+      const { charge } = latest_invoice;
+      if (typeof charge !== "object" || !charge) {
         throw new Error(
-          `Expected non-null subscription plan ${JSON.stringify(session)}`
+          `Expected charge to be present ${JSON.stringify(session)}`
         );
       }
-
-      return {
-        ...billingDetailsTo(pm.billing_details),
-        id: subscription.id,
-        frequency: "monthly",
-        amount: plan.amount * quantity,
-        payment_method: formatPaymentMethodDetailsSource(pm),
-        created,
-      };
+      return stripeSessionInfoFromCharge(charge, "monthly", subscription.id);
     }
     case "payment": {
       const { payment_intent } = session;
@@ -119,27 +132,7 @@ export function stripeSessionInfo(
           `Expected charge to be present ${JSON.stringify(session)}`
         );
       }
-      const { payment_method_details, id, amount, created } = charge;
-      if (
-        typeof payment_method_details !== "object" ||
-        !payment_method_details
-      ) {
-        throw new Error(
-          `Expected payment_method_details to be expanded ${JSON.stringify(
-            session
-          )}`
-        );
-      }
-      return {
-        ...billingDetailsTo(charge.billing_details),
-        id,
-        frequency: "one-time",
-        amount,
-        payment_method: formatPaymentMethodDetailsSource(
-          payment_method_details
-        ),
-        created,
-      };
+      return stripeSessionInfoFromCharge(charge);
     }
     default: {
       throw new Error(`Unsupported session type ${JSON.stringify(session)}`);

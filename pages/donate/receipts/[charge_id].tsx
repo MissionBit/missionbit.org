@@ -6,7 +6,10 @@ import {
   LayoutStaticProps,
 } from "components/Layout";
 import DonateResult from "components/donate/DonateResult";
-import stripeSessionInfo, { StripeSessionInfo } from "src/stripeSessionInfo";
+import {
+  StripeSessionInfo,
+  stripeSessionInfoFromCharge,
+} from "src/stripeSessionInfo";
 import Head from "next/head";
 
 const Page: NextPage<
@@ -25,20 +28,23 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
-  const { session_id } = ctx.query;
-  if (typeof session_id !== "string") {
+  const { charge_id } = ctx.query;
+  if (typeof charge_id !== "string") {
     res.statusCode = 404;
     res.end();
     return { props: {} };
   }
   const stripe = (await import("src/getStripe")).getStripe();
-  const session = await stripe.checkout.sessions.retrieve(session_id, {
-    expand: ["payment_intent", "subscription.latest_invoice.charge"],
-  });
+  const charge = await stripe.charges.retrieve(charge_id);
+  if (charge.status === "failed") {
+    res.statusCode = 404;
+    res.end();
+    return { props: {} };
+  }
   return {
     props: {
       ...(await getLayoutStaticProps()),
-      sessionInfo: stripeSessionInfo(session),
+      sessionInfo: stripeSessionInfoFromCharge(charge),
     },
   };
 };
