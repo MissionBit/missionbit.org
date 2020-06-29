@@ -5,7 +5,7 @@ import { useStripe } from "@stripe/react-stripe-js";
 import clsx from "clsx";
 import { brand } from "src/colors";
 import BaseToggleButton from "@material-ui/lab/ToggleButton";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import BaseToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import BaseOutlinedInput from "@material-ui/core/OutlinedInput";
 import FormControl from "@material-ui/core/FormControl";
 import BaseInputLabel from "@material-ui/core/InputLabel";
@@ -59,6 +59,12 @@ function mkFontSize(
   };
 }
 
+const FrequencyToggleButtonGroup = withStyles((theme) => ({
+  groupedHorizontal: {
+    ...mkFontSize(theme, "input"),
+  },
+}))(BaseToggleButtonGroup);
+
 const AmountToggleButtonGroup = withStyles((theme) => ({
   root: {
     width: "100%",
@@ -79,7 +85,7 @@ const AmountToggleButtonGroup = withStyles((theme) => ({
       borderBottomRightRadius: "inherit",
     },
   },
-}))(ToggleButtonGroup);
+}))(BaseToggleButtonGroup);
 
 const OutlinedInput = withStyles((theme) => ({
   root: {
@@ -276,7 +282,7 @@ export const DonateCard: React.FC<{
       <Box className={classes.heading}>Choose amount</Box>
       <Box className={classes.content}>
         <form className={classes.form} onSubmit={handleOnSubmit}>
-          <ToggleButtonGroup
+          <FrequencyToggleButtonGroup
             value={frequency}
             exclusive
             onChange={handleFrequency}
@@ -285,7 +291,7 @@ export const DonateCard: React.FC<{
           >
             <ToggleButton value="one-time">One-time</ToggleButton>
             <ToggleButton value="monthly">Monthly</ToggleButton>
-          </ToggleButtonGroup>
+          </FrequencyToggleButtonGroup>
           <AmountToggleButtonGroup
             value={amountCents}
             exclusive

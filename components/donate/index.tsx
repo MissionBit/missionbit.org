@@ -1,6 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Landing from "./Landing";
 import SupportOurWork from "./SupportOurWork";
@@ -13,7 +13,9 @@ import { DonatePrefill } from "./DonateCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
-    gridGap: theme.spacing(1),
+    padding: theme.spacing(0, 4),
+    marginBottom: theme.spacing(2),
+    gridGap: theme.spacing(1, 4),
     gridTemplateRows: "auto",
     gridTemplateColumns: "1fr 1fr",
     gridTemplateAreas: `
@@ -57,6 +59,10 @@ const useStyles = makeStyles((theme) => ({
   },
   photoFooter: {
     gridArea: "photoFooter",
+    margin: theme.spacing(0, -4),
+    [theme.breakpoints.down("sm")]: {
+      margin: 0,
+    },
   },
 }));
 
@@ -69,7 +75,7 @@ const Main: React.FC<DonateProps> = ({ prefill }) => {
   return (
     <main id="main">
       <Landing />
-      <Container className={classes.root}>
+      <Box className={classes.root}>
         <SupportOurWork className={classes.supportOurWork} />
         <MakeAnOnlineGift
           className={classes.makeAnOnlineGift}
@@ -80,7 +86,7 @@ const Main: React.FC<DonateProps> = ({ prefill }) => {
         <OtherWaysToGive className={classes.otherWaysToGive} />
         <FlourishSeparator className={classes.flourishBottom} />
         <PhotoFooter className={classes.photoFooter} />
-      </Container>
+      </Box>
     </main>
   );
 };
