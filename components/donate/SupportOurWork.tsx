@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  button: {},
+  button: {
+    fontSize: theme.typography.pxToRem(20),
+  },
   actions: {
     textAlign: "center",
   },

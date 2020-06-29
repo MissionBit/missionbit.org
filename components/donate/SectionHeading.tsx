@@ -4,6 +4,7 @@ import BaseTypography, { TypographyProps } from "@material-ui/core/Typography";
 
 const Typography = withStyles((theme) => ({
   root: {
+    fontSize: theme.typography.pxToRem(48),
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(0, 4),
       fontSize: theme.typography.pxToRem(36),
