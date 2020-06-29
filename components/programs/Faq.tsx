@@ -67,10 +67,12 @@ const Faq: React.FC<{}> = () => {
       </FaqItem>
 
       <FaqItem question="Where are your classes?">
-        Our classes are located throughout San Francisco and the Bay Area.
+        {/* Our classes are located throughout San Francisco and the Bay Area.
         Students can take our classes at any of our locations. Some students
         choose to take our classes at a school closer to their home, even if
-        they attend a different school!
+        they attend a different school!   */}
+        Due to COVID-19, we will be doing remote programming until the end of
+        the summer.
       </FaqItem>
       <FaqItem question="How long are your classes?">
         Our Fall and Spring courses are 2-hour classes twice a week after
