@@ -3,6 +3,7 @@ import About from "./About";
 import CoreValues from "components/index/CoreValues";
 import Team from "./Team";
 import Jobs from "./Jobs";
+import Publications from "./Publications";
 import Supporters from "components/Supporters";
 
 const Main: React.FC<{}> = () => (
@@ -12,6 +13,7 @@ const Main: React.FC<{}> = () => (
     <Team />
     <Jobs />
     <Supporters />
+    <Publications />
   </main>
 );
 
