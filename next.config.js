@@ -63,10 +63,6 @@ const STRIPE_KEY_POSTFIX =
     ? "_LIVE"
     : "_TEST");
 
-console.log(`NODE_ENV=${process.env.NODE_ENV}`);
-console.log(`CONTEXT=${process.env.CONTEXT || ""}`);
-console.log(`STRIPE_KEY_POSTFIX=${STRIPE_KEY_POSTFIX}`);
-
 const nextConfig = {
   target: "serverless",
   experimental: {
