@@ -143,9 +143,7 @@ const Donate: React.FC<{}> = () => {
         <Box className={classes.buttons}>
           <VioletButton
             variant="contained"
-            href="https://donate.missionbit.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/donate"
             size="large"
             className={classes.button}
           >

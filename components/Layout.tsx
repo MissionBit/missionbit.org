@@ -27,6 +27,8 @@ export interface LayoutProps extends LayoutStaticProps {
   pageImage?: string;
   description?: string;
   requireDocumentSize?: boolean;
+  canonicalPath?: string;
+  origin?: string;
 }
 
 const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
@@ -60,6 +62,8 @@ export const Layout: React.FC<LayoutProps> = ({
   pageImage,
   description,
   buildTime,
+  canonicalPath,
+  origin,
   requireDocumentSize = false,
 }) => {
   useEffect(() => {
@@ -78,6 +82,7 @@ export const Layout: React.FC<LayoutProps> = ({
   }, [requireDocumentSize]);
   const theme = useMemo(() => createMuiTheme(themeOptions), []);
   const router = useRouter();
+  const canonicalUrl = absoluteUrl(canonicalPath ?? router.asPath, origin);
   return (
     <BuildTimeContext.Provider value={buildTime}>
       <Head>
@@ -91,12 +96,16 @@ export const Layout: React.FC<LayoutProps> = ({
         <meta name="twitter:site" content="@missionbit" />
         <meta
           property="og:image"
-          content={absoluteUrl(pageImage ?? "/images/social/logo-fb.png")}
+          content={absoluteUrl(
+            pageImage ?? "/images/social/logo-fb.png",
+            origin
+          )}
         />
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Mission Bit" />
         <meta property="og:type" content="non_profit" />
-        <meta property="og:url" content={absoluteUrl(router.asPath)} />
+        <meta property="og:url" content={canonicalUrl} />
+        <link rel="canonical" href={canonicalUrl} />
         <meta
           property="og:description"
           content={description ?? DEFAULT_DESCRIPTION}
@@ -128,8 +137,12 @@ export const Layout: React.FC<LayoutProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const props: LayoutStaticProps = { buildTime: Date.now() };
+  const props = await getLayoutStaticProps();
   return { props };
 };
+
+export async function getLayoutStaticProps(): Promise<LayoutStaticProps> {
+  return { buildTime: Date.now() };
+}
 
 export default Layout;

@@ -48,10 +48,8 @@ const SupportOurYouth: React.FC<{}> = () => {
       </Typography>
       <Box className={classes.buttons}>
         <VioletButton
-          href="https://donate.missionbit.org/"
+          href="/donate"
           variant="outlined"
-          rel="noopener noreferrer"
-          target="_blank"
           size="large"
           className={classes.button}
         >

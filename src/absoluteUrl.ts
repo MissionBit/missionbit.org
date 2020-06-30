@@ -1,15 +1,21 @@
-export function getOrigin(): string {
-  const defaultOrigin = "https://www.missionbit.org";
+export function getOrigin(origin?: string): string {
+  if (origin !== undefined) {
+    return origin;
+  }
+  const defaultOrigin =
+    process.env.NODE_ENV === "production"
+      ? "https://www.missionbit.org"
+      : "http://localhost:3000";
   if (typeof window !== "undefined") {
     return window.location.origin;
-  } else if (typeof process !== "undefined") {
-    return process.env.URL?.replace(/\/$/, "") || defaultOrigin;
   }
-  return defaultOrigin;
+  return process.env.URL?.replace(/\/$/, "") ?? defaultOrigin;
 }
 
-export function absoluteUrl(pathOrUrl: string) {
-  return pathOrUrl.startsWith("/") ? `${getOrigin()}${pathOrUrl}` : pathOrUrl;
+export function absoluteUrl(pathOrUrl: string, origin?: string) {
+  return pathOrUrl.startsWith("/")
+    ? `${getOrigin(origin)}${pathOrUrl}`
+    : pathOrUrl;
 }
 
 export default absoluteUrl;

@@ -6,6 +6,7 @@ import { Sponsors, SponsorData } from "./SponsorData";
 import { makeStyles } from "@material-ui/core/styles";
 import AdobePdfLogo from "./brands/AdobePdfLogo";
 import { galaStartEnd } from "./GalaDates";
+import { DEVELOPMENT_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   sponsors: {
@@ -108,17 +109,20 @@ const Sponsorship: React.FC<{}> = () => {
         </Typography>
         <Typography>
           Check out our{" "}
-          <a href="/annual-reports/2018/mission-bit-annual-report-2018.pdf">
+          <a
+            href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
+            target="_blank"
+          >
             <AdobePdfLogo fontSize="small" /> 2018 Annual Report
           </a>{" "}
           for more about our vision and current impact. If you have any
           questions, please contact us at{" "}
           <a
-            href="mailto:development@missionbit.org"
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            development@missionbit.org
+            {DEVELOPMENT_EMAIL}
           </a>
           .
         </Typography>
@@ -170,11 +174,11 @@ const Sponsorship: React.FC<{}> = () => {
           {/*or to use a payment method other than credit card, */ " "}
           please contact us at{" "}
           <a
-            href="mailto:development@missionbit.org"
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            development@missionbit.org
+            {DEVELOPMENT_EMAIL}
           </a>
           . For more information about the Gala and individual tickets, visit{" "}
           <a href="/gala">Mission Bit's Fourth Annual Gala</a>.
@@ -191,11 +195,11 @@ const Sponsorship: React.FC<{}> = () => {
           professional opportunity pathways for public schools students. For
           more information, contact us at{" "}
           <a
-            href="mailto:development@missionbit.org"
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            development@missionbit.org
+            {DEVELOPMENT_EMAIL}
           </a>
           .
         </Typography>

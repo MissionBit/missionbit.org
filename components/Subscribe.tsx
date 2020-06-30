@@ -16,7 +16,10 @@ import { brand } from "src/colors";
 import SubscribeImage from "./SubscribeImage";
 
 const useStyles = makeStyles((theme) => ({
-  subscribe: {
+  root: {
+    "@media print": {
+      display: "none",
+    },
     padding: theme.spacing(3),
     display: "flex",
     alignItems: "center",
@@ -75,7 +78,7 @@ const Subscribe: React.FC<{}> = () => {
         square
         component="section"
         elevation={0}
-        className={classes.subscribe}
+        className={classes.root}
         id="get-updates"
       >
         <SubscribeImage className={classes.photo} />

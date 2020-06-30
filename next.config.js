@@ -1,4 +1,4 @@
-const { createWriteStream } = require("fs");
+const { createWriteStream, readFileSync } = require("fs");
 const { join } = require("path");
 const { SitemapStream } = require("sitemap");
 const withPlugins = require("next-compose-plugins");
@@ -42,58 +42,36 @@ function withSitemap(nextConfig = {}) {
   };
 }
 
-const slashRedirects = [
-  "about",
-  "gala",
-  "gala/sponsorship",
-  "programs",
-  "events",
-  "get-involved",
-  "laptop",
-  "laptop/windows",
-  "laptop/mac",
-].map((path) => ({
-  source: `/${path}/`,
-  statusCode: 301,
-  destination: `/${path}`,
-}));
+const SLASH_REDIRECT = /^(\/\S+)\s+(\S+)(?:\s+(\d+)!?)?$/;
+const netlifyRedirects = [];
+readFileSync("_redirects", "utf-8")
+  .split(/\r?\n/)
+  .forEach((line) => {
+    const match = line.match(SLASH_REDIRECT);
+    if (match) {
+      netlifyRedirects.push({
+        source: match[1],
+        destination: match[2],
+        statusCode: +(match[3] || "301"),
+      });
+    }
+  });
 
-const legacyRedirects = [
-  { source: "/about-us/", destination: "/about" },
-  { source: "/workshops/", destination: "/programs" },
-  { source: "/careerprep/", destination: "/programs" },
-  { source: "/volunteer/", destination: "/get-involved" },
-  { source: "/demo-day/", destination: "/events" },
-  { source: "/studentProjects/", destination: "/programs" },
-  { source: "/showcase/", destination: "/programs" },
-  { source: "/30k30days/", destination: "/get-involved" },
-  { source: "/donate/", destination: "https://donate.missionbit.org/" },
-  { source: "/employment/", destination: "/programs" },
-  { source: "/exposure/", destination: "/programs" },
-  { source: "/hackathon/", destination: "/programs" },
-  { source: "/jobs/instructor.html", destination: "/about#jobs" },
-  { source: "/jobs/ta.html", destination: "/about#jobs" },
-  { source: "/laptop/mac.html", destination: "/laptop/mac" },
-  {
-    source: "/laptop/mac",
-    statusCode: 302,
-    destination:
-      "https://docs.google.com/document/d/e/2PACX-1vRamxceeyg7TPuFtbJb6xfrjKfP9Q4C8Vk192C3hAVmFqbejbucv4ID_7S9i3jgu8o8O4odgEsIXV0i/pub",
-  },
-  // TODO:
-  // * /teacher-resources
-].map(({ source, destination, statusCode = 301 }) => ({
-  source,
-  destination,
-  statusCode,
-}));
+const STRIPE_PK_NAME =
+  process.env.NODE_ENV === "production" && process.env.CONTEXT === "production"
+    ? "STRIPE_PK_LIVE"
+    : "STRIPE_PK_TEST";
 
 const nextConfig = {
   target: "serverless",
   experimental: {
     redirects() {
-      return [...slashRedirects, ...legacyRedirects];
+      return netlifyRedirects;
     },
+  },
+  env: {
+    STRIPE_PK: process.env[STRIPE_PK_NAME],
+    STRIPE_PK_NAME,
   },
 };
 

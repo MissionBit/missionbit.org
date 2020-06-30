@@ -10,6 +10,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { INFO_EMAIL } from "src/emails";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +35,7 @@ const Social: React.FC<{}> = () => {
       </Typography>
       <Box className={classes.icons}>
         <Button
-          href="mailto:info@missionbit.org"
+          href={`mailto:${INFO_EMAIL}`}
           target="_blank"
           rel="noopener noreferrer"
           title="Email"
