@@ -28,8 +28,8 @@ async function loadStripePromise() {
   const stripePublishableKey = process.env.STRIPE_PK;
   if (stripePublishableKey === undefined) {
     throw new Error(
-      `Missing ${
-        process.env.STRIPE_PK_NAME ?? "STRIPE_PK"
+      `Missing STRIPE_PK${
+        process.env.STRIPE_KEY_POSTFIX ?? ""
       } configuration for Stripe`
     );
   }

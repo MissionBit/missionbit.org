@@ -6,11 +6,7 @@ const STRIPE_KEY_PREFIXES = [
 export type StripeKeyPrefix = typeof STRIPE_KEY_PREFIXES[number];
 
 export function getStripeKey(prefix: StripeKeyPrefix): string {
-  const name =
-    process.env.NODE_ENV === "production" &&
-    process.env.CONTEXT === "production"
-      ? `${prefix}_LIVE`
-      : `${prefix}_TEST`;
+  const name = `${prefix}${process.env.STRIPE_KEY_POSTFIX ?? ""}`;
   const key = process.env[name];
   if (key === undefined) {
     throw new Error(`Missing ${name} environment variable`);

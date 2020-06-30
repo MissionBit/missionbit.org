@@ -57,10 +57,15 @@ readFileSync("_redirects", "utf-8")
     }
   });
 
-const STRIPE_PK_NAME =
-  process.env.NODE_ENV === "production" && process.env.CONTEXT === "production"
-    ? "STRIPE_PK_LIVE"
-    : "STRIPE_PK_TEST";
+const STRIPE_KEY_POSTFIX =
+  process.env.STRIPE_KEY_POSTFIX ||
+  (process.env.NODE_ENV === "production" && process.env.CONTEXT === "production"
+    ? "_LIVE"
+    : "_TEST");
+
+console.log(`NODE_ENV=${process.env.NODE_ENV}`);
+console.log(`CONTEXT=${process.env.CONTEXT || ""}`);
+console.log(`STRIPE_KEY_POSTFIX=${STRIPE_KEY_POSTFIX}`);
 
 const nextConfig = {
   target: "serverless",
@@ -70,8 +75,8 @@ const nextConfig = {
     },
   },
   env: {
-    STRIPE_PK: process.env[STRIPE_PK_NAME],
-    STRIPE_PK_NAME,
+    STRIPE_KEY_POSTFIX,
+    STRIPE_PK: process.env[`STRIPE_PK${STRIPE_KEY_POSTFIX}`],
   },
 };
 
