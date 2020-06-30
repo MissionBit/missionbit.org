@@ -15,8 +15,10 @@ import { getOrigin } from "src/absoluteUrl";
 const sg = getSendGrid();
 const stripe = getStripe();
 
-const RECEIPT_TEMPLATE_ID = "d-7e5e6a89f9284d2ab01d6c1e27a180f8";
-const FAILURE_TEMPLATE_ID = "d-570b4b8b20e74ec5a9c55be7e07e2665";
+const EMAIL_TEMPLATES = {
+  receipt: "d-7e5e6a89f9284d2ab01d6c1e27a180f8",
+  failure: "d-570b4b8b20e74ec5a9c55be7e07e2665",
+};
 
 function donorName(billing_details: Stripe.Charge.BillingDetails): string {
   if (billing_details.email === null) {
@@ -30,7 +32,7 @@ function donorName(billing_details: Stripe.Charge.BillingDetails): string {
 }
 
 interface EmailTemplateData {
-  templateId: string;
+  template: keyof typeof EMAIL_TEMPLATES;
   charge: Stripe.Charge;
   frequency: Frequency;
   monthly?: {
@@ -43,8 +45,19 @@ interface EmailTemplateData {
   subscription_url?: string;
 }
 
+async function sendEmail(templateData: EmailTemplateData) {
+  const mailData = emailTemplateData(templateData);
+  const email = billingDetailsTo(templateData.charge.billing_details).email;
+  console.log(
+    `Sending ${templateData.frequency} ${templateData.template} for ${templateData.charge.id} to ${email}`
+  );
+  const result = await sg.send(mailData);
+  console.log(`Mail statusCode: ${result[0].statusCode} for ${email}`);
+  return result;
+}
+
 function emailTemplateData({
-  templateId,
+  template,
   charge,
   frequency,
   ...extra
@@ -60,7 +73,7 @@ function emailTemplateData({
     charge.payment_method_details
   );
   return {
-    templateId,
+    templateId: EMAIL_TEMPLATES[template],
     from: { name: "Mission Bit", email: DONATE_EMAIL },
     personalizations: [
       {
@@ -94,22 +107,37 @@ export async function stripeCheckoutSessionCompletedPaymentEmail(id: string) {
     );
   }
   const charge = payment_intent.charges.data[0];
-  await sg.send(
-    emailTemplateData({
-      templateId: RECEIPT_TEMPLATE_ID,
-      charge,
-      frequency: "one-time",
-    })
-  );
+  await sendEmail({
+    template: "receipt",
+    charge,
+    frequency: "one-time",
+  });
+}
+
+function invoiceTemplate({
+  status,
+  billing_reason,
+}: Stripe.Invoice): "receipt" | "failure" | null {
+  if (status === "paid") {
+    return "receipt";
+  } else if (status === "open" && billing_reason === "subscription_cycle") {
+    // No failure email unless it's a renewal, we don't want to send one
+    // if they got an error in the Stripe Checkout UX.
+    return "failure";
+  } else {
+    return null;
+  }
 }
 
 export async function stripeInvoicePaymentEmail(id: string) {
   const invoice = await stripe.invoices.retrieve(id, {
     expand: ["subscription", "payment_intent"],
   });
-  if (invoice.billing_reason !== "subscription_cycle") {
-    // No email unless it's a renewal, they got an error in the
-    // Stripe Checkout UX for new subscriptions.
+  const template = invoiceTemplate(invoice);
+  if (template === null) {
+    console.log(
+      `Skipping invoice ${invoice.id} with billing_reason ${invoice.billing_reason} and status ${invoice.status}`
+    );
     return;
   }
   const subscription = invoice.subscription;
@@ -128,38 +156,30 @@ export async function stripeInvoicePaymentEmail(id: string) {
   }
   const charge = invoice.payment_intent.charges.data[0];
   const origin = getOrigin(subscription.metadata.origin);
-  if (invoice.status === "open") {
-    return await sg.send(
-      emailTemplateData({
-        templateId: FAILURE_TEMPLATE_ID,
-        charge,
-        frequency: "monthly",
-        failure_message: charge.failure_message,
-        renew_url: `${origin}/donate/${usdFormatter.format(
-          charge.amount / 100
-        )}?frequency=monthly`,
-        subscription_id: subscription.id,
-        subscription_url: `${origin}/donate/subscriptions/${subscription.id}`,
-      })
-    );
-  } else if (invoice.status === "paid") {
-    const next = LongDateFormat.format(subscription.current_period_end * 1000);
-    return await sg.send(
-      emailTemplateData({
-        templateId: RECEIPT_TEMPLATE_ID,
-        charge,
-        frequency: "monthly",
-        monthly: {
-          next,
-          url: `${getOrigin(
-            subscription.metadata.origin
-          )}/donate/subscriptions/${subscription.id}`,
-        },
-      })
-    );
+  if (template === "failure") {
+    return await sendEmail({
+      template,
+      charge,
+      frequency: "monthly",
+      failure_message: charge.failure_message,
+      renew_url: `${origin}/donate/${usdFormatter.format(
+        charge.amount / 100
+      )}?frequency=monthly`,
+      subscription_id: subscription.id,
+      subscription_url: `${origin}/donate/subscriptions/${subscription.id}`,
+    });
   } else {
-    throw new Error(
-      `Unexpected invoice.status ${JSON.stringify(invoice.status)}`
-    );
+    const next = LongDateFormat.format(subscription.current_period_end * 1000);
+    return await sendEmail({
+      template,
+      charge,
+      frequency: "monthly",
+      monthly: {
+        next,
+        url: `${getOrigin(subscription.metadata.origin)}/donate/subscriptions/${
+          subscription.id
+        }`,
+      },
+    });
   }
 }
