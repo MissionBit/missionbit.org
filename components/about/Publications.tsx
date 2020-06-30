@@ -39,7 +39,7 @@ const Documents: Document[] = [
 const Publications: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Container component="section" id="jobs" className={classes.root}>
+    <Container component="section" id="publications" className={classes.root}>
       <Typography variant="h4" component="h2" align="center">
         Publications
       </Typography>
