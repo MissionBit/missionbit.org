@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import { CourseDateTimeFormat, hourStartEndParts } from "src/dates";
 import Box from "@material-ui/core/Box";
 import VioletButton from "components/VioletButton";
+import { useRenderTime } from "components/BuildTimeContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -202,6 +203,7 @@ const Event: React.FC<{ event: EventData }> = ({ event }) => {
       ordinalDay: true,
     }
   );
+  const disabled = useRenderTime() > event.date;
 
   const img = (
     <img
@@ -246,6 +248,7 @@ const Event: React.FC<{ event: EventData }> = ({ event }) => {
         variant="contained"
         size="large"
         className={classes.button}
+        disabled={disabled}
       >
         Sign Up
       </VioletButton>
