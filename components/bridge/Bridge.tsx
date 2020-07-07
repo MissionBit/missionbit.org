@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TeamData from "./TeamData";
 import VioletButton from "components/VioletButton";
+import Person from "./Person";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -42,16 +43,8 @@ const Bridge: React.FC<{}> = () => {
         >
           <Typography variant="h2">{section}</Typography>
           <Box className={classes.team}>
-            {members.map(({ name, bio, image, title }, i) => (
-              <Box key={i}>
-                <picture>
-                  <source type="image/webp" srcSet={image.webp} />
-                  <img alt={name} src={image.jpg} />
-                </picture>
-                <Typography variant="h3">{name}</Typography>
-                <Typography variant="h4">{title}</Typography>
-                <Typography>{bio}</Typography>
-              </Box>
+            {members.map((props, i) => (
+              <Person key={i} {...props} />
             ))}
           </Box>
         </Container>

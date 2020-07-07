@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const TEAM_TYPES = ["Team", "Keynote Speaker"] as const;
+export const TEAM_TYPES = ["Team", "Keynote Speaker", "Panelist"] as const;
 export type TeamType = typeof TEAM_TYPES[number];
 
 export interface TeamMemberProps {
@@ -146,20 +146,40 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
       <>
         I am currently a software engineer specializing in UI development on the
         Customer Acquisition Team at Slack where my mission is to make your
-        working life simpler, more pleasant and more productive.
-        <br />
-        <br />
-        I have been working professionally as a developer since 2015 and hold a
-        Bachelors in Computer Science from Hampton University and a Masters in
-        Computer Science from Cornell Tech.
+        working life simpler, more pleasant and more productive. I have been
+        working professionally as a developer since 2015 and hold a Bachelors in
+        Computer Science from Hampton University and a Masters in Computer
+        Science from Cornell Tech.
         <br />
         <br />
         Outside of Slack, I am an Executive Director of Techqueria, a 501c3
         nonprofit that serves the largest community of Latinx in Tech in the US.
-        <br />
-        <br />I also support Code Nation as a member of their Bay Area
-        Leadership Council and the Latino Community Foundation as a member of
-        their Latinos in Tech Giving Circle.
+        I also support Code Nation as a member of their Bay Area Leadership
+        Council and the Latino Community Foundation as a member of their Latinos
+        in Tech Giving Circle.
+      </>
+    ),
+  },
+];
+
+const PANELISTS: TeamMemberProps[] = [
+  {
+    name: "Allison Doami",
+    type: "Panelist",
+    title: "Data Infrastructure Engineer, Chan Zuckerberg Initiative",
+    ...image("panelists/allison_doami.jpg"),
+    bio: (
+      <>
+        Allison Doami is currently a Data Infrastructure Engineer at the Chan
+        Zuckerberg Initiative, which is Mark Zuckerberg and his wife Priscilla
+        Chan's philanthropy aimed to improve learning experiences for children
+        by focusing on the whole child using learning science to empower
+        teachers to support each of their student's unique needs, prevent,
+        manage, or cure all diseases by the end of the century by creating
+        collaborative tools for scientists, researchers, and patients, and
+        reform the criminal justice system by creating a future for everyone
+        that is more just, inclusive, and full of opportunity. She earned a BS
+        in Electrical Engineering from UCLA in 2019.
       </>
     ),
   },
@@ -167,6 +187,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
 
 const TeamData = [
   { section: "Keynote Speakers", members: KEYNOTE_SPEAKERS },
+  { section: "Panelists", members: PANELISTS },
   { section: "Grant Team", members: GRANT_TEAM },
 ];
 
