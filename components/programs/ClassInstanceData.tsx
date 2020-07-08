@@ -15,6 +15,7 @@ export const CourseSkills = [
   "Interviewing",
   "p5.js",
   "Javascript",
+  "Networking",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -56,6 +57,11 @@ const interviewingImage = {
 const p5jsImage = {
   src: require("public/images/program/p5js.svg"),
   alt: "p5.js logo",
+};
+
+const networkingImage = {
+  src: require("public/images/program/networking.svg"),
+  alt: "Three people standing around talking",
 };
 
 export interface Course {
@@ -162,8 +168,9 @@ export const Courses = courseRecord({
     image: webImage,
     description: (
       <>
-        This is an introductory workshop where students will be able to build a
-        portfolio. No web design or coding experience necessary.
+        This is a beginner workshop where students will be able to build a
+        portfolio with HTML and CSS. No web design or coding experience
+        necessary.
       </>
     ),
   },
@@ -208,6 +215,8 @@ export const Courses = courseRecord({
         with the power of coding. Personalize your skit with your own recorded
         voice and hand drawn character, whilst learning about the vast world of
         animation.
+        <br></br>
+        Taught by Mission Bit Student Ambassadors.
       </>
     ),
   },
@@ -253,6 +262,22 @@ export const Courses = courseRecord({
         accessible to everyone, especially beginners! In this workshop, we’ll
         explore the basics of text-based coding and specific elements of p5.js
         while getting creative with individual projects.
+        <br></br>
+        Taught by Mission Bit Student Ambassadors.
+      </>
+    ),
+  },
+  networking_workshop: {
+    title: "Networking 101",
+    skills: ["Networking", "Career Preparation"],
+    image: networkingImage,
+    description: (
+      <>
+        This workshop is for youth looking to develop their skills in
+        networking. Learn how to create a personal brand that represents your
+        best self when meeting and communicating with potential colleagues and
+        mentors. Come prepared to meet with peers and practice your new
+        networking skills.
       </>
     ),
   },
@@ -364,26 +389,26 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.video_sensing_workshop,
-    dateString: "2020-06-24T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4833176",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
-    course: Courses.p5js_workshop,
-    dateString: "2020-06-29T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4833610",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
-    course: Courses.interviewing_workshop,
-    dateString: "2020-07-01T15:30:00-07:00",
+    course: Courses.networking_workshop,
+    dateString: "2020-07-15T15:30:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4833569",
+    signupUrl: "https://www.tfaforms.com/4837062",
     who: "16 - 24 year olds",
   }),
+  summerWorkshop({
+    course: Courses.beginner_web_workshop,
+    dateString: "2020-07-22T15:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4836338",
+    who: "7th - 12th graders",
+  }),
+  // summerWorkshop({
+  //   course: Courses.scratch_window_workshop,
+  //   dateString: "2020-06-10T16:00:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4827910",
+  //   who: "7th - 12th graders",
+  // }),
   // summerWorkshop({
   //   course: Courses.careerprep_resume_workshop,
   //   dateString: "2020-05-21T15:30:00-07:00",
@@ -399,13 +424,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   //   signupUrl: "https://www.tfaforms.com/4827761",
   //   who: "7th - 12th graders",
   // }),
-  // summerWorkshop({
-  //   course: Courses.scratch_window_workshop,
-  //   dateString: "2020-06-10T16:00:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4827910",
-  //   who: "7th - 12th graders",
-  // }),
+
   // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
