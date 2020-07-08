@@ -263,6 +263,7 @@ export const Courses = courseRecord({
         explore the basics of text-based coding and specific elements of p5.js
         while getting creative with individual projects.
         <br></br>
+        <br></br>
         Taught by Mission Bit Student Ambassadors.
       </>
     ),
@@ -394,6 +395,13 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4837062",
     who: "16 - 24 year olds",
+  }),
+  summerWorkshop({
+    course: Courses.p5js_workshop,
+    dateString: "2020-07-20T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4837613",
+    who: "7th - 12th graders",
   }),
   summerWorkshop({
     course: Courses.beginner_web_workshop,
