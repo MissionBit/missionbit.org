@@ -4,7 +4,12 @@ import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Donate from "components/donate";
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
-  <Layout {...props} canonicalPath="/donate" title="Mission Bit – Donate">
+  <Layout
+    {...props}
+    canonicalPath="/donate"
+    title="Donate Today - Mission Bit"
+    description="Donate and support San Francisco area 501c3 Mission Bit today with a (tax-deductable) donation."
+  >
     <Donate />
   </Layout>
 );

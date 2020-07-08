@@ -73,8 +73,6 @@ const Landing: React.FC<{}> = () => {
     <Container id="landing" component="section" className={classes.root}>
       <Box className={classes.column}>
         <Typography variant="h2" component="h1" className={classes.title}>
-          Upcoming
-          <br />
           Events
         </Typography>
         <Typography className={classes.copy}>

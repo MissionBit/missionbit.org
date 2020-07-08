@@ -23,7 +23,8 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
       headerClassName={classes.header}
       headerChildren={<Landing />}
       requireDocumentSize={true}
-      title="Mission Bit – Get Involved"
+      title="Get Involved - Mission Bit"
+      description="Help Mission Bit by volunteering or donating to help support its cause and mission of bridging the technology divide today."
     >
       <GetInvolved />
     </Layout>
