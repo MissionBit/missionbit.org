@@ -6,7 +6,7 @@ import Events from "components/events";
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
     {...props}
-    title="Upcoming Events - Mission Bit"
+    title="Events - Mission Bit"
     description="Mission Bit participates and hosts a number of upcoming events and after-school workships in the San Francisco area that are free for students and their families."
   >
     <Events />

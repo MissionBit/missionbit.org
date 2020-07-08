@@ -8,7 +8,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
     {...props}
     canonicalPath="/donate"
     title="Donate Today - Mission Bit"
-    description="Donate and support San Francisco area 501c3 Mission Bit today with a (tax-deductable) donation."
+    description="Donate and support San Francisco area 501c3 Mission Bit today with a tax-deductible donation."
   >
     <Donate />
   </Layout>
