@@ -58,6 +58,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     fontStyle: "normal",
   },
+  taxExempt: {
+    fontStyle: "italic",
+    marginTop: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 4),
+    },
+  },
 }));
 
 export const OtherWaysToGive: React.FC<{ className?: string }> = ({
@@ -119,13 +126,6 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
         </Link>{" "}
         if you have something to donate.
       </FaqItem>
-      <FaqItem question="Is this donation tax deductible?">
-        Mission Bit is a 501(c)3 tax-exempt organization and your donation is
-        tax-deductible within the guidelines of U.S. law. To claim a donation as
-        a deduction on your U.S. taxes, please keep your email donation receipt
-        as your official record. We'll send it to you upon successful completion
-        of your donation.
-      </FaqItem>
       <FaqItem question="Anything else?">
         For more information or assistance, please contact us by email at{" "}
         <Link
@@ -147,6 +147,13 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
         </Link>
         .
       </FaqItem>
+      <Typography variant="body2" className={classes.taxExempt}>
+        Mission Bit is a 501(c)3 tax-exempt organization and your donation is
+        tax-deductible within the guidelines of U.S. law. To claim a donation as
+        a deduction on your U.S. taxes, please keep your email donation receipt
+        as your official record. We'll send it to you upon successful completion
+        of your donation.
+      </Typography>
     </Container>
   );
 };
