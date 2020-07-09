@@ -20,7 +20,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
   return (
     <Layout
       {...props}
-      title="Mission Bit"
+      title="Free coding courses for San Franciso high schoolers - Mission Bit"
       alerts={<Alerts />}
       headerChildren={<Landing />}
       headerClassName={classes.header}
