@@ -126,7 +126,7 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
         </Link>{" "}
         if you have something to donate.
       </FaqItem>
-      <FaqItem question="Anything else?">
+      <FaqItem question="Other">
         For more information or assistance, please contact us by email at{" "}
         <Link
           href={`mailto:${DEVELOPMENT_EMAIL}`}
