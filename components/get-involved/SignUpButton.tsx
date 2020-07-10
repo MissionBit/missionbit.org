@@ -8,7 +8,7 @@ const SignUpButton: React.FC<{ className?: string }> = ({ className }) => {
       variant="contained"
       size="large"
       color="secondary"
-      href="https://docs.google.com/forms/d/e/1FAIpQLSddADoXnDOTw9Y-dlgn47P_hcSyO_BtZpbhB4pntEygKQzMCg/viewform"
+      href="https://www.tfaforms.com/4835077"
       target="_blank"
       rel="noopener noreferrer"
     >
