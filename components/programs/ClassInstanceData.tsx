@@ -410,13 +410,13 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     signupUrl: "https://www.tfaforms.com/4836338",
     who: "7th - 12th graders",
   }),
-  // summerWorkshop({
-  //   course: Courses.scratch_window_workshop,
-  //   dateString: "2020-06-10T16:00:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4827910",
-  //   who: "7th - 12th graders",
-  // }),
+  summerWorkshop({
+    course: Courses.scratch_window_workshop,
+    dateString: "2020-08-12T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4838017",
+    who: "7th - 12th graders",
+  }),
   // summerWorkshop({
   //   course: Courses.careerprep_resume_workshop,
   //   dateString: "2020-05-21T15:30:00-07:00",
