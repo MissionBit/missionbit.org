@@ -43,6 +43,10 @@ const MissionStatement: React.FC<{}> = () => {
       <Container>
         <AsteriskIcon className={classes.flourish} />
         <Typography className={classes.copy} component="h1">
+          Mission Bit: Bridging the Tech Divide
+        </Typography>
+        <br />
+        <Typography className={classes.copy} component="h2">
           Mission Bit is dedicated to inspiring and empowering students to
           unlock their full potential. We build professional pathways for under
           resourced high school youth across the SF Bay Area by making computer

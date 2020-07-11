@@ -85,10 +85,10 @@ const Landing: React.FC<{}> = () => {
   return (
     <Container id="landing" component="section" className={classes.root}>
       <Box className={classes.column}>
-        <Typography variant="h2" component="h1" className={classes.title}>
+        <Typography variant="h2" className={classes.title}>
           Become an Innovator
         </Typography>
-        <Typography className={classes.copy}>
+        <Typography className={classes.copy} component="h1">
           Mission Bit provides free after-school coding courses,{" "}
           <Link href="#workshops">workshops</Link>, and{" "}
           <Link href="#courses">summer bootcamps</Link> to high school students

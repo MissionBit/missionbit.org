@@ -60,7 +60,8 @@ export const SupportOurWork: React.FC<{ className?: string }> = ({
       <BodyText className={classes.body}>
         Join us in narrowing the digital divide by making a gift today to ensure
         that our students continue to have access to our educational experiences
-        and our incredible community.
+        and our incredible community. All donations are tax-deductible to the
+        extent allowed by IRS guidelines
       </BodyText>
       <Photo photo="1" className={classes.mobilePhoto} />
       <Box className={classes.actions}>
