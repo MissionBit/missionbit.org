@@ -183,6 +183,36 @@ const PANELISTS: TeamMemberProps[] = [
       </>
     ),
   },
+  {
+    name: "Yulkendy  Valdez",
+    type: "Panelist",
+    title: "Co-Founder & CEO, Forefront",
+    ...image("panelists/yulkendy_valdez.jpg"),
+    bio: (
+      <>
+        Yulkendy is a Forbes 30 Under 30 social entrepreneur, storyteller, and
+        TEDx speaker. As the Co-Founder and CEO of Forefront, she helps
+        employers, schools, and nonprofits create low-barrier, culturally
+        relevant virtual experiences for youth (ages 16-24) to facilitate their
+        transition from education to career.
+        <br />
+        <br />
+        Yulkendy brings a diverse set of both corporate and nonprofit experience
+        to the table. She’s worked with Bank of America, EY, Puma, and Innosight
+        Consulting as well as the International Institute of St. Louis and Betty
+        Jean Kerr People’s Centers. Yulkendy has received numerous fellowships,
+        including the Resolution Project, Young People For, Opportunity Nation
+        Leaders Program, Future Founders Fellowship, Net Impact Racial Equity
+        Fellowship, Harvard Kennedy School Public Policy Leadership Conference,
+        One Young World, StartingBloc, and PPIA Indiana University. She is a
+        proud alumna of Babson College, #1 school for entrepreneurship. More
+        recently, she was named one of the Latino 30 Under 30 honorees by El
+        Mundo Boston and a top millennial in Boston by Get Konnected. With roots
+        in her hometown of St. Louis, Missouri, Yulkendy has traveled to over
+        30+ countries for work and fun.
+      </>
+    ),
+  },
 ];
 
 const TeamData = [
