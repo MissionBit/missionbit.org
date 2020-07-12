@@ -15,7 +15,30 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(4, 0),
   },
   team: {},
-  button: {},
+  button: {
+    fontSize: theme.typography.h4.fontSize,
+  },
+  register: {
+    textAlign: "center",
+    padding: theme.spacing(4, 0),
+  },
+  sponsors: {
+    display: "grid",
+    gridGap: theme.spacing(4),
+    padding: theme.spacing(4, 0),
+    gridTemplateColumns: "repeat(auto-fit, minmax(60px, 1fr))",
+    gridTemplateRows: "repeat(auto-fit, 200px)",
+    "& a": {
+      margin: 0,
+      alignSelf: "center",
+      height: "100%",
+    },
+    "& img": {
+      objectFit: "contain",
+      height: "100%",
+      width: "100%",
+    },
+  },
 }));
 
 const Bridge: React.FC<{}> = () => {
@@ -23,7 +46,7 @@ const Bridge: React.FC<{}> = () => {
   return (
     <main id="main" className={classes.root}>
       <Intro />
-      <Container component="section" id="register">
+      <Container component="section" id="register" className={classes.register}>
         <VioletButton
           href="https://www.tfaforms.com/4835468"
           target="_blank"
@@ -41,7 +64,9 @@ const Bridge: React.FC<{}> = () => {
           id={section.toLowerCase().replace(" ", "-")}
           key={section}
         >
-          <Typography variant="h2">{section}</Typography>
+          <Typography variant="h2" align="center">
+            {section}
+          </Typography>
           <Box className={classes.team}>
             {members.map((props, i) => (
               <Person key={i} {...props} />
@@ -50,8 +75,10 @@ const Bridge: React.FC<{}> = () => {
         </Container>
       ))}
       <Container component="section" id="sponsors">
-        <Typography variant="h2">Sponsors</Typography>
-        <Box>
+        <Typography variant="h2" align="center">
+          Sponsors
+        </Typography>
+        <Box className={classes.sponsors}>
           {Sponsors.map(({ href, title, logoUrl }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
               <img src={logoUrl} alt={title} />

@@ -18,13 +18,41 @@ const useStyles = makeStyles((theme) => ({
     `,
     gridGap: theme.spacing(2, 4),
     gridTemplateColumns: "1fr 2fr",
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateAreas: `
+        "logo title"
+        "subtitle subtitle"
+        "date date"
+        "time time"
+        "body body"
+      `,
+    },
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateAreas: `
+      "logo"
+      "title"
+      "subtitle"
+      "date"
+      "time"
+      "body"
+    `,
+      gridTemplateColumns: "1fr",
+    },
   },
   logo: {
     gridArea: "logo",
     objectFit: "contain",
+    alignSelf: "center",
+    [theme.breakpoints.down("sm")]: {
+      maxHeight: 200,
+    },
   },
   title: {
     gridArea: "title",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h3.fontSize,
+      alignSelf: "center",
+    },
   },
   subtitle: {
     gridArea: "subtitle",
@@ -67,10 +95,10 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         Gathering SF high school youth in unprecedented times to bridge the tech
         divide.
       </Typography>
-      <Typography variant="h3" className={classes.date}>
+      <Typography variant="h3" className={classes.date} align="center">
         {date}
       </Typography>
-      <Typography variant="h3" className={classes.time}>
+      <Typography variant="h3" className={classes.time} align="center">
         {time}
       </Typography>
       <Typography className={classes.body}>

@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import { TeamMemberProps } from "./TeamData";
+import { brand } from "src/colors";
+import RectImage from "components/RectImage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,12 +41,22 @@ const Person: React.FC<TeamMemberProps> = ({ name, bio, image, title }) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <picture className={classes.picture}>
-        <source type="image/webp" srcSet={image.webp} />
-        <img alt={name} src={image.jpg} />
-      </picture>
-      <Typography variant="h3">{name}</Typography>
-      <Typography variant="h4">{title}</Typography>
+      <RectImage
+        width={300}
+        height={300}
+        left={31}
+        right={25}
+        top={33}
+        bottom={20}
+        id={`person-${name.replace(" ", "-")}`}
+        desc={name}
+        className={classes.picture}
+        fill={brand.indigo}
+        srcSetWebP={image.webp}
+        src={image.jpg}
+      />
+      <Typography variant="h4">{name}</Typography>
+      <Typography variant="h5">{title}</Typography>
       <Typography>{bio}</Typography>
     </Box>
   );
