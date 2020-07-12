@@ -17,6 +17,23 @@ const useStyles = makeStyles((theme) => ({
       / 380px 1fr
     `,
     margin: theme.spacing(4, 0),
+    [theme.breakpoints.down("sm")]: {
+      gridTemplate: `
+      "picture name"  min-content
+      "picture title" min-content
+      "bio bio"   1fr
+      / 200px 1fr
+    `,
+    },
+    [theme.breakpoints.down("xs")]: {
+      gridTemplate: `
+      "picture"
+      "name"
+      "title"
+      "bio"
+      / 1fr
+    `,
+    },
   },
   picture: {
     gridArea: "picture",
@@ -55,9 +72,13 @@ const Person: React.FC<TeamMemberProps> = ({ name, bio, image, title }) => {
         srcSetWebP={image.webp}
         src={image.jpg}
       />
-      <Typography variant="h4">{name}</Typography>
-      <Typography variant="h5">{title}</Typography>
-      <Typography>{bio}</Typography>
+      <Typography variant="h4" className={classes.name}>
+        {name}
+      </Typography>
+      <Typography variant="h5" className={classes.title}>
+        {title}
+      </Typography>
+      <Typography className={classes.bio}>{bio}</Typography>
     </Box>
   );
 };
