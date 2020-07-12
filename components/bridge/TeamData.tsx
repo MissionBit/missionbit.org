@@ -20,7 +20,7 @@ function image(path: string): { image: { jpg: string; webp: string } } {
   };
 }
 
-const GRANT_TEAM: TeamMemberProps[] = [
+const TEAM: TeamMemberProps[] = [
   {
     name: "Johnny Lin",
     type: "Team",
@@ -218,7 +218,7 @@ const PANELISTS: TeamMemberProps[] = [
 const TeamData = [
   { section: "Keynote Speakers", members: KEYNOTE_SPEAKERS },
   { section: "Panelists", members: PANELISTS },
-  { section: "Grant Team", members: GRANT_TEAM },
+  { section: "Team", members: TEAM },
 ];
 
 export default TeamData;
