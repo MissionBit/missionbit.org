@@ -103,7 +103,7 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
       </Typography>
       <Typography className={classes.body}>
         Bridging the Youth Tech Divide 2020 is a free conference{" "}
-        <Link href="#grant-team" color="secondary">
+        <Link href="#team" color="secondary">
           led by SF youth
         </Link>{" "}
         for SF youth, seeking to inspire attendees to explore the potential and
