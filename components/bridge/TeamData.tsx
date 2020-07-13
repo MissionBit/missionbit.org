@@ -7,15 +7,28 @@ export interface TeamMemberProps {
   name: string;
   title: string;
   type: TeamType;
-  image: { jpg: string; webp: string };
+  image: { jpg: string; webp: string; srcSet: string };
   bio: React.ReactNode;
 }
 
-function image(path: string): { image: { jpg: string; webp: string } } {
+const PHOTO_SIZES = {
+  "": { width: 600, height: 600 },
+  "@0.5x": { width: 300, height: 300 },
+} as const;
+
+function image(postfix: string): Pick<TeamMemberProps, "image"> {
+  const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
     image: {
-      jpg: require(`public/images/bridge/${path}`),
-      webp: require(`public/images/bridge/${path}?webp`),
+      jpg: require(`public/images/bridge/${postfix}.jpg`),
+      srcSet: SIZE_ORDER.map((k) => {
+        const fn = require(`public/images/bridge/${postfix}${k}.jpg`);
+        return `${fn} ${PHOTO_SIZES[k].width}w`;
+      }).join(","),
+      webp: SIZE_ORDER.map((k) => {
+        const fn = require(`public/images/bridge/${postfix}${k}.jpg?webp`);
+        return `${fn} ${PHOTO_SIZES[k].width}w`;
+      }).join(","),
     },
   };
 }
@@ -25,7 +38,7 @@ const TEAM: TeamMemberProps[] = [
     name: "Johnny Lin",
     type: "Team",
     title: "Student Ambassador, Mission Bit",
-    ...image("team/johnny_lin.jpg"),
+    ...image("team/johnny_lin"),
     bio: (
       <>
         Hello! My name is Johnny and I am one of the youth organizers for the
@@ -47,7 +60,7 @@ const TEAM: TeamMemberProps[] = [
     name: "Alexander Peng",
     type: "Team",
     title: "Student Ambassador, Mission Bit",
-    ...image("team/alexander_peng.jpg"),
+    ...image("team/alexander_peng"),
     bio: (
       <>
         Hey! I’m Alex and I’ll be one of your organizers for the conference. I’m
@@ -68,7 +81,7 @@ const TEAM: TeamMemberProps[] = [
     name: "Derick Du",
     type: "Team",
     title: "Student Ambassador, Mission Bit",
-    ...image("team/derick_du.jpg"),
+    ...image("team/derick_du"),
     bio: (
       <>
         Hi, my name is Derick and I am part of the Mission Bit SAB and will be
@@ -90,7 +103,7 @@ const TEAM: TeamMemberProps[] = [
     name: "Tara Tiong",
     type: "Team",
     title: "Student Ambassador, Mission Bit",
-    ...image("team/tara_tiong.jpg"),
+    ...image("team/tara_tiong"),
     bio: (
       <>
         Hi! I’m Tara, my team and I organized this conference. I am looking
@@ -115,7 +128,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
     name: "Caitlin Kalinowski",
     type: "Keynote Speaker",
     title: "Director of VR Hardware, Facebook",
-    ...image("keynote-speakers/caitlin_kalinowski.jpg"),
+    ...image("keynote-speakers/caitlin_kalinowski"),
     bio: (
       <>
         Caitlin Kalinowski heads up the VR Hardware team for Facebook’s AR/VR
@@ -142,7 +155,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
     type: "Keynote Speaker",
     title:
       "Software engineer at Slack and the Executive Director of Techqueria",
-    ...image("keynote-speakers/frances_coronel.jpg"),
+    ...image("keynote-speakers/frances_coronel"),
     bio: (
       <>
         I am currently a software engineer specializing in UI development on the
@@ -168,7 +181,7 @@ const PANELISTS: TeamMemberProps[] = [
     name: "Allison Doami",
     type: "Panelist",
     title: "Data Infrastructure Engineer, Chan Zuckerberg Initiative",
-    ...image("panelists/allison_doami.jpg"),
+    ...image("panelists/allison_doami"),
     bio: (
       <>
         Allison Doami is currently a Data Infrastructure Engineer at the Chan
@@ -188,7 +201,7 @@ const PANELISTS: TeamMemberProps[] = [
     name: "Yulkendy Valdez",
     type: "Panelist",
     title: "Co-Founder & CEO, Forefront",
-    ...image("panelists/yulkendy_valdez.jpg"),
+    ...image("panelists/yulkendy_valdez"),
     bio: (
       <>
         Yulkendy is a Forbes 30 Under 30 social entrepreneur, storyteller, and
@@ -218,7 +231,7 @@ const PANELISTS: TeamMemberProps[] = [
     name: "Simran Kumar",
     type: "Panelist",
     title: "Mission Bit alum",
-    ...image("panelists/simran_kumar.jpg"),
+    ...image("panelists/simran_kumar"),
     bio: (
       <>
         Hi! I’m Simran, a 2014 Mission Bit alum and Mission native with big love
