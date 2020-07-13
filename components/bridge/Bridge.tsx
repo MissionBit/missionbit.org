@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import TeamData from "./TeamData";
 import VioletButton from "components/VioletButton";
 import Person from "./Person";
-import Sponsors from "./SponsorData";
+import Sponsors, { Employers } from "./SponsorData";
 import Intro from "./Intro";
 import Metadata, { registerUrl } from "./Metadata";
 
@@ -46,6 +46,28 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "1fr",
       gridGap: theme.spacing(4, 0),
+      gridTemplateRows: "auto",
+    },
+  },
+  employers: {
+    display: "grid",
+    gridGap: theme.spacing(4),
+    padding: theme.spacing(4, 0),
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gridTemplateRows: "repeat(auto-fit, 200px)",
+    "& a": {
+      margin: 0,
+      alignSelf: "center",
+      height: "100%",
+    },
+    "& img": {
+      objectFit: "contain",
+      height: "100%",
+      width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateColumns: "1fr 1fr",
+      gridGap: theme.spacing(2, 0),
       gridTemplateRows: "auto",
     },
   },
@@ -101,12 +123,13 @@ const Bridge: React.FC<{}> = () => {
         <Typography variant="h2" align="center">
           Our Speakers Work At
         </Typography>
-        <Typography align="center" variant="h2" component="div">
-          <br />
-          [PLACEHOLDER]
-          <br />
-          <br />
-        </Typography>
+        <Box className={classes.employers}>
+          {Employers.map(({ href, title, logoUrl }) => (
+            <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+              <img src={logoUrl} alt={title} />
+            </a>
+          ))}
+        </Box>
       </Container>
     </main>
   );
