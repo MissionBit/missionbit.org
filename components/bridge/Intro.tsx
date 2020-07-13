@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
       "time time"
       "body body"
     `,
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
     gridGap: theme.spacing(2, 4),
     gridTemplateColumns: "1fr 2fr",
     [theme.breakpoints.down("sm")]: {
@@ -67,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
   date: {
     gridArea: "date",
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(4),
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: theme.typography.h4.fontSize,
     },
@@ -77,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
   time: {
     gridArea: "time",
-    paddingBottom: theme.spacing(2),
+    paddingBottom: theme.spacing(4),
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: theme.typography.h4.fontSize,
     },

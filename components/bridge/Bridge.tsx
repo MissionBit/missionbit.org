@@ -21,8 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
   register: {
     textAlign: "center",
-    padding: theme.spacing(4, 0),
-    marginBottom: theme.spacing(4),
+    padding: theme.spacing(2, 0),
+    marginBottom: theme.spacing(6),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+    },
   },
   sponsors: {
     display: "grid",
