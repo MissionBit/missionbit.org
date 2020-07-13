@@ -184,7 +184,7 @@ const PANELISTS: TeamMemberProps[] = [
     ),
   },
   {
-    name: "Yulkendy  Valdez",
+    name: "Yulkendy Valdez",
     type: "Panelist",
     title: "Co-Founder & CEO, Forefront",
     ...image("panelists/yulkendy_valdez.jpg"),
@@ -210,6 +210,25 @@ const PANELISTS: TeamMemberProps[] = [
         Mundo Boston and a top millennial in Boston by Get Konnected. With roots
         in her hometown of St. Louis, Missouri, Yulkendy has traveled to over
         30+ countries for work and fun.
+      </>
+    ),
+  },
+  {
+    name: "Simran Kumar",
+    type: "Panelist",
+    title: "Mission Bit alum",
+    ...image("panelists/simran_kumar.jpg"),
+    bio: (
+      <>
+        Hi! I’m Simran, a 2014 Mission Bit alum and Mission native with big love
+        for the city. I graduated from Lowell High School, and studied Economics
+        in college to better understand how money moves in society. I’ve been
+        involved with social justice work for more than 9 years now and
+        especially more since after college as I got to a place where I can give
+        back and empower others. Education and food equality are my two
+        favorites to speak on. On my free time you can catch my dad and me
+        cooking it up for the homeless around the neighborhood, sewing, or
+        playing with my dog.
       </>
     ),
   },

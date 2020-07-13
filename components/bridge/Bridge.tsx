@@ -38,6 +38,11 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
       width: "100%",
     },
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateColumns: "1fr",
+      gridGap: theme.spacing(4, 0),
+      gridTemplateRows: "auto",
+    },
   },
 }));
 

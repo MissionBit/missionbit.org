@@ -53,16 +53,35 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h3.fontSize,
       alignSelf: "center",
     },
+    [theme.breakpoints.down("xs")]: {
+      textAlign: "center",
+    },
   },
   subtitle: {
     gridArea: "subtitle",
     color: theme.typography.h3.color,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h5.fontSize,
+      textAlign: "center",
+    },
   },
   date: {
     gridArea: "date",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
   time: {
     gridArea: "time",
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
   },
   body: {
     gridArea: "body",
