@@ -8,6 +8,7 @@ import VioletButton from "components/VioletButton";
 import Person from "./Person";
 import Sponsors from "./SponsorData";
 import Intro from "./Intro";
+import Metadata, { registerUrl } from "./Metadata";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   register: {
     textAlign: "center",
     padding: theme.spacing(4, 0),
+    marginBottom: theme.spacing(4),
   },
   sponsors: {
     display: "grid",
@@ -50,10 +52,11 @@ const Bridge: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <main id="main" className={classes.root}>
+      <Metadata />
       <Intro />
       <Container component="section" id="register" className={classes.register}>
         <VioletButton
-          href="https://www.tfaforms.com/4835468"
+          href={registerUrl}
           target="_blank"
           rel="noopener noreferrer"
           variant="contained"
@@ -90,6 +93,17 @@ const Bridge: React.FC<{}> = () => {
             </a>
           ))}
         </Box>
+      </Container>
+      <Container component="section" id="employers">
+        <Typography variant="h2" align="center">
+          Our Speakers Work At
+        </Typography>
+        <Typography align="center" variant="h2" component="div">
+          <br />
+          [PLACEHOLDER]
+          <br />
+          <br />
+        </Typography>
       </Container>
     </main>
   );

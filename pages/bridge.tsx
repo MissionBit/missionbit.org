@@ -1,18 +1,15 @@
 import { NextPage } from "next";
 import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
-import oneLine from "src/oneLine";
 import Bridge from "components/bridge/Bridge";
-
-const description = oneLine`
-Bridging the Youth Tech Divide
-`;
+import { title, description, pageImage } from "components/bridge/Metadata";
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
     {...props}
-    title="Bridging the Youth Tech Divide"
+    title={title}
     description={description}
+    pageImage={pageImage}
   >
     <Bridge />
   </Layout>
