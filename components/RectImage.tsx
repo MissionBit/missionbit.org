@@ -22,14 +22,16 @@ export interface RectImageProps extends RectImageGProps {
 
 const RectImage: React.FC<RectImageProps> = ({ className, id, ...props }) => {
   const { desc, width, height, left, top, right, bottom } = props;
-  const viewW = width - Math.min(left, 0) + Math.max(right, 0);
-  const viewH = height - Math.min(top, 0) + Math.max(bottom, 0);
+  const vLeft = Math.min(left, 0);
+  const vTop = Math.min(top, 0);
+  const viewW = width - vLeft + Math.max(right, 0);
+  const viewH = height - vTop + Math.max(bottom, 0);
   const descId = `${id}-desc`;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox={`${left} ${top} ${viewW} ${viewH}`}
+      viewBox={`${vLeft} ${vTop} ${viewW} ${viewH}`}
       className={className}
       role="img"
       aria-labelledby={descId}
