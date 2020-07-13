@@ -103,7 +103,7 @@ export const Layout: React.FC<LayoutProps> = ({
         />
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content="Mission Bit" />
-        <meta property="og:type" content="non_profit" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <link rel="canonical" href={canonicalUrl} />
         <meta
