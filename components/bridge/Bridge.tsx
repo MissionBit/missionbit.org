@@ -4,11 +4,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TeamData from "./TeamData";
-import VioletButton from "components/VioletButton";
 import Person from "./Person";
 import Sponsors, { Employers } from "./SponsorData";
 import Intro from "./Intro";
-import Metadata, { registerUrl } from "./Metadata";
+import Metadata from "./Metadata";
+import RegisterButton from "./RegisterButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -80,16 +80,7 @@ const Bridge: React.FC<{}> = () => {
       <Metadata />
       <Intro />
       <Container component="section" id="register" className={classes.register}>
-        <VioletButton
-          href={registerUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="contained"
-          size="large"
-          className={classes.button}
-        >
-          Register
-        </VioletButton>
+        <RegisterButton className={classes.button}>Register</RegisterButton>
       </Container>
       {TeamData.map(({ section, members }) => (
         <Container
