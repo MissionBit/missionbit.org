@@ -107,7 +107,7 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
       className={clsx(classes.root, className)}
     >
       <img
-        src={require("public/images/bridge/btytd-logo.svg")}
+        src={require("public/images/bridge/bytd-logo.svg")}
         alt="Bridging the Youth Tech Divide Logo"
         className={classes.logo}
       />
