@@ -146,12 +146,11 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
           panel
         </Link>{" "}
         consisting of an array of professionals from all corners of the tech
-        industry, as well as a college student studying Computer Science. Our
-        goal is not that all attendees immediately set out to pursue a tech
-        career, but that they will leave inspired, having a greater sense of
-        what a tech career could mean for them. We hope to learn from each
-        other, support each other, and advocate for one another to ensure a more
-        equitable future in tech.
+        industry. Our goal is not that all attendees immediately set out to
+        pursue a tech career, but that they will leave inspired, having a
+        greater sense of what a tech career could mean for them. We hope to
+        learn from each other, support each other, and advocate for one another
+        to ensure a more equitable future in tech.
       </Typography>
     </Container>
   );

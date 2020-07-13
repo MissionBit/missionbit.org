@@ -140,7 +140,8 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   {
     name: "Frances Coronel",
     type: "Keynote Speaker",
-    title: "Software engineer at Slack and the Co-Director of Techqueria",
+    title:
+      "Software engineer at Slack and the Executive Director of Techqueria",
     ...image("keynote-speakers/frances_coronel.jpg"),
     bio: (
       <>
