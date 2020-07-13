@@ -3,6 +3,7 @@ import Head from "next/head";
 import BridgeCalendarEvent from "./BridgeDates";
 import absoluteUrl from "src/absoluteUrl";
 import oneLine from "src/oneLine";
+import htmlEscapeJsonString from "src/htmlEscapeJsonString";
 
 export const title = "Bridging the Youth Tech Divide";
 export const description = oneLine`
@@ -43,7 +44,12 @@ export const Metadata: React.FC<{}> = () => {
   };
   return (
     <Head>
-      <script type="application/ld+json">{JSON.stringify(metadata)}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: htmlEscapeJsonString(JSON.stringify(metadata)),
+        }}
+      />
     </Head>
   );
 };
