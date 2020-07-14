@@ -17,7 +17,7 @@ for (const rule of readFileSync("out_publish/_redirects", {
   if (/^\/(api|_next|laptop|index|404|donate\/.*)(\/|$)/.test(path)) {
     continue;
   }
-  const pollDaily = /^\/(programs|events|bridge)?/.test(path);
+  const pollDaily = /^\/(programs|events|bridge)?$/.test(path);
   sitemap.write({
     url: path,
     changefreq: pollDaily ? "daily" : "weekly",
