@@ -246,6 +246,24 @@ const PANELISTS: TeamMemberProps[] = [
       </>
     ),
   },
+  {
+    name: "Bemnet Yemesgen",
+    type: "Panelist",
+    title: "Creative Director, Discord",
+    ...image("panelists/bem_yemesgen"),
+    bio: (
+      <>
+        Bemnet (Bem) Yemesgen is an Ethiopian American graphic designer,
+        creative director, photographer, and award winning filmmaker… a polymath
+        creative. Bemnet is also the cofounder and Creative Director of
+        SmartPhilm Fest, a festival that features films shot exclusively on
+        smartphones and tablets. Bemnet’s background spans 16 years in the
+        creative industry working for brands like Adidas, Nike Foundation, USA
+        Today and Discord. Bemnet currently serves as the Creative Director at
+        Discord in San Francisco, CA.
+      </>
+    ),
+  },
 ];
 
 const TeamData = [
