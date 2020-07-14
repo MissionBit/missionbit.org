@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next",
     "build": "next build",
-    "postbuild": "next-on-netlify",
+    "postbuild": "next-on-netlify && ./bin/generate-sitemap.js",
     "export": "npm run build && next export",
     "start": "next start",
     "fix": "eslint --fix --ext js,jsx,ts,tsx .",
