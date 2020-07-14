@@ -1,46 +1,10 @@
-const { createWriteStream, readFileSync } = require("fs");
-const { join } = require("path");
-const { SitemapStream } = require("sitemap");
+const { readFileSync } = require("fs");
 const withPlugins = require("next-compose-plugins");
 const optimizedImages = require("next-optimized-images");
 const withSourceMaps = require("@zeit/next-source-maps");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
-const { PHASE_EXPORT } = require("next/constants");
-
-function withSitemap(nextConfig = {}) {
-  return {
-    ...nextConfig,
-    async exportPathMap(defaultPathMap, options) {
-      if (typeof nextConfig.exportPathMap === "function") {
-        defaultPathMap = await nextConfig.exportPathMap(
-          defaultPathMap,
-          options
-        );
-      }
-      if (!options.dev) {
-        const sitemap = new SitemapStream({
-          hostname: "https://www.missionbit.org",
-        });
-        sitemap.pipe(createWriteStream(join(options.outDir, "sitemap.xml")));
-        Object.keys(defaultPathMap).forEach((path) => {
-          if (/^\/(laptop|404|index)(\/?|$)/.test(path)) {
-            return;
-          }
-          const programsEventsOrIndex = /^\/(programs|events)?$/.test(path);
-          sitemap.write({
-            url: path,
-            changefreq: programsEventsOrIndex ? "daily" : "weekly",
-            priority: programsEventsOrIndex ? 1.0 : 0.6,
-          });
-        });
-        sitemap.end();
-      }
-      return defaultPathMap;
-    },
-  };
-}
 
 const SLASH_REDIRECT = /^(\/\S+)\s+(\S+)(?:\s+(\d+)!?)?$/;
 const netlifyRedirects = [];
@@ -110,7 +74,6 @@ module.exports = withPlugins(
         },
       },
     ],
-    [withSitemap, {}, [PHASE_EXPORT]],
   ],
   nextConfig
 );
