@@ -158,19 +158,19 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
     ...image("keynote-speakers/frances_coronel"),
     bio: (
       <>
-        I am currently a software engineer specializing in UI development on the
-        Customer Acquisition Team at Slack where my mission is to make your
-        working life simpler, more pleasant and more productive. I have been
-        working professionally as a developer since 2015 and hold a Bachelors in
-        Computer Science from Hampton University and a Masters in Computer
+        Frances Coronel is a software engineer specializing in UI development on
+        the Customer Acquisition Team at Slack where her mission is to make your
+        working life simpler, more pleasant and more productive. She has been
+        working professionally as a developer since 2015 and holds a Bachelors
+        in Computer Science from Hampton University and a Masters in Computer
         Science from Cornell Tech.
         <br />
         <br />
-        Outside of Slack, I am an Executive Director of Techqueria, a 501c3
-        nonprofit that serves the largest community of Latinx in Tech in the US.
-        I also support Code Nation as a member of their Bay Area Leadership
-        Council and the Latino Community Foundation as a member of their Latinos
-        in Tech Giving Circle.
+        Outside of Slack, Frances is an Executive Director of Techqueria, a
+        501c3 nonprofit that serves the largest community of Latinx in Tech in
+        the US. She also supports Code Nation as a member of their Bay Area
+        Leadership Council and the Latino Community Foundation as a member of
+        their Latinos in Tech Giving Circle.
       </>
     ),
   },
