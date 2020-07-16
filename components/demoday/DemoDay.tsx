@@ -2,6 +2,7 @@ import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Landing from "components/demoday/Landing";
 import FlourishSeparator from "components/programs/FlourishSeparator";
+import Agenda from "./Agenda";
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -9,7 +10,6 @@ const useStyles = makeStyles(() => ({
 
 const Placeholder: React.FC<{}> = () => <section />;
 
-const Agenda = Placeholder;
 const StudentSpeakers = Placeholder;
 const JudgingCategories = Placeholder;
 const Judges = Placeholder;
