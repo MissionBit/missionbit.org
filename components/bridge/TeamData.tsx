@@ -230,19 +230,28 @@ const PANELISTS: TeamMemberProps[] = [
   {
     name: "Simran Kumar",
     type: "Panelist",
-    title: "Mission Bit alum",
+    title: "Co-Founder, Simmi’s Boutique",
     ...image("panelists/simran_kumar"),
     bio: (
       <>
         Hi! I’m Simran, a 2014 Mission Bit alum and Mission native with big love
         for the city. I graduated from Lowell High School, and studied Economics
-        in college to better understand how money moves in society. I’ve been
-        involved with social justice work for more than 9 years now and
-        especially more since after college as I got to a place where I can give
-        back and empower others. Education and food equality are my two
-        favorites to speak on. On my free time you can catch my dad and me
-        cooking it up for the homeless around the neighborhood, sewing, or
-        playing with my dog.
+        in college while gaining experience in Entrepreneurship and Product
+        Management for power supplies in the Medical, Industrial and LED
+        industries.
+        <br />
+        <br />
+        I’m currently working on relaunching my Indian handcrafts boutique
+        focused on creating a digital presence rather than a brick &amp; mortar
+        this time around. This new quarantine project is tied to building up a
+        portfolio in efforts to make myself standout as candidate while I pursue
+        Product Management roles within SF Tech companies.
+        <br />
+        <br />
+        Other than my desire to work in tech, I’m very involved and passionate
+        about social justice work. I believe it’s our job to empower others
+        especially our awesome youth in the Bay Area where inequalities grow and
+        effects move rapidly.
       </>
     ),
   },
