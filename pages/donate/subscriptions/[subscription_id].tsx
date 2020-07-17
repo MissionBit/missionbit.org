@@ -14,28 +14,43 @@ import {
 } from "src/stripeSessionInfo";
 import { LongDateFormat } from "src/dates";
 import Head from "next/head";
+import Error404 from "pages/404";
 
-const Page: NextPage<
-  LayoutStaticProps & { subscriptionInfo: DonateSubscriptionProps }
-> = ({ subscriptionInfo, ...props }) => (
-  <Layout {...props} title="Mission Bit – Manage Your Subscription">
-    <Head>
-      <meta name="robots" content="noindex" />
-    </Head>
-    <DonateSubscription {...subscriptionInfo} />
-  </Layout>
-);
+interface PageProps extends LayoutStaticProps {
+  subscriptionInfo?: DonateSubscriptionProps;
+}
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+const Page: NextPage<PageProps> = ({ subscriptionInfo, ...props }) =>
+  subscriptionInfo === undefined ? (
+    <Error404 {...props} />
+  ) : (
+    <Layout {...props} title="Mission Bit – Manage Your Subscription">
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <DonateSubscription {...subscriptionInfo} />
+    </Layout>
+  );
+
+function ensureString(x: unknown, context: string): string {
+  if (typeof x !== "string") {
+    throw new Error(`Expecting string, not ${typeof x} for ${context}`);
+  }
+  return x;
+}
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async (
+  ctx
+) => {
   const { res } = ctx;
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
+  const layoutProps = await getLayoutStaticProps();
   const subscription_id = ctx.params?.subscription_id;
   if (typeof subscription_id !== "string") {
     res.statusCode = 404;
-    res.end();
-    return { props: {} };
+    return { props: layoutProps };
   }
   const stripe = (await import("src/getStripe")).getStripe();
   const subscription = await stripe.subscriptions.retrieve(subscription_id, {
@@ -72,13 +87,13 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
     props: {
-      ...(await getLayoutStaticProps()),
+      ...layoutProps,
       subscriptionInfo: {
         ...billingDetailsTo(pm.billing_details),
         paidInvoices: invoices.map((invoice) => ({
           created: invoice.created,
           amount: invoice.amount_paid,
-          id: invoice.charge,
+          id: ensureString(invoice.charge, "invoice.charge"),
         })),
         id: subscription.id,
         frequency: "monthly",

@@ -11,39 +11,46 @@ import {
   stripeSessionInfoFromCharge,
 } from "src/stripeSessionInfo";
 import Head from "next/head";
+import Error404 from "pages/404";
 
-const Page: NextPage<
-  LayoutStaticProps & { sessionInfo: StripeSessionInfo }
-> = ({ sessionInfo, ...props }) => (
-  <Layout {...props} title="Mission Bit – Thank You For Your Donation!">
-    <Head>
-      <meta name="robots" content="noindex" />
-    </Head>
-    <DonateResult sessionInfo={sessionInfo} />
-  </Layout>
-);
+interface PageProps extends LayoutStaticProps {
+  sessionInfo?: StripeSessionInfo;
+}
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+const Page: NextPage<PageProps> = ({ sessionInfo, ...props }) =>
+  sessionInfo === undefined ? (
+    <Error404 {...props} />
+  ) : (
+    <Layout {...props} title="Mission Bit – Thank You For Your Donation!">
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <DonateResult sessionInfo={sessionInfo} />
+    </Layout>
+  );
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async (
+  ctx
+) => {
   const { res } = ctx;
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
+  const layoutProps = await getLayoutStaticProps();
   const { charge_id } = ctx.query;
   if (typeof charge_id !== "string") {
     res.statusCode = 404;
-    res.end();
-    return { props: {} };
+    return { props: layoutProps };
   }
   const stripe = (await import("src/getStripe")).getStripe();
   const charge = await stripe.charges.retrieve(charge_id);
   if (charge.status === "failed") {
     res.statusCode = 404;
-    res.end();
-    return { props: {} };
+    return { props: layoutProps };
   }
   return {
     props: {
-      ...(await getLayoutStaticProps()),
+      ...layoutProps,
       sessionInfo: stripeSessionInfoFromCharge(charge),
     },
   };
