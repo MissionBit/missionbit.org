@@ -3,18 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import Landing from "components/demoday/Landing";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Agenda from "./Agenda";
+import StudentSpeakers from "./StudentSpeakers";
+import JudgingCategories from "./JudgingCategories";
+import StudentProjects from "./StudentProjects";
+import Judges from "./Judges";
+import DemoDayFooter from "./DemoDayFooter";
 
 const useStyles = makeStyles(() => ({
   root: {},
 }));
-
-const Placeholder: React.FC<{}> = () => <section />;
-
-const StudentSpeakers = Placeholder;
-const JudgingCategories = Placeholder;
-const Judges = Placeholder;
-const StudentProjects = Placeholder;
-const DemoDayFooter = Placeholder;
 
 const DemoDay: React.FC<{}> = () => {
   const classes = useStyles();
