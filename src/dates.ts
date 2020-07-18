@@ -74,13 +74,15 @@ const hourStartEndPartsOptsDefaults: HourStartEndPartsOpts = {
   ordinalDay: false,
 };
 
+const suffixMap: { readonly [k: number]: string } = {
+  1: "st",
+  2: "nd",
+  3: "rd",
+} as const;
+
 function ordinalSuffix(n: number): string {
-  const suffixMap: { [k: number]: string } = {
-    1: "st",
-    2: "nd",
-    3: "rd",
-  };
-  return `${n}${suffixMap[n % 10] ?? "th"}`;
+  const suffix = suffixMap[n > 10 && n < 20 ? 0 : n % 10] ?? "th";
+  return `${n}${suffix}`;
 }
 
 export function hourStartEndParts(
