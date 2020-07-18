@@ -22,23 +22,36 @@ const useStyles = makeStyles((theme) => ({
     gridGap: theme.spacing(4),
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr",
+    },
   },
   category: {},
   categoryImage: {
-    gridRow: 1,
+    [theme.breakpoints.up("md")]: {
+      gridRow: 1,
+    },
+    width: "100%",
     maxHeight: "15rem",
+    maxWidth: 200,
     justifySelf: "center",
   },
   categoryTitle: {
+    [theme.breakpoints.up("md")]: {
+      gridRow: 2,
+    },
     fontFamily: `"Sippin On Sunshine"`,
     textTransform: "uppercase",
     fontSize: theme.typography.pxToRem(30),
     textAlign: "center",
     color: brand.indigo,
-    gridRow: 2,
   },
   categoryCopy: {
-    gridRow: 3,
+    [theme.breakpoints.up("md")]: {
+      gridRow: 3,
+    },
+    maxWidth: 500,
+    justifySelf: "center",
     textAlign: "justify",
   },
 }));
