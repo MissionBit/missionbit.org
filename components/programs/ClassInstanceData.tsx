@@ -16,6 +16,7 @@ export const CourseSkills = [
   "p5.js",
   "Javascript",
   "Networking",
+  "Cover Letter Writing",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -62,6 +63,11 @@ const p5jsImage = {
 const networkingImage = {
   src: require("public/images/program/networking.svg"),
   alt: "Three people standing around talking",
+};
+
+const coverLetterImage = {
+  src: require("public/images/program/cover-letter.svg"),
+  alt: "Image of a cover letter",
 };
 
 export interface Course {
@@ -282,6 +288,18 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  cover_letter_workshop: {
+    title: "Cover Letter Writing Workshop",
+    skills: ["Cover Letter Writing", "Career Preparation"],
+    image: coverLetterImage,
+    description: (
+      <>
+        Join this workshop to learn the ins and outs of writing cover letters.
+        Learn how to make yourself stand out! This workshop works best if you
+        take the Resume workshop right before.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -390,13 +408,6 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.networking_workshop,
-    dateString: "2020-07-15T15:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4837062",
-    who: "16 - 24 year olds",
-  }),
-  summerWorkshop({
     course: Courses.p5js_workshop,
     dateString: "2020-07-20T16:00:00-07:00",
     minutes: 90,
@@ -409,6 +420,20 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4836338",
     who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.careerprep_resume_workshop,
+    dateString: "2020-08-04T15:30:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4839551",
+    who: "16 - 24 year olds",
+  }),
+  summerWorkshop({
+    course: Courses.cover_letter_workshop,
+    dateString: "2020-08-06T15:30:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4839556",
+    who: "16 - 24 year olds",
   }),
   summerWorkshop({
     course: Courses.scratch_window_workshop,
@@ -426,14 +451,6 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   //   buttonExtra: <>Only 10 spots available!</>,
   // }),
   // summerWorkshop({
-  //   course: Courses.scratch_animation_workshop,
-  //   dateString: "2020-05-28T15:30:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4827761",
-  //   who: "7th - 12th graders",
-  // }),
-
-  // summerWorkshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
   //   minutes: 90,
@@ -444,11 +461,5 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   //       (includes help with downloading Unity and the game kit).
   //     </>
   //   ),
-  // }),
-  // summerWorkshop({
-  //   course: Courses.beginner_web_workshop,
-  //   dateString: "2020-05-07T15:30:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4821550",
   // }),
 ];
