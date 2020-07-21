@@ -9,6 +9,7 @@ import CourseShowcases, {
   StudentProps,
 } from "./StudentSpeakerData";
 import { brand } from "src/colors";
+import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -22,16 +23,74 @@ const useStyles = makeStyles((theme) => ({
   },
   showcase: {},
   courseTitle: {
+    fontSize: theme.typography.pxToRem(40),
     color: brand.indigo,
+    margin: theme.spacing(6, 0),
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      margin: theme.spacing(4, 0),
+    },
   },
-  project: {},
-  projectTitle: {},
-  students: {},
+  project: {
+    display: "grid",
+    margin: theme.spacing(4, 0),
+    gridGap: theme.spacing(1, 2),
+    gridTemplateColumns: "3fr 5fr",
+    gridTemplateAreas: `
+      "title        students"
+      "names        students"
+      "description  students"
+      "link         students"
+    `,
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateAreas: `
+        "title"
+        "names"
+        "description"
+        "link"
+        "students"
+      `,
+    },
+  },
+  projectTitle: {
+    gridArea: "title",
+    fontSize: theme.typography.pxToRem(30),
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  projectStudentNames: {
+    gridArea: "names",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  projectDescription: {
+    gridArea: "description",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  projectLink: {
+    gridArea: "link",
+    fontSize: theme.typography.body1.fontSize,
+    fontWeight: theme.typography.fontWeightMedium,
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  students: {
+    gridArea: "students",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   student: {
     margin: theme.spacing(0, 2),
     "& > img": {
       width: "100%",
-      height: "100%",
+      height: "auto",
       maxWidth: 150,
       borderRadius: "50%",
     },
@@ -61,13 +120,21 @@ const Project: React.FC<ProjectProps> = ({
       <Typography variant="h4" className={classes.projectTitle}>
         {title}
       </Typography>
-      <Typography>{students.map((p) => p.name).join(", ")}</Typography>
-      <Typography>{description}</Typography>
-      <Typography>
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          View Project
-        </a>
+      <Typography className={classes.projectStudentNames}>
+        {students.map((p) => p.name).join(", ")}
       </Typography>
+      <Typography className={classes.projectDescription}>
+        {description}
+      </Typography>
+      <Link
+        className={classes.projectLink}
+        href={href}
+        color="secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Project
+      </Link>
       <Box className={classes.students}>
         {students.map((props, i) => (
           <Student key={i} {...props} />
@@ -83,14 +150,14 @@ const CourseShowcase: React.FC<CourseShowcaseProps> = ({
 }) => {
   const classes = useStyles();
   return (
-    <Box component="section" className={classes.showcase}>
+    <Container component="section" className={classes.showcase}>
       <Typography variant="h3" className={classes.courseTitle}>
         {course.title}
       </Typography>
       {projects.map((props, i) => (
         <Project {...props} key={i} />
       ))}
-    </Box>
+    </Container>
   );
 };
 
