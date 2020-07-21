@@ -4,18 +4,18 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "src/colors";
+import JudgeData, { JudgeProps } from "./JudgeData";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: brand.indigo,
     color: theme.palette.common.white,
-  },
-  container: {
     padding: theme.spacing(8, 0),
     [theme.breakpoints.down("xs")]: {
       padding: theme.spacing(6, 0),
     },
   },
+  container: {},
   title: {
     fontWeight: theme.typography.fontWeightBold,
     color: theme.palette.common.white,
@@ -24,7 +24,46 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h3.fontSize,
     },
   },
+  judges: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  judge: {
+    margin: theme.spacing(6, 4, 0),
+    textAlign: "center",
+  },
+  judgeName: {
+    fontSize: theme.typography.pxToRem(24),
+    fontWeight: theme.typography.fontWeightMedium,
+  },
+  judgeImage: {
+    "& > img": {
+      margin: theme.spacing(1, 0),
+      width: "100%",
+      height: "auto",
+      maxWidth: 150,
+      borderRadius: "50%",
+    },
+  },
+  judgeTitle: {},
+  judgeCompany: {},
 }));
+
+const Judge: React.FC<JudgeProps> = ({ name, image, title, company }) => {
+  const classes = useStyles();
+  return (
+    <Box className={classes.judge} flexDirection="column">
+      <Typography className={classes.judgeName}>{name}</Typography>
+      <picture className={classes.judgeImage}>
+        <source type="image/webp" srcSet={image.webp} />
+        <source type="image/jpeg" srcSet={image.srcSet} />
+        <img alt={name} src={image.jpg} />
+      </picture>
+      <Typography className={classes.judgeTitle}>{title}</Typography>
+      <Typography className={classes.judgeCompany}>{company}</Typography>
+    </Box>
+  );
+};
 
 const Judges: React.FC<{}> = () => {
   const classes = useStyles();
@@ -35,6 +74,11 @@ const Judges: React.FC<{}> = () => {
           Judges
         </Typography>
       </Container>
+      <Box className={classes.judges}>
+        {JudgeData.map((props, i) => (
+          <Judge key={i} {...props} />
+        ))}
+      </Box>
     </Box>
   );
 };
