@@ -170,6 +170,69 @@ const FeaturedEvents: FeaturedEvent[] = [
     },
   },
   {
+    id: "youth-conference",
+    date: Date.parse("2020-08-05T13:00:00-07:00"),
+    href: "https://www.missionbit.org/bridge",
+    linkTitle: "Learn More",
+    title: "Bridging the Youth Tech Divide Conference 2020",
+    description: (
+      <>
+        Gathering SF high school youth in unprecedented times to bridge the tech
+        divide.
+      </>
+    ),
+    topRightImage: {
+      desc: "San Francisco City Skyline",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference-2.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-2-small.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference-2.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-2-small.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Collage of the people speaking at the event",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-1-small.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-1-small.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
     id: "gala",
     date: Date.parse(GalaCalendarEvent.start),
     href: "/gala",
