@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: "15rem",
     maxWidth: 200,
     justifySelf: "center",
+    objectFit: "contain",
   },
   categoryTitle: {
     [theme.breakpoints.up("md")]: {
