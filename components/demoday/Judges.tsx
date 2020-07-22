@@ -27,10 +27,17 @@ const useStyles = makeStyles((theme) => ({
   judges: {
     display: "flex",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
   judge: {
     margin: theme.spacing(6, 4, 0),
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(4),
+    },
   },
   judgeName: {
     fontSize: theme.typography.pxToRem(24),
