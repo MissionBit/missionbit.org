@@ -136,7 +136,7 @@ export const Layout: React.FC<LayoutProps> = ({
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<LayoutStaticProps> = async () => {
   const props = await getLayoutStaticProps();
   return { props };
 };
