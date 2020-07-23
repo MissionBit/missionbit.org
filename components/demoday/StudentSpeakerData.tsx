@@ -44,37 +44,38 @@ function image(postfix: string): Pick<StudentProps, "image"> {
   };
 }
 
-const PLACEHOLDER_PROJECTS: readonly ProjectProps[] = [
-  {
-    title: "protests.com",
-    students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
-    description: (
-      <>Create and locate local protests to be a part of something greater.</>
-    ),
-    href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-  },
-  {
-    title: "Project B",
-    students: [
-      { name: "Student 1", ...image("alexander_peng") },
-      { name: "Student 2", ...image("johnny_lin") },
-      { name: "Student 3", ...image("tara_tiong") },
-    ],
-    description: (
-      <>Project description. 1-2 sentences. This is placeholder content.</>
-    ),
-    href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-  },
-];
-
 export const CourseShowcases: readonly CourseShowcaseProps[] = [
   {
     course: Courses.web_bootcamp,
-    projects: PLACEHOLDER_PROJECTS,
+    projects: [
+      {
+        title: "protests.com",
+        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
+        description: (
+          <>
+            Create and locate local protests to be a part of something greater.
+          </>
+        ),
+        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+      },
+    ],
   },
   {
     course: Courses.game_bootcamp,
-    projects: PLACEHOLDER_PROJECTS,
+    projects: [
+      {
+        title: "Project B",
+        students: [
+          { name: "Student 1", ...image("alexander_peng") },
+          { name: "Student 2", ...image("johnny_lin") },
+          { name: "Student 3", ...image("tara_tiong") },
+        ],
+        description: (
+          <>Project description. 1-2 sentences. This is placeholder content.</>
+        ),
+        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+      },
+    ],
   },
 ];
 
