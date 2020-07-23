@@ -46,14 +46,10 @@ function image(postfix: string): Pick<StudentProps, "image"> {
 
 const PLACEHOLDER_PROJECTS: readonly ProjectProps[] = [
   {
-    title: "Project A",
-    students: [
-      { name: "Student 1", ...image("tara_tiong") },
-      { name: "Student 2", ...image("derick_du") },
-      { name: "Student 3", ...image("johnny_lin") },
-    ],
+    title: "protests.com",
+    students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
     description: (
-      <>Project description. 1-2 sentences. This is placeholder content.</>
+      <>Create and locate local protests to be a part of something greater.</>
     ),
     href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
   },
