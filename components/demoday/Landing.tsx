@@ -15,8 +15,10 @@ const useStyles = makeStyles((theme) => ({
       "buttons image"
     `,
     padding: theme.spacing(4),
+    marginTop: theme.spacing(8),
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2, 4),
+      marginTop: theme.spacing(0),
       gridTemplateColumns: "1fr",
       gridTemplateAreas: `
         "title"
