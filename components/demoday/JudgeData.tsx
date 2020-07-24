@@ -57,6 +57,12 @@ export const JudgeData: readonly JudgeProps[] = [
     company: "Crunchbase",
     ...image("alexandros_bantis"),
   },
+  {
+    name: "Melissa Olson",
+    title: "Staff Software Engineer",
+    company: "Qualcomm",
+    ...image("melissa_olson"),
+  },
 ];
 
 export default JudgeData;
