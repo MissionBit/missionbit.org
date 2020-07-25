@@ -31,9 +31,29 @@ const webImage = {
   alt: "Image of a terminal window",
 };
 
+const web2Image = {
+  src: require("public/images/program/web2.svg"),
+  alt: "Image of a web window",
+};
+
 const controllerImage = {
   src: require("public/images/program/controller.svg"),
   alt: "Image of a game controller",
+};
+
+const unity2Image = {
+  src: require("public/images/program/unity2.svg"),
+  alt: "Image of a game controller with pac man eating a heart",
+};
+
+const pythonImage = {
+  src: require("public/images/program/python.svg"),
+  alt: "Image of the python logo",
+};
+
+const jsImage = {
+  src: require("public/images/program/js.svg"),
+  alt: "Image of a screen that says javascript on it",
 };
 
 const resumeImage = {
@@ -140,7 +160,7 @@ export const Courses = courseRecord({
   web_class: {
     title: "Intro to Web Design",
     skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
-    image: webImage,
+    image: web2Image,
     description: (
       <>
         This project-based class combines design and technology to create and
@@ -154,7 +174,7 @@ export const Courses = courseRecord({
   game_class: {
     title: "Intro to Unity Game Design",
     skills: ["Unity", "C#"],
-    image: controllerImage,
+    image: unity2Image,
     description: (
       <>
         This project-based class combines 3D art and technology to create your
@@ -169,7 +189,7 @@ export const Courses = courseRecord({
   python_class: {
     title: "Intro to Python",
     skills: ["Python", "Programming"],
-    image: controllerImage,
+    image: pythonImage,
     description: (
       <>
         Come and learn Python in our new class this fall! We’ll start with
@@ -183,7 +203,7 @@ export const Courses = courseRecord({
   javascript_class: {
     title: "Intro to Javascript",
     skills: ["Javascript", "Programming"],
-    image: controllerImage,
+    image: jsImage,
     description: (
       <>
         Join us this fall in our latest class! This course is interactive and
@@ -499,20 +519,20 @@ function summerWorkshop({
 }
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
-  summerWorkshop({
-    course: Courses.p5js_workshop,
-    dateString: "2020-07-20T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4837613",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
-    course: Courses.beginner_web_workshop,
-    dateString: "2020-07-22T15:30:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4836338",
-    who: "7th - 12th graders",
-  }),
+  // summerWorkshop({
+  //   course: Courses.p5js_workshop,
+  //   dateString: "2020-07-20T16:00:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4837613",
+  //   who: "7th - 12th graders",
+  // }),
+  // summerWorkshop({
+  //   course: Courses.beginner_web_workshop,
+  //   dateString: "2020-07-22T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4836338",
+  //   who: "7th - 12th graders",
+  // }),
   summerWorkshop({
     course: Courses.careerprep_resume_workshop,
     dateString: "2020-08-04T15:30:00-07:00",

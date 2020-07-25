@@ -84,7 +84,7 @@ const Enroll: React.FC<{}> = () => {
           Fall 2020 Classes
         </Typography>
         <Typography className={classes.copy}>
-          Spend 12 weeks learning how to code and make awesome projects!
+          Come have fun with us this fall!
           <br />
           <span className={classes.deadlineEmphasis}>
             Registration deadline:
