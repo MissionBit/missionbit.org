@@ -56,27 +56,26 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             Create and locate local protests to be a part of something greater.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://victoriaaaaaaaaaa.github.io/demodayproj/",
       },
       {
-        title: "protests.com",
-        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
+        title: "LiTong's Bubble",
+        students: [{ name: "LiTong Liu", ...image("litong") }],
         description: (
           <>
-            Create and locate local protests to be a part of something greater.
+            {" "}
+            LiTong’s Bubble is a blog and portfolio website. I write
+            anime/kdrama/cdrama reviews and just random things that I want to
+            share on my blog.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://litxng.github.io/LiTongBubble/",
       },
       {
-        title: "protests.com",
-        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
-        description: (
-          <>
-            Create and locate local protests to be a part of something greater.
-          </>
-        ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        title: "Paulina's Store",
+        students: [{ name: "Klester Hernandez", ...image("klester") }],
+        description: <>We sell purses online for the best prices.</>,
+        href: "https://klester2003.github.io/Final_Project/",
       },
     ],
   },
