@@ -3,9 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
-  SummerClassInstances,
   SpringClassInstances,
-  SummerDates,
+  FallClassInstances,
+  FallDates,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
@@ -74,22 +74,22 @@ const Enroll: React.FC<{}> = () => {
           Learn something new and get hands-on experience with our workshops.
         </Typography>
       </Courses>
-      <Courses instances={SummerClassInstances}>
+      <Courses instances={FallClassInstances}>
         <Typography
           variant="h3"
           align="center"
           className={classes.alert}
           id="courses"
         >
-          Summer 2020 Bootcamps
+          Fall 2020 Classes
         </Typography>
         <Typography className={classes.copy}>
-          Spend 6 weeks learning how to develop websites or games.
+          Come have fun with us this fall!
           <br />
           <span className={classes.deadlineEmphasis}>
             Registration deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(SummerDates.registrationDeadline)}
+          {LongDateTimeFormat.format(FallDates.registrationDeadline)}
           <br />
         </Typography>
       </Courses>
