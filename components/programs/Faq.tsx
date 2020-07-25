@@ -78,10 +78,10 @@ const Faq: React.FC<{}> = () => {
         choose to take our classes at a school closer to their home, even if
         they attend a different school!   */}
         Due to COVID-19, we will be doing remote programming until the end of
-        the summer.
+        the Fall.
       </FaqItem>
       <FaqItem question="How long are your classes?">
-        Our Fall and Spring courses are 2.5-hours classes twice a week after
+        Our Fall and Spring courses are 2.5-hour classes twice a week after
         school, running for 11 weeks. During the summer, we run intensive
         courses that are 3 days a week for 6 weeks.
       </FaqItem>
@@ -96,7 +96,7 @@ const Faq: React.FC<{}> = () => {
         foundation for beginners. Join our Web Design class if you want to learn
         about design and how to create beautiful websites. Take our Unity Game
         Design class and learn about creating engaging gameplay in video games.
-        This fall, we also have two NEW classes-- Intro to Python and Intro to
+        This fall, we also have two NEW classes: Intro to Python, and Intro to
         Javascript. Both of these languages are heavily used in the industry
         today and after you learn the foundations with us, you'll be able to
         apply your skills to bigger, more amazing projects
