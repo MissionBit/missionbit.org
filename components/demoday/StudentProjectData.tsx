@@ -42,10 +42,10 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
 
 export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
   {
-    room: "Hungry",
+    room: "Breakout Room 1",
     projects: [
       {
-        title: "Placeholder",
+        title: "Hungry",
         students: ["William Tran"],
         description: (
           <>
