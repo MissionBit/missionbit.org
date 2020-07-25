@@ -483,8 +483,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             Sanrio merchandise. You can buy/bid on merchandise.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("Placeholder"),
+        href: "https://k4yluh.github.io/SanrioResale/shop.html",
+        ...image("sanrio"),
       },
     ],
   },
