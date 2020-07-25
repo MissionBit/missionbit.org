@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     margin: theme.spacing(4, 0),
     gridGap: theme.spacing(1, 2),
-    gridTemplateColumns: "200px 1fr",
+    gridTemplateColumns: "350px 1fr",
     gridTemplateAreas: `
       "image title"
       "image names"

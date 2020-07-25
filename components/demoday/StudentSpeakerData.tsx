@@ -58,22 +58,41 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
       },
+      {
+        title: "protests.com",
+        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
+        description: (
+          <>
+            Create and locate local protests to be a part of something greater.
+          </>
+        ),
+        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+      },
+      {
+        title: "protests.com",
+        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
+        description: (
+          <>
+            Create and locate local protests to be a part of something greater.
+          </>
+        ),
+        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+      },
     ],
   },
   {
     course: Courses.game_bootcamp,
     projects: [
       {
-        title: "Project B",
-        students: [
-          { name: "Student 1", ...image("alexander_peng") },
-          { name: "Student 2", ...image("johnny_lin") },
-          { name: "Student 3", ...image("tara_tiong") },
-        ],
+        title: "Hungry",
+        students: [{ name: "William Tran", ...image("william") }],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            You have to get food in the city, but healthy food is hard to come
+            by because you live in a food desert.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://crazythepotato.github.io/HungryMan/",
       },
     ],
   },

@@ -48,10 +48,13 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "Placeholder",
         students: ["William Tran"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            You have to get food in the city, but healthy food is hard to come
+            by because you live in a food desert.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://crazythepotato.github.io/HungryMan/",
+        ...image("hungry"),
       },
       {
         title: "Nature Girl & Hunter Boy",
@@ -76,8 +79,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             self-driving cars, AI, and maglev bullet trains.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://sabrinafang.github.io/summer-webdesign-2020/index.html",
+        ...image("hi-tech"),
       },
       {
         title: "Gen Z Alliance",
@@ -89,8 +92,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             they are voting for.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://mattkong0.github.io/GenZAlliance/",
+        ...image("genz"),
       },
     ],
   },
@@ -98,13 +101,16 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 2",
     projects: [
       {
-        title: "Placeholder",
+        title: "Endless Run",
         students: ["Joseph Blackett"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            Make it as far as you can by jumping from platform to platform while
+            avoiding obstacles.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://joblackett6.github.io/endless-run/",
+        ...image("endless_run"),
       },
       {
         title: "The Escape",
@@ -115,8 +121,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             monster.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://kevinj1120.github.io/The-Escape/TheEscape/index.html",
+        ...image("the_escape"),
       },
       {
         title: "BookStrap",
@@ -132,8 +138,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             resources on where you can find them!
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://malikahon.github.io/Demo-Day/",
+        ...image("bookstrap"),
       },
     ],
   },
@@ -141,22 +147,23 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 3",
     projects: [
       {
-        title: "Placeholder",
+        title: "The Spook",
         students: ["Terry Wong"],
-        description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
-        ),
+        description: <>Experience what inner demons might feel like.</>,
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
         ...image("project_a"),
       },
       {
-        title: "Placeholder",
+        title: "Vanguard Runner",
         students: ["Nolan Louie", "Zachary Yieh"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            Jump your way through platforms while shooting the enemy soldiers.
+            Try to make your way to the final boss.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://nolan019.github.io/Vanguard-Runner/",
+        ...image("vanguard-runner"),
       },
       {
         title: "BigFoot",
@@ -167,8 +174,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             shoes.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://caitwong.github.io/FinalProject/index.html",
+        ...image("big-foot"),
       },
       {
         title: "GreenWorld",
@@ -179,8 +186,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             2020.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://stewartalexb3651.github.io/Green-World/",
+        ...image("green-world"),
       },
     ],
   },
@@ -188,22 +195,31 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 4",
     projects: [
       {
-        title: "Placeholder",
+        title: "Alien Shooter",
         students: ["Zhenyu Yu", "Eric Chen"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            Play as a solider fighting off endless waves of aliens for as long
+            as possible.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://zhenyuyu1.github.io/alienshooter/",
+        ...image("alien-shooter"),
       },
       {
-        title: "FPS Zombie Game",
+        title: "Infinite Lurker",
         students: ["Simon Zhao", "Nikita Kartsev"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            The game is a first-person shooter with infinite rounds with the
+            player's goal to survive the highest round. The player shoots and
+            runs from zombies that increase per round with three different
+            weapons.
+          </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href:
+          "https://nikitakartsevv.github.io/Infinite-Lurker/game/index.html",
+        ...image("infinite-lurker"),
       },
       {
         title: "Learin",
@@ -217,8 +233,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             if they need help on something.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://achan3.github.io/Final-Project/",
+        ...image("learin"),
       },
       {
         title: "Bazaar Hall",
@@ -228,8 +244,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             A place for professionals to share their work and attract clients.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://keshfer.github.io/Bazaar-Hall/index.html",
+        ...image("bazaar-hall"),
       },
     ],
   },
@@ -237,10 +253,13 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 5",
     projects: [
       {
-        title: "Placeholder",
+        title: "Run Ruin",
         students: ["Kary Lin", "Nate Tesler", "Jackey Li"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>
+            Race across a broken temple and traverse the obstacles to get to the
+            end.
+          </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
         ...image("project_a"),
@@ -254,8 +273,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             attempt. (Math, HTML/CSS, and other random topics)
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://octaviolomeli.github.io/FinalProject/",
+        ...image("quiz-time"),
       },
       {
         title: "SF Chopsticks",
@@ -267,8 +286,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             must try for everyone.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        href: "https://natalie-huang.github.io/SFChopsticks/",
+        ...image("sf-chopsticks"),
       },
     ],
   },
@@ -276,22 +295,22 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 6",
     projects: [
       {
-        title: "Placeholder",
+        title: "Path to Ocean Beach",
         students: ["Jennifer Wong", "Shania Hao", "Gavin Scott"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>Make your way to Ocean Beach from the city of San Francisco</>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
         ...image("project_a"),
       },
       {
-        title: "Placeholder",
+        title: "Dodgeball",
         students: ["Ian Kwan"],
         description: (
-          <>Project description. 1-2 sentences. This is placeholder content.</>
+          <>Avoid the raining dodgeballs and get the fastest time!</>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://povrty.github.io/Dodgeball/Game/",
+        ...image("dodgeball"),
       },
       {
         title: "Cookie Clicker",
@@ -316,8 +335,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             defeating a final boss inside a laboratorydescription.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://malau2.github.io/Monster-Lab-2/Monster%20Lab/",
+        ...image("monstor-lab"),
       },
       {
         title: "Squid Boba",
@@ -328,15 +347,21 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             what our shop offers and why it’s extra special.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://alsam8.github.io/cooperative-zinc-hare/index.html",
+        ...image("squid-boba"),
       },
       {
-        title: "Placeholder",
+        title: "LiTong's Bubble",
         students: ["LiTong Liu"],
-        description: <>Placeholder</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        description: (
+          <>
+            LiTong’s Bubble is a blog and portfolio website. I write
+            anime/kdrama/cdrama reviews and just random things that I want to
+            share on my blog.
+          </>
+        ),
+        href: "https://litxng.github.io/LiTongBubble/",
+        ...image("litong-bubble"),
       },
     ],
   },
@@ -347,8 +372,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "Ransacked",
         students: ["Kevin Soo", "Jordan Lewis"],
         description: <>Save the city from zombies.</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://kesooh3r72.github.io/Ransacked/Ransacked/",
+        ...image("ransacked"),
       },
       {
         title: "Know Your Rights",
@@ -360,15 +385,15 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             informing you of your rights as a protestor.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://amchang2.github.io/demodayproject/",
+        ...image("know-your-right"),
       },
       {
         title: "Paulina's Online Store",
         students: ["Klester Hernandez"],
         description: <>We sell purses online for the best prices.</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://klester2003.github.io/Final_Project/index.html#",
+        ...image("paulina-purse"),
       },
     ],
   },
@@ -384,8 +409,9 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             it.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href:
+          "https://jackbobadillagaming.github.io/Rocket-game/rocket%20game/",
+        ...image("rocket-game"),
       },
       {
         title: "COVID-19 Info",
@@ -397,8 +423,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             non-English speakers).
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://cherhchen.github.io/covid-central-test/",
+        ...image("covid-central"),
       },
       {
         title: "Life: The MMO",
@@ -409,8 +435,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             it a massively multiplayer online game.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://kevinn-t.github.io/Life-The-MMO/",
+        ...image("mmo"),
       },
     ],
   },
@@ -435,8 +461,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             UX and UI.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://prathmesh-s.github.io/Project-Bakery/index.html",
+        ...image("arizmendi-bakery"),
       },
       {
         title: "Sanrio Resale",
@@ -461,8 +487,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>Fly though a maze of obstacles and try not to get hit.</>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://ling1729.github.io/FlyingGame/index.html",
+        ...image("flying-game"),
       },
       {
         title: "protests.com",
@@ -473,7 +499,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        ...image("protests"),
       },
       {
         title: "Placeholder",
@@ -491,8 +517,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "Zombie Escape",
         students: ["Tristan Popek", "Jayden Khaoone"],
         description: <>A FPS survival game where zombies try to attack you.</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://tristanpopek.github.io/Zombie-escape/wpodsfsdfas/",
+        ...image("zombie-escape"),
       },
       {
         title: "OpporTEENitites",
@@ -505,13 +531,19 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             internships, and resources to learn new things.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://kmanders317.github.io/Karina-Summer-Web-Developement/",
+        ...image("oportuneety"),
       },
       {
-        title: "Placeholder",
+        title: "Fruit Box",
         students: ["Jason Siu"],
-        description: <>Placeholder</>,
+        description: (
+          <>
+            I built a website that sells fresh organic year-round fruits and
+            produce that delivers to your doorstep with 1 click of a button with
+            your phone
+          </>
+        ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
         ...image("project_a"),
       },
