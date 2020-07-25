@@ -508,7 +508,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             Create and locate local protests to be a part of something greater.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://victoriaaaaaaaaaa.github.io/demodayproj/",
         ...image("protests"),
       },
       {
