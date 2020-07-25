@@ -157,6 +157,20 @@ function campusRecord<T extends Record<string, Campus>>(x: T): T {
 }
 
 export const Courses = courseRecord({
+  web_bootcamp: {
+    title: "Intro to Web Design",
+    skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
+    image: web2Image,
+    description: (
+      <>
+        This project-based class combines design and technology to create and
+        code our own modern, creative, and thoughtful websites. We’ll discover
+        what great user experience is, exercise creative project planning,
+        create beautiful visual designs, and bring our designs to life in a
+        final interactive website. Beginners welcome!
+      </>
+    ),
+  },
   web_class: {
     title: "Intro to Web Design",
     skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
@@ -172,6 +186,21 @@ export const Courses = courseRecord({
     ),
   },
   game_class: {
+    title: "Intro to Unity Game Design",
+    skills: ["Unity", "C#"],
+    image: unity2Image,
+    description: (
+      <>
+        This project-based class combines 3D art and technology to create your
+        own unique games sing the Unity platform. We’ll learn the Unity
+        framework and develop a game that you and your friends can play by the
+        end of the semester. Our goal is to empower students to become creators
+        rather than just consumers. We’re excited to see what you create with us
+        this fall, beginners welcome!
+      </>
+    ),
+  },
+  game_bootcamp: {
     title: "Intro to Unity Game Design",
     skills: ["Unity", "C#"],
     image: unity2Image,
@@ -467,12 +496,12 @@ function fallClassTH(course: Course, campus: Campus): ClassInstance {
 // ];
 
 export const FallClassInstances: ClassOrWorkshopInstance[] = [
-  fallClassMW(Courses.web_class, Campuses.online_sf, ""),
-  fallClassMW(Courses.game_class, Campuses.online, ""),
-  fallClassMW(Courses.python_class, Campuses.online, ""),
-  fallClassTH(Courses.web_class, Campuses.online, ""),
-  fallClassTH(Courses.game_class, Campuses.online, ""),
-  fallClassTH(Courses.javascript_class, Campuses.online, ""),
+  fallClassMW(Courses.web_class, Campuses.online_sf),
+  fallClassMW(Courses.game_class, Campuses.online),
+  fallClassMW(Courses.python_class, Campuses.online),
+  fallClassTH(Courses.web_class, Campuses.online),
+  fallClassTH(Courses.game_class, Campuses.online),
+  fallClassTH(Courses.javascript_class, Campuses.online),
 ];
 
 function summerWorkshop({
