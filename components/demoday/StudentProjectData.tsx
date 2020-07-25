@@ -457,7 +457,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             and press play.
           </>
         ),
-        href: "https://gamejolt.com/games/testingstuff123/520028z",
+        href: "https://gamejolt.com/games/testingstuff123/520028",
         ...image("golf"),
       },
       {
