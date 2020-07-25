@@ -67,7 +67,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             place to live.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://maiap2309.github.io/NatureGirl-and-HunterBoy-game/",
         ...image("nature-hunter"),
       },
       {
