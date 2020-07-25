@@ -69,7 +69,6 @@ const Agenda: React.FC<{}> = () => {
         <Typography className={classes.title} variant="h2" align="center">
           Agenda
         </Typography>
-        <AgendaItem time="10:00 AM">Students Arrive</AgendaItem>
         <AgendaItem time="11:00 AM">
           Introductions from Mission Bit staff
         </AgendaItem>
