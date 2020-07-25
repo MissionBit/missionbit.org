@@ -337,7 +337,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>
             A game where you can roam around the map fighting zombies and
-            defeating a final boss inside a laboratorydescription.
+            defeating a final boss inside a laboratory.
           </>
         ),
         href: "https://malau2.github.io/Monster-Lab-2/Monster%20Lab/",
@@ -508,7 +508,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             Create and locate local protests to be a part of something greater.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
+        href: "https://victoriaaaaaaaaaa.github.io/demodayproj/",
         ...image("protests"),
       },
       {
