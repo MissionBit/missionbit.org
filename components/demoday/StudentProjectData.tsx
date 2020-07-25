@@ -68,7 +68,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("Placeholder"),
+        ...image("nature-hunter"),
       },
       {
         title: "Hi-Tech",
