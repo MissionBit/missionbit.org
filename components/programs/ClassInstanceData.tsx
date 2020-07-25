@@ -5,9 +5,15 @@ import Box from "@material-ui/core/Box";
 export const CourseSkills = [
   "Unity",
   "C#",
+  "3D Game Design",
   "Web Design",
   "HTML",
   "CSS",
+  "UI Design",
+  "UX Design",
+  "Python",
+  "Programming",
+  "Javascript",
   "Resume Building",
   "Career Preparation",
   "Scratch",
@@ -25,9 +31,29 @@ const webImage = {
   alt: "Image of a terminal window",
 };
 
+const web2Image = {
+  src: require("public/images/program/web2.svg"),
+  alt: "Image of a web window",
+};
+
 const controllerImage = {
   src: require("public/images/program/controller.svg"),
   alt: "Image of a game controller",
+};
+
+const unity2Image = {
+  src: require("public/images/program/unity2.svg"),
+  alt: "Image of a game controller with pac man eating a heart",
+};
+
+const pythonImage = {
+  src: require("public/images/program/python.svg"),
+  alt: "Image of the python logo",
+};
+
+const jsImage = {
+  src: require("public/images/program/js.svg"),
+  alt: "Image of a screen that says javascript on it",
 };
 
 const resumeImage = {
@@ -131,29 +157,60 @@ function campusRecord<T extends Record<string, Campus>>(x: T): T {
 }
 
 export const Courses = courseRecord({
-  web_bootcamp: {
-    title: "Web Design Bootcamp",
-    skills: ["Web Design", "HTML", "CSS"],
-    image: webImage,
+  web_class: {
+    title: "Intro to Web Design",
+    skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
+    image: web2Image,
     description: (
       <>
-        This course allows students to explore website design techniques using
-        HTML, CSS, and design thinking. Students will learn about user
-        experience and user interfaces to make creative and thoughtful websites.
-        This class is suitable for beginners.
+        This project-based class combines design and technology to create and
+        code our own modern, creative, and thoughtful websites. We’ll discover
+        what great user experience is, exercise creative project planning,
+        create beautiful visual designs, and bring our designs to life in a
+        final interactive website. Beginners welcome!
       </>
     ),
   },
-  game_bootcamp: {
-    title: "Unity Game Design Bootcamp",
+  game_class: {
+    title: "Intro to Unity Game Design",
     skills: ["Unity", "C#"],
-    image: controllerImage,
+    image: unity2Image,
     description: (
       <>
-        This course opens up the world of gaming and places it at our students’
-        fingertips. Students will learn about the Unity platform, how to write
-        scripts in C#, and make awesome games in 3D. This class is suitable for
-        beginners.
+        This project-based class combines 3D art and technology to create your
+        own unique games sing the Unity platform. We’ll learn the Unity
+        framework and develop a game that you and your friends can play by the
+        end of the semester. Our goal is to empower students to become creators
+        rather than just consumers. We’re excited to see what you create with us
+        this fall, beginners welcome!
+      </>
+    ),
+  },
+  python_class: {
+    title: "Intro to Python",
+    skills: ["Python", "Programming"],
+    image: pythonImage,
+    description: (
+      <>
+        Come and learn Python in our new class this fall! We’ll start with
+        fundamental concepts of programming that can be applied to the study of
+        any programming language. Together, we’ll create chat bots, learn
+        automation, and work on our final projects at the end of the semester.
+        Beginners welcome!
+      </>
+    ),
+  },
+  javascript_class: {
+    title: "Intro to Javascript",
+    skills: ["Javascript", "Programming"],
+    image: jsImage,
+    description: (
+      <>
+        Join us this fall in our latest class! This course is interactive and
+        the concepts covered will lay the foundation for using JavaScript in any
+        environment. We’ll start off with an introduction to Javascript, move on
+        to working on projects based on your personal interests and creativity,
+        and finish off the semester with a final project. Beginners welcome!
       </>
     ),
   },
@@ -333,34 +390,89 @@ export const SummerDates: ClassDates = {
   demoDay: Date.parse("2020-07-25T13:00:00-07:00"),
 };
 
-function summerClass(
-  course: Course,
-  campus: Campus,
-  formAssemblyId: string
-): ClassInstance {
+export const FallDates: ClassDates = {
+  registrationDeadline: Date.parse("2020-08-23T20:00:00-07:00"),
+  interview: Date.parse("2020-09-02T12:00:00-07:00"),
+  demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
+};
+
+// function summerClass(
+//   course: Course,
+//   campus: Campus,
+//   formAssemblyId: string
+// ): ClassInstance {
+//   return {
+//     type: "class",
+//     course,
+//     campus,
+//     classDates: SummerDates,
+//     meets: (
+//       <>
+//         Monday, Wednesday, Friday{" "}
+//         <Box component="span" display="inline-block">
+//           10:30am - 2:30pm
+//         </Box>
+//       </>
+//     ),
+//     startDate: "June 15th",
+//     endDate: "July 25th",
+//     signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
+//   };
+// }
+
+function fallClassMW(course: Course, campus: Campus): ClassInstance {
   return {
     type: "class",
     course,
     campus,
-    classDates: SummerDates,
+    classDates: FallDates,
     meets: (
       <>
-        Monday, Wednesday, Friday{" "}
+        Monday, Wednesday{" "}
         <Box component="span" display="inline-block">
-          10:30am - 2:30pm
+          4:00pm - 6:30pm
         </Box>
       </>
     ),
-    startDate: "June 15th",
-    endDate: "July 25th",
-    signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
+    startDate: "September 14th",
+    endDate: "December 12th",
+    signupUrl: `https://www.tfaforms.com/4840819`,
   };
 }
 
-export const SummerClassInstances: ClassOrWorkshopInstance[] = [
-  summerClass(Courses.web_bootcamp, Campuses.online_sf, "tfa_2247"),
-  summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
-  summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
+function fallClassTH(course: Course, campus: Campus): ClassInstance {
+  return {
+    type: "class",
+    course,
+    campus,
+    classDates: FallDates,
+    meets: (
+      <>
+        Tuesday, Thursday{" "}
+        <Box component="span" display="inline-block">
+          4:00pm - 6:30pm
+        </Box>
+      </>
+    ),
+    startDate: "September 14th",
+    endDate: "December 12th",
+    signupUrl: `https://www.tfaforms.com/4840819`,
+  };
+}
+
+// export const SummerClassInstances: ClassOrWorkshopInstance[] = [
+//   summerClass(Courses.web_bootcamp, Campuses.online_sf, "tfa_2247"),
+//   summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
+//   summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
+// ];
+
+export const FallClassInstances: ClassOrWorkshopInstance[] = [
+  fallClassMW(Courses.web_class, Campuses.online_sf, ""),
+  fallClassMW(Courses.game_class, Campuses.online, ""),
+  fallClassMW(Courses.python_class, Campuses.online, ""),
+  fallClassTH(Courses.web_class, Campuses.online, ""),
+  fallClassTH(Courses.game_class, Campuses.online, ""),
+  fallClassTH(Courses.javascript_class, Campuses.online, ""),
 ];
 
 function summerWorkshop({
@@ -407,20 +519,20 @@ function summerWorkshop({
 }
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
-  summerWorkshop({
-    course: Courses.p5js_workshop,
-    dateString: "2020-07-20T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4837613",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
-    course: Courses.beginner_web_workshop,
-    dateString: "2020-07-22T15:30:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4836338",
-    who: "7th - 12th graders",
-  }),
+  // summerWorkshop({
+  //   course: Courses.p5js_workshop,
+  //   dateString: "2020-07-20T16:00:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4837613",
+  //   who: "7th - 12th graders",
+  // }),
+  // summerWorkshop({
+  //   course: Courses.beginner_web_workshop,
+  //   dateString: "2020-07-22T15:30:00-07:00",
+  //   minutes: 90,
+  //   signupUrl: "https://www.tfaforms.com/4836338",
+  //   who: "7th - 12th graders",
+  // }),
   summerWorkshop({
     course: Courses.careerprep_resume_workshop,
     dateString: "2020-08-04T15:30:00-07:00",
