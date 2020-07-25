@@ -68,7 +68,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_b"),
+        ...image("Placeholder"),
       },
       {
         title: "Hi-Tech",
@@ -149,9 +149,14 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       {
         title: "The Spook",
         students: ["Terry Wong"],
-        description: <>Experience what inner demons might feel like.</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        description: (
+          <>
+            Experience what inner demons might feel like. (Click the link and
+            press pray).
+          </>
+        ),
+        href: "https://gamejolt.com/games/the_spook/520045",
+        ...image("the-spook"),
       },
       {
         title: "Vanguard Runner",
@@ -258,11 +263,11 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>
             Race across a broken temple and traverse the obstacles to get to the
-            end.
+            end. Click on the link and press play.
           </>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://gamejolt.com/games/ruin-ruin/520049",
+        ...image("ruin-run"),
       },
       {
         title: "Quiz Time",
@@ -300,8 +305,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>Make your way to Ocean Beach from the city of San Francisco</>
         ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        href: "https://shaniahao.github.io/cityplanner/",
+        ...image("city-planners"),
       },
       {
         title: "Dodgeball",
@@ -446,9 +451,14 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       {
         title: "Time for Golf",
         students: ["Isabel Wong", "Ian Wong"],
-        description: <>Outdoor mini golf game with fun and unique tricks.</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        description: (
+          <>
+            Outdoor mini golf game with fun and unique tricks. Click on the link
+            and press play.
+          </>
+        ),
+        href: "https://gamejolt.com/games/testingstuff123/520028z",
+        ...image("golf"),
       },
       {
         title: "Arizmendi Bakery",
@@ -474,7 +484,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        ...image("Placeholder"),
       },
     ],
   },
@@ -502,11 +512,16 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("protests"),
       },
       {
-        title: "Placeholder",
-        students: ["Liyah Khaoone"],
-        description: <>Placeholder</>,
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        title: "Boba Me",
+        students: ["Andy Liu"],
+        description: (
+          <>
+            What I have here is a website that I built to describe the many boba
+            stores which I enjoy and would recommend to everyone to try out.
+          </>
+        ),
+        href: "https://andywkliu.github.io/Boba/",
+        ...image("boba"),
       },
     ],
   },
@@ -545,7 +560,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("project_a"),
+        ...image("Placeholder"),
       },
     ],
   },
