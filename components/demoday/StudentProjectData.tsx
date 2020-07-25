@@ -42,7 +42,7 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
 
 export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
   {
-    room: "Breakout Room 1",
+    room: "Hungry",
     projects: [
       {
         title: "Placeholder",
@@ -155,7 +155,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             press pray).
           </>
         ),
-        href: "https://gamejolt.com/games/the_spook/520045",
+        href: "https://gamejolt.com/games/tayteyz/520051",
         ...image("the-spook"),
       },
       {
@@ -271,7 +271,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       },
       {
         title: "Quiz Time",
-        students: ["Octavio Lomeli-castrohao"],
+        students: ["Octavio Lomeli-Castro"],
         description: (
           <>
             Quiz time is a website that contains three quizzes for the user to
@@ -419,7 +419,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("rocket-game"),
       },
       {
-        title: "COVID-19 Info",
+        title: "COVID-19 Central",
         students: ["Audrey Lau", "Cheryl Chen", "Jeffrey Popek"],
         description: (
           <>
@@ -428,7 +428,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             non-English speakers).
           </>
         ),
-        href: "https://cherhchen.github.io/covid-central-test/",
+        href: " https://cherhchen.github.io/covid-central/",
         ...image("covid-central"),
       },
       {
@@ -457,7 +457,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             and press play.
           </>
         ),
-        href: "https://gamejolt.com/games/testingstuff123/520028",
+        href: "https://gamejolt.com/games/golf/520031",
         ...image("golf"),
       },
       {
@@ -536,7 +536,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("zombie-escape"),
       },
       {
-        title: "OpporTEENitites",
+        title: "Opporteenities",
         students: ["Karina Anders"],
         description: (
           <>
