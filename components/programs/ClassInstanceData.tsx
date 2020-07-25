@@ -192,7 +192,7 @@ export const Courses = courseRecord({
     description: (
       <>
         This project-based class combines 3D art and technology to create your
-        own unique games sing the Unity platform. We’ll learn the Unity
+        own unique games using the Unity platform. We’ll learn the Unity
         framework and develop a game that you and your friends can play by the
         end of the semester. Our goal is to empower students to become creators
         rather than just consumers. We’re excited to see what you create with us
@@ -207,7 +207,7 @@ export const Courses = courseRecord({
     description: (
       <>
         This project-based class combines 3D art and technology to create your
-        own unique games sing the Unity platform. We’ll learn the Unity
+        own unique games using the Unity platform. We’ll learn the Unity
         framework and develop a game that you and your friends can play by the
         end of the semester. Our goal is to empower students to become creators
         rather than just consumers. We’re excited to see what you create with us
