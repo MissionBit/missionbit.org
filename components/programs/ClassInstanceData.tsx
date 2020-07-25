@@ -449,12 +449,8 @@ export const FallDates: ClassDates = {
 //   };
 // }
 
-function fallClassMW(course: Course, campus: Campus): ClassInstance {
-  return {
-    type: "class",
-    course,
-    campus,
-    classDates: FallDates,
+const FALL_CLASS_SCHEDULE = {
+  MW: {
     meets: (
       <>
         Monday, Wednesday{" "}
@@ -465,16 +461,8 @@ function fallClassMW(course: Course, campus: Campus): ClassInstance {
     ),
     startDate: "September 14th",
     endDate: "December 12th",
-    signupUrl: `https://www.tfaforms.com/4840819`,
-  };
-}
-
-function fallClassTH(course: Course, campus: Campus): ClassInstance {
-  return {
-    type: "class",
-    course,
-    campus,
-    classDates: FallDates,
+  },
+  TH: {
     meets: (
       <>
         Tuesday, Thursday{" "}
@@ -483,9 +471,24 @@ function fallClassTH(course: Course, campus: Campus): ClassInstance {
         </Box>
       </>
     ),
-    startDate: "September 14th",
+    startDate: "September 15th",
     endDate: "December 12th",
-    signupUrl: `https://www.tfaforms.com/4840819`,
+  },
+} as const;
+
+function fallClass(
+  course: Course,
+  campus: Campus,
+  schedule: "MW" | "TH",
+  formAssemblyId: string
+): ClassInstance {
+  return {
+    type: "class",
+    course,
+    campus,
+    classDates: FallDates,
+    ...FALL_CLASS_SCHEDULE[schedule],
+    signupUrl: `https://www.tfaforms.com/4840819?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -496,12 +499,12 @@ function fallClassTH(course: Course, campus: Campus): ClassInstance {
 // ];
 
 export const FallClassInstances: ClassOrWorkshopInstance[] = [
-  fallClassMW(Courses.web_class, Campuses.online_sf),
-  fallClassMW(Courses.game_class, Campuses.online),
-  fallClassMW(Courses.python_class, Campuses.online),
-  fallClassTH(Courses.web_class, Campuses.online),
-  fallClassTH(Courses.game_class, Campuses.online),
-  fallClassTH(Courses.javascript_class, Campuses.online),
+  fallClass(Courses.web_class, Campuses.online, "MW", "tfa_2245"),
+  fallClass(Courses.game_class, Campuses.online, "MW", "tfa_2248"),
+  fallClass(Courses.python_class, Campuses.online, "MW", "tfa_2266"),
+  fallClass(Courses.web_class, Campuses.online, "TH", "tfa_2247"),
+  fallClass(Courses.game_class, Campuses.online, "TH", "tfa_2267"),
+  fallClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2268"),
 ];
 
 function summerWorkshop({
