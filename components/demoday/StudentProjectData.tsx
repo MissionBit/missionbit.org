@@ -352,7 +352,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             what our shop offers and why it’s extra special.
           </>
         ),
-        href: "https://alsam8.github.io/cooperative-zinc-hare/index.html",
+        href: "https://cooperative-zinc-hare.glitch.me/",
         ...image("squid-boba"),
       },
       {
