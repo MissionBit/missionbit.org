@@ -133,8 +133,7 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         possibility of a tech career. We recognize the vast disparities that
         prevent many youth from seeking out a tech career; including, but not
         limited to, a lack of diversity, economic inequality, and systemic
-        racism. Attendees will be from under-resourced and diverse backgrounds
-        who demonstrate a compelling interest in tech.
+        racism.
         <br />
         <br />
         The conference will feature{" "}
