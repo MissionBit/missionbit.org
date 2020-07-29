@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface StudentProjectRoomProps {
-  readonly room: string;
+  // readonly room: string;
   readonly projects: readonly ProjectProps[];
 }
 
@@ -42,7 +42,7 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
 
 export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
   {
-    room: "Breakout Room 1",
+    // room: "Breakout Room 1",
     projects: [
       {
         title: "Hungry",
@@ -98,7 +98,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 2",
+    // room: "Breakout Room 2",
     projects: [
       {
         title: "Endless Run",
@@ -144,7 +144,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 3",
+    // room: "Breakout Room 3",
     projects: [
       {
         title: "The Spook",
@@ -197,7 +197,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 4",
+    // room: "Breakout Room 4",
     projects: [
       {
         title: "Alien Shooter",
@@ -255,7 +255,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 5",
+    // room: "Breakout Room 5",
     projects: [
       {
         title: "Run Ruin",
@@ -297,7 +297,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 6",
+    // room: "Breakout Room 6",
     projects: [
       {
         title: "Path to Ocean Beach",
@@ -329,7 +329,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 7",
+    // room: "Breakout Room 7",
     projects: [
       {
         title: "Monster Lab",
@@ -371,7 +371,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 8",
+    // room: "Breakout Room 8",
     projects: [
       {
         title: "Ransacked",
@@ -403,7 +403,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 9",
+    // room: "Breakout Room 9",
     projects: [
       {
         title: "Rocket Game",
@@ -446,7 +446,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 10",
+    // room: "Breakout Room 10",
     projects: [
       {
         title: "Time for Golf",
@@ -489,7 +489,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 11",
+    // room: "Breakout Room 11",
     projects: [
       {
         title: "Flying Game",
@@ -526,7 +526,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     ],
   },
   {
-    room: "Breakout Room 12",
+    // room: "Breakout Room 12",
     projects: [
       {
         title: "Zombie Escape",
@@ -548,19 +548,6 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ),
         href: "https://kmanders317.github.io/Karina-Summer-Web-Developement/",
         ...image("oportuneety"),
-      },
-      {
-        title: "Fruit Box",
-        students: ["Jason Siu"],
-        description: (
-          <>
-            I built a website that sells fresh organic year-round fruits and
-            produce that delivers to your doorstep with 1 click of a button with
-            your phone
-          </>
-        ),
-        href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-        ...image("Placeholder"),
       },
     ],
   },

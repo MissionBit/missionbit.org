@@ -2,11 +2,11 @@ import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Landing from "components/demoday/Landing";
 import FlourishSeparator from "components/programs/FlourishSeparator";
-import Agenda from "./Agenda";
-import StudentSpeakers from "./StudentSpeakers";
-import JudgingCategories from "./JudgingCategories";
+// import Agenda from "./Agenda";
+// import StudentSpeakers from "./StudentSpeakers";
+// import JudgingCategories from "./JudgingCategories";
 import StudentProjects from "./StudentProjects";
-import Judges from "./Judges";
+// import Judges from "./Judges";
 import DemoDayFooter from "./DemoDayFooter";
 
 const useStyles = makeStyles(() => ({
@@ -19,14 +19,14 @@ const DemoDay: React.FC<{}> = () => {
     <main id="main" className={classes.root}>
       <Landing />
       <FlourishSeparator />
-      <Agenda />
-      <FlourishSeparator />
-      <StudentSpeakers />
-      <FlourishSeparator />
-      <JudgingCategories />
-      <FlourishSeparator />
-      <Judges />
-      <FlourishSeparator />
+      {/* <Agenda /> */}
+      {/* <FlourishSeparator /> */}
+      {/* <StudentSpeakers /> */}
+      {/* <FlourishSeparator /> */}
+      {/* <JudgingCategories /> */}
+      {/* <FlourishSeparator /> */}
+      {/* <Judges /> */}
+      {/* <FlourishSeparator /> */}
       <StudentProjects />
       <FlourishSeparator />
       <DemoDayFooter />
