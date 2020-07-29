@@ -131,15 +131,15 @@ const Project: React.FC<ProjectProps> = ({
 };
 
 const StudentProjectRoom: React.FC<StudentProjectRoomProps> = ({
-  room,
+  // room,
   projects,
 }) => {
   const classes = useStyles();
   return (
     <Container component="section" className={classes.showcase}>
-      <Typography variant="h3" className={classes.room}>
+      {/* <Typography variant="h3" className={classes.room}>
         {room}
-      </Typography>
+      </Typography> */}
       {projects.map((props, i) => (
         <Project {...props} key={i} />
       ))}

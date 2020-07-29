@@ -6,10 +6,12 @@ import DemoDay from "components/demoday/DemoDay";
 import oneLine from "src/oneLine";
 
 const useStyles = makeStyles({
-  header: { display: "none" },
+  header: {
+    // display: "none"
+  },
   footer: {
     "& > *:not(#get-updates)": {
-      display: "none",
+      // display: "none",
     },
   },
 });
