@@ -280,7 +280,7 @@ const CourseDescription: React.FC<{
               rel="noopener noreferrer"
               disabled={disabled}
             >
-              {disabled ? "Registration closed" : "Student Sign Up"}
+              {disabled ? "Registration closed" : "Student Application"}
             </RegButton>
           </Box>
         </Box>

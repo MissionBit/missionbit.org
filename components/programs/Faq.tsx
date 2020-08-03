@@ -48,13 +48,19 @@ const Faq: React.FC<{}> = () => {
         all interested students to apply! We seek to create a strong learning
         community with committed young people who bring a variety of
         perspectives to the classroom. To be considered for admissions, students
-        are required to take part in a Student Admissions Phone Screening that
-        will take place on {LongDateFormat.format(FallDates.interview)}. Please
-        provide accurate email information for the screening.
+        are required to submit a written application after they submit the first
+        one and take part in a Student Admissions Phone Screening that will take
+        place on
+        {LongDateFormat.format(FallDates.interview)}. Please provide accurate
+        email information for the screening and written application.
       </FaqItem>
 
-      <FaqItem question="What is the registration deadline for Fall 2020?">
-        The registration deadline is{" "}
+      <FaqItem question="How can I apply for a class?">
+        You can scroll up and click on the Student Application button to apply!
+      </FaqItem>
+
+      <FaqItem question="What is the application deadline for Fall 2020?">
+        The application deadline is{" "}
         {LongDateTimeFormat.format(FallDates.registrationDeadline)}.
       </FaqItem>
 
@@ -105,10 +111,6 @@ const Faq: React.FC<{}> = () => {
       <FaqItem question="Who teaches Mission Bit classes?">
         Most of our classes are taught by college students and software
         engineers who are passionate about computer science education.
-      </FaqItem>
-
-      <FaqItem question="How can I sign up for a class?">
-        You can scroll up and click on the Student Sign Up button to apply!
       </FaqItem>
     </Container>
   );

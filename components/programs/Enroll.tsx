@@ -84,10 +84,10 @@ const Enroll: React.FC<{}> = () => {
           Fall 2020 Classes
         </Typography>
         <Typography className={classes.copy}>
-          Come have fun with us this fall!
+          Apply to our program and come have fun with us this fall!
           <br />
           <span className={classes.deadlineEmphasis}>
-            Registration deadline:
+            Application deadline:
           </span>{" "}
           {LongDateTimeFormat.format(FallDates.registrationDeadline)}
           <br />
