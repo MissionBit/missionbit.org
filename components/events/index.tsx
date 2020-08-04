@@ -7,7 +7,7 @@ import YouTubePreviews from "components/YouTubePreviews";
 import GalaCalendarEvent from "components/gala/GalaDates";
 import { useRenderTime } from "components/BuildTimeContext";
 import Landing from "./Landing";
-import SummerTalkSeries from "./SummerTalkSeries";
+// import SummerTalkSeries from "./SummerTalkSeries";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Featured, { FeaturedEvent } from "./Featured";
 import { SummerDates } from "components/programs/ClassInstanceData";
@@ -319,8 +319,8 @@ const Main: React.FC<{}> = () => {
   return (
     <main id="main">
       <Landing />
-      <FlourishSeparator />
-      <SummerTalkSeries />
+      {/* <FlourishSeparator />
+      <SummerTalkSeries /> */}
       <FlourishSeparator />
       <Container component="section" id="current" className={classes.section}>
         {FeaturedEvents.map((props) =>
