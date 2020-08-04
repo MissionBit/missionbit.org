@@ -12,6 +12,7 @@ export const RegisterButton: React.FC<{ className?: string }> = ({
     variant="contained"
     size="large"
     className={className}
+    disabled={true}
   >
     Register
   </VioletButton>
