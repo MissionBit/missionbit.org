@@ -14,7 +14,7 @@ export const RegisterButton: React.FC<{ className?: string }> = ({
     className={className}
     disabled={true}
   >
-    Register
+    Registration is closed.
   </VioletButton>
 );
 
