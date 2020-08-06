@@ -6,6 +6,8 @@ import {
   SpringClassInstances,
   FallClassInstances,
   FallDates,
+  FallSDRClassInstances,
+  FallSDRDates,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
@@ -90,6 +92,26 @@ const Enroll: React.FC<{}> = () => {
             Application deadline:
           </span>{" "}
           {LongDateTimeFormat.format(FallDates.registrationDeadline)}
+          <br />
+        </Typography>
+      </Courses>
+      <Courses instances={FallSDRClassInstances}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.alert}
+          id="courses"
+        >
+          Career Prep Bootcamp
+        </Typography>
+        <Typography className={classes.copy}>
+          Fast-track your career with Mission Bit. Must be an SF resident, 18-24
+          years old.
+          <br />
+          <span className={classes.deadlineEmphasis}>
+            Application deadline:
+          </span>{" "}
+          {LongDateTimeFormat.format(FallSDRDates.registrationDeadline)}
           <br />
         </Typography>
       </Courses>
