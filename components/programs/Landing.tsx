@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import VioletButton from "components/VioletButton";
 import IndigoButton from "components/IndigoButton";
+import OrangeButton from "components/OrangeButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,6 +112,14 @@ const Landing: React.FC<{}> = () => {
           >
             Classes
           </IndigoButton>
+          <OrangeButton
+            variant="contained"
+            href="#careerprep"
+            size="large"
+            className={classes.button}
+          >
+            Career Prep
+          </OrangeButton>
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>

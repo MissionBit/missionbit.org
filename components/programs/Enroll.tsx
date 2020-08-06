@@ -100,7 +100,7 @@ const Enroll: React.FC<{}> = () => {
           variant="h3"
           align="center"
           className={classes.alert}
-          id="courses"
+          id="careerprep"
         >
           Career Prep Bootcamp
         </Typography>
