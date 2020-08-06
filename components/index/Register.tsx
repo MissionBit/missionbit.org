@@ -81,18 +81,18 @@ const Register: React.FC<{}> = () => {
             className={classes.heading}
             color="secondary"
           >
-            <Link href="/events#demo-day" color="secondary">
-              RSVP
+            <Link href="/programs#courses" color="secondary">
+              High school students, apply
             </Link>{" "}
-            for Summer Demo Day now!
+            for our Fall 2020 classes today!
           </Typography>
           <VioletButton
-            href="/events#demo-day"
+            href="/programs#courses"
             size="large"
             variant="outlined"
             className={classes.button}
           >
-            Register Now
+            Apply Now
           </VioletButton>{" "}
         </Box>
         <Box className={classes.videoContainer}>
