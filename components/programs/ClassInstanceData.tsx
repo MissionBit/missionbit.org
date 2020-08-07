@@ -157,7 +157,7 @@ export interface ClassDates {
 
 export interface ClassSDRDates {
   registrationDeadline: number;
-  // interview: number;
+  interview: number;
 }
 
 function courseRecord<T extends Record<string, Course>>(x: T): T {
@@ -262,8 +262,8 @@ export const Courses = courseRecord({
     description: (
       <>
         Join us this fall for the launch of our new program. Break into the tech
-        industry in an entry level Sales Development Rep position earning
-        $60,000 in just 3 months! Learn the soft skills you need to succeed.
+        industry in an entry level Sales Development Representative position
+        earning $60,000 in just 3 months! Learn the skills you need to succeed.
       </>
     ),
   },
@@ -450,8 +450,8 @@ export const FallDates: ClassDates = {
 };
 
 export const FallSDRDates: ClassSDRDates = {
-  registrationDeadline: Date.parse("2020-09-09T20:00:00-07:00"),
-  // interview: Date.parse("2020-09-02T12:00:00-07:00"),
+  registrationDeadline: Date.parse("2020-09-06T20:00:00-07:00"),
+  interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
 // function summerClass(
@@ -541,7 +541,7 @@ function fallSDRClass(
     ),
     startDate: "September (Date TBD)",
     endDate: "December (Date TBD)",
-    signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
+    signupUrl: `https://www.tfaforms.com/4843869?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -561,7 +561,7 @@ export const FallClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
-  fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2245"),
+  fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2242"),
 ];
 
 function summerWorkshop({
