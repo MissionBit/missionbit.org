@@ -33,11 +33,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface PastEvent {
-  id: string;
-  title: string;
-}
-
 const FeaturedEvents: FeaturedEvent[] = [
   {
     id: "mb-hackathon",
