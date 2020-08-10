@@ -137,7 +137,7 @@ export interface ClassInstance extends MeetInstance {
   type: "class";
   startDate: string;
   endDate: string;
-  classDates: ClassDates | ClassSDRDates;
+  classDates: Pick<ClassDates, "registrationDeadline">;
 }
 
 export interface WorkshopInstance extends MeetInstance {
@@ -149,15 +149,16 @@ export interface WorkshopInstance extends MeetInstance {
 
 export type ClassOrWorkshopInstance = ClassInstance | WorkshopInstance;
 
-export interface ClassDates {
+// Naming is hard, it might make more sense to call this one ClassDates
+// and have another one for the classes with demo days, e.g. ProgrammingClassDates,
+// but that would require more changes to other places
+export interface BaseClassDates {
   registrationDeadline: number;
   interview: number;
-  demoDay: number;
 }
 
-export interface ClassSDRDates {
-  registrationDeadline: number;
-  interview: number;
+export interface ClassDates extends BaseClassDates {
+  demoDay: number;
 }
 
 function courseRecord<T extends Record<string, Course>>(x: T): T {
@@ -449,7 +450,7 @@ export const FallDates: ClassDates = {
   demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
 };
 
-export const FallSDRDates: ClassSDRDates = {
+export const FallSDRDates: BaseClassDates = {
   registrationDeadline: Date.parse("2020-09-06T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
