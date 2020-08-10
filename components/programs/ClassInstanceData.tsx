@@ -23,6 +23,7 @@ export const CourseSkills = [
   "Javascript",
   "Networking",
   "Cover Letter Writing",
+  "Tech Sales",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -96,6 +97,12 @@ const coverLetterImage = {
   alt: "Image of a cover letter",
 };
 
+const sdrImage = {
+  src: require("public/images/program/sdr.svg"),
+  alt:
+    "Image of a girl wearing over ear headphones with sales books around her",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
@@ -130,7 +137,7 @@ export interface ClassInstance extends MeetInstance {
   type: "class";
   startDate: string;
   endDate: string;
-  classDates: ClassDates;
+  classDates: Pick<ClassDates, "registrationDeadline">;
 }
 
 export interface WorkshopInstance extends MeetInstance {
@@ -142,9 +149,15 @@ export interface WorkshopInstance extends MeetInstance {
 
 export type ClassOrWorkshopInstance = ClassInstance | WorkshopInstance;
 
-export interface ClassDates {
+// Naming is hard, it might make more sense to call this one ClassDates
+// and have another one for the classes with demo days, e.g. ProgrammingClassDates,
+// but that would require more changes to other places
+export interface BaseClassDates {
   registrationDeadline: number;
   interview: number;
+}
+
+export interface ClassDates extends BaseClassDates {
   demoDay: number;
 }
 
@@ -240,6 +253,18 @@ export const Courses = courseRecord({
         environment. We’ll start off with an introduction to Javascript, move on
         to working on projects based on your personal interests and creativity,
         and finish off the semester with a final project. Beginners welcome!
+      </>
+    ),
+  },
+  sdr_class: {
+    title: "12-Week Tech Sales Bootcamp",
+    skills: ["Career Preparation", "Tech Sales"],
+    image: sdrImage,
+    description: (
+      <>
+        Join us this fall for the launch of our new program. Break into the tech
+        industry in an entry level Sales Development Representative position
+        earning $60,000 in just 3 months! Learn the skills you need to succeed.
       </>
     ),
   },
@@ -425,6 +450,11 @@ export const FallDates: ClassDates = {
   demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
 };
 
+export const FallSDRDates: BaseClassDates = {
+  registrationDeadline: Date.parse("2020-09-06T20:00:00-07:00"),
+  interview: Date.parse("2020-09-082T13:00:00-07:00"),
+};
+
 // function summerClass(
 //   course: Course,
 //   campus: Campus,
@@ -492,6 +522,30 @@ function fallClass(
   };
 }
 
+function fallSDRClass(
+  course: Course,
+  campus: Campus,
+  formAssemblyId: string
+): ClassInstance {
+  return {
+    type: "class",
+    course,
+    campus,
+    classDates: FallSDRDates,
+    meets: (
+      <>
+        Tuesday, Wednesday, Thursday{" "}
+        <Box component="span" display="inline-block">
+          6:00pm - 9:00pm
+        </Box>
+      </>
+    ),
+    startDate: "September (Date TBD)",
+    endDate: "December (Date TBD)",
+    signupUrl: `https://www.tfaforms.com/4843869?tfa_2013=${formAssemblyId}`,
+  };
+}
+
 // export const SummerClassInstances: ClassOrWorkshopInstance[] = [
 //   summerClass(Courses.web_bootcamp, Campuses.online_sf, "tfa_2247"),
 //   summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
@@ -505,6 +559,10 @@ export const FallClassInstances: ClassOrWorkshopInstance[] = [
   fallClass(Courses.web_class, Campuses.online, "TH", "tfa_2247"),
   fallClass(Courses.game_class, Campuses.online, "TH", "tfa_2267"),
   fallClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2268"),
+];
+
+export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
+  fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2242"),
 ];
 
 function summerWorkshop({
@@ -551,20 +609,6 @@ function summerWorkshop({
 }
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
-  // summerWorkshop({
-  //   course: Courses.p5js_workshop,
-  //   dateString: "2020-07-20T16:00:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4837613",
-  //   who: "7th - 12th graders",
-  // }),
-  // summerWorkshop({
-  //   course: Courses.beginner_web_workshop,
-  //   dateString: "2020-07-22T15:30:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4836338",
-  //   who: "7th - 12th graders",
-  // }),
   summerWorkshop({
     course: Courses.careerprep_resume_workshop,
     dateString: "2020-08-04T15:30:00-07:00",

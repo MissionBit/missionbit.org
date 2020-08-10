@@ -6,6 +6,7 @@ import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import VioletButton from "components/VioletButton";
 import IndigoButton from "components/IndigoButton";
+import OrangeButton from "components/OrangeButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
-    flex: "0 0 50%",
+    flex: 1,
     padding: theme.spacing(0, 3),
     [theme.breakpoints.between("xs", "sm")]: {
-      flex: "0 0 70%",
+      flex: "1 1 100%",
     },
     [theme.breakpoints.down("xs")]: {
       flex: 1,
@@ -45,21 +46,30 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   buttons: {
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
+    },
     marginTop: theme.spacing(4),
   },
   button: {
-    fontSize: theme.typography.pxToRem(25),
-    width: "12rem",
-    "&:nth-child(n + 2)": {
-      marginLeft: theme.spacing(2),
+    fontSize: theme.typography.pxToRem(22),
+    width: "11rem",
+    [theme.breakpoints.up("sm")]: {
+      "&:nth-child(n + 2)": {
+        marginLeft: theme.spacing(2),
+      },
     },
     [theme.breakpoints.between("xs", "sm")]: {
       width: "10rem",
-      fontSize: theme.typography.h6.fontSize,
+      fontSize: "1rem",
+      // fontSize: theme.typography.h6.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
-      width: "7.5rem",
-      fontSize: "1rem",
+      display: "block",
+      textAlign: "center",
+      margin: "1rem auto",
+      width: "10em",
+      fontSize: "0.8rem",
     },
   },
   imageWrapper: {
@@ -68,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     paddingRight: theme.spacing(4),
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
@@ -111,6 +121,14 @@ const Landing: React.FC<{}> = () => {
           >
             Classes
           </IndigoButton>
+          <OrangeButton
+            variant="contained"
+            href="#careerprep"
+            size="large"
+            className={classes.button}
+          >
+            Career Prep
+          </OrangeButton>
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>
