@@ -49,18 +49,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
   button: {
-    fontSize: theme.typography.pxToRem(25),
-    width: "12rem",
+    fontSize: theme.typography.pxToRem(22),
+    width: "11rem",
     "&:nth-child(n + 2)": {
       marginLeft: theme.spacing(2),
     },
     [theme.breakpoints.between("xs", "sm")]: {
       width: "10rem",
-      fontSize: theme.typography.h6.fontSize,
+      fontSize: "1rem",
+      // fontSize: theme.typography.h6.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
-      width: "7.5rem",
-      fontSize: "1rem",
+      width: "10em",
+      fontSize: "0.8rem",
     },
   },
   imageWrapper: {
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     paddingRight: theme.spacing(4),
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       display: "none",
     },
   },
