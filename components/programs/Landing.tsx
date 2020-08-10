@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
-    flex: "0 0 50%",
+    flex: 1,
     padding: theme.spacing(0, 3),
     [theme.breakpoints.between("xs", "sm")]: {
-      flex: "0 0 70%",
+      flex: 1,
     },
     [theme.breakpoints.down("xs")]: {
       flex: 1,
