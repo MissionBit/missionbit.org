@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     padding: theme.spacing(0, 3),
     [theme.breakpoints.between("xs", "sm")]: {
-      flex: 1,
+      flex: "1 1 100%",
     },
     [theme.breakpoints.down("xs")]: {
       flex: 1,
@@ -46,13 +46,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   buttons: {
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
+    },
     marginTop: theme.spacing(4),
   },
   button: {
     fontSize: theme.typography.pxToRem(22),
     width: "11rem",
-    "&:nth-child(n + 2)": {
-      marginLeft: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      "&:nth-child(n + 2)": {
+        marginLeft: theme.spacing(2),
+      },
     },
     [theme.breakpoints.between("xs", "sm")]: {
       width: "10rem",
@@ -60,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
       // fontSize: theme.typography.h6.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
+      display: "block",
+      textAlign: "center",
+      margin: "1rem auto",
       width: "10em",
       fontSize: "0.8rem",
     },
