@@ -49,10 +49,10 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     padding: theme.spacing(3, 2, 2, 2),
-    fontSize: theme.typography.pxToRem(50),
+    fontSize: theme.typography.pxToRem(33),
     lineHeight: 1.5,
     [theme.breakpoints.between("xs", "sm")]: {
-      fontSize: theme.typography.pxToRem(40),
+      fontSize: theme.typography.pxToRem(35),
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: theme.typography.pxToRem(24),
@@ -68,6 +68,14 @@ const useStyles = makeStyles((theme) => ({
     },
     fontSize: theme.typography.pxToRem(35),
   },
+  copy: {
+    padding: theme.spacing(2, 2, 2, 2),
+    // marginBottom: theme.spacing(2),
+    fontSize: theme.typography.pxToRem(25),
+    // [theme.breakpoints.down("sm")]: {
+    //   fontSize: theme.typography.body1.fontSize,
+    // },
+  },
 }));
 
 const Register: React.FC<{}> = () => {
@@ -77,10 +85,15 @@ const Register: React.FC<{}> = () => {
       <Container className={classes.container}>
         <Box className={classes.copyButton}>
           <Typography
-            variant="h4"
+            variant="h2"
             className={classes.heading}
-            color="secondary"
+            color="textSecondary"
           >
+            Mission Bit offers free coding classes for high school students in
+            the San Francisco area. We also offer after-school workshops, summer
+            bootcamps, and project-based tech industry experiences.
+          </Typography>
+          <Typography variant="h2" className={classes.copy} color="secondary">
             <Link href="/programs#courses" color="secondary">
               High school students, apply
             </Link>{" "}
