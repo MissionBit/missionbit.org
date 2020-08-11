@@ -22,14 +22,14 @@ interface JobOpening {
 }
 
 const JobOpenings: JobOpening[] = [
-  // {
-  //   href: "/images/jobs/missionBitLeadInstructorJobDescription.pdf",
-  //   title: "Lead Instructor",
-  // },
-  // {
-  //   href: "/images/jobs/missionBitInstructorsAssistantJobDescription.pdf",
-  //   title: "Instructor's Assistant",
-  // },
+  {
+    href: "/images/jobs/JavascriptInstructor.pdf",
+    title: "Lead Javascript Instructor",
+  },
+  {
+    href: "/images/jobs/WebDesignInstructor.pdf",
+    title: "Lead Web Design Instructor",
+  },
 ];
 
 const Jobs: React.FC<{}> = () => {
@@ -39,9 +39,12 @@ const Jobs: React.FC<{}> = () => {
       <Typography variant="h4" component="h2" align="center">
         Job Openings
       </Typography>
+      <Typography variant="h6" align="center">
+        Please email your resume and cover letter to hiring@missionbit.org.
+      </Typography>
       {JobOpenings.length === 0 ? (
         <Typography className={classes.openings}>
-          We are no longer hiring for the summer. Please check back in August!
+          We are no longer hiring. Please check back in January.
         </Typography>
       ) : (
         <Typography className={classes.openings} component="ul">
