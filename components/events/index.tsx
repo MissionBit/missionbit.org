@@ -11,6 +11,9 @@ import Landing from "./Landing";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Featured, { FeaturedEvent } from "./Featured";
 import { SummerDates } from "components/programs/ClassInstanceData";
+import Box from "@material-ui/core/Box";
+import VioletButton from "components/VioletButton";
+import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +33,37 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: 0,
     },
+  },
+  indigoHeading: {
+    fontWeight: theme.typography.fontWeightBold,
+    color: brand.indigo,
+    textAlign: "center",
+    fontSize: theme.typography.pxToRem(50),
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(30),
+    },
+  },
+  button: {
+    fontSize: theme.typography.pxToRem(25),
+    width: "12rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "10rem",
+    },
+    [theme.breakpoints.between("xs", "sm")]: {
+      fontSize: theme.typography.h6.fontSize,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1rem",
+    },
+  },
+  container: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    marginBottom: theme.spacing(6),
+  },
+  buttonContainer: {
+    textAlign: "center",
   },
 }));
 
@@ -337,6 +371,26 @@ const Main: React.FC<{}> = () => {
         </Typography>
         <YouTubePreviews values={PastEvents} />
       </Container>
+      <FlourishSeparator />
+      <Box component="section" id="programs" className={classes.root}>
+        <Container className={classes.container}>
+          <Typography className={classes.indigoHeading}>
+            Are you a high school student in San Francisco who wants to learn
+            more about computer science? Visit our programs page and check out
+            our free programming classes and workshops.
+          </Typography>
+          <Container className={classes.buttonContainer}>
+            <VioletButton
+              variant="contained"
+              href="/programs"
+              size="large"
+              className={classes.button}
+            >
+              Programs
+            </VioletButton>
+          </Container>
+        </Container>
+      </Box>
     </main>
   );
 };
