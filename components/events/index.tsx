@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(50),
     marginBottom: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.pxToRem(40),
+      fontSize: theme.typography.pxToRem(30),
     },
   },
   button: {
