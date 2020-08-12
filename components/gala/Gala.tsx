@@ -122,12 +122,13 @@ const Gala: React.FC<{}> = () => {
           <br />
           {time}
           <br />
-          San Francisco
+          Online
         </Typography>
         <Typography>
           Mission Bit's Fourth Annual Gala is a celebration of seven years of
-          growth, impact, and learning. Join us for this inspiring event, meet
-          our students, hear their stories, and help us reach our 2021 goals!
+          growth, impact, and learning. Join us online for this inspiring event,
+          meet our students, hear their stories, and help us reach our 2021
+          goals!
         </Typography>
         <Typography>
           For more information on sponsorships, see our{" "}
@@ -142,6 +143,7 @@ const Gala: React.FC<{}> = () => {
           </a>
           .
         </Typography>
+        {/*
         <Typography component="div">
           <strong>What to Expect:</strong>
           <br />
@@ -155,6 +157,7 @@ const Gala: React.FC<{}> = () => {
             </li>
           </ul>
         </Typography>
+        */}
         <Typography>
           We're excited to share this very special evening with you!
         </Typography>
