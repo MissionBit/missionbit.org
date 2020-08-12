@@ -411,6 +411,21 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  python_workshop: {
+    title: "Totally Tubular Turtles With Python",
+    skills: ["Python"],
+    image: pythonImage,
+    description: (
+      <>
+        In this hands on workshop. We’ll take a look into python— one of the
+        worlds most popular programming languages and create our own interactive
+        turtle game. We’ll begin this workshop with an intro to python and some
+        of its core concepts before you are guided through a series of mini
+        lessons and challenges. All to end with an awesome interactive project
+        to show your friends and family! Beginners welcome!
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -610,24 +625,17 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.careerprep_resume_workshop,
-    dateString: "2020-08-04T15:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4839551",
-    who: "16 - 24 year olds",
-  }),
-  summerWorkshop({
-    course: Courses.cover_letter_workshop,
-    dateString: "2020-08-06T15:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4839556",
-    who: "16 - 24 year olds",
-  }),
-  summerWorkshop({
     course: Courses.scratch_window_workshop,
     dateString: "2020-08-12T16:00:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4838017",
+    who: "7th - 12th graders",
+  }),
+  summerWorkshop({
+    course: Courses.python_workshop,
+    dateString: "2020-08-24T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4844545",
     who: "7th - 12th graders",
   }),
   // summerWorkshop({
