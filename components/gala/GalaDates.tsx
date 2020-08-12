@@ -4,9 +4,9 @@ import { hourStartEndParts } from "src/dates";
 
 export const GalaCalendarEvent: CalendarEvent = {
   title: "Mission Bit Gala 2020",
-  start: "2020-11-12T18:00-08:00",
-  end: "2020-11-12T22:00-08:00",
-  location: "San Francisco, CA",
+  start: "2020-11-12T18:30-08:00",
+  end: "2020-11-12T19:30-08:00",
+  location: "Online",
   url: absoluteUrl("/gala"),
 };
 

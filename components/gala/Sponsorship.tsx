@@ -99,7 +99,7 @@ const Sponsorship: React.FC<{}> = () => {
           <br />
           {time}
           <br />
-          San Francisco
+          Online
         </Typography>
         <Typography>
           <a href="/gala">Mission Bit's Fourth Annual Gala</a> is a celebration
@@ -134,38 +134,32 @@ const Sponsorship: React.FC<{}> = () => {
       >
         <Typography variant="h3">Sponsorship Packages</Typography>
         <Typography>
-          All sponsorship packages include a table for 10 attendees and logo
-          presence on Mission Bit website for 2021
+          All sponsorship packages include a virtual table for 10 attendees and
+          logo presence on Mission Bit website for 2021
         </Typography>
         <Typography variant="h4">$50,000 Diamond Sponsor</Typography>
         <ul>
           <li>Exclusive to one sponsor</li>
-          <li>Up to three minutes of speaking time on stage</li>
-          <li>Front row seating at Gala with Keynote Speaker(s)</li>
-          <li>Influencer status on rotating video for 15 seconds</li>
+          <li>Up to three minutes of speaking time</li>
           <li>Public recognition in CEO Remarks</li>
-          <li>Logo presence on event signage on all event materials</li>
+          <li>Logo presence on all event materials</li>
         </ul>
         <Typography variant="h4">$25,000 Platinum Sponsor</Typography>
         <ul>
           <li>Exclusive to two sponsors</li>
-          <li>Front row seating at Gala with Keynote Speaker(s)</li>
-          <li>Influencer status on rotating video for 15 seconds</li>
           <li>Public recognition in CEO Remarks</li>
-          <li>Logo presence on event signage on all event materials</li>
+          <li>Logo presence on all event materials</li>
         </ul>
         <Typography variant="h4">$10,000 Gold Sponsor</Typography>
         <ul>
           <li>Exclusive to five sponsors</li>
-          <li>Premiere seating at Gala with Mission Bit students</li>
-          <li>Gold status on rotating video for 10 seconds</li>
-          <li>Logo presence on event signage on all event materials</li>
+          <li>Logo presence on all event materials</li>
         </ul>
         <Typography variant="h4">$5,000 Silver Sponsor</Typography>
         <ul>
           <li>Exclusive to ten sponsors</li>
-          <li>Logo presence in event program material</li>
-          <li>Listed as Silver Sponsor at 2020 Mission Bit student events</li>
+          <li>Logo presence on event program</li>
+          <li>Listed as Silver Sponsor at 2021 Mission Bit student events</li>
         </ul>
       </Container>
       <Container component="section" className={classes.copySection}>
