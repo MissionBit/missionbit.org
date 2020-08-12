@@ -378,7 +378,6 @@ const Main: React.FC<{}> = () => {
             Are you a high school student in San Francisco who wants to learn
             more about computer science? Visit our programs page and check out
             our free programming classes and workshops.
-            <br />
           </Typography>
           <Container className={classes.buttonContainer}>
             <VioletButton
