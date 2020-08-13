@@ -103,6 +103,39 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
           Mission Bit is a 501 (c)(3)
         </Typography>
       </FaqItem>
+      <FaqItem question="Stock">
+        <Typography>
+          DTC number: 0226
+          <br />
+          Account name: Mission Bit
+          <br />
+          Account number: Z40224631
+          <br />
+          Brokerage: Fidelity
+          <br />
+          <br />
+          In addition, please provide the following:
+          <br />
+          1. Name and mailing address.
+          <br />
+          2. Type of stock.
+          <br />
+          3. Number of shares.
+          <br />
+          <br />
+          When you provide us this information, especially your name and
+          address, we can personally thank you and send a tax receipt. For more
+          information or assistance, please contact us by email at{" "}
+          <Link
+            href={`mailto:${DEVELOPMENT_EMAIL}`}
+            target="_blank"
+            underline="always"
+            rel="noopener noreferrer"
+          >
+            {DEVELOPMENT_EMAIL}
+          </Link>{" "}
+        </Typography>
+      </FaqItem>
       <FaqItem question="Online">
         Online donations are the easiest way to give to Mission Bit. Please
         visit our secure online form above to make your donation today, and
