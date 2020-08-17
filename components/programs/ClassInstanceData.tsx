@@ -625,13 +625,6 @@ function summerWorkshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   summerWorkshop({
-    course: Courses.scratch_window_workshop,
-    dateString: "2020-08-12T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4838017",
-    who: "7th - 12th graders",
-  }),
-  summerWorkshop({
     course: Courses.python_workshop,
     dateString: "2020-08-24T16:00:00-07:00",
     minutes: 90,
