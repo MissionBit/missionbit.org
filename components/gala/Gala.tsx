@@ -3,31 +3,11 @@ import AddToCalendar from "./AddToCalendar";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import GalaVideo from "./GalaVideo";
-import {
-  Sponsors,
-  SponsorData,
-  SponsorLevel,
-  SponsorLevels,
-} from "./SponsorData";
+import { Sponsors, SponsorLevel, SponsorLevels } from "./SponsorData";
 import { makeStyles } from "@material-ui/core/styles";
 import { GalaCalendarEvent, galaStartEnd } from "./GalaDates";
 import { DEVELOPMENT_EMAIL } from "src/emails";
-
-const Sponsor: React.FC<SponsorData> = (props) => (
-  <a
-    href={props.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    title={props.title}
-  >
-    <img
-      src={props.logoUrl}
-      width={props.width}
-      height={props.height}
-      alt={`${props.title} logo`}
-    />
-  </a>
-);
+import Sponsor from "./Sponsor";
 
 function levelTitle(s: SponsorLevel): string {
   return s.substring(0, 1).toUpperCase() + s.substring(1);

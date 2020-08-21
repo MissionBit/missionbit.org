@@ -2,7 +2,8 @@ import * as React from "react";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import GalaVideo from "./GalaVideo";
-import { Sponsors, SponsorData } from "./SponsorData";
+import { Sponsors } from "./SponsorData";
+import Sponsor from "./Sponsor";
 import { makeStyles } from "@material-ui/core/styles";
 import AdobePdfLogo from "./brands/AdobePdfLogo";
 import { galaStartEnd } from "./GalaDates";
@@ -65,22 +66,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Sponsor: React.FC<SponsorData> = (props) => (
-  <a
-    href={props.href}
-    target="_blank"
-    rel="noopener noreferrer"
-    title={props.title}
-  >
-    <img
-      src={props.logoUrl}
-      width={props.width}
-      height={props.height}
-      alt={`${props.title} logo`}
-    />
-  </a>
-);
-
 const Sponsorship: React.FC<{}> = () => {
   const classes = useStyles();
   const { date, time } = galaStartEnd();
@@ -134,32 +119,61 @@ const Sponsorship: React.FC<{}> = () => {
       >
         <Typography variant="h3">Sponsorship Packages</Typography>
         <Typography>
-          All sponsorship packages include a virtual table for 10 attendees and
-          logo presence on Mission Bit website for 2021
+          All sponsorship packages include a virtual table for at least 25
+          attendees and logo presence on Mission Bit website for 2021
         </Typography>
         <Typography variant="h4">$50,000 Diamond Sponsor</Typography>
         <ul>
           <li>Exclusive to one sponsor</li>
+          <li>Unlimited “seats” to virtual event</li>
           <li>Up to three minutes of speaking time</li>
           <li>Public recognition in CEO Remarks</li>
-          <li>Logo presence on all event materials</li>
+          <li>
+            Your logo featured as Diamond Sponsor on event slideshow before and
+            after event and all promotional material
+          </li>
+          <li>Your logo displayed on the Mission Bit website</li>
         </ul>
         <Typography variant="h4">$25,000 Platinum Sponsor</Typography>
         <ul>
           <li>Exclusive to two sponsors</li>
+          <li>Unlimited “seats” to virtual event</li>
           <li>Public recognition in CEO Remarks</li>
-          <li>Logo presence on all event materials</li>
+          <li>
+            Your logo featured as Platinum Sponsor on event slideshow before and
+            after event and all promotional material
+          </li>
+          <li>Your logo displayed on the Mission Bit website</li>
         </ul>
         <Typography variant="h4">$10,000 Gold Sponsor</Typography>
         <ul>
           <li>Exclusive to five sponsors</li>
-          <li>Logo presence on all event materials</li>
+          <li>Unlimited “seats” to virtual event</li>
+          <li>
+            Your logo featured as Gold Sponsor on event slideshow before and
+            after event and all promotional material
+          </li>
+          <li>Your logo displayed on the Mission Bit website</li>
         </ul>
         <Typography variant="h4">$5,000 Silver Sponsor</Typography>
         <ul>
           <li>Exclusive to ten sponsors</li>
+          <li>Unlimited “seats” to virtual event</li>
+          <li>
+            Your logo featured as Silver Sponsor on event slideshow before and
+            after event and all promotional material
+          </li>
+          <li>Your logo displayed on the Mission Bit website</li>
+        </ul>
+        <Typography variant="h4">$2,500 Bronze Sponsor</Typography>
+        <ul>
+          <li>25 “seats” for your employees</li>
           <li>Logo presence on event program</li>
-          <li>Listed as Silver Sponsor at 2021 Mission Bit student events</li>
+          <li>
+            Your logo featured as Bronze Sponsor on event slideshow before and
+            after event and all promotional material
+          </li>
+          <li>Your logo displayed on the Mission Bit website</li>
         </ul>
       </Container>
       <Container component="section" className={classes.copySection}>
