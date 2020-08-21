@@ -18,8 +18,8 @@ interface PostBody {
   metadata: { [k: string]: string };
 }
 
-function isFrequency(s: any): s is Frequency {
-  return FREQUENCIES.indexOf(s) >= 0;
+function isFrequency(s: unknown): s is Frequency {
+  return (FREQUENCIES as readonly unknown[]).indexOf(s) >= 0;
 }
 
 function stringObject(obj: unknown): { [k: string]: string } {
@@ -30,11 +30,11 @@ function stringObject(obj: unknown): { [k: string]: string } {
     : {};
 }
 
-function parseBody(body: any): PostBody | undefined {
+function parseBody(body: unknown): PostBody | undefined {
   if (typeof body !== "object") {
     return undefined;
   }
-  const { amount, frequency, metadata } = body;
+  const { amount, frequency, metadata } = body as { [k: string]: unknown };
   if (
     typeof amount !== "number" ||
     amount < MIN_AMOUNT ||

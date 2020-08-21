@@ -12,7 +12,7 @@ export const BridgeCalendarEvent: CalendarEvent = {
 
 export function bridgeStartEnd() {
   const start = Date.parse(BridgeCalendarEvent.start);
-  const end = Date.parse(BridgeCalendarEvent.end);
+  const end = Date.parse(BridgeCalendarEvent.end!);
   return hourStartEndParts(start, end);
 }
 

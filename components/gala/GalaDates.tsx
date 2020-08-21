@@ -12,7 +12,7 @@ export const GalaCalendarEvent: CalendarEvent = {
 
 export function galaStartEnd() {
   const start = Date.parse(GalaCalendarEvent.start);
-  const end = Date.parse(GalaCalendarEvent.end);
+  const end = Date.parse(GalaCalendarEvent.end!);
   return hourStartEndParts(start, end);
 }
 
