@@ -98,7 +98,7 @@ const Faq: React.FC<{}> = () => {
       </FaqItem>
 
       <FaqItem question="Which class should I sign up for?">
-        All our classes are taught at an introductory level and provide a solid
+        All of our classes are taught at an introductory level and provide a solid
         foundation for beginners. Join our Web Design class if you want to learn
         about design and how to create beautiful websites. Take our Unity Game
         Design class and learn about creating engaging gameplay in video games.

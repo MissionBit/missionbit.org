@@ -417,9 +417,9 @@ export const Courses = courseRecord({
     image: pythonImage,
     description: (
       <>
-        In this hands on workshop. We’ll take a look into python— one of the
+        In this hands on workshop, we’ll take a look at Python— one of the
         worlds most popular programming languages and create our own interactive
-        turtle game. We’ll begin this workshop with an intro to python and some
+        turtle game. We’ll begin this workshop with an intro to Python and some
         of its core concepts before you are guided through a series of mini
         lessons and challenges. All to end with an awesome interactive project
         to show your friends and family! Beginners welcome!
