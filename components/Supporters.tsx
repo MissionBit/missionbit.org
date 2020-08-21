@@ -6,9 +6,14 @@ import BackgroundSlider from "./index/BackgroundSlider";
 
 const Logo: React.FC<{
   alt: string;
-  logo: { src: string; srcSet?: string };
-}> = ({ alt, logo }) => {
-  return <img {...logo} alt={alt} />;
+  logo: SupporterDataProps["logo"];
+}> = ({ alt, logo: { webpSrcSet, ...imgProps } }) => {
+  return (
+    <picture>
+      {webpSrcSet ? <source type="image/webp" srcSet={webpSrcSet} /> : null}
+      <img alt={alt} {...imgProps} />
+    </picture>
+  );
 };
 
 const useStyles = makeStyles((theme) => ({

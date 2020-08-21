@@ -7,11 +7,11 @@ interface PostBody {
   id: string;
 }
 
-function parseBody(body: any): PostBody | undefined {
+function parseBody(body: unknown): PostBody | undefined {
   if (typeof body !== "object") {
     return undefined;
   }
-  const { id } = body;
+  const { id } = body as { [k: string]: unknown };
   return typeof id === "string" ? { id } : undefined;
 }
 

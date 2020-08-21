@@ -1,5 +1,5 @@
 export interface SupporterDataProps {
-  logo: { src: string; srcSet?: string };
+  logo: { src: string; srcSet?: string; webpSrcSet?: string };
   href: string;
   title: string;
 }
@@ -8,14 +8,18 @@ function svg(logo: string): { src: string } {
   return { src: require(`public/images/supporters/${logo}.svg`) };
 }
 
-function png(logo: string): { src: string; srcSet: string } {
+function png(
+  logo: string
+): { src: string; srcSet: string; webpSrcSet?: string } {
   const [
     src,
     src2x,
-  ] = require(`public/images/supporters/${logo}.png?resize&size[]=150&size[]=300`).images.map(
+  ] = require(`public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300`).images.map(
     (image: { path: string; height: number; width: number }) => image.path
   );
-  return { src, srcSet: `${src}, ${src2x} 2x` };
+  const webpSrcSet = require(`public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300&format=webp`)
+    .srcSet;
+  return { src, srcSet: `${src}, ${src2x} 2x`, webpSrcSet };
 }
 
 const SupporterData: SupporterDataProps[] = [

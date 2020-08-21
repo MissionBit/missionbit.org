@@ -55,7 +55,9 @@ module.exports = withPlugins(
         handleImages: ["jpeg", "png", "svg", "webp", "gif"],
         optimizeImages: true,
         optimizeImagesInDev: false,
-        responsive: {},
+        responsive: {
+          adapter: require("responsive-loader/sharp"),
+        },
         mozjpeg: {
           quality: 80,
         },

@@ -6,8 +6,7 @@ export const GA_TRACKING_ID = "UA-47473369-1";
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string): void => {
   if (typeof window !== "undefined" && "gtag" in window) {
-    const gtag: any = (window as any)["gtag"];
-    gtag("config", GA_TRACKING_ID, {
+    window.gtag("config", GA_TRACKING_ID, {
       page_path: url,
     });
   }
@@ -26,8 +25,7 @@ export const event = ({
   value: number;
 }): void => {
   if (typeof window !== "undefined" && "gtag" in window) {
-    const gtag: any = (window as any)["gtag"];
-    gtag("event", action, {
+    window.gtag("event", action, {
       event_category: category,
       event_label: label,
       value: value,
