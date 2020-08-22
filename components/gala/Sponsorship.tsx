@@ -5,9 +5,9 @@ import GalaVideo from "./GalaVideo";
 import { Sponsors } from "./SponsorData";
 import Sponsor from "./Sponsor";
 import { makeStyles } from "@material-ui/core/styles";
-import AdobePdfLogo from "./brands/AdobePdfLogo";
-import { galaStartEnd } from "./GalaDates";
 import { DEVELOPMENT_EMAIL } from "src/emails";
+import SponsorshipLanding from "./SponsorshipLanding";
+import FlourishSeparator from "components/programs/FlourishSeparator";
 
 const useStyles = makeStyles((theme) => ({
   sponsors: {
@@ -68,50 +68,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Sponsorship: React.FC<{}> = () => {
   const classes = useStyles();
-  const { date, time } = galaStartEnd();
   return (
     <main id="main">
-      <Container component="section" className={classes.copySection}>
-        <Typography
-          variant="h2"
-          align="center"
-          className={classes.sponsorHeading}
-        >
-          Sponsor the 2020 Mission Bit Gala
-        </Typography>
-        <Typography variant="h3" align="center" className={classes.saveTheDate}>
-          {date}
-          <br />
-          {time}
-          <br />
-          Online
-        </Typography>
-        <Typography>
-          <a href="/gala">Mission Bit's Fourth Annual Gala</a> is a celebration
-          of seven years of growth, impact, and learning. Join us for this
-          inspiring event, meet our students, hear their stories, and help us
-          reach our 2021 goals!
-        </Typography>
-        <Typography>
-          Check out our{" "}
-          <a
-            href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
-            target="_blank"
-          >
-            <AdobePdfLogo fontSize="small" /> 2018 Annual Report
-          </a>{" "}
-          for more about our vision and current impact. If you have any
-          questions, please contact us at{" "}
-          <a
-            href={`mailto:${DEVELOPMENT_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {DEVELOPMENT_EMAIL}
-          </a>
-          .
-        </Typography>
-      </Container>
+      <SponsorshipLanding />
+      <FlourishSeparator />
       <Container
         component="section"
         id="packages"
