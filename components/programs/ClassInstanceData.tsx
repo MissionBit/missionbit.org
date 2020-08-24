@@ -24,6 +24,10 @@ export const CourseSkills = [
   "Networking",
   "Cover Letter Writing",
   "Tech Sales",
+  "Logos",
+  "Color Schemes",
+  "Social Media",
+  "Web Design",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -101,6 +105,12 @@ const sdrImage = {
   src: require("public/images/program/sdr.svg"),
   alt:
     "Image of a girl wearing over ear headphones with sales books around her",
+};
+
+const designBusinessImage = {
+  src: require("public/images/program/design-business.svg"),
+  alt:
+    "Image of moutains and a sun behind them",
 };
 
 export interface Course {
@@ -426,6 +436,20 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  design_business_workshop: {
+    title: "Design Your Own Business in 90 Minutes",
+    skills: [  "Logos", "Color Schemes", "Social Media", "Web Design",],
+    image: designBusinessImage,
+    description: (
+      <>
+        This project-based class combines design tips and tricks with 
+        free platforms to design your own business. We'll discover the 
+        creative secrets to use for any business, free tools that all designers 
+        use, and we will bring our designs to life in a final interactive website. 
+        Beginners welcome!
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -630,6 +654,23 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4844545",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
+  }),
+  summerWorkshop({
+    course: Courses.design_business_workshop,
+    dateString: "2020-09-02T16:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4847199",
+    who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
+
+  }),
+  summerWorkshop({
+    course: Courses.interviewing_workshop,
+    dateString: "2020-09-10T15:30:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4847250",
+    who: "16 - 24 year olds",
   }),
   // summerWorkshop({
   //   course: Courses.careerprep_resume_workshop,
