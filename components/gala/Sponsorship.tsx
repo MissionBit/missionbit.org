@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { DEVELOPMENT_EMAIL } from "src/emails";
 import SponsorshipLanding from "./SponsorshipLanding";
 import FlourishSeparator from "components/programs/FlourishSeparator";
+import SponsorshipPackages from "./SponsorshipPackages";
 
 const useStyles = makeStyles((theme) => ({
   sponsors: {
@@ -49,14 +50,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  sponsorHeading: {
-    marginBottom: theme.spacing(2),
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h4.fontSize,
-      fontWeight: theme.typography.h6.fontWeight,
-    },
-  },
-  saveTheDate: {},
   thankYouHeading: {
     marginBottom: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
@@ -72,86 +65,7 @@ const Sponsorship: React.FC<{}> = () => {
     <main id="main">
       <SponsorshipLanding />
       <FlourishSeparator />
-      <Container
-        component="section"
-        id="packages"
-        className={classes.copySection}
-      >
-        <Typography variant="h3">Sponsorship Packages</Typography>
-        <Typography>
-          All sponsorship packages include a virtual table for at least 25
-          attendees and logo presence on Mission Bit website for 2021
-        </Typography>
-        <Typography variant="h4">$50,000 Diamond Sponsor</Typography>
-        <ul>
-          <li>Exclusive to one sponsor</li>
-          <li>Unlimited “seats” to virtual event</li>
-          <li>Up to three minutes of speaking time</li>
-          <li>Public recognition in CEO Remarks</li>
-          <li>
-            Your logo featured as Diamond Sponsor on event slideshow before and
-            after event and all promotional material
-          </li>
-          <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$25,000 Platinum Sponsor</Typography>
-        <ul>
-          <li>Exclusive to two sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
-          <li>Public recognition in CEO Remarks</li>
-          <li>
-            Your logo featured as Platinum Sponsor on event slideshow before and
-            after event and all promotional material
-          </li>
-          <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$10,000 Gold Sponsor</Typography>
-        <ul>
-          <li>Exclusive to five sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
-          <li>
-            Your logo featured as Gold Sponsor on event slideshow before and
-            after event and all promotional material
-          </li>
-          <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$5,000 Silver Sponsor</Typography>
-        <ul>
-          <li>Exclusive to ten sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
-          <li>
-            Your logo featured as Silver Sponsor on event slideshow before and
-            after event and all promotional material
-          </li>
-          <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$2,500 Bronze Sponsor</Typography>
-        <ul>
-          <li>25 “seats” for your employees</li>
-          <li>Logo presence on event program</li>
-          <li>
-            Your logo featured as Bronze Sponsor on event slideshow before and
-            after event and all promotional material
-          </li>
-          <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-      </Container>
-      <Container component="section" className={classes.copySection}>
-        <Typography>
-          For any questions regarding Gala Sponsorship,
-          {/*or to use a payment method other than credit card, */ " "}
-          please contact us at{" "}
-          <a
-            href={`mailto:${DEVELOPMENT_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {DEVELOPMENT_EMAIL}
-          </a>
-          . For more information about the Gala and individual tickets, visit{" "}
-          <a href="/gala">Mission Bit's Fourth Annual Gala</a>.
-        </Typography>
-      </Container>
+      <SponsorshipPackages />
       <Container component="section">
         <GalaVideo />
       </Container>
