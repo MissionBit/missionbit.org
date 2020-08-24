@@ -660,7 +660,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.design_business_workshop,
     dateString: "2020-09-02T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4844545",
+    signupUrl: "https://www.tfaforms.com/4847199",
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
 
@@ -669,7 +669,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.interviewing_workshop,
     dateString: "2020-09-10T15:30:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4844545",
+    signupUrl: "https://www.tfaforms.com/4847250",
     who: "16 - 24 year olds",
   }),
   // summerWorkshop({
