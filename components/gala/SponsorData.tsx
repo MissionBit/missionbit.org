@@ -1,5 +1,3 @@
-import assert from "assert";
-
 export interface SponsorData {
   readonly href: string;
   readonly title: string;
@@ -31,21 +29,16 @@ interface LogoInput {
 }
 
 function svgLogo({ src, width, height }: LogoInput): SponsorLogo {
-  assert(src.match(/\.svg$/), "svgLogo src must end with .svg");
   return {
-    src: require(`public/images/gala/2019-sponsors/${src}`),
+    src: require(`public/images/gala/2019-sponsors/${src}.svg`),
     width,
     height,
   };
 }
 
-function rasterLogo({ src, width, height }: LogoInput) {
-  assert(
-    src.match(/\.(jpg|png)$/),
-    "logo must be a .png or .jpg, use svgLogo for .svg"
-  );
-  const original = require(`public/images/gala/2019-sponsors/${src}?resize`);
-  const webp = require(`public/images/gala/2019-sponsors/${src}?resize&format=webp`);
+function pngLogo({ src, width, height }: LogoInput) {
+  const original = require(`public/images/gala/2019-sponsors/${src}.png?resize`);
+  const webp = require(`public/images/gala/2019-sponsors/${src}.png?resize&format=webp`);
   return {
     src: original.src,
     srcSet: original.srcSet,
@@ -59,20 +52,20 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://www.facebook.com/",
     title: "Facebook",
-    logo: svgLogo({ src: "facebook.svg", width: 1024, height: 360 }),
+    logo: svgLogo({ src: "facebook", width: 1024, height: 360 }),
     level: "platinum",
   },
   {
     href: "https://www.svb.com/",
     title: "Silicon Valley Bank",
-    logo: svgLogo({ src: "svb.svg", width: 2500, height: 1478 }),
+    logo: svgLogo({ src: "svb", width: 2500, height: 1478 }),
     level: "gold",
   },
   {
     href: "https://unity3d.com/",
     title: "Unity Technologies",
     logo: svgLogo({
-      src: "unity.svg",
+      src: "unity",
       width: 275,
       height: 100,
     }),
@@ -82,7 +75,7 @@ export const Sponsors: readonly SponsorData[] = [
     href: "https://jyve.com/",
     title: "Jyve",
     logo: svgLogo({
-      src: "jyve.svg",
+      src: "jyve",
       width: 133,
       height: 32,
     }),
@@ -92,7 +85,7 @@ export const Sponsors: readonly SponsorData[] = [
     href: "https://www.kaporcenter.org/",
     title: "Kapor Center",
     logo: svgLogo({
-      src: "kapor-center-wide.svg",
+      src: "kapor-center-wide",
       width: 410,
       height: 85,
     }),
@@ -101,8 +94,8 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://transcendit.health/",
     title: "TranscendIT Health",
-    logo: rasterLogo({
-      src: "transcendit-health.png",
+    logo: pngLogo({
+      src: "transcendit-health",
       width: 931,
       height: 304,
     }),
@@ -111,8 +104,8 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://getvim.com/",
     title: "Vim",
-    logo: rasterLogo({
-      src: "vim.png",
+    logo: pngLogo({
+      src: "vim",
       width: 540,
       height: 148,
     }),
@@ -121,8 +114,8 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://goldenstatewarriors.com/",
     title: "Golden State Warriors",
-    logo: rasterLogo({
-      src: "gsw.png",
+    logo: pngLogo({
+      src: "gsw",
       width: 750,
       height: 750,
     }),
@@ -132,7 +125,7 @@ export const Sponsors: readonly SponsorData[] = [
     href: "https://endlesswest.com/glyph/",
     title: "Glyph",
     logo: svgLogo({
-      src: "glyph.svg",
+      src: "glyph",
       width: 167,
       height: 23,
     }),
@@ -141,8 +134,8 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://www.halcyonft.com/",
     title: "Halcyon Financial Technology",
-    logo: rasterLogo({
-      src: "halcyon-financial-technology.png",
+    logo: pngLogo({
+      src: "halcyon-financial-technology",
       width: 1015,
       height: 317,
     }),
@@ -151,8 +144,8 @@ export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://www.tng.com/",
     title: "TNG",
-    logo: rasterLogo({
-      src: "tng.png",
+    logo: pngLogo({
+      src: "tng",
       width: 750,
       height: 750,
     }),
