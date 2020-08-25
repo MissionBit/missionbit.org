@@ -109,8 +109,7 @@ const sdrImage = {
 
 const designBusinessImage = {
   src: require("public/images/program/design-business.svg"),
-  alt:
-    "Image of moutains and a sun behind them",
+  alt: "Image of moutains and a sun behind them",
 };
 
 export interface Course {
@@ -438,14 +437,14 @@ export const Courses = courseRecord({
   },
   design_business_workshop: {
     title: "Design Your Own Business in 90 Minutes",
-    skills: [  "Logos", "Color Schemes", "Social Media", "Web Design",],
+    skills: ["Logos", "Color Schemes", "Social Media", "Web Design"],
     image: designBusinessImage,
     description: (
       <>
-        This project-based class combines design tips and tricks with 
-        free platforms to design your own business. We'll discover the 
-        creative secrets to use for any business, free tools that all designers 
-        use, and we will bring our designs to life in a final interactive website. 
+        This project-based class combines design tips and tricks with free
+        platforms to design your own business. We'll discover the creative
+        secrets to use for any business, free tools that all designers use, and
+        we will bring our designs to life in a final interactive website.
         Beginners welcome!
       </>
     ),
@@ -487,6 +486,11 @@ export const FallDates: ClassDates = {
   registrationDeadline: Date.parse("2020-08-23T20:00:00-07:00"),
   interview: Date.parse("2020-09-02T12:00:00-07:00"),
   demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
+};
+
+export const FallDatesExtended: ClassDates = {
+  ...FallDates,
+  registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
 };
 
 export const FallSDRDates: BaseClassDates = {
@@ -549,13 +553,14 @@ function fallClass(
   course: Course,
   campus: Campus,
   schedule: "MW" | "TH",
-  formAssemblyId: string
+  formAssemblyId: string,
+  classDates: ClassDates = FallDates
 ): ClassInstance {
   return {
     type: "class",
     course,
     campus,
-    classDates: FallDates,
+    classDates,
     ...FALL_CLASS_SCHEDULE[schedule],
     signupUrl: `https://www.tfaforms.com/4840819?tfa_2013=${formAssemblyId}`,
   };
@@ -592,10 +597,22 @@ function fallSDRClass(
 // ];
 
 export const FallClassInstances: ClassOrWorkshopInstance[] = [
-  fallClass(Courses.web_class, Campuses.online, "MW", "tfa_2245"),
+  fallClass(
+    Courses.web_class,
+    Campuses.online,
+    "MW",
+    "tfa_2245",
+    FallDatesExtended
+  ),
+  fallClass(
+    Courses.web_class,
+    Campuses.online,
+    "TH",
+    "tfa_2247",
+    FallDatesExtended
+  ),
   fallClass(Courses.game_class, Campuses.online, "MW", "tfa_2248"),
   fallClass(Courses.python_class, Campuses.online, "MW", "tfa_2266"),
-  fallClass(Courses.web_class, Campuses.online, "TH", "tfa_2247"),
   fallClass(Courses.game_class, Campuses.online, "TH", "tfa_2267"),
   fallClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2268"),
 ];
@@ -663,7 +680,6 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     signupUrl: "https://www.tfaforms.com/4847199",
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
-
   }),
   summerWorkshop({
     course: Courses.interviewing_workshop,
