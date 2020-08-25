@@ -32,9 +32,6 @@ const useStyles = makeStyles((theme) => ({
     },
     "& ul": theme.typography.body1,
     [theme.breakpoints.down("sm")]: {
-      "& > $saveTheDate": {
-        fontSize: "1.25rem",
-      },
       "& > h3": {
         fontSize: theme.typography.h5.fontSize,
         fontWeight: theme.typography.h6.fontWeight,

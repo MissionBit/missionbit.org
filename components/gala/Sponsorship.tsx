@@ -32,23 +32,6 @@ const useStyles = makeStyles((theme) => ({
     "& > p": {
       margin: theme.spacing(2, 0),
     },
-    "& ul": theme.typography.body1,
-    [theme.breakpoints.down("sm")]: {
-      "& > $saveTheDate": {
-        fontSize: "1.25rem",
-      },
-      "& > h3": {
-        fontSize: theme.typography.h5.fontSize,
-        fontWeight: theme.typography.h6.fontWeight,
-      },
-      "& > h4": {
-        fontSize: "1.25rem",
-        fontWeight: theme.typography.h6.fontWeight,
-      },
-      "& ul": {
-        paddingLeft: "1.25rem",
-      },
-    },
   },
   thankYouHeading: {
     marginBottom: theme.spacing(2),
