@@ -676,7 +676,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.p5js_workshop,
     dateString: "2020-09-23T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4847250",
+    signupUrl: "https://www.tfaforms.com/4847286",
     who: "7th - 12th graders",
   }),
   // summerWorkshop({
