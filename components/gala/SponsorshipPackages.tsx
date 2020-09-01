@@ -30,22 +30,92 @@ const useStyles = makeStyles((theme) => ({
     "& > p": {
       margin: theme.spacing(2, 0),
     },
-    "& ul": theme.typography.body1,
     [theme.breakpoints.down("sm")]: {
       "& > h3": {
         fontSize: theme.typography.h5.fontSize,
         fontWeight: theme.typography.h6.fontWeight,
       },
-      "& > h4": {
-        fontSize: "1.25rem",
-        fontWeight: theme.typography.h6.fontWeight,
-      },
-      "& ul": {
-        paddingLeft: "1.25rem",
-      },
     },
   },
 }));
+
+const usePackageStyles = makeStyles((theme) => ({
+  root: {
+    border: `2px solid ${brand.indigo}`,
+    padding: theme.spacing(4),
+    margin: theme.spacing(4, 0),
+    display: "grid",
+    gridTemplateColumns: "1fr 3fr",
+    gridTemplateAreas: `
+      "title ul"
+      "title actions"
+    `,
+    gridGap: theme.spacing(0, 6),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+      gridTemplateAreas: `
+        "title"
+        "ul"
+        "actions"
+      `,
+      gridTemplateColumns: "1fr",
+    },
+  },
+  ul: {
+    ...theme.typography.body1,
+    gridArea: "ul",
+    fontSize: theme.typography.pxToRem(24),
+    paddingLeft: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1rem",
+      fontSize: theme.typography.pxToRem(18),
+    },
+  },
+  title: {
+    gridArea: "title",
+    alignSelf: "center",
+    textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
+  },
+  actions: {
+    gridArea: "actions",
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
+  },
+  button: {
+    fontSize: theme.typography.pxToRem(22),
+    padding: theme.spacing(1, 4),
+  },
+}));
+
+const Package: React.FC<{
+  readonly title: string;
+  readonly children: React.ReactElement<"li">[];
+}> = ({ title, children }) => {
+  const classes = usePackageStyles();
+  return (
+    <Box className={classes.root}>
+      <Typography variant="h3" component="h4" className={classes.title}>
+        {title}
+      </Typography>
+      <ul className={classes.ul}>{children}</ul>
+      <Box className={classes.actions}>
+        <IndigoButton
+          variant="contained"
+          className={classes.button}
+          size="large"
+          target="_blank"
+          href="/gala/sponsorship/mb-gala-sponsorship-2020.pdf"
+        >
+          Sponsor
+        </IndigoButton>
+      </Box>
+    </Box>
+  );
+};
 
 const SponsorshipPackages: React.FC<{}> = () => {
   const classes = useStyles();
@@ -84,8 +154,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
           </Link>{" "}
           with any questions.
         </Typography>
-        <Typography variant="h4">$50,000 Diamond Sponsor</Typography>
-        <ul>
+        <Package title="$50,000 Diamond Sponsor">
           <li>Exclusive to one sponsor</li>
           <li>Unlimited “seats” to virtual event</li>
           <li>Up to three minutes of speaking time</li>
@@ -95,9 +164,8 @@ const SponsorshipPackages: React.FC<{}> = () => {
             after event and all promotional material
           </li>
           <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$25,000 Platinum Sponsor</Typography>
-        <ul>
+        </Package>
+        <Package title="$25,000 Platinum Sponsor">
           <li>Exclusive to two sponsors</li>
           <li>Unlimited “seats” to virtual event</li>
           <li>Public recognition in CEO Remarks</li>
@@ -106,9 +174,8 @@ const SponsorshipPackages: React.FC<{}> = () => {
             after event and all promotional material
           </li>
           <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$10,000 Gold Sponsor</Typography>
-        <ul>
+        </Package>
+        <Package title="$10,000 Gold Sponsor">
           <li>Exclusive to five sponsors</li>
           <li>Unlimited “seats” to virtual event</li>
           <li>
@@ -116,9 +183,8 @@ const SponsorshipPackages: React.FC<{}> = () => {
             after event and all promotional material
           </li>
           <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$5,000 Silver Sponsor</Typography>
-        <ul>
+        </Package>
+        <Package title="$5,000 Silver Sponsor">
           <li>Exclusive to ten sponsors</li>
           <li>Unlimited “seats” to virtual event</li>
           <li>
@@ -126,9 +192,8 @@ const SponsorshipPackages: React.FC<{}> = () => {
             after event and all promotional material
           </li>
           <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
-        <Typography variant="h4">$2,500 Bronze Sponsor</Typography>
-        <ul>
+        </Package>
+        <Package title="$2,500 Bronze Sponsor">
           <li>25 “seats” for your employees</li>
           <li>Logo presence on event program</li>
           <li>
@@ -136,7 +201,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
             after event and all promotional material
           </li>
           <li>Your logo displayed on the Mission Bit website</li>
-        </ul>
+        </Package>
       </Container>
       <Container component="section" className={classes.copySection}>
         <Typography>
