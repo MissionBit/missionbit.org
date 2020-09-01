@@ -117,6 +117,104 @@ const Package: React.FC<{
   );
 };
 
+const useReportStyles = makeStyles((theme) => ({
+  root: {
+    display: "grid",
+    gridTemplateColumns: "2fr 6fr",
+    gridTemplateAreas: `"report copy"`,
+    gridGap: theme.spacing(4),
+    padding: theme.spacing(6, 8, 8),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(6, 4, 8),
+    },
+    [theme.breakpoints.down("xs")]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateAreas: `
+        "report"
+        "copy"
+      `,
+    },
+  },
+  report: {
+    gridArea: "report",
+    textAlign: "center",
+    "& img": {
+      width: "100%",
+      [theme.breakpoints.down("xs")]: {
+        maxWidth: "80%",
+      },
+    },
+  },
+  link: {
+    color: brand.violet,
+  },
+  copy: {
+    gridArea: "copy",
+    alignSelf: "center",
+    fontSize: theme.typography.pxToRem(22),
+    "& h4": {
+      marginBottom: "1rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.pxToRem(18),
+      "& h4": {
+        fontSize: theme.typography.pxToRem(32),
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      textAlign: "center",
+    },
+  },
+}));
+
+const ANNUAL_REPORT_HREF =
+  "/annual-reports/2018/mission-bit-annual-report-2018.pdf";
+
+const AnnualReport: React.FC<{}> = () => {
+  const classes = useReportStyles();
+  const jpg = require("public/images/gala/sponsorship/annual-report-2018-preview.jpg?resize&sizes[]=766&sizes[]=383&sizes[]=192");
+  const webp = require("public/images/gala/sponsorship/annual-report-2018-preview.jpg?resize&sizes[]=766&sizes[]=383&sizes[]=192&format=webp");
+  return (
+    <Container component="section" className={classes.root}>
+      <a
+        href={ANNUAL_REPORT_HREF}
+        target="_blank"
+        rel="noreferrer"
+        className={classes.report}
+      >
+        <picture>
+          <source type="image/webp" srcSet={webp.srcSet} />
+          <img alt={name} src={jpg.src} srcSet={jpg.srcSet} />
+        </picture>
+      </a>
+      <Typography component="div" className={classes.copy}>
+        <Typography variant="h3" component="h4">
+          2018 Annual Report
+        </Typography>
+        Check out our{" "}
+        <Link
+          className={classes.link}
+          href={ANNUAL_REPORT_HREF}
+          target="_blank"
+        >
+          2018 Annual Report
+        </Link>{" "}
+        for more about our vision and current impact. If you have any questions,
+        please contact us at{" "}
+        <Link
+          className={classes.link}
+          href={`mailto:${DEVELOPMENT_EMAIL}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {DEVELOPMENT_EMAIL}
+        </Link>
+        .
+      </Typography>
+    </Container>
+  );
+};
+
 const SponsorshipPackages: React.FC<{}> = () => {
   const classes = useStyles();
   return (
@@ -203,22 +301,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
           <li>Your logo displayed on the Mission Bit website</li>
         </Package>
       </Container>
-      <Container component="section" className={classes.copySection}>
-        <Typography>
-          For any questions regarding Gala Sponsorship,
-          {/*or to use a payment method other than credit card, */ " "}
-          please contact us at{" "}
-          <a
-            href={`mailto:${DEVELOPMENT_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {DEVELOPMENT_EMAIL}
-          </a>
-          . For more information about the Gala and individual tickets, visit{" "}
-          <a href="/gala">Mission Bit's Fourth Annual Gala</a>.
-        </Typography>
-      </Container>
+      <AnnualReport />
     </>
   );
 };
