@@ -109,8 +109,7 @@ const sdrImage = {
 
 const designBusinessImage = {
   src: require("public/images/program/design-business.svg"),
-  alt:
-    "Image of moutains and a sun behind them",
+  alt: "Image of moutains and a sun behind them",
 };
 
 export interface Course {
@@ -438,14 +437,14 @@ export const Courses = courseRecord({
   },
   design_business_workshop: {
     title: "Design Your Own Business in 90 Minutes",
-    skills: [  "Logos", "Color Schemes", "Social Media", "Web Design",],
+    skills: ["Logos", "Color Schemes", "Social Media", "Web Design"],
     image: designBusinessImage,
     description: (
       <>
-        This project-based class combines design tips and tricks with 
-        free platforms to design your own business. We'll discover the 
-        creative secrets to use for any business, free tools that all designers 
-        use, and we will bring our designs to life in a final interactive website. 
+        This project-based class combines design tips and tricks with free
+        platforms to design your own business. We'll discover the creative
+        secrets to use for any business, free tools that all designers use, and
+        we will bring our designs to life in a final interactive website.
         Beginners welcome!
       </>
     ),
@@ -663,7 +662,6 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     signupUrl: "https://www.tfaforms.com/4847199",
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
-
   }),
   summerWorkshop({
     course: Courses.interviewing_workshop,
