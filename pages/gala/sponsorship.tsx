@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Sponsorship from "components/gala/Sponsorship";
-import Banner from "components/gala/Banner";
 import oneLine from "src/oneLine";
 
 const description = oneLine`
@@ -15,7 +14,6 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
     {...props}
     title="Mission Bit – 2020 Mission Bit Gala Sponsorship"
-    headerChildren={<Banner />}
     description={description}
     pageImage="/images/gala/2020-poster-save-the-date.jpg"
   >
