@@ -184,7 +184,7 @@ const AnnualReport: React.FC<{}> = () => {
       >
         <picture>
           <source type="image/webp" srcSet={webp.srcSet} />
-          <img alt={name} src={jpg.src} srcSet={jpg.srcSet} />
+          <img alt="Annual report cover" src={jpg.src} srcSet={jpg.srcSet} />
         </picture>
       </a>
       <Typography component="div" className={classes.copy}>
