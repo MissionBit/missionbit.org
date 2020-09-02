@@ -123,9 +123,9 @@ const useReportStyles = makeStyles((theme) => ({
     gridTemplateColumns: "2fr 6fr",
     gridTemplateAreas: `"report copy"`,
     gridGap: theme.spacing(4),
-    padding: theme.spacing(6, 8, 8),
+    padding: theme.spacing(6, 8, 0),
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(6, 4, 8),
+      padding: theme.spacing(4, 4, 0),
     },
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "1fr",
