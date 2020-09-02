@@ -8,6 +8,7 @@ import {
   FallDates,
   FallSDRClassInstances,
   FallSDRDates,
+  FallDatesExtended,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
@@ -70,7 +71,7 @@ const Enroll: React.FC<{}> = () => {
           className={classes.alert}
           id="workshops"
         >
-          Summer 2020 Workshops
+          Workshops
         </Typography>
         <Typography className={classes.copy}>
           Learn something new and get hands-on experience with our workshops.
@@ -93,6 +94,10 @@ const Enroll: React.FC<{}> = () => {
           </span>{" "}
           {LongDateTimeFormat.format(FallDates.registrationDeadline)}
           <br />
+          <span className={classes.deadlineEmphasis}>
+            Web Design application deadline:
+          </span>{" "}
+          {LongDateTimeFormat.format(FallDatesExtended.registrationDeadline)}
         </Typography>
       </Courses>
       <Courses instances={FallSDRClassInstances}>

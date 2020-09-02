@@ -488,6 +488,11 @@ export const FallDates: ClassDates = {
   demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
 };
 
+export const FallDatesExtended: ClassDates = {
+  ...FallDates,
+  registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
+};
+
 export const FallSDRDates: BaseClassDates = {
   registrationDeadline: Date.parse("2020-09-06T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
@@ -548,13 +553,14 @@ function fallClass(
   course: Course,
   campus: Campus,
   schedule: "MW" | "TH",
-  formAssemblyId: string
+  formAssemblyId: string,
+  classDates: ClassDates = FallDates
 ): ClassInstance {
   return {
     type: "class",
     course,
     campus,
-    classDates: FallDates,
+    classDates,
     ...FALL_CLASS_SCHEDULE[schedule],
     signupUrl: `https://www.tfaforms.com/4840819?tfa_2013=${formAssemblyId}`,
   };
@@ -591,10 +597,22 @@ function fallSDRClass(
 // ];
 
 export const FallClassInstances: ClassOrWorkshopInstance[] = [
-  fallClass(Courses.web_class, Campuses.online, "MW", "tfa_2245"),
+  fallClass(
+    Courses.web_class,
+    Campuses.online,
+    "MW",
+    "tfa_2245",
+    FallDatesExtended
+  ),
+  fallClass(
+    Courses.web_class,
+    Campuses.online,
+    "TH",
+    "tfa_2247",
+    FallDatesExtended
+  ),
   fallClass(Courses.game_class, Campuses.online, "MW", "tfa_2248"),
   fallClass(Courses.python_class, Campuses.online, "MW", "tfa_2266"),
-  fallClass(Courses.web_class, Campuses.online, "TH", "tfa_2247"),
   fallClass(Courses.game_class, Campuses.online, "TH", "tfa_2267"),
   fallClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2268"),
 ];
@@ -603,7 +621,7 @@ export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
   fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2242"),
 ];
 
-function summerWorkshop({
+function workshop({
   course,
   dateString,
   minutes,
@@ -647,7 +665,7 @@ function summerWorkshop({
 }
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
-  summerWorkshop({
+  workshop({
     course: Courses.python_workshop,
     dateString: "2020-08-24T16:00:00-07:00",
     minutes: 90,
@@ -655,7 +673,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
   }),
-  summerWorkshop({
+  workshop({
     course: Courses.design_business_workshop,
     dateString: "2020-09-02T16:00:00-07:00",
     minutes: 90,
@@ -663,21 +681,21 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
   }),
-  summerWorkshop({
+  workshop({
     course: Courses.interviewing_workshop,
     dateString: "2020-09-10T15:30:00-07:00",
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4847250",
     who: "16 - 24 year olds",
   }),
-  summerWorkshop({
+  workshop({
     course: Courses.p5js_workshop,
     dateString: "2020-09-23T16:00:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4847286",
     who: "7th - 12th graders",
   }),
-  // summerWorkshop({
+  // workshop({
   //   course: Courses.careerprep_resume_workshop,
   //   dateString: "2020-05-21T15:30:00-07:00",
   //   minutes: 120,
@@ -685,7 +703,7 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   //   who: "16 - 24 year olds",
   //   buttonExtra: <>Only 10 spots available!</>,
   // }),
-  // summerWorkshop({
+  // workshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
   //   minutes: 90,
