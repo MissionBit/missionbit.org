@@ -68,7 +68,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   },
   {
     name: "Cynthia Chin",
-    title: "Program Manager",
+    title: "Director of Programs",
     ...image("core/cynthia_chin.jpg"),
     bio: (
       <>
