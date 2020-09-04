@@ -56,9 +56,15 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
   const subscription = await stripe.subscriptions.retrieve(subscription_id, {
     expand: ["default_payment_method"],
   });
+  if (subscription.items.data.length !== 1) {
+    throw new Error(
+      `Expecting one subscription item ${JSON.stringify(subscription)}`
+    );
+  }
+  const item = subscription.items.data[0];
   if (
-    typeof subscription?.plan?.amount !== "number" ||
-    typeof subscription.quantity !== "number"
+    typeof item?.plan?.amount !== "number" ||
+    typeof item.quantity !== "number"
   ) {
     throw new Error(
       `Expecting non-null subscription amount and quantity ${JSON.stringify(
@@ -97,7 +103,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
         })),
         id: subscription.id,
         frequency: "monthly",
-        amount: subscription.plan.amount * subscription.quantity,
+        amount: item.plan.amount * item.quantity,
         paymentMethod: formatPaymentMethodDetailsSource(pm),
         nextCycle,
       },
