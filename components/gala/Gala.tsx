@@ -8,6 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { GalaCalendarEvent, galaStartEnd } from "./GalaDates";
 import { DEVELOPMENT_EMAIL } from "src/emails";
 import Sponsor from "./Sponsor";
+import GalaLanding from "./GalaLanding";
+import FlourishSeparator from "components/programs/FlourishSeparator";
 
 function levelTitle(s: SponsorLevel): string {
   return s.substring(0, 1).toUpperCase() + s.substring(1);
@@ -89,6 +91,8 @@ const Gala: React.FC<{}> = () => {
   const { date, time } = galaStartEnd();
   return (
     <main id="main">
+      <GalaLanding />
+      <FlourishSeparator />
       <Container component="section" className={classes.copySection}>
         <Typography
           variant="h2"
