@@ -1,5 +1,5 @@
 import React from "react";
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Main, NextScript, Html } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import IEWarning from "components/IEWarning";
 
@@ -8,14 +8,14 @@ import IEWarning from "components/IEWarning";
 export default class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head />
         <body>
           <IEWarning />
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
