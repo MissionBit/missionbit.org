@@ -10,7 +10,7 @@ export interface TeamMemberProps<T extends React.ReactNode> {
 type TeamTitle =
   | "Chief Executive Officer"
   | "Director of Curriculum"
-  | "Program Manager"
+  | "Director of Programs"
   | "Program Coordinator"
   | "Videographer";
 
