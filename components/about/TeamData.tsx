@@ -10,7 +10,7 @@ export interface TeamMemberProps<T extends React.ReactNode> {
 type TeamTitle =
   | "Chief Executive Officer"
   | "Director of Curriculum"
-  | "Program Manager"
+  | "Director of Programs"
   | "Program Coordinator"
   | "Videographer";
 
@@ -68,7 +68,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   },
   {
     name: "Cynthia Chin",
-    title: "Program Manager",
+    title: "Director of Programs",
     ...image("core/cynthia_chin.jpg"),
     bio: (
       <>
