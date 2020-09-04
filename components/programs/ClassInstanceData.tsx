@@ -618,11 +618,7 @@ export const FallClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
-  fallSDRClass(
-    Courses.sdr_class,
-    Campuses.online,
-    "tfa_2242"
-    ),
+  fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2242"),
 ];
 
 function workshop({
