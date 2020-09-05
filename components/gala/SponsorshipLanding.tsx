@@ -6,8 +6,7 @@ import Container from "@material-ui/core/Container";
 import { galaStartEnd } from "./GalaDates";
 import PinIcon from "components/icons/Pin";
 import { brand } from "src/colors";
-import { InlineAsteriskIcon } from "components/icons/Asterisk";
-import { RectImageG } from "components/RectImage";
+import AsteriskCollage from "./AsteriskCollage";
 
 const DETAILS_PX = 32;
 const DETAILS_PX_SM = 24;
@@ -100,42 +99,21 @@ const SponsorLandingCollage: React.FC<{
   const webp = require("public/images/gala/sponsorship/sponsorship-landing.jpg?resize&sizes[]=1140&sizes[]=570&sizes[]=285&format=webp");
   const desc = "Mission Bit Gala attendees during fund-a-need";
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 710 550"
+    <AsteriskCollage
+      id="landing-collage"
       className={className}
-      role="img"
-      aria-labelledby="landing-collage-desc"
-    >
-      <desc id="landing-collage-desc">{desc}</desc>
-      <defs>
-        <InlineAsteriskIcon
-          id="asterisk"
-          fill={brand.indigo}
-          transform="scale(0.6966)"
-        />
-      </defs>
-      <g>
-        <RectImageG
-          transform="translate(70 38)"
-          width={570}
-          height={434}
-          top={88}
-          left={-70}
-          bottom={72}
-          right={70}
-          fill={brand.orangeFlourish}
-          desc={desc}
-          src={jpg.src}
-          srcSet={jpg.srcSet}
-          srcSetWebP={webp.srcSet}
-        >
-          <use xlinkHref="#asterisk" x={568} y={434} />
-          <use xlinkHref="#asterisk" x={0} y={0} transform="rotate(7)" />
-        </RectImageG>
-      </g>
-    </svg>
+      width={570}
+      height={434}
+      top={88}
+      left={-70}
+      bottom={72}
+      right={70}
+      fill={brand.orangeFlourish}
+      desc={desc}
+      src={jpg.src}
+      srcSet={jpg.srcSet}
+      srcSetWebP={webp.srcSet}
+    />
   );
 };
 

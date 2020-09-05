@@ -24,7 +24,13 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "@typescript-eslint", "jest"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "jest",
+    "unused-imports",
+  ],
   settings: {
     react: {
       version: "detect",
@@ -38,11 +44,15 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-case-declarations": "off",
-    "@typescript-eslint/no-unused-vars": [
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports-ts": "error",
+    "unused-imports/no-unused-vars-ts": [
       "error",
       {
         vars: "all",
+        varsIgnorePattern: "^_",
         args: "after-used",
+        argsIgnorePattern: "^_",
         ignoreRestSiblings: false,
       },
     ],
