@@ -1,46 +1,75 @@
 import * as React from "react";
 
-export interface RectImageGProps {
-  transform?: React.SVGProps<SVGGElement>["transform"];
-  width: number;
-  height: number;
-  src: string;
-  srcSet?: string;
-  srcSetWebP?: string;
-  top: number;
-  left: number;
-  right: number;
-  bottom: number;
-  fill: string;
-  desc: string;
+export interface RectImageGDimensions {
+  readonly width: number;
+  readonly height: number;
+  readonly top: number;
+  readonly left: number;
+  readonly right: number;
+  readonly bottom: number;
+}
+
+export interface RectImageGProps extends RectImageGDimensions {
+  readonly transform?: React.SVGProps<SVGGElement>["transform"];
+  readonly src: string;
+  readonly srcSet?: string;
+  readonly srcSetWebP?: string;
+  readonly fill: string;
+  readonly desc: string;
 }
 
 export interface RectImageProps extends RectImageGProps {
-  className?: string;
-  id: string;
+  readonly className?: string;
+  readonly id: string;
 }
 
 const RectImage: React.FC<RectImageProps> = ({ className, id, ...props }) => {
-  const { desc, width, height, left, top, right, bottom } = props;
-  const vLeft = Math.min(left, 0);
-  const vTop = Math.min(top, 0);
-  const viewW = width - vLeft + Math.max(right, 0);
-  const viewH = height - vTop + Math.max(bottom, 0);
   const descId = `${id}-desc`;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox={`${vLeft} ${vTop} ${viewW} ${viewH}`}
+      viewBox={viewBoxString(rectImageViewBox(props))}
       className={className}
       role="img"
       aria-labelledby={descId}
     >
-      <desc id={descId}>{desc}</desc>
+      <desc id={descId}>{props.desc}</desc>
       <RectImageG {...props} />
     </svg>
   );
 };
+
+export interface SvgViewBox {
+  readonly left: number;
+  readonly top: number;
+  readonly width: number;
+  readonly height: number;
+}
+
+export function viewBoxString({
+  left,
+  top,
+  width,
+  height,
+}: SvgViewBox): string {
+  return `${left} ${top} ${width} ${height}`;
+}
+
+export function rectImageViewBox({
+  left,
+  top,
+  right,
+  bottom,
+  width,
+  height,
+}: RectImageGDimensions): SvgViewBox {
+  const vLeft = Math.min(left, 0);
+  const vTop = Math.min(top, 0);
+  const viewW = width - vLeft + Math.max(right, 0);
+  const viewH = height - vTop + Math.max(bottom, 0);
+  return { left: vLeft, top: vTop, width: viewW, height: viewH };
+}
 
 export const RectImageG: React.FC<RectImageGProps> = ({
   width,

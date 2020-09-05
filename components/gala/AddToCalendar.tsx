@@ -93,7 +93,10 @@ const useStyles = makeStyles({
   },
 });
 
-const AddToCalendar: React.FC<{ event: CalendarEvent }> = ({ event }) => {
+const AddToCalendar: React.FC<{ event: CalendarEvent; className?: string }> = ({
+  event,
+  className,
+}) => {
   const classes = useStyles();
   const popupState = usePopupState({
     variant: "popover",
@@ -105,6 +108,7 @@ const AddToCalendar: React.FC<{ event: CalendarEvent }> = ({ event }) => {
       <Button
         variant="contained"
         color="secondary"
+        className={className}
         {...bindTrigger(popupState)}
       >
         <EventAvailableIcon className={classes.logo} />{" "}

@@ -13,6 +13,8 @@ import Link from "@material-ui/core/Link";
 import { brand } from "src/colors";
 import IndigoButton from "components/IndigoButton";
 import { Box } from "@material-ui/core";
+import RectImage from "components/RectImage";
+import AsteriskCollage from "./AsteriskCollage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,17 +42,18 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 0),
     },
   },
+  addToCalendar: {
+    display: "block",
+    margin: `${theme.spacing(2)}px auto`,
+  },
   saveTheDateHeading: {
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.h4.fontSize,
       fontWeight: theme.typography.h6.fontWeight,
-      "& > button": {
-        display: "block",
-        margin: `${theme.spacing(2)}px auto`,
-      },
     },
   },
   saveTheDate: {
+    fontSize: "1.25rem",
     [theme.breakpoints.down("sm")]: {
       fontSize: "1.25rem",
       fontWeight: theme.typography.h6.fontWeight,
@@ -84,7 +87,91 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sponsorshipActions: {},
+  actionContainer: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateAreas: `"main"`,
+    },
+  },
+  actionPhoto: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+    "& > svg": {
+      width: "100%",
+    },
+  },
+  smallActionPhoto: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  actionColumnExtra: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  actionColumnMain: {
+    "& > svg": {
+      width: "100%",
+      margin: theme.spacing(0, 3),
+    },
+  },
+  details: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridGap: theme.spacing(6),
+    [theme.breakpoints.down("sm")]: {
+      gridTemplateColumns: "1fr",
+      gridGap: theme.spacing(2),
+    },
+  },
+  studentsCollage: {
+    [theme.breakpoints.down("sm")]: {
+      margin: theme.spacing(0, -2),
+      "& svg use": {
+        display: "none",
+      },
+    },
+  },
+  detailsCopy: {
+    alignSelf: "center",
+    fontWeight: theme.typography.fontWeightMedium,
+    [theme.breakpoints.up("md")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
+  },
 }));
+
+function rectColImg(photo: string) {
+  const jpg = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864`);
+  const webp = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864&format=webp`);
+  return {
+    id: photo,
+    src: jpg.src,
+    srcSet: jpg.srcSet,
+    srcSetWebp: webp.srcSet,
+    width: 432,
+    height: 432,
+    fill: brand.lightOrange,
+  } as const;
+}
+
+function rectStudentsImg(photo: string) {
+  const jpg = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718`);
+  const webp = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718&format=webp`);
+  return {
+    id: photo,
+    src: jpg.src,
+    srcSet: jpg.srcSet,
+    srcSetWebp: webp.srcSet,
+    width: 359 * 2,
+    height: 316 * 2,
+    fill: brand.lightOrange,
+  } as const;
+}
 
 const Gala: React.FC<{}> = () => {
   const classes = useStyles();
@@ -93,72 +180,98 @@ const Gala: React.FC<{}> = () => {
     <main id="main" className={classes.root}>
       <GalaLanding />
       <FlourishSeparator />
-      <Container component="section" className={classes.copySection}>
-        <Typography
-          variant="h2"
-          align="center"
-          className={classes.saveTheDateHeading}
-        >
-          Save the Date <AddToCalendar event={GalaCalendarEvent} />
-        </Typography>
-        <Typography variant="h3" align="center" className={classes.saveTheDate}>
-          {date}
-          <br />
-          {time}
-          <br />
-          Online
-        </Typography>
-        <Typography>
-          Mission Bit's Fourth Annual Gala is a celebration of seven years of
-          growth, impact, and learning. Join us online for this inspiring event,
-          meet our students, hear their stories, and help us reach our 2021
-          goals!
-        </Typography>
-        <Typography>
-          For more information on sponsorships, see our{" "}
-          <a href="/gala/sponsorship">Gala Sponsorship Packages</a> or contact
-          us at{" "}
-          <a
-            href={`mailto:${DEVELOPMENT_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
+      <Container component="section" className={classes.actionContainer}>
+        <Box className={classes.actionColumnExtra}>
+          <Box className={classes.actionPhoto} paddingTop={12} paddingRight={6}>
+            <RectImage
+              {...rectColImg("gala-step-and-repeat")}
+              desc="Step and repeat from the 2019 Mission Bit Gala"
+              top={41}
+              bottom={41}
+              left={46}
+              right={46}
+            />
+          </Box>
+        </Box>
+        <Box className={classes.actionColumnMain}>
+          <Box className={classes.actionPhoto} paddingX={3} paddingBottom={6}>
+            <RectImage
+              {...rectColImg("gala-ruqaiyah-speaking")}
+              desc="Ruqaiyah Angeles speaking at the 2019 Mission Bit Gala"
+              top={41}
+              bottom={41}
+              left={-46}
+              right={-46}
+            />
+          </Box>
+          <Box
+            className={classes.smallActionPhoto}
+            marginX={-2}
+            paddingBottom={2}
           >
-            {DEVELOPMENT_EMAIL}
-          </a>
-          .
-        </Typography>
-        {/*
-        <Typography component="div">
-          <strong>What to Expect:</strong>
-          <br />
-          <ul className={classes.emojiBullets}>
-            <li data-bullet="👩🏽‍💻">Booths featuring amazing student projects</li>
-            <li data-bullet="🥃">Open bar with specialty cocktails</li>
-            <li data-bullet="🥢">Delicious San Francisco-inspired food</li>
-            <li data-bullet="🙋🏿‍♂">
-              Great network of folks to connect with who care about our young
-              people
-            </li>
-          </ul>
-        </Typography>
-        */}
-        <Typography>
-          We're excited to share this very special evening with you!
-        </Typography>
-        <Typography>
-          For any questions regarding{" "}
-          <a href="/gala/sponsorship">Gala Sponsorship Packages</a>,
-          {/* or to use a payment method other than credit card, */ " "}
-          please contact us at{" "}
-          <a
-            href={`mailto:${DEVELOPMENT_EMAIL}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            <RectImage
+              {...rectColImg("gala-ruqaiyah-speaking")}
+              desc="Ruqaiyah Angeles speaking at the 2019 Mission Bit Gala"
+              top={228}
+              bottom={50}
+              left={-46}
+              right={46}
+            />
+          </Box>
+          <Typography
+            component="h2"
+            variant="h3"
+            align="center"
+            className={classes.saveTheDateHeading}
           >
-            {DEVELOPMENT_EMAIL}
-          </a>
-          .
+            Save the Date
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.saveTheDate}
+          >
+            {date}
+            <br />
+            {time}
+            <br />
+            Online
+            <br />
+            <AddToCalendar
+              event={GalaCalendarEvent}
+              className={classes.addToCalendar}
+            />
+          </Typography>
+        </Box>
+        <Box className={classes.actionColumnExtra}>
+          <Box className={classes.actionPhoto} paddingTop={12} paddingLeft={6}>
+            <RectImage
+              {...rectColImg("gala-table")}
+              desc="Table at the 2019 Mission Bit Gala"
+              top={-41}
+              bottom={-41}
+              left={-46}
+              right={-46}
+            />
+          </Box>
+        </Box>
+      </Container>
+      <FlourishSeparator />
+      <Container component="section" className={classes.details}>
+        <Typography className={classes.detailsCopy}>
+          Mission Bit strives to bridge the tech divide by providing free coding
+          courses to high school students in San Francisco and Oakland.
         </Typography>
+        <Box className={classes.studentsCollage}>
+          <AsteriskCollage
+            {...rectStudentsImg("gala-students")}
+            desc="Students attending the 2019 Mission Bit Gala"
+            top={88}
+            left={-70}
+            bottom={72}
+            right={70}
+          />
+        </Box>
       </Container>
       <FlourishSeparator />
       <Container component="section" id="sponsorship-info">
