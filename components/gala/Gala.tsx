@@ -1,10 +1,9 @@
 import * as React from "react";
-import AddToCalendar from "./AddToCalendar";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import GalaVideo from "./GalaVideo";
 import { makeStyles } from "@material-ui/core/styles";
-import { GalaCalendarEvent, galaStartEnd } from "./GalaDates";
+import { galaStartEnd } from "./GalaDates";
 import { DEVELOPMENT_EMAIL } from "src/emails";
 import GalaLanding from "./GalaLanding";
 import FlourishSeparator from "components/programs/FlourishSeparator";
@@ -15,6 +14,8 @@ import IndigoButton from "components/IndigoButton";
 import { Box } from "@material-ui/core";
 import RectImage from "components/RectImage";
 import AsteriskCollage from "./AsteriskCollage";
+import BuyGalaTicket from "./BuyGalaTicket";
+import PinIcon from "components/icons/Pin";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,9 +43,13 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2, 0),
     },
   },
-  addToCalendar: {
-    display: "block",
-    margin: `${theme.spacing(2)}px auto`,
+  buyTicket: {
+    marginTop: theme.spacing(2),
+  },
+  pin: {
+    color: brand.violet,
+    position: "relative",
+    top: 4,
   },
   saveTheDateHeading: {
     [theme.breakpoints.down("sm")]: {
@@ -224,7 +229,7 @@ const Gala: React.FC<{}> = () => {
             align="center"
             className={classes.saveTheDateHeading}
           >
-            Save the Date
+            Get Your Ticket
           </Typography>
           <Typography
             variant="body1"
@@ -235,12 +240,9 @@ const Gala: React.FC<{}> = () => {
             <br />
             {time}
             <br />
-            Online
+            <PinIcon className={classes.pin} /> Online
             <br />
-            <AddToCalendar
-              event={GalaCalendarEvent}
-              className={classes.addToCalendar}
-            />
+            <BuyGalaTicket className={classes.buyTicket} />
           </Typography>
         </Box>
         <Box className={classes.actionColumnExtra}>
