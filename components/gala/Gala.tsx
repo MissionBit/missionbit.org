@@ -15,6 +15,7 @@ import { Box } from "@material-ui/core";
 import RectImage from "components/RectImage";
 import AsteriskCollage from "./AsteriskCollage";
 import BuyGalaTicket from "./BuyGalaTicket";
+import PinIcon from "components/icons/Pin";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +45,11 @@ const useStyles = makeStyles((theme) => ({
   },
   buyTicket: {
     marginTop: theme.spacing(2),
+  },
+  pin: {
+    color: brand.violet,
+    position: "relative",
+    top: 4,
   },
   saveTheDateHeading: {
     [theme.breakpoints.down("sm")]: {
@@ -234,7 +240,7 @@ const Gala: React.FC<{}> = () => {
             <br />
             {time}
             <br />
-            Online
+            <PinIcon className={classes.pin} /> Online
             <br />
             <BuyGalaTicket className={classes.buyTicket} />
           </Typography>

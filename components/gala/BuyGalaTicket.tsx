@@ -17,7 +17,7 @@ declare global {
         eventId: string;
         modal: boolean;
         modalTriggerElementId: string;
-        onOrderComplete: () => void;
+        onOrderComplete: (result: { orderId: string }) => void;
         iFrameContainerId?: string;
         iFrameContainerHeight?: number;
         iFrameAutoAdapt?: number;
@@ -34,7 +34,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
     checkForExisting: true,
   });
   const [success, setSuccess] = useState(false);
-  const scriptEnabled = !loading && !error;
+  const scriptEnabled = !loading && !error && !!window.EBWidgets;
   useEffect(() => {
     if (scriptEnabled) {
       window.EBWidgets?.createWidget({
@@ -42,8 +42,8 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         eventId: "118229304031",
         modal: true,
         modalTriggerElementId: "eventbrite-widget-modal-trigger-118229304031",
-        onOrderComplete: (...args) => {
-          console.log({ onOrderComplete: args });
+        onOrderComplete: (result) => {
+          console.log({ onOrderComplete: result });
           setSuccess(true);
         },
       });
@@ -74,7 +74,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
       >
         Buy Ticket
       </IndigoButton>
-      <Snackbar open={success} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={success} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
           Thank you! We look forward to having you attend our first virtual
           gala.
