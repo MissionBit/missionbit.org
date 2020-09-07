@@ -16,6 +16,7 @@ import RectImage from "components/RectImage";
 import AsteriskCollage from "./AsteriskCollage";
 import BuyGalaTicket from "./BuyGalaTicket";
 import PinIcon from "components/icons/Pin";
+import Metadata from "./Metadata";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -183,6 +184,7 @@ const Gala: React.FC<{}> = () => {
   const { date, time } = galaStartEnd();
   return (
     <main id="main" className={classes.root}>
+      <Metadata />
       <GalaLanding />
       <FlourishSeparator />
       <Container component="section" className={classes.actionContainer}>
