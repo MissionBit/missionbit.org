@@ -4,10 +4,7 @@ import IndigoButton from "components/IndigoButton";
 import useScript from "react-script-hook";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
-
-const EVENT_HREF =
-  "https://www.eventbrite.com/e/mission-bit-4th-annual-virtual-gala-tickets-118229304031";
-const EVENT_ID = "118229304031";
+import { eventId, registerUrl } from "./Metadata";
 
 declare global {
   interface Window {
@@ -27,8 +24,9 @@ declare global {
   }
 }
 
+const modalTriggerElementId = `eventbrite-widget-modal-trigger-${eventId}`;
+
 const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
-  const id = `eventbrite-widget-modal-trigger-${EVENT_ID}`;
   const [loading, error] = useScript({
     src: "https://www.eventbrite.com/static/widgets/eb_widgets.js",
     checkForExisting: true,
@@ -39,9 +37,9 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
     if (scriptEnabled) {
       window.EBWidgets?.createWidget({
         widgetType: "checkout",
-        eventId: "118229304031",
+        eventId,
         modal: true,
-        modalTriggerElementId: "eventbrite-widget-modal-trigger-118229304031",
+        modalTriggerElementId,
         onOrderComplete: (result) => {
           console.log({ onOrderComplete: result });
           setSuccess(true);
@@ -66,10 +64,10 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         className={className}
         variant="contained"
         size="large"
-        id={id}
+        id={modalTriggerElementId}
         rel="noopener noreferrer"
         target="_blank"
-        href={EVENT_HREF}
+        href={registerUrl}
         onClick={handleClick}
       >
         Buy Ticket
