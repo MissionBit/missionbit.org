@@ -129,6 +129,7 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gridGap: theme.spacing(6),
+    alignItems: "center",
     [theme.breakpoints.down("sm")]: {
       gridTemplateColumns: "1fr",
       gridGap: theme.spacing(2),
@@ -143,7 +144,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   detailsCopy: {
-    alignSelf: "center",
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.up("md")]: {
       fontSize: theme.typography.h4.fontSize,
@@ -265,6 +265,10 @@ const Gala: React.FC<{}> = () => {
         <Typography className={classes.detailsCopy}>
           Mission Bit strives to bridge the tech divide by providing free coding
           courses to high school students in San Francisco and Oakland.
+          <br />
+          <br />
+          The gala will feature inspiring keynote speakers, stories from Mission
+          Bit alumni, and presentations of student projects!
         </Typography>
         <Box className={classes.studentsCollage}>
           <AsteriskCollage
