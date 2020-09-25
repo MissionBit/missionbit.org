@@ -134,6 +134,17 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
           >
             {DEVELOPMENT_EMAIL}
           </Link>{" "}
+          <br />
+          <br />
+          Donate securely using the Overflow platform{" "}
+          <Link
+            href="https://app.overflow.co/missionbit"
+            target="_blank"
+            underline="always"
+            rel="noopener noreferrer"
+          >
+            here.
+          </Link>
         </Typography>
       </FaqItem>
       <FaqItem question="Online">
