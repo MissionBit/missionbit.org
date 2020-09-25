@@ -99,6 +99,11 @@ const SupporterData: SupporterDataProps[] = [
     title: "Golden State Warriors Foundation",
     href: "https://www.nba.com/warriors/foundation",
   },
+  {
+    logo: svg("kandji"),
+    title: "Kandji",
+    href: "https://www.kandji.io/",
+  },
 ];
 
 export default SupporterData;
