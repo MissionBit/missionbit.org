@@ -136,12 +136,12 @@ export const OtherWaysToGive: React.FC<{ className?: string }> = ({
           </Link>{" "}
           <br />
           <br />
-          Donate securely using the Overflow platform {" "}
+          Donate securely using the Overflow platform{" "}
           <Link
-          href="https://app.overflow.co/missionbit"
-          target="_blank"
-          underline="always"
-          rel="noopener noreferrer"
+            href="https://app.overflow.co/missionbit"
+            target="_blank"
+            underline="always"
+            rel="noopener noreferrer"
           >
             here.
           </Link>
