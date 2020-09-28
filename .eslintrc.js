@@ -3,10 +3,10 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-    "jest/globals": true,
   },
   extends: [
     "eslint:recommended",
+    "plugin:jest/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
