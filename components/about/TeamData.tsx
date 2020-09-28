@@ -221,7 +221,7 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
       <>
         <em>Board Treasurer</em>
         <br />
-        SVB Wealth Advisory, Inc.
+        Founder of Hypothetico, Inc.
       </>
     ),
     ...image("board/jeff_schnitz.jpg"),
