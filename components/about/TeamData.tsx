@@ -254,7 +254,7 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
   },
   {
     name: "Abhay Kumar",
-    title: "Investor and Advisor",
+    title: "Chief Product Officer, Helium Systems",
     ...image("board/abhay_kumar.jpg"),
   },
   {
