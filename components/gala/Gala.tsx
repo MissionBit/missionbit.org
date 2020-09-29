@@ -17,6 +17,7 @@ import AsteriskCollage from "./AsteriskCollage";
 import BuyGalaTicket from "./BuyGalaTicket";
 import PinIcon from "components/icons/Pin";
 import Metadata from "./Metadata";
+import Speakers from "./Speakers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -267,8 +268,16 @@ const Gala: React.FC<{}> = () => {
           courses to high school students in San Francisco and Oakland.
           <br />
           <br />
-          The gala will feature inspiring keynote speakers, stories from Mission
-          Bit alumni, and presentations of student projects!
+          The gala will feature a Keynote from{" "}
+          <Link color="secondary" href="#michael-tubbs">
+            Mayor Michael Tubbs of Stockton
+          </Link>
+          , a Welcome Address from{" "}
+          <Link color="secondary" href="#london-breed">
+            Mayor London Breed of San Francisco
+          </Link>
+          , stories from Mission Bit alumni, and presentations of student
+          projects!
         </Typography>
         <Box className={classes.studentsCollage}>
           <AsteriskCollage
@@ -281,6 +290,8 @@ const Gala: React.FC<{}> = () => {
           />
         </Box>
       </Container>
+      <FlourishSeparator />
+      <Speakers />
       <FlourishSeparator />
       <Container component="section" id="sponsorship-info">
         <Typography
