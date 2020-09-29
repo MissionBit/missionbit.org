@@ -65,7 +65,7 @@ const SpeakerData: readonly SpeakerProps[] = [
   },
   {
     id: "michael-tubbs",
-    name: "Mayor Michael D. Tubbs",
+    name: "Mayor Michael Tubbs",
     title: "Mayor of Stockton, CA",
     type: "Keynote",
     ...image("michael-tubbs"),
