@@ -26,6 +26,44 @@ function image(postfix: string): Pick<SpeakerProps, "image"> {
 
 const SpeakerData: readonly SpeakerProps[] = [
   {
+    id: "london-breed",
+    name: "Mayor London Breed",
+    title: "45th Mayor of the City and County of San Francisco",
+    type: "Welcome Address",
+    ...image("london-breed"),
+    bio: (
+      <>
+        Mayor London Breed is a native San Franciscan, raised by her grandmother
+        in Plaza East Public Housing in the Western Addition. She graduated with
+        honors from Galileo High School. In June 2018, Mayor Breed was elected
+        to be the first African American woman and second woman in San Francisco
+        history to serve as Mayor. She was re-elected for her first full
+        four-year term in November 2019.
+        <br />
+        <br />
+        She has focused on helping the City’s homeless population into care and
+        shelter; adding more housing for residents of all income levels; helping
+        those suffering from mental health and substance use disorder on San
+        Francisco’s streets; ensuring that all San Franciscans have access to a
+        thriving economy; making San Francisco a cleaner and safer city; and
+        furthering San Francisco’s leadership in combating climate change.
+        <br />
+        <br />
+        Prior to public service, Mayor Breed served as Executive Director of the
+        African American Art &amp; Culture Complex in the Western Addition for
+        over a decade. She also served as a San Francisco Redevelopment Agency
+        Commissioner and in 2010 was appointed by then-Mayor Gavin Newsom to be
+        a San Francisco Fire Commissioner, where she served until her election
+        to the Board of Supervisors.
+        <br />
+        <br />
+        In 2013, Mayor Breed was elected to the San Francisco Board of
+        Supervisors, representing District 5 for six years, including three
+        years as President of the Board.
+      </>
+    ),
+  },
+  {
     id: "michael-tubbs",
     name: "Mayor Michael D. Tubbs",
     title: "Mayor of Stockton, CA",
@@ -71,44 +109,6 @@ const SpeakerData: readonly SpeakerProps[] = [
         Plattner Institute of Design, known as the d.school, at Stanford, the
         Emerson Collective and MIT Media Lab. Mayor Tubbs is married to his
         Partner Anna Nti-Asare-Tubbs and is a proud new father as of 2019.
-      </>
-    ),
-  },
-  {
-    id: "london-breed",
-    name: "Mayor London Breed",
-    title: "45th Mayor of the City and County of San Francisco",
-    type: "Welcome Address",
-    ...image("london-breed"),
-    bio: (
-      <>
-        Mayor London Breed is a native San Franciscan, raised by her grandmother
-        in Plaza East Public Housing in the Western Addition. She graduated with
-        honors from Galileo High School. In June 2018, Mayor Breed was elected
-        to be the first African American woman and second woman in San Francisco
-        history to serve as Mayor. She was re-elected for her first full
-        four-year term in November 2019.
-        <br />
-        <br />
-        She has focused on helping the City’s homeless population into care and
-        shelter; adding more housing for residents of all income levels; helping
-        those suffering from mental health and substance use disorder on San
-        Francisco’s streets; ensuring that all San Franciscans have access to a
-        thriving economy; making San Francisco a cleaner and safer city; and
-        furthering San Francisco’s leadership in combating climate change.
-        <br />
-        <br />
-        Prior to public service, Mayor Breed served as Executive Director of the
-        African American Art &amp; Culture Complex in the Western Addition for
-        over a decade. She also served as a San Francisco Redevelopment Agency
-        Commissioner and in 2010 was appointed by then-Mayor Gavin Newsom to be
-        a San Francisco Fire Commissioner, where she served until her election
-        to the Board of Supervisors.
-        <br />
-        <br />
-        In 2013, Mayor Breed was elected to the San Francisco Board of
-        Supervisors, representing District 5 for six years, including three
-        years as President of the Board.
       </>
     ),
   },
