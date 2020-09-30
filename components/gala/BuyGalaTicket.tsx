@@ -5,6 +5,7 @@ import useScript from "react-script-hook";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import { eventId, registerUrl } from "./Metadata";
+import Link from "@material-ui/core/Link";
 
 declare global {
   interface Window {
@@ -75,7 +76,15 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
       <Snackbar open={success} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
           Thank you! We look forward to having you attend our first virtual
-          gala.
+          gala. Interested in adding a wine tasting? Check out the packages from{" "}
+          <Link
+            href="https://www.voluptuarywine.com/mission-bit"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Voluptuary &amp; Lucid Wines
+          </Link>
+          , they'll even match any donation you make with your order!
         </Alert>
       </Snackbar>
     </>

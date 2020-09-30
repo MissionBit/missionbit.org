@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
   buyTicket: {
     marginTop: theme.spacing(2),
   },
+  wineTasting: {
+    display: "block",
+    marginTop: theme.spacing(2),
+  },
   pin: {
     color: brand.violet,
     position: "relative",
@@ -246,6 +250,16 @@ const Gala: React.FC<{}> = () => {
             <PinIcon className={classes.pin} /> Online
             <br />
             <BuyGalaTicket className={classes.buyTicket} />
+            <br />
+            <Link
+              className={classes.wineTasting}
+              color="secondary"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.voluptuarywine.com/mission-bit"
+            >
+              Add Wine Tasting
+            </Link>
           </Typography>
         </Box>
         <Box className={classes.actionColumnExtra}>
