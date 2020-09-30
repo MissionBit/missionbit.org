@@ -104,6 +104,16 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
+    name: "Alexander Peng",
+    title: "Lead Instructor",
+    ...image("2020-spring-sab/alexander_peng.jpg"),
+  },
+  {
+    name: "Christine Luo",
+    title: "Lead Instructor",
+    ...image("love.jpg"),
+  },
+  {
     name: "Christopher Louie",
     title: "Lead Instructor",
     ...image("2020-summer/christopher_louie.jpg"),
@@ -119,19 +129,9 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
     ...image("2020-summer/imani_dawson.jpg"),
   },
   {
-    name: "Karena Huang",
+    name: "Nico Magaña",
     title: "Lead Instructor",
-    ...image("2020-summer/karena_huang.jpg"),
-  },
-  {
-    name: "Memo Gonzalez",
-    title: "Lead Instructor",
-    ...image("2020-summer/memo_gonzalez.jpg"),
-  },
-  {
-    name: "Stephen Justo",
-    title: "Lead Instructor",
-    ...image("2020-summer/stephen_justo.jpg"),
+    ...image("2020-spring/nico_magana.jpg"),
   },
   {
     name: "Stephen Yu",
@@ -152,29 +152,9 @@ function sabTitle(year: number, school: School): React.ReactNode {
 
 const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
   {
-    name: "Alexander Peng",
-    ...image("2020-spring-sab/alexander_peng.jpg"),
-    title: sabTitle(2020, "Lowell High School"),
-  },
-  {
     name: "Alyssa Wu",
     ...image("2020-spring-sab/alyssa_wu.jpg"),
     title: sabTitle(2022, "Lowell High School"),
-  },
-  // {
-  //   name: "Bryan De Leon",
-  //   ...image("2020-spring-sab/bryan_de_leon.jpg"),
-  //   title: sabTitle(2020, "Gateway High School"),
-  // },
-  {
-    name: "Derick Du",
-    ...image("2020-spring-sab/derick_du.jpg"),
-    title: sabTitle(2022, "Wallenburg High School"),
-  },
-  {
-    name: "Ernest Sarajyan",
-    ...image("2020-spring-sab/ernest_sarajyan.jpg"),
-    title: sabTitle(2022, "Washington High School"),
   },
   {
     name: "Johnny Lin",
@@ -185,11 +165,6 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Joshua Pan",
     ...image("2020-spring-sab/joshua_pan.jpg"),
     title: sabTitle(2022, "Lowell High School"),
-  },
-  {
-    name: "Oscar Tiong",
-    ...image("2020-spring-sab/oscar_tiong.jpg"),
-    title: sabTitle(2020, "Lowell High School"),
   },
   {
     name: "Tara Tiong",
