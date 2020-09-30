@@ -19,6 +19,7 @@ type School =
   | "Skyline High School"
   | "Wallenburg High School"
   | "Washington High School"
+  | "Galileo High School"
   | "Gateway High School";
 
 type StudentInfo = React.ReactNode;
@@ -155,6 +156,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Alyssa Wu",
     ...image("2020-spring-sab/alyssa_wu.jpg"),
     title: sabTitle(2022, "Lowell High School"),
+  },
+  {
+    name: "Carmen Li",
+    ...image("2020-fall-sab/carmen-li.jpg"),
+    title: sabTitle(2022, "Galileo High School"),
   },
   {
     name: "Johnny Lin",
