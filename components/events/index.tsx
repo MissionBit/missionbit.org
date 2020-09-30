@@ -10,7 +10,7 @@ import Landing from "./Landing";
 // import SummerTalkSeries from "./SummerTalkSeries";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Featured, { FeaturedEvent } from "./Featured";
-import { SummerDates } from "components/programs/ClassInstanceData";
+import { FallDates } from "components/programs/ClassInstanceData";
 import Box from "@material-ui/core/Box";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
@@ -135,14 +135,14 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: SummerDates.demoDay,
+    date: FallDates.demoDay,
     href:
-      "https://www.eventbrite.com/e/mission-bit-presents-summer-2020-demo-day-tickets-108626591058?utm_source=mb&utm_medium=web&utm_campaign=events",
+      "https://www.eventbrite.com/e/mission-bit-presents-fall-2020-demo-day-tickets-123413698695",
     linkTitle: "Register",
-    title: "Summer Demo Day",
+    title: "Fall Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Summer
+        Join us in celebrating our incredibly talented students at our Fall
         2020 Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
@@ -272,6 +272,70 @@ const FeaturedEvents: FeaturedEvent[] = [
         Mission Bit’s Fourth Annual Gala is a celebration of seven years of
         growth, impact, and learning. Join us for this inspiring event, meet our
         students, hear their stories, and help us reach our 2021 goals!
+      </>
+    ),
+    topRightImage: {
+      desc:
+        "Mayor London Breed at 2019 Gala watching students demonstrate their project",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/gala/gala-collage-1.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/gala/gala-collage-1.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Student speaker at 2019 Gala",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/gala/gala-collage-2.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/gala/gala-collage-2.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
+    id: "latinx",
+    date: Date.parse("2020-10-14T18:30:00-07:00"),
+    href: "/gala",
+    linkTitle: "Register",
+    title: "Latinx Heritage Month Career Panel",
+    description: (
+      <>
+        Mission Bit’s celebrates Latinx Heritage month with our amazing panel
+        of speakers.
       </>
     ),
     topRightImage: {
