@@ -94,18 +94,18 @@ const Register: React.FC<{}> = () => {
             bootcamps, and project-based tech industry experiences.
           </Typography>
           <Typography variant="h2" className={classes.copy} color="secondary">
-            <Link href="/programs#courses" color="secondary">
-              High school students, apply
+            <Link href="/programs#workshops" color="secondary">
+              Register
             </Link>{" "}
-            for our Fall 2020 classes today!
+            for our 90-minute workshops today!
           </Typography>
           <VioletButton
-            href="/programs#courses"
+            href="/programs#workshops"
             size="large"
             variant="outlined"
             className={classes.button}
           >
-            Apply Now
+            Register
           </VioletButton>{" "}
         </Box>
         <Box className={classes.videoContainer}>

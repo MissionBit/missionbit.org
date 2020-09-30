@@ -51,6 +51,11 @@ const unity2Image = {
   alt: "Image of a game controller with pac man eating a heart",
 };
 
+const unityGala = {
+  src: require("public/images/program/unity-gala.svg"),
+  alt: "Image of a game controller with pac man eating a heart and a banner at the top saying this class was sponsored by Unity",
+};
+
 const pythonImage = {
   src: require("public/images/program/python.svg"),
   alt: "Image of the python logo",
@@ -210,7 +215,7 @@ export const Courses = courseRecord({
   game_class: {
     title: "Intro to Unity Game Design",
     skills: ["Unity", "C#"],
-    image: unity2Image,
+    image: unityGala,
     description: (
       <>
         This project-based class combines 3D art and technology to create your
@@ -666,33 +671,24 @@ function workshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.python_workshop,
-    dateString: "2020-08-24T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4844545",
-    who: "7th - 12th graders",
-    buttonExtra: <>New workshop!</>,
-  }),
-  workshop({
     course: Courses.design_business_workshop,
-    dateString: "2020-09-02T16:00:00-07:00",
+    dateString: "2020-10-14T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4847199",
+    signupUrl: "https://www.tfaforms.com/4856405",
     who: "7th - 12th graders",
-    buttonExtra: <>New workshop!</>,
   }),
   workshop({
-    course: Courses.interviewing_workshop,
-    dateString: "2020-09-10T15:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4847250",
-    who: "16 - 24 year olds",
-  }),
-  workshop({
-    course: Courses.p5js_workshop,
-    dateString: "2020-09-23T16:00:00-07:00",
+    course: Courses.python_workshop,
+    dateString: "2020-10-19T16:30:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4847286",
+    signupUrl: "https://www.tfaforms.com/4856418",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.beginner_web_workshop,
+    dateString: "2020-10-28T17:30:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4856422",
     who: "7th - 12th graders",
   }),
   // workshop({
