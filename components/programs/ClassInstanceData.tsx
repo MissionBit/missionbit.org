@@ -51,6 +51,11 @@ const unity2Image = {
   alt: "Image of a game controller with pac man eating a heart",
 };
 
+const unityGala = {
+  src: require("public/images/program/unity-gala.svg"),
+  alt: "Image of a game controller with pac man eating a heart and a banner at the top saying this class was sponsored by Unity",
+};
+
 const pythonImage = {
   src: require("public/images/program/python.svg"),
   alt: "Image of the python logo",
@@ -210,7 +215,7 @@ export const Courses = courseRecord({
   game_class: {
     title: "Intro to Unity Game Design",
     skills: ["Unity", "C#"],
-    image: unity2Image,
+    image: unityGala,
     description: (
       <>
         This project-based class combines 3D art and technology to create your
