@@ -31,6 +31,13 @@ export const CourseSkills = [
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
+export const RegistrationActions = [
+  "Student Application",
+  "Apply",
+  "Register",
+] as const;
+export type RegistrationAction = typeof RegistrationActions[number];
+
 const webImage = {
   src: require("public/images/program/web.svg"),
   alt: "Image of a terminal window",
@@ -53,7 +60,8 @@ const unity2Image = {
 
 const unityGala = {
   src: require("public/images/program/unity-gala.svg"),
-  alt: "Image of a game controller with pac man eating a heart and a banner at the top saying this class was sponsored by Unity",
+  alt:
+    "Image of a game controller with pac man eating a heart and a banner at the top saying this class was sponsored by Unity",
 };
 
 const pythonImage = {
@@ -145,6 +153,7 @@ export interface MeetInstance {
   signupUrl: string;
   extra?: React.ReactNode;
   buttonExtra?: React.ReactNode;
+  buttonText: RegistrationAction;
 }
 
 export interface ClassInstance extends MeetInstance {
@@ -567,6 +576,7 @@ function fallClass(
     campus,
     classDates,
     ...FALL_CLASS_SCHEDULE[schedule],
+    buttonText: "Student Application",
     signupUrl: `https://www.tfaforms.com/4840819?tfa_2013=${formAssemblyId}`,
   };
 }
@@ -591,6 +601,7 @@ function fallSDRClass(
     ),
     startDate: "September (Date TBD)",
     endDate: "December (Date TBD)",
+    buttonText: "Apply",
     signupUrl: `https://www.tfaforms.com/4843869?tfa_2013=${formAssemblyId}`,
   };
 }
@@ -663,6 +674,7 @@ function workshop({
     who,
     extra,
     buttonExtra,
+    buttonText: "Register",
     signupUrl,
     date,
     minutes,
