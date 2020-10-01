@@ -1,11 +1,11 @@
 import * as React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import MuiExpansionPanel from "@material-ui/core/ExpansionPanel";
-import MuiExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import MuiExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import MuiAccordion from "@material-ui/core/Accordion";
+import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-const ExpansionPanel = withStyles({
+const Accordion = withStyles({
   root: {
     boxShadow: "none",
     "&:not(:last-child)": {
@@ -19,9 +19,9 @@ const ExpansionPanel = withStyles({
     },
   },
   expanded: {},
-})(MuiExpansionPanel);
+})(MuiAccordion);
 
-const ExpansionPanelSummary = withStyles((theme) => ({
+const AccordionSummary = withStyles((theme) => ({
   root: {
     padding: 0,
     marginBottom: -1,
@@ -42,24 +42,24 @@ const ExpansionPanelSummary = withStyles((theme) => ({
     },
   },
   expanded: {},
-}))(MuiExpansionPanelSummary);
+}))(MuiAccordionSummary);
 
-const ExpansionPanelDetails = withStyles(() => ({
+const AccordionDetails = withStyles(() => ({
   root: {
     padding: 0,
   },
-}))(MuiExpansionPanelDetails);
+}))(MuiAccordionDetails);
 
 const ExpansionLink: React.FC<{
   summary: React.ReactNode;
   children: React.ReactNode;
 }> = ({ summary, children }) => (
-  <ExpansionPanel square>
-    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+  <Accordion square>
+    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       {summary}
-    </ExpansionPanelSummary>
-    <ExpansionPanelDetails>{children}</ExpansionPanelDetails>
-  </ExpansionPanel>
+    </AccordionSummary>
+    <AccordionDetails>{children}</AccordionDetails>
+  </Accordion>
 );
 
 export default ExpansionLink;

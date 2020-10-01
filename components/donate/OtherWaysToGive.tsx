@@ -35,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: brand.indigo,
       color: theme.palette.common.white,
     },
-    "& .MuiExpansionPanel-root::before": {
+    "& .MuiAccordion-root::before": {
       backgroundColor: theme.palette.common.white,
     },
-    "& .MuiExpansionPanelSummary-expandIcon": {
+    "& .MuiAccordionSummary-expandIcon": {
       color: theme.palette.common.white,
       "& .MuiSvgIcon-root": {
         fontSize: theme.typography.pxToRem(48),

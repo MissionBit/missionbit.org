@@ -1,8 +1,8 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "./icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,16 +30,16 @@ const FaqItem: React.FC<{
 }> = ({ question, children }) => {
   const classes = useStyles();
   return (
-    <ExpansionPanel className={classes.root}>
-      <ExpansionPanelSummary
+    <Accordion className={classes.root}>
+      <AccordionSummary
         expandIcon={<ExpandMoreIcon className={classes.expand} />}
       >
         <Typography className={classes.heading}>{question}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      </AccordionSummary>
+      <AccordionDetails>
         <Typography component="div">{children}</Typography>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

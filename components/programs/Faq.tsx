@@ -9,10 +9,10 @@ import { brand } from "src/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& .MuiExpansionPanel-root::before": {
+    "& .MuiAccordion-root::before": {
       backgroundColor: brand.orange,
     },
-    "& .MuiExpansionPanelSummary-expandIcon": {
+    "& .MuiAccordionSummary-expandIcon": {
       color: brand.orange,
       "& .MuiSvgIcon-root": {
         fontSize: theme.typography.pxToRem(48),
