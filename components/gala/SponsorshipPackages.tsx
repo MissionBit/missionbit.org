@@ -168,12 +168,12 @@ const useReportStyles = makeStyles((theme) => ({
 }));
 
 const ANNUAL_REPORT_HREF =
-  "/annual-reports/2018/mission-bit-annual-report-2018.pdf";
+  "/annual-reports/2019/mission-bit-annual-report-2019.pdf";
 
 const AnnualReport: React.FC<{}> = () => {
   const classes = useReportStyles();
-  const jpg = require("public/images/gala/sponsorship/annual-report-2018-preview.jpg?resize&sizes[]=766&sizes[]=383&sizes[]=192");
-  const webp = require("public/images/gala/sponsorship/annual-report-2018-preview.jpg?resize&sizes[]=766&sizes[]=383&sizes[]=192&format=webp");
+  const png = require("public/images/gala/sponsorship/annual-report-2019-preview.png?resize&sizes[]=766&sizes[]=383&sizes[]=192");
+  const webp = require("public/images/gala/sponsorship/annual-report-2019-preview.png?resize&sizes[]=766&sizes[]=383&sizes[]=192&format=webp");
   return (
     <Container component="section" className={classes.root}>
       <a
@@ -184,12 +184,12 @@ const AnnualReport: React.FC<{}> = () => {
       >
         <picture>
           <source type="image/webp" srcSet={webp.srcSet} />
-          <img alt="Annual report cover" src={jpg.src} srcSet={jpg.srcSet} />
+          <img alt="Annual report cover" src={png.src} srcSet={png.srcSet} />
         </picture>
       </a>
       <Typography component="div" className={classes.copy}>
         <Typography variant="h3" component="h4">
-          2018 Annual Report
+          2019 Annual Report
         </Typography>
         Check out our{" "}
         <Link
@@ -197,7 +197,7 @@ const AnnualReport: React.FC<{}> = () => {
           href={ANNUAL_REPORT_HREF}
           target="_blank"
         >
-          2018 Annual Report
+          2019 Annual Report
         </Link>{" "}
         for more about our vision and current impact. If you have any questions,
         please contact us at{" "}

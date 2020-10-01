@@ -26,6 +26,10 @@ interface Document {
 
 const Documents: Document[] = [
   {
+    href: "/annual-reports/2019/mission-bit-annual-report-2019.pdf",
+    title: "Mission Bit Annual Report 2019",
+  },
+  {
     href: "/annual-reports/2018/mission-bit-annual-report-2018.pdf",
     title: "Mission Bit Annual Report 2018",
   },
