@@ -210,7 +210,15 @@ const CourseDescription: React.FC<{
   now: number;
 }> = ({ instance, now }) => {
   const classes = useStyles();
-  const { extra, buttonExtra, course, campus, meets, signupUrl } = instance;
+  const {
+    extra,
+    buttonExtra,
+    course,
+    campus,
+    meets,
+    signupUrl,
+    buttonText,
+  } = instance;
   const disabled =
     now >=
     (instance.type === "workshop"
@@ -280,7 +288,7 @@ const CourseDescription: React.FC<{
               rel="noopener noreferrer"
               disabled={disabled}
             >
-              {disabled ? "Registration closed" : "Student Application"}
+              {disabled ? "Registration closed" : buttonText}
             </RegButton>
           </Box>
         </Box>
