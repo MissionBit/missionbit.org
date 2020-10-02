@@ -340,51 +340,51 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc:
-        "Mayor London Breed at 2019 Gala watching students demonstrate their project",
+        "Career panel with 3 people's face around it",
       width: 600,
       height: 401,
       webp: [
         {
-          src: require("public/images/events/gala/gala-collage-1.jpg?webp"),
+          src: require("public/images/events/latinx-panel/latinx-2.jpg?webp"),
           width: 600,
         },
         {
-          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg?webp"),
+          src: require("public/images/events/latinx-panel/latinx-2@0.5.jpg?webp"),
           width: 299,
         },
       ],
       jpg: [
         {
-          src: require("public/images/events/gala/gala-collage-1.jpg"),
+          src: require("public/images/events/latinx-panel/latinx-2.jpg"),
           width: 600,
         },
         {
-          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg"),
+          src: require("public/images/events/latinx-panel/latinx-2@0.5.jpg"),
           width: 299,
         },
       ],
     },
     bottomLeftImage: {
-      desc: "Student speaker at 2019 Gala",
+      desc: "Latinx Heritage Month",
       width: 600,
       height: 401,
       webp: [
         {
-          src: require("public/images/events/gala/gala-collage-2.jpg?webp"),
+          src: require("public/images/events/latinx-panel/latinx-1.jpg?webp"),
           width: 600,
         },
         {
-          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg?webp"),
+          src: require("public/images/events/latinx-panel/latinx-1@0.5.jpg?webp"),
           width: 299,
         },
       ],
       jpg: [
         {
-          src: require("public/images/events/gala/gala-collage-2.jpg"),
+          src: require("public/images/events/latinx-panel/latinx-1.jpg"),
           width: 600,
         },
         {
-          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg"),
+          src: require("public/images/events/latinx-panel/latinx-1@0.5.jpg"),
           width: 299,
         },
       ],
