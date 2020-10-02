@@ -50,6 +50,14 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
       </BodyText>
       <LearnMoreButton
         variant="contained"
+        href="/annual-reports/2019/mission-bit-annual-report-2019.pdf"
+        target="_blank"
+        size="large"
+      >
+        <AdobePdfLogo fontSize="small" /> 2019 Annual Report
+      </LearnMoreButton>
+      <LearnMoreButton
+        variant="contained"
         href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
         target="_blank"
         size="large"
