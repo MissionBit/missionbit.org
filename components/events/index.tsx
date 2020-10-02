@@ -328,8 +328,8 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "latinx",
-    date: Date.parse("2020-10-14T18:30:00-07:00"),
-    href: "/gala",
+    date: Date.parse("2020-10-13T18:30:00-07:00"),
+    href: "https://www.tfaforms.com/4856906",
     linkTitle: "Register",
     title: "Latinx Heritage Month Career Panel",
     description: (
