@@ -142,8 +142,8 @@ const FeaturedEvents: FeaturedEvent[] = [
     title: "Fall Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Fall
-        2020 Demo Day, a culminating showcase where our students display their
+        Join us in celebrating our incredibly talented students at our Fall 2020
+        Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
     ),
@@ -334,13 +334,12 @@ const FeaturedEvents: FeaturedEvent[] = [
     title: "Latinx Heritage Month Career Panel",
     description: (
       <>
-        Mission Bit’s celebrates Latinx Heritage month with our amazing panel
-        of speakers.
+        Mission Bit’s celebrates Latinx Heritage month with our amazing panel of
+        speakers.
       </>
     ),
     topRightImage: {
-      desc:
-        "Career panel with 3 people's face around it",
+      desc: "Career panel with 3 people's face around it",
       width: 600,
       height: 401,
       webp: [
