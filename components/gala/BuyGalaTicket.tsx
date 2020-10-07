@@ -6,6 +6,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import { eventId, registerUrl } from "./Metadata";
 import Link from "@material-ui/core/Link";
+import { useRouter } from "next/router";
 
 declare global {
   interface Window {
@@ -20,6 +21,7 @@ declare global {
         iFrameContainerHeight?: number;
         iFrameAutoAdapt?: number;
         promoCode?: string;
+        extraParams?: { [k: string]: string };
       }): void;
     };
   }
@@ -27,12 +29,22 @@ declare global {
 
 const modalTriggerElementId = `eventbrite-widget-modal-trigger-${eventId}`;
 
+function onlyString(value: string | string[] | undefined): string | undefined {
+  return value && typeof value === "string" ? value : undefined;
+}
+
+function addDiscount(url: string, discount: string | undefined) {
+  return discount ? `${url}?discount=${encodeURIComponent(discount)}` : url;
+}
+
 const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
+  const router = useRouter();
   const [loading, error] = useScript({
     src: "https://www.eventbrite.com/static/widgets/eb_widgets.js",
     checkForExisting: true,
   });
   const [success, setSuccess] = useState(false);
+  const discount = onlyString(router.query.discount);
   const scriptEnabled = !loading && !error && !!window.EBWidgets;
   useEffect(() => {
     if (scriptEnabled) {
@@ -41,13 +53,14 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         eventId,
         modal: true,
         modalTriggerElementId,
+        promoCode: discount,
         onOrderComplete: (result) => {
           console.log({ onOrderComplete: result });
           setSuccess(true);
         },
       });
     }
-  }, [scriptEnabled]);
+  }, [scriptEnabled, discount]);
   const handleClose = useCallback(() => {
     setSuccess(false);
   }, []);
@@ -68,7 +81,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         id={modalTriggerElementId}
         rel="noopener noreferrer"
         target="_blank"
-        href={registerUrl}
+        href={addDiscount(registerUrl, discount)}
         onClick={handleClick}
       >
         Buy Ticket
