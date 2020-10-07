@@ -335,36 +335,13 @@ const FeaturedEvents: FeaturedEvent[] = [
     description: (
       <>
         Mission Bit’s celebrates Latinx Heritage month with our amazing panel of
-        speakers.
+        speakers. We welcome Eduardo Tapia from Redfin, Gloria Marissa Trevino
+        from Dell, Natalie Isabel Contreras from Adobe Digital Academy, and
+        Nicolas Magaña from Lyft. Come and learn about their journeys in tech!
       </>
     ),
     topRightImage: {
       desc: "Career panel with 3 people's face around it",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/latinx-panel/latinx-2.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/latinx-2@0.5.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/latinx-panel/latinx-2.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/latinx-2@0.5.jpg"),
-          width: 299,
-        },
-      ],
-    },
-    bottomLeftImage: {
-      desc: "Latinx Heritage Month",
       width: 600,
       height: 401,
       webp: [
@@ -384,6 +361,31 @@ const FeaturedEvents: FeaturedEvent[] = [
         },
         {
           src: require("public/images/events/latinx-panel/latinx-1@0.5.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Latinx Heritage Month",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/latinx-panel/career1.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/latinx-panel/career1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/latinx-panel/career1.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/latinx-panel/career1@0.5x.jpg"),
           width: 299,
         },
       ],
