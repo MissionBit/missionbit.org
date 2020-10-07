@@ -21,7 +21,10 @@ declare global {
         iFrameContainerHeight?: number;
         iFrameAutoAdapt?: number;
         promoCode?: string;
-        extraParams?: { [k: string]: string };
+        extraParams?: readonly {
+          readonly name: string;
+          readonly value: string;
+        }[];
       }): void;
     };
   }
@@ -54,6 +57,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         modal: true,
         modalTriggerElementId,
         promoCode: discount,
+        extraParams: discount ? [{ name: "discount", value: discount }] : [],
         onOrderComplete: (result) => {
           console.log({ onOrderComplete: result });
           setSuccess(true);
