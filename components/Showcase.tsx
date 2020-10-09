@@ -66,7 +66,20 @@ const Showcase: React.FC<{}> = () => {
     <Container component="section" id="showcase" className={classes.root}>
       <Typography variant="h4">
         Games and websites created by Mission Bit students
+        <br></br>
+        <br></br>
+        <Button
+          href="https://www.missionbit.org/demoday"
+          size="large"
+          variant="outlined"
+          color="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Check out Summer 2020 Demo Day Projects
+        </Button>
       </Typography>
+
       <Grid container spacing={3}>
         {StudentProjects.map((props) => (
           <StudentProject key={props.href} {...props} />
