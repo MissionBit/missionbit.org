@@ -31,15 +31,6 @@ export interface LayoutProps extends LayoutStaticProps {
   origin?: string;
 }
 
-const ShortcutPng: React.FC<{ size: number }> = ({ size }) => (
-  <link
-    rel="icon"
-    href={`/images/icon${size}.png`}
-    sizes={`${size}x${size}`}
-    type="image/png"
-  />
-);
-
 const DEFAULT_DESCRIPTION: string =
   "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";
 
@@ -117,9 +108,24 @@ export const Layout: React.FC<LayoutProps> = ({
           sizes="any"
           href="/images/icon128.svg"
         />
-        {[256, 128, 64].map((size) => (
-          <ShortcutPng key={size} size={size} />
-        ))}
+        <link
+          rel="icon"
+          href="/images/icon256.png"
+          sizes="256x256"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/images/icon128.png"
+          sizes="128x128"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/images/icon64.png"
+          sizes="64x64"
+          type="image/png"
+        />
         <GoogleAnalytics />
       </Head>
       <ThemeProvider theme={theme}>
