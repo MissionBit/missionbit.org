@@ -240,6 +240,11 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     ...image("board/clive_downie.jpg"),
   },
   {
+    name: "Dan Garon",
+    title: "GM of Emerging Platforms at Zynga",
+    ...image("board/dan_garon.jpg"),
+  },
+  {
     name: "Bob Ippolito",
     title: "Entrepreneur, Maker of Things",
     ...image("board/bob_ippolito.jpg"),
