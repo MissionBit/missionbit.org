@@ -38,22 +38,23 @@ function image(path: string): { image: { jpg: string; webp: string } } {
   };
 }
 
+const CEO = {
+  name: "Christina Ortega",
+  title: "Chief Executive Officer",
+  ...image("core/christina_ortega.jpg"),
+  bio: (
+    <>
+      Christina Ortega has a Master's in Public Administration with an emphasis
+      in Public Policy. She has done extensive research on after-school
+      programming focusing on the academic success of inner-city youth in San
+      Francisco. She is a San Francisco native who is passionate about providing
+      Bay Area youth with the skills to compete in the tech workforce.
+    </>
+  ),
+} as const;
+
 const TEAM: TeamMemberProps<TeamTitle>[] = [
-  {
-    name: "Christina Ortega",
-    title: "Chief Executive Officer",
-    ...image("core/christina_ortega.jpg"),
-    bio: (
-      <>
-        Christina Ortega has a Master's in Public Administration with an
-        emphasis in Public Policy. She has done extensive research on
-        after-school programming focusing on the academic success of inner-city
-        youth in San Francisco. She is a San Francisco native who is passionate
-        about providing Bay Area youth with the skills to compete in the tech
-        workforce.
-      </>
-    ),
-  },
+  CEO,
   {
     name: "Cora Monokandilos",
     title: "Director of Curriculum",
@@ -197,6 +198,16 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
 
 const BOARD: TeamMemberProps<BoardTitle>[] = [
   {
+    ...CEO,
+    title: (
+      <>
+        <em>{CEO.title}</em>
+        <br />
+        Mission Bit
+      </>
+    ),
+  },
+  {
     name: "Sam Purtill",
     title: (
       <>
@@ -238,6 +249,24 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     name: "Clive Downie",
     title: "CMO, Unity Technologies",
     ...image("board/clive_downie.jpg"),
+  },
+  {
+    name: "Dan Garon",
+    title: "GM of Emerging Platforms at Zynga",
+    bio: (
+      <>
+        Dan is an active angel investor, advisor, and mentor to start-ups and
+        entrepreneurs, and is a speaker on topics related to consumer product
+        development and social gaming. Dan received his juris doctor with high
+        distinction, Order of the Coif from the University of Iowa College of
+        Law, and is a member of the California Bar.
+        <br />
+        <br />
+        I'm excited to help more students unlock their full potential by making
+        computer science more accessible.
+      </>
+    ),
+    ...image("board/dan_garon.jpg"),
   },
   {
     name: "Bob Ippolito",
