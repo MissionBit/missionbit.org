@@ -110,8 +110,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     margin: 0,
     padding: 0,
+    flexWrap: "wrap",
     [theme.breakpoints.down("sm")]: {
-      flexWrap: "wrap",
       justifyContent: "flex-start",
     },
   },
