@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   column: {
-    flex: 1,
+    flex: "1 0 240px",
     padding: theme.spacing(0, 3),
     [theme.breakpoints.between("xs", "sm")]: {
       flex: "1 1 100%",
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontSize: theme.typography.pxToRem(22),
-    width: "11rem",
+    width: "10.5rem",
     [theme.breakpoints.up("sm")]: {
       "&:nth-child(n + 2)": {
         marginLeft: theme.spacing(2),

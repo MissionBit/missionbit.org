@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   descriptionButton: { gridArea: "descriptionButton" },
   collage: {
     gridArea: "collage",
+    width: "100%",
     [theme.breakpoints.down("sm")]: {
       display: "none",
     },

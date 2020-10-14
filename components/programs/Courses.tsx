@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   imageWrapper: {
     display: "flex",
     flex: "0 1 20%",
+    flexDirection: "column",
+    justifyContent: "center",
     padding: theme.spacing(0, 4),
     backgroundColor: `var(--accent-color, ${theme.palette.common.white})`,
     [theme.breakpoints.down("sm")]: {
@@ -108,8 +110,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     margin: 0,
     padding: 0,
+    flexWrap: "wrap",
     [theme.breakpoints.down("sm")]: {
-      flexWrap: "wrap",
       justifyContent: "flex-start",
     },
   },
