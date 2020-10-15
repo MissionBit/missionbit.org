@@ -1,3 +1,4 @@
+import Head from "next/head";
 import * as React from "react";
 import oneLine from "src/oneLine";
 
@@ -34,7 +35,7 @@ export const event = ({
 };
 
 export const GoogleAnalytics: React.FC<{}> = () => (
-  <>
+  <Head>
     <link rel="dns-prefetch" href="https://www.google.com" />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
     <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
@@ -57,7 +58,7 @@ export const GoogleAnalytics: React.FC<{}> = () => (
   `,
       }}
     />
-  </>
+  </Head>
 );
 
 export default GoogleAnalytics;
