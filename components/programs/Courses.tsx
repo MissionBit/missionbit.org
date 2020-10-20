@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       flex: "1",
       maxHeight: "20vh",
+      flexDirection: "row",
       padding: theme.spacing(2, 4),
     },
   },

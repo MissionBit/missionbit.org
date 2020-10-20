@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     fontSize: theme.typography.pxToRem(22),
     width: "10.5rem",
+    padding: theme.spacing(1),
     [theme.breakpoints.up("sm")]: {
       "&:nth-child(n + 2)": {
         marginLeft: theme.spacing(2),
