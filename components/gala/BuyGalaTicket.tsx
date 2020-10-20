@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import IndigoButton from "components/IndigoButton";
 import useScript from "react-script-hook";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -30,7 +30,16 @@ declare global {
   }
 }
 
-const modalTriggerElementId = `eventbrite-widget-modal-trigger-${eventId}`;
+let uniqueId = 0;
+const getUniqueId = () => uniqueId++;
+
+function useModalTriggerElementId(): string {
+  const idRef = useRef<null | number>(null);
+  if (idRef.current === null) {
+    idRef.current = getUniqueId();
+  }
+  return `eventbrite-widget-modal-trigger-${eventId}-${idRef.current}`;
+}
 
 function onlyString(value: string | string[] | undefined): string | undefined {
   return value && typeof value === "string" ? value : undefined;
@@ -48,7 +57,9 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
   });
   const [success, setSuccess] = useState(false);
   const discount = onlyString(router.query.discount);
+  const aff = onlyString(router.query.aff);
   const scriptEnabled = !loading && !error && !!window.EBWidgets;
+  const modalTriggerElementId = useModalTriggerElementId();
   useEffect(() => {
     if (scriptEnabled) {
       window.EBWidgets?.createWidget({
@@ -57,14 +68,17 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         modal: true,
         modalTriggerElementId,
         promoCode: discount,
-        extraParams: discount ? [{ name: "discount", value: discount }] : [],
+        extraParams: [
+          ...(discount ? [{ name: "discount", value: discount }] : []),
+          ...(aff ? [{ name: "aff", value: aff }] : []),
+        ],
         onOrderComplete: (result) => {
           console.log({ onOrderComplete: result });
           setSuccess(true);
         },
       });
     }
-  }, [scriptEnabled, discount]);
+  }, [modalTriggerElementId, scriptEnabled, discount, aff]);
   const handleClose = useCallback(() => {
     setSuccess(false);
   }, []);
