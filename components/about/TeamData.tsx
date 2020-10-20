@@ -27,7 +27,10 @@ type StudentInfo = React.ReactNode;
 
 type BoardTitle = React.ReactNode;
 
-type TeacherTitle = "Lead Instructor" | "Instructor's Assistant";
+type TeacherTitle =
+  | "Lead Instructor"
+  | "Instructor's Assistant"
+  | "Workforce Development Instructor";
 
 function image(path: string): { image: { jpg: string; webp: string } } {
   return {
@@ -130,6 +133,11 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
     name: "Imani Dawson",
     title: "Lead Instructor",
     ...image("2020-summer/imani_dawson.jpg"),
+  },
+  {
+    name: "Irvin Guerra",
+    title: "Workforce Development Instructor",
+    ...image("irvin.jpg"),
   },
   {
     name: "Nico Magaña",
