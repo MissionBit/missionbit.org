@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import IndigoButton from "components/IndigoButton";
 import useScript from "react-script-hook";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -7,6 +7,11 @@ import Alert from "@material-ui/lab/Alert";
 import { eventId, registerUrl } from "./Metadata";
 import Link from "@material-ui/core/Link";
 import { useRouter } from "next/router";
+
+type ExtraParams = readonly {
+  readonly name: string;
+  readonly value: string;
+}[];
 
 declare global {
   interface Window {
@@ -21,23 +26,32 @@ declare global {
         iFrameContainerHeight?: number;
         iFrameAutoAdapt?: number;
         promoCode?: string;
-        extraParams?: readonly {
-          readonly name: string;
-          readonly value: string;
-        }[];
+        extraParams?: ExtraParams;
       }): void;
     };
   }
 }
 
-const modalTriggerElementId = `eventbrite-widget-modal-trigger-${eventId}`;
+let uniqueId = 0;
+const getUniqueId = () => uniqueId++;
+
+function useModalTriggerElementId(): string {
+  const idRef = useRef<null | number>(null);
+  if (idRef.current === null) {
+    idRef.current = getUniqueId();
+  }
+  return `eventbrite-widget-modal-trigger-${eventId}-${idRef.current}`;
+}
 
 function onlyString(value: string | string[] | undefined): string | undefined {
   return value && typeof value === "string" ? value : undefined;
 }
 
-function addDiscount(url: string, discount: string | undefined) {
-  return discount ? `${url}?discount=${encodeURIComponent(discount)}` : url;
+function addExtraParams(url: string, params: ExtraParams) {
+  const qs = params
+    .map((p) => `${encodeURIComponent(p.name)}=${encodeURIComponent(p.value)}`)
+    .join("&");
+  return qs ? `${url}?${qs}` : url;
 }
 
 const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
@@ -48,7 +62,13 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
   });
   const [success, setSuccess] = useState(false);
   const discount = onlyString(router.query.discount);
+  const aff = onlyString(router.query.aff);
   const scriptEnabled = !loading && !error && !!window.EBWidgets;
+  const modalTriggerElementId = useModalTriggerElementId();
+  const extraParams = [
+    ...(discount ? [{ name: "discount", value: discount }] : []),
+    ...(aff ? [{ name: "aff", value: aff }] : []),
+  ];
   useEffect(() => {
     if (scriptEnabled) {
       window.EBWidgets?.createWidget({
@@ -57,14 +77,14 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         modal: true,
         modalTriggerElementId,
         promoCode: discount,
-        extraParams: discount ? [{ name: "discount", value: discount }] : [],
+        extraParams,
         onOrderComplete: (result) => {
           console.log({ onOrderComplete: result });
           setSuccess(true);
         },
       });
     }
-  }, [scriptEnabled, discount]);
+  }, [modalTriggerElementId, scriptEnabled, discount, aff]);
   const handleClose = useCallback(() => {
     setSuccess(false);
   }, []);
@@ -85,7 +105,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         id={modalTriggerElementId}
         rel="noopener noreferrer"
         target="_blank"
-        href={addDiscount(registerUrl, discount)}
+        href={addExtraParams(registerUrl, extraParams)}
         onClick={handleClick}
       >
         Buy Ticket

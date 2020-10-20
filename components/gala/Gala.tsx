@@ -3,9 +3,8 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import GalaVideo from "./GalaVideo";
 import { makeStyles } from "@material-ui/core/styles";
-import { galaStartEnd } from "./GalaDates";
 import { DEVELOPMENT_EMAIL } from "src/emails";
-import GalaLanding from "./GalaLanding";
+import GalaLanding, { GALA_LANDING_COPY } from "./GalaLanding";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import SponsorSection from "./SponsorSection";
 import Link from "@material-ui/core/Link";
@@ -14,10 +13,9 @@ import IndigoButton from "components/IndigoButton";
 import { Box } from "@material-ui/core";
 import RectImage from "components/RectImage";
 import AsteriskCollage from "./AsteriskCollage";
-import BuyGalaTicket from "./BuyGalaTicket";
-import PinIcon from "components/icons/Pin";
 import Metadata from "./Metadata";
 import Speakers from "./Speakers";
+import { GalaCTA } from "./GalaCTA";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,31 +41,6 @@ const useStyles = makeStyles((theme) => ({
   copySection: {
     "& > p": {
       margin: theme.spacing(2, 0),
-    },
-  },
-  buyTicket: {
-    marginTop: theme.spacing(2),
-  },
-  wineTasting: {
-    display: "block",
-    marginTop: theme.spacing(2),
-  },
-  pin: {
-    color: brand.violet,
-    position: "relative",
-    top: 4,
-  },
-  saveTheDateHeading: {
-    [theme.breakpoints.down("sm")]: {
-      fontSize: theme.typography.h4.fontSize,
-      fontWeight: theme.typography.h6.fontWeight,
-    },
-  },
-  saveTheDate: {
-    fontSize: "1.25rem",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1.25rem",
-      fontWeight: theme.typography.h6.fontWeight,
     },
   },
   videoSection: {
@@ -154,6 +127,20 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h4.fontSize,
     },
   },
+  landingCopy: {
+    lineHeight: 1.75,
+    fontWeight: theme.typography.fontWeightMedium,
+    fontSize: theme.typography.pxToRem(16),
+    textAlign: "center",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  cta: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
 }));
 
 function rectColImg(photo: string) {
@@ -186,7 +173,6 @@ function rectStudentsImg(photo: string) {
 
 const Gala: React.FC<{}> = () => {
   const classes = useStyles();
-  const { date, time } = galaStartEnd();
   return (
     <main id="main" className={classes.root}>
       <Metadata />
@@ -206,7 +192,11 @@ const Gala: React.FC<{}> = () => {
           </Box>
         </Box>
         <Box className={classes.actionColumnMain}>
-          <Box className={classes.actionPhoto} paddingX={3} paddingBottom={6}>
+          <Typography className={classes.landingCopy}>
+            {GALA_LANDING_COPY}
+          </Typography>
+          <GalaCTA classes={{ heading: classes.cta, date: classes.cta }} />
+          <Box className={classes.actionPhoto} paddingX={3} paddingTop={6}>
             <RectImage
               {...rectColImg("gala-ruqaiyah-speaking")}
               desc="Ruqaiyah Angeles speaking at the 2019 Mission Bit Gala"
@@ -216,11 +206,7 @@ const Gala: React.FC<{}> = () => {
               right={-46}
             />
           </Box>
-          <Box
-            className={classes.smallActionPhoto}
-            marginX={-2}
-            paddingBottom={2}
-          >
+          <Box className={classes.smallActionPhoto} marginX={-2} paddingTop={2}>
             <RectImage
               {...rectColImg("gala-ruqaiyah-speaking")}
               desc="Ruqaiyah Angeles speaking at the 2019 Mission Bit Gala"
@@ -230,37 +216,6 @@ const Gala: React.FC<{}> = () => {
               right={46}
             />
           </Box>
-          <Typography
-            component="h2"
-            variant="h3"
-            align="center"
-            className={classes.saveTheDateHeading}
-          >
-            Get Your Ticket
-          </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            className={classes.saveTheDate}
-          >
-            {date}
-            <br />
-            {time}
-            <br />
-            <PinIcon className={classes.pin} /> Online
-            <br />
-            <BuyGalaTicket className={classes.buyTicket} />
-            <br />
-            <Link
-              className={classes.wineTasting}
-              color="secondary"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://www.voluptuarywine.com/mission-bit"
-            >
-              Add Wine Tasting
-            </Link>
-          </Typography>
         </Box>
         <Box className={classes.actionColumnExtra}>
           <Box className={classes.actionPhoto} paddingTop={12} paddingLeft={6}>
