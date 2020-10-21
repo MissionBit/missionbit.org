@@ -6,7 +6,8 @@ import DonateCard, { DonatePrefill } from "./DonateCard";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import SectionHeading from "./SectionHeading";
-import { Typography } from "@material-ui/core";
+
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   root: {
