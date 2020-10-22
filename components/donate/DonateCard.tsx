@@ -154,7 +154,11 @@ const useStyles = makeStyles((theme) => ({
   inputText: mkFontSize(theme, "input"),
   button: {
     ...mkFontSize(theme, "heading"),
-    margin: theme.spacing(2, 0),
+    margin: theme.spacing(2, 0, 0, 0),
+  },
+  stockButton: {
+    ...mkFontSize(theme, "heading"),
+    margin: theme.spacing(1, 0, 2, 0),
   },
   frequency: {
     margin: theme.spacing(2, 0),
@@ -332,6 +336,16 @@ export const DonateCard: React.FC<{
             className={classes.button}
           >
             Donate with card <ArrowRightIcon className={classes.arrowIcon} />
+          </IndigoButton>
+          <IndigoButton
+            href="https://app.overflow.co/missionbit"
+            target="_blank"
+            variant="contained"
+            rel="noopener noreferrer"
+            color="secondary"
+            className={classes.stockButton}
+          >
+            Donate Stock
           </IndigoButton>
         </form>
       </Box>
