@@ -2,12 +2,12 @@ import Head from "next/head";
 import * as React from "react";
 import oneLine from "src/oneLine";
 
-export const GA_TRACKING_ID = "UA-47473369-1";
+export const GA_MEASUREMENT_ID = "G-HEJM8B05LS";
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string): void => {
   if (typeof window !== "undefined" && "gtag" in window) {
-    window.gtag("config", GA_TRACKING_ID, {
+    window.gtag("config", GA_MEASUREMENT_ID, {
       page_path: url,
     });
   }
@@ -43,7 +43,7 @@ export const GoogleAnalytics: React.FC<{}> = () => (
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <script
       async
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
     />
     <script
       dangerouslySetInnerHTML={{
@@ -52,7 +52,7 @@ export const GoogleAnalytics: React.FC<{}> = () => (
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '${GA_TRACKING_ID}', {
+    gtag('config', '${GA_MEASUREMENT_ID}', {
       page_path: window.location.pathname,
     });
   `,
