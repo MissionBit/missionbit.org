@@ -66,6 +66,16 @@ export const Sponsors: readonly SponsorData[] = [
     level: "gold",
   },
   {
+    href: "https://latinocf.org/",
+    title: "Latino Community Foundation",
+    logo: svgLogo({
+      src: "latino-community-foundation",
+      width: 848,
+      height: 848,
+    }),
+    level: "silver",
+  },
+  {
     href: "https://www.thrivetalk.com/",
     title: "Thrive Talk",
     logo: svgLogo({
