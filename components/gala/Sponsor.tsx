@@ -1,9 +1,9 @@
 import * as React from "react";
 import { SponsorData } from "./SponsorData";
 
-const Sponsor: React.FC<SponsorData> = ({ href, title, logo }) => (
-  <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
-    <picture>
+const Sponsor: React.FC<SponsorData> = ({ href, title, logo }) => {
+  const picture = (
+    <picture title={title}>
       {logo.webpSrcSet ? (
         <source type="image/webp" srcSet={logo.webpSrcSet} />
       ) : null}
@@ -15,7 +15,14 @@ const Sponsor: React.FC<SponsorData> = ({ href, title, logo }) => (
         alt={`${title} logo`}
       />
     </picture>
-  </a>
-);
+  );
+  return href === null ? (
+    picture
+  ) : (
+    <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
+      {picture}
+    </a>
+  );
+};
 
 export default Sponsor;

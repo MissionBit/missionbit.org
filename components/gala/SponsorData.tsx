@@ -1,5 +1,5 @@
 export interface SponsorData {
-  readonly href: string;
+  readonly href: string | null;
   readonly title: string;
   readonly logo: SponsorLogo;
   readonly level: SponsorLevel;
@@ -92,6 +92,16 @@ export const Sponsors: readonly SponsorData[] = [
       src: "cruise",
       width: 2000,
       height: 700,
+    }),
+    level: "bronze",
+  },
+  {
+    href: null,
+    title: "Beth Andersen & Kevin Pereau",
+    logo: svgLogo({
+      src: "beth-andersen-kevin-pereau",
+      width: 235,
+      height: 75,
     }),
     level: "bronze",
   },
