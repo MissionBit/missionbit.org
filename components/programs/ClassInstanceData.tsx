@@ -310,7 +310,7 @@ export const Courses = courseRecord({
       <>
         This is a beginner workshop where students will be able to build a
         portfolio with HTML and CSS. No web design or coding experience
-        necessary.
+        necessary. Join us for our November edition of this workshop!
       </>
     ),
   },
@@ -342,6 +342,21 @@ export const Courses = courseRecord({
         resources to continue learning more. Beginner coders welcome! (Hack Your
         Window idea and photo credit to{" "}
         <a href="https://hackart.eduard.cat/"> HackArt</a>.)
+      </>
+    ),
+  },
+  scratch_pong_workshop: {
+    title: "Code a Pong Game with Scratch",
+    skills: ["Scratch", "Block Coding"],
+    image: scratchCatImage,
+    description: (
+      <>
+        In this hands-on workshop, we'll combine technology and game design to
+        code our own interactive pong game with Scratch. We'll begin with a
+        quick intro to creative coding and Scratch, plan our ideas together,
+        then spend time creating our projects and experimenting with code. We'll
+        end by sharing ideas and questions and resources to continue learning
+        more. Beginner coders welcome!
       </>
     ),
   },
@@ -683,26 +698,28 @@ function workshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.design_business_workshop,
-    dateString: "2020-10-14T16:00:00-07:00",
+    course: Courses.scratch_pong_workshop,
+    dateString: "2020-11-09T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4856405",
+    signupUrl: "https://www.tfaforms.com/4863107",
     who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.python_workshop,
-    dateString: "2020-10-19T16:30:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4856418",
-    who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.beginner_web_workshop,
-    dateString: "2020-10-28T17:30:00-07:00",
+    dateString: "2020-11-16T16:00:00-07:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4856422",
     who: "7th - 12th graders",
   }),
+  workshop({
+    course: Courses.networking_workshop,
+    dateString: "2020-11-30T15:00:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4856418",
+    who: "16 - 24 year olds",
+  }),
+
   // workshop({
   //   course: Courses.careerprep_resume_workshop,
   //   dateString: "2020-05-21T15:30:00-07:00",
