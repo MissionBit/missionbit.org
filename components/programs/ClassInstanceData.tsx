@@ -709,14 +709,14 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
     course: Courses.beginner_web_workshop,
     dateString: "2020-11-16T16:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4856422",
+    signupUrl: "https://www.tfaforms.com/4863335",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.networking_workshop,
     dateString: "2020-11-30T15:00:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4856418",
+    signupUrl: "https://www.tfaforms.com/4863341",
     who: "16 - 24 year olds",
   }),
 
