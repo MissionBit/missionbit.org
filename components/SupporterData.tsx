@@ -104,6 +104,11 @@ const SupporterData: SupporterDataProps[] = [
     title: "Kandji",
     href: "https://www.kandji.io/",
   },
+  {
+    logo: png("related"),
+    title: "Related Affordable Foundation",
+    href: "https://www.related.com/residential/affordable-housing",
+  },
 ];
 
 export default SupporterData;
