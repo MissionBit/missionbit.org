@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
   },
+  gold: {},
+  silver: {},
+  diamond: {},
+  platinum: {},
+  bronze: {},
   levelContainer: {
     display: "flex",
     width: "100%",
@@ -87,7 +92,7 @@ const SponsorSection: React.FC<{}> = () => {
               </Typography>
               <div className={classes.divider} />
             </Box>
-            <Box className={classes.sponsors}>
+            <Box className={`${classes.sponsors} ${classes[level]}`}>
               {sponsors.map((props) => (
                 <Sponsor key={props.href} {...props} />
               ))}

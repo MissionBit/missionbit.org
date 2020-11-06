@@ -36,23 +36,29 @@ function svgLogo({ src, width, height }: LogoInput): SponsorLogo {
   };
 }
 
-// function pngLogo({ src, width, height }: LogoInput) {
-//   const original = require(`public/images/gala/2019-sponsors/${src}.png?resize`);
-//   const webp = require(`public/images/gala/2019-sponsors/${src}.png?resize&format=webp`);
-//   return {
-//     src: original.src,
-//     srcSet: original.srcSet,
-//     webpSrcSet: webp.srcSet,
-//     width,
-//     height,
-//   };
-// }
+function pngLogo({ src, width, height }: LogoInput) {
+  const original = require(`public/images/gala/2020-sponsors/${src}.png?resize`);
+  const webp = require(`public/images/gala/2020-sponsors/${src}.png?resize&format=webp`);
+  return {
+    src: original.src,
+    srcSet: original.srcSet,
+    webpSrcSet: webp.srcSet,
+    width,
+    height,
+  };
+}
 
 export const Sponsors: readonly SponsorData[] = [
   {
     href: "https://www.facebook.com/",
     title: "Facebook",
     logo: svgLogo({ src: "facebook", width: 800, height: 88 }),
+    level: "platinum",
+  },
+  {
+    href: "https://www.anthemcorporateresponsibility.com/cr/foundation",
+    title: "Anthem Blue Cross and Blue Shield Foundation",
+    logo: svgLogo({ src: "abc-foundation", width: 131, height: 46 }),
     level: "platinum",
   },
   {
@@ -92,6 +98,16 @@ export const Sponsors: readonly SponsorData[] = [
       src: "cruise",
       width: 2000,
       height: 700,
+    }),
+    level: "bronze",
+  },
+  {
+    href: "https://www.sfbfa.org/",
+    title: "San Francisco Black Firefighters Association",
+    logo: pngLogo({
+      src: "sfbfa",
+      width: 200,
+      height: 200,
     }),
     level: "bronze",
   },
