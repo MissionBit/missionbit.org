@@ -1,11 +1,11 @@
 import * as React from "react";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import IndigoButton from "components/IndigoButton";
 import useScript from "react-script-hook";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import { eventId, registerUrl } from "./Metadata";
-import Link from "@material-ui/core/Link";
+
 import { useRouter } from "next/router";
 
 type ExtraParams = readonly {
@@ -65,10 +65,13 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
   const aff = onlyString(router.query.aff);
   const scriptEnabled = !loading && !error && !!window.EBWidgets;
   const modalTriggerElementId = useModalTriggerElementId();
-  const extraParams = [
-    ...(discount ? [{ name: "discount", value: discount }] : []),
-    ...(aff ? [{ name: "aff", value: aff }] : []),
-  ];
+  const extraParams = useMemo(
+    () => [
+      ...(discount ? [{ name: "discount", value: discount }] : []),
+      ...(aff ? [{ name: "aff", value: aff }] : []),
+    ],
+    [discount, aff]
+  );
   useEffect(() => {
     if (scriptEnabled) {
       window.EBWidgets?.createWidget({
@@ -84,7 +87,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
         },
       });
     }
-  }, [modalTriggerElementId, scriptEnabled, discount, aff]);
+  }, [modalTriggerElementId, scriptEnabled, discount, extraParams]);
   const handleClose = useCallback(() => {
     setSuccess(false);
   }, []);
@@ -113,15 +116,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
       <Snackbar open={success} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
           Thank you! We look forward to having you attend our first virtual
-          gala. Interested in adding a wine tasting? Check out the packages from{" "}
-          <Link
-            href="https://www.voluptuarywine.com/mission-bit"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Voluptuary &amp; Lucid Wines
-          </Link>
-          , they'll even match any donation you make with your order!
+          gala.
         </Alert>
       </Snackbar>
     </>
