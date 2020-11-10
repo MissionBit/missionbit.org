@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="133px" height="32px" viewBox="0 0 133 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>logos/logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="In-progress" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-40.000000, -29.000000)">
+            <g id="header" transform="translate(40.000000, 29.000000)">
+                <g id="logos/logo">
+                    <g id="Jyve_Wordmark_Veridian_Customer_on_Cloud_Pantone">
+                        <path d="M14.485093,6.80035261 L14.485093,24.4400204 L5.19007107,24.4400204 L0,29.736504 L0,31.2289157 L15.1832711,31.228915 C16.7632652,31.2296749 18.2788014,30.5889958 19.396289,29.4479 C20.5137765,28.3068042 21.1416187,26.7588236 21.1416185,25.1446905 L21.1416185,0 L14.485093,6.80035261 Z" id="Shape" fill="#02363D" fill-rule="nonzero"></path>
+                        <polygon id="Shape" fill="#3BD4AE" fill-rule="nonzero" points="11.1473988 10.4096386 0 21.9217352 0 31.6144578 11.1473988 20.1023612"></polygon>
+                        <polygon id="Shape" fill="#02363D" fill-rule="nonzero" points="48.7187002 12.9003346 48.6322838 12.9003346 42.0531133 0.771084337 34.5953757 0.771084337 45.0805687 19.3174875 45.0805687 31.2289157 51.7893639 31.2289157 51.7893639 19.2716302 62.2716763 0.771084337 55.0357409 0.771084337"></polygon>
+                        <polygon id="Shape" fill="#02363D" fill-rule="nonzero" points="89.2236734 15.3880919 86.8981988 24.9464685 86.7685255 24.9464685 84.3537205 15.3880919 79.7921019 0.771084337 73.0346821 0.771084337 82.9071428 31.2289157 90.3647984 31.2289157 100.32659 0.771084337 93.7881736 0.771084337"></polygon>
+                        <polygon id="Shape" fill="#02363D" fill-rule="nonzero" points="133 6.66087858 133 0.771084337 112.627168 0.771084337 112.627168 31.2289157 133 31.2289157 133 25.3391214 119.147713 25.3391214 119.147713 18.7070125 131.025528 18.7070125 131.025528 12.8573434 119.147713 12.8573434 119.147713 6.66087858"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
