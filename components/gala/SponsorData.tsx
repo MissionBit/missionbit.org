@@ -82,6 +82,16 @@ export const Sponsors: readonly SponsorData[] = [
     level: "silver",
   },
   {
+    href: "https://jyve.com/",
+    title: "Jyve",
+    logo: svgLogo({
+      src: "jyve",
+      width: 133,
+      height: 32,
+    }),
+    level: "silver",
+  },
+  {
     href: "https://www.thrivetalk.com/",
     title: "Thrive Talk",
     logo: svgLogo({
