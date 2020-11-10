@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState, useCallback, useRef, useMemo } from "react";
 import IndigoButton from "components/IndigoButton";
-import useScript from "react-script-hook";
+import useScript from "vendor/useScript";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 import { eventId, registerUrl } from "./Metadata";
@@ -56,14 +56,16 @@ function addExtraParams(url: string, params: ExtraParams) {
 
 const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
   const router = useRouter();
-  const [loading, error] = useScript({
-    src: "https://www.eventbrite.com/static/widgets/eb_widgets.js",
-    checkForExisting: true,
-  });
+  const scriptStatus = useScript(
+    "https://www.eventbrite.com/static/widgets/eb_widgets.js"
+  );
   const [success, setSuccess] = useState(false);
   const discount = onlyString(router.query.discount);
   const aff = onlyString(router.query.aff);
-  const scriptEnabled = !loading && !error && !!window.EBWidgets;
+  const scriptEnabled =
+    scriptStatus === "ready" &&
+    typeof window !== "undefined" &&
+    !!window?.EBWidgets;
   const modalTriggerElementId = useModalTriggerElementId();
   const extraParams = useMemo(
     () => [
@@ -74,7 +76,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
   );
   useEffect(() => {
     if (scriptEnabled) {
-      window.EBWidgets?.createWidget({
+      window?.EBWidgets?.createWidget({
         widgetType: "checkout",
         eventId,
         modal: true,
