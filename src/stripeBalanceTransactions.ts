@@ -5,6 +5,7 @@ export interface BalanceTransaction {
   readonly created: number;
   readonly amount: number;
   readonly name: string | null;
+  readonly type: DonationType;
   readonly subscription: boolean;
 }
 
@@ -13,6 +14,9 @@ export interface BalanceTransactionBatch {
   readonly created: number;
   readonly transactions: readonly BalanceTransaction[];
 }
+
+const DONATION_TYPES = ["direct", "give-lively"] as const;
+type DonationType = typeof DONATION_TYPES[number];
 
 export async function getBalanceTransactions(
   created?: number
@@ -33,13 +37,28 @@ export async function getBalanceTransactions(
     if (
       txn.type === "charge" &&
       typeof txn.source === "object" &&
-      txn.source?.object === "charge"
+      txn.source?.object === "charge" &&
+      // Ignore sponsorship transaction
+      txn.id !== "txn_1HjQaWK5yunglhMSQnZ8U92N"
     ) {
+      const metadata = txn.source.metadata;
+      const type =
+        metadata.client_application_name === "smart-donations"
+          ? "give-lively"
+          : "direct";
+      const name =
+        txn.source.billing_details?.name ??
+        ([metadata.user_first_name, metadata.user_last_name]
+          .filter((x) => !!x)
+          .join(" ") ||
+          metadata.user_email) ??
+        null;
       transactions.push({
         id: txn.id,
         created: txn.created,
         amount: txn.amount,
-        name: txn.source.billing_details?.name,
+        name,
+        type,
         subscription: txn.source.invoice !== null,
       });
     }
