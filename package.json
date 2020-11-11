@@ -45,7 +45,7 @@
     "@sendgrid/mail": "^7.2.5",
     "@sentry/browser": "^5.22.3",
     "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.9.0",
+    "@stripe/stripe-js": "^1.11.0",
     "@types/google.analytics": "0.0.40",
     "@types/gtag.js": "0.0.3",
     "@types/micro": "^7.3.3",
@@ -72,7 +72,7 @@
     "sharp": "^0.26.0",
     "sitemap": "^6.3.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "stripe": "^8.92.0",
+    "stripe": "^8.121.0",
     "ts-debounce": "^2.0.1",
     "webp-loader": "^0.6.0",
     "webpack-cli": "^3.3.12"
