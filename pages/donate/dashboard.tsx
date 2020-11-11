@@ -99,6 +99,7 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
               <TableCell />
               <TableCell align="right">Amount</TableCell>
               <TableCell>Frequency</TableCell>
+              <TableCell>Type</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Time</TableCell>
             </TableRow>
@@ -111,6 +112,7 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
                 )}
               </TableCell>
               <TableCell>TOTAL</TableCell>
+              <TableCell />
               <TableCell />
               <TableCell>{DateTimeFormat.format(pollTime * 1000)}</TableCell>
             </TableRow>
@@ -125,6 +127,7 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
                 <TableCell>
                   {txn.subscription ? <em>Monthly</em> : "Once"}
                 </TableCell>
+                <TableCell>{txn.type}</TableCell>
                 <TableCell>{txn.name}</TableCell>
                 <TableCell>
                   {DateTimeFormat.format(txn.created * 1000)}
