@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import getBalanceModifications from "src/googleBalanceModifications";
 import getBalanceTransactions from "src/stripeBalanceTransactions";
 
 function parseCreated(
@@ -21,7 +22,11 @@ export default async function handler(
       return;
     }
     try {
-      res.status(200).json(await getBalanceTransactions(created));
+      const [batch, modifications] = await Promise.all([
+        getBalanceTransactions(created),
+        getBalanceModifications(),
+      ]);
+      res.status(200).json({ batch, modifications });
     } catch (err) {
       console.error(err);
       res.status(500).json({ statusCode: 500, message: err.message });
