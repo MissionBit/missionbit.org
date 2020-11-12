@@ -57,7 +57,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
         if (includeV?.boolValue) {
           transactions.push({
             name: nameV?.stringValue ?? "",
-            amount: amountV?.numberValue ?? 0,
+            amount: Math.floor(100 * (amountV?.numberValue ?? 0)),
             notes: notesV?.stringValue ?? "",
           });
         }
