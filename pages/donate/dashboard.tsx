@@ -8,7 +8,6 @@ import {
 import Head from "next/head";
 import Error404 from "pages/404";
 
-import usdFormatter from "src/usdFormatter";
 import getBalanceTransactions, {
   BalanceTransactionBatch,
 } from "src/stripeBalanceTransactions";
@@ -20,11 +19,35 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import getBalanceModifications, {
+  BalanceModifications,
+} from "src/googleBalanceModifications";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles({
+const usdFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+  minimumFractionDigits: 0,
+});
+
+function dollars(cents: number) {
+  return usdFormatter.format(Math.floor(0.01 * cents));
+}
+
+const useStyles = makeStyles((theme) => ({
   table: {},
   hide: { display: "none" },
-});
+  actions: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridGap: theme.spacing(1),
+    padding: theme.spacing(1, 0),
+  },
+}));
 
 export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
   timeZone: "America/Los_Angeles",
@@ -39,6 +62,7 @@ export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
 
 interface PageProps extends LayoutStaticProps {
   readonly batch?: BalanceTransactionBatch;
+  readonly modifications?: BalanceModifications;
 }
 
 function mergeBatch(
@@ -53,8 +77,17 @@ function mergeBatch(
   return { ...update, transactions };
 }
 
-const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
-  const [batch, setBatch] = useState(initialBatch);
+interface DashboardProps {
+  readonly batch: BalanceTransactionBatch;
+  readonly modifications: BalanceModifications;
+}
+
+const GIVE_LIVELY_ADMIN_URL =
+  "https://members.givelively.org/campaigns/4th-annual-gala-090dbc48-9624-44cf-ae2f-a802a511393b/basic_information";
+
+const DonateDashboard: React.FC<DashboardProps> = (initial) => {
+  const [batch, setBatch] = useState(initial.batch);
+  const [modifications, setModifications] = useState(initial.modifications);
   const [errors, setErrors] = useState(0);
   const classes = useStyles();
   useEffect(() => {
@@ -70,11 +103,12 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
         if (!mounted) {
           return;
         }
-        const json = await res.json();
+        const json: DashboardProps = await res.json();
         if (!mounted) {
           return;
         }
-        setBatch(mergeBatch(batch, json));
+        setBatch(mergeBatch(batch, json.batch));
+        setModifications(json.modifications);
       } catch (error) {
         console.error(error);
         setErrors(errors + 1);
@@ -86,8 +120,32 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
   }, [batch, errors]);
 
   const { pollTime, transactions } = batch;
+  const modificationTotal = modifications.transactions.reduce(
+    (amount, txn) => amount + txn.amount,
+    0
+  );
   return (
-    <>
+    <Container>
+      <Box className={classes.actions}>
+        <Button
+          target="_blank"
+          variant="contained"
+          color="primary"
+          rel="noopener noreferrer"
+          href={GIVE_LIVELY_ADMIN_URL}
+        >
+          Give Lively Admin
+        </Button>
+        <Button
+          target="_blank"
+          variant="contained"
+          color="secondary"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/spreadsheets/d/1dZgjF3SJXtO-4cC4M92y0ubvoQHs5GF5tjoj-OQtwl4/edit#gid=30309931"
+        >
+          Adjustments Spreadsheet
+        </Button>
+      </Box>
       <TableContainer component={Paper}>
         <Table
           className={classes.table}
@@ -106,15 +164,38 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
             <TableRow>
               <TableCell />
               <TableCell align="right">
-                {usdFormatter.format(
-                  0.01 *
-                    transactions.reduce((amount, txn) => amount + txn.amount, 0)
+                {dollars(
+                  transactions.reduce(
+                    (amount, txn) => amount + txn.amount,
+                    modificationTotal
+                  )
                 )}
               </TableCell>
-              <TableCell>TOTAL</TableCell>
+              <TableCell colSpan={4}>
+                Total as of {DateTimeFormat.format(pollTime * 1000)}
+              </TableCell>
+            </TableRow>
+            <TableRow>
               <TableCell />
-              <TableCell />
-              <TableCell>{DateTimeFormat.format(pollTime * 1000)}</TableCell>
+              <TableCell align="right">
+                {dollars(
+                  transactions.reduce(
+                    (amount, txn) =>
+                      amount + (txn.type === "give-lively" ? 0 : txn.amount),
+                    modificationTotal
+                  )
+                )}
+              </TableCell>
+              <TableCell colSpan={4}>
+                <Link
+                  href={GIVE_LIVELY_ADMIN_URL}
+                  target="_blank"
+                  color="secondary"
+                  rel="noopener noreferrer"
+                >
+                  GiveLively Adjustment: "Amount raised from other sources"
+                </Link>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -122,7 +203,7 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
               <TableRow key={txn.id}>
                 <TableCell align="right">{transactions.length - i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
-                  {usdFormatter.format(0.01 * txn.amount)}
+                  {dollars(txn.amount)}
                 </TableCell>
                 <TableCell>
                   {txn.subscription ? <em>Monthly</em> : "Once"}
@@ -134,16 +215,30 @@ const DonateDashboard: React.FC<BalanceTransactionBatch> = (initialBatch) => {
                 </TableCell>
               </TableRow>
             ))}
+            {modifications.transactions.map((txn, i) => (
+              <TableRow key={i}>
+                <TableCell align="right">{i}</TableCell>
+                <TableCell component="th" scope="row" align="right">
+                  {dollars(txn.amount)}
+                </TableCell>
+                <TableCell />
+                <TableCell>Adjustment</TableCell>
+                <TableCell>{txn.name}</TableCell>
+                <TableCell>
+                  {DateTimeFormat.format(modifications.pollTime * 1000)}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Container>
   );
 };
 
-const Page: NextPage<PageProps> = ({ batch, ...props }) => {
+const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => {
   const classes = useStyles();
-  if (batch === undefined) {
+  if (batch === undefined || modifications === undefined) {
     return <Error404 {...props} />;
   } else {
     return (
@@ -156,7 +251,7 @@ const Page: NextPage<PageProps> = ({ batch, ...props }) => {
         <Head>
           <meta name="robots" content="noindex" />
         </Head>
-        <DonateDashboard {...batch} />
+        <DonateDashboard batch={batch} modifications={modifications} />
       </Layout>
     );
   }
@@ -166,11 +261,16 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
-  const layoutProps = await getLayoutStaticProps();
+  const [layoutProps, batch, modifications] = await Promise.all([
+    getLayoutStaticProps(),
+    getBalanceTransactions(),
+    getBalanceModifications(),
+  ]);
   return {
     props: {
       ...layoutProps,
-      batch: await getBalanceTransactions(),
+      batch,
+      modifications,
     },
   };
 };
