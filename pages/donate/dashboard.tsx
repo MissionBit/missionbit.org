@@ -8,7 +8,6 @@ import {
 import Head from "next/head";
 import Error404 from "pages/404";
 
-import usdFormatter from "src/usdFormatter";
 import getBalanceTransactions, {
   BalanceTransactionBatch,
 } from "src/stripeBalanceTransactions";
@@ -23,11 +22,32 @@ import Paper from "@material-ui/core/Paper";
 import getBalanceModifications, {
   BalanceModifications,
 } from "src/googleBalanceModifications";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
 
-const useStyles = makeStyles({
+const usdFormatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+  minimumFractionDigits: 0,
+});
+
+function dollars(cents: number) {
+  return usdFormatter.format(Math.floor(0.01 * cents));
+}
+
+const useStyles = makeStyles((theme) => ({
   table: {},
   hide: { display: "none" },
-});
+  actions: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gridGap: theme.spacing(1),
+    padding: theme.spacing(1, 0),
+  },
+}));
 
 export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
   timeZone: "America/Los_Angeles",
@@ -61,6 +81,9 @@ interface DashboardProps {
   readonly batch: BalanceTransactionBatch;
   readonly modifications: BalanceModifications;
 }
+
+const GIVE_LIVELY_ADMIN_URL =
+  "https://members.givelively.org/campaigns/4th-annual-gala-090dbc48-9624-44cf-ae2f-a802a511393b/basic_information";
 
 const DonateDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
@@ -102,7 +125,27 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
     0
   );
   return (
-    <>
+    <Container>
+      <Box className={classes.actions}>
+        <Button
+          target="_blank"
+          variant="contained"
+          color="primary"
+          rel="noopener noreferrer"
+          href={GIVE_LIVELY_ADMIN_URL}
+        >
+          Give Lively Admin
+        </Button>
+        <Button
+          target="_blank"
+          variant="contained"
+          color="secondary"
+          rel="noopener noreferrer"
+          href="https://docs.google.com/spreadsheets/d/1dZgjF3SJXtO-4cC4M92y0ubvoQHs5GF5tjoj-OQtwl4/edit#gid=30309931"
+        >
+          Adjustments Spreadsheet
+        </Button>
+      </Box>
       <TableContainer component={Paper}>
         <Table
           className={classes.table}
@@ -121,35 +164,38 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
             <TableRow>
               <TableCell />
               <TableCell align="right">
-                {usdFormatter.format(
-                  0.01 *
-                    transactions.reduce(
-                      (amount, txn) => amount + txn.amount,
-                      modificationTotal
-                    )
+                {dollars(
+                  transactions.reduce(
+                    (amount, txn) => amount + txn.amount,
+                    modificationTotal
+                  )
                 )}
               </TableCell>
-              <TableCell>TOTAL</TableCell>
-              <TableCell />
-              <TableCell />
-              <TableCell>{DateTimeFormat.format(pollTime * 1000)}</TableCell>
+              <TableCell colSpan={4}>
+                Total as of {DateTimeFormat.format(pollTime * 1000)}
+              </TableCell>
             </TableRow>
             <TableRow>
               <TableCell />
               <TableCell align="right">
-                {usdFormatter.format(
-                  0.01 *
-                    transactions.reduce(
-                      (amount, txn) =>
-                        amount + (txn.type === "give-lively" ? 0 : txn.amount),
-                      modificationTotal
-                    )
+                {dollars(
+                  transactions.reduce(
+                    (amount, txn) =>
+                      amount + (txn.type === "give-lively" ? 0 : txn.amount),
+                    modificationTotal
+                  )
                 )}
               </TableCell>
-              <TableCell>GiveLively Adjustment</TableCell>
-              <TableCell />
-              <TableCell />
-              <TableCell>{DateTimeFormat.format(pollTime * 1000)}</TableCell>
+              <TableCell colSpan={4}>
+                <Link
+                  href={GIVE_LIVELY_ADMIN_URL}
+                  target="_blank"
+                  color="secondary"
+                  rel="noopener noreferrer"
+                >
+                  GiveLively Adjustment: "Amount raised from other sources"
+                </Link>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -157,7 +203,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               <TableRow key={txn.id}>
                 <TableCell align="right">{transactions.length - i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
-                  {usdFormatter.format(0.01 * txn.amount)}
+                  {dollars(txn.amount)}
                 </TableCell>
                 <TableCell>
                   {txn.subscription ? <em>Monthly</em> : "Once"}
@@ -173,7 +219,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               <TableRow key={i}>
                 <TableCell align="right">{transactions.length - i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
-                  {usdFormatter.format(0.01 * txn.amount)}
+                  {dollars(txn.amount)}
                 </TableCell>
                 <TableCell />
                 <TableCell>Adjustment</TableCell>
@@ -186,7 +232,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Container>
   );
 };
 
