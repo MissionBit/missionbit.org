@@ -217,7 +217,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
             ))}
             {modifications.transactions.map((txn, i) => (
               <TableRow key={i}>
-                <TableCell align="right">{transactions.length - i}</TableCell>
+                <TableCell align="right">{i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
                   {dollars(txn.amount)}
                 </TableCell>
