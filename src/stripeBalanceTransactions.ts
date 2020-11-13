@@ -43,7 +43,9 @@ export async function getBalanceTransactions(
     ) {
       const metadata = txn.source.metadata;
       const type =
-        metadata.client_application_name === "smart-donations"
+        // Mark the $1 test donations as direct
+        metadata.client_application_name === "smart-donations" &&
+        txn.created > 1605113854
           ? "give-lively"
           : "direct";
       const name =
