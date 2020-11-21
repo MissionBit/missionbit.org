@@ -20,7 +20,7 @@ export const CourseSkills = [
   "Block Coding",
   "Interviewing",
   "p5.js",
-  "Javascript",
+  "JavaScript",
   "Networking",
   "Cover Letter Writing",
   "Tech Sales",
@@ -28,6 +28,7 @@ export const CourseSkills = [
   "Color Schemes",
   "Social Media",
   "Web Design",
+  "Wix",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -123,6 +124,16 @@ const sdrImage = {
 const designBusinessImage = {
   src: require("public/images/program/design-business.svg"),
   alt: "Image of moutains and a sun behind them",
+};
+
+const wixImage = {
+  src: require("public/images/program/wix.jpg"),
+  alt: "Image of hands on a keyboard with a green background",
+};
+
+const magic8BallImage = {
+  src: require("public/images/program/magic-8ball.jpg"),
+  alt: "Image of hands on a keyboard with a green background",
 };
 
 export interface Course {
@@ -310,7 +321,7 @@ export const Courses = courseRecord({
       <>
         This is a beginner workshop where students will be able to build a
         portfolio with HTML and CSS. No web design or coding experience
-        necessary. Join us for our November edition of this workshop!
+        necessary!
       </>
     ),
   },
@@ -475,6 +486,42 @@ export const Courses = courseRecord({
         secrets to use for any business, free tools that all designers use, and
         we will bring our designs to life in a final interactive website.
         Beginners welcome!
+      </>
+    ),
+  },
+  web_creation_wix: {
+    title: "Web Creation with Wix",
+    skills: ["Web Design", "Wix"],
+    image: wixImage,
+    description: (
+      <>
+        Join the Wix Education team to celebrate Hour of Code, a worldwide
+        celebration of computer science. In this workshop, you'll hear from a
+        guest speaker from Wix (with time for Q&A), and explore different
+        pathways for creating dynamic websites with the Wix editor. If you're
+        interested in web design or web creation, this workshop is for you!
+        Participants will leave with their own Wix site, also receive fun swag
+        from Wix to help spark extra creativity! Fun fact: Hour of Code is part
+        of Computer Science Education Week, an annual week that celebrates the
+        birthday of computing pioneer Grace Hopper!
+      </>
+    ),
+  },
+  intro_javascript: {
+    title: "JavaScript for Beginners",
+    skills: ["JavaScript"],
+    image: magic8BallImage,
+    description: (
+      <>
+        In this hands-on workshop, we’ll combine technology and logic to create
+        and code our own interactive Magic 8 Balls. We’ll begin with a quick
+        intro to JavaScript, plan our ideas together, then spend time creating
+        our projects and experimenting with code. We’ll end by sharing ideas and
+        questions and resources to continue learning. Photo credit to{" "}
+        <a href="https://dribbble.com/shots/6129149--ALL-SIGNS-POINT-TO-YES?utm_source=pinterest&utm_campaign=pinterest_shot&utm_content=*%7E%20ALL%20SIGNS%20POINT%20TO%20YES%20%7E*&utm_medium=Social_Share">
+          {" "}
+          Hamburger.
+        </a>
       </>
     ),
   },
@@ -698,21 +745,6 @@ function workshop({
 
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.scratch_pong_workshop,
-    dateString: "2020-11-09T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4863107",
-    who: "7th - 12th graders",
-    buttonExtra: <>New workshop!</>,
-  }),
-  workshop({
-    course: Courses.beginner_web_workshop,
-    dateString: "2020-11-16T16:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4863335",
-    who: "7th - 12th graders",
-  }),
-  workshop({
     course: Courses.networking_workshop,
     dateString: "2020-11-30T15:00:00-07:00",
     minutes: 120,
@@ -740,4 +772,42 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   //     </>
   //   ),
   // }),
+];
+
+export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
+  workshop({
+    course: Courses.p5js_workshop,
+    dateString: "2020-12-14T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4867358",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.web_creation_wix,
+    dateString: "2020-12-15T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4867358",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.python_workshop,
+    dateString: "2020-12-16T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4867358",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.intro_javascript,
+    dateString: "2020-12-17T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4867358",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.beginner_web_workshop,
+    dateString: "2020-12-18T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4867358",
+    who: "7th - 12th graders",
+  }),
 ];
