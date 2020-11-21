@@ -9,6 +9,7 @@ import {
   FallSDRClassInstances,
   FallSDRDates,
   FallDatesExtended,
+  WeekOfCodeClassInstances,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
@@ -75,6 +76,21 @@ const Enroll: React.FC<{}> = () => {
         </Typography>
         <Typography className={classes.copy}>
           Learn something new and get hands-on experience with our workshops.
+        </Typography>
+      </Courses>
+      <Courses instances={WeekOfCodeClassInstances}>
+        <Typography
+          variant="h3"
+          align="center"
+          className={classes.alert}
+          id="workshops"
+        >
+          Mission Bit Week of Code, December 14 - 18
+        </Typography>
+        <Typography className={classes.copy}>
+          Join us for our Week of Code! Take all workshops during this week and
+          be entered in a raffle for a chance to win a pair of Beats Flex
+          earphones.
         </Typography>
       </Courses>
       <Courses instances={FallClassInstances}>
