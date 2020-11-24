@@ -746,7 +746,7 @@ function workshop({
 export const SpringClassInstances: ClassOrWorkshopInstance[] = [
   workshop({
     course: Courses.networking_workshop,
-    dateString: "2020-11-30T15:00:00-07:00",
+    dateString: "2020-11-30T15:00:00-08:00",
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4863341",
     who: "16 - 24 year olds",
@@ -777,35 +777,35 @@ export const SpringClassInstances: ClassOrWorkshopInstance[] = [
 export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
   workshop({
     course: Courses.p5js_workshop,
-    dateString: "2020-12-14T15:00:00-07:00",
+    dateString: "2020-12-14T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.web_creation_wix,
-    dateString: "2020-12-15T15:00:00-07:00",
+    dateString: "2020-12-15T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.python_workshop,
-    dateString: "2020-12-16T15:00:00-07:00",
+    dateString: "2020-12-16T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.intro_javascript,
-    dateString: "2020-12-17T15:00:00-07:00",
+    dateString: "2020-12-17T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.beginner_web_workshop,
-    dateString: "2020-12-18T15:00:00-07:00",
+    dateString: "2020-12-18T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
