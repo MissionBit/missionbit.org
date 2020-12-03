@@ -7,6 +7,7 @@ import Faq from "./Faq";
 import Showcase from "components/Showcase";
 import Landing from "./Landing";
 import Description from "./Description";
+import { SectionId } from "./ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,13 +34,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Main: React.FC<{}> = () => {
+const Main: React.FC<{ sections?: readonly SectionId[] }> = ({ sections }) => {
   const classes = useStyles();
   return (
     <main id="main" className={classes.root}>
       <Landing />
       <Description />
-      <Enroll />
+      <Enroll sections={sections} />
       <Faq />
       <CommunityWorkshops />
       <Showcase />

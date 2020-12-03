@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.between("xs", "sm")]: {
       width: "10rem",
       fontSize: "1rem",
-      // fontSize: theme.typography.h6.fontSize,
     },
     [theme.breakpoints.down("xs")]: {
       display: "block",
@@ -101,14 +100,14 @@ const Landing: React.FC<{}> = () => {
         </Typography>
         <Typography className={classes.copy} component="h1">
           Mission Bit provides free after-school coding courses,{" "}
-          <Link href="#workshops">workshops</Link>, and{" "}
-          <Link href="#courses">summer bootcamps</Link> to high school students
-          from underserved and underrepresented communities.
+          <Link href="/programs/workshops">workshops</Link>, and{" "}
+          <Link href="/programs/courses">summer bootcamps</Link> to high school
+          students from underserved and underrepresented communities.
         </Typography>
         <Box className={classes.buttons}>
           <VioletButton
             variant="contained"
-            href="#workshops"
+            href="/programs/workshops"
             size="large"
             className={classes.button}
           >
@@ -116,7 +115,7 @@ const Landing: React.FC<{}> = () => {
           </VioletButton>
           <IndigoButton
             variant="contained"
-            href="#courses"
+            href="/programs/courses"
             size="large"
             className={classes.button}
           >
@@ -124,7 +123,7 @@ const Landing: React.FC<{}> = () => {
           </IndigoButton>
           <OrangeButton
             variant="contained"
-            href="#careerprep"
+            href="/programs/career-prep"
             size="large"
             className={classes.button}
           >

@@ -811,3 +811,18 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
   }),
 ];
+
+export const Sections = {
+  workshops: SpringClassInstances,
+  "week-of-code": WeekOfCodeClassInstances,
+  courses: FallClassInstances,
+  "career-prep": FallSDRClassInstances,
+} as const;
+
+export const SectionIds = [
+  "workshops",
+  "week-of-code",
+  "courses",
+  "career-prep",
+] as const;
+export type SectionId = typeof SectionIds[number];
