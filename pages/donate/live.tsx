@@ -22,7 +22,12 @@ import Box from "@material-ui/core/Box";
 import fundraisingGoal from "src/fundraisingGoal";
 import Typography from "@material-ui/core/Typography";
 import { useElapsedTime } from "use-elapsed-time";
-import { LinearProgress } from "@material-ui/core";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import Paper from "@material-ui/core/Paper";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import Collapse from "@material-ui/core/Collapse";
+dayjs.extend(relativeTime);
 
 const usdFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -63,11 +68,38 @@ const useStyles = makeStyles((theme) => ({
   donateBannerText: {
     animation: `4s ${theme.transitions.easing.easeInOut} infinite $pulse`,
   },
+  donorBubble: {
+    display: "grid",
+    padding: theme.spacing(2),
+    margin: theme.spacing(2),
+    gridAutoColumns: "auto",
+    gridTemplateAreas: `
+      "name amount"
+      "time amount"
+    `,
+  },
+  donorAmount: {
+    gridArea: "amount",
+    textAlign: "right",
+    alignSelf: "center",
+  },
+  donorName: {
+    gridArea: "name",
+  },
+  donorTime: {
+    gridArea: "time",
+  },
   progressWrapper: {
     border: "1px solid #dedede",
     borderRadius: "0.5rem",
   },
   progressText: {
+    fontSize: theme.typography.h4.fontSize,
+    flex: 1,
+    marginRight: "1rem",
+  },
+  donorCount: {
+    textAlign: "right",
     fontSize: theme.typography.h4.fontSize,
   },
   progress: {
@@ -92,6 +124,7 @@ const useStyles = makeStyles((theme) => ({
   },
   donors: {
     gridArea: "donors",
+    overflow: "hidden",
   },
   goal: {
     gridArea: "goal",
@@ -128,14 +161,39 @@ function mergeBatch(
   return { ...update, transactions };
 }
 
+function addSimulatedTransaction(
+  batch: BalanceTransactionBatch
+): BalanceTransactionBatch {
+  const created = dayjs().unix();
+  const item = {
+    ...(batch.transactions[
+      Math.floor(Math.random() * batch.transactions.length)
+    ] ?? {
+      name: "Anonymous",
+      amount: 100 * (1 + Math.floor(100 * Math.random())),
+      subscription: false,
+      type: "direct",
+    }),
+    id: `fake-${created}`,
+    created,
+  };
+  return {
+    ...batch,
+    pollTime: created,
+    transactions: [item, ...batch.transactions],
+  };
+}
+
 interface DashboardProps {
   readonly batch: BalanceTransactionBatch;
   readonly modifications: BalanceModifications;
+  readonly simulate: boolean;
 }
 
 const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
+  const [simulate, setSimulate] = useState(initial.simulate);
   const [errors, setErrors] = useState(0);
   const classes = useStyles();
   useEffect(() => {
@@ -166,21 +224,45 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
       mounted = false;
     };
   }, [batch, errors]);
+  useEffect(() => {
+    if (!simulate) {
+      return;
+    }
+    const interval = setInterval(() => setBatch(addSimulatedTransaction), 1000);
+    return () => clearInterval(interval);
+  }, [simulate]);
 
   const total = batch.transactions.reduce(
     (amount, txn) => amount + txn.amount,
     modifications.transactions.reduce((amount, txn) => amount + txn.amount, 0)
   );
+  // TODO: Incorporate pledges
   const donors = useMemo(() => {
-    return batch.transactions.map((txn) => ({
-      name: txn.name ?? "Anonymous",
-      created: txn.created,
-      amount: txn.amount,
-    }));
+    const donors: CommonTransaction[] = [];
+    for (const txn of batch.transactions) {
+      donors.push({
+        name: txn.name ?? "Anonymous",
+        created: txn.created,
+        amount: txn.amount,
+      });
+    }
+    return donors;
   }, [batch.transactions]);
   return (
-    <Box className={classes.root}>
-      <Goal goalCents={fundraisingGoal.goalDollars * 100} totalCents={total} />
+    <Box
+      className={classes.root}
+      onClick={(event) => {
+        event.preventDefault();
+        setSimulate((simulate) => !simulate);
+      }}
+    >
+      <Goal
+        goalCents={fundraisingGoal.goalDollars * 100}
+        totalCents={total}
+        donorCount={
+          batch.transactions.length + modifications.transactions.length
+        }
+      />
       <Donors transactions={donors} />
       <DonateBanner />
     </Box>
@@ -193,30 +275,87 @@ interface CommonTransaction {
   created: number;
 }
 
+interface GoalValues {
+  readonly totalCents: number;
+  readonly goalCents: number;
+}
+interface GoalState extends GoalValues {
+  playing: boolean;
+  totalCents: number;
+  goalCents: number;
+  elapsedTime: number;
+  duration: number;
+}
+
+function easeGoal(
+  elapsedTime: number,
+  duration: number,
+  start: GoalValue,
+  goal: GoalValues
+): GoalValues {
+  return {
+    totalCents: easeOutCubic(
+      elapsedTime,
+      start.totalCents,
+      goal.totalCents - start.totalCents,
+      duration
+    ),
+    goalCents: easeOutCubic(
+      elapsedTime,
+      start.goalCents,
+      goal.goalCents - start.goalCents,
+      duration
+    ),
+  };
+}
+
+// function initialGoalState(goalCents: number): GoalState {
+//   const duration = 6;
+//   return {
+//     goalCents,
+//     duration,
+//     playing: false,
+//     totalCents: 0,
+//     elapsedTime: 0,
+//   };
+// }
+
+function goalEq(a: GoalValues, b: GoalValues): boolean {
+  return a.goalCents === b.goalCents && a.totalCents === b.totalCents;
+}
+
+function useAnimatedGoal(goal: GoalValues): GoalValues {
+  const prevGoalRef = useRef(goal);
+  const startGoalRef = useRef({ ...goal, totalCents: 0 });
+  const animGoalRef = useRef(startGoalRef.current);
+  const duration = 6;
+  const { elapsedTime } = useElapsedTime(!goalEq(goal, startGoalRef.current), {
+    duration,
+    autoResetKey: `${goal.goalCents}-${goal.totalCents}`,
+  });
+  const didReset = !goalEq(prevGoalRef.current, goal);
+  if (didReset) {
+    prevGoalRef.current = goal;
+    startGoalRef.current = animGoalRef.current;
+  } else if (elapsedTime >= duration) {
+    startGoalRef.current = goal;
+  }
+  animGoalRef.current = easeGoal(
+    elapsedTime,
+    duration,
+    startGoalRef.current,
+    prevGoalRef.current
+  );
+  return animGoalRef.current;
+}
+
 const Goal: React.FC<{
   readonly goalCents: number;
   readonly totalCents: number;
-}> = ({ totalCents, goalCents }) => {
+  readonly donorCount: number;
+}> = ({ donorCount, ...goalValues }) => {
   const classes = useStyles();
-  const prev = useRef({ goalCents, totalCents: 0 });
-  const { totalCents: prevTotal, goalCents: prevGoal } = prev.current;
-  const duration = 6;
-  const { elapsedTime } = useElapsedTime(
-    goalCents !== prevGoal || totalCents !== prevTotal,
-    { duration, autoResetKey: `${goalCents}/${totalCents}` }
-  );
-  const total = easeOutCubic(
-    elapsedTime,
-    prevTotal,
-    totalCents - prevTotal,
-    duration
-  );
-  const goal = easeOutCubic(
-    elapsedTime,
-    prevGoal,
-    goalCents - prevGoal,
-    duration
-  );
+  const { goalCents, totalCents } = useAnimatedGoal(goalValues);
   return (
     <Box
       display="flex"
@@ -225,9 +364,12 @@ const Goal: React.FC<{
       justifyContent="center"
       className={classes.goal}
     >
-      <Box>
+      <Box display="flex" width="100%">
         <Typography className={classes.progressText}>
-          <strong>{dollars(total)}</strong> of {dollars(goal)}
+          <strong>{dollars(totalCents)}</strong> of {dollars(goalCents)}
+        </Typography>
+        <Typography className={classes.donorCount}>
+          {donorCount} Donors
         </Typography>
       </Box>
       <Box
@@ -240,7 +382,7 @@ const Goal: React.FC<{
           className={classes.progress}
           color="primary"
           variant="determinate"
-          value={100 * (total / goal)}
+          value={100 * (totalCents / goalCents)}
         />
       </Box>
     </Box>
@@ -251,12 +393,35 @@ const Donors: React.FC<{
   readonly transactions: readonly CommonTransaction[];
 }> = ({ transactions }) => {
   const classes = useStyles();
+  const [now, setNow] = useState(dayjs);
+  const [appear, setAppear] = useState(false);
+  useEffect(() => {
+    setAppear(true);
+  }, []);
+  useEffect(() => {
+    const interval = setInterval(() => setNow(dayjs()), 30 * 1000);
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(() => setNow(dayjs()), [transactions]);
   return (
     <Box className={classes.donors}>
-      {transactions.map(({ name, amount, created }) => (
-        <Box key={`${name}-${amount}-${created}`}>
-          {name} {dollars(amount)} {created}
-        </Box>
+      {transactions.slice(0, 15).map(({ name, amount, created }) => (
+        <Collapse
+          key={`${name}-${amount}-${created}`}
+          timeout={300}
+          appear={appear}
+          in={true}
+        >
+          <Paper elevation={2} square={false} className={classes.donorBubble}>
+            <Typography className={classes.donorName}>{name}</Typography>
+            <Typography className={classes.donorAmount}>
+              {dollars(amount)}
+            </Typography>
+            <Typography className={classes.donorTime}>
+              {dayjs(1000 * created).from(now)}
+            </Typography>
+          </Paper>
+        </Collapse>
       ))}
     </Box>
   );
