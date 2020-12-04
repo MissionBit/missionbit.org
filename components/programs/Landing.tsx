@@ -105,14 +105,6 @@ const Landing: React.FC<{}> = () => {
           students from underserved and underrepresented communities.
         </Typography>
         <Box className={classes.buttons}>
-          <VioletButton
-            variant="contained"
-            href="/programs/workshops"
-            size="large"
-            className={classes.button}
-          >
-            Workshops
-          </VioletButton>
           <IndigoButton
             variant="contained"
             href="/programs/courses"
@@ -121,6 +113,14 @@ const Landing: React.FC<{}> = () => {
           >
             Classes
           </IndigoButton>
+          <VioletButton
+            variant="contained"
+            href="/programs/workshops"
+            size="large"
+            className={classes.button}
+          >
+            Workshops
+          </VioletButton>
           <OrangeButton
             variant="contained"
             href="/programs/career-prep"
