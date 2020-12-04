@@ -788,6 +788,7 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.python_workshop,
@@ -802,6 +803,7 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.beginner_web_workshop,
@@ -811,3 +813,18 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
   }),
 ];
+
+export const Sections = {
+  workshops: SpringClassInstances,
+  "week-of-code": WeekOfCodeClassInstances,
+  courses: FallClassInstances,
+  "career-prep": FallSDRClassInstances,
+} as const;
+
+export const SectionIds = [
+  "workshops",
+  "week-of-code",
+  "courses",
+  "career-prep",
+] as const;
+export type SectionId = typeof SectionIds[number];
