@@ -3,6 +3,9 @@ import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import Landing from "components/programs/Landing";
 import Description from "components/programs/Description";
+import CommunityWorkshops from "components/programs/CommunityWorkshops";
+import Showcase from "components/Showcase";
+import Supporters from "components/Supporters";
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
@@ -12,6 +15,9 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
   >
     <Landing />
     <Description />
+    <CommunityWorkshops />
+    <Showcase />
+    <Supporters />
   </Layout>
 );
 

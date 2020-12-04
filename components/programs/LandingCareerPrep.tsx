@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "33vw",
-    maxWidth: "50%",
+    maxWidth: "75%",
     height: "auto",
     objectFit: "contain",
   },
@@ -134,7 +134,7 @@ const LandingWorkshops: React.FC<{}> = () => {
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/workshops/clicker.svg")}
+          src={require("public/images/program/sdr.svg")}
           className={classes.image}
         />
       </Box>

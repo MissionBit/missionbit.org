@@ -444,7 +444,8 @@ export const Courses = courseRecord({
         networking. Learn how to create a personal brand that represents your
         best self when meeting and communicating with potential colleagues and
         mentors. Come prepared to meet with peers and practice your new
-        networking skills.
+        networking skills. Illustration adapted from{" "}
+        <a href="https://blush.design/"> Blush. </a>
       </>
     ),
   },
