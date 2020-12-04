@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
   FallDates,
-  FallSDRDates,
+  SDRDates,
   FallDatesExtended,
   SectionIds,
   SectionId,
@@ -99,7 +99,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           <span className={classes.deadlineEmphasis}>
             Application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(FallSDRDates.registrationDeadline)}
+          {LongDateTimeFormat.format(SDRDates.registrationDeadline)}
           <br />
         </Typography>
       );
