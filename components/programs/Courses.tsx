@@ -81,6 +81,11 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h6.fontSize,
     },
   },
+  sectionTitle: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.h4.fontSize,
+    },
+  },
   description: {
     margin: theme.spacing(2, 0),
     fontSize: theme.typography.pxToRem(20),
@@ -350,13 +355,24 @@ function filterCourses(
 }
 
 const Courses: React.FC<{
+  id: string;
+  title: string;
   instances: ClassOrWorkshopInstance[];
-}> = ({ children, instances }) => {
+}> = ({ id, title, children, instances }) => {
   const now = useRenderTime();
   const courses = filterCourses(now, instances);
+  const classes = useStyles();
   return courses.length === 0 ? null : (
     <>
       <FlourishSeparator />
+      <Typography
+        variant="h3"
+        align="center"
+        className={classes.sectionTitle}
+        id={id}
+      >
+        {title}
+      </Typography>
       {children}
       {courses.map((props, i) => (
         <CourseDescription key={i} instance={props} now={now} />

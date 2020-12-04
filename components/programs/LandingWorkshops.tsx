@@ -84,13 +84,13 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "33vw",
-    maxWidth: "100%",
+    maxWidth: "50%",
     height: "auto",
     objectFit: "contain",
   },
 }));
 
-const Landing: React.FC<{}> = () => {
+const LandingWorkshops: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Container id="landing" component="section" className={classes.root}>
@@ -102,7 +102,7 @@ const Landing: React.FC<{}> = () => {
           Mission Bit provides free after-school coding courses,{" "}
           <Link href="/programs/workshops">workshops</Link>, and{" "}
           <Link href="/programs/courses">summer bootcamps</Link> to high school
-          students from underserved and underrepresented communities.
+          students and adults from underserved and underrepresented communities.
         </Typography>
         <Box className={classes.buttons}>
           <IndigoButton
@@ -134,7 +134,7 @@ const Landing: React.FC<{}> = () => {
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/unity2.svg")}
+          src={require("public/images/program/workshops/clicker.svg")}
           className={classes.image}
         />
       </Box>
@@ -142,4 +142,4 @@ const Landing: React.FC<{}> = () => {
   );
 };
 
-export default Landing;
+export default LandingWorkshops;

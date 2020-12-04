@@ -444,7 +444,8 @@ export const Courses = courseRecord({
         networking. Learn how to create a personal brand that represents your
         best self when meeting and communicating with potential colleagues and
         mentors. Come prepared to meet with peers and practice your new
-        networking skills.
+        networking skills. Illustration adapted from{" "}
+        <a href="https://blush.design/"> Blush. </a>
       </>
     ),
   },
@@ -788,6 +789,7 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.python_workshop,
@@ -802,6 +804,7 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4867358",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.beginner_web_workshop,
@@ -811,3 +814,18 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
   }),
 ];
+
+export const Sections = {
+  workshops: SpringClassInstances,
+  "week-of-code": WeekOfCodeClassInstances,
+  courses: FallClassInstances,
+  "career-prep": FallSDRClassInstances,
+} as const;
+
+export const SectionIds = [
+  "workshops",
+  "week-of-code",
+  "courses",
+  "career-prep",
+] as const;
+export type SectionId = typeof SectionIds[number];
