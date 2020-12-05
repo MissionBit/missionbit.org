@@ -570,8 +570,8 @@ export const FallDatesExtended: ClassDates = {
   registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
 };
 
-export const FallSDRDates: BaseClassDates = {
-  registrationDeadline: Date.parse("2020-09-13T20:00:00-07:00"),
+export const SDRDates: BaseClassDates = {
+  registrationDeadline: Date.parse("2021-01-17T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
@@ -644,7 +644,7 @@ function fallClass(
   };
 }
 
-function fallSDRClass(
+function SDRClass(
   course: Course,
   campus: Campus,
   formAssemblyId: string
@@ -653,7 +653,7 @@ function fallSDRClass(
     type: "class",
     course,
     campus,
-    classDates: FallSDRDates,
+    classDates: SDRDates,
     meets: (
       <>
         Tuesday, Wednesday, Thursday{" "}
@@ -662,8 +662,8 @@ function fallSDRClass(
         </Box>
       </>
     ),
-    startDate: "September (Date TBD)",
-    endDate: "December (Date TBD)",
+    startDate: "February 8th",
+    endDate: "May (Date TBD)",
     buttonText: "Apply",
     signupUrl: `https://www.tfaforms.com/4843869?tfa_2013=${formAssemblyId}`,
   };
@@ -697,7 +697,7 @@ export const FallClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
-  fallSDRClass(Courses.sdr_class, Campuses.online, "tfa_2242"),
+  SDRClass(Courses.sdr_class, Campuses.online, "tfa_1"),
 ];
 
 function workshop({
