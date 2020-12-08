@@ -3,8 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-// import VioletButton from "components/VioletButton";
-// import IndigoButton from "components/IndigoButton";
+import VioletButton from "components/VioletButton";
+import IndigoButton from "components/IndigoButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,22 +99,22 @@ const Landing: React.FC<{}> = () => {
         Our Summer 2020 Demo Day Projects
       </Typography>
       <Box className={classes.buttons}>
-        {/* <IndigoButton
+        <IndigoButton
           variant="contained"
           href="#agenda"
           size="large"
           className={classes.button}
         >
           Agenda
-        </IndigoButton> */}
-        {/* <VioletButton
+        </IndigoButton>
+        <VioletButton
           variant="contained"
           href="#projects"
           size="large"
           className={classes.button}
         >
           Projects
-        </VioletButton> */}
+        </VioletButton>
       </Box>
       <Box className={classes.imageWrapper}>
         <img

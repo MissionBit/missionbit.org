@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
+import FlourishSeparator from "components/programs/FlourishSeparator";
+import PastProjectsButton from "./PastProjectsButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -73,6 +75,8 @@ const DemoDayFooter: React.FC<{}> = () => {
           </VioletButton>
         </Typography>
       </Container>
+      <FlourishSeparator />
+      <PastProjectsButton />
     </Box>
   );
 };
