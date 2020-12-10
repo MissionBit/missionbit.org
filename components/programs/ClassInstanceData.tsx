@@ -605,7 +605,7 @@ const FALL_CLASS_SCHEDULE = {
       <>
         Monday, Wednesday{" "}
         <Box component="span" display="inline-block">
-          4:00pm - 6:30pm
+          4:00pm - 6:30pm PST
         </Box>
       </>
     ),
@@ -617,7 +617,7 @@ const FALL_CLASS_SCHEDULE = {
       <>
         Tuesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          4:00pm - 6:30pm
+          4:00pm - 6:30pm PST
         </Box>
       </>
     ),
@@ -658,7 +658,7 @@ function SDRClass(
       <>
         Tuesday, Wednesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          6:00pm - 9:00pm
+          6:00pm - 9:00pm PST
         </Box>
       </>
     ),
