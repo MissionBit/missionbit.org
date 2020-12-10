@@ -34,16 +34,22 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
 
 export const JudgeData: readonly JudgeProps[] = [
   {
-    name: "Dulce Palacios",
+    name: "Eddie Tapia",
     title: "Software Engineer",
-    company: "Strava",
+    company: "Redfin",
     ...image("dulce_palacios"),
   },
   {
-    name: "Vlad Cretu",
+    name: "Jackie Liu",
     title: "VP Engineering",
     company: "Sentry",
     ...image("vlad_cretu"),
+  },
+  {
+    name: "Isaiah Johnson",
+    title: "Founder and CEO",
+    company: "Project Beanstalk",
+    ...image("melissa_olson"),
   },
   {
     name: "Shinjini Nunna",
@@ -52,15 +58,15 @@ export const JudgeData: readonly JudgeProps[] = [
     ...image("shinjini_nunna"),
   },
   {
-    name: "Alexandros Bantis",
-    title: "Staff Platform Engineer",
-    company: "Crunchbase",
+    name: "Gloria Marissa Trevino",
+    title: "Software Engineer",
+    company: "Dell",
     ...image("alexandros_bantis"),
   },
   {
-    name: "Melissa Olson",
-    title: "Staff Software Engineer",
-    company: "Qualcomm",
+    name: "Brian Clark",
+    title: "Engineering Manager",
+    company: "Cruise",
     ...image("melissa_olson"),
   },
 ];

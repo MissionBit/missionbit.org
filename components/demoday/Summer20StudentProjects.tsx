@@ -147,7 +147,7 @@ const StudentProjectRoom: React.FC<StudentProjectRoomProps> = ({
   );
 };
 
-const StudentProjects: React.FC<{}> = () => {
+const Summer20StudentProjects: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Box component="section" id="projects" className={classes.root}>
@@ -163,4 +163,4 @@ const StudentProjects: React.FC<{}> = () => {
   );
 };
 
-export default StudentProjects;
+export default Summer20StudentProjects;

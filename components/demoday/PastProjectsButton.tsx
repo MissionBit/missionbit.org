@@ -29,7 +29,7 @@ const PastProjectsButton: React.FC<{}> = () => {
     <Box className={classes.root}>
       <OrangeButton
         variant="contained"
-        href="/programs"
+        href="/demoday/summer20"
         size="large"
         className={classes.buttonProjs}
       >
