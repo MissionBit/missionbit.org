@@ -1,6 +1,7 @@
 import * as React from "react";
 
-export interface StudentProjectProps {
+export interface StudentProjectRoomProps {
+  // readonly room: string;
   readonly projects: readonly ProjectProps[];
 }
 
@@ -18,9 +19,11 @@ export interface ProjectProps {
 
 const PHOTO_SIZES = {
   "": { width: 600, height: 600 },
+  // "@0.5x": { width: 300, height: 300 },
 } as const;
 
 function image(postfix: string): Pick<ProjectProps, "image"> {
+  // const SIZE_ORDER = ["@0.5x", ""] as const;
   const SIZE_ORDER = [""] as const;
   return {
     image: {
@@ -37,8 +40,9 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
   };
 }
 
-export const StudentProjects: readonly StudentProjectProps[] = [
+export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
   {
+    // room: "Breakout Room 1",
     projects: [
       {
         title: "Hungry",
@@ -94,6 +98,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 2",
     projects: [
       {
         title: "Endless Run",
@@ -139,6 +144,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 3",
     projects: [
       {
         title: "The Spook",
@@ -191,6 +197,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 4",
     projects: [
       {
         title: "Alien Shooter",
@@ -248,6 +255,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 5",
     projects: [
       {
         title: "Run Ruin",
@@ -289,6 +297,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 6",
     projects: [
       {
         title: "Path to Ocean Beach",
@@ -320,6 +329,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 7",
     projects: [
       {
         title: "Monster Lab",
@@ -361,6 +371,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 8",
     projects: [
       {
         title: "Ransacked",
@@ -392,6 +403,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 9",
     projects: [
       {
         title: "Rocket Game",
@@ -434,6 +446,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 10",
     projects: [
       {
         title: "Time for Golf",
@@ -476,6 +489,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 11",
     projects: [
       {
         title: "Flying Game",
@@ -512,6 +526,7 @@ export const StudentProjects: readonly StudentProjectProps[] = [
     ],
   },
   {
+    // room: "Breakout Room 12",
     projects: [
       {
         title: "Zombie Escape",
@@ -538,4 +553,4 @@ export const StudentProjects: readonly StudentProjectProps[] = [
   },
 ];
 
-export default StudentProjects;
+export default StudentProjectRooms;
