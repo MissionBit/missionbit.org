@@ -470,7 +470,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("self-care"),
       },
       {
-        title: "-",
+        title: "Mental Health 101",
         course: "Intro to JavaScript with Christine",
         students: ["Christine Chen, Jack C., Laywaddi Khine"],
         description: (
