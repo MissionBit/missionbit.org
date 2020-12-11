@@ -6,7 +6,10 @@ import {
   usePopupState,
   bindTrigger,
   bindMenu,
+  bindPopover,
+  bindHover,
 } from "material-ui-popup-state/hooks";
+import Popover from "material-ui-popup-state/HoverPopover";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -17,9 +20,13 @@ import { brand } from "src/colors";
 import CloseIcon from "@material-ui/icons/Close";
 
 interface NavMenuChoice {
-  text: string;
-  href: string;
-  buttonProps?: ButtonProps;
+  readonly text: string;
+  readonly href: string;
+  readonly buttonProps?: ButtonProps;
+}
+
+interface MainNavMenuChoice extends NavMenuChoice {
+  readonly subMenu?: readonly NavMenuChoice[];
 }
 
 function focusGetUpdates(event: React.MouseEvent<HTMLElement>): void {
@@ -36,13 +43,30 @@ function focusGetUpdates(event: React.MouseEvent<HTMLElement>): void {
   }
 }
 
-const commonNav: NavMenuChoice[] = [
+const commonNav: readonly MainNavMenuChoice[] = [
   { text: "Home", href: "/" },
   {
     text: "About",
     href: "/about",
   },
-  { text: "Programs", href: "/programs" },
+  {
+    text: "Programs",
+    href: "/programs",
+    subMenu: [
+      {
+        text: "Classes",
+        href: "/programs/classes",
+      },
+      {
+        text: "Workshops",
+        href: "/programs/workshops",
+      },
+      {
+        text: "Career Prep",
+        href: "/programs/career-prep",
+      },
+    ],
+  },
   { text: "Events", href: "/events" },
   { text: "Get involved", href: "/get-involved" },
   {
@@ -142,12 +166,74 @@ const useStylesDesktop = makeStyles((theme) => ({
       },
     },
   },
+  subMenu: {
+    display: "flex",
+    flexDirection: "column",
+    listStyleType: "none",
+    alignItems: "center",
+    padding: "0 1rem",
+    marginTop: 0,
+    "& .MuiButton-root": {
+      fontWeight: theme.typography.fontWeightBold,
+      fontSize: theme.typography.pxToRem(15),
+    },
+    "& .MuiButton-text": {
+      color: brand.navGray,
+    },
+  },
+  menuPopover: {
+    borderTop: "0",
+  },
   logo: {
     position: "relative",
     maxHeight: "3rem",
     top: "1px",
   },
 }));
+
+const SubNavButton: React.FC<MainNavMenuChoice> = ({
+  text,
+  href,
+  buttonProps,
+  subMenu,
+}) => {
+  const classes = useStylesDesktop();
+  const popupState = usePopupState({
+    variant: "popover",
+    popupId: `desktop-menu${href.replace("/", "-")}`,
+  });
+  return (
+    <>
+      <Button href={href} {...bindHover(popupState)} {...(buttonProps ?? {})}>
+        {text}
+      </Button>
+      <Popover
+        {...bindPopover(popupState)}
+        PaperProps={{ square: true, variant: "outlined" }}
+        classes={{ paper: classes.menuPopover }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        disableRestoreFocus
+      >
+        <ul className={classes.subMenu}>
+          {(subMenu ?? []).map((nav) => (
+            <li key={nav.href}>
+              <Button href={nav.href} {...(nav.buttonProps ?? {})}>
+                {nav.text}
+              </Button>
+            </li>
+          ))}
+        </ul>
+      </Popover>
+    </>
+  );
+};
 
 const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
   const classes = useStylesDesktop();
@@ -157,11 +243,15 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
         <li>
           <LogoHome className={classes.logo} />
         </li>
-        {commonNav.map(({ text, href, buttonProps }) => (
-          <li key={href}>
-            <Button href={href} {...(buttonProps ?? {})}>
-              {text}
-            </Button>
+        {commonNav.map((nav) => (
+          <li key={nav.href}>
+            {nav.subMenu !== undefined ? (
+              <SubNavButton {...nav} />
+            ) : (
+              <Button href={nav.href} {...(nav.buttonProps ?? {})}>
+                {nav.text}
+              </Button>
+            )}
           </li>
         ))}
       </ul>

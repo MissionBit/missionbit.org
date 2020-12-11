@@ -29,10 +29,8 @@ const STRIPE_KEY_POSTFIX =
 
 const nextConfig = {
   target: "serverless",
-  experimental: {
-    redirects() {
-      return netlifyRedirects;
-    },
+  redirects() {
+    return netlifyRedirects;
   },
   env: {
     STRIPE_KEY_POSTFIX,
