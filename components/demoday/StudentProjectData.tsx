@@ -64,7 +64,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("therapy-area"),
       },
       {
-        title: "-",
+        title:
+          "Comparing the 1918 Spanish Flu Pandemic to the Current Covid-19 Pandemic",
         students: ["Caleb Kha, Karina Anders, Kayla"],
         course: "Intro to JavaScript with Christine",
         description: (
@@ -73,8 +74,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             pandemic.
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://final-project--karina317.repl.co/",
+        ...image("spanish-flu"),
       },
     ],
   },
