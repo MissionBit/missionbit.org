@@ -83,33 +83,46 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
   {
     course: Courses.python_class,
     projects: [
-      // {
-      //   title: "Hungry",
-      //   students: [{ name: "William Tran", ...image("william") }],
-      //   description: (
-      //     <>
-      //       You have to get food in the city, but healthy food is hard to come
-      //       by because you live in a food desert.
-      //     </>
-      //   ),
-      //   href: "https://crazythepotato.github.io/HungryMan/",
-      // },
+      {
+        title: "Healthbot",
+        students: [
+          { name: "Caitlyn Wong", ...image("favour") },
+          { name: "Zhenyu Yu", ...image("favour") },
+        ],
+        description: (
+          <>
+            Do ever need someone to talk to or check in with? Healthbot is a
+            python created helper that checks in with you to see where you are
+            at with your mental health. It provides resources and mini surveys
+            for you to complete while you talk about your emotions! Instructions
+            on how to run the project are on the left as soon as you click "View
+            Project".
+          </>
+        ),
+        href: "https://repl.it/@caitwong/finalproject#finaltest.py",
+      },
+      {
+        title: "Python Portfolio",
+        students: [{ name: "Octavio Lomeli-Castro ", ...image("favour") }],
+        description: <>Portfolio with multiple python applications.</>,
+        href: "https://flask-site.octaviolomeli.repl.co/",
+      },
     ],
   },
   {
     course: Courses.game_bootcamp,
     projects: [
-      // {
-      //   title: "Hungry",
-      //   students: [{ name: "William Tran", ...image("william") }],
-      //   description: (
-      //     <>
-      //       You have to get food in the city, but healthy food is hard to come
-      //       by because you live in a food desert.
-      //     </>
-      //   ),
-      //   href: "https://crazythepotato.github.io/HungryMan/",
-      // },
+      {
+        title: "Cube Rush",
+        students: [{ name: "Marquis Ellis", ...image("favour") }],
+        description: (
+          <>
+            A fast-paced game that tests your skills at dodging through
+            obstacles.
+          </>
+        ),
+        href: "https://trickyvortexyt.github.io/Cube-Rush/",
+      },
     ],
   },
 ];

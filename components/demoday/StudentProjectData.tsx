@@ -111,7 +111,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("lights-off"),
       },
       {
-        title: "Health Bot",
+        title: "Healthbot",
         students: ["Caitlyn Wong & Zhenyu Yu"],
         course: "Intro to Python with Hunter",
         description: (
