@@ -71,7 +71,7 @@ const DemoDayFooter: React.FC<{}> = () => {
             size="large"
             className={classes.button}
           >
-            Register
+            Apply
           </VioletButton>
         </Typography>
       </Container>
