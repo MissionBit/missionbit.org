@@ -476,7 +476,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>
             Project is about mental health awareness and how COVID has affected
-            people's mental health
+            people's mental health.
           </>
         ),
         href: "https://fall-demo-day--christine05chen.repl.co/",
