@@ -172,6 +172,7 @@ const useStylesDesktop = makeStyles((theme) => ({
     listStyleType: "none",
     alignItems: "center",
     padding: "0 1rem",
+    marginTop: 0,
     "& .MuiButton-root": {
       fontWeight: theme.typography.fontWeightBold,
       fontSize: theme.typography.pxToRem(15),
@@ -179,6 +180,9 @@ const useStylesDesktop = makeStyles((theme) => ({
     "& .MuiButton-text": {
       color: brand.navGray,
     },
+  },
+  menuPopover: {
+    borderTop: "0",
   },
   logo: {
     position: "relative",
@@ -205,6 +209,8 @@ const SubNavButton: React.FC<MainNavMenuChoice> = ({
       </Button>
       <Popover
         {...bindPopover(popupState)}
+        PaperProps={{ square: true, variant: "outlined" }}
+        classes={{ paper: classes.menuPopover }}
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "center",
