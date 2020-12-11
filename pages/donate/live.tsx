@@ -19,7 +19,6 @@ import getBalanceModifications, {
 
 import Box from "@material-ui/core/Box";
 
-import fundraisingGoal from "src/fundraisingGoal";
 import Typography from "@material-ui/core/Typography";
 import { useElapsedTime } from "use-elapsed-time";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -130,6 +129,10 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "goal",
     padding: theme.spacing(4, 2),
   },
+  logo: {
+    objectFit: "contain",
+    marginBottom: theme.spacing(2),
+  },
   hide: { display: "none" },
 }));
 
@@ -199,9 +202,10 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   useEffect(() => {
     let mounted = true;
     (async () => {
-      await new Promise((res) => {
-        setTimeout(res, 10 * 1000);
-      });
+      await new Promise((res) => setTimeout(res, 10 * 1000));
+      if (!mounted) {
+        return;
+      }
       try {
         const res = await fetch(
           `/api/balance-transactions?created=${batch.created}`
@@ -257,7 +261,7 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
       }}
     >
       <Goal
-        goalCents={fundraisingGoal.goalDollars * 100}
+        goalCents={modifications.goalCents}
         totalCents={total}
         donorCount={
           batch.transactions.length + modifications.transactions.length
@@ -279,18 +283,11 @@ interface GoalValues {
   readonly totalCents: number;
   readonly goalCents: number;
 }
-interface GoalState extends GoalValues {
-  playing: boolean;
-  totalCents: number;
-  goalCents: number;
-  elapsedTime: number;
-  duration: number;
-}
 
 function easeGoal(
   elapsedTime: number,
   duration: number,
-  start: GoalValue,
+  start: GoalValues,
   goal: GoalValues
 ): GoalValues {
   return {
@@ -308,17 +305,6 @@ function easeGoal(
     ),
   };
 }
-
-// function initialGoalState(goalCents: number): GoalState {
-//   const duration = 6;
-//   return {
-//     goalCents,
-//     duration,
-//     playing: false,
-//     totalCents: 0,
-//     elapsedTime: 0,
-//   };
-// }
 
 function goalEq(a: GoalValues, b: GoalValues): boolean {
   return a.goalCents === b.goalCents && a.totalCents === b.totalCents;
@@ -364,6 +350,11 @@ const Goal: React.FC<{
       justifyContent="center"
       className={classes.goal}
     >
+      <img
+        src={require("public/images/missionbit-logo-horizontal.svg")}
+        alt="Mission Bit logo"
+        className={classes.logo}
+      />
       <Box display="flex" width="100%">
         <Typography className={classes.progressText}>
           <strong>{dollars(totalCents)}</strong> of {dollars(goalCents)}
@@ -382,7 +373,7 @@ const Goal: React.FC<{
           className={classes.progress}
           color="primary"
           variant="determinate"
-          value={100 * (totalCents / goalCents)}
+          value={Math.min(100, 100 * (totalCents / goalCents))}
         />
       </Box>
     </Box>
@@ -453,12 +444,16 @@ const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => {
         requireDocumentSize={true}
         headerClassName={classes.hide}
         footerClassName={classes.hide}
-        title={fundraisingGoal.name}
+        title={modifications.goalName}
       >
         <Head>
           <meta name="robots" content="noindex" />
         </Head>
-        <LiveDashboard batch={batch} modifications={modifications} />
+        <LiveDashboard
+          batch={batch}
+          modifications={modifications}
+          simulate={false}
+        />
       </Layout>
     );
   }

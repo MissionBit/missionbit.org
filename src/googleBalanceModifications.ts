@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { fetch } from "cross-fetch";
 
 export interface BalanceModification {
   readonly name: string;
@@ -9,6 +10,8 @@ export interface BalanceModification {
 export interface BalanceModifications {
   readonly pollTime: number;
   readonly transactions: readonly BalanceModification[];
+  readonly goalCents: number;
+  readonly goalName: string;
 }
 
 function asArray(obj: unknown, prop: string): unknown[] {
@@ -37,18 +40,36 @@ function effectiveValue(v: unknown): EffectiveValue | undefined {
     : (v as SheetValue).effectiveValue;
 }
 
-export async function getBalanceModifications(): Promise<BalanceModifications> {
-  const { fetch } = await import("cross-fetch");
-  const pollTime = dayjs().unix();
-  const transactions: BalanceModification[] = [];
-  const res = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/1dZgjF3SJXtO-4cC4M92y0ubvoQHs5GF5tjoj-OQtwl4?${[
-      "ranges=Adjustments!A2:D",
-      "fields=sheets.data.rowData(values(effectiveValue))",
+async function spreadsheetApiRequest(
+  id: string,
+  args: readonly string[]
+): Promise<unknown> {
+  return fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${id}?${[
+      ...args,
       `key=${process.env.GOOGLE_API_KEY}`,
     ].join("&")}`
-  );
-  const doc = await res.json();
+  ).then((res) => res.json());
+}
+
+function isEmptyObject(v: unknown): v is {} {
+  if (typeof v !== "object" || v === null) {
+    return false;
+  }
+  for (const _k in v) {
+    return false;
+  }
+  return true;
+}
+
+export async function getBalanceModifications(): Promise<BalanceModifications> {
+  const pollTime = dayjs().unix();
+  const transactions: BalanceModification[] = [];
+  const id = "113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI";
+  const doc = await spreadsheetApiRequest(id, [
+    "ranges=Adjustments!A2:D",
+    "fields=sheets.data.rowData(values(effectiveValue))",
+  ]);
   for (const sheet of asArray(doc, "sheets")) {
     for (const data of asArray(sheet, "data")) {
       for (const rowData of asArray(data, "rowData")) {
@@ -64,7 +85,30 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
       }
     }
   }
-  return { pollTime, transactions };
+  let goalCents = 1000 * 100;
+  let goalName = "Mission Bit";
+  const goalRes = await spreadsheetApiRequest(id, [
+    "ranges=Instructions!A2:B",
+    "fields=sheets.data.rowData(values(effectiveValue))",
+  ]);
+  for (const sheet of asArray(goalRes, "sheets")) {
+    for (const data of asArray(sheet, "data")) {
+      for (const rowData of asArray(data, "rowData")) {
+        if (isEmptyObject(rowData)) {
+          continue;
+        }
+        const values = asArray(rowData, "values").map(effectiveValue);
+        const [nameV, amountV] = values;
+        if (nameV?.stringValue === "Goal Amount" && amountV?.numberValue) {
+          goalCents = Math.floor(100 * amountV.numberValue);
+        }
+        if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
+          goalName = amountV.stringValue;
+        }
+      }
+    }
+  }
+  return { pollTime, transactions, goalCents, goalName };
 }
 
 export default getBalanceModifications;
