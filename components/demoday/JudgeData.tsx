@@ -58,12 +58,6 @@ export const JudgeData: readonly JudgeProps[] = [
     ...image("shinjini_nunna"),
   },
   {
-    name: "Gloria Marissa Trevino",
-    title: "Software Engineer",
-    company: "Dell",
-    ...image("gloria"),
-  },
-  {
     name: "Brian Clark",
     title: "Engineering Manager",
     company: "Cruise",
