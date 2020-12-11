@@ -19,13 +19,13 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
   const SIZE_ORDER = [""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-summer-judges/${postfix}.jpg`),
+      jpg: require(`public/images/demoday/2020-fall-judges/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-judges/${postfix}${k}.jpg`);
+        const fn = require(`public/images/demoday/2020-fall-judges/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-judges/${postfix}${k}.jpg?webp`);
+        const fn = require(`public/images/demoday/2020-fall-judges/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -37,19 +37,19 @@ export const JudgeData: readonly JudgeProps[] = [
     name: "Eddie Tapia",
     title: "Software Engineer",
     company: "Redfin",
-    ...image("dulce_palacios"),
+    ...image("eddie"),
   },
   {
     name: "Jackie Liu",
-    title: "VP Engineering",
-    company: "Sentry",
-    ...image("vlad_cretu"),
+    title: "Product Designer & Creative Technologist",
+    company: "",
+    ...image("jackie"),
   },
   {
     name: "Isaiah Johnson",
     title: "Founder and CEO",
     company: "Project Beanstalk",
-    ...image("melissa_olson"),
+    ...image("isaiah"),
   },
   {
     name: "Shinjini Nunna",
@@ -61,13 +61,13 @@ export const JudgeData: readonly JudgeProps[] = [
     name: "Gloria Marissa Trevino",
     title: "Software Engineer",
     company: "Dell",
-    ...image("alexandros_bantis"),
+    ...image("gloria"),
   },
   {
     name: "Brian Clark",
     title: "Engineering Manager",
     company: "Cruise",
-    ...image("melissa_olson"),
+    ...image("brian"),
   },
 ];
 
