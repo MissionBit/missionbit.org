@@ -3,12 +3,12 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
-  SpringClassInstances,
-  FallClassInstances,
   FallDates,
-  FallSDRClassInstances,
-  FallSDRDates,
+  SDRDates,
   FallDatesExtended,
+  SectionIds,
+  SectionId,
+  Sections,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import FlourishSeparator from "./FlourishSeparator";
@@ -60,32 +60,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Enroll: React.FC<{}> = () => {
+function sectionIdTitle(id: SectionId): string {
+  switch (id) {
+    case "workshops":
+      return "Workshops";
+    case "week-of-code":
+      return "Mission Bit Week of Code, December 14 - 18";
+    case "courses":
+      return "Fall 2020 Classes";
+    case "career-prep":
+      return "Career Prep Bootcamp";
+  }
+}
+
+const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
   const classes = useStyles();
-  return (
-    <Container component="section" id="enroll" className={classes.root}>
-      <Courses instances={SpringClassInstances}>
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.alert}
-          id="workshops"
-        >
-          Workshops
-        </Typography>
+  switch (id) {
+    case "workshops":
+      return (
         <Typography className={classes.copy}>
           Learn something new and get hands-on experience with our workshops.
         </Typography>
-      </Courses>
-      <Courses instances={FallClassInstances}>
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.alert}
-          id="courses"
-        >
-          Fall 2020 Classes
+      );
+    case "week-of-code":
+      return (
+        <Typography className={classes.copy}>
+          Join us for our Week of Code! Take all workshops during this week and
+          be entered in a raffle for a chance to win a pair of Beats Flex
+          earphones.
         </Typography>
+      );
+    case "career-prep":
+      return (
+        <Typography className={classes.copy}>
+          Fast-track your career with Mission Bit. Must be an SF resident, 18-24
+          years old.
+          <br />
+          <span className={classes.deadlineEmphasis}>
+            Application deadline:
+          </span>{" "}
+          {LongDateTimeFormat.format(SDRDates.registrationDeadline)}
+          <br />
+        </Typography>
+      );
+    case "courses":
+      return (
         <Typography className={classes.copy}>
           Apply to our program and come have fun with us this fall!
           <br />
@@ -99,27 +118,26 @@ const Enroll: React.FC<{}> = () => {
           </span>{" "}
           {LongDateTimeFormat.format(FallDatesExtended.registrationDeadline)}
         </Typography>
-      </Courses>
-      <Courses instances={FallSDRClassInstances}>
-        <Typography
-          variant="h3"
-          align="center"
-          className={classes.alert}
-          id="careerprep"
+      );
+  }
+};
+
+const Enroll: React.FC<{ sections?: readonly SectionId[] }> = ({
+  sections = SectionIds,
+}) => {
+  const classes = useStyles();
+  return (
+    <Container component="section" id="enroll" className={classes.root}>
+      {sections.map((key: SectionId) => (
+        <Courses
+          key={key}
+          id={key}
+          instances={Sections[key]}
+          title={sectionIdTitle(key)}
         >
-          Career Prep Bootcamp
-        </Typography>
-        <Typography className={classes.copy}>
-          Fast-track your career with Mission Bit. Must be an SF resident, 18-24
-          years old.
-          <br />
-          <span className={classes.deadlineEmphasis}>
-            Application deadline:
-          </span>{" "}
-          {LongDateTimeFormat.format(FallSDRDates.registrationDeadline)}
-          <br />
-        </Typography>
-      </Courses>
+          <SectionCopy id={key} />
+        </Courses>
+      ))}
       <FlourishSeparator />
     </Container>
   );

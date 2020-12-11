@@ -1,12 +1,13 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import CommunityWorkshops from "./CommunityWorkshops";
-import Supporters from "components/Supporters";
+// import CommunityWorkshops from "./CommunityWorkshops";
+// import Supporters from "components/Supporters";
 import Enroll from "./Enroll";
-import Faq from "./Faq";
-import Showcase from "components/Showcase";
-import Landing from "./Landing";
-import Description from "./Description";
+// import Faq from "./Faq";
+// import Showcase from "components/Showcase";
+// import Landing from "./Landing";
+// import Description from "./Description";
+import { SectionId } from "./ClassInstanceData";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,17 +34,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Main: React.FC<{}> = () => {
+const Main: React.FC<{ sections?: readonly SectionId[] }> = ({ sections }) => {
   const classes = useStyles();
   return (
     <main id="main" className={classes.root}>
-      <Landing />
-      <Description />
-      <Enroll />
-      <Faq />
-      <CommunityWorkshops />
+      {/* <Landing />
+      <Description /> */}
+      <Enroll sections={sections} />
+      {/* <Faq /> */}
+      {/* <CommunityWorkshops />
       <Showcase />
-      <Supporters />
+      <Supporters /> */}
     </main>
   );
 };
