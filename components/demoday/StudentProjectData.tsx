@@ -391,12 +391,12 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("Placeholder"),
       },
       {
-        title: "-",
+        title: "Air Pollution Demo Day Project",
         course: "Intro to JavaScript with Christine",
         students: ["Nate Sirivallop, Phillip Chin, Ming Wei Huang"],
         description: <>Project is about levels of PM2.5 in a few countries.</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://parchedwavykeyboard--nsirival1.repl.co/",
+        ...image("air-pollution"),
       },
       {
         title: "Exodia",
