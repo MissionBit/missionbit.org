@@ -39,6 +39,7 @@ export const CourseDateTimeFormat = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   hour: "numeric",
   minute: "numeric",
+  timeZoneName: "short",
 });
 
 function dropWhile<T>(collection: T[], predicate: (x: T) => boolean): T[] {
