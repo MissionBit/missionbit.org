@@ -50,8 +50,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Jinkang Fang, Jack Wu"],
         course: "Intro to Unity Game Design with Stephen",
         description: <>Shoot down skeletons in a blocky dungeon.</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://jinkang-0.github.io/blocky-dungeons/",
+        ...image("blocky-dungeon"),
       },
       {
         title: "Therapy Area",
@@ -94,8 +94,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             highest score 🤩
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://natalie-huang.github.io/diverting-route-game/",
+        ...image("diverting-route"),
       },
       {
         title: "Lights Off",
@@ -111,7 +111,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("lights-off"),
       },
       {
-        title: "-",
+        title: "Health Bot",
         students: ["Caitlyn Wong & Zhenyu Yu"],
         course: "Intro to Python with Hunter",
         description: (
@@ -119,11 +119,13 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             Do ever need someone to talk to or check in with? Healthbot is a
             python created helper that checks in with you to see where you are
             at with your mental health. It provides resources and mini surveys
-            for you to complete while you talk about your emotions!
+            for you to complete while you talk about your emotions! Instructions
+            on how to run the project are on the left as soon as you click "View
+            Project".
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://repl.it/@caitwong/finalproject#finaltest.py",
+        ...image("health-bot"),
       },
     ],
   },
@@ -135,8 +137,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Unity Game Design with Stephen",
         students: ["Judy Ng, Michelle Chen"],
         description: <>Fly like flappy bird and last as long as possible</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://michen1.github.io/fluff/",
+        ...image("fluff"),
       },
       {
         title: "Save the Fish",
@@ -152,7 +154,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("save-fish"),
       },
       {
-        title: "-",
+        title: "Questionnaire",
         course: "Intro to Python with Hunter",
         students: ["Ben Sirivallop, Gerald Aguirre"],
         description: (
@@ -161,11 +163,12 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             symptoms of Coronavirus, if the program realizes that you answered
             "Yes" to several of the questions, it will probably suggest that you
             go and take the COVID-19 test, it also stores your answers which can
-            be interesting and helpful for your doctor
+            be interesting and helpful for your doctor. Click "View Project" and
+            click the green button "Run".
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://repl.it/@bennables/Demo-day-python#main.py",
+        ...image("question"),
       },
     ],
   },
@@ -182,8 +185,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             strangers along the way
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://gamejolt.net/?token=UWaCgdWwS57SyfaebbhcVji3yTX5ou",
+        ...image("social-distancing"),
       },
       {
         title: "Flowprism",
@@ -211,8 +214,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Unity Game Design with Stephen",
         students: ["Lindsey Tong, Andrew Tam"],
         description: <>Stop the bugs from stealing fruit from the tree!</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://ltong03.github.io/infestation/",
+        ...image("infestation"),
       },
       {
         title: "SF History",
@@ -245,8 +248,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             obstacles.
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://trickyvortexyt.github.io/Cube-Rush/",
+        ...image("cube-rush"),
       },
       {
         title: "Eco Find",
@@ -313,8 +316,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Unity Game Design with Christopher",
         students: ["Aaron Yu, Owen Huanbutta, Sedrick Wang"],
         description: <>Run away from the boulder and get to the finish line.</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://owenhuanbutta.github.io/Boulder-Game/",
+        ...image("boulder"),
       },
       {
         title: "The Real Heroes",
@@ -325,17 +328,18 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("real-heroes"),
       },
       {
-        title: "-",
+        title: "Text-Adventure",
         course: "Intro to Python with Alex",
         students: ["Andrew Li, Kingsley Lam, Jordan Lei"],
         description: (
           <>
             Text-based-adventure, bringing awareness to socioeconomically
-            disadvantage students.
+            disadvantage students. Click "View Project" and click the green
+            button "Run".
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://repl.it/@alexanduh/Finalproject#README.md",
+        ...image("text"),
       },
     ],
   },
@@ -346,17 +350,19 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "Mask Up",
         course: "Intro to Unity Game Design with Christopher",
         students: ["Austin Choi, Wenna Luu"],
-        description: <>Give everyone a mask and stay safe.</>,
-        href: "",
-        ...image("Placeholder"),
+        description: (
+          <>Give everyone a mask and stay safe. Go fullscreen to play.</>
+        ),
+        href: "https://luuw.github.io/Mask-Up/",
+        ...image("mask"),
       },
       {
         title: "Ronnie's Corner",
         course: "Intro to Web Desig with Michael",
         students: ["Veronica Velasquez Macias"],
         description: <>A online store where users can customize gifts</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://ronnies-corner.github.io/ronnies-corner.githb.io/",
+        ...image("ronnie"),
       },
       {
         title: "-",
@@ -406,11 +412,12 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           <>
             A hands-on interactive experience with a "Choose Your Own Adventure"
             game, with the aim to give an overall enjoyable experience
-            all-the-while satisfying the community values.
+            all-the-while satisfying the community values. Click "View Project"
+            and click the green button "Run".
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://repl.it/@alexanduh/Exodia-1#README.md",
+        ...image("exodia"),
       },
     ],
   },
@@ -444,17 +451,19 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("city-sf"),
       },
       {
-        title: "-",
+        title: "Lissin",
         course: "Intro to Python with Alex",
         students: ["Allistair Larson, Ramiro Hernandez, Ryan Yu"],
         description: (
           <>
             Suggests tops artist from Spotify and gives top ten songs from
-            chosen artist.
+            chosen artist. Click "View Project" and click the green button
+            "Run".
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href:
+          "https://repl.it/@Ramiromp4/SpectacularDownrightTransversals#main.py",
+        ...image("lissin"),
       },
     ],
   },
