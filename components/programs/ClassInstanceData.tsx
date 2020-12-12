@@ -258,8 +258,7 @@ export const Courses = courseRecord({
         own unique games using the Unity platform. We’ll learn the Unity
         framework and develop a game that you and your friends can play by the
         end of the semester. Our goal is to empower students to become creators
-        rather than just consumers. We’re excited to see what you create with
-        us, beginners welcome!
+        rather than just consumers. Beginners welcome!
       </>
     ),
   },
