@@ -19,13 +19,13 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
   const SIZE_ORDER = [""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-summer-judges/${postfix}.jpg`),
+      jpg: require(`public/images/demoday/2020-fall-judges/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-judges/${postfix}${k}.jpg`);
+        const fn = require(`public/images/demoday/2020-fall-judges/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-judges/${postfix}${k}.jpg?webp`);
+        const fn = require(`public/images/demoday/2020-fall-judges/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -34,16 +34,22 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
 
 export const JudgeData: readonly JudgeProps[] = [
   {
-    name: "Dulce Palacios",
+    name: "Eddie Tapia",
     title: "Software Engineer",
-    company: "Strava",
-    ...image("dulce_palacios"),
+    company: "Redfin",
+    ...image("eddie"),
   },
   {
-    name: "Vlad Cretu",
-    title: "VP Engineering",
-    company: "Sentry",
-    ...image("vlad_cretu"),
+    name: "Jackie Liu",
+    title: "Product Designer & Creative Technologist",
+    company: "",
+    ...image("jackie"),
+  },
+  {
+    name: "Isaiah Johnson",
+    title: "Founder and CEO",
+    company: "Project Beanstalk",
+    ...image("isaiah"),
   },
   {
     name: "Shinjini Nunna",
@@ -52,16 +58,10 @@ export const JudgeData: readonly JudgeProps[] = [
     ...image("shinjini_nunna"),
   },
   {
-    name: "Alexandros Bantis",
-    title: "Staff Platform Engineer",
-    company: "Crunchbase",
-    ...image("alexandros_bantis"),
-  },
-  {
-    name: "Melissa Olson",
-    title: "Staff Software Engineer",
-    company: "Qualcomm",
-    ...image("melissa_olson"),
+    name: "Brian Clark",
+    title: "Engineering Manager",
+    company: "Cruise",
+    ...image("brian"),
   },
 ];
 
