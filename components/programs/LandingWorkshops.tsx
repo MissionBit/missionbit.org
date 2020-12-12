@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
-import VioletButton from "components/VioletButton";
+// import VioletButton from "components/VioletButton";
 import IndigoButton from "components/IndigoButton";
 import OrangeButton from "components/OrangeButton";
 
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontSize: theme.typography.pxToRem(22),
-    width: "10.5rem",
+    width: "12.5rem",
     padding: theme.spacing(1),
     [theme.breakpoints.up("sm")]: {
       "&:nth-child(n + 2)": {
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "33vw",
-    maxWidth: "50%",
+    maxWidth: "70%",
     height: "auto",
     objectFit: "contain",
   },
@@ -111,30 +111,30 @@ const LandingWorkshops: React.FC<{}> = () => {
             size="large"
             className={classes.button}
           >
-            Classes
+            Youth Classes
           </IndigoButton>
-          <VioletButton
+          {/* <VioletButton
             variant="contained"
             href="/programs/workshops"
             size="large"
             className={classes.button}
           >
             Workshops
-          </VioletButton>
+          </VioletButton> */}
           <OrangeButton
             variant="contained"
             href="/programs/career-prep"
             size="large"
             className={classes.button}
           >
-            Career Prep
+            Adult Career Prep
           </OrangeButton>
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/workshops/clicker.svg")}
+          src={require("public/images/program/workshops/cycle.svg")}
           className={classes.image}
         />
       </Box>

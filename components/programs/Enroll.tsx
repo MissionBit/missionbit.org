@@ -11,7 +11,6 @@ import {
   Sections,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
-import FlourishSeparator from "./FlourishSeparator";
 import Courses from "./Courses";
 import { brand } from "src/colors";
 
@@ -188,7 +187,6 @@ const Enroll: React.FC<{ sections?: readonly SectionId[] }> = ({
           <SectionCopy id={key} />
         </Courses>
       ))}
-      <FlourishSeparator />
     </Container>
   );
 };
