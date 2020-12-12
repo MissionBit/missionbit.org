@@ -18,6 +18,9 @@ https://gala.missionbit.org/* https://www.missionbit.org/gala 301!
 https://bridge.missionbit.com/* https://www.missionbit.org/bridge 301!
 https://bridge.missionbit.org/* https://www.missionbit.org/bridge 301!
 
+# Rename of courses to classes
+/programs/courses /programs/classes
+
 # Legacy redirects for netlify, see also next.config.js
 /about-us/ /about
 /workshops/ /programs

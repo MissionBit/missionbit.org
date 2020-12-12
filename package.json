@@ -57,7 +57,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^8.0.0",
-    "material-ui-popup-state": "^1.6.1",
+    "material-ui-popup-state": "^1.7.1",
     "micro": "^9.3.4",
     "micro-cors": "^0.1.1",
     "mjml": "^4.6.3",

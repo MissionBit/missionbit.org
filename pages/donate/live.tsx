@@ -196,7 +196,7 @@ interface DashboardProps {
 const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
-  const [simulate, setSimulate] = useState(initial.simulate);
+  const [simulate, setSimulate] = useState(false);
   const [errors, setErrors] = useState(0);
   const classes = useStyles();
   useEffect(() => {
@@ -257,7 +257,7 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
       className={classes.root}
       onClick={(event) => {
         event.preventDefault();
-        setSimulate((simulate) => !simulate);
+        setSimulate((simulate) => initial.simulate && !simulate);
       }}
     >
       <Goal

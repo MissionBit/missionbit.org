@@ -101,13 +101,13 @@ const Landing: React.FC<{}> = () => {
         <Typography className={classes.copy} component="h1">
           Mission Bit provides free after-school coding courses,{" "}
           <Link href="/programs/workshops">workshops</Link>, and{" "}
-          <Link href="/programs/courses">summer bootcamps</Link> to high school
+          <Link href="/programs/classes">summer bootcamps</Link> to high school
           students from underserved and underrepresented communities.
         </Typography>
         <Box className={classes.buttons}>
           <IndigoButton
             variant="contained"
-            href="/programs/courses"
+            href="/programs/classes"
             size="large"
             className={classes.button}
           >
