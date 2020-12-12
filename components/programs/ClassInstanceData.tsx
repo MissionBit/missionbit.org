@@ -592,6 +592,12 @@ export const CourseDates: ClassDates = {
   demoDay: Date.parse("2021-05-08T13:00:00-07:00"),
 };
 
+export const FallDates: ClassDates = {
+  registrationDeadline: Date.parse("2021-01-22T20:00:00-07:00"),
+  interview: Date.parse("2021-01-26T12:00:00-07:00"),
+  demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
+};
+
 // export const FallDatesExtended: ClassDates = {
 //   ...FallDates,
 //   registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
