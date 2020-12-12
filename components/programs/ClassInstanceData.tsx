@@ -6,6 +6,7 @@ export const CourseSkills = [
   "Unity",
   "C#",
   "3D Game Design",
+  "Virtual Reality",
   "Web Design",
   "HTML",
   "CSS",
@@ -234,7 +235,7 @@ export const Courses = courseRecord({
   },
   game_class: {
     title: "Intro to Unity Game Design",
-    skills: ["Unity", "C#"],
+    skills: ["Unity", "C#", "3D Game Design"],
     image: unityGala,
     description: (
       <>
@@ -242,8 +243,8 @@ export const Courses = courseRecord({
         own unique games using the Unity platform. We’ll learn the Unity
         framework and develop a game that you and your friends can play by the
         end of the semester. Our goal is to empower students to become creators
-        rather than just consumers. We’re excited to see what you create with us
-        this fall, beginners welcome!
+        rather than just consumers. We’re excited to see what you create with
+        us, beginners welcome!
       </>
     ),
   },
@@ -268,7 +269,7 @@ export const Courses = courseRecord({
     image: pythonImage,
     description: (
       <>
-        Come and learn Python in our new class this fall! We’ll start with
+        Come and learn Python in our new class this spring! We’ll start with
         fundamental concepts of programming that can be applied to the study of
         any programming language. Together, we’ll create chat bots, learn
         automation, and work on our final projects at the end of the semester.
@@ -282,11 +283,29 @@ export const Courses = courseRecord({
     image: jsImage,
     description: (
       <>
-        Join us this fall in our latest class! This course is interactive and
-        the concepts covered will lay the foundation for using JavaScript in any
-        environment. We’ll start off with an introduction to Javascript, move on
-        to working on projects based on your personal interests and creativity,
+        This course is interactive and the concepts covered will lay the
+        foundation for using JavaScript in any environment. We’ll start off with
+        an introduction to Javascript, move on to learning about data
+        visualization and creating projects based on your personal interests,
         and finish off the semester with a final project. Beginners welcome!
+      </>
+    ),
+  },
+  vr_class: {
+    title: "Intermediate VR Game Design with Unity and Oculus",
+    skills: ["Unity", "C#", "3D Game Design", "Virtual Reality"],
+    image: jsImage,
+    description: (
+      <>
+        For the first time ever, you’ll be able to take a step into your very
+        own game. Welcome to our Game Design Academy! This class is for students
+        who have completed the Intro to Unity Game Design course in Summer or
+        Fall 2020. Create an out of this world project that you can see, hear,
+        and lose yourself in. In this class you will further develop your Unity
+        skills, strengthen your C# skills, and think in 3D to create virtual
+        reality experiences. Note: This class is part of our new Game Design
+        Academy and will require that you make a commitment to further your
+        skills this summer in our 6-week VR Capstone.
       </>
     ),
   },
@@ -553,53 +572,23 @@ export const Campuses = campusRecord({
   },
 });
 
-export const SummerDates: ClassDates = {
-  registrationDeadline: Date.parse("2020-05-14T20:00:00-07:00"),
-  interview: Date.parse("2020-05-27T12:00:00-07:00"),
-  demoDay: Date.parse("2020-07-25T13:00:00-07:00"),
+export const CourseDates: ClassDates = {
+  registrationDeadline: Date.parse("2021-01-22T20:00:00-07:00"),
+  interview: Date.parse("2021-01-26T12:00:00-07:00"),
+  demoDay: Date.parse("2021-05-08T13:00:00-07:00"),
 };
 
-export const FallDates: ClassDates = {
-  registrationDeadline: Date.parse("2020-08-23T20:00:00-07:00"),
-  interview: Date.parse("2020-09-02T12:00:00-07:00"),
-  demoDay: Date.parse("2020-12-12T13:00:00-07:00"),
-};
-
-export const FallDatesExtended: ClassDates = {
-  ...FallDates,
-  registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
-};
+// export const FallDatesExtended: ClassDates = {
+//   ...FallDates,
+//   registrationDeadline: Date.parse("2020-08-30T20:00:00-07:00"),
+// };
 
 export const SDRDates: BaseClassDates = {
   registrationDeadline: Date.parse("2021-01-17T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
-// function summerClass(
-//   course: Course,
-//   campus: Campus,
-//   formAssemblyId: string
-// ): ClassInstance {
-//   return {
-//     type: "class",
-//     course,
-//     campus,
-//     classDates: SummerDates,
-//     meets: (
-//       <>
-//         Monday, Wednesday, Friday{" "}
-//         <Box component="span" display="inline-block">
-//           10:30am - 2:30pm
-//         </Box>
-//       </>
-//     ),
-//     startDate: "June 15th",
-//     endDate: "July 25th",
-//     signupUrl: `https://www.tfaforms.com/4804494?tfa_2013=${formAssemblyId}`,
-//   };
-// }
-
-const FALL_CLASS_SCHEDULE = {
+const SPRING_CLASS_SCHEDULE = {
   MW: {
     meets: (
       <>
@@ -609,8 +598,8 @@ const FALL_CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "September 14th",
-    endDate: "December 12th",
+    startDate: "February 8th",
+    endDate: "May 8th",
   },
   TH: {
     meets: (
@@ -621,26 +610,26 @@ const FALL_CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "September 15th",
-    endDate: "December 12th",
+    startDate: "February 9th",
+    endDate: "May 8th",
   },
 } as const;
 
-function fallClass(
+function springClass(
   course: Course,
   campus: Campus,
   schedule: "MW" | "TH",
   formAssemblyId: string,
-  classDates: ClassDates = FallDates
+  classDates: ClassDates = CourseDates
 ): ClassInstance {
   return {
     type: "class",
     course,
     campus,
     classDates,
-    ...FALL_CLASS_SCHEDULE[schedule],
+    ...SPRING_CLASS_SCHEDULE[schedule],
     buttonText: "Student Application",
-    signupUrl: `https://www.tfaforms.com/4840819?tfa_2013=${formAssemblyId}`,
+    signupUrl: `https://www.tfaforms.com/4872902?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -669,34 +658,22 @@ function SDRClass(
   };
 }
 
-// export const SummerClassInstances: ClassOrWorkshopInstance[] = [
-//   summerClass(Courses.web_bootcamp, Campuses.online_sf, "tfa_2247"),
-//   summerClass(Courses.game_bootcamp, Campuses.online, "tfa_2248"),
-//   summerClass(Courses.web_bootcamp, Campuses.online_oakland, "tfa_2245"),
-// ];
-
-export const FallClassInstances: ClassOrWorkshopInstance[] = [
-  fallClass(
-    Courses.web_class,
-    Campuses.online,
-    "MW",
-    "tfa_2245",
-    FallDatesExtended
-  ),
-  fallClass(
-    Courses.web_class,
-    Campuses.online,
-    "TH",
-    "tfa_2247",
-    FallDatesExtended
-  ),
-  fallClass(Courses.game_class, Campuses.online, "MW", "tfa_2248"),
-  fallClass(Courses.python_class, Campuses.online, "MW", "tfa_2266"),
-  fallClass(Courses.game_class, Campuses.online, "TH", "tfa_2267"),
-  fallClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2268"),
+export const ClassInstances: ClassOrWorkshopInstance[] = [
+  // fallClass(
+  //   Courses.web_class,
+  //   Campuses.online,
+  //   "MW",
+  //   "tfa_2245",
+  //   FallDatesExtended
+  // ),
+  springClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
+  springClass(Courses.game_class, Campuses.online, "MW", "tfa_1"),
+  springClass(Courses.python_class, Campuses.online, "TH", "tfa_1"),
+  springClass(Courses.web_class, Campuses.online, "TH", "tfa_1"),
+  springClass(Courses.javascript_class, Campuses.online, "TH", "tfa_1"),
 ];
 
-export const FallSDRClassInstances: ClassOrWorkshopInstance[] = [
+export const SDRClassInstances: ClassOrWorkshopInstance[] = [
   SDRClass(Courses.sdr_class, Campuses.online, "tfa_1"),
 ];
 
@@ -744,7 +721,7 @@ function workshop({
   };
 }
 
-export const SpringClassInstances: ClassOrWorkshopInstance[] = [
+export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
     course: Courses.networking_workshop,
     dateString: "2020-11-30T15:00:00-08:00",
@@ -816,10 +793,10 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const Sections = {
-  workshops: SpringClassInstances,
+  workshops: WorkshopInstances,
   "week-of-code": WeekOfCodeClassInstances,
-  courses: FallClassInstances,
-  "career-prep": FallSDRClassInstances,
+  courses: ClassInstances,
+  "career-prep": SDRClassInstances,
 } as const;
 
 export const SectionIds = [
