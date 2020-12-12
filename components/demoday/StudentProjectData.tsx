@@ -441,7 +441,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("checklist"),
       },
       {
-        title: "-",
+        title: "San Francisco",
         course: "Intro to JavaScript with Christine",
         students: ["Sophia Liang, Shania Hao, Ethan Xu"],
         description: (
