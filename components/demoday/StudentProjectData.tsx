@@ -182,10 +182,10 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>
             Do your best to make it to the pharmacy without bumping into
-            strangers along the way
+            strangers along the way. Click on the link and press "Play".
           </>
         ),
-        href: "https://gamejolt.net/?token=UWaCgdWwS57SyfaebbhcVji3yTX5ou",
+        href: "https://gamejolt.com/games/socialdistancing-game/564409",
         ...image("social-distancing"),
       },
       {
@@ -193,7 +193,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Web Design with Michael",
         students: ["Ashley Hom, Ethan Ellis"],
         description: <>A music player and news website.</>,
-        href: "https://flowprism.github.io/",
+        href: "https://ethan-ellis13.github.io/flowprism/",
         ...image("flowprism"),
       },
       {
@@ -281,10 +281,10 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             ou are a ghost that has been sleeping for 2000 years, and one day a
             group of people are having a party in YOUR HOUSE. The most important
             thing is that they disturbed your sleep, so they either get out of
-            the house or become a ghost.
+            the house or become a ghost. Click the link and press "Play".
           </>
         ),
-        href: "https://gamejolt.net/?token=cUvNP4zykmfrdxYThgwiue4JnsGbnb",
+        href: "https://gamejolt.com/games/TheHauntedHouse/564107",
         ...image("haunted-house"),
       },
       {
