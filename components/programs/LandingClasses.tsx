@@ -2,11 +2,11 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-// import Link from "@material-ui/core/Link";
+import Link from "@material-ui/core/Link";
 import Container from "@material-ui/core/Container";
 import VioletButton from "components/VioletButton";
-import IndigoButton from "components/IndigoButton";
-// import OrangeButton from "components/OrangeButton";
+// import IndigoButton from "components/IndigoButton";
+import OrangeButton from "components/OrangeButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     fontSize: theme.typography.pxToRem(22),
-    width: "10.5rem",
+    width: "12.5rem",
     padding: theme.spacing(1),
     [theme.breakpoints.up("sm")]: {
       "&:nth-child(n + 2)": {
@@ -84,13 +84,13 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: "33vw",
-    maxWidth: "75%",
+    maxWidth: "70%",
     height: "auto",
     objectFit: "contain",
   },
 }));
 
-const LandingWorkshops: React.FC<{}> = () => {
+const Landing: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Container id="landing" component="section" className={classes.root}>
@@ -99,20 +99,20 @@ const LandingWorkshops: React.FC<{}> = () => {
           Become an Innovator
         </Typography>
         <Typography className={classes.copy} component="h1">
-          Our new Tech Sales Career Preparation Bootcamp for adults (18—24 years
-          of age) provides a low barrier to entry into the tech industry for
-          students who come from marginalized communities and low-income
-          backgrounds.
+          Mission Bit provides free after-school coding courses,{" "}
+          <Link href="/programs/workshops">workshops</Link>, and{" "}
+          <Link href="/programs/classes">summer bootcamps</Link> to high school
+          students from underserved and underrepresented communities.
         </Typography>
         <Box className={classes.buttons}>
-          <IndigoButton
+          {/* <IndigoButton
             variant="contained"
             href="/programs/classes"
             size="large"
             className={classes.button}
           >
-            Youth Classes
-          </IndigoButton>
+            Classes
+          </IndigoButton> */}
           <VioletButton
             variant="contained"
             href="/programs/workshops"
@@ -121,20 +121,20 @@ const LandingWorkshops: React.FC<{}> = () => {
           >
             Workshops
           </VioletButton>
-          {/* <OrangeButton
+          <OrangeButton
             variant="contained"
             href="/programs/career-prep"
             size="large"
             className={classes.button}
           >
-            Career Prep
-          </OrangeButton> */}
+            Adult Career Prep
+          </OrangeButton>
         </Box>
       </Box>
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/sdr.svg")}
+          src={require("public/images/program/vr-girl.svg")}
           className={classes.image}
         />
       </Box>
@@ -142,4 +142,4 @@ const LandingWorkshops: React.FC<{}> = () => {
   );
 };
 
-export default LandingWorkshops;
+export default Landing;

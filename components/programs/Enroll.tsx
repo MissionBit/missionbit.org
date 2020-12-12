@@ -3,15 +3,14 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
-  FallDates,
+  CourseDates,
   SDRDates,
-  FallDatesExtended,
+  // FallDatesExtended,
   SectionIds,
   SectionId,
   Sections,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
-import FlourishSeparator from "./FlourishSeparator";
 import Courses from "./Courses";
 import { brand } from "src/colors";
 
@@ -47,6 +46,32 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.typography.h6.fontSize,
     },
   },
+  smallCopy: {
+    fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
+  },
+  constrained: {
+    maxWidth: "50em",
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
+  },
+  constrainedList: {
+    maxWidth: "50em",
+    marginLeft: "auto",
+    marginRight: "auto",
+    textAlign: "left",
+    paddingLeft: "4em",
+    fontSize: theme.typography.pxToRem(20),
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.typography.body1.fontSize,
+    },
+  },
   deadlineEmphasis: {
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down("sm")]: {
@@ -67,7 +92,7 @@ function sectionIdTitle(id: SectionId): string {
     case "week-of-code":
       return "Mission Bit Week of Code, December 14 - 18";
     case "courses":
-      return "Fall 2020 Classes";
+      return "Spring 2021 Classes";
     case "career-prep":
       return "Career Prep Bootcamp";
   }
@@ -106,17 +131,41 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
     case "courses":
       return (
         <Typography className={classes.copy}>
-          Apply to our program and come have fun with us this fall!
+          Apply to our program and come have fun with us this spring!
           <br />
           <span className={classes.deadlineEmphasis}>
             Application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(FallDates.registrationDeadline)}
+          {LongDateTimeFormat.format(CourseDates.registrationDeadline)}
           <br />
-          <span className={classes.deadlineEmphasis}>
+          <br />
+          {/* <span className={classes.deadlineEmphasis}>
             Web Design application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(FallDatesExtended.registrationDeadline)}
+          {LongDateTimeFormat.format(FallDatesExtended.registrationDeadline)} */}
+          <div className={classes.constrained}>
+            <span className={classes.smallCopy}>
+              Mission Bit utilizes a focused enrollment model (more information
+              below in our FAQ section) for our semester-based courses and
+              prioritizes students with these criteria:
+            </span>
+          </div>
+          <div className={classes.constrainedList}>
+            <ul className={classes.smallCopy}>
+              <li>Residents of San Francisco</li>
+              <li>Children in the foster care system</li>
+              <li>English language learners</li>
+              <li>
+                Low-income students, with a focus on historically
+                underrepresented communities in tech, including people who
+                identify as Black, Latinx, Pacific Islander, and female
+              </li>
+              <li>
+                Students attending high school site with limited to no computer
+                offerings
+              </li>
+            </ul>
+          </div>
         </Typography>
       );
   }
@@ -138,7 +187,6 @@ const Enroll: React.FC<{ sections?: readonly SectionId[] }> = ({
           <SectionCopy id={key} />
         </Courses>
       ))}
-      <FlourishSeparator />
     </Container>
   );
 };
