@@ -8,7 +8,7 @@ import { Link } from "@material-ui/core";
 import StudentProjectRooms, {
   StudentProjectRoomProps,
   ProjectProps,
-} from "./StudentProjectData";
+} from "./Summer20StudentProjectData";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "350px 1fr",
     gridTemplateAreas: `
       "image title"
-      "image course"
       "image names"
       "image description"
       "image link"
@@ -47,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
       gridTemplateAreas: `
         "image"
         "title"
-        "course"
         "names"
         "description"
         "link"
@@ -63,12 +61,6 @@ const useStyles = makeStyles((theme) => ({
   },
   projectStudentNames: {
     gridArea: "names",
-    [theme.breakpoints.down("sm")]: {
-      textAlign: "center",
-    },
-  },
-  studentClassNames: {
-    gridArea: "course",
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
     },
@@ -103,7 +95,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Project: React.FC<ProjectProps> = ({
   title,
-  course,
   students,
   description,
   href,
@@ -123,7 +114,6 @@ const Project: React.FC<ProjectProps> = ({
       <Typography className={classes.projectStudentNames}>
         {students.join(", ")}
       </Typography>
-      <Typography className={classes.studentClassNames}>{course}</Typography>
       <Typography className={classes.projectDescription}>
         {description}
       </Typography>
@@ -141,15 +131,15 @@ const Project: React.FC<ProjectProps> = ({
 };
 
 const StudentProjectRoom: React.FC<StudentProjectRoomProps> = ({
-  room,
+  // room,
   projects,
 }) => {
   const classes = useStyles();
   return (
     <Container component="section" className={classes.showcase}>
-      <Typography variant="h3" className={classes.room}>
+      {/* <Typography variant="h3" className={classes.room}>
         {room}
-      </Typography>
+      </Typography> */}
       {projects.map((props, i) => (
         <Project {...props} key={i} />
       ))}
@@ -157,7 +147,7 @@ const StudentProjectRoom: React.FC<StudentProjectRoomProps> = ({
   );
 };
 
-const StudentProjects: React.FC<{}> = () => {
+const Summer20StudentProjects: React.FC<{}> = () => {
   const classes = useStyles();
   return (
     <Box component="section" id="projects" className={classes.root}>
@@ -173,4 +163,4 @@ const StudentProjects: React.FC<{}> = () => {
   );
 };
 
-export default StudentProjects;
+export default Summer20StudentProjects;

@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
+import FlourishSeparator from "components/programs/FlourishSeparator";
+import PastProjectsButton from "./PastProjectsButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -61,18 +63,20 @@ const DemoDayFooter: React.FC<{}> = () => {
           </VioletButton>
         </Typography>
         <Typography className={classes.column}>
-          Want to register for Fall 2020?
+          Want to register for Spring 2021?
           <br />
           <VioletButton
             variant="contained"
-            href="/programs"
+            href="/programs/courses"
             size="large"
             className={classes.button}
           >
-            Register
+            Apply
           </VioletButton>
         </Typography>
       </Container>
+      <FlourishSeparator />
+      <PastProjectsButton />
     </Box>
   );
 };

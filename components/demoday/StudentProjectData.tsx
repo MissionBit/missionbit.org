@@ -1,12 +1,13 @@
 import * as React from "react";
 
 export interface StudentProjectRoomProps {
-  // readonly room: string;
+  readonly room: string;
   readonly projects: readonly ProjectProps[];
 }
 
 export interface ProjectProps {
   readonly title: string;
+  readonly course: string;
   readonly students: readonly string[];
   readonly description: React.ReactNode;
   readonly href: string;
@@ -27,13 +28,13 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
   const SIZE_ORDER = [""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-summer-projects/${postfix}.jpg`),
+      jpg: require(`public/images/demoday/2020-fall-projects/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-projects/${postfix}${k}.jpg`);
+        const fn = require(`public/images/demoday/2020-fall-projects/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-projects/${postfix}${k}.jpg?webp`);
+        const fn = require(`public/images/demoday/2020-fall-projects/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -42,512 +43,456 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
 
 export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
   {
-    // room: "Breakout Room 1",
+    room: "Breakout Room 1",
     projects: [
       {
-        title: "Hungry",
-        students: ["William Tran"],
-        description: (
-          <>
-            You have to get food in the city, but healthy food is hard to come
-            by because you live in a food desert.
-          </>
-        ),
-        href: "https://crazythepotato.github.io/HungryMan/",
-        ...image("hungry"),
+        title: "Blocky Dungeon",
+        students: ["Jinkang Fang, Jack Wu"],
+        course: "Intro to Unity Game Design with Stephen",
+        description: <>Shoot down skeletons in a blocky dungeon.</>,
+        href: "https://jinkang-0.github.io/blocky-dungeons/",
+        ...image("blocky-dungeon"),
       },
       {
-        title: "Nature Girl & Hunter Boy",
-        students: ["Maia Piomelli", "Carmen Li"],
+        title: "Therapy Area",
+        students: ["Breanna Durant, Favour Odenyi"],
+        course: "Intro to Web Design with Nico",
         description: (
-          <>
-            Just like the iconic Fireboy & Watergirl game, both NatureGirl and
-            HunterBoy travel the world together to discard garbage while
-            overcoming obstacles on the way, thus making the Earth a cleaner
-            place to live.
-          </>
+          <>A website that matches users to different therapy options.</>
         ),
-        href: "https://maiap2309.github.io/NatureGirl-and-HunterBoy-game/",
-        ...image("nature-hunter"),
+        href: "",
+        ...image("therapy-area"),
       },
       {
-        title: "Hi-Tech",
-        students: ["Sabrina Fang", "Benji Gin", "Nate Sirivallop"],
+        title:
+          "Comparing the 1918 Spanish Flu Pandemic to the Current Covid-19 Pandemic",
+        students: ["Caleb Kha, Karina Anders, Kayla"],
+        course: "Intro to JavaScript with Christine",
         description: (
           <>
-            We are designing a page showcasing three futuristic tech products:
-            self-driving cars, AI, and maglev bullet trains.
+            Examining data from the pandemic of 1918 and the current COVID-19
+            pandemic.
           </>
         ),
-        href: "https://sabrinafang.github.io/summer-webdesign-2020/index.html",
-        ...image("hi-tech"),
-      },
-      {
-        title: "Gen Z Alliance",
-        students: ["Matthew Kong", "Winnie Qi", "Connie Wang"],
-        description: (
-          <>
-            Gen Z Alliance is a website that includes desciptions of
-            propositions and elections, allowing voters to know who and what
-            they are voting for.
-          </>
-        ),
-        href: "https://mattkong0.github.io/GenZAlliance/",
-        ...image("genz"),
+        href: "https://final-project--karina317.repl.co/",
+        ...image("spanish-flu"),
       },
     ],
   },
   {
-    // room: "Breakout Room 2",
+    room: "Breakout Room 2",
     projects: [
       {
-        title: "Endless Run",
-        students: ["Joseph Blackett"],
+        title: "Diverting Route",
+        students: ["Natalie Huang, Rosaline Lee"],
+        course: "Intro to Unity Game Design with Stephen",
         description: (
           <>
-            Make it as far as you can by jumping from platform to platform while
-            avoiding obstacles.
+            Collect healthy food in a food dessert or pick up presents for this
+            holiday season!!! 🌵🎄 Diverting route is an endless runner game
+            where players try to last for as long as possible and gets the
+            highest score 🤩
           </>
         ),
-        href: "https://joblackett6.github.io/endless-run/",
-        ...image("endless_run"),
+        href: "https://natalie-huang.github.io/diverting-route-game/",
+        ...image("diverting-route"),
       },
       {
-        title: "The Escape",
-        students: ["Noah Chan", "Kevin Jung"],
+        title: "Lights Off",
+        students: ["Christine Shen, Dylan Wong"],
+        course: "Intro to Web Design with Nico",
         description: (
           <>
-            You are trying to make it to the end while being chased by the
-            monster.
+            A website that informs users about energy conservation. Also
+            includes a game to help reinforce it.
           </>
         ),
-        href: "https://kevinj1120.github.io/The-Escape/TheEscape/index.html",
-        ...image("the_escape"),
+        href: "https://cshen7.github.io",
+        ...image("lights-off"),
       },
       {
-        title: "BookStrap",
-        students: [
-          "Ben Sirivallop",
-          "Malika Vahobova",
-          "Christine Chen",
-          "Max Xu",
-        ],
+        title: "Healthbot",
+        students: ["Caitlyn Wong & Zhenyu Yu"],
+        course: "Intro to Python with Hunter",
         description: (
           <>
-            Find your next favorite book today! Our site is full of books and
-            resources on where you can find them!
+            Do ever need someone to talk to or check in with? Healthbot is a
+            python created helper that checks in with you to see where you are
+            at with your mental health. It provides resources and mini surveys
+            for you to complete while you talk about your emotions! Instructions
+            on how to run the project are on the left as soon as you click "View
+            Project".
           </>
         ),
-        href: "https://malikahon.github.io/Demo-Day/",
-        ...image("bookstrap"),
+        href: "https://repl.it/@caitwong/finalproject#finaltest.py",
+        ...image("health-bot"),
       },
     ],
   },
   {
-    // room: "Breakout Room 3",
+    room: "Breakout Room 3",
     projects: [
       {
-        title: "The Spook",
-        students: ["Terry Wong"],
-        description: (
-          <>
-            Experience what inner demons might feel like. (Click the link and
-            press pray).
-          </>
-        ),
-        href: "https://gamejolt.com/games/tayteyz/520051",
-        ...image("the-spook"),
+        title: "Fluff",
+        course: "Intro to Unity Game Design with Stephen",
+        students: ["Judy Ng, Michelle Chen"],
+        description: <>Fly like flappy bird and last as long as possible</>,
+        href: "https://michen1.github.io/fluff/",
+        ...image("fluff"),
       },
       {
-        title: "Vanguard Runner",
-        students: ["Nolan Louie", "Zachary Yieh"],
+        title: "Save the Fish",
+        course: "Intro to Web Design with Nico",
+        students: ["Denica Tran, Elian Montano, Spencer Lee"],
         description: (
           <>
-            Jump your way through platforms while shooting the enemy soldiers.
-            Try to make your way to the final boss.
+            A website that shows users how plastic consumption affects the
+            ocean.
           </>
         ),
-        href: "https://nolan019.github.io/Vanguard-Runner/",
-        ...image("vanguard-runner"),
+        href: "https://elianchief.github.io/",
+        ...image("save-fish"),
       },
       {
-        title: "BigFoot",
-        students: ["Caitlyn Wong"],
+        title: "Questionnaire",
+        course: "Intro to Python with Hunter",
+        students: ["Ben Sirivallop, Gerald Aguirre"],
         description: (
           <>
-            BigFoot is a shoe brand that creates inexpensive and trendy wide
-            shoes.
+            This project is a questionnaire which asks questions related to the
+            symptoms of Coronavirus, if the program realizes that you answered
+            "Yes" to several of the questions, it will probably suggest that you
+            go and take the COVID-19 test, it also stores your answers which can
+            be interesting and helpful for your doctor. Click "View Project" and
+            click the green button "Run".
           </>
         ),
-        href: "https://caitwong.github.io/FinalProject/index.html",
-        ...image("big-foot"),
-      },
-      {
-        title: "GreenWorld",
-        students: ["Marie Nido", "Alex Stewart"],
-        description: (
-          <>
-            An informational website of the planet and its current status as of
-            2020.
-          </>
-        ),
-        href: "https://stewartalexb3651.github.io/Green-World/",
-        ...image("green-world"),
+        href: "https://repl.it/@bennables/Demo-day-python#main.py",
+        ...image("question"),
       },
     ],
   },
   {
-    // room: "Breakout Room 4",
+    room: "Breakout Room 4",
     projects: [
       {
-        title: "Alien Shooter",
-        students: ["Zhenyu Yu", "Eric Chen"],
+        title: "Social Distancing Game: Stay Away From Me",
+        course: "Intro to Unity Game Design with Stephen",
+        students: ["Sam Dunn, Tysir Awadalla"],
         description: (
           <>
-            Play as a solider fighting off endless waves of aliens for as long
-            as possible.
+            Do your best to make it to the pharmacy without bumping into
+            strangers along the way
           </>
         ),
-        href: "https://zhenyuyu1.github.io/alienshooter/",
-        ...image("alien-shooter"),
+        href: "https://gamejolt.net/?token=UWaCgdWwS57SyfaebbhcVji3yTX5ou",
+        ...image("social-distancing"),
       },
       {
-        title: "Infinite Lurker",
-        students: ["Simon Zhao", "Nikita Kartsev"],
-        description: (
-          <>
-            The game is a first-person shooter with infinite rounds with the
-            player's goal to survive the highest round. The player shoots and
-            runs from zombies that increase per round with three different
-            weapons.
-          </>
-        ),
-        href:
-          "https://nikitakartsevv.github.io/Infinite-Lurker/game/index.html",
-        ...image("infinite-lurker"),
+        title: "Flowprism",
+        course: "Intro to Web Design with Michael",
+        students: ["Ashley Hom, Ethan Ellis"],
+        description: <>A music player and news website.</>,
+        href: "https://flowprism.github.io/",
+        ...image("flowprism"),
       },
       {
-        title: "Learin",
-        students: ["Ashley Chan"],
-        description: (
-          <>
-            Learin is a website offering underprivileged youth equal education.
-            It is a platform for teachers and tutors to submit educational
-            videos and articles, so that students who can’t afford tutoring can
-            still get help. Students can also interact with teachers and tutors
-            if they need help on something.
-          </>
-        ),
-        href: "https://achan3.github.io/Final-Project/",
-        ...image("learin"),
-      },
-      {
-        title: "Bazaar Hall",
-        students: ["Tyler Keegan", "Ken Lin"],
-        description: (
-          <>
-            A place for professionals to share their work and attract clients.
-          </>
-        ),
-        href: "https://keshfer.github.io/Bazaar-Hall/index.html",
-        ...image("bazaar-hall"),
-      },
-    ],
-  },
-  {
-    // room: "Breakout Room 5",
-    projects: [
-      {
-        title: "Run Ruin",
-        students: ["Kary Lin", "Nate Tesler", "Jackey Li"],
-        description: (
-          <>
-            Race across a broken temple and traverse the obstacles to get to the
-            end. Click on the link and press play.
-          </>
-        ),
-        href: "https://gamejolt.com/games/ruin-ruin/520049",
-        ...image("ruin-run"),
-      },
-      {
-        title: "Quiz Time",
+        title: "Python Portfolio",
+        course: "Intro to Python with Hunter",
         students: ["Octavio Lomeli-Castro"],
-        description: (
-          <>
-            Quiz time is a website that contains three quizzes for the user to
-            attempt. (Math, HTML/CSS, and other random topics)
-          </>
-        ),
-        href: "https://octaviolomeli.github.io/FinalProject/",
-        ...image("quiz-time"),
-      },
-      {
-        title: "SF Chopsticks",
-        students: ["Grace Chen", "Natalie Huang"],
-        description: (
-          <>
-            Through our “SF Chopsticks” project, we hope to introduce some of
-            our favorite food discoveries in the city that we believe to be a
-            must try for everyone.
-          </>
-        ),
-        href: "https://natalie-huang.github.io/SFChopsticks/",
-        ...image("sf-chopsticks"),
+        description: <>Portfolio with multiple python applications.</>,
+        href: "https://flask-site.octaviolomeli.repl.co/",
+        ...image("python-portfolio"),
       },
     ],
   },
   {
-    // room: "Breakout Room 6",
+    room: "Breakout Room 5",
     projects: [
       {
-        title: "Path to Ocean Beach",
-        students: ["Jennifer Wong", "Shania Hao", "Gavin Scott"],
-        description: (
-          <>Make your way to Ocean Beach from the city of San Francisco</>
-        ),
-        href: "https://shaniahao.github.io/cityplanner/",
-        ...image("city-planners"),
+        title: "Infestation",
+        course: "Intro to Unity Game Design with Stephen",
+        students: ["Lindsey Tong, Andrew Tam"],
+        description: <>Stop the bugs from stealing fruit from the tree!</>,
+        href: "https://ltong03.github.io/infestation/",
+        ...image("infestation"),
       },
       {
-        title: "Dodgeball",
-        students: ["Ian Kwan"],
-        description: (
-          <>Avoid the raining dodgeballs and get the fastest time!</>
-        ),
-        href: "https://povrty.github.io/Dodgeball/Game/",
-        ...image("dodgeball"),
+        title: "SF History",
+        course: "Intro to Web Design with Michael",
+        students: ["Cindy Zhou, Kevin Jung"],
+        description: <>History of different neighborhoods in SF.</>,
+        href: "https://kevinj1120.github.io/",
+        ...image("sf-history"),
       },
       {
-        title: "Cookie Clicker",
-        students: ["Jinkang Fang"],
-        description: (
-          <>A cookie game about clicking cookies and getting more cookies. :)</>
-        ),
-        href: "https://jinkang-0.github.io/MB-Final/public/play.html",
-        ...image("cookie-clicker"),
+        title: "-",
+        course: "Intro to Python with Hunter",
+        students: ["Rachel Lee, Sally Hong"],
+        description: <>A fun & colorful snake game</>,
+        href: "",
+        ...image("Placeholder"),
       },
     ],
   },
   {
-    // room: "Breakout Room 7",
+    room: "Breakout Room 6",
     projects: [
       {
-        title: "Monster Lab",
-        students: ["Matthew Lau", "Mateo Jeremias-Lin"],
+        title: "Cube Rush",
+        course: "Intro to Unity Game Design with Christopher",
+        students: ["Marquis Ellis"],
         description: (
           <>
-            A game where you can roam around the map fighting zombies and
-            defeating a final boss inside a laboratory.
+            A fast-paced game that tests your skills at dodging through
+            obstacles.
           </>
         ),
-        href: "https://malau2.github.io/Monster-Lab-2/Monster%20Lab/",
-        ...image("monstor-lab"),
+        href: "https://trickyvortexyt.github.io/Cube-Rush/",
+        ...image("cube-rush"),
       },
       {
-        title: "Squid Boba",
-        students: ["Laura Trinh", "Oswen Martinez", "Allison Sam"],
-        description: (
-          <>
-            We created a website for our boba company with information about
-            what our shop offers and why it’s extra special.
-          </>
-        ),
-        href: "https://cooperative-zinc-hare.glitch.me/",
-        ...image("squid-boba"),
+        title: "Eco Find",
+        course: "Intro to Web Design with Michael",
+        students: ["Kaitlyn Wong"],
+        description: <>An online store that sells eco friendly products</>,
+        href: "https://kaitlynnwong.github.io/",
+        ...image("eco-find"),
       },
       {
-        title: "LiTong's Bubble",
-        students: ["LiTong Liu"],
-        description: (
-          <>
-            LiTong’s Bubble is a blog and portfolio website. I write
-            anime/kdrama/cdrama reviews and just random things that I want to
-            share on my blog.
-          </>
-        ),
-        href: "https://litxng.github.io/LiTongBubble/",
-        ...image("litong-bubble"),
+        title: "-",
+        course: "Intro to Python with Hunter",
+        students: ["Vincent Ruan, Jalyn McFarland"],
+        description: <>Music Player</>,
+        href: "",
+        ...image("Placeholder"),
       },
     ],
   },
   {
-    // room: "Breakout Room 8",
+    room: "Breakout Room 7",
     projects: [
       {
-        title: "Ransacked",
-        students: ["Kevin Soo", "Jordan Lewis"],
-        description: <>Save the city from zombies.</>,
-        href: "https://kesooh3r72.github.io/Ransacked/Ransacked/",
-        ...image("ransacked"),
-      },
-      {
-        title: "Know Your Rights",
-        students: ["Amanda Chang", "Curtis Chen"],
+        title: "The Haunted House",
+        course: "Intro to Unity Game Design with Christopher",
+        students: ["Keke Ning"],
         description: (
           <>
-            Want to know your rights and how you got them? This website is an
-            introduction to the Bill of Rights and the Constitution as well as
-            informing you of your rights as a protestor.
+            ou are a ghost that has been sleeping for 2000 years, and one day a
+            group of people are having a party in YOUR HOUSE. The most important
+            thing is that they disturbed your sleep, so they either get out of
+            the house or become a ghost.
           </>
         ),
-        href: "https://amchang2.github.io/demodayproject/",
-        ...image("know-your-right"),
+        href: "https://gamejolt.net/?token=cUvNP4zykmfrdxYThgwiue4JnsGbnb",
+        ...image("haunted-house"),
       },
       {
-        title: "Paulina's Online Store",
-        students: ["Klester Hernandez"],
-        description: <>We sell purses online for the best prices.</>,
-        href: "https://klester2003.github.io/Final_Project/index.html#",
-        ...image("paulina-purse"),
+        title: "CovAid",
+        course: "Intro to Web Design with Michael",
+        students: ["Katy Hu, Tyler Choi, Katy Yang"],
+        description: (
+          <>
+            A website that will help people in SF find resources to help them
+            through the pandemic.
+          </>
+        ),
+        href: "https://tylerchoi1.github.io/",
+        ...image("covaid"),
+      },
+      {
+        title: "-",
+        course: "Intro to Python with Hunter",
+        students: ["Kevin Tang, Jason Zhong"],
+        description: <>Mini Games Bot</>,
+        href: "",
+        ...image("Placeholder"),
       },
     ],
   },
   {
-    // room: "Breakout Room 9",
+    room: "Breakout Room 8",
     projects: [
       {
-        title: "Rocket Game",
-        students: ["Jack Bobadilla"],
+        title: "Boulder Game",
+        course: "Intro to Unity Game Design with Christopher",
+        students: ["Aaron Yu, Owen Huanbutta, Sedrick Wang"],
+        description: <>Run away from the boulder and get to the finish line.</>,
+        href: "https://owenhuanbutta.github.io/Boulder-Game/",
+        ...image("boulder"),
+      },
+      {
+        title: "The Real Heroes",
+        course: "Intro to Web Design with Michael",
+        students: ["Murray Bennett"],
+        description: <>Information about famous Black civil rights leaders.</>,
+        href: "https://murray88.github.io/",
+        ...image("real-heroes"),
+      },
+      {
+        title: "Text-Adventure",
+        course: "Intro to Python with Alex",
+        students: ["Andrew Li, Kingsley Lam, Jordan Lei"],
         description: (
           <>
-            You have a rocket launcher and you can use explosions to jump with
-            it.
+            Text-based-adventure, bringing awareness to socioeconomically
+            disadvantage students. Click "View Project" and click the green
+            button "Run".
+          </>
+        ),
+        href: "https://repl.it/@alexanduh/Finalproject#README.md",
+        ...image("text"),
+      },
+    ],
+  },
+  {
+    room: "Breakout Room 9",
+    projects: [
+      {
+        title: "Mask Up",
+        course: "Intro to Unity Game Design with Christopher",
+        students: ["Austin Choi, Wenna Luu"],
+        description: (
+          <>Give everyone a mask and stay safe. Go fullscreen to play.</>
+        ),
+        href: "https://luuw.github.io/Mask-Up/",
+        ...image("mask"),
+      },
+      {
+        title: "Ronnie's Corner",
+        course: "Intro to Web Desig with Michael",
+        students: ["Veronica Velasquez Macias"],
+        description: <>A online store where users can customize gifts</>,
+        href: "https://ronnies-corner.github.io/ronnies-corner.githb.io/",
+        ...image("ronnie"),
+      },
+      {
+        title: "SurveyBot",
+        course: "Intro to Python with Alex",
+        students: ["Elijah Arrington, George Brooder, Tyler Huanbutta"],
+        description: (
+          <>
+            A Bot designed to create surveys for discord, also giving positive
+            messages to create a positive environment for the users and the
+            channel.
+          </>
+        ),
+        href: "https://www.youtube.com/watch?v=Po5DGwRwXH0",
+        ...image("bot"),
+      },
+    ],
+  },
+  {
+    room: "Breakout Room 10",
+    projects: [
+      {
+        title: "Lone Survivor and Zombie Genocide",
+        course: "Intro to Unity Game Design with Christopher",
+        students: ["Carlo Dagandan, Kayden Chan, Wesley Guan"],
+        description: (
+          <>
+            A lost man stuck between the midst of a dusted area strives to
+            surivve when groups of zombies begin to approach him
           </>
         ),
         href:
-          "https://jackbobadillagaming.github.io/Rocket-game/rocket%20game/",
-        ...image("rocket-game"),
+          "https://weissss-hub.github.io/The-Lone-Survivor-and-Zombie-Genocide/",
+        ...image("lone"),
       },
       {
-        title: "COVID-19 Central",
-        students: ["Audrey Lau", "Cheryl Chen", "Jeffrey Popek"],
-        description: (
-          <>
-            Informational website about COVID-19 with resources on safety,
-            recent news updates, and donations (also available in Chinese for
-            non-English speakers).
-          </>
-        ),
-        href: " https://cherhchen.github.io/covid-central/",
-        ...image("covid-central"),
+        title: "Air Pollution Demo Day Project",
+        course: "Intro to JavaScript with Christine",
+        students: ["Nate Sirivallop, Phillip Chin, Ming Wei Huang"],
+        description: <>Project is about levels of PM2.5 in a few countries.</>,
+        href: "https://parchedwavykeyboard--nsirival1.repl.co/",
+        ...image("air-pollution"),
       },
       {
-        title: "Life: The MMO",
-        students: ["Kevin Tan"],
+        title: "Exodia",
+        course: "Intro to Python with Alex",
+        students: ["Jacky Huang, Angelo Linsleyrusso, Jonathan Tran"],
         description: (
           <>
-            Remember life the board game? Well a different creator tried to make
-            it a massively multiplayer online game.
+            A hands-on interactive experience with a "Choose Your Own Adventure"
+            game, with the aim to give an overall enjoyable experience
+            all-the-while satisfying the community values. Click "View Project"
+            and click the green button "Run".
           </>
         ),
-        href: "https://kevinn-t.github.io/Life-The-MMO/",
-        ...image("mmo"),
+        href: "https://repl.it/@alexanduh/Exodia-1#README.md",
+        ...image("exodia"),
       },
     ],
   },
   {
-    // room: "Breakout Room 10",
+    room: "Breakout Room 11",
     projects: [
       {
-        title: "Time for Golf",
-        students: ["Isabel Wong", "Ian Wong"],
+        title: "Checklist",
+        course: "Intro to Web Design with Nico",
+        students: ["Agnes Liang, Jessica Lin"],
         description: (
           <>
-            Outdoor mini golf game with fun and unique tricks. Click on the link
-            and press play.
+            A website that provides educational, food, health, etc. resources to
+            students.
           </>
         ),
-        href: "https://gamejolt.com/games/golf/520031",
-        ...image("golf"),
+        href: "https://jebbica.github.io/",
+        ...image("checklist"),
       },
       {
-        title: "Arizmendi Bakery",
-        students: ["Prathmesh Sonawane"],
+        title: "San Francisco",
+        course: "Intro to JavaScript with Christine",
+        students: ["Sophia Liang, Shania Hao, Ethan Xu"],
         description: (
           <>
-            My Demo Day project is a front-end remake of Arizmendi Bakery, a
-            local bakery's website. Using HTML and CSS, I created a more
-            stylistic website that appeals more to the user by offering better
-            UX and UI.
+            San Francisco is a great city, many people love to visit here, here
+            are some great aspects and statistics of San Francisco!
           </>
         ),
-        href: "https://prathmesh-s.github.io/Project-Bakery/index.html",
-        ...image("arizmendi-bakery"),
+        href: "https://sfproject--shaniahao.repl.co/",
+        ...image("city-sf"),
       },
       {
-        title: "Sanrio Resale",
-        students: ["Kayla Tran"],
+        title: "Lissin",
+        course: "Intro to Python with Alex",
+        students: ["Allistair Larson, Ramiro Hernandez, Ryan Yu"],
         description: (
           <>
-            Sanrio Resale and it is a website designed for users to resell
-            Sanrio merchandise. You can buy/bid on merchandise.
+            Suggests tops artist from Spotify and gives top ten songs from
+            chosen artist. Click "View Project" and click the green button
+            "Run".
           </>
         ),
-        href: "https://k4yluh.github.io/SanrioResale/shop.html",
-        ...image("sanrio"),
+        href:
+          "https://repl.it/@Ramiromp4/SpectacularDownrightTransversals#main.py",
+        ...image("lissin"),
       },
     ],
   },
   {
-    // room: "Breakout Room 11",
+    room: "Breakout Room 12",
     projects: [
       {
-        title: "Flying Game",
-        students: ["Ling Ren", "Victoria Perez-Cruz"],
-        description: (
-          <>Fly though a maze of obstacles and try not to get hit.</>
-        ),
-        href: "https://ling1729.github.io/FlyingGame/index.html",
-        ...image("flying-game"),
+        title: "Self Care",
+        course: "Intro to Web Design with Nico",
+        students: ["Angelo Ubas, Rachel Zhong"],
+        description: <>A website that exposes users self care resources.</>,
+        href: "https://raycho-030.github.io/",
+        ...image("self-care"),
       },
       {
-        title: "protests.com",
-        students: ["Victoria Oguta"],
-        description: (
-          <>
-            Create and locate local protests to be a part of something greater.
-          </>
-        ),
-        href: "https://victoriaaaaaaaaaa.github.io/demodayproj/",
-        ...image("protests"),
-      },
-      {
-        title: "Boba Me",
-        students: ["Andy Liu"],
+        title: "Mental Health 101",
+        course: "Intro to JavaScript with Christine",
+        students: ["Christine Chen, Jack C., Laywaddi Khine"],
         description: (
           <>
-            What I have here is a website that I built to describe the many boba
-            stores which I enjoy and would recommend to everyone to try out.
+            Project is about mental health awareness and how COVID has affected
+            people's mental health.
           </>
         ),
-        href: "https://andywkliu.github.io/Boba/",
-        ...image("boba"),
-      },
-    ],
-  },
-  {
-    // room: "Breakout Room 12",
-    projects: [
-      {
-        title: "Zombie Escape",
-        students: ["Tristan Popek", "Jayden Khaoone"],
-        description: <>A FPS survival game where zombies try to attack you.</>,
-        href: "https://tristanpopek.github.io/Zombie-escape/wpodsfsdfas/",
-        ...image("zombie-escape"),
-      },
-      {
-        title: "Opporteenities",
-        students: ["Karina Anders"],
-        description: (
-          <>
-            Opporteenity is a website that allows teens to discover
-            opportunities that will help them develop their passions.
-            Oppoteenities features volunteering opportunities, programs,
-            internships, and resources to learn new things.
-          </>
-        ),
-        href: "https://kmanders317.github.io/Karina-Summer-Web-Developement/",
-        ...image("oportuneety"),
+        href: "https://fall-demo-day--christine05chen.repl.co/",
+        ...image("mental-health"),
       },
     ],
   },

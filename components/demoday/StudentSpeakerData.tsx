@@ -31,13 +31,13 @@ function image(postfix: string): Pick<StudentProps, "image"> {
   const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-summer-students/${postfix}.jpg`),
+      jpg: require(`public/images/demoday/2020-fall-students/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-students/${postfix}${k}.jpg`);
+        const fn = require(`public/images/demoday/2020-fall-students/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-summer-students/${postfix}${k}.jpg?webp`);
+        const fn = require(`public/images/demoday/2020-fall-students/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -49,33 +49,63 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.web_bootcamp,
     projects: [
       {
-        title: "protests.com",
-        students: [{ name: "Victoria Oguta", ...image("victoria_oguta") }],
+        title: "Therapy Area",
+        students: [
+          { name: "Favour Odenyi", ...image("favour") },
+          { name: "Breanna Durant", ...image("breanna") },
+        ],
+        description: (
+          <>A website that matches users to different therapy options.</>
+        ),
+        href: "https://faodenyi.github.io/",
+      },
+      // {
+      //   title: "LiTong's Bubble",
+      //   students: [{ name: "LiTong Liu", ...image("litong") }],
+      //   description: (
+      //     <>
+      //       {" "}
+      //       LiTong’s Bubble is a blog and portfolio website. I write
+      //       anime/kdrama/cdrama reviews and just random things that I want to
+      //       share on my blog.
+      //     </>
+      //   ),
+      //   href: "https://litxng.github.io/LiTongBubble/",
+      // },
+      // {
+      //   title: "Paulina's Store",
+      //   students: [{ name: "Klester Hernandez", ...image("klester") }],
+      //   description: <>We sell purses online for the best prices.</>,
+      //   href: "https://klester2003.github.io/Final_Project/",
+      // },
+    ],
+  },
+  {
+    course: Courses.python_class,
+    projects: [
+      {
+        title: "Healthbot",
+        students: [
+          { name: "Caitlyn Wong", ...image("caitlyn") },
+          { name: "Zhenyu Yu", ...image("zhenyu") },
+        ],
         description: (
           <>
-            Create and locate local protests to be a part of something greater.
+            Do ever need someone to talk to or check in with? Healthbot is a
+            python created helper that checks in with you to see where you are
+            at with your mental health. It provides resources and mini surveys
+            for you to complete while you talk about your emotions! Instructions
+            on how to run the project are on the left as soon as you click "View
+            Project".
           </>
         ),
-        href: "https://victoriaaaaaaaaaa.github.io/demodayproj/",
+        href: "https://repl.it/@caitwong/finalproject#finaltest.py",
       },
       {
-        title: "LiTong's Bubble",
-        students: [{ name: "LiTong Liu", ...image("litong") }],
-        description: (
-          <>
-            {" "}
-            LiTong’s Bubble is a blog and portfolio website. I write
-            anime/kdrama/cdrama reviews and just random things that I want to
-            share on my blog.
-          </>
-        ),
-        href: "https://litxng.github.io/LiTongBubble/",
-      },
-      {
-        title: "Paulina's Store",
-        students: [{ name: "Klester Hernandez", ...image("klester") }],
-        description: <>We sell purses online for the best prices.</>,
-        href: "https://klester2003.github.io/Final_Project/",
+        title: "Python Portfolio",
+        students: [{ name: "Octavio Lomeli-Castro ", ...image("octavio") }],
+        description: <>Portfolio with multiple python applications.</>,
+        href: "https://flask-site.octaviolomeli.repl.co/",
       },
     ],
   },
@@ -83,15 +113,15 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.game_bootcamp,
     projects: [
       {
-        title: "Hungry",
-        students: [{ name: "William Tran", ...image("william") }],
+        title: "Cube Rush",
+        students: [{ name: "Marquis Ellis", ...image("marquis") }],
         description: (
           <>
-            You have to get food in the city, but healthy food is hard to come
-            by because you live in a food desert.
+            A fast-paced game that tests your skills at dodging through
+            obstacles.
           </>
         ),
-        href: "https://crazythepotato.github.io/HungryMan/",
+        href: "https://trickyvortexyt.github.io/Cube-Rush/",
       },
     ],
   },

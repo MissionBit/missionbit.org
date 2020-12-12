@@ -2,8 +2,9 @@ import { NextPage } from "next";
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
-import DemoDay from "components/demoday/DemoDay";
 import oneLine from "src/oneLine";
+import Summer20StudentProjects from "components/demoday/Summer20StudentProjects";
+import PastProjectsLanding from "components/demoday/PastProjectsLanding";
 
 const useStyles = makeStyles({
   header: {
@@ -32,7 +33,8 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
       title={title}
       description={description}
     >
-      <DemoDay />
+      <PastProjectsLanding />
+      <Summer20StudentProjects />
     </Layout>
   );
 };
