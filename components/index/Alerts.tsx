@@ -3,7 +3,7 @@ import Link from "@material-ui/core/Link";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
 import { useState } from "react";
-import { SummerDates } from "components/programs/ClassInstanceData";
+import { CourseDates } from "components/programs/ClassInstanceData";
 import { ShortDateFormat } from "src/dates";
 import { makeStyles, darken } from "@material-ui/core/styles";
 import { brand } from "src/colors";
@@ -87,11 +87,11 @@ const timedAlerts: readonly TimedAlert[] = [
     ),
   },
   {
-    hideAfter: SummerDates.registrationDeadline,
+    hideAfter: CourseDates.registrationDeadline,
     content: (
       <Link color="inherit" href="/programs" title="Sign Up!">
         Sign up for our Online Summer 2020 Courses now! Deadline{" "}
-        {ShortDateFormat.format(SummerDates.registrationDeadline)}
+        {ShortDateFormat.format(CourseDates.registrationDeadline)}
       </Link>
     ),
   },
