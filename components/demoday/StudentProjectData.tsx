@@ -278,12 +278,14 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Keke Ning"],
         description: (
           <>
-            You are a ghost that has been sleeping for 2000 years, and one day a
-            group of people are having a party in YOUR HOUSE.
+            ou are a ghost that has been sleeping for 2000 years, and one day a
+            group of people are having a party in YOUR HOUSE. The most important
+            thing is that they disturbed your sleep, so they either get out of
+            the house or become a ghost.
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://gamejolt.net/?token=cUvNP4zykmfrdxYThgwiue4JnsGbnb",
+        ...image("haunted-house"),
       },
       {
         title: "CovAid",
@@ -365,7 +367,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("ronnie"),
       },
       {
-        title: "-",
+        title: "SurveyBot",
         course: "Intro to Python with Alex",
         students: ["Elijah Arrington, George Brooder, Tyler Huanbutta"],
         description: (
@@ -375,8 +377,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             channel.
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href: "https://www.youtube.com/watch?v=Po5DGwRwXH0",
+        ...image("bot"),
       },
     ],
   },
@@ -384,7 +386,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 10",
     projects: [
       {
-        title: "Line Survivor and Zombie Genocide",
+        title: "Lone Survivor and Zombie Genocide",
         course: "Intro to Unity Game Design with Christopher",
         students: ["Carlo Dagandan, Kayden Chan, Wesley Guan"],
         description: (
@@ -393,8 +395,9 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             surivve when groups of zombies begin to approach him
           </>
         ),
-        href: "",
-        ...image("Placeholder"),
+        href:
+          "https://weissss-hub.github.io/The-Lone-Survivor-and-Zombie-Genocide/",
+        ...image("lone"),
       },
       {
         title: "Air Pollution Demo Day Project",

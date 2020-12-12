@@ -86,8 +86,8 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "Healthbot",
         students: [
-          { name: "Caitlyn Wong", ...image("favour") },
-          { name: "Zhenyu Yu", ...image("favour") },
+          { name: "Caitlyn Wong", ...image("caitlyn") },
+          { name: "Zhenyu Yu", ...image("zhenyu") },
         ],
         description: (
           <>
@@ -103,7 +103,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       },
       {
         title: "Python Portfolio",
-        students: [{ name: "Octavio Lomeli-Castro ", ...image("favour") }],
+        students: [{ name: "Octavio Lomeli-Castro ", ...image("octavio") }],
         description: <>Portfolio with multiple python applications.</>,
         href: "https://flask-site.octaviolomeli.repl.co/",
       },
@@ -114,7 +114,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     projects: [
       {
         title: "Cube Rush",
-        students: [{ name: "Marquis Ellis", ...image("favour") }],
+        students: [{ name: "Marquis Ellis", ...image("marquis") }],
         description: (
           <>
             A fast-paced game that tests your skills at dodging through
