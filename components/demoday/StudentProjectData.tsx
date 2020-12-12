@@ -226,12 +226,12 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("sf-history"),
       },
       {
-        title: "-",
+        title: "Rainbow Snake",
         course: "Intro to Python with Hunter",
         students: ["Rachel Lee, Sally Hong"],
         description: <>A fun & colorful snake game</>,
-        href: "",
-        ...image("Placeholder"),
+        href: "https://repl.it/@YewonLee1/Snakegame#main.py",
+        ...image("py-game"),
       },
     ],
   },
@@ -278,7 +278,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Keke Ning"],
         description: (
           <>
-            ou are a ghost that has been sleeping for 2000 years, and one day a
+            You are a ghost that has been sleeping for 2000 years, and one day a
             group of people are having a party in YOUR HOUSE. The most important
             thing is that they disturbed your sleep, so they either get out of
             the house or become a ghost. Click the link and press "Play".
@@ -392,7 +392,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>
             A lost man stuck between the midst of a dusted area strives to
-            surivve when groups of zombies begin to approach him
+            survive when groups of zombies begin to approach him.
           </>
         ),
         href:
