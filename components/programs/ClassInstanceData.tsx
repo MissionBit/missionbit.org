@@ -688,9 +688,9 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   // ),
   springClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
   springClass(Courses.python_class, Campuses.online, "TH", "tfa_2013"),
-  springClass(Courses.game_class, Campuses.online, "MW", "tfa_2013"),
+  springClass(Courses.game_class, Campuses.online, "TH", "tfa_2013"),
   springClass(Courses.web_class, Campuses.online, "TH", "tfa_2013"),
-  springClass(Courses.javascript_class, Campuses.online, "TH", "tfa_2013"),
+  springClass(Courses.javascript_class, Campuses.online, "MW", "tfa_2013"),
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
