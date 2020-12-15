@@ -674,7 +674,7 @@ function SDRClass(
     startDate: "February 8th",
     endDate: "May (Date TBD)",
     buttonText: "Apply",
-    signupUrl: `https://www.tfaforms.com/4843869?tfa_2013=${formAssemblyId}`,
+    signupUrl: `https://www.tfaforms.com/4870903?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -694,7 +694,7 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
-  SDRClass(Courses.sdr_class, Campuses.online, "tfa_1"),
+  SDRClass(Courses.sdr_class, Campuses.online, "tfa_2236"),
 ];
 
 function workshop({
