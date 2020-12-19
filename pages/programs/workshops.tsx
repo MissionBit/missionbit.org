@@ -7,6 +7,7 @@ import FaqWorkshops from "components/programs/FaqWorkshops";
 import CommunityWorkshops from "components/programs/CommunityWorkshops";
 import Showcase from "components/Showcase";
 import Supporters from "components/Supporters";
+import FlourishSeparator from "components/programs/FlourishSeparator";
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
@@ -15,7 +16,8 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
     description="Mission Bit offers a number of free coding courses for area high schoolers including online workshops, summer bootcamps, and programming classes."
   >
     <LandingWorkshops />
-    <Programs sections={["week-of-code", "workshops"]} />
+    <Programs sections={["workshops"]} />
+    <FlourishSeparator />
     <FaqWorkshops />
     <CommunityWorkshops />
     <Showcase />

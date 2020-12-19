@@ -743,11 +743,25 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.networking_workshop,
-    dateString: "2020-11-30T15:00:00-08:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4863341",
-    who: "16 - 24 year olds",
+    course: Courses.intro_javascript,
+    dateString: "2021-01-13T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4874283",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.design_business_workshop,
+    dateString: "2021-01-19T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4874284",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.python_workshop,
+    dateString: "2021-01-25T17:30:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4874286",
+    who: "7th - 12th graders",
   }),
 
   // workshop({

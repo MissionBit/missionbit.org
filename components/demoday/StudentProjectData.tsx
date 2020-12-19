@@ -98,7 +98,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("diverting-route"),
       },
       {
-        title: "Lights Off",
+        title: "Lights Off!",
         students: ["Christine Shen, Dylan Wong"],
         course: "Intro to Web Design with Nico",
         description: (
