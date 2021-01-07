@@ -329,9 +329,9 @@ export const Courses = courseRecord({
     image: sdrImage,
     description: (
       <>
-        Join us this fall for the launch of our new program. Break into the tech
-        industry in an entry level Sales Development Representative position
-        earning $60,000 in just 3 months! Learn the skills you need to succeed.
+        Join us for our Tech Sales Bootcamp. Break into the tech industry in an
+        entry level Sales Development Representative position earning $60,000 in
+        just 3 months! Learn the skills you need to succeed.
       </>
     ),
   },
