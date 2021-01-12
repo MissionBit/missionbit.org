@@ -12,7 +12,8 @@ type TeamTitle =
   | "Director of Curriculum"
   | "Director of Programs"
   | "Program Coordinator"
-  | "Videographer";
+  | "Videographer"
+  | "Curriculum Assistant";
 
 type School =
   | "Lowell High School"
@@ -105,6 +106,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     name: "David Topete",
     title: "Videographer",
     ...image("core/david_topete.jpg"),
+  },
+  {
+    name: "Cody Rowland",
+    title: "Curriculum Assistant",
+    ...image("core/cody.jpg"),
   },
 ];
 
@@ -295,6 +301,11 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     name: "Jill McNay",
     title: "Marketing Professional",
     ...image("board/jill_mcnay.jpg"),
+  },
+  {
+    name: "Abel Regalado",
+    title: "Mission Bit Alum & Software Engineer, Chan Zuckerberg Initiative",
+    ...image("board/abel_regalado.jpg"),
   },
   {
     name: "Michael Walker",
