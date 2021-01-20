@@ -22,10 +22,11 @@ interface JobOpening {
 }
 
 const JobOpenings: JobOpening[] = [
-  // {
-  //   href: "/images/jobs/JavascriptInstructor.pdf",
-  //   title: "Lead Javascript Instructor",
-  // },
+  {
+    href:
+      "https://www.indeed.com/cmp/Mission-Bit-2/jobs?jk=beeff7335a751a00&start=0&clearPrefilter=1",
+    title: "Program Coordinator",
+  },
   // {
   //   href: "/images/jobs/WebDesignInstructor.pdf",
   //   title: "Lead Web Design Instructor",
