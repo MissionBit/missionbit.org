@@ -109,6 +109,11 @@ const SupporterData: SupporterDataProps[] = [
     title: "Related Affordable Foundation",
     href: "https://www.related.com/residential/affordable-housing",
   },
+  {
+    logo: png("gratitude"),
+    title: "The Gratitude Network",
+    href: "http://gratitude-network.org/",
+  },
 ];
 
 export default SupporterData;
