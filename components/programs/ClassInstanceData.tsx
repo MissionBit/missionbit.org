@@ -152,6 +152,11 @@ const magic8BallImage = {
   alt: "Image of hands on a keyboard with a green background",
 };
 
+const deepDreamImage = {
+  src: require("public/images/program/deep-dream.jpg"),
+  alt: "Image of a Black woman overlayed with a colorful print.",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
@@ -559,6 +564,24 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  deep_dream: {
+    title: "Computer Vision + JavaScript",
+    skills: ["JavaScript"],
+    image: deepDreamImage,
+    description: (
+      <>
+        In this hands-on workshop, we’ll combine technology and computer vision
+        to create and code our own artwork. We’ll begin with a quick intro to
+        Processing (JavaScript) and Deep Dream, plan our ideas together, then
+        spend time creating our projects and experimenting with code. We’ll end
+        by sharing ideas and questions and resources to continue learning. Photo
+        credit to Nettrice Gaskins.
+        <br></br>
+        <br></br>
+        Taught by Mission Bit Student Ambassadors.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -743,35 +766,34 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.intro_javascript,
-    dateString: "2021-01-13T15:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4874283",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.design_business_workshop,
-    dateString: "2021-01-19T15:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4874284",
-    who: "7th - 12th graders",
-  }),
-  workshop({
     course: Courses.python_workshop,
     dateString: "2021-01-25T17:30:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4874286",
     who: "7th - 12th graders",
   }),
-
-  // workshop({
-  //   course: Courses.careerprep_resume_workshop,
-  //   dateString: "2020-05-21T15:30:00-07:00",
-  //   minutes: 120,
-  //   signupUrl: "https://www.tfaforms.com/4824976",
-  //   who: "16 - 24 year olds",
-  //   buttonExtra: <>Only 10 spots available!</>,
-  // }),
+  workshop({
+    course: Courses.deep_dream,
+    dateString: "2021-02-01T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4879388",
+    who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
+  }),
+  workshop({
+    course: Courses.python_workshop,
+    dateString: "2021-02-10T17:30:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4879391",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.careerprep_resume_workshop,
+    dateString: "2021-02-23T15:00:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4879392",
+    who: "16 - 24 year olds",
+  }),
   // workshop({
   //   course: Courses.beginner_unity_workshop,
   //   dateString: "2020-05-06T15:30:00-07:00",
