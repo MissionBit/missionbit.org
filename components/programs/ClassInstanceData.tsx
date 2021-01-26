@@ -789,7 +789,7 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   }),
   workshop({
     course: Courses.careerprep_resume_workshop,
-    dateString: "2021-02-23T15:00:00-07:00",
+    dateString: "2021-02-23T15:00:00-08:00",
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4879392",
     who: "16 - 24 year olds",
