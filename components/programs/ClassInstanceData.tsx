@@ -627,7 +627,7 @@ export const FallDates: ClassDates = {
 // };
 
 export const SDRDates: BaseClassDates = {
-  registrationDeadline: Date.parse("2021-01-31T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-02-04T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
