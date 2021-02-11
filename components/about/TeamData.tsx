@@ -22,6 +22,7 @@ type School =
   | "Washington High School"
   | "Galileo High School"
   | "Gateway High School"
+  | "Mission High School"
   | "Burton High School";
 
 type StudentInfo = React.ReactNode;
@@ -87,21 +88,21 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
       </>
     ),
   },
-  {
-    name: "Genevieve Mossey",
-    title: "Program Coordinator",
-    ...image("core/genevieve_mossey.jpg"),
-    bio: (
-      <>
-        Genevieve Mossey has a Bachelor’s degree in Psychology from San
-        Francisco State University, where she focused on Cognition, Equity, and
-        Social Justice. She was born and raised in Salinas, CA and has over 5
-        years of experience working with youth of all ages in the Bay Area and
-        Salinas Valley. In her free time she enjoys being in nature, spending
-        time with her dog, and finding ways to be creative.
-      </>
-    ),
-  },
+  // {
+  //   name: "Genevieve Mossey",
+  //   title: "Program Coordinator",
+  //   ...image("core/genevieve_mossey.jpg"),
+  //   bio: (
+  //     <>
+  //       Genevieve Mossey has a Bachelor’s degree in Psychology from San
+  //       Francisco State University, where she focused on Cognition, Equity, and
+  //       Social Justice. She was born and raised in Salinas, CA and has over 5
+  //       years of experience working with youth of all ages in the Bay Area and
+  //       Salinas Valley. In her free time she enjoys being in nature, spending
+  //       time with her dog, and finding ways to be creative.
+  //     </>
+  //   ),
+  // },
   {
     name: "David Topete",
     title: "Videographer",
@@ -116,44 +117,29 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
-    name: "Alexander Peng",
+    name: "Cameron Deputy",
     title: "Lead Instructor",
-    ...image("2020-spring-sab/alexander_peng.jpg"),
-  },
-  {
-    name: "Christine Luo",
-    title: "Lead Instructor",
-    ...image("love.jpg"),
-  },
-  {
-    name: "Christopher Louie",
-    title: "Lead Instructor",
-    ...image("2020-summer/christopher_louie.jpg"),
+    ...image("instructors/cameron-deputy.jpg"),
   },
   {
     name: "Hunter Rocha",
     title: "Lead Instructor",
-    ...image("2020-summer/hunter_rocha.jpg"),
-  },
-  {
-    name: "Imani Dawson",
-    title: "Lead Instructor",
-    ...image("2020-summer/imani_dawson.jpg"),
+    ...image("instructors/hunter_rocha.jpg"),
   },
   {
     name: "Irvin Guerra",
     title: "Workforce Development Instructor",
-    ...image("irvin.jpg"),
+    ...image("instructors/irvin.jpg"),
   },
   {
-    name: "Nico Magaña",
+    name: "Kevin Beltran",
     title: "Lead Instructor",
-    ...image("2020-spring/nico_magana.jpg"),
+    ...image("instructors/kevin-beltran.jpg"),
   },
   {
-    name: "Stephen Yu",
+    name: "Shay Yano",
     title: "Lead Instructor",
-    ...image("2020-summer/stephen_yu.jpg"),
+    ...image("instructors/shay-yano.jpg"),
   },
 ];
 
@@ -170,42 +156,47 @@ function sabTitle(year: number, school: School): React.ReactNode {
 const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
   {
     name: "Alyssa Wu",
-    ...image("2020-spring-sab/alyssa_wu.jpg"),
+    ...image("sab/alyssa_wu.jpg"),
     title: sabTitle(2022, "Lowell High School"),
   },
   {
     name: "Carmen Li",
-    ...image("2020-fall-sab/carmen-li.jpg"),
+    ...image("sab/carmen-li.jpg"),
     title: sabTitle(2022, "Galileo High School"),
   },
   {
+    name: "Favour Odenyi",
+    ...image("sab/favour-odenyi.jpg"),
+    title: sabTitle(2023, "Mission High School"),
+  },
+  {
     name: "Johnny Lin",
-    ...image("2020-spring-sab/johnny_lin.jpg"),
+    ...image("sab/johnny_lin.jpg"),
     title: sabTitle(2022, "Washington High School"),
   },
   {
     name: "Karina Anders",
-    ...image("2021-sab/karina-anders.jpg"),
+    ...image("sab/karina-anders.jpg"),
     title: sabTitle(2023, "Lowell High School"),
   },
   {
     name: "Lilian Emelife",
-    ...image("2020-fall-sab/lilian.jpg"),
+    ...image("sab/lilian-emelife.jpg"),
     title: sabTitle(2022, "Burton High School"),
   },
   {
     name: "Natalie Yingyan Huang",
-    ...image("2020-fall-sab/natalie.jpg"),
+    ...image("sab/natalie.jpg"),
     title: sabTitle(2021, "Washington High School"),
   },
   {
     name: "Tara Tiong",
-    ...image("2020-spring-sab/tara_tiong.jpg"),
+    ...image("sab/tara-tiong.jpg"),
     title: sabTitle(2023, "Lowell High School"),
   },
   {
     name: "Trent Taylor III",
-    ...image("2020-spring-sab/trent_taylor_iii.jpg"),
+    ...image("sab/trent-taylor.jpg"),
     title: sabTitle(2022, "Skyline High School"),
   },
 ];
@@ -215,7 +206,7 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     ...CEO,
     title: (
       <>
-        <em>{CEO.title}</em>
+        <em>Board President</em>
         <br />
         Mission Bit
       </>
@@ -306,6 +297,11 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     name: "Abel Regalado",
     title: "Mission Bit Alum & Software Engineer, Chan Zuckerberg Initiative",
     ...image("board/abel_regalado.jpg"),
+  },
+  {
+    name: "Allison Scott, PhD",
+    title: "CEO at Kapor Foundation",
+    ...image("board/allison-scott.jpg"),
   },
   {
     name: "Michael Walker",
