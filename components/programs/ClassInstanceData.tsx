@@ -157,6 +157,12 @@ const deepDreamImage = {
   alt: "Image of a Black woman overlayed with a colorful print.",
 };
 
+const BLMImage = {
+  src: require("public/images/program/blm.jpg"),
+  alt:
+    "Image of a window with the words Black History Month in partnership with Mission Bit.",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
@@ -582,6 +588,21 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  blm: {
+    title:
+      "A Window Into the Future: Celebrate Black History Month with Mission Bit",
+    skills: ["Scratch"],
+    image: BLMImage,
+    description: (
+      <>
+        Let's travel together from the past to the future in our Hack Your
+        Window Coding Workshop. Did you know that only 2% of Silicon Valley tech
+        workers are Black/African American? In this workshop, we'll explore how
+        America's past has led to this disparity and how we can look ahead to a
+        brighter future together.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -793,6 +814,13 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4879392",
     who: "16 - 24 year olds",
+  }),
+  workshop({
+    course: Courses.blm,
+    dateString: "2021-02-24T15:00:00-08:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4883179",
+    who: "14 - 24 year olds",
   }),
   // workshop({
   //   course: Courses.beginner_unity_workshop,
