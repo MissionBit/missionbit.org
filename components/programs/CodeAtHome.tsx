@@ -30,9 +30,13 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 1.5,
     [theme.breakpoints.between("xs", "sm")]: {
       fontSize: theme.typography.h4.fontSize,
+      textAlign: "center",
+      marginTop: theme.spacing(2),
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: theme.typography.h5.fontSize,
+      textAlign: "center",
+      marginTop: theme.spacing(2),
     },
   },
   copy: {
@@ -77,9 +81,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     paddingRight: theme.spacing(4),
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
   },
   image: {
     width: "33vw",
