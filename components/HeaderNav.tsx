@@ -65,6 +65,10 @@ const commonNav: readonly MainNavMenuChoice[] = [
         text: "Career Prep",
         href: "/programs/career-prep",
       },
+      {
+        text: "Code at Home",
+        href: "/programs/code-at-home",
+      },
     ],
   },
   { text: "Events", href: "/events" },
