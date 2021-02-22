@@ -45,7 +45,7 @@ const Faq: React.FC<{}> = () => {
       <Typography variant="h4">Frequently Asked Questions</Typography>
       <FaqItem question="What is Mission Bit’s focused enrollment model?">
         Computer science has the potential to empower students and have a
-        positive impact in our communities. Higher enrollment priority wil be
+        positive impact in our communities. Higher enrollment priority will be
         given to applicants who have been historically underrepresented in CS,
         including (but not limited to) those that identify as Black, Latinx,
         Native American, Pacific Islander, women, English language learners,

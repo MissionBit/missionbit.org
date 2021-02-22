@@ -161,8 +161,8 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
                 identify as Black, Latinx, Pacific Islander, and female
               </li>
               <li>
-                Students attending high school site with limited to no computer
-                offerings
+                Students attending a high school site with limited to no
+                computer science offerings
               </li>
             </ul>
           </div>
