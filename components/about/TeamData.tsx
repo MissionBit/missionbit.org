@@ -88,21 +88,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
       </>
     ),
   },
-  // {
-  //   name: "Genevieve Mossey",
-  //   title: "Program Coordinator",
-  //   ...image("core/genevieve_mossey.jpg"),
-  //   bio: (
-  //     <>
-  //       Genevieve Mossey has a Bachelor’s degree in Psychology from San
-  //       Francisco State University, where she focused on Cognition, Equity, and
-  //       Social Justice. She was born and raised in Salinas, CA and has over 5
-  //       years of experience working with youth of all ages in the Bay Area and
-  //       Salinas Valley. In her free time she enjoys being in nature, spending
-  //       time with her dog, and finding ways to be creative.
-  //     </>
-  //   ),
-  // },
+  {
+    name: "Adam Badi",
+    title: "Program Coordinator",
+    ...image("core/adam-badi.jpg"),
+  },
   {
     name: "David Topete",
     title: "Videographer",
@@ -282,11 +272,6 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     name: "Bob Ippolito",
     title: "Entrepreneur, Maker of Things",
     ...image("board/bob_ippolito.jpg"),
-  },
-  {
-    name: "Abhay Kumar",
-    title: "Chief Product Officer, Helium Systems",
-    ...image("board/abhay_kumar.jpg"),
   },
   {
     name: "Saskia Leggett",
