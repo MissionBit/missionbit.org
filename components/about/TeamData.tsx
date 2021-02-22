@@ -23,7 +23,8 @@ type School =
   | "Galileo High School"
   | "Gateway High School"
   | "Mission High School"
-  | "Burton High School";
+  | "Burton High School"
+  | "San Francisco University High";
 
 type StudentInfo = React.ReactNode;
 
@@ -183,6 +184,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Natalie Yingyan Huang",
     ...image("sab/natalie.jpg"),
     title: sabTitle(2021, "Washington High School"),
+  },
+  {
+    name: "Oswen Martinez",
+    ...image("sab/oswen-martinez.jpg"),
+    title: sabTitle(2022, "San Francisco University High"),
   },
   {
     name: "Tara Tiong",
