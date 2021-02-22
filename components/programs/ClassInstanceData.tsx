@@ -786,21 +786,21 @@ function workshop({
 }
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
-//  workshop({
-//     course: Courses.python_workshop,
-//     dateString: "2021-01-25T17:30:00-08:00",
-//     minutes: 90,
-//     signupUrl: "https://www.tfaforms.com/4874286",
-//     who: "7th - 12th graders",
-//   }),
-//   workshop({
-//     course: Courses.deep_dream,
-//     dateString: "2021-02-01T15:00:00-08:00",
-//     minutes: 90,
-//     signupUrl: "https://www.tfaforms.com/4879388",
-//     who: "7th - 12th graders",
-//     buttonExtra: <>New workshop!</>,
-//   }),
+  //  workshop({
+  //     course: Courses.python_workshop,
+  //     dateString: "2021-01-25T17:30:00-08:00",
+  //     minutes: 90,
+  //     signupUrl: "https://www.tfaforms.com/4874286",
+  //     who: "7th - 12th graders",
+  //   }),
+  //   workshop({
+  //     course: Courses.deep_dream,
+  //     dateString: "2021-02-01T15:00:00-08:00",
+  //     minutes: 90,
+  //     signupUrl: "https://www.tfaforms.com/4879388",
+  //     who: "7th - 12th graders",
+  //     buttonExtra: <>New workshop!</>,
+  //   }),
   // workshop({
   //   course: Courses.python_workshop,
   //   dateString: "2021-02-10T17:30:00-08:00",
