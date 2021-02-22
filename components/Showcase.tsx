@@ -76,7 +76,7 @@ const Showcase: React.FC<{}> = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Check out Summer 2020 Demo Day Projects
+          Check out previous Demo Day Projects
         </Button>
       </Typography>
 
