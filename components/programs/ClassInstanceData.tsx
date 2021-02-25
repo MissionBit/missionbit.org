@@ -801,13 +801,13 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   //     who: "7th - 12th graders",
   //     buttonExtra: <>New workshop!</>,
   //   }),
-  // workshop({
-  //   course: Courses.python_workshop,
-  //   dateString: "2021-02-10T17:30:00-08:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4879391",
-  //   who: "7th - 12th graders",
-  // }),
+  workshop({
+    course: Courses.p5js_workshop,
+    dateString: "2021-03-04T16:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4887060",
+    who: "7th - 12th graders",
+  }),
   workshop({
     course: Courses.careerprep_resume_workshop,
     dateString: "2021-02-23T15:00:00-08:00",
