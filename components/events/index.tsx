@@ -391,6 +391,74 @@ const FeaturedEvents: FeaturedEvent[] = [
       ],
     },
   },
+  {
+    id: "women",
+    date: Date.parse("2021-03-24T17:00:00-07:00"),
+    href: "https://www.tfaforms.com/4888698",
+    linkTitle: "Register",
+    title: "Sisterhood of Code: Women in Tech Mentorship Event",
+    description: (
+      <>
+        5-6:30pm
+        <br></br>
+        <br></br>
+        Mission Bit is collaborating with Women Who Code to host an awesome
+        mentoring event. Students will get the chance to talk to women in the
+        industry, learn about their journeys in tech, and form professional
+        connections! Open to non-binary and women-identifying youth.
+      </>
+    ),
+    topRightImage: {
+      desc: "Career panel with 3 people's face around it",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/womens-event/women2.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/womens-event/women2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/womens-event/women2.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/womens-event/women2@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Latinx Heritage Month",
+      width: 600,
+      height: 401,
+      webp: [
+        {
+          src: require("public/images/events/womens-event/women1.jpg?webp"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/womens-event/women1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/womens-event/women1.jpg"),
+          width: 600,
+        },
+        {
+          src: require("public/images/events/womens-event/women1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
 ].sort((a, b) => a.date - b.date);
 
 const PastEvents: React.ComponentProps<typeof YouTubePreview>[] = [
