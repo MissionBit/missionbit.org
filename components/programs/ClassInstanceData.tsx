@@ -30,6 +30,7 @@ export const CourseSkills = [
   "Social Media",
   "Web Design",
   "Wix",
+  "Job Hunting",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -588,6 +589,19 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  job_hunt: {
+    title: "The Job Hunt Workshop",
+    skills: ["Job Hunting", "Career Preparation"],
+    image: interviewingImage,
+    description: (
+      <>
+        This workshop is for youth who are looking to apply for a job! This
+        workshop will cover job searching techniques that students will be able
+        to take with them into adulthood.
+        <br></br>
+      </>
+    ),
+  },
   blm: {
     title:
       "A Window Into the Future: Celebrate Black History Month with Mission Bit",
@@ -786,42 +800,6 @@ function workshop({
 }
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
-  //  workshop({
-  //     course: Courses.python_workshop,
-  //     dateString: "2021-01-25T17:30:00-08:00",
-  //     minutes: 90,
-  //     signupUrl: "https://www.tfaforms.com/4874286",
-  //     who: "7th - 12th graders",
-  //   }),
-  //   workshop({
-  //     course: Courses.deep_dream,
-  //     dateString: "2021-02-01T15:00:00-08:00",
-  //     minutes: 90,
-  //     signupUrl: "https://www.tfaforms.com/4879388",
-  //     who: "7th - 12th graders",
-  //     buttonExtra: <>New workshop!</>,
-  //   }),
-  workshop({
-    course: Courses.p5js_workshop,
-    dateString: "2021-03-04T16:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4887060",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.video_sensing_workshop,
-    dateString: "2021-03-16T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4887340",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.design_business_workshop,
-    dateString: "2021-03-22T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4887067",
-    who: "7th - 12th graders",
-  }),
   workshop({
     course: Courses.cover_letter_workshop,
     dateString: "2021-03-31T15:00:00-07:00",
@@ -829,18 +807,27 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
     signupUrl: " https://www.tfaforms.com/4887087",
     who: "14 - 24 year olds",
   }),
-  // workshop({
-  //   course: Courses.beginner_unity_workshop,
-  //   dateString: "2020-05-06T15:30:00-07:00",
-  //   minutes: 90,
-  //   signupUrl: "https://www.tfaforms.com/4821878",
-  //   extra: (
-  //     <>
-  //       Join us early from <strong>3pm - 3:30pm</strong> for a prepping session
-  //       (includes help with downloading Unity and the game kit).
-  //     </>
-  //   ),
-  // }),
+  workshop({
+    course: Courses.p5js_workshop,
+    dateString: "2021-04-15T14:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4892574",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.deep_dream,
+    dateString: "2021-04-22T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4892553",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.job_hunt,
+    dateString: "2021-04-28T14:00:00-08:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4892571",
+    who: "14 - 24 year olds",
+  }),
 ];
 
 export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
