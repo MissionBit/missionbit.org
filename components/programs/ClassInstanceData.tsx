@@ -30,6 +30,7 @@ export const CourseSkills = [
   "Social Media",
   "Web Design",
   "Wix",
+  "Job Hunting",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
