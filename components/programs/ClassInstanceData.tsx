@@ -809,24 +809,24 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   }),
   workshop({
     course: Courses.p5js_workshop,
-    dateString: "2021-04-15T16:00:00-08:00",
+    dateString: "2021-04-15T14:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4892574",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.deep_dream,
-    dateString: "2021-04-22T16:00:00-08:00",
+    dateString: "2021-04-22T15:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4892553",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.job_hunt,
-    dateString: "2021-04-28T16:00:00-08:00",
+    dateString: "2021-04-28T14:00:00-08:00",
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4892571",
-    who: "7th - 12th graders",
+    who: "14 - 24 year olds",
   }),
 ];
 
