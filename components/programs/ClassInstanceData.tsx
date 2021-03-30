@@ -619,7 +619,11 @@ export const Courses = courseRecord({
       <>
         In this workshop you will learn how to use Spark AR, an augmented
         reality platform on Mac and Windows that allows you to create fun
-        filters for Facebook and Instagram. Beginners welcome!
+        filters for Facebook and Instagram. Beginners welcome! Photo credit to{" "}
+        <a href="https://zerogravitymarketing.com/spark-ar-filters/">
+          {" "}
+          ZeroGravity.
+        </a>
         <br></br>
       </>
     ),
