@@ -3,7 +3,7 @@ import * as React from "react";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import LandingCodeAtHome from "components/programs/LandingCodeAtHome";
 import FlourishSeparator from "components/programs/FlourishSeparator";
-import CodeAtHome from "components/programs/CodeAtHome";
+import CodeAtHomeActivities from "components/programs/CodeAtHomeActivities";
 
 const Page: NextPage<LayoutStaticProps> = (props) => (
   <Layout
@@ -13,8 +13,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
   >
     <LandingCodeAtHome />
     <FlourishSeparator />
-    <CodeAtHome />
-    <FlourishSeparator />
+    <CodeAtHomeActivities />
   </Layout>
 );
 
