@@ -31,6 +31,7 @@ export const CourseSkills = [
   "Web Design",
   "Wix",
   "Job Hunting",
+  "Spark AR",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -115,6 +116,14 @@ const videoSensingImage = {
 const interviewingImage = {
   src: require("public/images/program/interviewing.svg"),
   alt: "Two people at a table",
+};
+
+const arImage = {
+  src: require("public/images/program/ar-image.jpg"),
+  alt:
+    "device with front facing camera showing person with filter." +
+    "Illustrated example of an augmented reality filter - Retrive" +
+    "from Zero Gravity Marketing",
 };
 
 const p5jsImage = {
@@ -602,6 +611,19 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  spark_AR: {
+    title: "Spark AR",
+    skills: ["Spark AR"],
+    image: arImage,
+    description: (
+      <>
+        In this workshop you will learn how to use Spark AR, an augmented
+        reality platform on Mac and Windows that allows you to create fun
+        filters for Facebook and Instagram. Beginners welcome!
+        <br></br>
+      </>
+    ),
+  },
   blm: {
     title:
       "A Window Into the Future: Celebrate Black History Month with Mission Bit",
@@ -806,6 +828,13 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
     minutes: 120,
     signupUrl: " https://www.tfaforms.com/4887087",
     who: "14 - 24 year olds",
+  }),
+  workshop({
+    course: Courses.spark_AR,
+    dateString: "2021-04-14T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4894737",
+    who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.p5js_workshop,
