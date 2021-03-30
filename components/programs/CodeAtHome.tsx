@@ -108,10 +108,10 @@ const CodeAtHome: React.FC<{}> = () => {
         <Typography className={classes.copy} component="h1">
           In this activity, we will learn how to create a Random Quote Generator
           app with HTML, CSS, and JavaScript. In honor of Black History Month
-          which is this month (& every month!) we will use Martin Luther King
-          Jr.'s most notable quotes as we work on this project. If you wish to
-          use different characters or themes, feel free to add in your own
-          images and backgrounds and personalize it!
+          which is during the month of February (& every month!) we will use
+          Martin Luther King Jr.'s most notable quotes as we work on this
+          project. If you wish to use different characters or themes, feel free
+          to add in your own images and backgrounds and personalize it!
         </Typography>
         <OrangeButton
           variant="contained"
