@@ -61,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "button",
     fontSize: theme.typography.pxToRem(22),
     width: "12.5rem",
+    height: "4rem",
     padding: theme.spacing(1),
     [theme.breakpoints.up("sm")]: {
       "&:nth-child(n + 2)": {

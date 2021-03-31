@@ -21,8 +21,8 @@ export interface TitleProps {
 }
 
 const PHOTO_SIZES = {
-  "": { width: 600, height: 600 },
-  "@0.5x": { width: 300, height: 300 },
+  "": { width: 500, height: 500 },
+  "@0.5x": { width: 250, height: 250 },
 } as const;
 
 function image(postfix: string): Pick<TitleProps, "image"> {
@@ -46,21 +46,19 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
   {
     projects: [
       {
-        title: "Building a Social Cause Support Website",
-        pictures: [
-          { title: "Building a Social Cause Support Website", ...image("mlk") },
-        ],
+        title: "Small Business' Website",
+        pictures: [{ title: "Local Restaurant Website", ...image("business") }],
         description: (
           <>
             In this lesson, you will learn the basics of building a simple
-            website for people to learn more about a social good cause you're
-            passionate about! Use this to show family and friends how they can
-            support. In this example, we will be building a website to show off
-            small businesses that we should be supporting!
+            website for people to learn more about the local shops that are
+            around you! Use this to show family and friends to let them know how
+            they can support. In this example, we will be building a website to
+            feature small businesses!
           </>
         ),
         href:
-          "https://drive.google.com/file/d/17cDxUu_D7dKPTGRRcpYdnObBQDw56pPe/view?usp=sharing",
+          "https://drive.google.com/file/d/1bt1KPjCCu3N4pQ6bhQQEXfUWBIkuEyKs/view?usp=sharing",
       },
     ],
   },
