@@ -345,14 +345,14 @@ export const Courses = courseRecord({
     ),
   },
   sdr_class: {
-    title: "12-Week Tech Sales Bootcamp",
+    title: "10-Week Tech Sales Bootcamp",
     skills: ["Career Preparation", "Tech Sales"],
     image: sdrImage,
     description: (
       <>
         Join us for our Tech Sales Bootcamp. Break into the tech industry in an
         entry level Sales Development Representative position earning $60,000 in
-        just 3 months! Learn the skills you need to succeed.
+        less than 3 months! Learn the skills you need to succeed.
       </>
     ),
   },
