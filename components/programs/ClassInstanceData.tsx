@@ -688,7 +688,7 @@ export const FallDates: ClassDates = {
 // };
 
 export const SDRDates: BaseClassDates = {
-  registrationDeadline: Date.parse("2021-02-04T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-05-16T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
@@ -755,8 +755,8 @@ function SDRClass(
         </Box>
       </>
     ),
-    startDate: "February 8th",
-    endDate: "May (Date TBD)",
+    startDate: "June 8th",
+    endDate: "August 12th",
     buttonText: "Apply",
     signupUrl: `https://www.tfaforms.com/4870984?tfa_2013=${formAssemblyId}`,
   };
