@@ -10,7 +10,7 @@ import Landing from "./Landing";
 // import SummerTalkSeries from "./SummerTalkSeries";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Featured, { FeaturedEvent } from "./Featured";
-import { FallDates } from "components/programs/ClassInstanceData";
+import { CourseDates } from "components/programs/ClassInstanceData";
 import Box from "@material-ui/core/Box";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
@@ -135,15 +135,14 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: FallDates.demoDay,
-    href:
-      "https://www.eventbrite.com/e/mission-bit-presents-fall-2020-demo-day-tickets-123413698695",
+    date: CourseDates.demoDay,
+    href: "https://www.eventbrite.com/e/148799458185",
     linkTitle: "Register",
-    title: "Fall Demo Day",
+    title: "Spring Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Fall 2020
-        Demo Day, a culminating showcase where our students display their
+        Join us in celebrating our incredibly talented students at our Spring
+        2021 Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
     ),
