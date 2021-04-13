@@ -92,7 +92,7 @@ function sectionIdTitle(id: SectionId): string {
     case "week-of-code":
       return "Mission Bit Week of Code, December 14 - 18";
     case "courses":
-      return "Spring 2021 Classes";
+      return "Summer 2021 Classes";
     case "career-prep":
       return "Career Prep Bootcamp";
   }
