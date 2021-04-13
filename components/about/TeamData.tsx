@@ -90,19 +90,6 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     ),
   },
   {
-    name: "Adam Badi",
-    title: "Program Coordinator",
-    ...image("core/adam-badi.jpg"),
-    bio: (
-      <>
-        Adam Badi is a San Francisco native and a product of the SFUSD, with a
-        passion in educational development. After graduating from the University
-        of Hawai'i he returned to the city that raised him in hopes of changing
-        how tech influences our community.
-      </>
-    ),
-  },
-  {
     name: "David Topete",
     title: "Videographer",
     ...image("core/david_topete.jpg"),
