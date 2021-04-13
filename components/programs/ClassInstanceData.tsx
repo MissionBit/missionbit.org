@@ -671,9 +671,9 @@ export const Campuses = campusRecord({
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2021-01-22T20:00:00-07:00"),
-  interview: Date.parse("2021-01-26T12:00:00-07:00"),
-  demoDay: Date.parse("2021-05-08T13:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-05-23T20:00:00-07:00"),
+  interview: Date.parse("2021-06-01T12:00:00-07:00"),
+  demoDay: Date.parse("2021-07-24T13:00:00-07:00"),
 };
 
 export const FallDates: ClassDates = {
@@ -692,7 +692,7 @@ export const SDRDates: BaseClassDates = {
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
-const SPRING_CLASS_SCHEDULE = {
+const CLASS_SCHEDULE = {
   MW: {
     meets: (
       <>
@@ -717,12 +717,24 @@ const SPRING_CLASS_SCHEDULE = {
     startDate: "February 9th",
     endDate: "May 8th",
   },
+  MWF: {
+    meets: (
+      <>
+        Monday, Wednesday, Friday{" "}
+        <Box component="span" display="inline-block">
+          10:30am - 2:30pm PST
+        </Box>
+      </>
+    ),
+    startDate: "June 14th",
+    endDate: "July 24th",
+  },
 } as const;
 
-function springClass(
+function classOffering(
   course: Course,
   campus: Campus,
-  schedule: "MW" | "TH",
+  schedule: "MW" | "TH" | "MWF",
   formAssemblyId: string,
   classDates: ClassDates = CourseDates
 ): ClassInstance {
@@ -731,7 +743,7 @@ function springClass(
     course,
     campus,
     classDates,
-    ...SPRING_CLASS_SCHEDULE[schedule],
+    ...CLASS_SCHEDULE[schedule],
     buttonText: "Student Application",
     signupUrl: `https://www.tfaforms.com/4872902?tfa_2013=${formAssemblyId}`,
   };
@@ -770,11 +782,11 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   "tfa_2245",
   //   FallDatesExtended
   // ),
-  springClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
-  springClass(Courses.python_class, Campuses.online, "TH", "tfa_2013"),
-  springClass(Courses.game_class, Campuses.online, "TH", "tfa_2013"),
-  springClass(Courses.web_class, Campuses.online, "TH", "tfa_2013"),
-  springClass(Courses.javascript_class, Campuses.online, "MW", "tfa_2013"),
+  // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
+  classOffering(Courses.python_class, Campuses.online, "MWF", "tfa_2013"),
+  classOffering(Courses.game_class, Campuses.online, "MWF", "tfa_2013"),
+  classOffering(Courses.web_class, Campuses.online, "MWF", "tfa_2013"),
+  classOffering(Courses.javascript_class, Campuses.online, "MWF", "tfa_2013"),
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
