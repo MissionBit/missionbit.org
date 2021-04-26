@@ -10,7 +10,7 @@ import Landing from "./Landing";
 // import SummerTalkSeries from "./SummerTalkSeries";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import Featured, { FeaturedEvent } from "./Featured";
-import { CourseDates } from "components/programs/ClassInstanceData";
+
 import Box from "@material-ui/core/Box";
 import VioletButton from "components/VioletButton";
 import { brand } from "src/colors";
@@ -135,7 +135,7 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: CourseDates.demoDay,
+    date: Date.parse("2021-05-08T11:00:00-07:00"),
     href: "https://www.eventbrite.com/e/148799458185",
     linkTitle: "Register",
     title: "Spring Demo Day",
