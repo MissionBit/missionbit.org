@@ -74,6 +74,7 @@ const timedAlerts: readonly TimedAlert[] = [
     ),
   },
   {
+    hideAfter: CourseDates.registrationDeadline,
     content: (
       <Link
         color="inherit"
@@ -84,7 +85,8 @@ const timedAlerts: readonly TimedAlert[] = [
         <span role="img" aria-label="Party popper">
           🎉
         </span>{" "}
-        Apply for our Summer 2021 classes now!{" "}
+        Apply for our Summer 2021 classes now! Deadline{" "}
+        {ShortDateFormat.format(CourseDates.registrationDeadline)}{" "}
         <span role="img" aria-label="Party popper">
           🎉
         </span>
@@ -101,15 +103,6 @@ const timedAlerts: readonly TimedAlert[] = [
         rel="noopener noreferrer"
       >
         Black Lives Matter. A message from the Mission Bit Team.
-      </Link>
-    ),
-  },
-  {
-    hideAfter: CourseDates.registrationDeadline,
-    content: (
-      <Link color="inherit" href="/programs" title="Sign Up!">
-        Sign up for our Online Summer 2020 Courses now! Deadline{" "}
-        {ShortDateFormat.format(CourseDates.registrationDeadline)}
       </Link>
     ),
   },
