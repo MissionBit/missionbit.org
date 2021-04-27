@@ -77,6 +77,24 @@ const timedAlerts: readonly TimedAlert[] = [
     content: (
       <Link
         color="inherit"
+        href="/programs/classes"
+        title="Classes"
+        rel="noopener noreferrer"
+      >
+        <span role="img" aria-label="Party popper">
+          🎉
+        </span>{" "}
+        Apply for our Summer 2021 classes now!{" "}
+        <span role="img" aria-label="Party popper">
+          🎉
+        </span>
+      </Link>
+    ),
+  },
+  {
+    content: (
+      <Link
+        color="inherit"
         href="https://medium.com/@missionbit/a-message-from-mission-bit-48eb7405bbea"
         title="Message"
         target="_blank"
