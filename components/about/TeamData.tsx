@@ -100,11 +100,6 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     title: "Curriculum Assistant",
     ...image("core/cody.jpg"),
   },
-  {
-    name: "Brianna Young",
-    title: "Office Administrator",
-    ...image("core/BriannaYoung.jpg"),
-  },
 ];
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
