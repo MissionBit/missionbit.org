@@ -671,7 +671,8 @@ export const Courses = courseRecord({
       <>
         This workshop will guide you in developing artistic and descriptive
         writing skills as a way to express yourself. Join us on this fun and
-        insightful workshop to learn about mental health.
+        insightful workshop to learn about mental health. Image credit to{" "}
+        <a href="https://www.vecteezy.com/members/misfitblue"> misfitblue.</a>
         <br></br>
       </>
     ),
