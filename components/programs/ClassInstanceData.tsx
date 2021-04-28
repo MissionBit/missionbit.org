@@ -5,6 +5,8 @@ import Box from "@material-ui/core/Box";
 export const CourseSkills = [
   "Unity",
   "C#",
+  "DotBigBang",
+  "Typescript",
   "3D Game Design",
   "Virtual Reality",
   "Web Design",
@@ -32,6 +34,7 @@ export const CourseSkills = [
   "Wix",
   "Job Hunting",
   "Spark AR",
+  "Poetry Writing",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -167,6 +170,11 @@ const deepDreamImage = {
   alt: "Image of a Black woman overlayed with a colorful print.",
 };
 
+const mentalHealthImage = {
+  src: require("public/images/program/mental_health.jpg"),
+  alt: "Image of a brain with the words mental health inside of it.",
+};
+
 const BLMImage = {
   src: require("public/images/program/blm.jpg"),
   alt:
@@ -269,6 +277,20 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  SFPL_web_class: {
+    title: "Intro to Web Design - SFPL x Mission Bit",
+    skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
+    image: web3Image,
+    description: (
+      <>
+        This project-based class combines design and technology to create and
+        code our own modern, creative, and thoughtful websites. We’ll discover
+        what great user experience is, exercise creative project planning,
+        create beautiful visual designs, and bring our designs to life in a
+        final interactive website. Beginners welcome!
+      </>
+    ),
+  },
   game_class: {
     title: "Intro to Unity Game Design",
     skills: ["Unity", "C#", "3D Game Design"],
@@ -280,6 +302,21 @@ export const Courses = courseRecord({
         framework and develop a game that you and your friends can play by the
         end of the semester. Our goal is to empower students to become creators
         rather than just consumers. Beginners welcome!
+      </>
+    ),
+  },
+  game_design_dotbigbang: {
+    title: "Intro to Game Design w/ DotBigBang",
+    skills: ["DotBigBang", "Typescript", "3D Game Design"],
+    image: unity2Image,
+    description: (
+      <>
+        This project-based workshop combines 3D art and technology to create
+        your your own unique game using the DotBigBang game engine. We’ll learn
+        the basics of game design from paper prototyping to developing a
+        platformer that you and your friends can play together! Our goal is for
+        students to become creators rather than just consumers. Beginners
+        welcome!
       </>
     ),
   },
@@ -530,6 +567,21 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  SFPL_python_workshop: {
+    title: "Totally Tubular Turtles With Python! - SFPL x Mission Bit",
+    skills: ["Python"],
+    image: python2Image,
+    description: (
+      <>
+        In this hands on workshop, we’ll take a look at Python— one of the
+        worlds most popular programming languages and create our own interactive
+        turtle game. We’ll begin this workshop with an intro to Python and some
+        of its core concepts before you are guided through a series of mini
+        lessons and challenges. All to end with an awesome interactive project
+        to show your friends and family! Beginners welcome!
+      </>
+    ),
+  },
   design_business_workshop: {
     title: "Design Your Own Business in 90 Minutes",
     skills: ["Logos", "Color Schemes", "Social Media", "Web Design"],
@@ -607,6 +659,20 @@ export const Courses = courseRecord({
         This workshop is for youth who are looking to apply for a job! This
         workshop will cover job searching techniques that students will be able
         to take with them into adulthood.
+        <br></br>
+      </>
+    ),
+  },
+  poetry_mental_health_workshop: {
+    title: "Poetry & Mental Health",
+    skills: ["Poetry Writing"],
+    image: mentalHealthImage,
+    description: (
+      <>
+        This workshop will guide you in developing artistic and descriptive
+        writing skills as a way to express yourself. Join us on this fun and
+        insightful workshop to learn about mental health. Image credit to{" "}
+        <a href="https://www.vecteezy.com/members/misfitblue"> misfitblue.</a>
         <br></br>
       </>
     ),
@@ -839,39 +905,39 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.cover_letter_workshop,
-    dateString: "2021-03-31T15:00:00-07:00",
-    minutes: 120,
-    signupUrl: " https://www.tfaforms.com/4887087",
-    who: "14 - 24 year olds",
-  }),
-  workshop({
-    course: Courses.spark_AR,
-    dateString: "2021-04-14T15:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4894737",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.p5js_workshop,
-    dateString: "2021-04-15T14:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4892574",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.deep_dream,
-    dateString: "2021-04-22T15:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4892553",
-    who: "7th - 12th graders",
-  }),
-  workshop({
     course: Courses.job_hunt,
     dateString: "2021-04-28T14:00:00-08:00",
     minutes: 120,
     signupUrl: "https://www.tfaforms.com/4892571",
     who: "14 - 24 year olds",
+  }),
+  workshop({
+    course: Courses.game_design_dotbigbang,
+    dateString: "2021-05-05T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4901150",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.SFPL_web_class,
+    dateString: "2021-05-11T14:30:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4887664",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.SFPL_python_workshop,
+    dateString: "2021-05-13T14:30:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4887666",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.poetry_mental_health_workshop,
+    dateString: "2021-05-26T14:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4901155",
+    who: "7th - 12th graders",
   }),
 ];
 
