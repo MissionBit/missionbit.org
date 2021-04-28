@@ -13,6 +13,7 @@ type TeamTitle =
   | "Director of Programs"
   | "Program Coordinator"
   | "Videographer"
+  | "Office Administrator"
   | "Curriculum Assistant";
 
 type School =
@@ -98,6 +99,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     name: "Cody Rowland",
     title: "Curriculum Assistant",
     ...image("core/cody.jpg"),
+  },
+  {
+    name: "Brianna Young",
+    title: "Office Administrator",
+    ...image("core/BriannaYoung.jpg"),
   },
 ];
 
