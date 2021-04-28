@@ -66,10 +66,10 @@ const Description: React.FC<{}> = () => {
         <Typography className={classes.copy}>
           In phase 1, students complete soft skills training to gain necessary
           skills and tools to facilitate their entry into the tech field. In
-          phase 2, students begin to learn specialized skills needed to land a
-          job as a Sales Development Representative. In phase 3, students
-          complete a four week career placement course to help prepare them for
-          the workforce.
+          phase 2, students receive individualized learning plans and begin to
+          learn specialized skills needed to land a job as a Sales Development
+          Representative. In phase 3, students work with recruiters to get
+          matched with a tech company for a paid apprenticeship.
         </Typography>
       </Box>
     </Container>
