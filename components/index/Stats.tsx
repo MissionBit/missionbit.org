@@ -128,7 +128,7 @@ const Stats: React.FC<{}> = () => {
           alt: "Graduation cap on top of a text editor window",
         }}
         color="color1"
-        value="95"
+        value="107"
         copy="classes taught"
       />
       <Line
@@ -137,7 +137,7 @@ const Stats: React.FC<{}> = () => {
           alt: "Three students, two holding laptops with Mission Bit stickers",
         }}
         color="color2"
-        value="4,400+"
+        value="5,000+"
         copy="students served"
       />
       <Line
