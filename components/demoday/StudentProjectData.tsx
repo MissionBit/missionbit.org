@@ -28,13 +28,13 @@ function image(postfix: string): Pick<ProjectProps, "image"> {
   const SIZE_ORDER = [""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-fall-projects/${postfix}.jpg`),
+      jpg: require(`public/images/demoday/2021-spring-projects/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-fall-projects/${postfix}${k}.jpg`);
+        const fn = require(`public/images/demoday/2021-spring-projects/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-fall-projects/${postfix}${k}.jpg?webp`);
+        const fn = require(`public/images/demoday/2021-spring-projects/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -46,36 +46,48 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 1",
     projects: [
       {
-        title: "Blocky Dungeon",
-        students: ["Jinkang Fang, Jack Wu"],
-        course: "Intro to Unity Game Design with Stephen",
-        description: <>Shoot down skeletons in a blocky dungeon.</>,
-        href: "https://jinkang-0.github.io/blocky-dungeons/",
-        ...image("blocky-dungeon"),
-      },
-      {
-        title: "Therapy Area",
-        students: ["Breanna Durant, Favour Odenyi"],
-        course: "Intro to Web Design with Nico",
-        description: (
-          <>A website that matches users to different therapy options.</>
-        ),
-        href: "",
-        ...image("therapy-area"),
-      },
-      {
-        title:
-          "Comparing the 1918 Spanish Flu Pandemic to the Current Covid-19 Pandemic",
-        students: ["Caleb Kha, Karina Anders, Kayla"],
-        course: "Intro to JavaScript with Christine",
+        title: "Stuck in My Fantasy",
+        students: ["Bonnie Huang, Brianna Lopez, Ki'ilani Versoza"],
+        course: "Intro to Unity Game Design with Shay",
         description: (
           <>
-            Examining data from the pandemic of 1918 and the current COVID-19
-            pandemic.
+            Stuck In My Fantasy is a 3D puzzle platforming game that is played
+            in the prospective of a poor teenage boy who works as a butler for
+            another boy around his age. From puzzle to puzzle, this game shows
+            how an income gap doesn't affect these two teenagers as they
+            discover each other's similarity and become life long partners.
           </>
         ),
-        href: "https://final-project--karina317.repl.co/",
-        ...image("spanish-flu"),
+        href: "",
+        ...image("placeholder"),
+      },
+      {
+        title: "-",
+        students: ["Isaiah Murillo"],
+        course: "VR with Kevin",
+        description: (
+          <>
+            Go beneath the surface and explore abandoned caves filled with
+            ominous creatures crawling and climbing through out your journey.
+            good luck{" "}
+          </>
+        ),
+        href: "",
+        ...image("placeholder"),
+      },
+      {
+        title: "San Foodcisco",
+        students: ["Zeus Flores, Leslie Hernandez, Bettie Tan"],
+        course: "Intro to Web Design with Cameron",
+        description: (
+          <>
+            A website that has information on some neighborhoods in San
+            Francisco and the restaurants within them that serve different kinds
+            of food for a good price.
+          </>
+        ),
+        href: "https://lesliex1.github.io/san-foodcisco/",
+        ...image("placeholder"),
       },
     ],
   },
@@ -95,7 +107,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://natalie-huang.github.io/diverting-route-game/",
-        ...image("diverting-route"),
+        ...image("placeholder"),
       },
       {
         title: "Lights Off!",
@@ -108,7 +120,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://cshen7.github.io",
-        ...image("lights-off"),
+        ...image("placeholder"),
       },
       {
         title: "Healthbot",
@@ -125,7 +137,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://repl.it/@caitwong/finalproject#finaltest.py",
-        ...image("health-bot"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -138,7 +150,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Judy Ng, Michelle Chen"],
         description: <>Fly like flappy bird and last as long as possible</>,
         href: "https://michen1.github.io/fluff/",
-        ...image("fluff"),
+        ...image("placeholder"),
       },
       {
         title: "Save the Fish",
@@ -151,7 +163,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://elianchief.github.io/",
-        ...image("save-fish"),
+        ...image("placeholder"),
       },
       {
         title: "Questionnaire",
@@ -168,7 +180,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://repl.it/@bennables/Demo-day-python#main.py",
-        ...image("question"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -186,7 +198,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://gamejolt.com/games/socialdistancing-game/564409",
-        ...image("social-distancing"),
+        ...image("placeholder"),
       },
       {
         title: "Flowprism",
@@ -194,7 +206,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Ashley Hom, Ethan Ellis"],
         description: <>A music player and news website.</>,
         href: "https://ethan-ellis13.github.io/flowprism/",
-        ...image("flowprism"),
+        ...image("placeholder"),
       },
       {
         title: "Python Portfolio",
@@ -202,7 +214,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Octavio Lomeli-Castro"],
         description: <>Portfolio with multiple python applications.</>,
         href: "https://flask-site.octaviolomeli.repl.co/",
-        ...image("python-portfolio"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -215,7 +227,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Lindsey Tong, Andrew Tam"],
         description: <>Stop the bugs from stealing fruit from the tree!</>,
         href: "https://ltong03.github.io/infestation/",
-        ...image("infestation"),
+        ...image("placeholder"),
       },
       {
         title: "SF History",
@@ -223,7 +235,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Cindy Zhou, Kevin Jung"],
         description: <>History of different neighborhoods in SF.</>,
         href: "https://kevinj1120.github.io/",
-        ...image("sf-history"),
+        ...image("placeholder"),
       },
       {
         title: "Rainbow Snake",
@@ -231,7 +243,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Rachel Lee, Sally Hong"],
         description: <>A fun & colorful snake game</>,
         href: "https://repl.it/@YewonLee1/Snakegame#main.py",
-        ...image("py-game"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -249,7 +261,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://trickyvortexyt.github.io/Cube-Rush/",
-        ...image("cube-rush"),
+        ...image("placeholder"),
       },
       {
         title: "Eco Find",
@@ -257,7 +269,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Kaitlyn Wong"],
         description: <>An online store that sells eco friendly products</>,
         href: "https://kaitlynnwong.github.io/",
-        ...image("eco-find"),
+        ...image("placeholder"),
       },
       {
         title: "-",
@@ -265,7 +277,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Vincent Ruan, Jalyn McFarland"],
         description: <>Music Player</>,
         href: "",
-        ...image("Placeholder"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -285,7 +297,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://gamejolt.com/games/TheHauntedHouse/564107",
-        ...image("haunted-house"),
+        ...image("placeholder"),
       },
       {
         title: "CovAid",
@@ -298,7 +310,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://tylerchoi1.github.io/",
-        ...image("covaid"),
+        ...image("placeholder"),
       },
       {
         title: "-",
@@ -306,7 +318,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Kevin Tang, Jason Zhong"],
         description: <>Mini Games Bot</>,
         href: "",
-        ...image("Placeholder"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -319,7 +331,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Aaron Yu, Owen Huanbutta, Sedrick Wang"],
         description: <>Run away from the boulder and get to the finish line.</>,
         href: "https://owenhuanbutta.github.io/Boulder-Game/",
-        ...image("boulder"),
+        ...image("placeholder"),
       },
       {
         title: "The Real Heroes",
@@ -327,7 +339,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Murray Bennett"],
         description: <>Information about famous Black civil rights leaders.</>,
         href: "https://murray88.github.io/",
-        ...image("real-heroes"),
+        ...image("placeholder"),
       },
       {
         title: "Text-Adventure",
@@ -341,7 +353,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://repl.it/@alexanduh/Finalproject#README.md",
-        ...image("text"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -356,7 +368,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           <>Give everyone a mask and stay safe. Go fullscreen to play.</>
         ),
         href: "https://luuw.github.io/Mask-Up/",
-        ...image("mask"),
+        ...image("placeholder"),
       },
       {
         title: "Ronnie's Corner",
@@ -364,7 +376,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Veronica Velasquez Macias"],
         description: <>A online store where users can customize gifts</>,
         href: "https://ronnies-corner.github.io/ronnies-corner.githb.io/",
-        ...image("ronnie"),
+        ...image("placeholder"),
       },
       {
         title: "SurveyBot",
@@ -378,7 +390,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://www.youtube.com/watch?v=Po5DGwRwXH0",
-        ...image("bot"),
+        ...image("placeholder"),
       },
     ],
   },
@@ -397,7 +409,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ),
         href:
           "https://weissss-hub.github.io/The-Lone-Survivor-and-Zombie-Genocide/",
-        ...image("lone"),
+        ...image("placeholder"),
       },
       {
         title: "Air Pollution Demo Day Project",
@@ -405,7 +417,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Nate Sirivallop, Phillip Chin, Ming Wei Huang"],
         description: <>Project is about levels of PM2.5 in a few countries.</>,
         href: "https://parchedwavykeyboard--nsirival1.repl.co/",
-        ...image("air-pollution"),
+        ...image("placeholder"),
       },
       {
         title: "Exodia",
@@ -420,79 +432,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://repl.it/@alexanduh/Exodia-1#README.md",
-        ...image("exodia"),
-      },
-    ],
-  },
-  {
-    room: "Breakout Room 11",
-    projects: [
-      {
-        title: "Checklist",
-        course: "Intro to Web Design with Nico",
-        students: ["Agnes Liang, Jessica Lin"],
-        description: (
-          <>
-            A website that provides educational, food, health, etc. resources to
-            students.
-          </>
-        ),
-        href: "https://jebbica.github.io/",
-        ...image("checklist"),
-      },
-      {
-        title: "San Francisco",
-        course: "Intro to JavaScript with Christine",
-        students: ["Sophia Liang, Shania Hao, Ethan Xu"],
-        description: (
-          <>
-            San Francisco is a great city, many people love to visit here, here
-            are some great aspects and statistics of San Francisco!
-          </>
-        ),
-        href: "https://sfproject--shaniahao.repl.co/",
-        ...image("city-sf"),
-      },
-      {
-        title: "Lissin",
-        course: "Intro to Python with Alex",
-        students: ["Allistair Larson, Ramiro Hernandez, Ryan Yu"],
-        description: (
-          <>
-            Suggests tops artist from Spotify and gives top ten songs from
-            chosen artist. Click "View Project" and click the green button
-            "Run".
-          </>
-        ),
-        href:
-          "https://repl.it/@Ramiromp4/SpectacularDownrightTransversals#main.py",
-        ...image("lissin"),
-      },
-    ],
-  },
-  {
-    room: "Breakout Room 12",
-    projects: [
-      {
-        title: "Self Care",
-        course: "Intro to Web Design with Nico",
-        students: ["Angelo Ubas, Rachel Zhong"],
-        description: <>A website that exposes users self care resources.</>,
-        href: "https://raycho-030.github.io/",
-        ...image("self-care"),
-      },
-      {
-        title: "Mental Health 101",
-        course: "Intro to JavaScript with Christine",
-        students: ["Christine Chen, Jack C., Laywaddi Khine"],
-        description: (
-          <>
-            Project is about mental health awareness and how COVID has affected
-            people's mental health.
-          </>
-        ),
-        href: "https://fall-demo-day--christine05chen.repl.co/",
-        ...image("mental-health"),
+        ...image("placeholder"),
       },
     ],
   },
