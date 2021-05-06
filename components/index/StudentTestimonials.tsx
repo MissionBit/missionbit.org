@@ -21,8 +21,8 @@ export interface StudentTestimonial {
 function requirePhoto(prefix: string): { photos: StudentPhotos } {
   const photos = {} as StudentPhotos;
   for (const suffix of PhotoResolutions) {
-    const jpg = require(`public/images/students/${prefix}${suffix}.jpg`);
-    const webp = require(`public/images/students/${prefix}${suffix}.jpg?webp`);
+    const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/students/${prefix}${suffix}.jpg`);
+    const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/students/${prefix}${suffix}.jpg?webp`);
     photos[suffix] = { jpg, webp };
   }
   return { photos };

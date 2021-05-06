@@ -29,13 +29,13 @@ function image(postfix: string): Pick<TitleProps, "image"> {
   const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
     image: {
-      jpg: require(`public/images/program/code-at-home/${postfix}.jpg`),
+      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/program/code-at-home/${postfix}${k}.jpg`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/program/code-at-home/${postfix}${k}.jpg?webp`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },

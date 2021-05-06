@@ -144,8 +144,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function rectColImg(photo: string) {
-  const jpg = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864`);
-  const webp = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864&format=webp`);
+  const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864`);
+  const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/photos/${photo}.jpg?resize&sizes[]=216&sizes[]=432&sizes[]=864&format=webp`);
   return {
     id: photo,
     src: jpg.src,
@@ -158,8 +158,8 @@ function rectColImg(photo: string) {
 }
 
 function rectStudentsImg(photo: string) {
-  const jpg = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718`);
-  const webp = require(`public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718&format=webp`);
+  const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718`);
+  const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/photos/${photo}.jpg?resize&sizes[]=359&sizes[]=718&format=webp`);
   return {
     id: photo,
     src: jpg.src,

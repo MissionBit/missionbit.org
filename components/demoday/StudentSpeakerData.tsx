@@ -31,13 +31,13 @@ function image(postfix: string): Pick<StudentProps, "image"> {
   const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
     image: {
-      jpg: require(`public/images/demoday/2020-fall-students/${postfix}.jpg`),
+      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-fall-students/${postfix}${k}.jpg`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(`public/images/demoday/2020-fall-students/${postfix}${k}.jpg?webp`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
