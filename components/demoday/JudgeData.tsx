@@ -49,7 +49,7 @@ export const JudgeData: readonly JudgeProps[] = [
     name: "Matt Bautista",
     title: "Founder and CEO",
     company: "Project Beanstalk",
-    ...image("michael_walker"),
+    ...image("matt"),
   },
 ];
 
