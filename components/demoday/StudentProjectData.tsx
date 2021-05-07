@@ -221,8 +221,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             gameplay
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/1vm5V7bosYc",
+        ...image("puzzle"),
       },
       {
         title: "OneMindfulSelf",
