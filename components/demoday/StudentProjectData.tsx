@@ -137,10 +137,13 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ],
         description: (
           <>
-            Our project is gonna talk about Black heroes that the user they can
-            select to choose so far we have created and little thing were you
-            can select what Black hero you want to learn our prolem write now is
-            uploading information to each hero
+            My team and I decided to base our project on Black civil rights
+            activist. With this project each activist has a slide and part
+            dedicated to them. As you flip through person to person, you will
+            receive information on the person of your choosing. The information
+            provides you with who they are and some memorable things they have
+            done. Our point is to teach and educate about Black leaders who took
+            huge risks to change making in impact on history.
           </>
         ),
         href: "-",

@@ -47,8 +47,8 @@ export const JudgeData: readonly JudgeProps[] = [
   },
   {
     name: "Matt Bautista",
-    title: "Founder and CEO",
-    company: "Project Beanstalk",
+    title: "Lead Electrical Engineer",
+    company: "Apple",
     ...image("matt"),
   },
 ];
