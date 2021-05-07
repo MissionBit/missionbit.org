@@ -109,7 +109,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://replit.com/@jebbica/ToDoodles#main.py",
-        ...image("placeholder"),
+        ...image("doodles"),
       },
     ],
   },
@@ -117,10 +117,15 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 3",
     projects: [
       {
-        title: "-",
+        title: "VacciNader",
         course: "Intro to Unity Game Design with Shay",
         students: ["Darnell Norman, Kingsley Kai Lam, Ali Hernandez"],
-        description: <>-</>,
+        description: (
+          <>
+            VacciNader is a 3d shooter set in a post-apocalyptic covid infested
+            dystopia. Avoid the covid zombies for as long as you can!
+          </>
+        ),
         href: "",
         ...image("placeholder"),
       },
@@ -175,7 +180,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://replit.com/@Lucia0824/Project-Code-Outline#main.py",
-        ...image("placeholder"),
+        ...image("weather"),
       },
     ],
   },
@@ -196,7 +201,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Agnes Liang, Christine Chen, Cindy Zhou"],
         description: <>Stoichiometry Calculator</>,
         href: "https://demoday-python.glitch.me/#games",
-        ...image("placeholder"),
+        ...image("portfolio"),
       },
     ],
   },
@@ -280,7 +285,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://sophiac8.github.io/CarbonCount/#",
-        ...image("placeholder"),
+        ...image("carbon"),
       },
       {
         title: "Sticky Lips Sweetery",
@@ -312,7 +317,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://rise-in-plastic.tylerchoi1.repl.co/",
-        ...image("placeholder"),
+        ...image("plastic"),
       },
       {
         title: "Mission Bitcoin",
@@ -322,7 +327,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           <>An informational website about Cryptocurrency and how it works.</>
         ),
         href: "https://akemiyu.github.io/missionbitcoin/",
-        ...image("placeholder"),
+        ...image("bitcoin"),
       },
       {
         title: "Depression over COVID-19 ",
@@ -335,7 +340,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://jessicasng.github.io/",
-        ...image("placeholder"),
+        ...image("depression"),
       },
     ],
   },
