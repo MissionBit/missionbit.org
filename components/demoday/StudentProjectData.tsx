@@ -234,7 +234,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://kkellie.github.io/onemindfulself/",
-        ...image("placeholder"),
+        ...image("mindful"),
       },
     ],
   },
@@ -242,7 +242,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 7",
     projects: [
       {
-        title: "-",
+        title: "100ft down and 100ft lower",
         students: ["Isaiah Murillo"],
         course: "VR with Kevin",
         description: (
@@ -267,7 +267,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://lesliex1.github.io/san-foodcisco/",
-        ...image("placeholder"),
+        ...image("foodcisco"),
       },
     ],
   },
@@ -298,7 +298,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://sonia-who.github.io/Sticky-Lips-Sweetery/",
-        ...image("placeholder"),
+        ...image("sticky"),
       },
     ],
   },
