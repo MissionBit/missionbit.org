@@ -11,6 +11,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
   globals: {
     Atomics: "readonly",
@@ -45,7 +46,18 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "no-case-declarations": "off",
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "unused-imports/no-unused-imports-ts": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        extendDefaults: true,
+        types: {
+          "{}": false,
+        },
+      },
+    ],
     "unused-imports/no-unused-vars-ts": [
       "error",
       {

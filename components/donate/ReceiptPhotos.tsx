@@ -30,12 +30,12 @@ function loadPhoto(postfix: string, alt: string) {
   return {
     alt,
     webpSrcSet: SIZE_ORDER.map((k) => {
-      const fn = require(`public/images/donate/donate-receipt-${postfix}${k}.jpg?webp`);
+      const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}${k}.jpg?webp`);
       return `${fn} ${PHOTO_SIZES[k].width}w`;
     }).join(","),
-    jpgSrc: require(`public/images/donate/donate-receipt-${postfix}@0.5x.jpg`) as string,
+    jpgSrc: require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}@0.5x.jpg`) as string,
     jpgSrcSet: SIZE_ORDER.map((k) => {
-      const fn = require(`public/images/donate/donate-receipt-${postfix}${k}.jpg`);
+      const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}${k}.jpg`);
       return `${fn} ${PHOTO_SIZES[k].width}w`;
     }).join(","),
   };

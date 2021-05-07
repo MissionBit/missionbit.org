@@ -1,4 +1,7 @@
-function oneLine(strs: TemplateStringsArray, ...placeholders: unknown[]) {
+function oneLine(
+  strs: TemplateStringsArray,
+  ...placeholders: unknown[]
+): string {
   // Build the string as normal, combining all the strings and placeholders:
   let result = "";
   let i = 0;

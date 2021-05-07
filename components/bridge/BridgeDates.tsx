@@ -10,7 +10,7 @@ export const BridgeCalendarEvent: CalendarEvent = {
   url: absoluteUrl("/bridge"),
 };
 
-export function bridgeStartEnd() {
+export function bridgeStartEnd(): ReturnType<typeof hourStartEndParts> {
   const start = Date.parse(BridgeCalendarEvent.start);
   const end = Date.parse(BridgeCalendarEvent.end!);
   return hourStartEndParts(start, end);

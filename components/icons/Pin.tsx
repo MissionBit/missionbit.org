@@ -1,7 +1,7 @@
 import * as React from "react";
 import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-const PinIcon = (props: SvgIconProps) => (
+const PinIcon = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox="0 0 100 100" {...props}>
     <path
       d="M50,2.5c-18.1,0-32.8,14-32.8,31.2c0,7.1,2.5,13.9,7.1,19.3L50,83.8L75.8,53c4.6-5.4,7.1-12.3,7.1-19.3

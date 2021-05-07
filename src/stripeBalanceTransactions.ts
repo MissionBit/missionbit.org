@@ -21,7 +21,7 @@ type DonationType = typeof DONATION_TYPES[number];
 export async function getBalanceTransactions(
   created?: number
 ): Promise<BalanceTransactionBatch> {
-  const stripe = (await import("src/getStripe")).getStripe();
+  const stripe = (require("src/getStripe") as typeof import("src/getStripe")).getStripe();
   const pollTime = dayjs().unix();
   created = created ?? dayjs(dayjs().format("YYYY-MM-01T00:00:00Z")).unix();
   const transactions: BalanceTransaction[] = [];

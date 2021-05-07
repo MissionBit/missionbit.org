@@ -12,7 +12,7 @@ export function getOrigin(origin?: string): string {
   return process.env.URL?.replace(/\/$/, "") ?? defaultOrigin;
 }
 
-export function absoluteUrl(pathOrUrl: string, origin?: string) {
+export function absoluteUrl(pathOrUrl: string, origin?: string): string {
   return pathOrUrl.startsWith("/")
     ? `${getOrigin(origin)}${pathOrUrl}`
     : pathOrUrl;

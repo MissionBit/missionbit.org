@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import Stripe from "stripe";
 import getStripe from "src/getStripe";
 import { Frequency, FREQUENCIES } from "src/stripeHelpers";
@@ -90,10 +90,7 @@ function session_args(
   }
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method === "POST") {
     try {
       const body = parseBody(req.body);
@@ -121,4 +118,6 @@ export default async function handler(
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
-}
+};
+
+export default handler;
