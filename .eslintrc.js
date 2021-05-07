@@ -48,6 +48,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-var-requires": "off",
     "unused-imports/no-unused-imports-ts": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/ban-types": [
       "error",
       {

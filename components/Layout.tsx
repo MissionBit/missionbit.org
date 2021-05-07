@@ -31,7 +31,7 @@ export interface LayoutProps extends LayoutStaticProps {
   origin?: string;
 }
 
-const DEFAULT_DESCRIPTION: string =
+const DEFAULT_DESCRIPTION =
   "Mission Bit is a 501(c)3 non-profit offering coding education and industry experiences to equip, empower and inspire public school youth to build products they dream up and broaden the opportunity horizon they envision for themselves.";
 
 function updateDocumentSize() {
@@ -61,7 +61,7 @@ export const Layout: React.FC<LayoutProps> = ({
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
-      jssStyles.parentElement!.removeChild(jssStyles);
+      jssStyles.parentElement?.removeChild(jssStyles);
     }
   }, []);
   useEffect(() => {

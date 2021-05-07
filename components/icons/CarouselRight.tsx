@@ -1,7 +1,7 @@
 import * as React from "react";
 import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-const CarouselRightIcon = (props: SvgIconProps) => (
+const CarouselRightIcon = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox="-50 -50 100 100" {...props}>
     <polyline
       stroke="currentColor"

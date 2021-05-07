@@ -1,7 +1,7 @@
 import * as React from "react";
 import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-const CheckIcon = (props: SvgIconProps) => (
+const CheckIcon = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox="0 0 100 100" {...props}>
     <g transform="translate(0,-952.36218)">
       <path

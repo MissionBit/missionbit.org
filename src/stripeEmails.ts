@@ -92,7 +92,9 @@ function emailTemplateData({
   };
 }
 
-export async function stripeCheckoutSessionCompletedPaymentEmail(id: string) {
+export async function stripeCheckoutSessionCompletedPaymentEmail(
+  id: string
+): Promise<void> {
   const session = await stripe.checkout.sessions.retrieve(id, {
     expand: ["payment_intent"],
   });
@@ -129,7 +131,7 @@ function invoiceTemplate({
   }
 }
 
-export async function stripeInvoicePaymentEmail(id: string) {
+export async function stripeInvoicePaymentEmail(id: string): Promise<void> {
   const invoice = await stripe.invoices.retrieve(id, {
     expand: ["subscription", "payment_intent"],
   });
@@ -157,7 +159,7 @@ export async function stripeInvoicePaymentEmail(id: string) {
   const charge = invoice.payment_intent.charges.data[0];
   const origin = getOrigin(subscription.metadata.origin);
   if (template === "failure") {
-    return await sendEmail({
+    await sendEmail({
       template,
       charge,
       frequency: "monthly",
@@ -170,7 +172,7 @@ export async function stripeInvoicePaymentEmail(id: string) {
     });
   } else {
     const next = LongDateFormat.format(subscription.current_period_end * 1000);
-    return await sendEmail({
+    await sendEmail({
       template,
       charge,
       frequency: "monthly",

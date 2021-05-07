@@ -7,7 +7,7 @@ const Scale = 100;
 const IconScale = Scale / Math.max(IconWidth, IconHeight);
 const viewBox = `${-0.5 * Scale} ${-0.5 * Scale} ${Scale} ${Scale}`;
 
-const AsteriskIcon = (props: SvgIconProps) => (
+const AsteriskIcon = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox={viewBox} {...props}>
     <InlineAsteriskIcon />
   </SvgIcon>
@@ -18,7 +18,9 @@ const AsteriskTransform = [
   `translate(${-0.5 * IconWidth} ${-0.5 * IconHeight})`,
 ].join(" ");
 
-export const InlineAsteriskIcon = (props: React.SVGProps<SVGGElement>) => {
+export const InlineAsteriskIcon = (
+  props: React.SVGProps<SVGGElement>
+): JSX.Element => {
   const transform = [props.transform, AsteriskTransform]
     .filter((x) => x !== undefined)
     .join(" ");

@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import getBalanceModifications from "src/googleBalanceModifications";
 import getBalanceTransactions from "src/stripeBalanceTransactions";
 
@@ -11,10 +11,7 @@ function parseCreated(
   return parseInt(created, 10);
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method === "GET") {
     const created = parseCreated(req.query.created);
     if (created === undefined) {
@@ -35,4 +32,6 @@ export default async function handler(
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
-}
+};
+
+export default handler;
