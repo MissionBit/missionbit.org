@@ -8,7 +8,7 @@ function sendgridSafeName(name: string): string {
 
 export function billingDetailsTo(
   billing_details: Stripe.PaymentMethod.BillingDetails
-) {
+): { name: string; email: string } {
   return {
     name: sendgridSafeName(billing_details.name ?? ""),
     email: billing_details.email ?? "",
@@ -35,7 +35,7 @@ export function formatPaymentMethodDetailsSource(
   payment_method_details:
     | Stripe.PaymentMethod
     | Stripe.Charge.PaymentMethodDetails
-) {
+): string {
   const payment_type = payment_method_details.type;
   switch (payment_type) {
     case "card": {

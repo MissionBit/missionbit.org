@@ -36,6 +36,9 @@ const nextConfig = {
     STRIPE_KEY_POSTFIX,
     STRIPE_PK: process.env[`STRIPE_PK${STRIPE_KEY_POSTFIX}`],
   },
+  future: {
+    webpack5: true,
+  },
 };
 
 module.exports = withPlugins(
@@ -67,6 +70,14 @@ module.exports = withPlugins(
         gifsicle: false,
         svgo: {
           // enable/disable svgo plugins here
+          plugins: [
+            "cleanupAttrs",
+            "mergeStyles",
+            "removeDoctype",
+            "removeXMLProcInst",
+            "removeComments",
+            "removeMetadata",
+          ],
         },
         webp: {
           preset: "default",

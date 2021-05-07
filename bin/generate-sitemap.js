@@ -20,7 +20,7 @@ const sitemapEntry = (path) =>
     ? { url: path, changefreq: "daily", priority: 1.0 }
     : { url: path, changefreq: "weekly", priority: 0.6 };
 
-sitemap.pipe(createWriteStream("out_publish/sitemap.xml"));
+sitemap.pipe(createWriteStream(join(NEXT_DIST_DIR, "static", "sitemap.xml")));
 for (const path of Object.keys(ssrAndHtmlPages)) {
   if (isSitemapPath(path)) {
     sitemap.write(sitemapEntry(path));

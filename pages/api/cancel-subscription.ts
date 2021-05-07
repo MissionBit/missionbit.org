@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import getStripe from "src/getStripe";
 
 const stripe = getStripe();
@@ -15,10 +15,7 @@ function parseBody(body: unknown): PostBody | undefined {
   return typeof id === "string" ? { id } : undefined;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+const handler: NextApiHandler = async (req, res) => {
   if (req.method === "POST") {
     try {
       const body = parseBody(req.body);
@@ -36,4 +33,6 @@ export default async function handler(
     res.setHeader("Allow", "POST");
     res.status(405).end("Method Not Allowed");
   }
-}
+};
+
+export default handler;

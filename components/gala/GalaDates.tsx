@@ -10,7 +10,7 @@ export const GalaCalendarEvent: CalendarEvent = {
   url: absoluteUrl("/gala"),
 };
 
-export function galaStartEnd() {
+export function galaStartEnd(): ReturnType<typeof hourStartEndParts> {
   const start = Date.parse(GalaCalendarEvent.start);
   const end = Date.parse(GalaCalendarEvent.end!);
   return hourStartEndParts(start, end);

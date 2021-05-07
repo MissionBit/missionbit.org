@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler } from "next";
 import Stripe from "stripe";
 import getStripe from "src/getStripe";
 import getStripeKey from "src/getStripeKey";
@@ -63,7 +63,7 @@ export const config = {
   },
 };
 
-export async function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler: NextApiHandler = async (req, res) => {
   let event: Stripe.Event;
   try {
     const sig = req.headers["stripe-signature"];
@@ -83,7 +83,7 @@ export async function handler(req: NextApiRequest, res: NextApiResponse) {
   const handleEvent = HANDLERS[event.type] ?? defaultHandler;
   await handleEvent(event);
   res.status(200).json({ received: true });
-}
+};
 
 export default Cors({
   allowMethods: ["POST", "HEAD"],

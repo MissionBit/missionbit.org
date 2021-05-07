@@ -30,15 +30,15 @@ interface LogoInput {
 
 function svgLogo({ src, width, height }: LogoInput): SponsorLogo {
   return {
-    src: require(`public/images/gala/2020-sponsors/${src}.svg`),
+    src: require(/* webpackInclude: /\.svg$/ */ `public/images/gala/2020-sponsors/${src}.svg`),
     width,
     height,
   };
 }
 
 function pngLogo({ src, width, height }: LogoInput) {
-  const original = require(`public/images/gala/2020-sponsors/${src}.png?resize`);
-  const webp = require(`public/images/gala/2020-sponsors/${src}.png?resize&format=webp`);
+  const original = require(/* webpackInclude: /\.png$/ */ `public/images/gala/2020-sponsors/${src}.png?resize`);
+  const webp = require(/* webpackInclude: /\.png$/ */ `public/images/gala/2020-sponsors/${src}.png?resize&format=webp`);
   return {
     src: original.src,
     srcSet: original.srcSet,

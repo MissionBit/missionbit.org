@@ -39,8 +39,8 @@ type TeacherTitle =
 function image(path: string): { image: { jpg: string; webp: string } } {
   return {
     image: {
-      jpg: require(`public/images/about/team/${path}`),
-      webp: require(`public/images/about/team/${path}?webp`),
+      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/about/team/${path}`),
+      webp: require(/* webpackInclude: /\.jpg$/ */ `public/images/about/team/${path}?webp`),
     },
   };
 }

@@ -23,7 +23,7 @@ const points = [
   p(xMid, yMax),
 ].join(" ");
 
-const ArrowRightIcon = (props: SvgIconProps) => (
+const ArrowRightIcon = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox="-50 -50 100 100" {...props}>
     <polyline
       points={points}
