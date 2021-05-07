@@ -51,7 +51,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "OneMindfulSelf",
         students: [
-          { name: "Jalyn McFarland", ...image("caitlyn") },
+          { name: "Jalyn McFarland", ...image("jalyn") },
           { name: "Kellie Wong", ...image("caitlyn") },
           { name: "Darren Yee", ...image("caitlyn") },
         ],
@@ -73,7 +73,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "The Turn Against History",
         students: [
-          { name: "Dejohn Thompson", ...image("caitlyn") },
+          { name: "Dejohn Thompson", ...image("dejohn") },
           { name: "Griffin Guerrero Seiberling", ...image("caitlyn") },
           { name: "Rafael Perez", ...image("caitlyn") },
         ],
