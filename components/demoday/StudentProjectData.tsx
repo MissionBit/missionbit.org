@@ -93,8 +93,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             day. Be careful out there because this town is infested.
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://fabrizio-88.github.io/MissionBit_Unity/",
+        ...image("safe"),
       },
       {
         title: "ToDoodles!",
@@ -146,8 +146,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             huge risks to change making in impact on history.
           </>
         ),
-        href: "-",
-        ...image("placeholder"),
+        href: "https://replit.com/@RafaelPerez9/finaldemoday#main.py",
+        ...image("history"),
       },
     ],
   },
