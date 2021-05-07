@@ -195,8 +195,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "VR with Kevin",
         students: ["Kevin Jung"],
         description: <>The lions are hungry and need to be fed!</>,
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/oJo4dl6yNVw",
+        ...image("lion"),
       },
       {
         title: "Python Portfolio",
