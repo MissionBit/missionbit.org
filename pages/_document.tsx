@@ -6,7 +6,7 @@ import IEWarning from "components/IEWarning";
 // This is required to set up the stylesheets for Material-UI
 
 export default class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en">
         <Head />

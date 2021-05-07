@@ -150,7 +150,7 @@ export const ics = (calendarEvent: CalendarEvent): string => {
     },
   ];
 
-  let calendarUrl: string = "";
+  let calendarUrl = "";
 
   calendarChunks.forEach((chunk) => {
     if (chunk.value) {

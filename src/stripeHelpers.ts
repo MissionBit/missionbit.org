@@ -5,17 +5,18 @@ export const PAYMENT_METHODS = ["Stripe Checkout"] as const;
 export type PaymentMethod = typeof PAYMENT_METHODS[number];
 
 const gtag =
-  (typeof window === "undefined" ? undefined : window.gtag) ?? (() => {});
+  (typeof window === "undefined" ? undefined : window.gtag) ??
+  (() => undefined);
 
 export function isFrequency(frequency: string): frequency is Frequency {
-  return FREQUENCIES.includes(frequency as any);
+  return FREQUENCIES.includes((frequency as unknown) as Frequency);
 }
 
 export function capitalizeFirst(s: string): string {
   return s.length >= 1 ? `${s.charAt(0).toUpperCase()}${s.substr(1)}` : s;
 }
 
-export function donationItem(amount: number, frequency: Frequency) {
+function donationItem(amount: number, frequency: Frequency) {
   return {
     id:
       frequency === "one-time"
@@ -24,7 +25,7 @@ export function donationItem(amount: number, frequency: Frequency) {
     name: `${capitalizeFirst(frequency)} Donation`,
     price: amount / 100,
     quantity: 1,
-  };
+  } as const;
 }
 
 export function parseCents(s: string): number | null {
@@ -43,7 +44,7 @@ export function trackCheckoutEvent(
   amount: number,
   frequency: Frequency,
   paymentMethod: PaymentMethod
-) {
+): void {
   const item = donationItem(amount, frequency);
   gtag("event", "begin_checkout", {
     items: [item],

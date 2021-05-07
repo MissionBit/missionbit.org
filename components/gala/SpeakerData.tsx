@@ -13,8 +13,8 @@ export interface SpeakerProps {
 }
 
 function image(postfix: string): Pick<SpeakerProps, "image"> {
-  const jpg = require(`public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000`);
-  const webp = require(`public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000&format=webp`);
+  const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000`);
+  const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000&format=webp`);
   return {
     image: {
       jpg: jpg.src,

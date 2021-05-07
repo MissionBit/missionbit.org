@@ -1,7 +1,7 @@
 import * as React from "react";
 import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-const YahooLogo = (props: SvgIconProps) => (
+const YahooLogo = (props: SvgIconProps): JSX.Element => (
   <SvgIcon viewBox="0 0 2000 1333" {...props}>
     <g transform="translate(0,1333) scale(0.1,-0.1)">
       <path
