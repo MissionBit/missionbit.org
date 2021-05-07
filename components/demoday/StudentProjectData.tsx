@@ -133,7 +133,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "The Turn Against History",
         course: "Intro to Python with Hunter",
         students: [
-          "Dejohn Thompson, Griffin Guerrero Seiberling, Rafael Perez",
+          "DeJohn Thompson, Griffin Guerrero Seiberling, Rafael Perez",
         ],
         description: (
           <>
@@ -217,7 +217,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Sam Dunn, Marquis Ellis"],
         description: (
           <>
-            Puzzle Justice VR.Its a puzzle game with some incorporated into the
+            Puzzle Justice VR. Its a puzzle game with some incorporated into the
             gameplay
           </>
         ),

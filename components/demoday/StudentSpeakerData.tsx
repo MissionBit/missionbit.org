@@ -73,7 +73,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "The Turn Against History",
         students: [
-          { name: "Dejohn Thompson", ...image("dejohn") },
+          { name: "DeJohn Thompson", ...image("dejohn") },
           { name: "Griffin Guerrero Seiberling", ...image("griffin") },
           { name: "Rafael Perez", ...image("rafa") },
         ],
