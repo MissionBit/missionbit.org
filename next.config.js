@@ -70,6 +70,14 @@ module.exports = withPlugins(
         gifsicle: false,
         svgo: {
           // enable/disable svgo plugins here
+          plugins: [
+            "cleanupAttrs",
+            "mergeStyles",
+            "removeDoctype",
+            "removeXMLProcInst",
+            "removeComments",
+            "removeMetadata",
+          ],
         },
         webp: {
           preset: "default",
