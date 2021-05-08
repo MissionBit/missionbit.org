@@ -35,6 +35,8 @@ export const CourseSkills = [
   "Job Hunting",
   "Spark AR",
   "Poetry Writing",
+  "Wellness",
+  "Meditation",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -179,6 +181,11 @@ const BLMImage = {
   src: require("public/images/program/blm.jpg"),
   alt:
     "Image of a window with the words Black History Month in partnership with Mission Bit.",
+};
+
+const meditation = {
+  src: require("public/images/program/workshops/meditation.jpg"),
+  alt: "Image of a girl meditating with her cat around her neck.",
 };
 
 export interface Course {
@@ -709,6 +716,23 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  wellness: {
+    title: "Wellness Workshop",
+    skills: ["Wellness", "Meditation"],
+    image: meditation,
+    description: (
+      <>
+        In our workshop, we will lead you through activities to understand
+        yourself better to be the most comfortable you can be during anything
+        you do. Together we will practice breathing exercises and improve our
+        daily habits to get over stressors in our lives! Join us; anyone is
+        welcome!
+        <br></br>
+        <br></br>
+        Taught by Mission Bit Students.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -930,6 +954,13 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
     dateString: "2021-05-13T14:30:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4887666",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.wellness,
+    dateString: "2021-05-19T15:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4903736",
     who: "7th - 12th graders",
   }),
   workshop({
