@@ -1,5 +1,11 @@
 import { NextPage, GetServerSideProps } from "next";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   Layout,
   getLayoutStaticProps,
@@ -26,6 +32,8 @@ import Paper from "@material-ui/core/Paper";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Collapse from "@material-ui/core/Collapse";
+import Link from "@material-ui/core/Link";
+
 dayjs.extend(relativeTime);
 
 const usdFormatter = new Intl.NumberFormat("en-US", {
@@ -235,12 +243,14 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
     const interval = setInterval(() => setBatch(addSimulatedTransaction), 1000);
     return () => clearInterval(interval);
   }, [simulate]);
+  const toggleSimulate = useCallback(() => {
+    setSimulate((simulate) => initial.simulate && !simulate);
+  }, [initial.simulate, setSimulate]);
 
   const total = batch.transactions.reduce(
     (amount, txn) => amount + txn.amount,
     modifications.transactions.reduce((amount, txn) => amount + txn.amount, 0)
   );
-  // TODO: Incorporate pledges
   const donors = useMemo(() => {
     const donors: CommonTransaction[] = [];
     for (const txn of batch.transactions) {
@@ -250,16 +260,18 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
         amount: txn.amount,
       });
     }
+    for (const txn of modifications.transactions) {
+      donors.push({
+        name: txn.name ?? "Anonymous",
+        created: txn.created,
+        amount: txn.amount,
+      });
+    }
+    donors.sort((a, b) => b.created - a.created);
     return donors;
-  }, [batch.transactions]);
+  }, [batch.transactions, modifications.transactions]);
   return (
-    <Box
-      className={classes.root}
-      onClick={(event) => {
-        event.preventDefault();
-        setSimulate((simulate) => initial.simulate && !simulate);
-      }}
-    >
+    <Box className={classes.root} onClick={toggleSimulate}>
       <Goal
         goalCents={modifications.goalCents}
         totalCents={total}
@@ -421,7 +433,7 @@ const Donors: React.FC<{
 const DonateBanner: React.FC<{}> = () => {
   const classes = useStyles();
   return (
-    <Box className={classes.donateBanner}>
+    <Link href="/donate" className={classes.donateBanner}>
       <Typography
         align="center"
         variant="h1"
@@ -429,7 +441,7 @@ const DonateBanner: React.FC<{}> = () => {
       >
         donate.missionbit.org
       </Typography>
-    </Box>
+    </Link>
   );
 };
 

@@ -5,6 +5,7 @@ export interface BalanceModification {
   readonly name: string;
   readonly amount: number;
   readonly notes: string;
+  readonly created: number;
 }
 
 export interface BalanceModifications {
@@ -67,19 +68,22 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   const transactions: BalanceModification[] = [];
   const id = "113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI";
   const doc = await spreadsheetApiRequest(id, [
-    "ranges=Adjustments!A2:D",
+    "ranges=Adjustments!A2:E",
     "fields=sheets.data.rowData(values(effectiveValue))",
   ]);
   for (const sheet of asArray(doc, "sheets")) {
     for (const data of asArray(sheet, "data")) {
       for (const rowData of asArray(data, "rowData")) {
         const values = asArray(rowData, "values").map(effectiveValue);
-        const [nameV, amountV, includeV, notesV] = values;
-        if (includeV?.boolValue) {
+        const [nameV, amountV, includeV, notesV, timestampV] = values;
+        if (includeV?.boolValue && timestampV?.stringValue) {
           transactions.push({
             name: nameV?.stringValue ?? "",
             amount: Math.floor(100 * (amountV?.numberValue ?? 0)),
             notes: notesV?.stringValue ?? "",
+            created: Math.floor(
+              (Date.parse(timestampV?.stringValue) ?? Date.now()) / 1000
+            ),
           });
         }
       }
