@@ -292,7 +292,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       },
       {
         title: "Sticky Lips Sweetery",
-        course: "Intro to Web Design with Michael",
+        course: "Intro to Web Design with Cameron",
         students: ["Sonia Lee, Saray Mendoza, Kimberly Alvarado"],
         description: (
           <>
