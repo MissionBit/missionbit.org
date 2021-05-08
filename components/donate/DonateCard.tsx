@@ -10,7 +10,7 @@ import BaseOutlinedInput from "@material-ui/core/OutlinedInput";
 import FormControl from "@material-ui/core/FormControl";
 import BaseInputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import IndigoButton from "components/IndigoButton";
 import ArrowRightIcon from "components/icons/ArrowRightIcon";
 import {
@@ -21,7 +21,9 @@ import {
   isFrequency,
 } from "src/stripeHelpers";
 import { Stripe } from "@stripe/stripe-js";
-import { Typography, Theme } from "@material-ui/core";
+import { Typography, Theme, Collapse } from "@material-ui/core";
+
+const matchEnd = Date.parse("2021-06-01T00:00:00-07:00");
 
 const InputLabel = withStyles({
   root: {
@@ -45,7 +47,7 @@ const FontSize = {
     smallInput: 14,
     input: 20,
   },
-};
+} as const;
 
 function mkFontSize(
   theme: Theme,
@@ -164,6 +166,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0),
   },
   arrowIcon: mkFontSize(theme, "arrow"),
+  match: {
+    ...mkFontSize(theme, "input"),
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  matchCopy: {
+    flexGrow: 1,
+    padding: theme.spacing(0, 1),
+    textAlign: "center",
+    fontStyle: "oblique",
+  },
   heading: {
     ...theme.typography.body1,
     ...mkFontSize(theme, "heading"),
@@ -281,10 +296,26 @@ export const DonateCard: React.FC<{
     },
     [disabled, stripe, amountCents, frequency]
   );
+  const [matchAvailable, setMatchAvailable] = useState(false);
+  useEffect(() => setMatchAvailable(() => Date.now() < matchEnd), []);
+
   return (
     <Box className={clsx(classes.root, className)}>
       <Box className={classes.heading}>Choose amount</Box>
       <Box className={classes.content}>
+        <Collapse in={matchAvailable}>
+          <Box className={classes.match}>
+            <span role="img" aria-label="Party popper">
+              🎉
+            </span>
+            <span className={classes.matchCopy}>
+              Online donations today will be matched up to $10k!
+            </span>
+            <span role="img" aria-label="Party popper">
+              🎉
+            </span>
+          </Box>
+        </Collapse>
         <form className={classes.form} onSubmit={handleOnSubmit}>
           <FrequencyToggleButtonGroup
             value={frequency}
