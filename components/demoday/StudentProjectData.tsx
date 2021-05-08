@@ -214,7 +214,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       {
         title: "Puzzle Justice VR",
         course: "VR with Kevin",
-        students: ["Sam Dunn, Marquis Ellis"],
+        students: ["Sam Dunn"],
         description: (
           <>
             Puzzle Justice VR. Its a puzzle game with some incorporated into the
