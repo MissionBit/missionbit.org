@@ -58,8 +58,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             discover each other's similarity and become life long partners.
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://bonnienie01.github.io/Unity-Game/",
+        ...image("fantasy"),
       },
       {
         title: "NP",
@@ -126,8 +126,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             dystopia. Avoid the covid zombies for as long as you can!
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/zZ5zn-86Sjo",
+        ...image("vaccinader"),
       },
       {
         title: "The Turn Against History",
@@ -164,8 +164,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             to rescue a fellow knight.
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/cOAyJttAy9Q",
+        ...image("dead"),
       },
       {
         title: "Weather Forcast",
