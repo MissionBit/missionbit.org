@@ -269,7 +269,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             of food for a good price.
           </>
         ),
-        href: "https://lesliex1.github.io/san-foodcisco/",
+        href: "https://san-foodcisco-com.glitch.me/",
         ...image("foodcisco"),
       },
     ],
@@ -319,7 +319,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             alternatives.
           </>
         ),
-        href: "https://rise-in-plastic.tylerchoi1.repl.co/",
+        href: "https://ethan-ellis13.github.io/rise-in-plastic-use",
         ...image("plastic"),
       },
       {
