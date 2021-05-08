@@ -71,8 +71,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             environment and animals.
           </>
         ),
-        href: "https://replit.com/join/pateszfa-phoebe8334",
-        ...image("placeholder"),
+        href: "https://panda-population.phoebe8334.repl.co/",
+        ...image("panda"),
       },
     ],
   },
