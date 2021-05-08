@@ -88,7 +88,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             huge risks to change making in impact on history.
           </>
         ),
-        href: "",
+        href: "https://replit.com/@RafaelPerez9/finaldemoday#main.py",
       },
     ],
   },
@@ -109,7 +109,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             alternatives.
           </>
         ),
-        href: "https://rise-in-plastic.tylerchoi1.repl.co/",
+        href: "https://ethan-ellis13.github.io/rise-in-plastic-use",
       },
     ],
   },

@@ -214,7 +214,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       {
         title: "Puzzle Justice VR",
         course: "VR with Kevin",
-        students: ["Sam Dunn, Marquis Ellis"],
+        students: ["Sam Dunn"],
         description: (
           <>
             Puzzle Justice VR. Its a puzzle game with some incorporated into the
@@ -269,7 +269,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             of food for a good price.
           </>
         ),
-        href: "https://lesliex1.github.io/san-foodcisco/",
+        href: "https://san-foodcisco-com.glitch.me/",
         ...image("foodcisco"),
       },
     ],
@@ -292,7 +292,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
       },
       {
         title: "Sticky Lips Sweetery",
-        course: "Intro to Web Design with Michael",
+        course: "Intro to Web Design with Cameron",
         students: ["Sonia Lee, Saray Mendoza, Kimberly Alvarado"],
         description: (
           <>
@@ -319,7 +319,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             alternatives.
           </>
         ),
-        href: "https://rise-in-plastic.tylerchoi1.repl.co/",
+        href: "https://ethan-ellis13.github.io/rise-in-plastic-use",
         ...image("plastic"),
       },
       {
