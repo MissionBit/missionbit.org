@@ -88,7 +88,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             huge risks to change making in impact on history.
           </>
         ),
-        href: "",
+        href: "https://replit.com/@RafaelPerez9/finaldemoday#main.py",
       },
     ],
   },
