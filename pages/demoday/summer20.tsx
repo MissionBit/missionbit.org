@@ -3,8 +3,8 @@ import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import oneLine from "src/oneLine";
-import Summer20StudentProjects from "components/demoday/Summer20StudentProjects";
-import PastProjectsLanding from "components/demoday/PastProjectsLanding";
+import Summer20StudentProjects from "components/demoday/past/Summer20StudentProjects";
+import PastProjectsLanding from "components/demoday/past/Summer20PastProjectsLanding";
 
 const useStyles = makeStyles({
   header: {

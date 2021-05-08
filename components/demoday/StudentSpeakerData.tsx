@@ -31,13 +31,13 @@ function image(postfix: string): Pick<StudentProps, "image"> {
   const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
     image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}.jpg`),
+      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-students/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}${k}.jpg`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-students/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2020-fall-students/${postfix}${k}.jpg?webp`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-students/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -49,79 +49,67 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.web_bootcamp,
     projects: [
       {
-        title: "Therapy Area",
+        title: "OneMindfulSelf",
         students: [
-          { name: "Favour Odenyi", ...image("favour") },
-          { name: "Breanna Durant", ...image("breanna") },
+          { name: "Jalyn McFarland", ...image("jalyn") },
+          { name: "Kellie Wong", ...image("kellie") },
+          { name: "Darren Yee", ...image("darren") },
         ],
         description: (
-          <>A website that matches users to different therapy options.</>
+          <>
+            Our website name will be called onemindfulself (onemindfulself.com)
+            and will be about self care. On the website, we will have various
+            tips on how to take care of yourself mainly mentally and a little
+            physically{" "}
+          </>
         ),
-        href: "https://faodenyi.github.io/",
+        href: "https://kkellie.github.io/onemindfulself/",
       },
-      // {
-      //   title: "LiTong's Bubble",
-      //   students: [{ name: "LiTong Liu", ...image("litong") }],
-      //   description: (
-      //     <>
-      //       {" "}
-      //       LiTong’s Bubble is a blog and portfolio website. I write
-      //       anime/kdrama/cdrama reviews and just random things that I want to
-      //       share on my blog.
-      //     </>
-      //   ),
-      //   href: "https://litxng.github.io/LiTongBubble/",
-      // },
-      // {
-      //   title: "Paulina's Store",
-      //   students: [{ name: "Klester Hernandez", ...image("klester") }],
-      //   description: <>We sell purses online for the best prices.</>,
-      //   href: "https://klester2003.github.io/Final_Project/",
-      // },
     ],
   },
   {
     course: Courses.python_class,
     projects: [
       {
-        title: "Healthbot",
+        title: "The Turn Against History",
         students: [
-          { name: "Caitlyn Wong", ...image("caitlyn") },
-          { name: "Zhenyu Yu", ...image("zhenyu") },
+          { name: "DeJohn Thompson", ...image("dejohn") },
+          { name: "Griffin Guerrero Seiberling", ...image("griffin") },
+          { name: "Rafael Perez", ...image("rafa") },
         ],
         description: (
           <>
-            Do ever need someone to talk to or check in with? Healthbot is a
-            python created helper that checks in with you to see where you are
-            at with your mental health. It provides resources and mini surveys
-            for you to complete while you talk about your emotions! Instructions
-            on how to run the project are on the left as soon as you click "View
-            Project".
+            My team and I decided to base our project on Black civil rights
+            activist. With this project each activist has a slide and part
+            dedicated to them. As you flip through person to person, you will
+            receive information on the person of your choosing. The information
+            provides you with who they are and some memorable things they have
+            done. Our point is to teach and educate about Black leaders who took
+            huge risks to change making in impact on history.
           </>
         ),
-        href: "https://repl.it/@caitwong/finalproject#finaltest.py",
-      },
-      {
-        title: "Python Portfolio",
-        students: [{ name: "Octavio Lomeli-Castro ", ...image("octavio") }],
-        description: <>Portfolio with multiple python applications.</>,
-        href: "https://flask-site.octaviolomeli.repl.co/",
+        href: "",
       },
     ],
   },
   {
-    course: Courses.game_bootcamp,
+    course: Courses.javascript_class,
     projects: [
       {
-        title: "Cube Rush",
-        students: [{ name: "Marquis Ellis", ...image("marquis") }],
+        title: "Project Plastic Zero",
+        students: [
+          { name: "Caitlyn Wong", ...image("caitlyn") },
+          { name: "Ethan Ellis", ...image("ethan") },
+          { name: "Tyler Choi", ...image("tyler") },
+        ],
         description: (
           <>
-            A fast-paced game that tests your skills at dodging through
-            obstacles.
+            "Project Plastic Zero" sets a goal for "Zero Plastic, Zero
+            Pollution," striving to reduce plastic use and providing sustainable
+            alternatives.
           </>
         ),
-        href: "https://trickyvortexyt.github.io/Cube-Rush/",
+        href: "https://rise-in-plastic.tylerchoi1.repl.co/",
       },
     ],
   },

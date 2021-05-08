@@ -2,8 +2,9 @@ import { NextPage } from "next";
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
-import DemoDay from "components/demoday/DemoDay";
 import oneLine from "src/oneLine";
+import Summer20StudentProjects from "components/demoday/past/Fall20StudentProjects";
+import Fall20PastProjectsLanding from "components/demoday/past/Fall20PastProjectsLanding";
 
 const useStyles = makeStyles({
   header: {
@@ -16,9 +17,9 @@ const useStyles = makeStyles({
   },
 });
 
-const title = "Spring 2021 Demo Day - Mission Bit";
+const title = "Fall 2020 Demo Day - Mission Bit";
 const description = oneLine`
-Spring 2021 Demo Day is a culminating showcase where our students display
+Fall 2020 Demo Day is a culminating showcase where our students display
 their amazing projects to our community of supporters!`;
 
 const Page: NextPage<LayoutStaticProps> = (props) => {
@@ -32,7 +33,8 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
       title={title}
       description={description}
     >
-      <DemoDay />
+      <Fall20PastProjectsLanding />
+      <Summer20StudentProjects />
     </Layout>
   );
 };

@@ -104,7 +104,7 @@ const Landing: React.FC<{}> = () => {
           size="large"
           className={classes.button}
         >
-          Back to Fall Demo Day
+          Back to this Demo Day
         </IndigoButton>
       </Box>
       <Box className={classes.imageWrapper}>
