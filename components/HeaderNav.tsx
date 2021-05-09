@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useCallback, useEffect, useState } from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import Button, { ButtonProps } from "@material-ui/core/Button";
@@ -8,6 +9,7 @@ import {
   bindMenu,
   bindPopover,
   bindHover,
+  PopupState,
 } from "material-ui-popup-state/hooks";
 import Popover from "material-ui-popup-state/HoverPopover";
 import AppBar from "@material-ui/core/AppBar";
@@ -18,6 +20,9 @@ import Menu from "@material-ui/core/Menu";
 import Link from "@material-ui/core/Link";
 import { brand } from "src/colors";
 import CloseIcon from "@material-ui/icons/Close";
+import { Collapse } from "@material-ui/core";
+import clsx from "clsx";
+import ExpandMoreIcon from "./icons/ExpandMore";
 
 interface NavMenuChoice {
   readonly text: string;
@@ -133,6 +138,37 @@ const useStylesMobile = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(36),
     padding: theme.spacing(0.75, 4),
   },
+  expand: {
+    marginLeft: "1em",
+    fontSize: theme.typography.pxToRem(17),
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+  subNavLink: {
+    display: "flex",
+    alignItems: "center",
+  },
+  subNav: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  subNavMenuItem: {
+    ...theme.typography.h3,
+    fontSize: theme.typography.pxToRem(36),
+    padding: theme.spacing(0.75, 2),
+    display: "flex",
+  },
+  subNavUl: {
+    padding: 0,
+  },
+  wrapper: {
+    paddingTop: theme.spacing(1),
+  },
   closeMenuItem: {
     display: "flex",
     justifyContent: "flex-end",
@@ -194,6 +230,67 @@ const useStylesDesktop = makeStyles((theme) => ({
     top: "1px",
   },
 }));
+
+const MobileSubNav: React.FC<
+  MainNavMenuChoice & {
+    readonly popupState: PopupState;
+    readonly subMenu: readonly NavMenuChoice[];
+  }
+> = ({ text, href, subMenu, popupState }) => {
+  const classes = useStylesMobile();
+  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    if (!popupState.isOpen) {
+      setExpanded(false);
+    }
+  }, [popupState.isOpen]);
+  const handleOnClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      setExpanded((expanded) => !expanded);
+    },
+    []
+  );
+  return (
+    <MenuItem
+      key={text}
+      classes={{ root: clsx(classes.menuItem, classes.subNav) }}
+    >
+      <Link
+        onClick={handleOnClick}
+        href={href}
+        color="textPrimary"
+        underline="none"
+        classes={{ root: clsx(classes.link, classes.subNavLink) }}
+      >
+        {text}
+        <ExpandMoreIcon
+          className={clsx(classes.expand, { [classes.expandOpen]: expanded })}
+        />
+      </Link>
+      <Collapse
+        in={expanded}
+        component="ul"
+        className={classes.subNavUl}
+        classes={{ wrapper: classes.wrapper }}
+      >
+        {subMenu.map((nav) => (
+          <MenuItem key={nav.text} classes={{ root: classes.subNavMenuItem }}>
+            <Link
+              onClick={popupState.close}
+              href={nav.href}
+              color="textPrimary"
+              underline="none"
+              classes={{ root: classes.link }}
+            >
+              {nav.text}
+            </Link>
+          </MenuItem>
+        ))}
+      </Collapse>
+    </MenuItem>
+  );
+};
 
 const SubNavButton: React.FC<MainNavMenuChoice> = ({
   text,
@@ -316,22 +413,31 @@ const MobileHeaderNav: React.FC<{ className: string }> = ({ className }) => {
               <CloseIcon fontSize="large" />
             </IconButton>
           </div>
-          {commonNav.map(({ text, href }) => (
-            <MenuItem
-              key={text}
-              onClick={popupState.close}
-              classes={{ root: classes.menuItem }}
-            >
-              <Link
-                href={href}
-                color="textPrimary"
-                underline="none"
-                classes={{ root: classes.link }}
+          {commonNav.map(({ subMenu, ...nav }) =>
+            subMenu !== undefined ? (
+              <MobileSubNav
+                key={nav.text}
+                {...nav}
+                subMenu={subMenu}
+                popupState={popupState}
+              />
+            ) : (
+              <MenuItem
+                key={nav.text}
+                onClick={popupState.close}
+                classes={{ root: classes.menuItem }}
               >
-                {text}
-              </Link>
-            </MenuItem>
-          ))}
+                <Link
+                  href={nav.href}
+                  color="textPrimary"
+                  underline="none"
+                  classes={{ root: classes.link }}
+                >
+                  {nav.text}
+                </Link>
+              </MenuItem>
+            )
+          )}
         </Menu>
       </Toolbar>
     </AppBar>
