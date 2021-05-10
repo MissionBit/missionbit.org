@@ -14,7 +14,8 @@ type TeamTitle =
   | "Program Coordinator"
   | "Videographer"
   | "Office Administrator"
-  | "Curriculum Assistant";
+  | "Curriculum Assistant"
+  | "Social Media/Marketing Intern";
 
 type School =
   | "Lowell High School"
@@ -99,6 +100,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     name: "Cody Rowland",
     title: "Curriculum Assistant",
     ...image("core/cody.jpg"),
+  },
+  {
+    name: "Erin Mendez",
+    title: "Social Media/Marketing Intern",
+    ...image("core/erin-mendez.jpg"),
   },
 ];
 
@@ -241,11 +247,6 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
       </>
     ),
     ...image("board/farid_vij.jpg"),
-  },
-  {
-    name: "Brian Clark",
-    title: "Engineering Manager at Cruise Automation",
-    ...image("board/brian_clark.jpg"),
   },
   {
     name: "Clive Downie",
