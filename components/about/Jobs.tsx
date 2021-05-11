@@ -22,10 +22,10 @@ interface JobOpening {
 }
 
 const JobOpenings: JobOpening[] = [
-  // {
-  //   href: "/images/jobs/WebDesignInstructor.pdf",
-  //   title: "Lead Web Design Instructor",
-  // },
+  {
+    href: "/images/jobs/InstructorS21.pdf",
+    title: "Summer Coding Instructor",
+  },
 ];
 
 const Jobs: React.FC<{}> = () => {
@@ -40,7 +40,7 @@ const Jobs: React.FC<{}> = () => {
       </Typography> */}
       {JobOpenings.length === 0 ? (
         <Typography className={classes.openings}>
-          We are no longer hiring. Please check back in January!
+          We are no longer hiring. Please check back!
         </Typography>
       ) : (
         <Typography className={classes.openings} component="ul">
