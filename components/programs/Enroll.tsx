@@ -131,7 +131,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
     case "courses":
       return (
         <Typography className={classes.copy}>
-          Apply to our program and come have fun with us this spring!
+          Apply to our program and come have fun with us this summer!
           <br />
           <span className={classes.deadlineEmphasis}>
             Application deadline:
