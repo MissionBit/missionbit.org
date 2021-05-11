@@ -90,9 +90,9 @@ const useStyles = makeStyles((theme) => ({
 
 export const GALA_LANDING_COPY = (
   <>
-    Mission Bit’s Fourth Annual Gala is a celebration of seven years of growth,
+    Mission Bit’s 5th Annual Gala is a celebration of eight years of growth,
     impact, and learning. Join us for this inspiring event, meet our students,
-    hear their stories, and help us reach our 2021 goals!
+    hear their stories, and help us reach our 2022 goals!
   </>
 );
 
@@ -101,7 +101,7 @@ export const GalaLanding: React.FC<{}> = () => {
   return (
     <Container id="landing" component="section" className={classes.root}>
       <Typography variant="h2" component="h1" className={classes.title}>
-        Fourth Annual Gala
+        Fifth Annual Gala
       </Typography>
       <div className={classes.cta}>
         <GalaCTA heading={null} />

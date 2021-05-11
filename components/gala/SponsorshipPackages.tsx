@@ -231,7 +231,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
             href="/gala"
             className={classes.button}
           >
-            Fourth Annual Gala Details
+            Fifth Annual Gala Details
           </IndigoButton>
         </Box>
         <Typography variant="h3" align="center">
@@ -239,7 +239,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Typography>
         <Typography className={classes.packagesCopy}>
           All sponsorship packages include a virtual table for at least 25
-          attendees and logo presence on Mission Bit website for 2021.
+          attendees and logo presence on Mission Bit website for 2022.
           <br />
           Contact{" "}
           <Link
@@ -254,7 +254,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Typography>
         <Package title="$50,000 Diamond Sponsor">
           <li>Exclusive to one sponsor</li>
-          <li>Unlimited “seats” to virtual event</li>
+          <li>*Seating/Tickets TBD</li>
           <li>Up to three minutes of speaking time</li>
           <li>Public recognition in CEO Remarks</li>
           <li>
@@ -265,7 +265,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$25,000 Platinum Sponsor">
           <li>Exclusive to two sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
+          <li>*Seating/Tickets TBD</li>
           <li>Public recognition in CEO Remarks</li>
           <li>
             Your logo featured as Platinum Sponsor on event slideshow before and
@@ -275,7 +275,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$10,000 Gold Sponsor">
           <li>Exclusive to five sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
+          <li>*Seating/Tickets TBD</li>
           <li>
             Your logo featured as Gold Sponsor on event slideshow before and
             after event and all promotional material
@@ -284,7 +284,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$5,000 Silver Sponsor">
           <li>Exclusive to ten sponsors</li>
-          <li>Unlimited “seats” to virtual event</li>
+          <li>*Seating/Tickets TBD</li>
           <li>
             Your logo featured as Silver Sponsor on event slideshow before and
             after event and all promotional material
@@ -292,7 +292,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
           <li>Your logo displayed on the Mission Bit website</li>
         </Package>
         <Package title="$2,500 Bronze Sponsor">
-          <li>25 “seats” for your employees</li>
+          <li>*Seating/Tickets TBD</li>
           <li>Logo presence on event program</li>
           <li>
             Your logo featured as Bronze Sponsor on event slideshow before and
