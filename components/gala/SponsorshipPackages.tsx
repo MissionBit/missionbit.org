@@ -292,7 +292,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
           <li>Your logo displayed on the Mission Bit website</li>
         </Package>
         <Package title="$2,500 Bronze Sponsor">
-          <li>25 “seats” for your employees</li>
+          <li>*Seating/Tickets TBD</li>
           <li>Logo presence on event program</li>
           <li>
             Your logo featured as Bronze Sponsor on event slideshow before and
