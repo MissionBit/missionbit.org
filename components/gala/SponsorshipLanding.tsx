@@ -124,19 +124,19 @@ const SponsorshipLanding: React.FC<{}> = () => {
     <Container id="landing" component="section" className={classes.root}>
       <Box className={classes.column}>
         <Typography variant="h2" component="h1" className={classes.title}>
-          Sponsor the Fourth Annual Gala
+          Sponsor the Fifth Annual Gala
         </Typography>
         <Typography className={classes.details}>
           {date}
           <br />
           {time}
           <br />
-          <PinIcon className={classes.pin} /> Online
+          <PinIcon className={classes.pin} /> TBD
         </Typography>
         <Typography className={classes.copy}>
-          Mission Bit’s Fourth Annual Gala is a celebration of seven years of
+          Mission Bit’s 5th Annual Gala is a celebration of eight years of
           growth, impact, and learning. Join us for this inspiring event, meet
-          our students, hear their stories, and help us reach our 2021 goals!
+          our students, hear their stories, and help us reach our 2022 goals!
         </Typography>
       </Box>
       <Box className={classes.imageWrapper}>

@@ -6,6 +6,7 @@ import SponsorshipLanding from "./SponsorshipLanding";
 import FlourishSeparator from "components/programs/FlourishSeparator";
 import SponsorshipPackages from "./SponsorshipPackages";
 import SponsorSection from "./SponsorSection";
+import SponsorSectionNew from "./SponsorSectionNew";
 
 const useStyles = makeStyles((theme) => ({
   videoSection: {
@@ -20,6 +21,8 @@ const Sponsorship: React.FC<{}> = () => {
       <SponsorshipLanding />
       <FlourishSeparator />
       <SponsorshipPackages />
+      <FlourishSeparator />
+      <SponsorSectionNew />
       <FlourishSeparator />
       <SponsorSection />
       <FlourishSeparator />

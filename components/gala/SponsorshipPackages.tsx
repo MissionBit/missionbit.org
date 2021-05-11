@@ -231,7 +231,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
             href="/gala"
             className={classes.button}
           >
-            Fourth Annual Gala Details
+            Fifth Annual Gala Details
           </IndigoButton>
         </Box>
         <Typography variant="h3" align="center">
@@ -239,7 +239,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Typography>
         <Typography className={classes.packagesCopy}>
           All sponsorship packages include a virtual table for at least 25
-          attendees and logo presence on Mission Bit website for 2021.
+          attendees and logo presence on Mission Bit website for 2022.
           <br />
           Contact{" "}
           <Link

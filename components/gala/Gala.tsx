@@ -14,8 +14,9 @@ import { Box } from "@material-ui/core";
 import RectImage from "components/RectImage";
 import AsteriskCollage from "./AsteriskCollage";
 import Metadata from "./Metadata";
-import Speakers from "./Speakers";
+// import Speakers from "./Speakers";
 import { GalaCTA } from "./GalaCTA";
+import SponsorSectionNew from "./SponsorSectionNew";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -237,7 +238,7 @@ const Gala: React.FC<{}> = () => {
           courses to high school students in San Francisco and Oakland.
           <br />
           <br />
-          The gala will feature a Keynote from{" "}
+          {/* The gala will feature a Keynote from{" "}
           <Link color="secondary" href="#michael-tubbs">
             Mayor Michael Tubbs of Stockton
           </Link>
@@ -246,7 +247,7 @@ const Gala: React.FC<{}> = () => {
             Mayor London Breed of San Francisco
           </Link>
           , stories from Mission Bit alumni, and presentations of student
-          projects!
+          projects! */}
         </Typography>
         <Box className={classes.studentsCollage}>
           <AsteriskCollage
@@ -259,8 +260,8 @@ const Gala: React.FC<{}> = () => {
           />
         </Box>
       </Container>
-      <FlourishSeparator />
-      <Speakers />
+      {/* <FlourishSeparator />
+      <Speakers /> */}
       <FlourishSeparator />
       <Container component="section" id="sponsorship-info">
         <Typography
@@ -268,7 +269,7 @@ const Gala: React.FC<{}> = () => {
           className={classes.sponsorshipTitle}
           align="center"
         >
-          Looking to sponsor Mission Bit's Fourth Annual Gala?
+          Looking to sponsor Mission Bit's Fifth Annual Gala?
         </Typography>
         <Typography className={classes.sponsorshipCopy} align="center">
           Contact{" "}
@@ -297,6 +298,8 @@ const Gala: React.FC<{}> = () => {
       <Container component="section">
         <GalaVideo />
       </Container>
+      <FlourishSeparator />
+      <SponsorSectionNew />
       <FlourishSeparator />
       <SponsorSection />
     </main>
