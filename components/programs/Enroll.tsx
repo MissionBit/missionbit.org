@@ -122,7 +122,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           years old.
           <br />
           <span className={classes.deadlineEmphasis}>
-            Application deadline:
+            Extended application deadline:
           </span>{" "}
           {LongDateTimeFormat.format(SDRDates.registrationDeadline)}
           <br />
