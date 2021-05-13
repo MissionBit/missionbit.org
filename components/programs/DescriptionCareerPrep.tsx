@@ -59,9 +59,9 @@ const Description: React.FC<{}> = () => {
       </Box>
       <Box className={classes.copyColumn}>
         <Typography className={classes.copy}>
-          This program gives students all the skills they need to successful
+          This program gives students all the skills they need to be successful
           Sales Development Representatives. The bootcamp consists of three
-          three phases.
+          phases.
         </Typography>
         <Typography className={classes.copy}>
           In phase 1, students complete soft skills training to gain necessary
