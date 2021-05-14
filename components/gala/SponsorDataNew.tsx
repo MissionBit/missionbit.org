@@ -57,7 +57,7 @@ export const Sponsors: readonly SponsorData[] = [
       width: 600,
       height: 600,
     }),
-    level: "silver",
+    level: "gold",
   },
 ];
 

@@ -5,11 +5,11 @@ import absoluteUrl from "src/absoluteUrl";
 import oneLine from "src/oneLine";
 import htmlEscapeJsonString from "src/htmlEscapeJsonString";
 
-export const title = "Mission Bit – 2020 Mission Bit Gala";
+export const title = "Mission Bit – 2021 Mission Bit Gala";
 export const description = oneLine`
-Mission Bit's Fourth Annual Gala is a celebration of seven years of growth,
+Mission Bit's Fifth Annual Gala is a celebration of eight years of growth,
 impact, and learning. Join us for this inspiring event, meet our students,
-hear their stories, and help us reach our 2021 goals!
+hear their stories, and help us reach our 2022 goals!
 `;
 export const pageImage = "/images/gala/2020-poster-save-the-date.jpg";
 export const registerUrl =

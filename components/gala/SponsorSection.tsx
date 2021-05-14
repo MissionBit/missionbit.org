@@ -75,7 +75,7 @@ const SponsorSection: React.FC<{}> = () => {
         align="center"
         className={classes.thankYouHeading}
       >
-        Thank you to our 2020 Gala Sponsors
+        Thank you to our 2021 Gala Sponsors
       </Typography>
       {SponsorLevels.map((level) => {
         const sponsors = Sponsors.filter((props) => props.level === level);

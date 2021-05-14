@@ -8,7 +8,6 @@ import { ShortDateFormat } from "src/dates";
 import { makeStyles, darken } from "@material-ui/core/styles";
 import { brand } from "src/colors";
 import { useRenderTime } from "components/BuildTimeContext";
-import GalaCalendarEvent from "components/gala/GalaDates";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,21 +57,6 @@ interface TimedAlert {
 }
 
 const timedAlerts: readonly TimedAlert[] = [
-  {
-    hideAfter: Date.parse(GalaCalendarEvent.end!),
-    content: (
-      <Link color="inherit" href="/gala?aff=banner" title="Mission Bit Gala">
-        <span role="img" aria-label="Party popper">
-          🎉
-        </span>{" "}
-        Join Mayors Michael Tubbs and London Breed at our Annual (Virtual) Gala
-        on November 12{" "}
-        <span role="img" aria-label="Partying face">
-          🥳
-        </span>
-      </Link>
-    ),
-  },
   {
     hideAfter: CourseDates.registrationDeadline,
     content: (
