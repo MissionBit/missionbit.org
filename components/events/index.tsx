@@ -265,12 +265,12 @@ const FeaturedEvents: FeaturedEvent[] = [
     date: Date.parse(GalaCalendarEvent.start),
     href: "/gala",
     linkTitle: "Learn More",
-    title: "Fourth Annual Gala",
+    title: "Fifth Annual Gala",
     description: (
       <>
-        Mission Bit’s Fourth Annual Gala is a celebration of seven years of
+        Mission Bit’s Fifth Annual Gala is a celebration of eight years of
         growth, impact, and learning. Join us for this inspiring event, meet our
-        students, hear their stories, and help us reach our 2021 goals!
+        students, hear their stories, and help us reach our 2022 goals!
       </>
     ),
     topRightImage: {
