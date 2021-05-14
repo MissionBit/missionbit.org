@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(20),
     [theme.breakpoints.down("sm")]: {
       fontSize: theme.typography.body1.fontSize,
+      paddingLeft: 0,
     },
   },
   deadlineEmphasis: {
