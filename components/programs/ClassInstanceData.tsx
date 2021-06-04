@@ -681,6 +681,8 @@ export const Courses = courseRecord({
         insightful workshop to learn about mental health. Image credit to{" "}
         <a href="https://www.vecteezy.com/members/misfitblue"> misfitblue.</a>
         <br></br>
+        <br></br>
+        Taught by Mission Bit Students.
       </>
     ),
   },
@@ -698,6 +700,8 @@ export const Courses = courseRecord({
           ZeroGravity.
         </a>
         <br></br>
+        <br></br>
+        Taught by Mission Bit Students.
       </>
     ),
   },
@@ -929,45 +933,31 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.job_hunt,
-    dateString: "2021-04-28T14:00:00-08:00",
+    course: Courses.python_workshop,
+    dateString: "2021-06-09T17:00:00-07:00",
     minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4892571",
-    who: "14 - 24 year olds",
-  }),
-  workshop({
-    course: Courses.game_design_dotbigbang,
-    dateString: "2021-05-05T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4901150",
+    signupUrl: "https://www.tfaforms.com/4910341",
     who: "7th - 12th graders",
   }),
   workshop({
-    course: Courses.SFPL_web_class,
-    dateString: "2021-05-11T14:30:00-08:00",
+    course: Courses.design_business_workshop,
+    dateString: "2021-06-22T15:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4887664",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.SFPL_python_workshop,
-    dateString: "2021-05-13T14:30:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4887666",
+    signupUrl: "https://www.tfaforms.com/4910392",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.wellness,
-    dateString: "2021-05-19T15:00:00-07:00",
+    dateString: "2021-06-23T15:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4903736",
+    signupUrl: "https://www.tfaforms.com/4910406",
     who: "7th - 12th graders",
   }),
   workshop({
-    course: Courses.poetry_mental_health_workshop,
-    dateString: "2021-05-26T14:00:00-08:00",
+    course: Courses.deep_dream,
+    dateString: "2021-06-30T15:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4901155",
+    signupUrl: "https://www.tfaforms.com/4910409",
     who: "7th - 12th graders",
   }),
 ];
