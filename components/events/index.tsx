@@ -135,13 +135,13 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: Date.parse("2021-05-08T11:00:00-07:00"),
-    href: "https://www.eventbrite.com/e/148799458185",
+    date: Date.parse("2021-07-24T11:00:00-07:00"),
+    href: "https://www.eventbrite.com/e/161778875973",
     linkTitle: "Register",
-    title: "Spring Demo Day",
+    title: "Summer Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Spring
+        Join us in celebrating our incredibly talented students at our Summer
         2021 Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
