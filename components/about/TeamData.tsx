@@ -110,14 +110,29 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
+    name: "Ai Nakamura",
+    title: "Lead Instructor",
+    ...image("instructors/summer2021/ai.jpg"),
+  },
+  {
     name: "Cameron Deputy",
     title: "Lead Instructor",
-    ...image("instructors/cameron-deputy.jpg"),
+    ...image("instructors/summer2021/cameron.jpg"),
+  },
+  {
+    name: "Cody Rowland",
+    title: "Lead Instructor",
+    ...image("core/cody.jpg"),
+  },
+  {
+    name: "Daniel Jackson",
+    title: "Lead Instructor",
+    ...image("instructors/summer2021/daniel.jpg"),
   },
   {
     name: "Hunter Rocha",
     title: "Lead Instructor",
-    ...image("instructors/hunter_rocha.jpg"),
+    ...image("instructors/summer2021/hunter_rocha.jpg"),
   },
   {
     name: "Irvin Guerra",
@@ -125,14 +140,19 @@ const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
     ...image("instructors/irvin.jpg"),
   },
   {
-    name: "Kevin Beltran",
+    name: "Joseph Lerner",
     title: "Lead Instructor",
-    ...image("instructors/kevin-beltran.jpg"),
+    ...image("instructors/summer2021/joe.jpg"),
   },
   {
-    name: "Shay Yano",
+    name: "Ornelle Fonkoua",
     title: "Lead Instructor",
-    ...image("instructors/shay-yano.jpg"),
+    ...image("instructors/summer2021/ornelle.jpg"),
+  },
+  {
+    name: "Wilson Ng",
+    title: "Lead Instructor",
+    ...image("instructors/summer2021/wilson.jpg"),
   },
 ];
 
@@ -275,11 +295,6 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     name: "Bob Ippolito",
     title: "Entrepreneur, Maker of Things",
     ...image("board/bob_ippolito.jpg"),
-  },
-  {
-    name: "Saskia Leggett",
-    title: "Learning Experience Designer",
-    ...image("board/saskia_leggett.jpg"),
   },
   {
     name: "Jill McNay",
