@@ -37,6 +37,7 @@ export const CourseSkills = [
   "Poetry Writing",
   "Wellness",
   "Meditation",
+  "College",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -186,6 +187,16 @@ const BLMImage = {
 const meditation = {
   src: require("public/images/program/workshops/meditation.jpg"),
   alt: "Image of a girl meditating with her cat around her neck.",
+};
+
+const money = {
+  src: require("public/images/program/workshops/money.jpg"),
+  alt: "Image of a hand holding bills.",
+};
+
+const grad = {
+  src: require("public/images/program/workshops/grad.svg"),
+  alt: "Image of a graduation hat",
 };
 
 export interface Course {
@@ -737,6 +748,40 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  college_counseling: {
+    title: "College Counseling with Career Expectations",
+    skills: ["College"],
+    image: grad,
+    description: (
+      <>
+        In our workshop, we will lead you through activities to understand
+        yourself better to be the most comfortable you can be during anything
+        you do. Together we will practice breathing exercises and improve our
+        daily habits to get over stressors in our lives! Join us; anyone is
+        welcome!
+        <br></br>
+        <br></br>
+        Taught by Mission Bit Students.
+      </>
+    ),
+  },
+  paying_college: {
+    title: "Paying for College",
+    skills: ["College"],
+    image: money,
+    description: (
+      <>
+        In our workshop, we will lead you through activities to understand
+        yourself better to be the most comfortable you can be during anything
+        you do. Together we will practice breathing exercises and improve our
+        daily habits to get over stressors in our lives! Join us; anyone is
+        welcome!
+        <br></br>
+        <br></br>
+        Taught by Mission Bit Students.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -933,32 +978,18 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.python_workshop,
-    dateString: "2021-06-09T17:00:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4910341",
-    who: "7th - 12th graders",
+    course: Courses.college_counseling,
+    dateString: "2021-07-13T15:00:00-07:00",
+    minutes: 60,
+    signupUrl: "https://www.tfaforms.com/4917172",
+    who: "14 - 24 year olds",
   }),
   workshop({
-    course: Courses.design_business_workshop,
+    course: Courses.paying_college,
     dateString: "2021-06-22T15:00:00-07:00",
-    minutes: 90,
+    minutes: 60,
     signupUrl: "https://www.tfaforms.com/4910392",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.wellness,
-    dateString: "2021-06-23T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4910406",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.deep_dream,
-    dateString: "2021-06-30T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4910409",
-    who: "7th - 12th graders",
+    who: "14 - 24 year olds",
   }),
 ];
 
