@@ -754,14 +754,10 @@ export const Courses = courseRecord({
     image: grad,
     description: (
       <>
-        In our workshop, we will lead you through activities to understand
-        yourself better to be the most comfortable you can be during anything
-        you do. Together we will practice breathing exercises and improve our
-        daily habits to get over stressors in our lives! Join us; anyone is
-        welcome!
-        <br></br>
-        <br></br>
-        Taught by Mission Bit Students.
+        Are you a high school junior or senior thinking about pursuing STEM or
+        Computer Science in college? This workshop will teach you about the
+        different paths you can explore in college. Bring your burning
+        questions!
       </>
     ),
   },
@@ -771,14 +767,10 @@ export const Courses = courseRecord({
     image: money,
     description: (
       <>
-        In our workshop, we will lead you through activities to understand
-        yourself better to be the most comfortable you can be during anything
-        you do. Together we will practice breathing exercises and improve our
-        daily habits to get over stressors in our lives! Join us; anyone is
-        welcome!
-        <br></br>
-        <br></br>
-        Taught by Mission Bit Students.
+        This is a workshop for high school juniors and seniors! Learn about the
+        FAFSA application process and become familiar with different types of
+        scholarships, grants and student loans; plus tips for graduating with as
+        little debt as possible.
       </>
     ),
   },
@@ -982,14 +974,14 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
     dateString: "2021-07-13T15:00:00-07:00",
     minutes: 60,
     signupUrl: "https://www.tfaforms.com/4917172",
-    who: "14 - 24 year olds",
+    who: "Juniors and Seniors (11th/12th graders)",
   }),
   workshop({
     course: Courses.paying_college,
-    dateString: "2021-06-22T15:00:00-07:00",
+    dateString: "2021-07-22T15:00:00-07:00",
     minutes: 60,
-    signupUrl: "https://www.tfaforms.com/4910392",
-    who: "14 - 24 year olds",
+    signupUrl: "https://www.tfaforms.com/4917174",
+    who: "Juniors and Seniors (11th/12th graders)",
   }),
 ];
 
