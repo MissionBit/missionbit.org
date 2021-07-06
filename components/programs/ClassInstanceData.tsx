@@ -37,6 +37,7 @@ export const CourseSkills = [
   "Poetry Writing",
   "Wellness",
   "Meditation",
+  "College",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -186,6 +187,16 @@ const BLMImage = {
 const meditation = {
   src: require("public/images/program/workshops/meditation.jpg"),
   alt: "Image of a girl meditating with her cat around her neck.",
+};
+
+const money = {
+  src: require("public/images/program/workshops/money.jpg"),
+  alt: "Image of a hand holding bills.",
+};
+
+const grad = {
+  src: require("public/images/program/workshops/grad.svg"),
+  alt: "Image of a graduation hat",
 };
 
 export interface Course {
@@ -737,6 +748,32 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  college_counseling: {
+    title: "College Counseling with Career Expectations",
+    skills: ["College"],
+    image: grad,
+    description: (
+      <>
+        Are you a high school junior or senior thinking about pursuing STEM or
+        Computer Science in college? This workshop will teach you about the
+        different paths you can explore in college. Bring your burning
+        questions!
+      </>
+    ),
+  },
+  paying_college: {
+    title: "Paying for College",
+    skills: ["College"],
+    image: money,
+    description: (
+      <>
+        This is a workshop for high school juniors and seniors! Learn about the
+        FAFSA application process and become familiar with different types of
+        scholarships, grants and student loans; plus tips for graduating with as
+        little debt as possible.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -933,32 +970,18 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.python_workshop,
-    dateString: "2021-06-09T17:00:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4910341",
-    who: "7th - 12th graders",
+    course: Courses.college_counseling,
+    dateString: "2021-07-13T15:00:00-07:00",
+    minutes: 60,
+    signupUrl: "https://www.tfaforms.com/4917172",
+    who: "Juniors and Seniors (11th/12th graders)",
   }),
   workshop({
-    course: Courses.design_business_workshop,
-    dateString: "2021-06-22T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4910392",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.wellness,
-    dateString: "2021-06-23T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4910406",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.deep_dream,
-    dateString: "2021-06-30T15:00:00-07:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4910409",
-    who: "7th - 12th graders",
+    course: Courses.paying_college,
+    dateString: "2021-07-22T15:00:00-07:00",
+    minutes: 60,
+    signupUrl: "https://www.tfaforms.com/4917174",
+    who: "Juniors and Seniors (11th/12th graders)",
   }),
 ];
 
