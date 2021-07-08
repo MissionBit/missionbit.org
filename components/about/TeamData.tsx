@@ -73,7 +73,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
         the University of California, Santa Cruz. She is a San Francisco native
         and is extremely passionate about making tech more diverse and
         accessible to youth from the Bay Area. In her free time, she could be
-        found exploring new places, reading, or
+        found exploring new places, reading, or{" "}
         <a href="https://www.instagram.com/tuftgirlsdontcry/?hl=en">
           making rugs.
         </a>
