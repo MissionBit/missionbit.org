@@ -73,7 +73,10 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
         the University of California, Santa Cruz. She is a San Francisco native
         and is extremely passionate about making tech more diverse and
         accessible to youth from the Bay Area. In her free time, she could be
-        found exploring new places, reading, or learning how to draw.
+        found exploring new places, reading, or{" "}
+        <a href="https://www.instagram.com/tuftgirlsdontcry/?hl=en">
+          making rugs.
+        </a>
       </>
     ),
   },
@@ -92,6 +95,34 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     ),
   },
   {
+    name: "Belinda Coronado",
+    title: "Program Coordinator",
+    ...image("core/belinda.jpg"),
+    bio: (
+      <>
+        Belinda was born and raised in South Central, Los Angeles. She studied
+        communication at the University of Southern California. Belinda is very
+        excited to become a valuable member at Mission Bit since she is
+        passionate about helping bring resources and opportunities to
+        underrepresented communities!
+      </>
+    ),
+  },
+  {
+    name: "Zoe Kurtz",
+    title: "Program Coordinator",
+    ...image("core/zoe.jpg"),
+    bio: (
+      <>
+        Zoe is from Boston and attended Vassar College to study English and
+        education. After teaching for one year, she moved into the nonprofit
+        sector, working with youth in an internship program. Zoe is excited
+        about working with a team of creative individuals passionate about
+        increasing youth engagement in tech.
+      </>
+    ),
+  },
+  {
     name: "David Topete",
     title: "Videographer",
     ...image("core/david_topete.jpg"),
@@ -105,6 +136,11 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     name: "Erin Mendez",
     title: "Social Media/Marketing Intern",
     ...image("core/erin-mendez.jpg"),
+  },
+  {
+    name: "Emmely Villalta",
+    title: "Social Media/Marketing Intern",
+    ...image("core/emmely.jpg"),
   },
 ];
 
