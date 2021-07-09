@@ -82,38 +82,16 @@ const TEAM: TeamMemberProps[] = [
     ),
   },
   {
-    name: "Derick Du",
-    type: "Team",
-    title: "Student Ambassador, Mission Bit",
-    ...image("team/derick_du"),
-    bio: (
-      <>
-        Hi, my name is Derick and I am part of the Mission Bit SAB and will be
-        one of your organizers for this conference. I hope you’re as excited as
-        I am to be part of this, we've worked really hard and make sure to have
-        fun! Feel free to contact me at{" "}
-        <a
-          href="mailto:derickdu127@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          derickdu127@gmail.com
-        </a>
-        !
-      </>
-    ),
-  },
-  {
     name: "Tara Tiong",
     type: "Team",
     title: "Student Ambassador, Mission Bit",
-    ...image("team/tara_tiong"),
+    ...image("team/tara"),
     bio: (
       <>
-        Hi! I’m Tara, my team and I organized this conference. I am looking
-        forward to meeting new people and hosting the conference. Our team has
-        put some dirt and sweat into this big project, it is our wish for you to
-        enjoy it! If you have any questions, contact me at{" "}
+        I’m Tara, and this is my second year organizing the Bridging the Youth
+        Tech Divide. My role is to make sure everyone has an orderly system of
+        planning. I’m excited to see new faces interested in the tech industry
+        this year! Contact me at{" "}
         <a
           href="mailto:tarationg@gmail.com"
           target="_blank"
@@ -125,9 +103,108 @@ const TEAM: TeamMemberProps[] = [
       </>
     ),
   },
+  {
+    name: "Natalie Huang",
+    type: "Team",
+    title: "Student Ambassador, Mission Bit",
+    ...image("team/natalie"),
+    bio: (
+      <>
+        Hi! My name is Natalie, and this is my first time helping to organize
+        the Bridging the Youth Tech Divide Conference. I’m super excited to meet
+        everyone and show you what our team has worked on over the last few
+        months. Feel free to reach out to me anytime at{" "}
+        <a
+          href="mailto:yingyan.huangg@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          yingyan.huangg@gmail.com
+        </a>
+        !
+      </>
+    ),
+  },
+  {
+    name: "Alyssa Wu",
+    type: "Team",
+    title: "Student Ambassador, Mission Bit",
+    ...image("team/alyssa"),
+    bio: (
+      <>
+        My name is Alyssa, and this year is my first year contributing to the
+        Bridging the Youth Tech Divide Conference. It was super cool taking part
+        in organizing this event, and I look forward to meeting everyone! If you
+        have any questions or concerns regarding the conference, you may contact
+        our team or reach me at{" "}
+        <a
+          href="mailto:alyssa@missionbit.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          alyssa@missionbit.org
+        </a>
+        !
+      </>
+    ),
+  },
+  {
+    name: "Oswen Martinez",
+    type: "Team",
+    title: "Student Ambassador, Mission Bit",
+    ...image("team/oswen"),
+    bio: (
+      <>
+        My name is Oswen, and this is my first year helping organize the
+        Bridging the Youth Tech Divide Conference. It has been a fun learning
+        experience working on this event with others. I am extremely excited to
+        facilitate and meet everyone. Feel free to contact me or others about
+        any further questions you may have, you can reach me at{" "}
+        <a
+          href="mailto:oswen.martinez21@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          oswen.martinez21@gmail.com
+        </a>
+        !
+      </>
+    ),
+  },
+  {
+    name: "Angelo Ubas",
+    type: "Team",
+    title: "Student Ambassador, Mission Bit",
+    ...image("team/angelo"),
+    bio: (
+      <>
+        Hello! My name is Angelo, and this is my first year attending and
+        organizing the Bridging Youth Tech Divide Conference for 2021. It has
+        been a super fun experience organizing this event with the student
+        advisory board. I’m very excited to meet everyone! If you have any
+        questions regarding the conference, please don’t hesitate to reach out
+        to me at{" "}
+        <a
+          href="mailto:angeloubas31@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          angeloubas31@gmail.com
+        </a>
+        !
+      </>
+    ),
+  },
 ];
 
 const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
+  {
+    name: "TBD",
+    type: "Keynote Speaker",
+    title: "",
+    ...image("keynote-speakers/placeholder"),
+    bio: <>This could be you!</>,
+  },
   // {
   //   name: "Caitlin Kalinowski",
   //   type: "Keynote Speaker",
@@ -181,6 +258,13 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
 ];
 
 const PANELISTS: TeamMemberProps[] = [
+  {
+    name: "TBD",
+    type: "Panelist",
+    title: "",
+    ...image("keynote-speakers/placeholder"),
+    bio: <>This could be you!</>,
+  },
   // {
   //   name: "Allison Doami",
   //   type: "Panelist",
