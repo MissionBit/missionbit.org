@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import BridgeCalendarEvent from "./BridgeDates";
+import BridgeCalendarEvent from "../BridgeDates";
 import absoluteUrl from "src/absoluteUrl";
 import oneLine from "src/oneLine";
 import htmlEscapeJsonString from "src/htmlEscapeJsonString";
@@ -12,7 +12,7 @@ SF youth, seeking to inspire attendees to explore the potential and
 possibility of a tech career.
 `;
 export const pageImage = "/images/bridge/social/bytd-logo.png";
-export const registerUrl = "https://www.tfaforms.com/4915071";
+export const registerUrl = "https://www.tfaforms.com/4835468";
 
 export const Metadata: React.FC<{}> = () => {
   const metadata = {
