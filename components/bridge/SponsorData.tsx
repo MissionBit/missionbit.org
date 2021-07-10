@@ -33,7 +33,7 @@ export const Sponsors: SponsorData[] = [
     title: "Lyft",
     width: 1262,
     height: 258,
-    logoUrl: require("public/images/bridge/sponsors/lyft.png"),
+    logoUrl: require("public/images/bridge/sponsors/lyft.svg"),
   },
   {
     href: "https://www.notion.so/",
@@ -50,14 +50,6 @@ export const Sponsors: SponsorData[] = [
     logoUrl: require("public/images/bridge/sponsors/verizon.png"),
   },
   {
-    href:
-      "https://www.ymcasf.org/programs/urban-services-san-francisco-youth-empowerment-fund",
-    title: "YMCA San Francisco Youth Empowerment Fund",
-    width: 1262,
-    height: 258,
-    logoUrl: require("public/images/bridge/sponsors/yef.svg"),
-  },
-  {
     href: "https://www.missionbit.org/",
     title: "Mission Bit",
     width: 512,
@@ -70,7 +62,7 @@ export const Employers: SponsorData[] = [
   {
     href: "https://www.verizon.com/",
     title: "Verizon",
-    width: 1262,
+    width: 1000,
     height: 258,
     logoUrl: require("public/images/bridge/sponsors/verizon-big.png"),
   },

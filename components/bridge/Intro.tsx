@@ -125,7 +125,7 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         {time}
       </Typography>
       <Typography className={classes.body}>
-        Bridging the Youth Tech Divide 2020 is a free conference{" "}
+        Bridging the Youth Tech Divide 2021 is a free conference{" "}
         <Link href="#team" color="secondary">
           led by SF youth
         </Link>{" "}
