@@ -112,7 +112,7 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         className={classes.logo}
       />
       <Typography variant="h2" component="h1" className={classes.title}>
-        Bridging the Youth Tech Divide 2021
+        Bridging the Youth Tech Divide 2020
       </Typography>
       <Typography variant="h4" component="h2" className={classes.subtitle}>
         Gathering SF high school youth in unprecedented times to bridge the tech
@@ -125,30 +125,33 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         {time}
       </Typography>
       <Typography className={classes.body}>
-        Bridging the Youth Tech Divide 2021 is a free conference{" "}
+        Bridging the Youth Tech Divide 2020 is a free conference{" "}
         <Link href="#team" color="secondary">
           led by SF youth
         </Link>{" "}
-        for Bay Area youth, seeking to inspire participants to explore the
-        potential and possibility of a tech career. We also want to show our
-        participants the different types of careers in tech that can impact the
-        Mission Bit core values. We recognize the vast disparities that prevent
-        many youth from seeking out a tech career; including, but not limited
-        to, a lack of diversity, economic inequality, and systemic racism.
+        for SF youth, seeking to inspire attendees to explore the potential and
+        possibility of a tech career. We recognize the vast disparities that
+        prevent many youth from seeking out a tech career; including, but not
+        limited to, a lack of diversity, economic inequality, and systemic
+        racism.
         <br />
         <br />
-        Our conference will feature both{" "}
+        The conference will feature{" "}
         <Link href="#keynote-speakers" color="secondary">
-          keynote speakers
+          speakers
         </Link>{" "}
-        and{" "}
+        from Facebook and Slack, relating their own stories and insights to
+        youth interested in breaking into tech. Bridging the Youth Tech Divide
+        will also feature a{" "}
         <Link href="#panelists" color="secondary">
-          panelists
+          panel
         </Link>{" "}
-        with different departments of Verizon. These departments range from:
-        Crisis Response Team, Game Design Team, 5G Team, Innovation
-        Center/Developer Days, Business Development & Planning, Chief Corporate
-        Social Responsibility, and many more.
+        consisting of an array of professionals from all corners of the tech
+        industry. Our goal is not that all attendees immediately set out to
+        pursue a tech career, but that they will leave inspired, having a
+        greater sense of what a tech career could mean for them. We hope to
+        learn from each other, support each other, and advocate for one another
+        to ensure a more equitable future in tech.
       </Typography>
     </Container>
   );

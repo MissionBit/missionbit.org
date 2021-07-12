@@ -7,9 +7,8 @@ import TeamData from "./TeamData";
 import Person from "./Person";
 import Sponsors, { Employers } from "./SponsorData";
 import Intro from "./Intro";
-import Metadata from "./Metadata";
+import Metadata from "../Metadata";
 import RegisterButton from "./RegisterButton";
-import VioletButton from "components/VioletButton";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -99,18 +98,6 @@ const Bridge: React.FC<{}> = () => {
           </Box>
         </Container>
       ))}
-      <Container component="section" id="employers">
-        <Typography variant="h2" align="center">
-          Our Speakers Work At
-        </Typography>
-        <Box className={classes.employers}>
-          {Employers.map(({ href, title, logoUrl }) => (
-            <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
-            </a>
-          ))}
-        </Box>
-      </Container>
       <Container component="section" id="sponsors">
         <Typography variant="h2" align="center">
           Sponsors
@@ -123,18 +110,17 @@ const Bridge: React.FC<{}> = () => {
           ))}
         </Box>
       </Container>
-      <Container component="section" id="register" className={classes.register}>
-        <VioletButton
-          href="./bridge/bridge2020"
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="contained"
-          size="large"
-          className={classes.button}
-          disabled={false}
-        >
-          Bridging the Youth Tech Divide 2020
-        </VioletButton>
+      <Container component="section" id="employers">
+        <Typography variant="h2" align="center">
+          Our Speakers Work At
+        </Typography>
+        <Box className={classes.employers}>
+          {Employers.map(({ href, title, logoUrl }) => (
+            <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+              <img src={logoUrl} alt={title} />
+            </a>
+          ))}
+        </Box>
       </Container>
     </main>
   );
