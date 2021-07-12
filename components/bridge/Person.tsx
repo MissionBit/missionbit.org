@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   picture: {
     gridArea: "picture",
+    width: "100%",
     "& > img": {
       width: "100%",
       height: "auto",

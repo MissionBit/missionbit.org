@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "logo",
     objectFit: "contain",
     alignSelf: "center",
+    width: "100%",
     [theme.breakpoints.down("sm")]: {
       maxHeight: 200,
     },

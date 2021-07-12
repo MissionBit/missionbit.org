@@ -67,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     [theme.breakpoints.down("xs")]: {
-      gridTemplateColumns: "1fr 1fr",
+      // Two columns will look strange if there's only one employer
+      gridTemplateColumns: Employers.length > 1 ? "1fr 1fr" : "1fr",
       gridGap: theme.spacing(2, 0),
       gridTemplateRows: "auto",
     },
