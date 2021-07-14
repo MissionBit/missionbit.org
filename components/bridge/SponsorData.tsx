@@ -12,7 +12,7 @@ export const Sponsors: SponsorData[] = [
     title: "Assembled",
     width: 1262,
     height: 258,
-    logoUrl: require("public/images/bridge/sponsors/assembled.png"),
+    logoUrl: require("public/images/bridge/sponsors/assembled.svg"),
   },
   {
     href: "https://discord.com/",
@@ -47,7 +47,7 @@ export const Sponsors: SponsorData[] = [
     title: "Verizon",
     width: 1262,
     height: 258,
-    logoUrl: require("public/images/bridge/sponsors/verizon.png"),
+    logoUrl: require("public/images/bridge/sponsors/verizon.svg"),
   },
   {
     href: "https://www.missionbit.org/",
@@ -64,7 +64,7 @@ export const Employers: SponsorData[] = [
     title: "Verizon",
     width: 1000,
     height: 258,
-    logoUrl: require("public/images/bridge/sponsors/verizon-big.png"),
+    logoUrl: require("public/images/bridge/sponsors/verizon.svg"),
   },
 ];
 
