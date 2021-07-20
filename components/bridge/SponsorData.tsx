@@ -35,13 +35,13 @@ export const Sponsors: SponsorData[] = [
     height: 258,
     logoUrl: require("public/images/bridge/sponsors/lyft.svg"),
   },
-  {
-    href: "https://www.notion.so/",
-    title: "Notion",
-    width: 1262,
-    height: 258,
-    logoUrl: require("public/images/bridge/sponsors/notion.svg"),
-  },
+  // {
+  //   href: "https://www.notion.so/",
+  //   title: "Notion",
+  //   width: 1262,
+  //   height: 258,
+  //   logoUrl: require("public/images/bridge/sponsors/notion.svg"),
+  // },
   {
     href: "https://www.verizon.com/",
     title: "Verizon",
