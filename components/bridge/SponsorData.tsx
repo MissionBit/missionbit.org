@@ -42,20 +42,20 @@ export const Sponsors: SponsorData[] = [
   //   height: 258,
   //   logoUrl: require("public/images/bridge/sponsors/notion.svg"),
   // },
-  {
-    href: "https://www.verizon.com/",
-    title: "Verizon",
-    width: 1262,
-    height: 258,
-    logoUrl: require("public/images/bridge/sponsors/verizon.svg"),
-  },
-  {
-    href: "https://www.missionbit.org/",
-    title: "Mission Bit",
-    width: 512,
-    height: 150,
-    logoUrl: require("public/images/bridge/sponsors/mission-bit.svg"),
-  },
+  // {
+  //   href: "https://www.verizon.com/",
+  //   title: "Verizon",
+  //   width: 1262,
+  //   height: 258,
+  //   logoUrl: require("public/images/bridge/sponsors/verizon.svg"),
+  // },
+  // {
+  //   href: "https://www.missionbit.org/",
+  //   title: "Mission Bit",
+  //   width: 512,
+  //   height: 150,
+  //   logoUrl: require("public/images/bridge/sponsors/mission-bit.svg"),
+  // },
 ];
 
 export const Employers: SponsorData[] = [
