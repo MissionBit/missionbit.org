@@ -114,7 +114,7 @@ const Bridge: React.FC<{}> = () => {
       </Container>
       <Container component="section" id="sponsors">
         <Typography variant="h2" align="center">
-          Prize & Swag Sponsors
+          Prize and Swag provided by
         </Typography>
         <Box className={classes.sponsors}>
           {Sponsors.map(({ href, title, logoUrl }) => (
