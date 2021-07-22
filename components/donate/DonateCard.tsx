@@ -23,7 +23,7 @@ import {
 import { Stripe } from "@stripe/stripe-js";
 import { Typography, Theme, Collapse } from "@material-ui/core";
 
-const matchEnd = Date.parse("2021-06-01T00:00:00-07:00");
+const matchEnd = Date.parse("2021-08-01T00:00:00-07:00");
 
 const InputLabel = withStyles({
   root: {
