@@ -19,13 +19,13 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
   const SIZE_ORDER = [""] as const;
   return {
     image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-judges/${postfix}.jpg`),
+      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-judges/${postfix}.jpg`),
       srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-judges/${postfix}${k}.jpg`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-judges/${postfix}${k}.jpg`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
       webp: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-spring-judges/${postfix}${k}.jpg?webp`);
+        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-judges/${postfix}${k}.jpg?webp`);
         return `${fn} ${PHOTO_SIZES[k].width}w`;
       }).join(","),
     },
@@ -34,28 +34,28 @@ function image(postfix: string): Pick<JudgeProps, "image"> {
 
 export const JudgeData: readonly JudgeProps[] = [
   {
-    name: "Joy Maloney",
-    title: "Engineering Manager",
-    company: "Goalbook",
-    ...image("joy"),
-  },
-  {
-    name: "Michael Walker",
-    title: "Principal Consultant",
-    company: "BrandGeneering, Inc",
-    ...image("michael_walker"),
-  },
-  {
-    name: "Lisa Siva",
+    name: "Nico Magaña",
     title: "Software Engineer",
-    company: "Alto Pharmacy",
-    ...image("lisa"),
+    company: "Lyft",
+    ...image("nico"),
+  },
+  {
+    name: "Ben Schmoker",
+    title: "Threat Intelligence",
+    company: "Salesforce",
+    ...image("ben"),
+  },
+  {
+    name: "Maira Garcia",
+    title: "Web Development Teaching Assistant",
+    company: "U2",
+    ...image("maira"),
   },
   {
     name: "Matt Bautista",
     title: "Lead Electrical Engineer",
     company: "Apple",
-    ...image("matt"),
+    ...image("maira"),
   },
 ];
 
