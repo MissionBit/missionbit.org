@@ -46,19 +46,12 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 1",
     projects: [
       {
-        title: "Stuck in My Fantasy",
-        students: ["Bonnie Huang, Brianna Lopez, Ki'ilani Versoza"],
-        course: "Intro to Unity Game Design with Shay",
-        description: (
-          <>
-            Stuck In My Fantasy is a 3D puzzle platforming game that is played
-            in the prospective of a poor teenage boy who works as a butler for
-            another boy around his age. From puzzle to puzzle, this game shows
-            how an income gap doesn't affect these two teenagers as they
-            discover each other's similarity and become life long partners.
-          </>
-        ),
-        href: "https://bonnienie01.github.io/Unity-Game/",
+        title: "Participation is Mandatory",
+        students: ["Blue Geisinger"],
+        course: "Intro to Unity Game Design with Daniel",
+        description: <>A puzzle game without puzzles.</>,
+        href:
+          "http://bluubonic.itch.io/participation-is-mandatory-demo-day-2021",
         ...image("fantasy"),
       },
       {
