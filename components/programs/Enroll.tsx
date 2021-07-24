@@ -93,7 +93,7 @@ function sectionIdTitle(id: SectionId): string {
     case "week-of-code":
       return "Mission Bit Week of Code, December 14 - 18";
     case "courses":
-      return "Summer 2021 Classes";
+      return "Classes";
     case "career-prep":
       return "Career Prep Bootcamp";
   }
@@ -132,7 +132,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
     case "courses":
       return (
         <Typography className={classes.copy}>
-          Apply to our program and come have fun with us this summer!
+          Apply to our program and come have fun with us!
           <br />
           <span className={classes.deadlineEmphasis}>
             Application deadline:

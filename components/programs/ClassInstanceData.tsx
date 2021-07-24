@@ -399,6 +399,19 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  vr_beginner_class: {
+    title: "Intro to Virtual Reality",
+    skills: ["Unity", "3D Game Design", "Virtual Reality"],
+    image: vrImage,
+    description: (
+      <>
+        For the first time ever, you’ll be able to take a step into your very
+        own game. Create an out of this world experience that you can see, hear,
+        and lose yourself in. In this class you will explore virtual reality and
+        learn about what makes a successful experience! Beginners welcome!
+      </>
+    ),
+  },
   sdr_class: {
     title: "10-Week Tech Sales Bootcamp",
     skills: ["Career Preparation", "Tech Sales"],
@@ -802,9 +815,9 @@ export const Campuses = campusRecord({
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2021-05-24T20:00:00-07:00"),
-  interview: Date.parse("2021-06-01T12:00:00-07:00"),
-  demoDay: Date.parse("2021-07-24T13:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-08-30T20:00:00-08:00"),
+  interview: Date.parse("2021-09-01T12:00:00-08:00"),
+  demoDay: Date.parse("2021-12-11T13:00:00-08:00"),
 };
 
 export const FallDates: ClassDates = {
@@ -829,24 +842,24 @@ const CLASS_SCHEDULE = {
       <>
         Monday, Wednesday{" "}
         <Box component="span" display="inline-block">
-          4:00pm - 6:30pm PST
+          4:30pm - 7:00pm PST
         </Box>
       </>
     ),
-    startDate: "February 8th",
-    endDate: "May 8th",
+    startDate: "September 13th",
+    endDate: "December 11th",
   },
   TH: {
     meets: (
       <>
         Tuesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          4:00pm - 6:30pm PST
+          4:30pm - 7:00pm PST
         </Box>
       </>
     ),
-    startDate: "February 9th",
-    endDate: "May 8th",
+    startDate: "September 13th",
+    endDate: "December 11th",
   },
   MWF: {
     meets: (
@@ -860,12 +873,24 @@ const CLASS_SCHEDULE = {
     startDate: "June 14th",
     endDate: "July 24th",
   },
+  TBD: {
+    meets: (
+      <>
+        TBD!{" "}
+        <Box component="span" display="inline-block">
+          4:30pm - 7:00pm PST
+        </Box>
+      </>
+    ),
+    startDate: "September 13th",
+    endDate: "December 11th",
+  },
 } as const;
 
 function classOffering(
   course: Course,
   campus: Campus,
-  schedule: "MW" | "TH" | "MWF",
+  schedule: "MW" | "TH" | "MWF" | "TBD",
   formAssemblyId: string,
   classDates: ClassDates = CourseDates
 ): ClassInstance {
@@ -914,10 +939,15 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   FallDatesExtended
   // ),
   // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
-  classOffering(Courses.python_class, Campuses.online, "MWF", "tfa_2013"),
-  classOffering(Courses.game_class, Campuses.online, "MWF", "tfa_2013"),
-  classOffering(Courses.web_class, Campuses.online, "MWF", "tfa_2013"),
-  classOffering(Courses.javascript_class, Campuses.online, "MWF", "tfa_2013"),
+  classOffering(Courses.python_class, Campuses.online, "MW", "tfa_1"),
+  classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.game_class, Campuses.online, "MW", "tfa_1"),
+  classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.web_class, Campuses.online, "MW", "tfa_1"),
+  classOffering(Courses.web_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.javascript_class, Campuses.online, "MW", "tfa_1"),
+  classOffering(Courses.javascript_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.vr_beginner_class, Campuses.online, "TBD", "tfa_1"),
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
