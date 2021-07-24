@@ -815,7 +815,7 @@ export const Campuses = campusRecord({
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2021-08-30T20:00:00-08:00"),
+  registrationDeadline: Date.parse("2021-08-25T20:00:00-08:00"),
   interview: Date.parse("2021-09-01T12:00:00-08:00"),
   demoDay: Date.parse("2021-12-11T13:00:00-08:00"),
 };
