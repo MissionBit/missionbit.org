@@ -3,8 +3,8 @@ import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
 import oneLine from "src/oneLine";
-import Fall20PastProjectsLanding from "components/demoday/past/Fall20PastProjectsLanding";
-import Fall20StudentProjects from "components/demoday/past/Fall20StudentProjects";
+import Spring21PastProjectsLanding from "components/demoday/past/Spring21PastProjectsLanding";
+import Spring21StudentProjects from "components/demoday/past/Spring21StudentProjects";
 
 const useStyles = makeStyles({
   header: {
@@ -17,9 +17,9 @@ const useStyles = makeStyles({
   },
 });
 
-const title = "Fall 2020 Demo Day - Mission Bit";
+const title = "Spring 2021 Demo Day - Mission Bit";
 const description = oneLine`
-Fall 2020 Demo Day is a culminating showcase where our students display
+Spring 2021 Demo Day is a culminating showcase where our students display
 their amazing projects to our community of supporters!`;
 
 const Page: NextPage<LayoutStaticProps> = (props) => {
@@ -33,8 +33,8 @@ const Page: NextPage<LayoutStaticProps> = (props) => {
       title={title}
       description={description}
     >
-      <Fall20PastProjectsLanding />
-      <Fall20StudentProjects />
+      <Spring21PastProjectsLanding />
+      <Spring21StudentProjects />
     </Layout>
   );
 };
