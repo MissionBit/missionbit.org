@@ -437,7 +437,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("funny"),
       },
       {
-        title: "Cornavirus",
+        title: "Coronavirus",
         course: "Intro to JavaScript with Wilson",
         students: ["Even Michael, Isabella Hui, Kyle Curiel-Miranda"],
         description: <>Reaction Game</>,
