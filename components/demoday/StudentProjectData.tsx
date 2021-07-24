@@ -201,7 +201,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "",
-        ...image("placeholder"),
+        ...image("night"),
       },
       {
         title: "SFA",
@@ -328,7 +328,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "",
-        ...image("placeholder"),
+        ...image("game"),
       },
       {
         title: "Asteroids",
