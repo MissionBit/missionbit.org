@@ -450,6 +450,19 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 11",
     projects: [
       {
+        title: "Tower Base Defense",
+        course: "Intro to Unity Game Design with Joe",
+        students: ["Griffin Guerrero Seiberling"],
+        description: (
+          <>
+            This game is a first person shooter where you are tasked with
+            defending a base.
+          </>
+        ),
+        href: "",
+        ...image("placeholder"),
+      },
+      {
         title: "Money Cap",
         course: "Intro to Python with Ai",
         students: ["Angelo Rei Ramos, Cheryl Chen"],
