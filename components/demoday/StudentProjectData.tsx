@@ -172,8 +172,9 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Python with Ai",
         students: ["Kevin Wu, Walter Menjivar"],
         description: <>Healthcare advisor</>,
-        href: "",
-        ...image("placeholder"),
+        href:
+          "https://replit.com/@WalterMenjivar/Final-projet-Healthcare-advice",
+        ...image("healthcare"),
       },
       {
         title: "Phuzzle VR",
@@ -258,8 +259,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Python with Ornelle",
         students: ["Elsa Li, Esther, Kurt"],
         description: <></>,
-        href: "",
-        ...image("placeholder"),
+        href: "https://replit.com/@ElsaLi3/Operation-Plastic-by-KEEY#main.py",
+        ...image("turtles"),
       },
     ],
   },
@@ -341,7 +342,13 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         title: "Under the Sea",
         students: ["Jessica, Annie, Hua"],
         course: "Intro to Python with Ornelle",
-        description: <></>,
+        description: (
+          <>
+            Under the sea is a game that focuses on how pollution has affected
+            marine life. The user can play the game by moving the
+            up/down/left/right arrows to learn more about sea pollution.
+          </>
+        ),
         href: "https://replit.com/@JessicaNg1/UnderTheSea#main.py",
         ...image("sea"),
       },
@@ -360,8 +367,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             monsters to battle other monsters in a quest to become the best.
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://juanmac18.github.io/fantastic-guacamole/PKMN%20GAME/",
+        ...image("pkm"),
       },
       {
         title: "ABI (Name Acronym)",
@@ -372,10 +379,10 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("pong"),
       },
       {
-        title: "",
+        title: "Poker Game",
         course: "Intro to Python with Ornelle",
         students: ["Luis"],
-        description: <>Pong Game</>,
+        description: <>Poker Game</>,
         href: "https://replit.com/@LuisMederos/poker-game#main.py",
         ...image("poker"),
       },
