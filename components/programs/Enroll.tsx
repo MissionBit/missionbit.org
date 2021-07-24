@@ -165,6 +165,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
                 Students attending a high school site with limited to no
                 computer science offerings
               </li>
+              <li>12th grade students</li>
             </ul>
           </div>
         </Typography>

@@ -16,9 +16,9 @@ const useStyles = makeStyles({
   },
 });
 
-const title = "Spring 2021 Demo Day - Mission Bit";
+const title = "Summer 2021 Demo Day - Mission Bit";
 const description = oneLine`
-Spring 2021 Demo Day is a culminating showcase where our students display
+Summer 2021 Demo Day is a culminating showcase where our students display
 their amazing projects to our community of supporters!`;
 
 const Page: NextPage<LayoutStaticProps> = (props) => {
