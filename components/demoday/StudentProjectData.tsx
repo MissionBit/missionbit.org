@@ -119,7 +119,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("animal"),
       },
       {
-        title: "Treaure Adventure",
+        title: "Treasure Adventure",
         students: ["Sammy Rodriguez, Malcolm Angst"],
         course: "Intro to Python with Ai",
         description: <>Text based adventure. Click the green play button!</>,
@@ -437,7 +437,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("funny"),
       },
       {
-        title: "Cornavirus",
+        title: "Coronavirus",
         course: "Intro to JavaScript with Wilson",
         students: ["Even Michael, Isabella Hui, Kyle Curiel-Miranda"],
         description: <>Reaction Game</>,

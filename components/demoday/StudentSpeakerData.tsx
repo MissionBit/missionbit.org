@@ -91,7 +91,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "SFA",
         students: [
-          { name: "Fernando Hernandez", ...image("placeholder") },
+          { name: "Fernando Hernandez", ...image("fernando") },
           { name: "Sasa Ramos", ...image("sasa") },
           { name: "Alishia Rubio Agular", ...image("alishia") },
         ],
@@ -101,7 +101,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             professional support.
           </>
         ),
-        href: "https://ethan-ellis13.github.io/rise-in-plastic-use",
+        href: "https://sasaramos.github.io/rising-stars/",
       },
     ],
   },
