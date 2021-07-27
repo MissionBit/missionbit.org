@@ -116,8 +116,8 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
         Bridging the Youth Tech Divide 2021
       </Typography>
       <Typography variant="h4" component="h2" className={classes.subtitle}>
-        Gathering SF high school youth in unprecedented times to bridge the tech
-        divide.
+        Gathering Bay Area high school youth in unprecedented times to bridge
+        the tech divide.
       </Typography>
       <Typography variant="h3" className={classes.date} align="center">
         {date}
