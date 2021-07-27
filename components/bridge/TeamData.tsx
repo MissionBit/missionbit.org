@@ -199,11 +199,26 @@ const TEAM: TeamMemberProps[] = [
 
 const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   {
-    name: "TBD",
+    name: "Tetoya Gibson Preston",
     type: "Keynote Speaker",
-    title: "",
-    ...image("keynote-speakers/placeholder"),
-    bio: <>This could be you!</>,
+    title: "Verizon Response Manager - Mid Atlantic",
+    ...image("keynote-speakers/tetoya"),
+    bio: (
+      <>
+        Prepared to deploy Verizon response supported mission essential
+        communication and tech solutions to assist with emergency relief efforts
+        nationwide. Current response manager for Virginia, West Virginia,
+        Kentucky and Ohio. Tetoya has 20+ years of public safety experience
+        assisting military and private sector businesses with Emergency
+        Operation Centers, Government operations. As a veteran of the United
+        States Air Force she has developed extensive knowledge in emergency
+        preparedness and project management. Tetoya has served Eastern North
+        Carolina as both a Disaster Response and Service to the Armed Services
+        Emergency Communications volunteer deploying to multiple disaster
+        response operations across the nation. Tetoya is an active member of the
+        American Red Cross. Tetoya resides in Moseley, Virginia
+      </>
+    ),
   },
   // {
   //   name: "Caitlin Kalinowski",
@@ -259,11 +274,20 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
 
 const PANELISTS: TeamMemberProps[] = [
   {
-    name: "TBD",
+    name: "Venkatesh",
     type: "Panelist",
     title: "",
-    ...image("keynote-speakers/placeholder"),
-    bio: <>This could be you!</>,
+    ...image("panelists/venky"),
+    bio: (
+      <>
+        An engineer with experience in working at the intersection of technology
+        and strategy in IoT, with an emphasis on applications in industrial and
+        smart city deployments. Currently, part of the innovation team at
+        Verizon that is involved in shaping the go-to-market and product
+        strategy of 5G by working closely with various external partners and
+        internal stakeholders.
+      </>
+    ),
   },
   // {
   //   name: "Allison Doami",
