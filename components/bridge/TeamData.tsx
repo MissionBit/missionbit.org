@@ -37,7 +37,7 @@ const TEAM: TeamMemberProps[] = [
   {
     name: "Johnny Lin",
     type: "Team",
-    title: "Student Ambassador, Mission Bit",
+    title: "President of the Student Advisory Board, Mission Bit",
     ...image("team/johnny_lin"),
     bio: (
       <>
@@ -274,9 +274,10 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
 
 const PANELISTS: TeamMemberProps[] = [
   {
-    name: "Venkatesh",
+    name: "Venkatesh Konanur",
     type: "Panelist",
-    title: "",
+    title:
+      "Sr. Solutions Strategist / Member of Technical Staff at Verizon 5G Innovation Center",
     ...image("panelists/venky"),
     bio: (
       <>
@@ -289,102 +290,24 @@ const PANELISTS: TeamMemberProps[] = [
       </>
     ),
   },
-  // {
-  //   name: "Allison Doami",
-  //   type: "Panelist",
-  //   title: "Data Infrastructure Engineer, Chan Zuckerberg Initiative",
-  //   ...image("panelists/allison_doami"),
-  //   bio: (
-  //     <>
-  //       Allison Doami is currently a Data Infrastructure Engineer at the Chan
-  //       Zuckerberg Initiative, which is Mark Zuckerberg and his wife Priscilla
-  //       Chan's philanthropy aimed to improve learning experiences for children
-  //       by focusing on the whole child using learning science to empower
-  //       teachers to support each of their student's unique needs, prevent,
-  //       manage, or cure all diseases by the end of the century by creating
-  //       collaborative tools for scientists, researchers, and patients, and
-  //       reform the criminal justice system by creating a future for everyone
-  //       that is more just, inclusive, and full of opportunity. She earned a BS
-  //       in Electrical Engineering from UCLA in 2019.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   name: "Yulkendy Valdez",
-  //   type: "Panelist",
-  //   title: "Co-Founder & CEO, Forefront",
-  //   ...image("panelists/yulkendy_valdez"),
-  //   bio: (
-  //     <>
-  //       Yulkendy is a Forbes 30 Under 30 social entrepreneur, storyteller, and
-  //       TEDx speaker. As the Co-Founder and CEO of Forefront, she helps
-  //       employers, schools, and nonprofits create low-barrier, culturally
-  //       relevant virtual experiences for youth (ages 16-24) to facilitate their
-  //       transition from education to career.
-  //       <br />
-  //       <br />
-  //       Yulkendy brings a diverse set of both corporate and nonprofit experience
-  //       to the table. She’s worked with Bank of America, EY, Puma, and Innosight
-  //       Consulting as well as the International Institute of St. Louis and Betty
-  //       Jean Kerr People’s Centers. Yulkendy has received numerous fellowships,
-  //       including the Resolution Project, Young People For, Opportunity Nation
-  //       Leaders Program, Future Founders Fellowship, Net Impact Racial Equity
-  //       Fellowship, Harvard Kennedy School Public Policy Leadership Conference,
-  //       One Young World, StartingBloc, and PPIA Indiana University. She is a
-  //       proud alumna of Babson College, #1 school for entrepreneurship. More
-  //       recently, she was named one of the Latino 30 Under 30 honorees by El
-  //       Mundo Boston and a top millennial in Boston by Get Konnected. With roots
-  //       in her hometown of St. Louis, Missouri, Yulkendy has traveled to over
-  //       30+ countries for work and fun.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   name: "Simran Kumar",
-  //   type: "Panelist",
-  //   title: "Co-Founder, Simmi’s Boutique",
-  //   ...image("panelists/simran_kumar"),
-  //   bio: (
-  //     <>
-  //       Hi! I’m Simran, a 2014 Mission Bit alum and Mission native with big love
-  //       for the city. I graduated from Lowell High School, and studied Economics
-  //       in college while gaining experience in Entrepreneurship and Product
-  //       Management for power supplies in the Medical, Industrial and LED
-  //       industries.
-  //       <br />
-  //       <br />
-  //       I’m currently working on relaunching my Indian handcrafts boutique
-  //       focused on creating a digital presence rather than a brick &amp; mortar
-  //       this time around. This new quarantine project is tied to building up a
-  //       portfolio in efforts to make myself standout as candidate while I pursue
-  //       Product Management roles within SF Tech companies.
-  //       <br />
-  //       <br />
-  //       Other than my desire to work in tech, I’m very involved and passionate
-  //       about social justice work. I believe it’s our job to empower others
-  //       especially our awesome youth in the Bay Area where inequalities grow and
-  //       effects move rapidly.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   name: "Bemnet Yemesgen",
-  //   type: "Panelist",
-  //   title: "Creative Director, Discord",
-  //   ...image("panelists/bem_yemesgen"),
-  //   bio: (
-  //     <>
-  //       Bemnet (Bem) Yemesgen is an Ethiopian American graphic designer,
-  //       creative director, photographer, and award winning filmmaker… a polymath
-  //       creative. Bemnet is also the cofounder and Creative Director of
-  //       SmartPhilm Fest, a festival that features films shot exclusively on
-  //       smartphones and tablets. Bemnet’s background spans 16 years in the
-  //       creative industry working for brands like Adidas, Nike Foundation, USA
-  //       Today and Discord. Bemnet currently serves as the Creative Director at
-  //       Discord in San Francisco, CA.
-  //     </>
-  //   ),
-  // },
+  {
+    name: "Carlo Thompson",
+    type: "Panelist",
+    title: "PMTS - 5G Technolgy Development",
+    ...image("panelists/carlo"),
+    bio: (
+      <>
+        Award-winning Telecommunications Professional with 15+ years of
+        expertise in wireless network engineering, systems design and
+        implementation, project planning, and team leadership. Proven ability to
+        direct teams of 15+ while managing $20M capital expense budgets.
+        Highly-skilled at adapting to new technologies in dynamic, fast-paced,
+        environments. Gains stakeholder buy-in to deliver projects on time and
+        budget. Organized self-starter able to manage multiple competing
+        priorities.
+      </>
+    ),
+  },
 ];
 
 const TeamData = [
