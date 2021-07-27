@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TeamData from "./TeamData";
 import Person from "./Person";
-import Sponsors, { Employers } from "./SponsorData";
+import Sponsors, { Employers, Food } from "./SponsorData";
 import Intro from "./Intro";
 import Metadata from "./Metadata";
 import RegisterButton from "./RegisterButton";
@@ -59,16 +59,39 @@ const useStyles = makeStyles((theme) => ({
     "& a": {
       margin: 0,
       alignSelf: "center",
-      height: "100%",
+      height: "75%",
     },
     "& img": {
       objectFit: "contain",
-      height: "100%",
+      height: "75%",
       width: "100%",
     },
     [theme.breakpoints.down("xs")]: {
       // Two columns will look strange if there's only one employer
       gridTemplateColumns: Employers.length > 1 ? "1fr 1fr" : "1fr",
+      gridGap: theme.spacing(2, 0),
+      gridTemplateRows: "auto",
+    },
+  },
+  food: {
+    display: "grid",
+    gridGap: theme.spacing(4),
+    padding: theme.spacing(4, 0),
+    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+    gridTemplateRows: "repeat(auto-fit, 200px)",
+    "& a": {
+      margin: 0,
+      alignSelf: "center",
+      height: "50%",
+    },
+    "& img": {
+      objectFit: "contain",
+      height: "50%",
+      width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      // Two columns will look strange if there's only one employer
+      gridTemplateColumns: Food.length > 1 ? "1fr 1fr" : "1fr",
       gridGap: theme.spacing(2, 0),
       gridTemplateRows: "auto",
     },
@@ -102,7 +125,7 @@ const Bridge: React.FC<{}> = () => {
       ))}
       <Container component="section" id="employers">
         <Typography variant="h2" align="center">
-          Our Speakers Work At
+          Our Sponsor and Speakers Work At
         </Typography>
         <Box className={classes.employers}>
           {Employers.map(({ href, title, logoUrl }) => (
@@ -118,6 +141,18 @@ const Bridge: React.FC<{}> = () => {
         </Typography>
         <Box className={classes.sponsors}>
           {Sponsors.map(({ href, title, logoUrl }) => (
+            <a key={href} href={href} target="_blank" rel="noopener noreferrer">
+              <img src={logoUrl} alt={title} />
+            </a>
+          ))}
+        </Box>
+      </Container>
+      <Container component="section" id="food">
+        <Typography variant="h2" align="center">
+          Food Sponsor
+        </Typography>
+        <Box className={classes.food}>
+          {Food.map(({ href, title, logoUrl }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
               <img src={logoUrl} alt={title} />
             </a>
