@@ -276,7 +276,7 @@ const FeaturedEvents: FeaturedEvent[] = [
       </>
     ),
     topRightImage: {
-      desc: "San Francisco City Skyline",
+      desc: "An image of youth from the 2020 conference describing their experience in one word",
       width: 599,
       height: 400,
       webp: [
@@ -301,7 +301,7 @@ const FeaturedEvents: FeaturedEvent[] = [
       ],
     },
     bottomLeftImage: {
-      desc: "Collage of the people speaking at the event",
+      desc: "An image of youth from the 2020 conference describing their experience in one word",
       width: 599,
       height: 400,
       webp: [
