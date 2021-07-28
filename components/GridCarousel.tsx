@@ -60,9 +60,8 @@ const GridCarousel: React.FC<GridCarouselProps> = (props) => {
   const numChildren = children.length;
   const [selected, setSelected] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
-  const scrollerRef: React.MutableRefObject<HTMLDivElement | null> = useRef(
-    null
-  );
+  const scrollerRef: React.MutableRefObject<HTMLDivElement | null> =
+    useRef(null);
   const classes = useStyles(props);
   const selectPrev = useCallback(
     (event: React.SyntheticEvent<HTMLElement>) => {

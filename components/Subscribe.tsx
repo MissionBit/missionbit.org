@@ -69,9 +69,10 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
 const Subscribe: React.FC<{}> = () => {
   const classes = useStyles();
   const defaultTheme = useTheme();
-  const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme,
-  ]);
+  const theme = useMemo(
+    () => createMuiTheme(themeOverrides(defaultTheme)),
+    [defaultTheme]
+  );
   return (
     <ThemeProvider theme={theme}>
       <Paper

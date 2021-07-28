@@ -164,9 +164,10 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
 
 const Students: React.FC<{}> = () => {
   const defaultTheme = useTheme();
-  const theme = useMemo(() => createMuiTheme(themeOverrides(defaultTheme)), [
-    defaultTheme,
-  ]);
+  const theme = useMemo(
+    () => createMuiTheme(themeOverrides(defaultTheme)),
+    [defaultTheme]
+  );
 
   const classes = useStyles();
   const Testimonial: React.FC<StudentTestimonial> = ({
