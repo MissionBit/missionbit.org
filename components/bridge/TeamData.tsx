@@ -220,73 +220,29 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
       </>
     ),
   },
-  // {
-  //   name: "Caitlin Kalinowski",
-  //   type: "Keynote Speaker",
-  //   title: "Director of VR Hardware, Facebook",
-  //   ...image("keynote-speakers/caitlin_kalinowski"),
-  //   bio: (
-  //     <>
-  //       Caitlin Kalinowski heads up the VR Hardware team for Facebook’s AR/VR
-  //       division, the team responsible for the product design, electrical and
-  //       mechanical engineering of the Oculus Quest, Oculus Go, Oculus Rift S and
-  //       Touch controllers. Before working at Oculus, Caitlin was a technical
-  //       lead at Apple on the Mac Pro and MacBook Air products and was part of
-  //       the original unibody Macbook Pro team. Caitlin received her BS in
-  //       Mechanical Engineering from Stanford University in 2007.
-  //       <br />
-  //       <br />
-  //       Caitlin is passionate about increasing the number of women and other
-  //       underrepresented minorities in the fields of technology and design. She
-  //       believes the next generation of products must be designed and engineered
-  //       by people with different backgrounds and experiences in order to output
-  //       the best possible product. Caitlin is on the Board of Axon, and the
-  //       strategic board of Lesbians Who Tech, largest women’s tech conference in
-  //       California and the largest LGBTQ professional network in the world.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   name: "Frances Coronel",
-  //   type: "Keynote Speaker",
-  //   title:
-  //     "Software engineer at Slack and the Executive Director of Techqueria",
-  //   ...image("keynote-speakers/frances_coronel"),
-  //   bio: (
-  //     <>
-  //       Frances Coronel is a software engineer specializing in UI development on
-  //       the Customer Acquisition Team at Slack where her mission is to make your
-  //       working life simpler, more pleasant and more productive. She has been
-  //       working professionally as a developer since 2015 and holds a Bachelors
-  //       in Computer Science from Hampton University and a Masters in Computer
-  //       Science from Cornell Tech.
-  //       <br />
-  //       <br />
-  //       Outside of Slack, Frances is an Executive Director of Techqueria, a
-  //       501c3 nonprofit that serves the largest community of Latinx in Tech in
-  //       the US. She also supports Code Nation as a member of their Bay Area
-  //       Leadership Council and the Latino Community Foundation as a member of
-  //       their Latinos in Tech Giving Circle.
-  //     </>
-  //   ),
-  // },
 ];
 
 const PANELISTS: TeamMemberProps[] = [
   {
-    name: "Venkatesh Konanur",
+    name: "Alelgn Amsalu",
     type: "Panelist",
     title:
-      "Sr. Solutions Strategist / Member of Technical Staff at Verizon 5G Innovation Center",
-    ...image("panelists/venky"),
+      "Senior Manager - Technology responsible for Sports Technology integration supporting the Technology & Product Development Organization",
+    ...image("panelists/alelgn"),
     bio: (
       <>
-        An engineer with experience in working at the intersection of technology
-        and strategy in IoT, with an emphasis on applications in industrial and
-        smart city deployments. Currently, part of the innovation team at
-        Verizon that is involved in shaping the go-to-market and product
-        strategy of 5G by working closely with various external partners and
-        internal stakeholders.
+        Alelgn Amsalu is Senior Manager - Technology responsible for Sports
+        Technology integration supporting the Technology & Product Development
+        Organization. Before joining Device Technology, he was a Senior Manager
+        of Global Operator Collaboration responsible for collaborating with 55+
+        international carriers to help identify emerging trends in the industry
+        and advocate for Verizon interest in the global landscape on strategic
+        initiatives such as 5G core, FWA and mmWave adoption. Alelgn has prior
+        experience in the Network Implementation organization where he helped
+        launch projects such as eUICC, VoWiFi and also helped in portfolio
+        management of various projects. He has also worked in the Network Device
+        Evaluation Lab where he worked with device OEMs to make sure they adhere
+        to Verizon and industry standards.
       </>
     ),
   },
@@ -305,6 +261,23 @@ const PANELISTS: TeamMemberProps[] = [
         environments. Gains stakeholder buy-in to deliver projects on time and
         budget. Organized self-starter able to manage multiple competing
         priorities.
+      </>
+    ),
+  },
+  {
+    name: "Venkatesh Konanur",
+    type: "Panelist",
+    title:
+      "Sr. Solutions Strategist / Member of Technical Staff at Verizon 5G Innovation Center",
+    ...image("panelists/venky"),
+    bio: (
+      <>
+        An engineer with experience in working at the intersection of technology
+        and strategy in IoT, with an emphasis on applications in industrial and
+        smart city deployments. Currently, part of the innovation team at
+        Verizon that is involved in shaping the go-to-market and product
+        strategy of 5G by working closely with various external partners and
+        internal stakeholders.
       </>
     ),
   },

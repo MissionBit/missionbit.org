@@ -198,135 +198,6 @@ const FeaturedEvents: FeaturedEvent[] = [
     },
   },
   {
-    id: "youth-conference",
-    date: Date.parse("2020-08-05T13:00:00-07:00"),
-    href: "https://www.missionbit.org/bridge",
-    linkTitle: "Learn More",
-    title: "Bridging the Youth Tech Divide Conference 2020",
-    description: (
-      <>
-        Gathering SF high school youth in unprecedented times to bridge the tech
-        divide.
-      </>
-    ),
-    topRightImage: {
-      desc: "San Francisco City Skyline",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-2-small.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-2-small.jpg"),
-          width: 299,
-        },
-      ],
-    },
-    bottomLeftImage: {
-      desc: "Collage of the people speaking at the event",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-1-small.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-1-small.jpg"),
-          width: 299,
-        },
-      ],
-    },
-  },
-  {
-    id: "youth-conference-2021",
-    date: Date.parse("2021-08-11T13:00:00-07:00"),
-    href: "https://www.missionbit.org/bridge",
-    linkTitle: "Register Today",
-    title: "Bridging the Youth Tech Divide Conference 2021",
-    description: (
-      <>
-        1-4 PM PDT
-        <br></br>
-        <br></br>
-        Gathering Bay Area high school youth in unprecedented times to bridge
-        the tech divide. Hosted by the Mission Bit Student Advisory Board.
-      </>
-    ),
-    topRightImage: {
-      desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
-    },
-    bottomLeftImage: {
-      desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
-    },
-  },
-  {
     id: "gala",
     date: Date.parse(GalaCalendarEvent.start),
     href: "/gala",
@@ -518,6 +389,135 @@ const FeaturedEvents: FeaturedEvent[] = [
         },
         {
           src: require("public/images/events/womens-event/women1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
+    id: "youth-conference",
+    date: Date.parse("2020-08-05T13:00:00-07:00"),
+    href: "https://www.missionbit.org/bridge",
+    linkTitle: "Learn More",
+    title: "Bridging the Youth Tech Divide Conference 2020",
+    description: (
+      <>
+        Gathering SF high school youth in unprecedented times to bridge the tech
+        divide.
+      </>
+    ),
+    topRightImage: {
+      desc: "San Francisco City Skyline",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference-2.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-2-small.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference-2.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-2-small.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "Collage of the people speaking at the event",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-1-small.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference-1-small.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
+    id: "youth-conference-2021",
+    date: Date.parse("2021-08-11T13:00:00-07:00"),
+    href: "https://www.missionbit.org/bridge",
+    linkTitle: "Register Today",
+    title: "Bridging the Youth Tech Divide Conference 2021",
+    description: (
+      <>
+        1-4 PM PDT
+        <br></br>
+        <br></br>
+        Gathering Bay Area high school youth in unprecedented times to bridge
+        the tech divide. Hosted by the Mission Bit Student Advisory Board.
+      </>
+    ),
+    topRightImage: {
+      desc: "An image of youth from the 2020 conference describing their experience in one word",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference2021-1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference2021-1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference2021-1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference2021-1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "An image of youth from the 2020 conference describing their experience in one word",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/conference/conference2021-2.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference2021-2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/conference/conference2021-2.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/conference/conference2021-2@0.5x.jpg"),
           width: 299,
         },
       ],
