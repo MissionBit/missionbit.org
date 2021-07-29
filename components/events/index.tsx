@@ -457,72 +457,69 @@ const FeaturedEvents: FeaturedEvent[] = [
       ],
     },
   },
-  {
-    id: "youth-conference-2021",
-    date: Date.parse("2021-08-11T13:00:00-07:00"),
-    href: "https://www.missionbit.org/bridge",
-    linkTitle: "Learn More",
-    title: "Bridging the Youth Tech Divide Conference 2021",
-    description: (
-      <>
-        1-4 PM PDT
-        <br></br>
-        <br></br>
-        Gathering Bay Area high school youth in unprecedented times to bridge
-        the tech divide. Hosted by the Mission Bit Student Advisory Board.
-      </>
-    ),
-    topRightImage: {
-      desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
-    },
-    bottomLeftImage: {
-      desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
-    },
-  },
+  // {
+  //   id: "youth-conference-2021",
+  //   date: Date.parse("2021-08-11T13:00:00-07:00"),
+  //   href: "/bridge",
+  //   linkTitle: "Register",
+  //   title: "Bridging the Youth Tech Divide Conference 2021",
+  //   description: (
+  //     <>
+  //       Gathering Bay Area high school youth in unprecedented times to bridge
+  //       the tech divide. Hosted by the Mission Bit Student Advisory Board.
+  //     </>
+  //   ),
+  //   topRightImage: {
+  //     desc: "An image of youth from the 2020 conference describing their experience in one word",
+  //     width: 599,
+  //     height: 400,
+  //     webp: [
+  //       {
+  //         src: require("public/images/events/conference/conference2021-1.jpg?webp"),
+  //         width: 599,
+  //       },
+  //       {
+  //         src: require("public/images/events/conference/conference2021-1@0.5x.jpg?webp"),
+  //         width: 299,
+  //       },
+  //     ],
+  //     jpg: [
+  //       {
+  //         src: require("public/images/events/conference/conference2021-1.jpg"),
+  //         width: 599,
+  //       },
+  //       {
+  //         src: require("public/images/events/conference/conference2021-1@0.5x.jpg"),
+  //         width: 299,
+  //       },
+  //     ],
+  //   },
+  //   bottomLeftImage: {
+  //     desc: "An image of youth from the 2020 conference describing their experience in one word",
+  //     width: 599,
+  //     height: 400,
+  //     webp: [
+  //       {
+  //         src: require("public/images/events/conference/conference2021-2.jpg?webp"),
+  //         width: 599,
+  //       },
+  //       {
+  //         src: require("public/images/events/conference/conference2021-2@0.5x.jpg?webp"),
+  //         width: 299,
+  //       },
+  //     ],
+  //     jpg: [
+  //       {
+  //         src: require("public/images/events/conference/conference2021-2.jpg"),
+  //         width: 599,
+  //       },
+  //       {
+  //         src: require("public/images/events/conference/conference2021-2@0.5x.jpg"),
+  //         width: 299,
+  //       },
+  //     ],
+  //   },
+  // },
 ].sort((a, b) => a.date - b.date);
 
 const PastEvents: React.ComponentProps<typeof YouTubePreview>[] = [
