@@ -201,7 +201,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   {
     name: "Tetoya Gibson Preston",
     type: "Keynote Speaker",
-    title: "Verizon Response Manager - Mid Atlantic",
+    title: "TBA",
     ...image("keynote-speakers/tetoya"),
     bio: (
       <>
@@ -220,14 +220,29 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
       </>
     ),
   },
+  {
+    name: "Venky Konanur",
+    type: "Panelist",
+    title: "TBA",
+    ...image("panelists/venky"),
+    bio: (
+      <>
+        An engineer with experience in working at the intersection of technology
+        and strategy in IoT, with an emphasis on applications in industrial and
+        smart city deployments. Currently, part of the innovation team at
+        Verizon that is involved in shaping the go-to-market and product
+        strategy of 5G by working closely with various external partners and
+        internal stakeholders.
+      </>
+    ),
+  },
 ];
 
 const PANELISTS: TeamMemberProps[] = [
   {
     name: "Alelgn Amsalu",
     type: "Panelist",
-    title:
-      "Senior Manager - Technology responsible for Sports Technology integration supporting the Technology & Product Development Organization",
+    title: "TBA",
     ...image("panelists/alelgn"),
     bio: (
       <>
@@ -249,7 +264,7 @@ const PANELISTS: TeamMemberProps[] = [
   {
     name: "Carlo Thompson",
     type: "Panelist",
-    title: "PMTS - 5G Technolgy Development",
+    title: "TBA",
     ...image("panelists/carlo"),
     bio: (
       <>
@@ -261,23 +276,6 @@ const PANELISTS: TeamMemberProps[] = [
         environments. Gains stakeholder buy-in to deliver projects on time and
         budget. Organized self-starter able to manage multiple competing
         priorities.
-      </>
-    ),
-  },
-  {
-    name: "Venkatesh Konanur",
-    type: "Panelist",
-    title:
-      "Sr. Solutions Strategist / Member of Technical Staff at Verizon 5G Innovation Center",
-    ...image("panelists/venky"),
-    bio: (
-      <>
-        An engineer with experience in working at the intersection of technology
-        and strategy in IoT, with an emphasis on applications in industrial and
-        smart city deployments. Currently, part of the innovation team at
-        Verizon that is involved in shaping the go-to-market and product
-        strategy of 5G by working closely with various external partners and
-        internal stakeholders.
       </>
     ),
   },
