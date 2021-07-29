@@ -461,7 +461,7 @@ const FeaturedEvents: FeaturedEvent[] = [
     id: "youth-conference-2021",
     date: Date.parse("2021-08-11T13:00:00-07:00"),
     href: "https://www.missionbit.org/bridge",
-    linkTitle: "Register Today",
+    linkTitle: "Learn More",
     title: "Bridging the Youth Tech Divide Conference 2021",
     description: (
       <>
