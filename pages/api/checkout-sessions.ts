@@ -54,8 +54,9 @@ function session_args(
   frequency: Frequency,
   metadata: { [k: string]: string }
 ): Stripe.Checkout.SessionCreateParams {
-  const payment_method_types: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] =
-    ["card"];
+  const payment_method_types: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] = [
+    "card",
+  ];
   const success_url = `${origin}/donate/result?session_id={CHECKOUT_SESSION_ID}`;
   const cancel_url = `${origin}/donate/cancel`;
   if (frequency === "monthly") {
@@ -100,14 +101,13 @@ const handler: NextApiHandler = async (req, res) => {
       const { amount, frequency, metadata } = body;
       const origin = getOrigin(req.headers.origin);
       // Create Checkout Sessions from body params.
-      const checkoutSession: Stripe.Checkout.Session =
-        await stripe.checkout.sessions.create(
-          session_args(origin, amount, frequency, {
-            ...metadata,
-            origin,
-            app: APP,
-          })
-        );
+      const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(
+        session_args(origin, amount, frequency, {
+          ...metadata,
+          origin,
+          app: APP,
+        })
+      );
 
       res.status(200).json({ sessionId: checkoutSession.id });
     } catch (err) {

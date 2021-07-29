@@ -57,7 +57,8 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             feature small businesses!
           </>
         ),
-        href: "https://drive.google.com/file/d/1bt1KPjCCu3N4pQ6bhQQEXfUWBIkuEyKs/view?usp=sharing",
+        href:
+          "https://drive.google.com/file/d/1bt1KPjCCu3N4pQ6bhQQEXfUWBIkuEyKs/view?usp=sharing",
       },
     ],
   },
@@ -77,7 +78,8 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             it!
           </>
         ),
-        href: "https://drive.google.com/file/d/1TRl1-wBUg_v2PqdQZwJ-HGmuT_voMOTB/view?usp=sharing",
+        href:
+          "https://drive.google.com/file/d/1TRl1-wBUg_v2PqdQZwJ-HGmuT_voMOTB/view?usp=sharing",
       },
     ],
   },

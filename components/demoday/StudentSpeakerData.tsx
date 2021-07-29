@@ -80,7 +80,8 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             perspective of the zombie.
           </>
         ),
-        href: "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
+        href:
+          "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
       },
     ],
   },

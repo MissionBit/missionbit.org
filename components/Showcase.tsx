@@ -35,12 +35,14 @@ const StudentProjects: StudentProjectProps[] = [
     title: "Dinosaur Game",
   },
   {
-    href: "https://showcase.missionbit.org/2014/spring/group-projects/operation-peach/",
+    href:
+      "https://showcase.missionbit.org/2014/spring/group-projects/operation-peach/",
     imageUrl: "/images/showcase/peach-game.png",
     title: "Operation Peach",
   },
   {
-    href: "https://showcase.missionbit.org/2014/spring/group-projects/veggie-jump/",
+    href:
+      "https://showcase.missionbit.org/2014/spring/group-projects/veggie-jump/",
     imageUrl: "/images/showcase/jump-game.png",
     title: "Veggie Jump",
   },

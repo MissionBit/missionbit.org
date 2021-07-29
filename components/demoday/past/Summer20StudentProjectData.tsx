@@ -222,7 +222,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             weapons.
           </>
         ),
-        href: "https://nikitakartsevv.github.io/Infinite-Lurker/game/index.html",
+        href:
+          "https://nikitakartsevv.github.io/Infinite-Lurker/game/index.html",
         ...image("infinite-lurker"),
       },
       {
@@ -413,7 +414,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             it.
           </>
         ),
-        href: "https://jackbobadillagaming.github.io/Rocket-game/rocket%20game/",
+        href:
+          "https://jackbobadillagaming.github.io/Rocket-game/rocket%20game/",
         ...image("rocket-game"),
       },
       {

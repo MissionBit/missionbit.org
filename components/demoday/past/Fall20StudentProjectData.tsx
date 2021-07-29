@@ -395,7 +395,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             survive when groups of zombies begin to approach him.
           </>
         ),
-        href: "https://weissss-hub.github.io/The-Lone-Survivor-and-Zombie-Genocide/",
+        href:
+          "https://weissss-hub.github.io/The-Lone-Survivor-and-Zombie-Genocide/",
         ...image("lone"),
       },
       {
@@ -463,7 +464,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             "Run".
           </>
         ),
-        href: "https://repl.it/@Ramiromp4/SpectacularDownrightTransversals#main.py",
+        href:
+          "https://repl.it/@Ramiromp4/SpectacularDownrightTransversals#main.py",
         ...image("lissin"),
       },
     ],

@@ -50,7 +50,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Blue Geisinger"],
         course: "Intro to Unity Game Design with Daniel",
         description: <>A puzzle game without puzzles.</>,
-        href: "http://bluubonic.itch.io/participation-is-mandatory-demo-day-2021",
+        href:
+          "http://bluubonic.itch.io/participation-is-mandatory-demo-day-2021",
         ...image("puzzle"),
       },
       {
@@ -63,7 +64,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             perspective of the zombie.
           </>
         ),
-        href: "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
+        href:
+          "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
         ...image("bub"),
       },
       {
@@ -112,7 +114,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             take good care of them and showing them love and kindness.
           </>
         ),
-        href: "https://leslierodri.github.io/Animal-Run/Animal%20Run/index.html",
+        href:
+          "https://leslierodri.github.io/Animal-Run/Animal%20Run/index.html",
         ...image("animal"),
       },
       {
@@ -160,7 +163,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             survival on alien planets.
           </>
         ),
-        href: "https://jeffrey938.github.io/demoday/ZombieShootout2.0/index.html",
+        href:
+          "https://jeffrey938.github.io/demoday/ZombieShootout2.0/index.html",
         ...image("space"),
       },
       {
@@ -168,7 +172,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to Python with Ai",
         students: ["Kevin Wu, Walter Menjivar"],
         description: <>Healthcare advisor</>,
-        href: "https://replit.com/@WalterMenjivar/Final-projet-Healthcare-advice",
+        href:
+          "https://replit.com/@WalterMenjivar/Final-projet-Healthcare-advice",
         ...image("healthcare"),
       },
       {
@@ -414,7 +419,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to JavaScript with Wilson",
         students: ["Elian Montano, Fernando Diaz, Joseph Izeta"],
         description: <>Exploring the rise of homelessness in SF.</>,
-        href: "https://final-project-fernando-joseph-elian.m0ntano203.repl.co/#prevent-homelessness",
+        href:
+          "https://final-project-fernando-joseph-elian.m0ntano203.repl.co/#prevent-homelessness",
         ...image("houseless"),
       },
     ],
