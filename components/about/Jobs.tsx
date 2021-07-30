@@ -23,8 +23,12 @@ interface JobOpening {
 
 const JobOpenings: JobOpening[] = [
   {
-    href: "/images/jobs/InstructorS21.pdf",
-    title: "Summer Coding Instructor",
+    href: "/images/jobs/InstructorF21.pdf",
+    title: "Fall Coding Instructor",
+  },
+  {
+    href: "/images/jobs/CurriculumAssistant.pdf",
+    title: "Part Time Coding Curriculum Assistant (VR/Game Design)",
   },
 ];
 

@@ -14,8 +14,9 @@ const Typography = withStyles((theme) => ({
   },
 }))(BaseTypography);
 
-export const SectionHeading: React.FC<
-  Omit<TypographyProps<"h2">, "component" | "variant">
-> = (props) => <Typography {...props} variant="h2" />;
+export const SectionHeading: React.FC<Omit<
+  TypographyProps<"h2">,
+  "component" | "variant"
+>> = (props) => <Typography {...props} variant="h2" />;
 
 export default SectionHeading;
