@@ -12,7 +12,11 @@ function svg(logo: string): { src: string } {
 
 function png(
   logo: string
-): { src: string; srcSet: string; webpSrcSet?: string } {
+): {
+  src: string;
+  srcSet: string;
+  webpSrcSet?: string;
+} {
   const [
     src,
     src2x,

@@ -68,4 +68,14 @@ export const Employers: SponsorData[] = [
   },
 ];
 
+export const Food: SponsorData[] = [
+  {
+    href: "https://doordashimpact.com/community/community-credits",
+    title: "Doordash",
+    width: 1000,
+    height: 258,
+    logoUrl: require("public/images/bridge/sponsors/doordash.svg"),
+  },
+];
+
 export default Sponsors;

@@ -782,8 +782,8 @@ export const Courses = courseRecord({
       <>
         This is a workshop for high school juniors and seniors! Learn about the
         FAFSA application process and become familiar with different types of
-        scholarships, grants and student loans; plus tips for graduating with as
-        little debt as possible.
+        scholarships, grants, and student loans; plus tips for graduating with
+        as little debt as possible.
       </>
     ),
   },
