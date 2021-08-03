@@ -201,7 +201,8 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   {
     name: "Tetoya Gibson Preston",
     type: "Keynote Speaker",
-    title: "TBA",
+    title:
+      "Manager | Verizon Crisis Response Team - VA/WV/KY/OH, Public Sector Strategic Operations",
     ...image("keynote-speakers/tetoya"),
     bio: (
       <>
