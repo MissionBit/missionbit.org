@@ -9,7 +9,7 @@ const gtag =
   (() => undefined);
 
 export function isFrequency(frequency: string): frequency is Frequency {
-  return FREQUENCIES.includes((frequency as unknown) as Frequency);
+  return FREQUENCIES.includes(frequency as unknown as Frequency);
 }
 
 export function capitalizeFirst(s: string): string {

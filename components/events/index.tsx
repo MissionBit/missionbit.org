@@ -211,8 +211,7 @@ const FeaturedEvents: FeaturedEvent[] = [
       </>
     ),
     topRightImage: {
-      desc:
-        "Mayor London Breed at 2019 Gala watching students demonstrate their project",
+      desc: "Mayor London Breed at 2019 Gala watching students demonstrate their project",
       width: 600,
       height: 401,
       webp: [

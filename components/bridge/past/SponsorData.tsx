@@ -8,8 +8,7 @@ export interface SponsorData {
 
 export const Sponsors: SponsorData[] = [
   {
-    href:
-      "https://www.ymcasf.org/programs/urban-services-san-francisco-youth-empowerment-fund",
+    href: "https://www.ymcasf.org/programs/urban-services-san-francisco-youth-empowerment-fund",
     title: "YMCA San Francisco Youth Empowerment Fund",
     width: 1262,
     height: 258,

@@ -30,7 +30,8 @@ function loadPhoto(postfix: string, alt: string) {
       const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-students-${postfix}${k}.jpg?webp`);
       return `${fn} ${PHOTO_SIZES[k].width}w`;
     }).join(","),
-    jpgSrc: require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-students-${postfix}@0.5x.jpg`) as string,
+    jpgSrc:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-students-${postfix}@0.5x.jpg`) as string,
     jpgSrcSet: SIZE_ORDER.map((k) => {
       const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-students-${postfix}${k}.jpg`);
       return `${fn} ${PHOTO_SIZES[k].width}w`;
