@@ -162,7 +162,7 @@ const Bridge: React.FC<{}> = () => {
       <Container component="section" id="register" className={classes.register}>
         <VioletButton
           href="./bridge/bridge2020"
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
           variant="contained"
           size="large"
