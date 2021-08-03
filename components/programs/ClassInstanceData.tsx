@@ -149,7 +149,8 @@ const coverLetterImage = {
 
 const sdrImage = {
   src: require("public/images/program/sdr.svg"),
-  alt: "Image of a girl wearing over ear headphones with sales books around her",
+  alt:
+    "Image of a girl wearing over ear headphones with sales books around her",
 };
 
 const designBusinessImage = {
@@ -179,7 +180,8 @@ const mentalHealthImage = {
 
 const BLMImage = {
   src: require("public/images/program/blm.jpg"),
-  alt: "Image of a window with the words Black History Month in partnership with Mission Bit.",
+  alt:
+    "Image of a window with the words Black History Month in partnership with Mission Bit.",
 };
 
 const meditation = {
@@ -830,7 +832,7 @@ export const FallDates: ClassDates = {
 // };
 
 export const SDRDates: BaseClassDates = {
-  registrationDeadline: Date.parse("2021-05-23T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-09-01T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
 };
 
@@ -921,8 +923,8 @@ function SDRClass(
         </Box>
       </>
     ),
-    startDate: "June 8th",
-    endDate: "August 12th",
+    startDate: "October 5th",
+    endDate: "December 16th",
     buttonText: "Apply",
     signupUrl: `https://www.tfaforms.com/4870984?tfa_2013=${formAssemblyId}`,
   };
