@@ -280,6 +280,20 @@ const PANELISTS: TeamMemberProps[] = [
       </>
     ),
   },
+  {
+    name: "Destah Owens",
+    type: "Panelist",
+    title: "Product Marketing",
+    ...image("keynote-speakers/placeholder"),
+    bio: <>Bio and headshot coming soon...</>,
+  },
+  {
+    name: "Patricia Chang",
+    type: "Panelist",
+    title: "5G Infrastructure Planning",
+    ...image("keynote-speakers/placeholder"),
+    bio: <>Bio and headshot coming soon...</>,
+  },
 ];
 
 const TeamData = [
