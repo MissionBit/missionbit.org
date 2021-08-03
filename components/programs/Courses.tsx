@@ -218,15 +218,8 @@ const CourseDescription: React.FC<{
   now: number;
 }> = ({ instance, now }) => {
   const classes = useStyles();
-  const {
-    extra,
-    buttonExtra,
-    course,
-    campus,
-    meets,
-    signupUrl,
-    buttonText,
-  } = instance;
+  const { extra, buttonExtra, course, campus, meets, signupUrl, buttonText } =
+    instance;
   const disabled =
     now >=
     (instance.type === "workshop"

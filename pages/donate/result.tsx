@@ -39,7 +39,9 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     res.statusCode = 404;
     return { props: layoutProps };
   }
-  const stripe = (require("src/getStripe") as typeof import("src/getStripe")).getStripe();
+  const stripe = (
+    require("src/getStripe") as typeof import("src/getStripe")
+  ).getStripe();
   const session = await stripe.checkout.sessions.retrieve(session_id, {
     expand: ["payment_intent", "subscription.latest_invoice.charge"],
   });

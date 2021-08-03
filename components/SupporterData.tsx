@@ -10,21 +10,17 @@ function svg(logo: string): { src: string } {
   };
 }
 
-function png(
-  logo: string
-): {
+function png(logo: string): {
   src: string;
   srcSet: string;
   webpSrcSet?: string;
 } {
-  const [
-    src,
-    src2x,
-  ] = require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300`).images.map(
-    (image: { path: string; height: number; width: number }) => image.path
-  );
-  const webpSrcSet = require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300&format=webp`)
-    .srcSet;
+  const [src, src2x] =
+    require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300`).images.map(
+      (image: { path: string; height: number; width: number }) => image.path
+    );
+  const webpSrcSet =
+    require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300&format=webp`).srcSet;
   return { src, srcSet: `${src}, ${src2x} 2x`, webpSrcSet };
 }
 

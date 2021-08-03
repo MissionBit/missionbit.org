@@ -149,8 +149,7 @@ const coverLetterImage = {
 
 const sdrImage = {
   src: require("public/images/program/sdr.svg"),
-  alt:
-    "Image of a girl wearing over ear headphones with sales books around her",
+  alt: "Image of a girl wearing over ear headphones with sales books around her",
 };
 
 const designBusinessImage = {
@@ -180,8 +179,7 @@ const mentalHealthImage = {
 
 const BLMImage = {
   src: require("public/images/program/blm.jpg"),
-  alt:
-    "Image of a window with the words Black History Month in partnership with Mission Bit.",
+  alt: "Image of a window with the words Black History Month in partnership with Mission Bit.",
 };
 
 const meditation = {
