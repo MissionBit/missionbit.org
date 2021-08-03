@@ -202,7 +202,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
     name: "Tetoya Gibson Preston",
     type: "Keynote Speaker",
     title:
-      "Manager | Verizon Crisis Response Team - VA/WV/KY/OH, Public Sector Strategic Operations",
+      "Manager, Verizon Crisis Response Team - VA/WV/KY/OH, Public Sector Strategic Operations",
     ...image("keynote-speakers/tetoya"),
     bio: (
       <>
@@ -224,7 +224,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   {
     name: "Venky Konanur",
     type: "Panelist",
-    title: "TBA",
+    title: "Sr. Solutions Strategist",
     ...image("panelists/venky"),
     bio: (
       <>
@@ -243,7 +243,7 @@ const PANELISTS: TeamMemberProps[] = [
   {
     name: "Alelgn Amsalu",
     type: "Panelist",
-    title: "TBA",
+    title: "Sr. Manager - Technology and Product Development",
     ...image("panelists/alelgn"),
     bio: (
       <>
@@ -265,7 +265,7 @@ const PANELISTS: TeamMemberProps[] = [
   {
     name: "Carlo Thompson",
     type: "Panelist",
-    title: "TBA",
+    title: "Principal Engineer System Architecture",
     ...image("panelists/carlo"),
     bio: (
       <>
