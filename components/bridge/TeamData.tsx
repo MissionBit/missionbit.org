@@ -223,8 +223,8 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
   },
   {
     name: "Venky Konanur",
-    type: "Panelist",
-    title: "Sr. Solutions Strategist",
+    type: "Keynote Speaker",
+    title: "Senior Engineer - Applied Research",
     ...image("panelists/venky"),
     bio: (
       <>
