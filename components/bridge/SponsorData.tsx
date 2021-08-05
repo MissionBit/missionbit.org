@@ -35,13 +35,20 @@ export const Sponsors: SponsorData[] = [
     height: 258,
     logoUrl: require("public/images/bridge/sponsors/lyft.svg"),
   },
-  // {
-  //   href: "https://www.notion.so/",
-  //   title: "Notion",
-  //   width: 1262,
-  //   height: 258,
-  //   logoUrl: require("public/images/bridge/sponsors/notion.svg"),
-  // },
+  {
+    href: "https://about.twitter.com/en/who-we-are/twitter-for-good",
+    title: "Twitter",
+    width: 500,
+    height: 150,
+    logoUrl: require("public/images/bridge/sponsors/twitter.svg"),
+  },
+  {
+    href: "https://www.socialimprints.com/",
+    title: "Social Imprints",
+    width: 500,
+    height: 150,
+    logoUrl: require("public/images/bridge/sponsors/social_imprints.svg"),
+  },
   // {
   //   href: "https://www.verizon.com/",
   //   title: "Verizon",
