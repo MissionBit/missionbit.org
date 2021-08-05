@@ -29,7 +29,7 @@ export const Sponsors: SponsorData[] = [
     logoUrl: require("public/images/bridge/sponsors/figma.svg"),
   },
   {
-    href: "https://www.lyft.com/",
+    href: "https://www.lyft.com/lyftup/programs",
     title: "Lyft",
     width: 1262,
     height: 258,
