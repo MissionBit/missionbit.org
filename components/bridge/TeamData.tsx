@@ -225,7 +225,7 @@ const KEYNOTE_SPEAKERS: TeamMemberProps[] = [
     name: "Venky Konanur",
     type: "Keynote Speaker",
     title: "Senior Engineer - Applied Research",
-    ...image("panelists/venky"),
+    ...image("keynote-speakers/venky"),
     bio: (
       <>
         An engineer with experience in working at the intersection of technology
@@ -284,8 +284,23 @@ const PANELISTS: TeamMemberProps[] = [
     name: "Destah Owens",
     type: "Panelist",
     title: "Product Marketing",
-    ...image("keynote-speakers/placeholder"),
-    bio: <>Bio and headshot coming soon...</>,
+    ...image("panelists/destah"),
+    bio: (
+      <>
+        Destah is a technology and innovation enthusiast with a career built
+        around driving business disruption, customer advocacy and connecting
+        good ideas and good people. A veteran of several of the smallest Silicon
+        Valley Startups as well as some of the biggest behemoths, he has picked
+        up enough knowledge and information to be relatively dangerous. From his
+        humble beginnings as an Electrical Engineer he has touched the data
+        networking, wireless data, and machine learning technologies as a
+        customer facing evangelist and problem solver. When using his powers for
+        good, he is identifying emerging technologies and finding synergistic
+        solutions for customers and professional colleagues. The latest shiny
+        objects to have caught his fancy are XR (mixed reality), Cybersecurity,
+        and IoT/Smart City technologies.
+      </>
+    ),
   },
   {
     name: "Patricia Chang",
