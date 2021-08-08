@@ -306,8 +306,24 @@ const PANELISTS: TeamMemberProps[] = [
     name: "Patricia Chang",
     type: "Panelist",
     title: "5G Infrastructure Planning",
-    ...image("keynote-speakers/placeholder"),
-    bio: <>Bio and headshot coming soon...</>,
+    ...image("panelists/patricia"),
+    bio: (
+      <>
+        Patricia is a senior Cloud Technology manager in the Verizon Global
+        Strategy and Technology Planning organization. She is leading and
+        driving private 5G and private Mobile Edge Computing (MEC) strategy to
+        commercialization. She was instrumental in the private 5G and MEC
+        partnerships with Microsoft and AWS. Prior to HQ Network Planning,
+        Patricia was an Associate Director in the West Area Data Planning
+        leading VoLTE and Data Networks in Planning, Engineering, and
+        Performance. Patricia is a technology innovator with over seventy plus
+        granted patents. She was elected as one of the 2019 Verizon Master
+        Inventors, and was showcased in Verizon Patent Video in 2015. She earned
+        her bachelor and master degrees in Electrical Engineering and Computer
+        Science at New York University School of Engineering in Brooklyn, New
+        York{" "}
+      </>
+    ),
   },
 ];
 
