@@ -523,17 +523,17 @@ const FeaturedEvents: FeaturedEvent[] = [
 ].sort((a, b) => a.date - b.date);
 
 const PastEvents: React.ComponentProps<typeof YouTubePreview>[] = [
-  {
-    id: "2kYPCU5HnV0",
-    title: "Bridging the Youth Tech Divide Conference 2020",
-  },
+  // {
+  //   id: "2kYPCU5HnV0",
+  //   title: "Bridging the Youth Tech Divide Conference 2020",
+  // },
   { id: "f2NVEq00A38", title: "Game Design Workshop" },
   { id: "J4VEhVk0eME", title: "Code Meets Girl" },
   { id: "X--bjyFPeh8", title: "Fourth Annual Gala" },
   { id: "oTSNS227No4", title: "Third Annual Gala" },
   { id: "RNTbbFC8p-o", title: "Spring 2021 Demo Day" },
   { id: "BT0hFva0zxY", title: "Fall 2020 Demo Day" },
-  { id: "szThYH8p6IU", title: "Summer 2020 Demo Day" },
+  // { id: "szThYH8p6IU", title: "Summer 2020 Demo Day" },
   { id: "o_1sd_F54NQ", title: "Fall 2019 Demo Day" },
   { id: "9HqfU7-DCao", title: "Summer 2019 Demo Day" },
   { id: "rmNEBaDVMlI", title: "MLK Codes Day 2019" },
