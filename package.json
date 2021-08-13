@@ -56,7 +56,7 @@
     "micro-cors": "^0.1.1",
     "mjml": "^4.6.3",
     "mjml-react": "^1.0.57",
-    "next": "^10.2.0",
+    "next": "^11.1.0",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",
     "query-string": "^7.0.0",
