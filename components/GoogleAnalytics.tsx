@@ -2,7 +2,8 @@ import Head from "next/head";
 import * as React from "react";
 import oneLine from "src/oneLine";
 
-export const GA_MEASUREMENT_ID = "G-HEJM8B05LS";
+const GA_MEASUREMENT_ID = "G-HEJM8B05LS";
+const ADWORDS_CONVERSION_ID = "AW-319322078";
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string): void => {
@@ -51,10 +52,10 @@ export const GoogleAnalytics: React.FC<{}> = () => (
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', '${GA_MEASUREMENT_ID}', {
       page_path: window.location.pathname,
     });
+    gtag('config', '${ADWORDS_CONVERSION_ID}');
   `,
       }}
     />
