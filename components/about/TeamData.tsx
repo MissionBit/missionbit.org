@@ -142,6 +142,21 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     title: "Social Media/Marketing Intern",
     ...image("core/emmely.jpg"),
   },
+  {
+    name: "Kayla Wilton",
+    title: "Office Administrator",
+    ...image("core/kayla.jpg"),
+    bio: (
+      <>
+        Kayla Wilton was born and raised in San Francisco. She studied English
+        and Spanish at California State University, Stanislaus, before coming
+        back to her hometown to study creative writing at City College of San
+        Francisco. She is passionate about equity and about her Bay Area
+        community, and in her free time, she enjoys writing fiction and poetry,
+        making art, and being active outdoors.
+      </>
+    ),
+  },
 ];
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
