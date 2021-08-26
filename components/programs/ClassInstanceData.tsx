@@ -890,7 +890,7 @@ function classOffering(
   campus: Campus,
   schedule: "MW" | "TH" | "MWF" | "TBD",
   formAssemblyId: string,
-  classDates: ClassDates = CourseDates
+  classDates: ClassDates = CourseDatesExtended
 ): ClassInstance {
   return {
     type: "class",
