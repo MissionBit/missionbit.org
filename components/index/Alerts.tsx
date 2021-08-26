@@ -3,7 +3,7 @@ import Link from "@material-ui/core/Link";
 import Alert from "@material-ui/lab/Alert";
 import Collapse from "@material-ui/core/Collapse";
 import { useState } from "react";
-import { CourseDates } from "components/programs/ClassInstanceData";
+import { CourseDatesExtended } from "components/programs/ClassInstanceData";
 import { ShortDateFormat } from "src/dates";
 import { makeStyles, darken } from "@material-ui/core/styles";
 import { brand } from "src/colors";
@@ -58,7 +58,7 @@ interface TimedAlert {
 
 const timedAlerts: readonly TimedAlert[] = [
   {
-    hideAfter: CourseDates.registrationDeadline,
+    hideAfter: CourseDatesExtended.registrationDeadline,
     content: (
       <Link
         color="inherit"
@@ -70,7 +70,7 @@ const timedAlerts: readonly TimedAlert[] = [
           🎉
         </span>{" "}
         Apply for our Fall 2021 classes now! Deadline{" "}
-        {ShortDateFormat.format(CourseDates.registrationDeadline)}{" "}
+        {ShortDateFormat.format(CourseDatesExtended.registrationDeadline)}{" "}
         <span role="img" aria-label="Party popper">
           🎉
         </span>

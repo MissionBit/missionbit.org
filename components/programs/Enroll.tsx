@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
-  CourseDates,
+  CourseDatesExtended,
   SDRDates,
   // FallDatesExtended,
   SectionIds,
@@ -135,9 +135,9 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           Apply to our program and come have fun with us!
           <br />
           <span className={classes.deadlineEmphasis}>
-            Application deadline:
+            Extended Application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(CourseDates.registrationDeadline)}
+          {LongDateTimeFormat.format(CourseDatesExtended.registrationDeadline)}
           <br />
           <br />
           {/* <span className={classes.deadlineEmphasis}>
