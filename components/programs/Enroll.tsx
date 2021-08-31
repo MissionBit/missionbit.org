@@ -4,11 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {
   CourseDatesExtended,
-  SDRDates,
+  // SDRDates,
   // FallDatesExtended,
   SectionIds,
   SectionId,
   Sections,
+  SDRDatesExtended,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import Courses from "./Courses";
@@ -125,14 +126,15 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           <span className={classes.deadlineEmphasis}>
             Extended application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(SDRDates.registrationDeadline)}
+          {LongDateTimeFormat.format(SDRDatesExtended.registrationDeadline)}
           <br />
         </Typography>
       );
     case "courses":
       return (
         <Typography className={classes.copy}>
-          Apply to our program and come have fun with us!
+          {/* Apply to our program and come have fun with us! */}
+          Applicants who apply after August 31 will be placed on a waitlist.
           <br />
           <span className={classes.deadlineEmphasis}>
             Extended Application deadline:

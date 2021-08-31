@@ -826,12 +826,17 @@ export const FallDates: ClassDates = {
 
 export const CourseDatesExtended: ClassDates = {
   ...CourseDates,
-  registrationDeadline: Date.parse("2021-08-31T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2021-09-08T20:00:00-07:00"),
 };
 
 export const SDRDates: BaseClassDates = {
   registrationDeadline: Date.parse("2021-09-01T20:00:00-07:00"),
   interview: Date.parse("2020-09-082T13:00:00-07:00"),
+};
+
+export const SDRDatesExtended: BaseClassDates = {
+  ...SDRDates,
+  registrationDeadline: Date.parse("2021-09-20T20:00:00-07:00"),
 };
 
 const CLASS_SCHEDULE = {
@@ -912,7 +917,7 @@ function SDRClass(
     type: "class",
     course,
     campus,
-    classDates: SDRDates,
+    classDates: SDRDatesExtended,
     meets: (
       <>
         Tuesday, Wednesday, Thursday{" "}
