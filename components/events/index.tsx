@@ -327,6 +327,73 @@ const FeaturedEvents: FeaturedEvent[] = [
     },
   },
   {
+    id: "alum",
+    date: Date.parse("2021-09-23T17:00:00-07:00"),
+    href: "https://www.tfaforms.com/4930413",
+    linkTitle: "Register",
+    title:
+      "Mission Bit Alumni Network Event: Meet and Greet with a Tech Recruiter",
+    description: (
+      <>
+        Mission Bit's first alumni event features guest speaker Melanie Wardhana
+        from Cruise who will share insights on how to enter the workforce and
+        tech industry specifically. Alumni will have the opportunity to ask
+        questions, meet each other and learn about the newly established Mission
+        Bit Alumni Network!
+      </>
+    ),
+    topRightImage: {
+      desc: "2 Black men talking and smiling",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/alum-event/alum-event1.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/alum-event/alum-event1@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/alum-event/alum-event1.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/alum-event/alum-event1@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+    bottomLeftImage: {
+      desc: "3 panelists sitting on high stools",
+      width: 599,
+      height: 400,
+      webp: [
+        {
+          src: require("public/images/events/alum-event/alum-event2.jpg?webp"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/alum-event/alum-event2@0.5x.jpg?webp"),
+          width: 299,
+        },
+      ],
+      jpg: [
+        {
+          src: require("public/images/events/alum-event/alum-event2.jpg"),
+          width: 599,
+        },
+        {
+          src: require("public/images/events/alum-event/alum-event2@0.5x.jpg"),
+          width: 299,
+        },
+      ],
+    },
+  },
+  {
     id: "women",
     date: Date.parse("2021-03-24T17:00:00-07:00"),
     href: "https://www.tfaforms.com/4888698",
