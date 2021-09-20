@@ -291,7 +291,7 @@ export const DonateCard: React.FC<{
       } catch (err) {
         setLoading(false);
         console.error(err);
-        setErrorMessage(err.message);
+        setErrorMessage((err as Error).message);
       }
     },
     [disabled, stripe, amountCents, frequency]

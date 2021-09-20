@@ -3,7 +3,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import OrangeButton from "components/OrangeButton";
 import { brand } from "src/colors";
-import { Container } from "next/app";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
