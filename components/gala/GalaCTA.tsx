@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import PinIcon from "components/icons/Pin";
 import * as React from "react";
 import { brand } from "src/colors";
-// import BuyGalaTicket from "./BuyGalaTicket";
+import BuyGalaTicket from "./BuyGalaTicket";
 import { galaLocation, galaStartEnd } from "./GalaDates";
 
 const styles = (theme: Theme) =>
@@ -58,8 +58,7 @@ export const GalaCTA = withStyles(styles)(
           <PinIcon className={classes.pin} /> {galaLocation.name}
           <br />
           <br />
-          Tickets will be available soon!
-          {/* <BuyGalaTicket className={classes.buyTicket} /> */}
+          <BuyGalaTicket className={classes.buyTicket} />
         </Typography>
       </>
     );

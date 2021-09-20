@@ -13,10 +13,10 @@ hear their stories, and help us reach our 2022 goals!
 `;
 export const pageImage = "/images/gala/2020-poster-save-the-date.jpg";
 export const registerUrl =
-  "https://www.eventbrite.com/e/mission-bit-4th-annual-virtual-gala-tickets-118229304031";
-export const eventId = "118229304031";
+  "https://www.eventbrite.com/e/mission-bit-5th-annual-gala-tickets-168654120013";
+export const eventId = "168654120013";
 export const pageUrl = "https://www.missionbit.org/gala";
-export const price = "150";
+export const price = "200";
 
 export const Metadata: React.FC<{}> = () => {
   const metadata = {

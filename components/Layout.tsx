@@ -1,13 +1,13 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
-import { ThemeProvider, createTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import themeOptions from "src/theme";
+import theme from "src/theme";
 import Lato from "./fonts/Lato";
 import Poppins from "./fonts/Poppins";
 import GoogleAnalytics from "./GoogleAnalytics";
@@ -71,7 +71,6 @@ export const Layout: React.FC<LayoutProps> = ({
       return () => window.removeEventListener("resize", updateDocumentSize);
     }
   }, [requireDocumentSize]);
-  const theme = useMemo(() => createTheme(themeOptions), []);
   const router = useRouter();
   const canonicalUrl = absoluteUrl(canonicalPath ?? router.asPath, origin);
   return (

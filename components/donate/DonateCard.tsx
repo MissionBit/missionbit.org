@@ -1,5 +1,5 @@
 import * as React from "react";
-import { fade, withStyles, makeStyles } from "@material-ui/core/styles";
+import { alpha, withStyles, makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import { useStripe } from "@stripe/react-stripe-js";
 import clsx from "clsx";
@@ -126,11 +126,11 @@ const ToggleButton = withStyles((theme) => ({
       color: theme.palette.common.white,
       backgroundColor: brand.indigo,
       "&:hover": {
-        backgroundColor: fade(brand.indigo, 0.8),
+        backgroundColor: alpha(brand.indigo, 0.8),
       },
     },
     "&:hover": {
-      backgroundColor: fade(brand.indigo, 0.1),
+      backgroundColor: alpha(brand.indigo, 0.1),
     },
   },
   selected: {},

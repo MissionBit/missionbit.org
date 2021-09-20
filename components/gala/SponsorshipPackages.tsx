@@ -238,8 +238,8 @@ const SponsorshipPackages: React.FC<{}> = () => {
           Gala Sponsorship Packages
         </Typography>
         <Typography className={classes.packagesCopy}>
-          All sponsorship packages include a table for at least 6 attendees and
-          logo presence on Mission Bit website for 2022.
+          All sponsorship packages include a table for 8 attendees and logo
+          presence on Mission Bit website for 2022.
           <br />
           Contact{" "}
           <Link

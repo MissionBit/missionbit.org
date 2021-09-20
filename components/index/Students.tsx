@@ -1,18 +1,15 @@
 import * as React from "react";
 import Carousel from "components/Carousel";
-import { useMemo } from "react";
 import {
-  ThemeOptions,
   makeStyles,
   ThemeProvider,
   createTheme,
-  useTheme,
-  Theme,
 } from "@material-ui/core/styles";
 import { brand } from "src/colors";
 import FormatQuoteIcon from "components/icons/FormatQuote";
 import { StudentTestimonial, testimonials } from "./StudentTestimonials";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
+import globalTheme, { theme } from "src/theme";
 
 const useStyles = makeStyles((theme) => {
   const paddingTop = theme.spacing(2);
@@ -151,8 +148,8 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const themeOverrides = (theme: Theme): ThemeOptions => ({
-  ...theme,
+const studentsTheme = createTheme({
+  ...globalTheme,
   palette: {
     type: "dark",
     background: {
@@ -162,20 +159,14 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
   },
 });
 
-const Students: React.FC<{}> = () => {
-  const defaultTheme = useTheme();
-  const theme = useMemo(
-    () => createTheme(themeOverrides(defaultTheme)),
-    [defaultTheme]
-  );
-
+const Testimonial: React.FC<StudentTestimonial> = ({
+  name,
+  program,
+  quote,
+  photos,
+}) => {
   const classes = useStyles();
-  const Testimonial: React.FC<StudentTestimonial> = ({
-    name,
-    program,
-    quote,
-    photos,
-  }) => (
+  return (
     <div className={classes.testimonial}>
       <div className={classes.photoTitle}>
         <div className={classes.title}>
@@ -207,22 +198,29 @@ const Students: React.FC<{}> = () => {
       <div className={classes.quote}>
         <div className={classes.quoteWrapper}>
           {quote}
-          <FormatQuoteIcon className={classes.tlQuote} />
-          <FormatQuoteIcon className={classes.brQuote} />
+          <FormatQuoteIcon classes={{ root: classes.tlQuote }} />
+          <FormatQuoteIcon classes={{ root: classes.brQuote }} />
         </div>
       </div>
     </div>
   );
+};
 
+const StudentsCarousel: React.FC<{}> = () => {
+  const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <Carousel classes={{ root: classes.section }} id="testimonials">
-        {testimonials.map((testimonial, idx) => (
-          <Testimonial key={idx} {...testimonial} />
-        ))}
-      </Carousel>
-    </ThemeProvider>
+    <Carousel classes={{ root: classes.section }} id="testimonials">
+      {testimonials.map((testimonial, idx) => (
+        <Testimonial key={idx} {...testimonial} />
+      ))}
+    </Carousel>
   );
 };
+
+const Students: React.FC<{}> = () => (
+  <ThemeProvider theme={studentsTheme}>
+    <StudentsCarousel />
+  </ThemeProvider>
+);
 
 export default Students;

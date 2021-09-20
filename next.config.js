@@ -36,8 +36,9 @@ const nextConfig = {
     STRIPE_KEY_POSTFIX,
     STRIPE_PK: process.env[`STRIPE_PK${STRIPE_KEY_POSTFIX}`],
   },
-  future: {
-    webpack5: true,
+  images: {
+    // Use next-optimized-images instead of next/image
+    disableStaticImages: true,
   },
 };
 
