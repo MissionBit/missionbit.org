@@ -49,7 +49,7 @@ function image(path: string): { image: { jpg: string; webp: string } } {
 const CEO = {
   name: "Christina Ortega",
   title: "Chief Executive Officer",
-  ...image("core/christina_ortega.jpg"),
+  ...image("core/christina.jpg"),
   bio: (
     <>
       Christina Ortega has a Master's in Public Administration with an emphasis
@@ -66,7 +66,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Cora Monokandilos",
     title: "Director of Curriculum",
-    ...image("core/cora_monokandilos.jpg"),
+    ...image("core/cora.jpg"),
     bio: (
       <>
         Cora Monokandilos is a Mission Bit alum who studied Computer Science at
@@ -83,7 +83,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Cynthia Chin",
     title: "Director of Programs",
-    ...image("core/cynthia_chin.jpg"),
+    ...image("core/thia.jpg"),
     bio: (
       <>
         Cynthia Chin is an education professional with over 6 years of
@@ -97,7 +97,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   {
     name: "Belinda Coronado",
     title: "Program Coordinator",
-    ...image("core/belinda.jpg"),
+    ...image("core/belinda-coronado.jpg"),
     bio: (
       <>
         Belinda was born and raised in South Central, Los Angeles. She studied
@@ -128,19 +128,9 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
     ...image("core/david_topete.jpg"),
   },
   {
-    name: "Cody Rowland",
-    title: "Curriculum Assistant",
-    ...image("core/cody.jpg"),
-  },
-  {
     name: "Erin Mendez",
     title: "Social Media/Marketing Intern",
     ...image("core/erin-mendez.jpg"),
-  },
-  {
-    name: "Emmely Villalta",
-    title: "Social Media/Marketing Intern",
-    ...image("core/emmely.jpg"),
   },
   {
     name: "Kayla Wilton",
@@ -161,44 +151,29 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
-    name: "Ai Nakamura",
+    name: "Angela Richards",
     title: "Lead Instructor",
-    ...image("instructors/summer2021/ai.jpg"),
+    ...image("instructors/fall2021/angela.jpg"),
   },
   {
-    name: "Cameron Deputy",
-    title: "Lead Instructor",
-    ...image("instructors/summer2021/cameron.jpg"),
-  },
-  {
-    name: "Cody Rowland",
-    title: "Lead Instructor",
-    ...image("core/cody.jpg"),
-  },
-  {
-    name: "Daniel Jackson",
-    title: "Lead Instructor",
-    ...image("instructors/summer2021/daniel.jpg"),
-  },
-  {
-    name: "Hunter Rocha",
-    title: "Lead Instructor",
-    ...image("instructors/summer2021/hunter_rocha.jpg"),
-  },
-  {
-    name: "Irvin Guerra",
+    name: "Damon Routzhan",
     title: "Workforce Development Instructor",
-    ...image("instructors/irvin.jpg"),
+    ...image("instructors/damon.jpg"),
   },
   {
-    name: "Joseph Lerner",
+    name: "Georgina Cruz",
     title: "Lead Instructor",
-    ...image("instructors/summer2021/joe.jpg"),
+    ...image("instructors/fall2021/georgina.jpg"),
   },
   {
-    name: "Ornelle Fonkoua",
+    name: "Ranjan Sikand",
     title: "Lead Instructor",
-    ...image("instructors/summer2021/ornelle.jpg"),
+    ...image("instructors/fall2021/ranjan.jpg"),
+  },
+  {
+    name: "Scott Mauer",
+    title: "Lead Instructor",
+    ...image("instructors/fall2021/scott.jpg"),
   },
   {
     name: "Wilson Ng",
@@ -254,11 +229,6 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     title: sabTitle(2022, "Burton High School"),
   },
   {
-    name: "Natalie Yingyan Huang",
-    ...image("sab/natalie.jpg"),
-    title: sabTitle(2021, "Washington High School"),
-  },
-  {
     name: "Oswen Martinez",
     ...image("sab/oswen-martinez.jpg"),
     title: sabTitle(2022, "San Francisco University High"),
@@ -267,11 +237,6 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Tara Tiong",
     ...image("sab/tara-tiong.jpg"),
     title: sabTitle(2023, "Lowell High School"),
-  },
-  {
-    name: "Trent Taylor III",
-    ...image("sab/trent-taylor.jpg"),
-    title: sabTitle(2022, "Skyline High School"),
   },
 ];
 
@@ -321,7 +286,13 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
   },
   {
     name: "Clive Downie",
-    title: "CMO, Unity Technologies",
+    title: (
+      <>
+        <em>Board Emeritus</em>
+        <br />
+        CMO, Unity Technologies
+      </>
+    ),
     ...image("board/clive_downie.jpg"),
   },
   {
