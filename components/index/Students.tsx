@@ -10,6 +10,7 @@ import FormatQuoteIcon from "components/icons/FormatQuote";
 import { StudentTestimonial, testimonials } from "./StudentTestimonials";
 import { CSSProperties } from "@material-ui/core/styles/withStyles";
 import globalTheme, { theme } from "src/theme";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => {
   const paddingTop = theme.spacing(2);
@@ -92,10 +93,6 @@ const useStyles = makeStyles((theme) => {
         width: "100%",
         marginRight: 0,
       },
-      "& > img": {
-        objectFit: "contain",
-        width: "100%",
-      },
     },
     quote: {
       ...theme.typography.body1,
@@ -163,7 +160,7 @@ const Testimonial: React.FC<StudentTestimonial> = ({
   name,
   program,
   quote,
-  photos,
+  photo,
 }) => {
   const classes = useStyles();
   return (
@@ -173,27 +170,9 @@ const Testimonial: React.FC<StudentTestimonial> = ({
           <span className={classes.name}>{name} </span>
           <span className={classes.program}>{program}</span>
         </div>
-        <picture className={classes.photo}>
-          <source
-            type="image/webp"
-            srcSet={[
-              `${photos[""].webp} 2048w`,
-              `${photos["@0.75x"].webp} 1536w`,
-              `${photos["@0.5x"].webp} 1024w`,
-              `${photos["@0.25x"].webp}`,
-            ].join(",")}
-          />
-          <img
-            alt={name}
-            src={photos["@0.25x"].jpg}
-            srcSet={[
-              `${photos[""].jpg} 2048w`,
-              `${photos["@0.75x"].jpg} 1536w`,
-              `${photos["@0.5x"].jpg} 1024w`,
-              `${photos["@0.25x"].jpg}`,
-            ].join(",")}
-          />
-        </picture>
+        <div className={classes.photo}>
+          <Image alt={name} src={photo} objectFit="contain" />
+        </div>
       </div>
       <div className={classes.quote}>
         <div className={classes.quoteWrapper}>

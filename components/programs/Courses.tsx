@@ -17,6 +17,7 @@ import IndigoButton from "components/IndigoButton";
 import { brand } from "src/colors";
 import Button from "@material-ui/core/Button";
 import { useRenderTime } from "components/BuildTimeContext";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -236,7 +237,7 @@ const CourseDescription: React.FC<{
       elevation={0}
     >
       <Box className={classes.imageWrapper}>
-        <img {...course.image} alt="" className={classes.image} />
+        <Image {...course.image} className={classes.image} />
       </Box>
       <Box padding={1} className={classes.content}>
         <Box className={classes.mainInfo}>

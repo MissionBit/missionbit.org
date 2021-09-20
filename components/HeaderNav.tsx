@@ -23,7 +23,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { Collapse } from "@material-ui/core";
 import clsx from "clsx";
 import ExpandMoreIcon from "./icons/ExpandMore";
-
+import logoSrc from "public/images/missionbit-logo-horizontal.svg";
 interface NavMenuChoice {
   readonly text: string;
   readonly href: string;
@@ -362,11 +362,7 @@ const DesktopHeaderNav: React.FC<{ className: string }> = ({ className }) => {
 
 const LogoHome: React.FC<{ className: string }> = ({ className }) => (
   <a href="/">
-    <img
-      src={require("public/images/missionbit-logo-horizontal.svg")}
-      alt="Mission Bit logo"
-      className={className}
-    />
+    <img src={logoSrc.src} alt="Mission Bit logo" className={className} />
   </a>
 );
 

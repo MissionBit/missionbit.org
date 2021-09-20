@@ -1,25 +1,27 @@
 import * as React from "react";
 import { SponsorData } from "./SponsorData";
+import Image from "next/image";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  wrapper: {
+    position: "relative",
+  },
+});
 
 const Sponsor: React.FC<SponsorData> = ({ href, title, logo }) => {
-  const picture = (
-    <picture title={title}>
-      {logo.webpSrcSet ? (
-        <source type="image/webp" srcSet={logo.webpSrcSet} />
-      ) : null}
-      <img
-        src={logo.src}
-        width={logo.width}
-        height={logo.height}
-        srcSet={logo.srcSet}
-        alt={`${title} logo`}
-      />
-    </picture>
-  );
+  const classes = useStyles();
+  const picture = <Image src={logo} alt={`${title} logo`} layout="fill" />;
   return href === null ? (
-    picture
+    <div className={classes.wrapper}>{picture}</div>
   ) : (
-    <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={title}
+      className={classes.wrapper}
+    >
       {picture}
     </a>
   );

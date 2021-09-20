@@ -10,6 +10,7 @@ import CourseShowcases, {
   TitleProps,
 } from "./CodeAtHomeActivitiesData";
 import FlourishSeparator from "./FlourishSeparator";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -89,12 +90,10 @@ const useStyles = makeStyles((theme) => ({
   },
   picture: {
     margin: theme.spacing(0, 2),
-    "& > img": {
-      height: "auto",
+    width: "33vw",
+    maxWidth: "70%",
+    "& img": {
       borderRadius: "50%",
-      width: "33vw",
-      maxWidth: "70%",
-      objectFit: "contain",
     },
   },
 }));
@@ -102,11 +101,15 @@ const useStyles = makeStyles((theme) => ({
 const ActivityImage: React.FC<TitleProps> = ({ title, image }) => {
   const classes = useStyles();
   return (
-    <picture className={classes.picture}>
-      <source type="image/webp" srcSet={image.webp} />
-      <source type="image/jpeg" srcSet={image.srcSet} />
-      <img alt={title} src={image.jpg} />
-    </picture>
+    <div className={classes.picture}>
+      <Image
+        layout="responsive"
+        sizes="33vw"
+        objectFit="contain"
+        alt={title}
+        src={image}
+      />
+    </div>
   );
 };
 

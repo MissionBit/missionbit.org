@@ -9,6 +9,7 @@ import Sponsors, { Employers } from "./SponsorData";
 import Intro from "./Intro";
 import Metadata from "../Metadata";
 import RegisterButton from "./RegisterButton";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -103,9 +104,9 @@ const Bridge: React.FC<{}> = () => {
           Sponsors
         </Typography>
         <Box className={classes.sponsors}>
-          {Sponsors.map(({ href, title, logoUrl }) => (
+          {Sponsors.map(({ href, title, logo }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
+              <Image src={logo} alt={title} />
             </a>
           ))}
         </Box>
@@ -115,9 +116,9 @@ const Bridge: React.FC<{}> = () => {
           Our Speakers Work At
         </Typography>
         <Box className={classes.employers}>
-          {Employers.map(({ href, title, logoUrl }) => (
+          {Employers.map(({ href, title, logo }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
+              <Image src={logo} alt={title} />
             </a>
           ))}
         </Box>

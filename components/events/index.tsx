@@ -84,53 +84,13 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "Hack the Cloud's website",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/hackathon/hackathon-collage-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/hackathon/hackathon-collage-0.5.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/hackathon/hackathon-collage-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/hackathon/hackathon-collage-0.5.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/hackathon/hackathon-collage-1.jpg")
+        .default,
     },
     bottomLeftImage: {
       desc: "Student holding laptop",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/hackathon/jada-collage-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/hackathon/jada-collage-0.5.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/hackathon/jada-collage-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/hackathon/jada-collage-0.5.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/hackathon/jada-collage-1.jpg")
+        .default,
     },
   },
   {
@@ -148,53 +108,13 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "Family attending demo day",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/demo-day/demo-day-collage-1.jpg")
+        .default,
     },
     bottomLeftImage: {
       desc: "Attendee checking out student project at Demo Day",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/demo-day/demo-day-collage-2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/demo-day/demo-day-collage-2.jpg")
+        .default,
     },
   },
   {
@@ -212,53 +132,11 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "Mayor London Breed at 2019 Gala watching students demonstrate their project",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/gala/gala-collage-1.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/gala/gala-collage-1.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/gala/gala-collage-1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/gala/gala-collage-1.jpg").default,
     },
     bottomLeftImage: {
       desc: "Student speaker at 2019 Gala",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/gala/gala-collage-2.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/gala/gala-collage-2.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/gala/gala-collage-2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/gala/gala-collage-2.jpg").default,
     },
   },
   {
@@ -277,53 +155,11 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "Career panel with 3 people's face around it",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/latinx-panel/latinx-1.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/latinx-1@0.5.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/latinx-panel/latinx-1.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/latinx-1@0.5.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/latinx-panel/latinx-1.jpg").default,
     },
     bottomLeftImage: {
       desc: "Latinx Heritage Month",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/latinx-panel/career1.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/career1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/latinx-panel/career1.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/latinx-panel/career1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/latinx-panel/career1.jpg").default,
     },
   },
   {
@@ -344,53 +180,11 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "2 Black men talking and smiling",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/alum-event/alum-event1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/alum-event/alum-event1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/alum-event/alum-event1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/alum-event/alum-event1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/alum-event/alum-event1.jpg").default,
     },
     bottomLeftImage: {
       desc: "3 panelists sitting on high stools",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/alum-event/alum-event2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/alum-event/alum-event2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/alum-event/alum-event2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/alum-event/alum-event2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/alum-event/alum-event2.jpg").default,
     },
   },
   {
@@ -412,53 +206,11 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "Career panel with 3 people's face around it",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/womens-event/women2.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/womens-event/women2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/womens-event/women2.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/womens-event/women2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/womens-event/women2.jpg").default,
     },
     bottomLeftImage: {
       desc: "Latinx Heritage Month",
-      width: 600,
-      height: 401,
-      webp: [
-        {
-          src: require("public/images/events/womens-event/women1.jpg?webp"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/womens-event/women1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/womens-event/women1.jpg"),
-          width: 600,
-        },
-        {
-          src: require("public/images/events/womens-event/women1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/womens-event/women1.jpg").default,
     },
   },
   {
@@ -475,53 +227,13 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "San Francisco City Skyline",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-2-small.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-2-small.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/conference/conference-2.jpg")
+        .default,
     },
     bottomLeftImage: {
       desc: "Collage of the people speaking at the event",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-1-small.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference-1-small.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/conference/conference-1.jpg")
+        .default,
     },
   },
   {
@@ -538,53 +250,13 @@ const FeaturedEvents: FeaturedEvent[] = [
     ),
     topRightImage: {
       desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-1.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-1@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/conference/conference2021-1.jpg")
+        .default,
     },
     bottomLeftImage: {
       desc: "An image of youth from the 2020 conference describing their experience in one word",
-      width: 599,
-      height: 400,
-      webp: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg?webp"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg?webp"),
-          width: 299,
-        },
-      ],
-      jpg: [
-        {
-          src: require("public/images/events/conference/conference2021-2.jpg"),
-          width: 599,
-        },
-        {
-          src: require("public/images/events/conference/conference2021-2@0.5x.jpg"),
-          width: 299,
-        },
-      ],
+      image: require("public/images/events/conference/conference2021-2.jpg")
+        .default,
     },
   },
 ].sort((a, b) => a.date - b.date);

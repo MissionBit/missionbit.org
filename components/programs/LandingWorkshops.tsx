@@ -134,7 +134,7 @@ const LandingWorkshops: React.FC<{}> = () => {
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/workshops/cycle.svg")}
+          src={require("public/images/program/workshops/cycle.svg").default.src}
           className={classes.image}
         />
       </Box>

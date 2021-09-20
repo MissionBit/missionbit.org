@@ -1,6 +1,7 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,26 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PHOTO_SIZES = {
-  "": { width: 872, height: 730 },
-  "@0.5x": { width: 436, height: 366 },
-  "@0.25x": { width: 220, height: 184 },
-} as const;
-
 function loadPhoto(postfix: string, alt: string) {
-  const SIZE_ORDER = ["@0.25x", "@0.5x", ""] as const;
   return {
     alt,
-    webpSrcSet: SIZE_ORDER.map((k) => {
-      const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}${k}.jpg?webp`);
-      return `${fn} ${PHOTO_SIZES[k].width}w`;
-    }).join(","),
-    jpgSrc:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}@0.5x.jpg`) as string,
-    jpgSrcSet: SIZE_ORDER.map((k) => {
-      const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}${k}.jpg`);
-      return `${fn} ${PHOTO_SIZES[k].width}w`;
-    }).join(","),
+    src: require(/* webpackInclude: /\.jpg$/ */ `public/images/donate/donate-receipt-${postfix}.jpg`)
+      .default,
   };
 }
 
@@ -50,21 +36,9 @@ const PHOTOS = {
 
 export const Photo: React.FC<{
   photo: keyof typeof PHOTOS;
-  className?: string;
-}> = ({ photo, className }) => {
-  const { alt, webpSrcSet, jpgSrc, jpgSrcSet } = PHOTOS[photo];
-  return (
-    <picture className={className}>
-      <source type="image/webp" srcSet={webpSrcSet} />
-      <img
-        src={jpgSrc}
-        srcSet={jpgSrcSet}
-        width="100%"
-        height="100%"
-        alt={alt}
-      />
-    </picture>
-  );
+}> = ({ photo }) => {
+  const { alt, src } = PHOTOS[photo];
+  return <Image src={src} alt={alt} />;
 };
 
 export const ReceiptPhotos: React.FC<{ className?: string }> = ({

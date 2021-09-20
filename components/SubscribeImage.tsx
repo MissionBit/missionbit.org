@@ -1,4 +1,6 @@
 import * as React from "react";
+import Image from "next/image";
+import subscribeImg from "public/images/subscribe/subscribe.jpg";
 
 const SubscribeImage: React.FC<{ className?: string }> = ({ className }) => (
   <svg
@@ -17,18 +19,7 @@ const SubscribeImage: React.FC<{ className?: string }> = ({ className }) => (
       </mask>
     </defs>
     <foreignObject x="0" y="0" height="100%" width="100%" mask="url(#mask)">
-      <picture>
-        <source
-          type="image/webp"
-          srcSet={require("public/images/subscribe/subscribe.jpg?webp")}
-        />
-        <img
-          src={require("public/images/subscribe/subscribe.jpg")}
-          alt=""
-          width="100%"
-          height="100%"
-        />
-      </picture>
+      <Image src={subscribeImg} alt="" />
     </foreignObject>
     <use
       xlinkHref="#paths"

@@ -25,14 +25,18 @@ const WebTechSupporters: React.FC<{}> = () => (
         rel="noopener noreferrer"
       >
         <img
-          src={require("public/images/web-tech-supporters/netlify.svg")}
+          src={
+            require("public/images/web-tech-supporters/netlify.svg").default.src
+          }
           alt="Deploys by Netlify"
         />
       </a>
       <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">
         <img
           width={150}
-          src={require("public/images/web-tech-supporters/sentry.svg")}
+          src={
+            require("public/images/web-tech-supporters/sentry.svg").default.src
+          }
           alt="Application Monitoring and Error Reporting by Sentry"
         />
       </a>

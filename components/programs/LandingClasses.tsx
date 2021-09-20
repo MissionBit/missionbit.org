@@ -134,7 +134,7 @@ const Landing: React.FC<{}> = () => {
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/vr-girl.svg")}
+          src={require("public/images/program/vr-girl.svg").default.src}
           className={classes.image}
         />
       </Box>

@@ -10,6 +10,7 @@ import Intro from "./Intro";
 import Metadata from "./Metadata";
 import RegisterButton from "./RegisterButton";
 import VioletButton from "components/VioletButton";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -128,9 +129,9 @@ const Bridge: React.FC<{}> = () => {
           Our Sponsor and Speakers Work At
         </Typography>
         <Box className={classes.employers}>
-          {Employers.map(({ href, title, logoUrl }) => (
+          {Employers.map(({ href, title, logo }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
+              <Image src={logo} alt={title} />
             </a>
           ))}
         </Box>
@@ -140,9 +141,9 @@ const Bridge: React.FC<{}> = () => {
           Prize and Swag provided by
         </Typography>
         <Box className={classes.sponsors}>
-          {Sponsors.map(({ href, title, logoUrl }) => (
+          {Sponsors.map(({ href, title, logo }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
+              <Image src={logo} alt={title} />
             </a>
           ))}
         </Box>
@@ -152,22 +153,19 @@ const Bridge: React.FC<{}> = () => {
           Food Sponsor
         </Typography>
         <Box className={classes.food}>
-          {Food.map(({ href, title, logoUrl }) => (
+          {Food.map(({ href, title, logo }) => (
             <a key={href} href={href} target="_blank" rel="noopener noreferrer">
-              <img src={logoUrl} alt={title} />
+              <Image src={logo} alt={title} />
             </a>
           ))}
         </Box>
       </Container>
       <Container component="section" id="register" className={classes.register}>
         <VioletButton
-          href="./bridge/bridge2020"
-          target="_self"
-          rel="noopener noreferrer"
+          href="/bridge/bridge2020"
           variant="contained"
           size="large"
           className={classes.button}
-          disabled={false}
         >
           Bridging the Youth Tech Divide 2020
         </VioletButton>

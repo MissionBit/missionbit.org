@@ -7,6 +7,7 @@ import IndigoButton from "components/IndigoButton";
 import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
 import { brand } from "src/colors";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   buttons: {
@@ -172,8 +173,8 @@ const ANNUAL_REPORT_HREF =
 
 const AnnualReport: React.FC<{}> = () => {
   const classes = useReportStyles();
-  const png = require("public/images/gala/sponsorship/annual-report-2019-preview.png?resize&sizes[]=766&sizes[]=383&sizes[]=192");
-  const webp = require("public/images/gala/sponsorship/annual-report-2019-preview.png?resize&sizes[]=766&sizes[]=383&sizes[]=192&format=webp");
+  const src =
+    require("public/images/gala/sponsorship/annual-report-2019-preview.png").default;
   return (
     <Container component="section" className={classes.root}>
       <a
@@ -182,10 +183,7 @@ const AnnualReport: React.FC<{}> = () => {
         rel="noreferrer"
         className={classes.report}
       >
-        <picture>
-          <source type="image/webp" srcSet={webp.srcSet} />
-          <img alt="Annual report cover" src={png.src} srcSet={png.srcSet} />
-        </picture>
+        <Image src={src} alt="Annual report cover" />
       </a>
       <Typography component="div" className={classes.copy}>
         <Typography variant="h3" component="h4">

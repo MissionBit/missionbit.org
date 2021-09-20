@@ -9,6 +9,7 @@ import StudentProjectRooms, {
   StudentProjectRoomProps,
   ProjectProps,
 } from "./StudentProjectData";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -112,11 +113,7 @@ const Project: React.FC<ProjectProps> = ({
   const classes = useStyles();
   return (
     <Box component="section" className={classes.project}>
-      <picture className={classes.image}>
-        <source type="image/webp" srcSet={image.webp} />
-        <source type="image/jpeg" srcSet={image.srcSet} />
-        <img alt={title} src={image.jpg} />
-      </picture>
+      <Image className={classes.image} alt={title} src={image} />
       <Typography variant="h4" className={classes.projectTitle}>
         {title}
       </Typography>

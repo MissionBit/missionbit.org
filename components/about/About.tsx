@@ -2,6 +2,8 @@ import * as React from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
+import Image from "next/image";
+import teamImg from "public/images/about/full-team.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,11 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   team: {
     gridArea: "team",
-    "& > img": {
-      display: "block",
-      width: "100%",
-      height: "auto",
-    },
+    position: "relative",
   },
   dl: {
     ...theme.typography.body1,
@@ -55,12 +53,7 @@ const About: React.FC<{}> = () => {
       </Typography>
       <Box className={classes.root}>
         <Box className={classes.team}>
-          <img
-            src={require("public/images/about/full-team.jpg")}
-            width="2048"
-            height="1073"
-            alt="Mission Bit Team"
-          />
+          <Image src={teamImg} alt="Mission Bit Team" priority />
         </Box>
         <Box className={classes.content}>
           <dl className={classes.dl}>

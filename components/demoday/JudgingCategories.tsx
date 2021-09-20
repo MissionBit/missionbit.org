@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import SippinOnSunshine from "components/fonts/SippinOnSunshine";
 import { brand } from "src/colors";
+import { StaticImageImport } from "src/image";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -59,13 +61,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Category: React.FC<{
   title: React.ReactNode;
-  src: string;
+  src: StaticImageImport;
   alt: string;
 }> = ({ title, children, src, alt }) => {
   const classes = useStyles();
   return (
     <>
-      <img src={src} alt={alt} className={classes.categoryImage} />
+      <Image src={src} alt={alt} className={classes.categoryImage} />
       <Typography variant="h4" className={classes.categoryTitle}>
         Most
         <br />
@@ -88,7 +90,9 @@ const JudgingCategories: React.FC<{}> = () => {
         <Box className={classes.categories}>
           <Category
             title="Innovative"
-            src={require("public/images/demoday/categories/innovation.svg")}
+            src={
+              require("public/images/demoday/categories/innovation.svg").default
+            }
             alt="Light bulb with gear"
           >
             Recognizes projects that demonstrate creativity and embrace
@@ -96,7 +100,7 @@ const JudgingCategories: React.FC<{}> = () => {
           </Category>
           <Category
             title="Significant Impact"
-            src={require("public/images/demoday/categories/impact.svg")}
+            src={require("public/images/demoday/categories/impact.svg").default}
             alt="Hands holding up globe with heart above"
           >
             Recognizes projects that target specific social issues with proven
@@ -104,7 +108,9 @@ const JudgingCategories: React.FC<{}> = () => {
           </Category>
           <Category
             title="Technical"
-            src={require("public/images/demoday/categories/technical.svg")}
+            src={
+              require("public/images/demoday/categories/technical.svg").default
+            }
             alt="Terminal windows"
           >
             Recognizes projects that have all or most of the following

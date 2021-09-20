@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
 export const TEAM_TYPES = ["Team", "Keynote Speaker", "Panelist"] as const;
 export type TeamType = typeof TEAM_TYPES[number];
@@ -7,29 +8,15 @@ export interface TeamMemberProps {
   name: string;
   title: string;
   type: TeamType;
-  image: { jpg: string; webp: string; srcSet: string };
+  image: StaticImageImport;
   bio: React.ReactNode;
 }
 
-const PHOTO_SIZES = {
-  "": { width: 600, height: 600 },
-  "@0.5x": { width: 300, height: 300 },
-} as const;
-
 function image(postfix: string): Pick<TeamMemberProps, "image"> {
-  const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
-    image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/bridge/${postfix}.jpg`),
-      srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/bridge/${postfix}${k}.jpg`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-      webp: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/bridge/${postfix}${k}.jpg?webp`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-    },
+    image:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/bridge/${postfix}.jpg`)
+        .default,
   };
 }
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "src/colors";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -19,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     bottom: 0,
-    background: `no-repeat right bottom / contain url(${require("public/images/landing/bridge.svg")})`,
+    background: `no-repeat right bottom / contain url(${
+      require("public/images/landing/bridge.svg").default.src
+    })`,
   },
 
   bridgeText: {
@@ -60,7 +63,9 @@ const useStyles = makeStyles((theme) => ({
     top: "10%",
     right: "30%",
     overflow: "hidden",
-    backgroundImage: `url(${require("public/images/landing/hill-students.svg")})`,
+    backgroundImage: `url(${
+      require("public/images/landing/hill-students.svg").default.src
+    })`,
     backgroundPosition: "bottom left",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
@@ -127,8 +132,8 @@ const Landing: React.FC<{}> = () => {
       </div>
       <div className={classes.arrowContainer}>
         <a href="#main" className={classes.arrowWrapper} onClick={smoothScroll}>
-          <img
-            src={require("public/images/landing/down-arrow.svg")}
+          <Image
+            src={require("public/images/landing/down-arrow.svg").default}
             className={classes.verticalBounce}
             alt="Scroll down arrow"
           />

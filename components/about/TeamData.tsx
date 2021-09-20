@@ -1,9 +1,10 @@
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
-export interface TeamMemberProps<T extends React.ReactNode> {
+export interface TeamMemberProps<T extends React.ReactNode = React.ReactNode> {
   name: string;
   title?: T;
-  image: { jpg: string; webp: string };
+  image: StaticImageImport;
   bio?: React.ReactNode;
 }
 
@@ -37,12 +38,13 @@ type TeacherTitle =
   | "Instructor's Assistant"
   | "Workforce Development Instructor";
 
-function image(path: string): { image: { jpg: string; webp: string } } {
+function image(path: string): {
+  image: StaticImageImport;
+} {
   return {
-    image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/about/team/${path}`),
-      webp: require(/* webpackInclude: /\.jpg$/ */ `public/images/about/team/${path}?webp`),
-    },
+    image:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/about/team/${path}`)
+        .default,
   };
 }
 

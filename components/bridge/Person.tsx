@@ -70,9 +70,7 @@ const Person: React.FC<TeamMemberProps> = ({ name, bio, image, title }) => {
         desc={name}
         className={classes.picture}
         fill={brand.indigo}
-        srcSet={image.srcSet}
-        srcSetWebP={image.webp}
-        src={image.jpg}
+        src={image}
       />
       <Typography variant="h4" className={classes.name}>
         {name}

@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import { StaticImageImport } from "src/image";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,36 +26,36 @@ const useStyles = makeStyles((theme) => ({
 
 interface StudentProjectProps {
   href: string;
-  imageUrl: string;
+  image: StaticImageImport;
   title: string;
 }
 
 const StudentProjects: StudentProjectProps[] = [
   {
     href: "https://showcase.missionbit.org/2013/group-projects/video-game/",
-    imageUrl: "/images/showcase/dinosaur-game.png",
+    image: require("public/images/showcase/dinosaur-game.png").default,
     title: "Dinosaur Game",
   },
   {
     href: "https://showcase.missionbit.org/2014/spring/group-projects/operation-peach/",
-    imageUrl: "/images/showcase/peach-game.png",
+    image: require("public/images/showcase/peach-game.png").default,
     title: "Operation Peach",
   },
   {
     href: "https://showcase.missionbit.org/2014/spring/group-projects/veggie-jump/",
-    imageUrl: "/images/showcase/jump-game.png",
+    image: require("public/images/showcase/jump-game.png").default,
     title: "Veggie Jump",
   },
 ];
 
 const StudentProject: React.FC<StudentProjectProps> = ({
   href,
-  imageUrl,
+  image,
   title,
 }) => (
   <Grid item xs={4}>
     <Button href={href} title={title} target="_blank" rel="noopener noreferrer">
-      <img src={imageUrl} alt={`${title} screenshot`} />
+      <Image src={image} alt={`${title} screenshot`} />
     </Button>
   </Grid>
 );

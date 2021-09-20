@@ -2,21 +2,11 @@ import * as React from "react";
 import { InlineAsteriskIcon } from "components/icons/Asterisk";
 import { RectImageG } from "components/RectImage";
 import { brand } from "src/colors";
+import { StaticImageImport } from "src/image";
 
-export interface CollageImageRes {
-  src: string;
-  width: number;
-}
 export interface CollageImage {
   desc: string;
-  width: number;
-  height: number;
-  webp: CollageImageRes[];
-  jpg: CollageImageRes[];
-}
-
-function imagesToSrcSet(srcSet: CollageImageRes[]): string {
-  return srcSet.map(({ src, width }) => `${src} ${width}w`).join(",");
+  image: StaticImageImport;
 }
 
 const MainEventImageG: React.FC<{
@@ -33,9 +23,7 @@ const MainEventImageG: React.FC<{
     right={30.34}
     fill={brand.indigo}
     desc={image.desc}
-    src={image.jpg[0].src}
-    srcSet={imagesToSrcSet(image.jpg)}
-    srcSetWebP={imagesToSrcSet(image.webp) || undefined}
+    src={image.image}
   >
     {children}
   </RectImageG>
@@ -92,9 +80,7 @@ export const EventCollage: React.FC<{
         right={37.06}
         fill={brand.indigo}
         desc={topRightImage.desc}
-        src={topRightImage.jpg[0].src}
-        srcSet={imagesToSrcSet(topRightImage.jpg)}
-        srcSetWebP={imagesToSrcSet(topRightImage.webp) || undefined}
+        src={topRightImage.image}
       >
         <use xlinkHref="#asterisk" x={590.62} y={394.16} />
       </RectImageG>

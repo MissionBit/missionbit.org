@@ -1,6 +1,7 @@
 import * as React from "react";
 import { hourStartEndParts, CourseDateTimeFormat } from "src/dates";
 import Box from "@material-ui/core/Box";
+import { StaticImageImport } from "src/image";
 
 export const CourseSkills = [
   "Unity",
@@ -49,83 +50,83 @@ export const RegistrationActions = [
 export type RegistrationAction = typeof RegistrationActions[number];
 
 const webImage = {
-  src: require("public/images/program/web.svg"),
+  src: require("public/images/program/web.svg").default,
   alt: "Image of a terminal window",
 };
 
 const web2Image = {
-  src: require("public/images/program/web2.svg"),
+  src: require("public/images/program/web2.svg").default,
   alt: "Image of a web window",
 };
 
 const web3Image = {
-  src: require("public/images/program/web-teamwork.svg"),
+  src: require("public/images/program/web-teamwork.svg").default,
   alt: "Image of a web window with hands helping assmeble it",
 };
 
 const controllerImage = {
-  src: require("public/images/program/controller.svg"),
+  src: require("public/images/program/controller.svg").default,
   alt: "Image of a game controller",
 };
 
 const unity2Image = {
-  src: require("public/images/program/unity2.svg"),
+  src: require("public/images/program/unity2.svg").default,
   alt: "Image of a game controller with pac man eating a heart",
 };
 
 // const unityGala = {
-//   src: require("public/images/program/unity-gala.svg"),
+//   src: require("public/images/program/unity-gala.svg").default,
 //   alt:
 //     "Image of a game controller with pac man eating a heart and a banner at the top saying this class was sponsored by Unity",
 // };
 
 // const pythonImage = {
-//   src: require("public/images/program/python.svg"),
+//   src: require("public/images/program/python.svg").default,
 //   alt: "Image of the python logo",
 // };
 
 const python2Image = {
-  src: require("public/images/program/python2.svg"),
+  src: require("public/images/program/python2.svg").default,
   alt: "Image of the python logo",
 };
 
 const jsImage = {
-  src: require("public/images/program/js.svg"),
+  src: require("public/images/program/js.svg").default,
   alt: "Image of a screen that says javascript on it",
 };
 
 const vrImage = {
-  src: require("public/images/program/vr-girl.svg"),
+  src: require("public/images/program/vr-girl.svg").default,
   alt: "Image of a girl with a VR headset on",
 };
 
 const resumeImage = {
-  src: require("public/images/program/resume.svg"),
+  src: require("public/images/program/resume.svg").default,
   alt: "Image of a resume",
 };
 
 const hackWindowImage = {
-  src: require("public/images/program/hack-window.jpg"),
+  src: require("public/images/program/hack-window.jpg").default,
   alt: "Image of an open window",
 };
 
 const scratchCatImage = {
-  src: require("public/images/program/scratch-cat.svg"),
+  src: require("public/images/program/scratch-cat.svg").default,
   alt: "Image of a cat",
 };
 
 const videoSensingImage = {
-  src: require("public/images/program/video-sensing.jpg"),
+  src: require("public/images/program/video-sensing.jpg").default,
   alt: "Image of a couch with eyes",
 };
 
 const interviewingImage = {
-  src: require("public/images/program/interviewing.svg"),
+  src: require("public/images/program/interviewing.svg").default,
   alt: "Two people at a table",
 };
 
 const arImage = {
-  src: require("public/images/program/ar-image.jpg"),
+  src: require("public/images/program/ar-image.jpg").default,
   alt:
     "device with front facing camera showing person with filter." +
     "Illustrated example of an augmented reality filter - Retrive" +
@@ -133,67 +134,67 @@ const arImage = {
 };
 
 const p5jsImage = {
-  src: require("public/images/program/p5js.svg"),
+  src: require("public/images/program/p5js.svg").default,
   alt: "p5.js logo",
 };
 
 const networkingImage = {
-  src: require("public/images/program/networking.svg"),
+  src: require("public/images/program/networking.svg").default,
   alt: "Three people standing around talking",
 };
 
 const coverLetterImage = {
-  src: require("public/images/program/cover-letter.svg"),
+  src: require("public/images/program/cover-letter.svg").default,
   alt: "Image of a cover letter",
 };
 
 const sdrImage = {
-  src: require("public/images/program/sdr.svg"),
+  src: require("public/images/program/sdr.svg").default,
   alt: "Image of a girl wearing over ear headphones with sales books around her",
 };
 
 const designBusinessImage = {
-  src: require("public/images/program/design-business.svg"),
+  src: require("public/images/program/design-business.svg").default,
   alt: "Image of moutains and a sun behind them",
 };
 
 const wixImage = {
-  src: require("public/images/program/wix.jpg"),
+  src: require("public/images/program/wix.jpg").default,
   alt: "Image of hands on a keyboard with a green background",
 };
 
 const magic8BallImage = {
-  src: require("public/images/program/magic-8ball.jpg"),
+  src: require("public/images/program/magic-8ball.jpg").default,
   alt: "Image of hands on a keyboard with a green background",
 };
 
 const deepDreamImage = {
-  src: require("public/images/program/deep-dream.jpg"),
+  src: require("public/images/program/deep-dream.jpg").default,
   alt: "Image of a Black woman overlayed with a colorful print.",
 };
 
 const mentalHealthImage = {
-  src: require("public/images/program/mental_health.jpg"),
+  src: require("public/images/program/mental_health.jpg").default,
   alt: "Image of a brain with the words mental health inside of it.",
 };
 
 const BLMImage = {
-  src: require("public/images/program/blm.jpg"),
+  src: require("public/images/program/blm.jpg").default,
   alt: "Image of a window with the words Black History Month in partnership with Mission Bit.",
 };
 
 const meditation = {
-  src: require("public/images/program/workshops/meditation.jpg"),
+  src: require("public/images/program/workshops/meditation.jpg").default,
   alt: "Image of a girl meditating with her cat around her neck.",
 };
 
 const money = {
-  src: require("public/images/program/workshops/money.jpg"),
+  src: require("public/images/program/workshops/money.jpg").default,
   alt: "Image of a hand holding bills.",
 };
 
 const grad = {
-  src: require("public/images/program/workshops/grad.svg"),
+  src: require("public/images/program/workshops/grad.svg").default,
   alt: "Image of a graduation hat",
 };
 
@@ -201,7 +202,7 @@ export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
   skills: CourseSkill[];
-  image: { src: string; alt: string };
+  image: { src: StaticImageImport; alt: string };
 }
 
 export enum City {

@@ -7,6 +7,8 @@ import { CourseDateTimeFormat, hourStartEndParts } from "src/dates";
 import Box from "@material-ui/core/Box";
 import VioletButton from "components/VioletButton";
 import { useRenderTime } from "components/BuildTimeContext";
+import { StaticImageImport } from "src/image";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -61,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface EventData {
-  logo: string;
+  logo: StaticImageImport;
   brandName: string;
   title: string;
   date: number;
@@ -83,7 +85,7 @@ function eventData({
   url,
   logoUrl,
 }: {
-  logo: string;
+  logo: StaticImageImport;
   brandName: string;
   title: string;
   date: number;
@@ -109,7 +111,7 @@ function eventData({
 const Events: EventData[] = [
   eventData({
     brandName: "Cruise",
-    logo: require("public/images/events/summer-talk-series/cruise.svg"),
+    logo: require("public/images/events/summer-talk-series/cruise.svg").default,
     logoUrl: "https://www.getcruise.com/",
     title: "Cruise",
     date: Date.parse("2020-06-18T17:00:00-07:00"),
@@ -123,7 +125,8 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Catchafire",
-    logo: require("public/images/events/summer-talk-series/catchafire.svg"),
+    logo: require("public/images/events/summer-talk-series/catchafire.svg")
+      .default,
     logoUrl: "https://www.catchafire.org/",
     title: "Digital Marketing Strategist",
     date: Date.parse("2020-06-25T17:00:00-07:00"),
@@ -138,7 +141,8 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Boundless Brilliance",
-    logo: require("public/images/events/summer-talk-series/boundless-brilliance.png"),
+    logo: require("public/images/events/summer-talk-series/boundless-brilliance.png")
+      .default,
     logoUrl: "https://www.boundlessbrilliance.org/",
     title: "Boundless Brilliance",
     date: Date.parse("2020-07-02T17:00:00-07:00"),
@@ -152,7 +156,7 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Twilio",
-    logo: require("public/images/events/summer-talk-series/twilio.svg"),
+    logo: require("public/images/events/summer-talk-series/twilio.svg").default,
     logoUrl: "https://www.twilio.com/",
     title: "Communications Manager",
     date: Date.parse("2020-07-09T17:00:00-07:00"),
@@ -166,7 +170,7 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Redfin",
-    logo: require("public/images/events/summer-talk-series/redfin.svg"),
+    logo: require("public/images/events/summer-talk-series/redfin.svg").default,
     logoUrl: "https://www.redfin.com/city/17151/CA/San-Francisco",
     title: "Software Engineer",
     date: Date.parse("2020-07-16T17:00:00-07:00"),
@@ -180,7 +184,8 @@ const Events: EventData[] = [
   }),
   eventData({
     brandName: "Bridging the Gap (Mission Bit)",
-    logo: require("public/images/events/summer-talk-series/bridging-the-gap.svg"),
+    logo: require("public/images/events/summer-talk-series/bridging-the-gap.svg")
+      .default,
     title: "Mission Bit Alumni",
     date: Date.parse("2020-07-23T17:00:00-07:00"),
     description: (
@@ -206,7 +211,7 @@ const Event: React.FC<{ event: EventData }> = ({ event }) => {
   const disabled = useRenderTime() > event.date;
 
   const img = (
-    <img
+    <Image
       className={classes.logo}
       src={event.logo}
       alt={`${event.brandName} logo`}
