@@ -11,7 +11,7 @@ Mission Bit's Fifth Annual Gala is a celebration of eight years of growth,
 impact, and learning. Join us for this inspiring event, meet our students,
 hear their stories, and help us reach our 2022 goals!
 `;
-export const pageImage = "/images/gala/2020-poster-save-the-date.jpg";
+export const pageImage = "/images/gala/2021-poster.jpg";
 export const registerUrl =
   "https://www.eventbrite.com/e/mission-bit-5th-annual-gala-tickets-168654120013";
 export const eventId = "168654120013";

@@ -14,7 +14,7 @@ export const galaLocation = {
 export const GalaCalendarEvent: CalendarEvent = {
   title: "Mission Bit Gala 2021",
   start: "2021-11-04T18:00-08:00",
-  end: "2021-11-04T20:00-08:00",
+  end: "2021-11-04T22:00-08:00",
   location: `${galaLocation.name}, ${galaLocation.streetAddress}, ${galaLocation.addressLocality}, ${galaLocation.addressRegion} ${galaLocation.postalCode}`,
   url: absoluteUrl("/gala"),
 };
