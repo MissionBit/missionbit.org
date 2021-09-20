@@ -5,7 +5,7 @@ import { useEffect, useMemo } from "react";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import themeOptions from "src/theme";
 import Lato from "./fonts/Lato";
@@ -71,7 +71,7 @@ export const Layout: React.FC<LayoutProps> = ({
       return () => window.removeEventListener("resize", updateDocumentSize);
     }
   }, [requireDocumentSize]);
-  const theme = useMemo(() => createMuiTheme(themeOptions), []);
+  const theme = useMemo(() => createTheme(themeOptions), []);
   const router = useRouter();
   const canonicalUrl = absoluteUrl(canonicalPath ?? router.asPath, origin);
   return (

@@ -9,7 +9,7 @@ import PinIcon from "components/icons/Pin";
 import * as React from "react";
 import { brand } from "src/colors";
 // import BuyGalaTicket from "./BuyGalaTicket";
-import { galaStartEnd } from "./GalaDates";
+import { galaLocation, galaStartEnd } from "./GalaDates";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -55,10 +55,10 @@ export const GalaCTA = withStyles(styles)(
           <br />
           {time}
           <br />
-          <PinIcon className={classes.pin} /> TBD
+          <PinIcon className={classes.pin} /> {galaLocation.name}
           <br />
           <br />
-          More details coming soon!
+          Tickets will be available soon!
           {/* <BuyGalaTicket className={classes.buyTicket} /> */}
         </Typography>
       </>

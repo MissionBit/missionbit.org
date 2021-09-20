@@ -117,8 +117,7 @@ const BuyGalaTicket: React.FC<{ className?: string }> = ({ className }) => {
       </IndigoButton>
       <Snackbar open={success} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
-          Thank you! We look forward to having you attend our first virtual
-          gala.
+          Thank you! We look forward to seeing you at the gala!
         </Alert>
       </Snackbar>
     </>

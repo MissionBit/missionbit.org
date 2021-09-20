@@ -5,7 +5,7 @@ import {
   ThemeOptions,
   makeStyles,
   ThemeProvider,
-  createMuiTheme,
+  createTheme,
   useTheme,
   Theme,
 } from "@material-ui/core/styles";
@@ -165,7 +165,7 @@ const themeOverrides = (theme: Theme): ThemeOptions => ({
 const Students: React.FC<{}> = () => {
   const defaultTheme = useTheme();
   const theme = useMemo(
-    () => createMuiTheme(themeOverrides(defaultTheme)),
+    () => createTheme(themeOverrides(defaultTheme)),
     [defaultTheme]
   );
 

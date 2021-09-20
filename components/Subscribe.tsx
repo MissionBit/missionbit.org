@@ -4,7 +4,7 @@ import {
   ThemeOptions,
   makeStyles,
   ThemeProvider,
-  createMuiTheme,
+  createTheme,
   useTheme,
   Theme,
 } from "@material-ui/core/styles";
@@ -70,7 +70,7 @@ const Subscribe: React.FC<{}> = () => {
   const classes = useStyles();
   const defaultTheme = useTheme();
   const theme = useMemo(
-    () => createMuiTheme(themeOverrides(defaultTheme)),
+    () => createTheme(themeOverrides(defaultTheme)),
     [defaultTheme]
   );
   return (

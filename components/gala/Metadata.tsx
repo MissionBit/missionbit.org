@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import GalaCalendarEvent from "./GalaDates";
+import GalaCalendarEvent, { galaLocation } from "./GalaDates";
 import absoluteUrl from "src/absoluteUrl";
 import oneLine from "src/oneLine";
 import htmlEscapeJsonString from "src/htmlEscapeJsonString";
@@ -16,7 +16,7 @@ export const registerUrl =
   "https://www.eventbrite.com/e/mission-bit-4th-annual-virtual-gala-tickets-118229304031";
 export const eventId = "118229304031";
 export const pageUrl = "https://www.missionbit.org/gala";
-export const price = "100";
+export const price = "150";
 
 export const Metadata: React.FC<{}> = () => {
   const metadata = {
@@ -28,7 +28,8 @@ export const Metadata: React.FC<{}> = () => {
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
     location: {
-      "@type": "VirtualLocation",
+      "@type": "Place",
+      address: galaLocation,
       url: pageUrl,
     },
     image: [absoluteUrl(pageImage)],

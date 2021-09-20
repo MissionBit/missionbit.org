@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import { galaStartEnd } from "./GalaDates";
+import { galaLocation, galaStartEnd } from "./GalaDates";
 import PinIcon from "components/icons/Pin";
 import { brand } from "src/colors";
 import AsteriskCollage from "./AsteriskCollage";
@@ -131,7 +131,7 @@ const SponsorshipLanding: React.FC<{}> = () => {
           <br />
           {time}
           <br />
-          <PinIcon className={classes.pin} /> TBD
+          <PinIcon className={classes.pin} /> {galaLocation.name}
         </Typography>
         <Typography className={classes.copy}>
           Mission Bit’s 5th Annual Gala is a celebration of eight years of
