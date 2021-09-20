@@ -15,7 +15,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
     {...props}
     title="Mission Bit – 2021 Mission Bit Gala Sponsorship"
     description={description}
-    pageImage="/images/gala/2020-poster-save-the-date.jpg"
+    pageImage="/images/gala/2021-poster.jpg"
   >
     <Sponsorship />
   </Layout>

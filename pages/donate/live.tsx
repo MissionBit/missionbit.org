@@ -327,10 +327,13 @@ function useAnimatedGoal(goal: GoalValues): GoalValues {
   const startGoalRef = useRef({ ...goal, totalCents: 0 });
   const animGoalRef = useRef(startGoalRef.current);
   const duration = 6;
-  const { elapsedTime } = useElapsedTime(!goalEq(goal, startGoalRef.current), {
+  const { elapsedTime, reset } = useElapsedTime({
+    isPlaying: !goalEq(goal, startGoalRef.current),
     duration,
-    autoResetKey: `${goal.goalCents}-${goal.totalCents}`,
   });
+  useEffect(() => {
+    reset();
+  }, [reset, goal.goalCents, goal.totalCents]);
   const didReset = !goalEq(prevGoalRef.current, goal);
   if (didReset) {
     prevGoalRef.current = goal;

@@ -26,6 +26,38 @@ function image(postfix: string): Pick<SpeakerProps, "image"> {
 
 const SpeakerData: readonly SpeakerProps[] = [
   {
+    id: "mustafa-shakur",
+    name: "Mustafa Shakur",
+    title: "Co-Founder of United Tech Cities",
+    type: "Keynote",
+    ...image("mustafa-shakur"),
+    bio: (
+      <>
+        Mustafa Shakur is a former professional basketball player of 12 years in
+        the NBA and Europe. He is a graduate of the University of Arizona and a
+        4-year letter winner at his Alma Mater. He is a service driven investor
+        in real estate and elderly care. He is Co-Owner of Executive Care’s
+        Montgomery County (PA) location, which services the elderly and ill in
+        the surrounding Philadelphia area in which he was born and raised.
+        <br />
+        <br />
+        Mustafa is the driving force behind the founding of United Tech Cities.
+        United Tech Cities allows Mustafa to blend his passion for the
+        community, housing, and education to create better opportunities for our
+        youth and for underserved communities.
+        <br />
+        <br />
+        Prior to retirement and relocation to Oakland, CA, Mustafa acted as
+        founder of P.O.T.S. Foundation in Philadelphia, Pa. A Non-Profit
+        dedicated to bringing additional resources and education to student
+        athletes. Mustafa also serves as Ambassador &amp; a strategic planner
+        for Non-Profit Urban Youth Racing School (Philadelphia, PA) since 2012.
+        UYRS focuses on STEM education and Mentorship.
+      </>
+    ),
+  },
+  /*
+  {
     id: "london-breed",
     name: "Mayor London Breed",
     title: "45th Mayor of the City and County of San Francisco",
@@ -63,55 +95,7 @@ const SpeakerData: readonly SpeakerProps[] = [
       </>
     ),
   },
-  {
-    id: "michael-tubbs",
-    name: "Mayor Michael Tubbs",
-    title: "Mayor of Stockton, CA",
-    type: "Keynote",
-    ...image("michael-tubbs"),
-    bio: (
-      <>
-        On November 8, 2016, Michael Tubbs was elected to serve as the mayor of
-        his hometown - Stockton, California. Upon taking office in January 2017,
-        Mayor Tubbs became Stockton’s first African-American Mayor and the
-        youngest mayor of any major city in America. Mayor Tubbs’ leadership
-        paired with an ambitious progressive agenda has received national
-        recognition. He has been recognized as one of Politico’s Top 50,
-        Fortune’s 2018 Top "40 under 40," Forbes' 2018 list of the “30 Under
-        30”, and received the John F. Kennedy New Frontier Award in 2019. In his
-        first year, Mayor Tubbs secured $20 million to launch Stockton Scholars,
-        a place-based scholarship that aims to dramatically increase the number
-        of Stockton students entering and graduating from college. Mayor Tubbs
-        also brought Advance Peace to Stockton, a data-driven program that works
-        to reduce gun violence in communities. With an innovative public-private
-        partnership supported by a $1 million grant, Tubbs launched the nation’s
-        first-ever mayor-led guaranteed income pilot known as Stockton Economic
-        Empowerment Demonstration (SEED). Based on the success of SEED, Tubbs’
-        latest initiative is Mayors for a Guaranteed Income (MGI). MGI is a
-        coalition of mayors advocating for a guaranteed income to ensure that
-        all Americans have an income floor. Under his leadership Stockton has
-        been named an All-America City three times, in 2018 was named the second
-        most fiscally healthy city in the country, and homicides have been
-        reduced by 40%.
-        <br />
-        <br />
-        Before becoming mayor, Michael Tubbs earned a B.A. in Comparative
-        Studies in Race &amp; Ethnicity and an M.A. in Policy, Leadership &amp;
-        Organization studies from Stanford University with honors. He started
-        his political career at age 22 when he was elected to serve as
-        Stockton’s District 6 City Councilmember in 2012. While holding this
-        position he founded the Reinvent South Stockton Coalition, a
-        private-public-non-profit that aims to empower South Stockton residents
-        to help eradicate cycles of intergenerational poverty. He was also a
-        part of the council that led the city out of bankruptcy as Chair of the
-        Audit and Legislative Committee. As a result of his dedication to
-        innovative solutions to real problems, Tubbs has been a Fellow Hasso
-        Plattner Institute of Design, known as the d.school, at Stanford, the
-        Emerson Collective and MIT Media Lab. Mayor Tubbs is married to his
-        Partner Anna Nti-Asare-Tubbs and is a proud new father as of 2019.
-      </>
-    ),
-  },
+  */
 ];
 
 export default SpeakerData;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import GalaCalendarEvent from "./GalaDates";
+import GalaCalendarEvent, { galaLocation } from "./GalaDates";
 import absoluteUrl from "src/absoluteUrl";
 import oneLine from "src/oneLine";
 import htmlEscapeJsonString from "src/htmlEscapeJsonString";
@@ -11,12 +11,12 @@ Mission Bit's Fifth Annual Gala is a celebration of eight years of growth,
 impact, and learning. Join us for this inspiring event, meet our students,
 hear their stories, and help us reach our 2022 goals!
 `;
-export const pageImage = "/images/gala/2020-poster-save-the-date.jpg";
+export const pageImage = "/images/gala/2021-poster.jpg";
 export const registerUrl =
-  "https://www.eventbrite.com/e/mission-bit-4th-annual-virtual-gala-tickets-118229304031";
-export const eventId = "118229304031";
+  "https://www.eventbrite.com/e/mission-bit-5th-annual-gala-tickets-168654120013";
+export const eventId = "168654120013";
 export const pageUrl = "https://www.missionbit.org/gala";
-export const price = "100";
+export const price = "200";
 
 export const Metadata: React.FC<{}> = () => {
   const metadata = {
@@ -28,7 +28,8 @@ export const Metadata: React.FC<{}> = () => {
     eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
     location: {
-      "@type": "VirtualLocation",
+      "@type": "Place",
+      address: galaLocation,
       url: pageUrl,
     },
     image: [absoluteUrl(pageImage)],

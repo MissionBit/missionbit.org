@@ -17,6 +17,7 @@ import Metadata from "./Metadata";
 // import Speakers from "./Speakers";
 import { GalaCTA } from "./GalaCTA";
 import SponsorSectionNew from "./SponsorSectionNew";
+import Speakers from "./Speakers";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -238,16 +239,19 @@ const Gala: React.FC<{}> = () => {
           courses to high school students in San Francisco and Oakland.
           <br />
           <br />
-          {/* The gala will feature a Keynote from{" "}
-          <Link color="secondary" href="#michael-tubbs">
-            Mayor Michael Tubbs of Stockton
+          The gala will feature a Keynote from{" "}
+          <Link color="secondary" href="#mustafa-shakur">
+            Mustafa Shakur
           </Link>
+          ,
+          {/*
           , a Welcome Address from{" "}
           <Link color="secondary" href="#london-breed">
             Mayor London Breed of San Francisco
           </Link>
-          , stories from Mission Bit alumni, and presentations of student
-          projects! */}
+          */}{" "}
+          stories from Mission Bit alumni, and presentations of student
+          projects!
         </Typography>
         <Box className={classes.studentsCollage}>
           <AsteriskCollage
@@ -260,8 +264,8 @@ const Gala: React.FC<{}> = () => {
           />
         </Box>
       </Container>
-      {/* <FlourishSeparator />
-      <Speakers /> */}
+      <FlourishSeparator />
+      <Speakers />
       <FlourishSeparator />
       <Container component="section" id="sponsorship-info">
         <Typography

@@ -1,4 +1,4 @@
-import { ThemeOptions } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import { red, common } from "@material-ui/core/colors";
 import { brand } from "./colors";
 
@@ -20,7 +20,7 @@ const headerFontFamily = ["Poppins", ...commonFontFamilies].join(",");
 const headerStyles = { fontFamily: headerFontFamily };
 const bigHeaderStyles = { ...headerStyles, color: brand.headingGray };
 
-const themeOptions: ThemeOptions = {
+export const themeOptions = {
   palette: {
     primary: {
       main: brand.orange,
@@ -79,6 +79,7 @@ const themeOptions: ThemeOptions = {
       },
     },
   },
-};
+} as const;
 
-export default themeOptions;
+export const theme = createTheme(themeOptions);
+export default theme;

@@ -1,22 +1,12 @@
 import * as React from "react";
-import SvgIcon, { SvgIconProps } from "@material-ui/core/SvgIcon";
+import { SvgIconProps } from "@material-ui/core/SvgIcon";
+import { createSvgIcon } from "@material-ui/core";
 
 const IconWidth = 908.81;
 const IconHeight = 843.28;
 const Scale = 100;
 const IconScale = Scale / Math.max(IconWidth, IconHeight);
 const viewBox = `${-0.5 * Scale} ${-0.5 * Scale} ${Scale} ${Scale}`;
-
-const AsteriskIcon = (props: SvgIconProps): JSX.Element => (
-  <SvgIcon viewBox={viewBox} {...props}>
-    <InlineAsteriskIcon />
-  </SvgIcon>
-);
-
-const AsteriskTransform = [
-  `scale(${IconScale})`,
-  `translate(${-0.5 * IconWidth} ${-0.5 * IconHeight})`,
-].join(" ");
 
 export const InlineAsteriskIcon = (
   props: React.SVGProps<SVGGElement>
@@ -41,5 +31,16 @@ export const InlineAsteriskIcon = (
     </g>
   );
 };
+
+const Asterisk = createSvgIcon(<InlineAsteriskIcon />, "Asterisk");
+
+const AsteriskIcon = (props: SvgIconProps): JSX.Element => (
+  <Asterisk viewBox={viewBox} {...props} />
+);
+
+const AsteriskTransform = [
+  `scale(${IconScale})`,
+  `translate(${-0.5 * IconWidth} ${-0.5 * IconHeight})`,
+].join(" ");
 
 export default AsteriskIcon;
