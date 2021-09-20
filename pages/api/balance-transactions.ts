@@ -26,7 +26,9 @@ const handler: NextApiHandler = async (req, res) => {
       res.status(200).json({ batch, modifications });
     } catch (err) {
       console.error(err);
-      res.status(500).json({ statusCode: 500, message: err.message });
+      res
+        .status(500)
+        .json({ statusCode: 500, message: (err as Error).message });
     }
   } else {
     res.setHeader("Allow", "POST");

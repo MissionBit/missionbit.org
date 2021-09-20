@@ -77,7 +77,7 @@ const handler: NextApiHandler = async (req, res) => {
     );
   } catch (err) {
     console.error(err);
-    res.status(400).send(`Webhook Error: ${err.message}`);
+    res.status(400).send(`Webhook Error: ${(err as Error).message}`);
     return;
   }
   const handleEvent = HANDLERS[event.type] ?? defaultHandler;
