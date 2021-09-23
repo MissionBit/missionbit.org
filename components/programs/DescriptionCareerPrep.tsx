@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,16 +47,11 @@ const Description: React.FC<{}> = () => {
   return (
     <Container component="section" id="description" className={classes.root}>
       <Box className={classes.imageColumn}>
-        <picture className={classes.photo}>
-          <source
-            type="image/webp"
-            srcSet={require("public/images/program/safia_jaleel.jpg?webp")}
-          />
-          <img
-            alt="Mission Bit student"
-            src={require("public/images/program/safia_jaleel.jpg")}
-          />
-        </picture>
+        <Image
+          className={classes.photo}
+          alt="Mission Bit student"
+          src={require("public/images/program/safia_jaleel.jpg").default}
+        />
       </Box>
       <Box className={classes.copyColumn}>
         <Typography className={classes.copy}>

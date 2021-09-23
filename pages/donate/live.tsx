@@ -33,6 +33,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Collapse from "@material-ui/core/Collapse";
 import Link from "@material-ui/core/Link";
+import Image from "next/image";
 
 dayjs.extend(relativeTime);
 
@@ -365,8 +366,8 @@ const Goal: React.FC<{
       justifyContent="center"
       className={classes.goal}
     >
-      <img
-        src={require("public/images/missionbit-logo-horizontal.svg")}
+      <Image
+        src={require("public/images/missionbit-logo-horizontal.svg").default}
         alt="Mission Bit logo"
         className={classes.logo}
       />

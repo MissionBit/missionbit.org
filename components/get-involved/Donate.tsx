@@ -104,15 +104,9 @@ const Donate: React.FC<{}> = () => {
     <Container id="donate" component="section" className={classes.root}>
       <Box className={classes.imageWrapper}>
         <RectImage
-          src={require("public/images/get-involved/demo-day-students.jpg")}
-          srcSet={[
-            `${require("public/images/get-involved/demo-day-students@0.5x.jpg")} 364w`,
-            `${require("public/images/get-involved/demo-day-students.jpg")} 726w`,
-          ].join(",")}
-          srcSetWebP={[
-            `${require("public/images/get-involved/demo-day-students@0.5x.jpg?webp")} 364w`,
-            `${require("public/images/get-involved/demo-day-students.jpg?webp")} 726w`,
-          ].join(",")}
+          src={
+            require("public/images/get-involved/demo-day-students.jpg").default
+          }
           width={608.5}
           height={745.5}
           left={-107}

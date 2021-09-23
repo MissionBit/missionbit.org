@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { brand } from "src/colors";
 import JudgeData, { JudgeProps } from "./JudgeData";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,11 +62,7 @@ const Judge: React.FC<JudgeProps> = ({ name, image, title, company }) => {
   return (
     <Box className={classes.judge} flexDirection="column">
       <Typography className={classes.judgeName}>{name}</Typography>
-      <picture className={classes.judgeImage}>
-        <source type="image/webp" srcSet={image.webp} />
-        <source type="image/jpeg" srcSet={image.srcSet} />
-        <img alt={name} src={image.jpg} />
-      </picture>
+      <Image className={classes.judgeImage} alt={name} src={image} />
       <Typography className={classes.judgeTitle}>{title}</Typography>
       <Typography className={classes.judgeCompany}>{company}</Typography>
     </Box>

@@ -1,30 +1,24 @@
 import * as React from "react";
 import { InlineAsteriskIcon } from "components/icons/Asterisk";
+import Image from "next/image";
 
-export const VolunteerImage: React.FC<{
+export const VolunteerImage = ({
+  className,
+  ...props
+}: {
   className?: string;
-}> = ({ className }) => (
-  <picture className={className}>
-    {/* 338.68 x 226.18 */}
-    <source
-      type="image/webp"
-      srcSet={[
-        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg?webp")} 338w`,
-        `${require("public/images/get-involved/demo-day-judges-1.jpg?webp")} 681w`,
-      ].join(",")}
-    />
-    <img
-      src={require("public/images/get-involved/demo-day-judges-1@0.5x.jpg")}
-      srcSet={[
-        `${require("public/images/get-involved/demo-day-judges-1@0.5x.jpg")} 338w`,
-        `${require("public/images/get-involved/demo-day-judges-1.jpg")} 681w`,
-      ].join(",")}
-      width="100%"
-      height="100%"
+  width?: number;
+  height?: number;
+}): JSX.Element => {
+  const image = (
+    <Image
+      src={require("public/images/get-involved/demo-day-judges-1.jpg").default}
       alt=""
+      {...props}
     />
-  </picture>
-);
+  );
+  return className ? <div className={className}>{image}</div> : image;
+};
 
 export const VolunteerCollage: React.FC<{ className?: string }> = ({
   className,
@@ -45,31 +39,19 @@ export const VolunteerCollage: React.FC<{ className?: string }> = ({
     </defs>
     <rect x="1131" y="917" width="347" height="145" fill="#fff" />
     <foreignObject x="1166" y="949" width="368" height="479">
-      <picture>
-        {/* 286.52 x 372.94 */}
-        <source
-          type="image/webp"
-          srcSet={[
-            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg?webp")} 292w`,
-            `${require("public/images/get-involved/demo-day-judges-2.jpg?webp")} 581w`,
-          ].join(",")}
-        />
-        <img
-          src={require("public/images/get-involved/demo-day-judges-2@0.5x.jpg")}
-          srcSet={[
-            `${require("public/images/get-involved/demo-day-judges-2@0.5x.jpg")} 292w`,
-            `${require("public/images/get-involved/demo-day-judges-2.jpg")} 581w`,
-          ].join(",")}
-          width="100%"
-          height="100%"
-          alt=""
-        />
-      </picture>
+      <Image
+        src={
+          require("public/images/get-involved/demo-day-judges-2.jpg").default
+        }
+        alt=""
+        width={368}
+        height={479}
+      />
     </foreignObject>
     <use xlinkHref="#asterisk" x={1166 + 368} y={949} />
     <rect x="1009" y="1299" width="347" height="145" fill="#fff" />
     <foreignObject x="885" y="1123" width="435" height="290.5">
-      <VolunteerImage />
+      <VolunteerImage width={435} height={290.5} />
     </foreignObject>
     <use xlinkHref="#asterisk" x={885} y={1123 + 290.5} />
   </svg>

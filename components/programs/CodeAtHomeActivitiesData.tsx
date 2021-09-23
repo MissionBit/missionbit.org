@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
 export interface CourseShowcaseProps {
   readonly projects: readonly ProjectProps[];
@@ -13,32 +14,14 @@ export interface ProjectProps {
 
 export interface TitleProps {
   readonly title: string;
-  readonly image: {
-    readonly jpg: string;
-    readonly webp: string;
-    readonly srcSet: string;
-  };
+  readonly image: StaticImageImport;
 }
 
-const PHOTO_SIZES = {
-  "": { width: 500, height: 500 },
-  "@0.5x": { width: 250, height: 250 },
-} as const;
-
 function image(postfix: string): Pick<TitleProps, "image"> {
-  const SIZE_ORDER = ["@0.5x", ""] as const;
   return {
-    image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}.jpg`),
-      srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}${k}.jpg`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-      webp: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}${k}.jpg?webp`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-    },
+    image:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/program/code-at-home/${postfix}.jpg`)
+        .default,
   };
 }
 

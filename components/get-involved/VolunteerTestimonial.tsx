@@ -92,15 +92,7 @@ const Volunteers: React.FC<{}> = () => {
     >
       <Box className={classes.imageWrapper}>
         <RectImage
-          src={require("public/images/get-involved/indya-dodson@0.5x.jpg")}
-          srcSet={[
-            `${require("public/images/get-involved/indya-dodson@0.5x.jpg")} 500w`,
-            `${require("public/images/get-involved/indya-dodson.jpg")} 1000w`,
-          ].join(",")}
-          srcSetWebP={[
-            `${require("public/images/get-involved/indya-dodson@0.5x.jpg?webp")} 500w`,
-            `${require("public/images/get-involved/indya-dodson.jpg?webp")} 1000w`,
-          ].join(",")}
+          src={require("public/images/get-involved/indya-dodson.jpg").default}
           width={519}
           height={452}
           left={-48}

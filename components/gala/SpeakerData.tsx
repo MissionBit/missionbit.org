@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
 const SPEAKER_TYPES = ["Keynote", "Welcome Address"] as const;
 type SpeakerType = typeof SPEAKER_TYPES[number];
@@ -8,19 +9,15 @@ export interface SpeakerProps {
   title: string;
   type: SpeakerType;
   id: string;
-  image: { jpg: string; webp: string; srcSet: string };
+  image: StaticImageImport;
   bio: React.ReactNode;
 }
 
 function image(postfix: string): Pick<SpeakerProps, "image"> {
-  const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000`);
-  const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/speakers/${postfix}.jpg?resize&sizes[]=250&sizes[]=500&sizes[]=1000&format=webp`);
   return {
-    image: {
-      jpg: jpg.src,
-      srcSet: jpg.srcSet,
-      webp: webp.srcSet,
-    },
+    image:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/gala/speakers/${postfix}.jpg`)
+        .default,
   };
 }
 

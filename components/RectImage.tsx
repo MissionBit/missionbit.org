@@ -1,4 +1,6 @@
+import Image from "next/image";
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
 export interface RectImageGDimensions {
   readonly width: number;
@@ -11,9 +13,7 @@ export interface RectImageGDimensions {
 
 export interface RectImageGProps extends RectImageGDimensions {
   readonly transform?: React.SVGProps<SVGGElement>["transform"];
-  readonly src: string;
-  readonly srcSet?: string;
-  readonly srcSetWebP?: string;
+  readonly src: StaticImageImport;
   readonly fill: string;
   readonly desc: string;
 }
@@ -77,8 +77,6 @@ export const RectImageG: React.FC<RectImageGProps> = ({
   transform,
   children,
   src,
-  srcSet,
-  srcSetWebP,
   fill,
   top,
   left,
@@ -92,16 +90,7 @@ export const RectImageG: React.FC<RectImageGProps> = ({
     <g transform={transform}>
       <rect x={left} y={top} width={rectW} height={rectH} fill={fill} />
       <foreignObject width={width} height={height}>
-        <picture>
-          {srcSetWebP ? <source type="image/webp" srcSet={srcSetWebP} /> : null}
-          <img
-            src={src}
-            srcSet={srcSet}
-            alt={desc}
-            width="100%"
-            height="100%"
-          />
-        </picture>
+        <Image src={src} width={width} height={height} alt={desc} />
       </foreignObject>
       {children}
     </g>

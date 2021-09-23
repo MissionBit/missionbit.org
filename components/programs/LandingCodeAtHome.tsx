@@ -103,7 +103,7 @@ const LandingCodeAtHome: React.FC<{}> = () => {
       <Box className={classes.imageWrapper}>
         <img
           alt=""
-          src={require("public/images/program/puzzle.svg")}
+          src={require("public/images/program/puzzle.svg").default.src}
           className={classes.image}
         />
       </Box>

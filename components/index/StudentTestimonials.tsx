@@ -1,31 +1,19 @@
 import * as React from "react";
-
-const PhotoResolutions = ["", "@0.75x", "@0.5x", "@0.25x"] as const;
-
-export type StudentPhotos = {
-  [k in typeof PhotoResolutions[number]]: StudentPhoto;
-};
-
-export interface StudentPhoto {
-  jpg: string;
-  webp: string;
-}
+import { StaticImageImport } from "src/image";
 
 export interface StudentTestimonial {
   name: string;
   program: React.ReactNode;
   quote: React.ReactNode;
-  photos: StudentPhotos;
+  photo: StaticImageImport;
 }
 
-function requirePhoto(prefix: string): { photos: StudentPhotos } {
-  const photos = {} as StudentPhotos;
-  for (const suffix of PhotoResolutions) {
-    const jpg = require(/* webpackInclude: /\.jpg$/ */ `public/images/students/${prefix}${suffix}.jpg`);
-    const webp = require(/* webpackInclude: /\.jpg$/ */ `public/images/students/${prefix}${suffix}.jpg?webp`);
-    photos[suffix] = { jpg, webp };
-  }
-  return { photos };
+function requirePhoto(prefix: string): { photo: StaticImageImport } {
+  return {
+    photo:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/students/${prefix}.jpg`)
+        .default,
+  };
 }
 
 export const testimonials: readonly StudentTestimonial[] = [

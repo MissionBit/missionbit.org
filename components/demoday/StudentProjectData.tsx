@@ -1,4 +1,5 @@
 import * as React from "react";
+import { StaticImageImport } from "src/image";
 
 export interface StudentProjectRoomProps {
   readonly room: string;
@@ -11,33 +12,14 @@ export interface ProjectProps {
   readonly students: readonly string[];
   readonly description: React.ReactNode;
   readonly href: string;
-  readonly image: {
-    readonly jpg: string;
-    readonly webp: string;
-    readonly srcSet: string;
-  };
+  readonly image: StaticImageImport;
 }
 
-const PHOTO_SIZES = {
-  "": { width: 600, height: 600 },
-  // "@0.5x": { width: 300, height: 300 },
-} as const;
-
 function image(postfix: string): Pick<ProjectProps, "image"> {
-  // const SIZE_ORDER = ["@0.5x", ""] as const;
-  const SIZE_ORDER = [""] as const;
   return {
-    image: {
-      jpg: require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-projects/${postfix}.jpg`),
-      srcSet: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-projects/${postfix}${k}.jpg`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-      webp: SIZE_ORDER.map((k) => {
-        const fn = require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-projects/${postfix}${k}.jpg?webp`);
-        return `${fn} ${PHOTO_SIZES[k].width}w`;
-      }).join(","),
-    },
+    image:
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-projects/${postfix}.jpg`)
+        .default,
   };
 }
 

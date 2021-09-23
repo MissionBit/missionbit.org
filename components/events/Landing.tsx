@@ -85,7 +85,7 @@ const Landing: React.FC<{}> = () => {
       </Box>
       <Box className={classes.imageWrapper}>
         <img
-          src={require("public/images/events/step-and-repeat.svg")}
+          src={require("public/images/events/step-and-repeat.svg").default.src}
           className={classes.image}
           alt="Step and repeat illustration"
         />

@@ -1,27 +1,19 @@
+import { StaticImageImport } from "src/image";
+
 export interface SupporterDataProps {
-  logo: { src: string; srcSet?: string; webpSrcSet?: string };
+  logo: StaticImageImport;
   href: string;
   title: string;
 }
 
-function svg(logo: string): { src: string } {
-  return {
-    src: require(/* webpackInclude: /\.svg$/ */ `public/images/supporters/${logo}.svg`),
-  };
+function svg(logo: string): SupporterDataProps["logo"] {
+  return require(/* webpackInclude: /\.svg$/ */ `public/images/supporters/${logo}.svg`)
+    .default;
 }
 
-function png(logo: string): {
-  src: string;
-  srcSet: string;
-  webpSrcSet?: string;
-} {
-  const [src, src2x] =
-    require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300`).images.map(
-      (image: { path: string; height: number; width: number }) => image.path
-    );
-  const webpSrcSet =
-    require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png?resize&sizes[]=150&sizes[]=300&format=webp`).srcSet;
-  return { src, srcSet: `${src}, ${src2x} 2x`, webpSrcSet };
+function png(logo: string): SupporterDataProps["logo"] {
+  return require(/* webpackInclude: /\.png$/ */ `public/images/supporters/${logo}.png`)
+    .default;
 }
 
 const SupporterData: SupporterDataProps[] = [

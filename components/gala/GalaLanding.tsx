@@ -109,7 +109,7 @@ export const GalaLanding: React.FC<{}> = () => {
       <Typography className={classes.copy}>{GALA_LANDING_COPY}</Typography>
       <Box className={classes.imageWrapper}>
         <img
-          src={require("public/images/gala/champagne-flutes.svg")}
+          src={require("public/images/gala/champagne-flutes.svg").default.src}
           alt="Champagne Flutes"
           className={classes.image}
         />

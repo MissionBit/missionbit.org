@@ -95,8 +95,8 @@ const useStyles = makeStyles((theme) => ({
 const SponsorLandingCollage: React.FC<{
   className?: string;
 }> = ({ className }) => {
-  const jpg = require("public/images/gala/sponsorship/sponsorship-landing.jpg?resize&sizes[]=1140&sizes[]=570&sizes[]=285");
-  const webp = require("public/images/gala/sponsorship/sponsorship-landing.jpg?resize&sizes[]=1140&sizes[]=570&sizes[]=285&format=webp");
+  const image =
+    require("public/images/gala/sponsorship/sponsorship-landing.jpg").default;
   const desc = "Mission Bit Gala attendees during fund-a-need";
   return (
     <AsteriskCollage
@@ -110,9 +110,7 @@ const SponsorLandingCollage: React.FC<{
       right={70}
       fill={brand.orangeFlourish}
       desc={desc}
-      src={jpg.src}
-      srcSet={jpg.srcSet}
-      srcSetWebP={webp.srcSet}
+      src={image}
     />
   );
 };

@@ -5,6 +5,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { bridgeStartEnd } from "./BridgeDates";
 import clsx from "clsx";
 import Link from "@material-ui/core/Link";
+import Image from "next/image";
+import bytdLogo from "public/images/bridge/bytd-logo.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,8 +109,8 @@ export const Intro: React.FC<{ className?: string }> = ({ className }) => {
       id="intro"
       className={clsx(classes.root, className)}
     >
-      <img
-        src={require("public/images/bridge/bytd-logo.svg")}
+      <Image
+        src={bytdLogo}
         alt="Bridging the Youth Tech Divide Logo"
         className={classes.logo}
       />

@@ -12,6 +12,7 @@ import {
   usePopupState,
   bindPopover,
 } from "material-ui-popup-state/hooks";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,6 +38,15 @@ const useStyles = makeStyles((theme) => ({
     "& img": {
       minWidth: "100px",
       maxWidth: "150px",
+      borderRadius: "50%",
+    },
+  },
+  imageBioWrapper: {
+    position: "relative",
+    minWidth: "100px",
+    maxWidth: "150px",
+    margin: "0 auto",
+    "& img": {
       borderRadius: "50%",
     },
   },
@@ -102,10 +112,9 @@ const Team: React.FC<{}> = () => {
   }) => (
     <div>
       <div className={classes.imageBio}>
-        <picture>
-          <source type="image/webp" srcSet={image.webp} />
-          <img alt={name} src={image.jpg} />
-        </picture>
+        <div className={classes.imageBioWrapper}>
+          <Image alt={name} src={image} />
+        </div>
         {bio ? (
           <BioPopover name={name} className={classes.bio}>
             <Typography className={classes.bioTypography}>{bio}</Typography>

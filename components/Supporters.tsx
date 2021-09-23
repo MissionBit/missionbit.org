@@ -1,18 +1,25 @@
 import * as React from "react";
 import Typography from "@material-ui/core/Typography";
+import Image from "next/image";
 import SupporterData, { SupporterDataProps } from "./SupporterData";
 import { makeStyles } from "@material-ui/core/styles";
 import BackgroundSlider from "./index/BackgroundSlider";
+import { StaticImageImport } from "src/image";
 
 const Logo: React.FC<{
   alt: string;
-  logo: SupporterDataProps["logo"];
-}> = ({ alt, logo: { webpSrcSet, ...imgProps } }) => {
+  logo: StaticImageImport;
+}> = ({ alt, logo }) => {
+  const scale = 150 / Math.max(logo.width, logo.height);
   return (
-    <picture>
-      {webpSrcSet ? <source type="image/webp" srcSet={webpSrcSet} /> : null}
-      <img alt={alt} {...imgProps} />
-    </picture>
+    <Image
+      src={logo}
+      alt={alt}
+      objectFit="contain"
+      width={logo.width * scale}
+      height={logo.height * scale}
+      layout="fixed"
+    />
   );
 };
 
@@ -23,11 +30,8 @@ const useStyles = makeStyles((theme) => ({
   supporters: {
     display: "flex",
     alignItems: "center",
-    "& img": {
+    "& a": {
       margin: theme.spacing(0, 3),
-      maxWidth: 150,
-      maxHeight: 150,
-      objectFit: "contain",
     },
   },
   heading: {

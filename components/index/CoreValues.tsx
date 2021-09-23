@@ -3,13 +3,16 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { StaticImageImport } from "src/image";
 
 const images = {
-  community: require("public/images/about/values/community.svg"),
-  love: require("public/images/about/values/love.svg"),
-  accountability: require("public/images/about/values/accountability.svg"),
-  socialJustice: require("public/images/about/values/social-justice.svg"),
-  smartRisks: require("public/images/about/values/smart-risks.svg"),
+  community: require("public/images/about/values/community.svg").default,
+  love: require("public/images/about/values/love.svg").default,
+  accountability: require("public/images/about/values/accountability.svg")
+    .default,
+  socialJustice: require("public/images/about/values/social-justice.svg")
+    .default,
+  smartRisks: require("public/images/about/values/smart-risks.svg").default,
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -47,12 +50,12 @@ const CoreValues: React.FC<{}> = () => {
 
   const Value: React.FC<{
     title: React.ReactNode;
-    src: string;
+    src: StaticImageImport;
   }> = ({ title, src, children }) => (
     <div className={classes.value}>
       <div
         className={classes.icon}
-        style={{ backgroundImage: `url(${src})` }}
+        style={{ backgroundImage: `url(${src.src})` }}
       />
       <Typography className={classes.title}>{title}</Typography>
       <Typography variant="body1" component="div">

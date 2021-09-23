@@ -10,6 +10,7 @@ import CourseShowcases, {
 } from "./StudentSpeakerData";
 import { brand } from "src/colors";
 import { Link } from "@material-ui/core";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -99,13 +100,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Student: React.FC<StudentProps> = ({ name, image }) => {
   const classes = useStyles();
-  return (
-    <picture className={classes.student}>
-      <source type="image/webp" srcSet={image.webp} />
-      <source type="image/jpeg" srcSet={image.srcSet} />
-      <img alt={name} src={image.jpg} />
-    </picture>
-  );
+  return <Image alt={name} src={image} className={classes.student} />;
 };
 
 const Project: React.FC<ProjectProps> = ({
