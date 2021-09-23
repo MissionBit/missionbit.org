@@ -27,7 +27,8 @@ type School =
   | "Mission High School"
   | "Burton High School"
   | "San Francisco University High"
-  | "Ruth Asawa SOTA High School";
+  | "Ruth Asawa SOTA High School"
+  | "Lincoln High School";
 
 type StudentInfo = React.ReactNode;
 
@@ -210,6 +211,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     title: sabTitle(2022, "Galileo High School"),
   },
   {
+    name: "Esther Zeng",
+    ...image("sab/esther-zeng.jpg"),
+    title: sabTitle(2022, "Lincoln High School"),
+  },
+  {
     name: "Favour Odenyi",
     ...image("sab/favour-odenyi.jpg"),
     title: sabTitle(2023, "Mission High School"),
@@ -233,6 +239,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Oswen Martinez",
     ...image("sab/oswen-martinez.jpg"),
     title: sabTitle(2022, "San Francisco University High"),
+  },
+  {
+    name: "Rafael Perez",
+    ...image("sab/rafael-perez.jpg"),
+    title: sabTitle(2023, "Lowell High School"),
   },
   {
     name: "Sabeen Rasheed",
