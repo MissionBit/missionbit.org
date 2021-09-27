@@ -252,7 +252,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Typography>
         <Package title="$50,000 Diamond Sponsor">
           <li>Exclusive to one sponsor</li>
-          <li>*Seating/Tickets TBD</li>
+          <li>16 tickets</li>
           <li>Up to three minutes of speaking time</li>
           <li>Public recognition in CEO Remarks</li>
           <li>
@@ -263,7 +263,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$25,000 Platinum Sponsor">
           <li>Exclusive to two sponsors</li>
-          <li>*Seating/Tickets TBD</li>
+          <li>8 tickets</li>
           <li>Public recognition in CEO Remarks</li>
           <li>
             Your logo featured as Platinum Sponsor on event slideshow before and
@@ -273,7 +273,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$10,000 Gold Sponsor">
           <li>Exclusive to five sponsors</li>
-          <li>*Seating/Tickets TBD</li>
+          <li>8 tickets</li>
           <li>
             Your logo featured as Gold Sponsor on event slideshow before and
             after event and all promotional material
@@ -282,7 +282,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
         </Package>
         <Package title="$5,000 Silver Sponsor">
           <li>Exclusive to ten sponsors</li>
-          <li>*Seating/Tickets TBD</li>
+          <li>8 tickets</li>
           <li>
             Your logo featured as Silver Sponsor on event slideshow before and
             after event and all promotional material
@@ -290,7 +290,7 @@ const SponsorshipPackages: React.FC<{}> = () => {
           <li>Your logo displayed on the Mission Bit website</li>
         </Package>
         <Package title="$2,500 Bronze Sponsor">
-          <li>*Seating/Tickets TBD</li>
+          <li>8 tickets</li>
           <li>Logo presence on event program</li>
           <li>
             Your logo featured as Bronze Sponsor on event slideshow before and
