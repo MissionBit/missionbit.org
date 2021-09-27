@@ -105,10 +105,10 @@ const resumeImage = {
   alt: "Image of a resume",
 };
 
-const hackWindowImage = {
-  src: require("public/images/program/hack-window.jpg").default,
-  alt: "Image of an open window",
-};
+// const hackWindowImage = {
+//   src: require("public/images/program/hack-window.jpg").default,
+//   alt: "Image of an open window",
+// };
 
 const scratchCatImage = {
   src: require("public/images/program/scratch-cat.svg").default,
@@ -458,25 +458,25 @@ export const Courses = courseRecord({
       </>
     ),
   },
-  scratch_window_workshop: {
-    title: "Hack Your Window with Scratch",
-    skills: ["Scratch", "Block Coding"],
-    image: hackWindowImage,
-    description: (
-      <>
-        In this hands-on workshop, we’ll combine art and technology to create
-        and code our own interactive stories with Scratch. We’ll be exploring
-        the “Hack Your Window” challenge to build projects that let you
-        creatively reimagine your surroundings through the lens of Mission Bit’s
-        values. We’ll begin with a quick intro to creative coding and Scratch,
-        plan our ideas together, then spend time creating our projects and
-        experimenting with code. We’ll end by sharing ideas and questions and
-        resources to continue learning more. Beginner coders welcome! (Hack Your
-        Window idea and photo credit to{" "}
-        <a href="https://hackart.eduard.cat/"> HackArt</a>.)
-      </>
-    ),
-  },
+  // scratch_window_workshop: {
+  //   title: "Hack Your Window with Scratch",
+  //   skills: ["Scratch", "Block Coding"],
+  //   image: hackWindowImage,
+  //   description: (
+  //     <>
+  //       In this hands-on workshop, we’ll combine art and technology to create
+  //       and code our own interactive stories with Scratch. We’ll be exploring
+  //       the “Hack Your Window” challenge to build projects that let you
+  //       creatively reimagine your surroundings through the lens of Mission Bit’s
+  //       values. We’ll begin with a quick intro to creative coding and Scratch,
+  //       plan our ideas together, then spend time creating our projects and
+  //       experimenting with code. We’ll end by sharing ideas and questions and
+  //       resources to continue learning more. Beginner coders welcome! (Hack Your
+  //       Window idea and photo credit to{" "}
+  //       <a href="https://hackart.eduard.cat/"> HackArt</a>.)
+  //     </>
+  //   ),
+  // },
   scratch_pong_workshop: {
     title: "Code a Pong Game with Scratch",
     skills: ["Scratch", "Block Coding"],

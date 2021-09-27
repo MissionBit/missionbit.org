@@ -21,12 +21,34 @@ function svgLogo(src: string): StaticImageImport {
     .default;
 }
 
+function jpgLogo(src: string) {
+  return require(/* webpackInclude: /\.png$/ */ `public/images/gala/2021-sponsors/${src}.jpg`)
+    .default;
+}
+
+function pngLogo(src: string) {
+  return require(/* webpackInclude: /\.png$/ */ `public/images/gala/2021-sponsors/${src}.png`)
+    .default;
+}
+
 export const Sponsors: readonly SponsorData[] = [
   {
-    href: "https://latinocf.org/",
+    href: "https://www.verizon.com/",
     title: "Verizon",
     logo: svgLogo("verizon"),
     level: "gold",
+  },
+  {
+    href: "https://www.bloomberg.com/",
+    title: "Bloomberg",
+    logo: jpgLogo("bloomberg"),
+    level: "silver",
+  },
+  {
+    href: "https://www.valothegame.com/",
+    title: "Sankari Studios",
+    logo: pngLogo("sankari"),
+    level: "silver",
   },
 ];
 
