@@ -10,6 +10,7 @@ import {
   SectionId,
   Sections,
   SDRDatesExtended,
+  TSDates,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import Courses from "./Courses";
@@ -97,6 +98,8 @@ function sectionIdTitle(id: SectionId): string {
       return "Classes";
     case "career-prep":
       return "Career Prep Bootcamp";
+    case "tech-start":
+      return "Tech Start Program";
   }
 }
 
@@ -127,6 +130,19 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
             Extended application deadline:
           </span>{" "}
           {LongDateTimeFormat.format(SDRDatesExtended.registrationDeadline)}
+          <br />
+        </Typography>
+      );
+    case "tech-start":
+      return (
+        <Typography className={classes.copy}>
+          Get into the tech industry with Mission Bit. Must be a Bay Area
+          resident, 17 - 26 years old.
+          <br />
+          <span className={classes.deadlineEmphasis}>
+            Application deadline:
+          </span>{" "}
+          {LongDateTimeFormat.format(TSDates.registrationDeadline)}
           <br />
         </Typography>
       );

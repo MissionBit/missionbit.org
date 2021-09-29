@@ -13,6 +13,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
   >
     <LandingCareerPrep />
     <DescriptionCareerPrep />
+    <Programs sections={["tech-start"]} />
     <Programs sections={["career-prep"]} />
   </Layout>
 );
