@@ -6,7 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import SippinOnSunshine from "components/fonts/SippinOnSunshine";
 import { brand } from "src/colors";
 import { StaticImageImport } from "src/image";
-import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -67,7 +66,7 @@ const Category: React.FC<{
   const classes = useStyles();
   return (
     <>
-      <Image src={src} alt={alt} className={classes.categoryImage} />
+      <img src={src.src} alt={alt} className={classes.categoryImage} />
       <Typography variant="h4" className={classes.categoryTitle}>
         Most
         <br />

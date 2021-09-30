@@ -90,14 +90,11 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     gridArea: "image",
-    margin: theme.spacing(0, 2),
-    "& > img": {
-      width: "100%",
-      height: "auto",
-      [theme.breakpoints.down("sm")]: {
-        maxHeight: "40vh",
-        objectFit: "contain",
-      },
+    padding: theme.spacing(0, 2),
+    width: "100%",
+    height: "auto",
+    [theme.breakpoints.down("sm")]: {
+      maxHeight: "40vh",
     },
   },
 }));
@@ -113,7 +110,9 @@ const Project: React.FC<ProjectProps> = ({
   const classes = useStyles();
   return (
     <Box component="section" className={classes.project}>
-      <Image className={classes.image} alt={title} src={image} />
+      <div className={classes.image}>
+        <Image alt={title} src={image} objectFit="contain" />
+      </div>
       <Typography variant="h4" className={classes.projectTitle}>
         {title}
       </Typography>
