@@ -136,8 +136,8 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
     case "tech-start":
       return (
         <Typography className={classes.copy}>
-          Get into the tech industry with Mission Bit. Must be a Bay Area
-          resident, 17 - 26 years old.
+          Learn about the tech industry and the skills to get there with Mission
+          Bit. Must be a Bay Area resident, 17 - 26 years old.
           <br />
           <span className={classes.deadlineEmphasis}>
             Application deadline:
