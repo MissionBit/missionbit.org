@@ -45,11 +45,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightMedium,
   },
   judgeImage: {
-    "& > img": {
-      margin: theme.spacing(1, 0),
-      width: "100%",
-      height: "auto",
-      maxWidth: 150,
+    margin: theme.spacing(1, "auto"),
+    width: "100%",
+    height: "auto",
+    maxWidth: 150,
+    "& img": {
       borderRadius: "50%",
     },
   },
@@ -62,7 +62,9 @@ const Judge: React.FC<JudgeProps> = ({ name, image, title, company }) => {
   return (
     <Box className={classes.judge} flexDirection="column">
       <Typography className={classes.judgeName}>{name}</Typography>
-      <Image className={classes.judgeImage} alt={name} src={image} />
+      <div className={classes.judgeImage}>
+        <Image alt={name} src={image} />
+      </div>
       <Typography className={classes.judgeTitle}>{title}</Typography>
       <Typography className={classes.judgeCompany}>{company}</Typography>
     </Box>

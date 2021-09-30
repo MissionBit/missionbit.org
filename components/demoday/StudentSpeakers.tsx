@@ -89,10 +89,10 @@ const useStyles = makeStyles((theme) => ({
   },
   student: {
     margin: theme.spacing(0, 2),
-    "& > img": {
-      width: "100%",
-      height: "auto",
-      maxWidth: 150,
+    width: "100%",
+    height: "auto",
+    maxWidth: 150,
+    "& img": {
       borderRadius: "50%",
     },
   },
@@ -100,7 +100,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Student: React.FC<StudentProps> = ({ name, image }) => {
   const classes = useStyles();
-  return <Image alt={name} src={image} className={classes.student} />;
+  return (
+    <div className={classes.student}>
+      <Image alt={name} src={image} />
+    </div>
+  );
 };
 
 const Project: React.FC<ProjectProps> = ({
