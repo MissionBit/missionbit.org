@@ -979,7 +979,7 @@ function TSClass(
     startDate: "November 8th",
     endDate: "November 18th",
     buttonText: "Apply",
-    signupUrl: `https://www.tfaforms.com/4870984?tfa_2013=${formAssemblyId}`,
+    signupUrl: `https://www.tfaforms.com/4935022?tfa_2013=${formAssemblyId}`,
   };
 }
 
@@ -1008,7 +1008,7 @@ export const SDRClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const TSClassInstances: ClassOrWorkshopInstance[] = [
-  TSClass(Courses.ts_class, Campuses.online, "tfa_1"),
+  TSClass(Courses.ts_class, Campuses.online, "tfa_1876"),
 ];
 
 function workshop({
