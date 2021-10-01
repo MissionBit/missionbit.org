@@ -39,6 +39,7 @@ export const CourseSkills = [
   "Wellness",
   "Meditation",
   "College",
+  "Mentorship",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -196,6 +197,11 @@ const money = {
 const grad = {
   src: require("public/images/program/workshops/grad.svg").default,
   alt: "Image of a graduation hat",
+};
+
+const ts = {
+  src: require("public/images/program/joseph.jpg").default,
+  alt: "Student on a computer sitting on the couch.",
 };
 
 export interface Course {
@@ -786,6 +792,19 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  ts_class: {
+    title: "Tech Start Program",
+    skills: ["Career Preparation", "Mentorship"],
+    image: ts,
+    description: (
+      <>
+        Join us for two weeks to gain foundational career skills and learn how
+        to get your foot in the door to the tech industry. Hear from a panel of
+        tech industry professionals and work with a mentor to identify and reach
+        career and educational goals! Earn a $150 stipend.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -838,6 +857,11 @@ export const SDRDates: BaseClassDates = {
 export const SDRDatesExtended: BaseClassDates = {
   ...SDRDates,
   registrationDeadline: Date.parse("2021-09-20T20:00:00-07:00"),
+};
+
+export const TSDates: BaseClassDates = {
+  registrationDeadline: Date.parse("2021-10-29T20:00:00-07:00"),
+  interview: Date.parse("2021-11-112T13:00:00-07:00"),
 };
 
 const CLASS_SCHEDULE = {
@@ -934,6 +958,31 @@ function SDRClass(
   };
 }
 
+function TSClass(
+  course: Course,
+  campus: Campus,
+  formAssemblyId: string
+): ClassInstance {
+  return {
+    type: "class",
+    course,
+    campus,
+    classDates: TSDates,
+    meets: (
+      <>
+        Monday - Thursday{" "}
+        <Box component="span" display="inline-block">
+          5:00pm - 7:00pm PST
+        </Box>
+      </>
+    ),
+    startDate: "November 8th",
+    endDate: "November 18th",
+    buttonText: "Apply",
+    signupUrl: `https://www.tfaforms.com/4935022?tfa_2013=${formAssemblyId}`,
+  };
+}
+
 export const ClassInstances: ClassOrWorkshopInstance[] = [
   // fallClass(
   //   Courses.web_class,
@@ -956,6 +1005,10 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
   SDRClass(Courses.sdr_class, Campuses.online, "tfa_1"),
+];
+
+export const TSClassInstances: ClassOrWorkshopInstance[] = [
+  TSClass(Courses.ts_class, Campuses.online, "tfa_1876"),
 ];
 
 function workshop({
@@ -1064,6 +1117,7 @@ export const Sections = {
   "week-of-code": WeekOfCodeClassInstances,
   courses: ClassInstances,
   "career-prep": SDRClassInstances,
+  "tech-start": TSClassInstances,
 } as const;
 
 export const SectionIds = [
@@ -1071,5 +1125,6 @@ export const SectionIds = [
   "week-of-code",
   "courses",
   "career-prep",
+  "tech-start",
 ] as const;
 export type SectionId = typeof SectionIds[number];
