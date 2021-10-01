@@ -16,7 +16,8 @@ type TeamTitle =
   | "Videographer"
   | "Office Administrator"
   | "Curriculum Assistant"
-  | "Social Media/Marketing Intern";
+  | "Social Media/Marketing Intern"
+  | "Social Media Strategist";
 
 type School =
   | "Lowell High School"
@@ -133,7 +134,7 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
   },
   {
     name: "Erin Mendez",
-    title: "Social Media/Marketing Intern",
+    title: "Social Media Strategist",
     ...image("core/erin-mendez.jpg"),
   },
   {
