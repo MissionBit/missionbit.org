@@ -69,6 +69,29 @@ const useStyles = makeStyles((theme) => ({
 
 const FeaturedEvents: FeaturedEvent[] = [
   {
+    id: "alumni",
+    date: Date.parse("2021-10-15T17:00:00-07:00"),
+    href: "https://www.tfaforms.com/4936223",
+    linkTitle: "Register",
+    title: "College Info Session",
+    description: (
+      <>
+        Mission Bit students are invited to come speak to Mission Bit alumni
+        about their college experiences! Hear about San Jose State, UC Santa
+        Cruz, UC Irvine, UC Davis, UC San Diego, Texan Southern University and
+        Harvard!
+      </>
+    ),
+    topRightImage: {
+      desc: "2 Black men talking and smiling",
+      image: require("public/images/events/alum-event/alum-event1.jpg").default,
+    },
+    bottomLeftImage: {
+      desc: "3 panelists sitting on high stools",
+      image: require("public/images/events/alum-event/alum-event2.jpg").default,
+    },
+  },
+  {
     id: "mb-hackathon",
     date: Date.parse("2020-07-11T09:00:00-07:00"),
     href: "https://cloud.hackthefog.com/",

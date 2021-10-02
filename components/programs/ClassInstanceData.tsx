@@ -1057,18 +1057,18 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.spark_AR,
-    dateString: "2021-09-15T16:00:00-07:00",
+    course: Courses.p5js_workshop,
+    dateString: "2021-10-19T17:00:00-07:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4930150",
+    signupUrl: "https://www.tfaforms.com/4936756",
     who: "8th-12th graders",
   }),
   workshop({
-    course: Courses.interviewing_workshop,
-    dateString: "2021-09-21T16:30:00-07:00",
-    minutes: 120,
-    signupUrl: "https://www.tfaforms.com/4930164",
-    who: "14-24 years olds",
+    course: Courses.intro_javascript,
+    dateString: "2021-10-28T17:00:00-07:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4936766",
+    who: "8th-12th graders",
   }),
 ];
 
