@@ -33,6 +33,12 @@ function pngLogo(src: string) {
 
 export const Sponsors: readonly SponsorData[] = [
   {
+    href: "https://www.facebook.com/",
+    title: "Facebook",
+    logo: svgLogo("facebook"),
+    level: "platinum",
+  },
+  {
     href: "https://www.verizon.com/",
     title: "Verizon",
     logo: svgLogo("verizon"),
