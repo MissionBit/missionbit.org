@@ -68,6 +68,7 @@
   "devDependencies": {
     "@netlify/plugin-nextjs": "^3.9.0",
     "@next/bundle-analyzer": "^11.1.2",
+    "@next/eslint-plugin-next": "^11.1.2",
     "@types/google.analytics": "^0.0.42",
     "@types/gtag.js": "^0.0.7",
     "@types/jest": "^27.0.1",
@@ -76,7 +77,6 @@
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
-    "@zeit/next-source-maps": "0.0.3",
     "cross-env": "^7.0.2",
     "eslint": "^7.8.1",
     "eslint-config-prettier": "^8.3.0",

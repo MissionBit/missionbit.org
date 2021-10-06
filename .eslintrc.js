@@ -12,6 +12,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended",
   ],
   globals: {
     Atomics: "readonly",
