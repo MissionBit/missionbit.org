@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_TELEMETRY_DISABLED: 1
+      STRIPE_PK_TEST: "placeholder"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
