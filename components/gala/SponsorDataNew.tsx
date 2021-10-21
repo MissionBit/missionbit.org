@@ -63,7 +63,7 @@ export const Sponsors: readonly SponsorData[] = [
     level: "silver",
   },
   {
-    href: "",
+    href: null,
     title: "Beth Anderson & Kevin Pereau",
     logo: pngLogo("anderson"),
     level: "bronze",
