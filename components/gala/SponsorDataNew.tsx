@@ -51,10 +51,28 @@ export const Sponsors: readonly SponsorData[] = [
     level: "silver",
   },
   {
+    href: "https://www.kaporcenter.org/",
+    title: "Kapor Center",
+    logo: pngLogo("kapor"),
+    level: "silver",
+  },
+  {
     href: "https://www.valothegame.com/",
     title: "Sankari Studios",
     logo: pngLogo("sankari"),
     level: "silver",
+  },
+  {
+    href: "",
+    title: "Beth Anderson & Kevin Pereau",
+    logo: pngLogo("anderson"),
+    level: "bronze",
+  },
+  {
+    href: "https://www.getcruise.com/",
+    title: "Cruise",
+    logo: svgLogo("cruise"),
+    level: "bronze",
   },
 ];
 
