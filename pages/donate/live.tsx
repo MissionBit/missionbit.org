@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   donateBanner: {
     position: "absolute",
     bottom: theme.spacing(4),
-    boxShadow: "0px 0px 15px 5px rgba(230, 157, 21, 0.5)",
+    boxShadow: "0px 0px 15px 5px rgba(195, 163, 204, 0.5)",
     backgroundColor: "#fff",
     opacity: 0.9,
     padding: theme.spacing(4, 2),
