@@ -55,7 +55,7 @@ function dollars(cents: number) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#f2c46f",
+    backgroundColor: "#c3a3cc",
     display: "grid",
     height: "100vh",
     maxHeight: "var(--document-height, 100vh)",
