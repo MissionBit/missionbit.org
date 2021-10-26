@@ -214,6 +214,13 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   const [simulate, setSimulate] = useState(false);
   const [errors, setErrors] = useState(0);
   const classes = useStyles();
+  const batchTransactions = useMemo(() => {
+    const ignored = new Set(
+      modifications.ignoredTransactions.map((ignored) => ignored.id)
+    );
+    return batch.transactions.filter((txn) => !ignored.has(txn.id));
+  }, [batch.transactions, modifications.ignoredTransactions]);
+
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -253,14 +260,13 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   const toggleSimulate = useCallback(() => {
     setSimulate((simulate) => initial.simulate && !simulate);
   }, [initial.simulate, setSimulate]);
-
-  const total = batch.transactions.reduce(
+  const total = batchTransactions.reduce(
     (amount, txn) => amount + txn.amount,
     modifications.transactions.reduce((amount, txn) => amount + txn.amount, 0)
   );
   const donors = useMemo(() => {
     const donors: CommonTransaction[] = [];
-    for (const txn of batch.transactions) {
+    for (const txn of batchTransactions) {
       donors.push({
         name: txn.name ?? "Anonymous",
         created: txn.created,
@@ -276,14 +282,14 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
     }
     donors.sort((a, b) => b.created - a.created);
     return donors;
-  }, [batch.transactions, modifications.transactions]);
+  }, [batchTransactions, modifications.transactions]);
   return (
     <Box className={classes.root} onClick={toggleSimulate}>
       <Goal
         goalCents={modifications.goalCents}
         totalCents={total}
         donorCount={
-          batch.transactions.length + modifications.transactions.length
+          batchTransactions.length + modifications.transactions.length
         }
       />
       <Donors transactions={donors} />

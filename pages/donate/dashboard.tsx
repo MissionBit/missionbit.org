@@ -148,6 +148,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               <TableCell>Type</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Time</TableCell>
+              <TableCell>ID</TableCell>
             </TableRow>
             <TableRow>
               <TableCell />
@@ -179,6 +180,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
                 <TableCell>
                   {DateTimeFormat.format(txn.created * 1000)}
                 </TableCell>
+                <TableCell>{txn.id}</TableCell>
               </TableRow>
             ))}
             {modifications.transactions.map((txn, i) => (
@@ -193,6 +195,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
                 <TableCell>
                   {DateTimeFormat.format(modifications.pollTime * 1000)}
                 </TableCell>
+                <TableCell />
               </TableRow>
             ))}
           </TableBody>
