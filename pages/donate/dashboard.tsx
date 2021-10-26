@@ -21,11 +21,11 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import getBalanceModifications, {
   BalanceModifications,
+  SPREADSHEET_ID,
 } from "src/googleBalanceModifications";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 
 const usdFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -82,9 +82,6 @@ interface DashboardProps {
   readonly modifications: BalanceModifications;
 }
 
-const GIVE_LIVELY_ADMIN_URL =
-  "https://members.givelively.org/campaigns/4th-annual-gala-090dbc48-9624-44cf-ae2f-a802a511393b/basic_information";
-
 const DonateDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
@@ -130,18 +127,9 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
         <Button
           target="_blank"
           variant="contained"
-          color="primary"
-          rel="noopener noreferrer"
-          href={GIVE_LIVELY_ADMIN_URL}
-        >
-          Give Lively Admin
-        </Button>
-        <Button
-          target="_blank"
-          variant="contained"
           color="secondary"
           rel="noopener noreferrer"
-          href="https://docs.google.com/spreadsheets/d/1dZgjF3SJXtO-4cC4M92y0ubvoQHs5GF5tjoj-OQtwl4/edit#gid=30309931"
+          href={`https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/edit`}
         >
           Adjustments Spreadsheet
         </Button>
@@ -173,28 +161,6 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               </TableCell>
               <TableCell colSpan={4}>
                 Total as of {DateTimeFormat.format(pollTime * 1000)}
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell />
-              <TableCell align="right">
-                {dollars(
-                  transactions.reduce(
-                    (amount, txn) =>
-                      amount + (txn.type === "give-lively" ? 0 : txn.amount),
-                    modificationTotal
-                  )
-                )}
-              </TableCell>
-              <TableCell colSpan={4}>
-                <Link
-                  href={GIVE_LIVELY_ADMIN_URL}
-                  target="_blank"
-                  color="secondary"
-                  rel="noopener noreferrer"
-                >
-                  GiveLively Adjustment: "Amount raised from other sources"
-                </Link>
               </TableCell>
             </TableRow>
           </TableHead>

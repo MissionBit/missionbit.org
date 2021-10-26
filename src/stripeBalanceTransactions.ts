@@ -15,7 +15,7 @@ export interface BalanceTransactionBatch {
   readonly transactions: readonly BalanceTransaction[];
 }
 
-const DONATION_TYPES = ["direct", "give-lively"] as const;
+const DONATION_TYPES = ["direct"] as const;
 type DonationType = typeof DONATION_TYPES[number];
 
 export async function getBalanceTransactions(
@@ -39,17 +39,10 @@ export async function getBalanceTransactions(
     if (
       txn.type === "charge" &&
       typeof txn.source === "object" &&
-      txn.source?.object === "charge" &&
-      // Ignore sponsorship transaction
-      txn.id !== "txn_1HjQaWK5yunglhMSQnZ8U92N"
+      txn.source?.object === "charge"
     ) {
       const metadata = txn.source.metadata;
-      const type =
-        // Mark the $1 test donations as direct
-        metadata.client_application_name === "smart-donations" &&
-        txn.created > 1605113854
-          ? "give-lively"
-          : "direct";
+      const type = "direct";
       const name =
         txn.source.billing_details?.name ??
         ([metadata.user_first_name, metadata.user_last_name]

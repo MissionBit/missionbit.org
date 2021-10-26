@@ -1,6 +1,10 @@
 import dayjs from "dayjs";
 import { fetch } from "cross-fetch";
 
+// https://docs.google.com/spreadsheets/d/113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI/edit
+// This spreadsheet must have "Anyone with the link can view" permission
+export const SPREADSHEET_ID = "113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI";
+
 export interface BalanceModification {
   readonly name: string;
   readonly amount: number;
@@ -45,12 +49,19 @@ async function spreadsheetApiRequest(
   id: string,
   args: readonly string[]
 ): Promise<unknown> {
-  return fetch(
+  const res = await fetch(
     `https://sheets.googleapis.com/v4/spreadsheets/${id}?${[
       ...args,
       `key=${process.env.GOOGLE_API_KEY}`,
     ].join("&")}`
-  ).then((res) => res.json());
+  );
+  const doc = await res.json();
+  if (res.ok) {
+    return doc;
+  } else {
+    console.error(doc);
+    throw new Error(`${res.status} ${res.statusText}`);
+  }
 }
 
 function isEmptyObject(v: unknown): v is {} {
@@ -66,7 +77,7 @@ function isEmptyObject(v: unknown): v is {} {
 export async function getBalanceModifications(): Promise<BalanceModifications> {
   const pollTime = dayjs().unix();
   const transactions: BalanceModification[] = [];
-  const id = "113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI";
+  const id = SPREADSHEET_ID;
   const doc = await spreadsheetApiRequest(id, [
     "ranges=Adjustments!A2:E",
     "fields=sheets.data.rowData(values(effectiveValue))",

@@ -17,7 +17,7 @@ import Error404 from "pages/404";
 import getBalanceTransactions, {
   BalanceTransactionBatch,
 } from "src/stripeBalanceTransactions";
-import { makeStyles } from "@material-ui/core/styles";
+import { lighten, makeStyles } from "@material-ui/core/styles";
 
 import getBalanceModifications, {
   BalanceModifications,
@@ -143,6 +143,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   hide: { display: "none" },
+  barColorPrimary: {
+    backgroundColor: "#5A6AC9",
+  },
+  colorPrimary: {
+    backgroundColor: lighten("#5A6AC9", 0.6),
+  },
 }));
 
 export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
@@ -387,6 +393,10 @@ const Goal: React.FC<{
       >
         <LinearProgress
           className={classes.progress}
+          classes={{
+            colorPrimary: classes.colorPrimary,
+            barColorPrimary: classes.barColorPrimary,
+          }}
           color="primary"
           variant="determinate"
           value={Math.min(100, 100 * (totalCents / goalCents))}
