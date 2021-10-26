@@ -43,9 +43,12 @@ const useStyles = makeStyles((theme) => ({
   hide: { display: "none" },
   actions: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "1fr",
     gridGap: theme.spacing(1),
     padding: theme.spacing(1, 0),
+  },
+  ignored: {
+    textDecoration: "line-through",
   },
 }));
 
@@ -86,6 +89,9 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
   const [errors, setErrors] = useState(0);
+  const ignored = new Set(
+    modifications.ignoredTransactions.map((txn) => txn.id)
+  );
   const classes = useStyles();
   useEffect(() => {
     let mounted = true;
@@ -155,7 +161,8 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               <TableCell align="right">
                 {dollars(
                   transactions.reduce(
-                    (amount, txn) => amount + txn.amount,
+                    (amount, txn) =>
+                      amount + (ignored.has(txn.id) ? 0 : txn.amount),
                     modificationTotal
                   )
                 )}
@@ -167,7 +174,10 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
           </TableHead>
           <TableBody>
             {transactions.map((txn, i) => (
-              <TableRow key={txn.id}>
+              <TableRow
+                key={txn.id}
+                className={ignored.has(txn.id) ? classes.ignored : undefined}
+              >
                 <TableCell align="right">{transactions.length - i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
                   {dollars(txn.amount)}
