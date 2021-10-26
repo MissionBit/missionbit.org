@@ -160,7 +160,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
                   )
                 )}
               </TableCell>
-              <TableCell colSpan={4}>
+              <TableCell colSpan={5}>
                 Total as of {DateTimeFormat.format(pollTime * 1000)}
               </TableCell>
             </TableRow>
