@@ -43,9 +43,12 @@ const useStyles = makeStyles((theme) => ({
   hide: { display: "none" },
   actions: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "1fr",
     gridGap: theme.spacing(1),
     padding: theme.spacing(1, 0),
+  },
+  ignored: {
+    textDecoration: "line-through",
   },
 }));
 
@@ -86,6 +89,9 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
   const [errors, setErrors] = useState(0);
+  const ignored = new Set(
+    modifications.ignoredTransactions.map((txn) => txn.id)
+  );
   const classes = useStyles();
   useEffect(() => {
     let mounted = true;
@@ -148,25 +154,30 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
               <TableCell>Type</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Time</TableCell>
+              <TableCell>ID</TableCell>
             </TableRow>
             <TableRow>
               <TableCell />
               <TableCell align="right">
                 {dollars(
                   transactions.reduce(
-                    (amount, txn) => amount + txn.amount,
+                    (amount, txn) =>
+                      amount + (ignored.has(txn.id) ? 0 : txn.amount),
                     modificationTotal
                   )
                 )}
               </TableCell>
-              <TableCell colSpan={4}>
+              <TableCell colSpan={5}>
                 Total as of {DateTimeFormat.format(pollTime * 1000)}
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {transactions.map((txn, i) => (
-              <TableRow key={txn.id}>
+              <TableRow
+                key={txn.id}
+                className={ignored.has(txn.id) ? classes.ignored : undefined}
+              >
                 <TableCell align="right">{transactions.length - i}</TableCell>
                 <TableCell component="th" scope="row" align="right">
                   {dollars(txn.amount)}
@@ -179,6 +190,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
                 <TableCell>
                   {DateTimeFormat.format(txn.created * 1000)}
                 </TableCell>
+                <TableCell>{txn.id}</TableCell>
               </TableRow>
             ))}
             {modifications.transactions.map((txn, i) => (
@@ -193,6 +205,7 @@ const DonateDashboard: React.FC<DashboardProps> = (initial) => {
                 <TableCell>
                   {DateTimeFormat.format(modifications.pollTime * 1000)}
                 </TableCell>
+                <TableCell />
               </TableRow>
             ))}
           </TableBody>

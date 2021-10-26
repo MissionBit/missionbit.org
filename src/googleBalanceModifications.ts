@@ -12,11 +12,17 @@ export interface BalanceModification {
   readonly created: number;
 }
 
+export interface IgnoredCharge {
+  readonly id: string;
+  readonly notes: string;
+}
+
 export interface BalanceModifications {
   readonly pollTime: number;
   readonly transactions: readonly BalanceModification[];
   readonly goalCents: number;
   readonly goalName: string;
+  readonly ignoredTransactions: readonly IgnoredCharge[];
 }
 
 function asArray(obj: unknown, prop: string): unknown[] {
@@ -74,56 +80,77 @@ function isEmptyObject(v: unknown): v is {} {
   return true;
 }
 
+async function rowDataRequest(
+  id: string,
+  args: readonly string[]
+): Promise<unknown[]> {
+  const doc = await spreadsheetApiRequest(id, args);
+  const rows: unknown[] = [];
+  for (const sheet of asArray(doc, "sheets")) {
+    for (const data of asArray(sheet, "data")) {
+      if (!isEmptyObject(data)) {
+        for (const rowData of asArray(data, "rowData")) {
+          if (!isEmptyObject(rowData)) {
+            rows.push(rowData);
+          }
+        }
+      }
+    }
+  }
+  return rows;
+}
+
 export async function getBalanceModifications(): Promise<BalanceModifications> {
   const pollTime = dayjs().unix();
   const transactions: BalanceModification[] = [];
   const id = SPREADSHEET_ID;
-  const doc = await spreadsheetApiRequest(id, [
+  const ignoredTransactions: IgnoredCharge[] = [];
+  for (const rowData of await rowDataRequest(id, [
+    "ranges=IgnoredTransactions!A2:B",
+    "fields=sheets.data.rowData(values(effectiveValue))",
+  ])) {
+    const values = asArray(rowData, "values").map(effectiveValue);
+    const [idV, notesV] = values;
+    if (idV?.stringValue) {
+      ignoredTransactions.push({
+        id: idV.stringValue,
+        notes: notesV?.stringValue ?? "",
+      });
+    }
+  }
+  for (const rowData of await rowDataRequest(id, [
     "ranges=Adjustments!A2:E",
     "fields=sheets.data.rowData(values(effectiveValue))",
-  ]);
-  for (const sheet of asArray(doc, "sheets")) {
-    for (const data of asArray(sheet, "data")) {
-      for (const rowData of asArray(data, "rowData")) {
-        const values = asArray(rowData, "values").map(effectiveValue);
-        const [nameV, amountV, includeV, notesV, timestampV] = values;
-        if (includeV?.boolValue && timestampV?.stringValue) {
-          transactions.push({
-            name: nameV?.stringValue ?? "",
-            amount: Math.floor(100 * (amountV?.numberValue ?? 0)),
-            notes: notesV?.stringValue ?? "",
-            created: Math.floor(
-              (Date.parse(timestampV?.stringValue) ?? Date.now()) / 1000
-            ),
-          });
-        }
-      }
+  ])) {
+    const values = asArray(rowData, "values").map(effectiveValue);
+    const [nameV, amountV, includeV, notesV, timestampV] = values;
+    if (includeV?.boolValue && timestampV?.stringValue) {
+      transactions.push({
+        name: nameV?.stringValue ?? "",
+        amount: Math.floor(100 * (amountV?.numberValue ?? 0)),
+        notes: notesV?.stringValue ?? "",
+        created: Math.floor(
+          (Date.parse(timestampV?.stringValue) ?? Date.now()) / 1000
+        ),
+      });
     }
   }
   let goalCents = 1000 * 100;
   let goalName = "Mission Bit";
-  const goalRes = await spreadsheetApiRequest(id, [
+  for (const rowData of await rowDataRequest(id, [
     "ranges=Instructions!A2:B",
     "fields=sheets.data.rowData(values(effectiveValue))",
-  ]);
-  for (const sheet of asArray(goalRes, "sheets")) {
-    for (const data of asArray(sheet, "data")) {
-      for (const rowData of asArray(data, "rowData")) {
-        if (isEmptyObject(rowData)) {
-          continue;
-        }
-        const values = asArray(rowData, "values").map(effectiveValue);
-        const [nameV, amountV] = values;
-        if (nameV?.stringValue === "Goal Amount" && amountV?.numberValue) {
-          goalCents = Math.floor(100 * amountV.numberValue);
-        }
-        if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
-          goalName = amountV.stringValue;
-        }
-      }
+  ])) {
+    const values = asArray(rowData, "values").map(effectiveValue);
+    const [nameV, amountV] = values;
+    if (nameV?.stringValue === "Goal Amount" && amountV?.numberValue) {
+      goalCents = Math.floor(100 * amountV.numberValue);
+    }
+    if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
+      goalName = amountV.stringValue;
     }
   }
-  return { pollTime, transactions, goalCents, goalName };
+  return { pollTime, transactions, goalCents, goalName, ignoredTransactions };
 }
 
 export default getBalanceModifications;
