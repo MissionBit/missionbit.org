@@ -63,6 +63,12 @@ export const Sponsors: readonly SponsorData[] = [
     level: "silver",
   },
   {
+    href: "https://www.tilia.io/",
+    title: "Tilia",
+    logo: svgLogo("tilia"),
+    level: "silver",
+  },
+  {
     href: null,
     title: "Beth Anderson & Kevin Pereau",
     logo: pngLogo("anderson"),
