@@ -23,6 +23,7 @@ export interface BalanceModifications {
   readonly goalCents: number;
   readonly goalName: string;
   readonly ignoredTransactions: readonly IgnoredCharge[];
+  readonly startTimestamp: number;
 }
 
 function asArray(obj: unknown, prop: string): unknown[] {
@@ -137,6 +138,8 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   }
   let goalCents = 1000 * 100;
   let goalName = "Mission Bit";
+  let startTimestamp =
+    Date.parse(dayjs().format("YYYY-MM-01T00:00:00Z")) / 1000;
   for (const rowData of await rowDataRequest(id, [
     "ranges=Instructions!A2:B",
     "fields=sheets.data.rowData(values(effectiveValue))",
@@ -149,8 +152,18 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
     if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
       goalName = amountV.stringValue;
     }
+    if (nameV?.stringValue === "Start Timestamp" && amountV?.stringValue) {
+      startTimestamp = Date.parse(amountV.stringValue) / 1000;
+    }
   }
-  return { pollTime, transactions, goalCents, goalName, ignoredTransactions };
+  return {
+    pollTime,
+    transactions,
+    goalCents,
+    goalName,
+    ignoredTransactions,
+    startTimestamp,
+  };
 }
 
 export default getBalanceModifications;

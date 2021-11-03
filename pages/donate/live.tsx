@@ -495,11 +495,11 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
-  const [layoutProps, batch, modifications] = await Promise.all([
+  const [layoutProps, modifications] = await Promise.all([
     getLayoutStaticProps(),
-    getBalanceTransactions(),
     getBalanceModifications(),
   ]);
+  const batch = await getBalanceTransactions(modifications.startTimestamp);
   return {
     props: {
       ...layoutProps,
