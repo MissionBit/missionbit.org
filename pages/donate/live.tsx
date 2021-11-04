@@ -415,7 +415,10 @@ const Goal: React.FC<{
       className={classes.goal}
     >
       <Image
-        src={require("public/images/missionbit-logo-horizontal.svg").default}
+        src={
+          require("public/images/missionbit-logo-horizontal-outline.svg")
+            .default
+        }
         alt="Mission Bit logo"
         className={classes.logo}
       />
