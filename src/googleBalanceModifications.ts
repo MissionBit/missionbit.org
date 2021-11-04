@@ -26,6 +26,23 @@ export interface BalanceModifications {
   readonly startTimestamp: number;
 }
 
+function asUnknown(obj: unknown, prop: string): unknown {
+  if (obj && typeof obj === "object") {
+    return (obj as { [k: string]: unknown })[prop];
+  }
+  throw new Error(`Expected ${prop}`);
+}
+
+function asString(obj: unknown, prop: string): string {
+  if (obj && typeof obj === "object") {
+    const x = (obj as { [k: string]: unknown })[prop];
+    if (typeof x === "string") {
+      return x;
+    }
+  }
+  throw new Error(`Expected string at ${prop}`);
+}
+
 function asArray(obj: unknown, prop: string): unknown[] {
   if (obj && typeof obj === "object") {
     const x = (obj as { [k: string]: unknown })[prop];
@@ -62,11 +79,10 @@ async function spreadsheetApiRequest(
       `key=${process.env.GOOGLE_API_KEY}`,
     ].join("&")}`
   );
-  const doc = await res.json();
   if (res.ok) {
-    return doc;
+    return await res.json();
   } else {
-    console.error(doc);
+    console.error(await res.text());
     throw new Error(`${res.status} ${res.statusText}`);
   }
 }
@@ -81,13 +97,14 @@ function isEmptyObject(v: unknown): v is {} {
   return true;
 }
 
-async function rowDataRequest(
-  id: string,
-  args: readonly string[]
-): Promise<unknown[]> {
-  const doc = await spreadsheetApiRequest(id, args);
-  const rows: unknown[] = [];
+function parseDocToSheetsAndRows(
+  doc: unknown
+): Partial<{ [sheet: string]: unknown[] }> {
+  const sheets: { [sheet: string]: unknown[] } = {};
   for (const sheet of asArray(doc, "sheets")) {
+    const title = asString(asUnknown(sheet, "properties"), "title");
+    const rows: unknown[] = [];
+    sheets[title] = rows;
     for (const data of asArray(sheet, "data")) {
       if (!isEmptyObject(data)) {
         for (const rowData of asArray(data, "rowData")) {
@@ -98,7 +115,7 @@ async function rowDataRequest(
       }
     }
   }
-  return rows;
+  return sheets;
 }
 
 export async function getBalanceModifications(): Promise<BalanceModifications> {
@@ -106,10 +123,15 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   const transactions: BalanceModification[] = [];
   const id = SPREADSHEET_ID;
   const ignoredTransactions: IgnoredCharge[] = [];
-  for (const rowData of await rowDataRequest(id, [
-    "ranges=IgnoredTransactions!A2:B",
-    "fields=sheets.data.rowData(values(effectiveValue))",
-  ])) {
+  const parsed = parseDocToSheetsAndRows(
+    await spreadsheetApiRequest(id, [
+      "ranges=IgnoredTransactions!A2:B",
+      "ranges=Adjustments!A2:E",
+      "ranges=Instructions!A2:B",
+      "fields=sheets(properties,data.rowData(values(effectiveValue)))",
+    ])
+  );
+  for (const rowData of asArray(parsed, "IgnoredTransactions")) {
     const values = asArray(rowData, "values").map(effectiveValue);
     const [idV, notesV] = values;
     if (idV?.stringValue) {
@@ -119,10 +141,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
       });
     }
   }
-  for (const rowData of await rowDataRequest(id, [
-    "ranges=Adjustments!A2:E",
-    "fields=sheets.data.rowData(values(effectiveValue))",
-  ])) {
+  for (const rowData of asArray(parsed, "Adjustments")) {
     const values = asArray(rowData, "values").map(effectiveValue);
     const [nameV, amountV, includeV, notesV, timestampV] = values;
     if (includeV?.boolValue && timestampV?.stringValue) {
@@ -140,10 +159,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   let goalName = "Mission Bit";
   let startTimestamp =
     Date.parse(dayjs().format("YYYY-MM-01T00:00:00Z")) / 1000;
-  for (const rowData of await rowDataRequest(id, [
-    "ranges=Instructions!A2:B",
-    "fields=sheets.data.rowData(values(effectiveValue))",
-  ])) {
+  for (const rowData of asArray(parsed, "Instructions")) {
     const values = asArray(rowData, "values").map(effectiveValue);
     const [nameV, amountV] = values;
     if (nameV?.stringValue === "Goal Amount" && amountV?.numberValue) {
