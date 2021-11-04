@@ -53,6 +53,8 @@ function dollars(cents: number) {
   return usdFormatter.format(Math.floor(0.01 * cents));
 }
 
+const VERTICAL_BREAK = "sm";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#c3a3cc",
@@ -63,6 +65,13 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateAreas: `
       "goal donors"
     `,
+    [theme.breakpoints.down(VERTICAL_BREAK)]: {
+      gridTemplateColumns: "1fr",
+      gridTemplateAreas: `
+        "goal"
+        "donors"
+      `,
+    },
   },
   donateBanner: {
     position: "absolute",
@@ -72,6 +81,22 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.9,
     padding: theme.spacing(4, 2),
     width: "100%",
+    ["@media (min-width: 600px) and (max-width: 1149.95px)"]: {
+      "& > h1": {
+        fontSize: "3em",
+      },
+    },
+    [theme.breakpoints.down(VERTICAL_BREAK)]: {
+      display: "flex",
+      position: "absolute",
+      bottom: "0",
+      padding: theme.spacing(2, 0),
+      alignItems: "center",
+      justifyContent: "center",
+      "& > h1": {
+        fontSize: "2em",
+      },
+    },
   },
   donateBannerText: {
     animation: `4s ${theme.transitions.easing.easeInOut} infinite $pulse`,
@@ -101,14 +126,25 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #dedede",
     borderRadius: "0.5rem",
   },
+  progressContainer: {
+    [theme.breakpoints.down(VERTICAL_BREAK)]: {
+      flexDirection: "column",
+    },
+  },
   progressText: {
     fontSize: theme.typography.h4.fontSize,
     flex: 1,
     marginRight: "1rem",
+    [theme.breakpoints.down(VERTICAL_BREAK)]: {
+      textAlign: "center",
+    },
   },
   donorCount: {
     textAlign: "right",
     fontSize: theme.typography.h4.fontSize,
+    [theme.breakpoints.down(VERTICAL_BREAK)]: {
+      textAlign: "center",
+    },
   },
   progress: {
     width: "100%",
@@ -383,7 +419,7 @@ const Goal: React.FC<{
         alt="Mission Bit logo"
         className={classes.logo}
       />
-      <Box display="flex" width="100%">
+      <Box display="flex" width="100%" className={classes.progressContainer}>
         <Typography className={classes.progressText}>
           <strong>{dollars(totalCents)}</strong> of {dollars(goalCents)}
         </Typography>
@@ -484,7 +520,7 @@ const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => {
         <LiveDashboard
           batch={batch}
           modifications={modifications}
-          simulate={false}
+          simulate={process.env.NODE_ENV === "development"}
         />
       </Layout>
     );
