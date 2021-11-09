@@ -887,8 +887,8 @@ const CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "September 13th",
-    endDate: "December 11th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
   TH: {
     meets: (
@@ -899,8 +899,8 @@ const CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "September 13th",
-    endDate: "December 11th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
   MWF: {
     meets: (
@@ -911,8 +911,8 @@ const CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "June 14th",
-    endDate: "July 24th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
   TBD: {
     meets: (
