@@ -287,7 +287,7 @@ export const Courses = courseRecord({
     ),
   },
   web_class: {
-    title: "Intro to Web Design",
+    title: "Intro to Web Design (In-person class!)",
     skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
     image: web3Image,
     description: (
@@ -1005,11 +1005,11 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   FallDatesExtended
   // ),
   // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
+  classOffering(Courses.web_class, Campuses.tech_lab, "MW", "tfa_1"),
   classOffering(Courses.javascript_class, Campuses.online, "MW", "tfa_1"),
   classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
   classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
   // classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
-  classOffering(Courses.web_class, Campuses.tech_lab, "MW", "tfa_1"),
   classOffering(Courses.vr_class_intermediate, Campuses.online, "MW", "tfa_1"),
 ];
 
