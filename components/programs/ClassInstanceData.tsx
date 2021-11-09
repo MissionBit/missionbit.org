@@ -899,7 +899,7 @@ const CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "February 7th",
+    startDate: "February 8th",
     endDate: "April 30th",
   },
   MWF: {
