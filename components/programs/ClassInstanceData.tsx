@@ -883,7 +883,7 @@ const CLASS_SCHEDULE = {
       <>
         Monday, Wednesday{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 7:00pm PST
+          4:30pm - 6:30pm PST
         </Box>
       </>
     ),
@@ -895,7 +895,7 @@ const CLASS_SCHEDULE = {
       <>
         Tuesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 7:00pm PST
+          4:30pm - 6:30pm PST
         </Box>
       </>
     ),
