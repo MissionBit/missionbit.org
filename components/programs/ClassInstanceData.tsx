@@ -1008,7 +1008,7 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   classOffering(Courses.javascript_class, Campuses.online, "MW", "tfa_1"),
   classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
   classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
-  classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
+  // classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
   classOffering(Courses.web_class, Campuses.tech_lab, "MW", "tfa_1"),
   classOffering(Courses.vr_class_intermediate, Campuses.online, "MW", "tfa_1"),
 ];
