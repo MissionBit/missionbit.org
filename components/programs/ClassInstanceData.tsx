@@ -839,7 +839,7 @@ export const Campuses = campusRecord({
     mapUrl: "https://goo.gl/maps/FdP8jWWGTktEaqmy9",
   },
   tech_lab: {
-    name: "Mission Bit Tech Lab",
+    name: "Mission Bit Fillmore Tech Lab",
     city: City.SanFrancisco,
     mapUrl: "https://goo.gl/maps/yWAYxUExKVbEwgJ7A",
   },
