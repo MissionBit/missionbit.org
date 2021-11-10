@@ -304,10 +304,10 @@ const CourseDescription: React.FC<{
               disabled={campus.city === City.Online && disabled}
             >
               <PinIcon className={classes.pin} />
+              <Typography className={classes.campusName}>
+                {campus.name}
+              </Typography>
             </Button>{" "}
-            <Typography className={classes.campusName}>
-              {campus.name}
-            </Typography>
           </Box>
           <ul className={classes.skills}>
             {course.skills.map((skill, i) => (
