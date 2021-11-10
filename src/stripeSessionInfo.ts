@@ -72,6 +72,16 @@ export interface StripeSessionInfo {
   subscriptionId: string | null;
 }
 
+function metadataFromChargeOrSession(
+  charge: Stripe.Charge | Stripe.Checkout.Session
+): Partial<StripeSessionInfo> {
+  const name =
+    typeof charge.payment_intent === "object"
+      ? charge.payment_intent?.metadata?.name
+      : undefined;
+  return name ? { name } : {};
+}
+
 export function stripeSessionInfoFromCharge(
   charge: Stripe.Charge,
   frequency: Frequency = "one-time",
@@ -91,6 +101,7 @@ export function stripeSessionInfoFromCharge(
     payment_method: formatPaymentMethodDetailsSource(payment_method_details),
     created,
     subscriptionId,
+    ...metadataFromChargeOrSession(charge),
   };
 }
 
@@ -117,7 +128,10 @@ export function stripeSessionInfo(
           `Expected charge to be present ${JSON.stringify(session)}`
         );
       }
-      return stripeSessionInfoFromCharge(charge, "monthly", subscription.id);
+      return {
+        ...stripeSessionInfoFromCharge(charge, "monthly", subscription.id),
+        ...metadataFromChargeOrSession(session),
+      };
     }
     case "payment": {
       const { payment_intent } = session;
@@ -132,7 +146,10 @@ export function stripeSessionInfo(
           `Expected charge to be present ${JSON.stringify(session)}`
         );
       }
-      return stripeSessionInfoFromCharge(charge);
+      return {
+        ...stripeSessionInfoFromCharge(charge),
+        ...metadataFromChargeOrSession(session),
+      };
     }
     default: {
       throw new Error(`Unsupported session type ${JSON.stringify(session)}`);
