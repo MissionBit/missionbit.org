@@ -287,7 +287,7 @@ export const Courses = courseRecord({
     ),
   },
   web_class: {
-    title: "Intro to Web Design",
+    title: "Intro to Web Design (In-person class!)",
     skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
     image: web3Image,
     description: (
@@ -386,21 +386,24 @@ export const Courses = courseRecord({
       </>
     ),
   },
-  vr_class: {
-    title: "Intermediate VR Game Design with Unity and Oculus",
+  vr_class_intermediate: {
+    title: "Intermediate Unity with VR Game Design and Oculus",
     skills: ["Unity", "C#", "3D Game Design", "Virtual Reality"],
     image: vrImage,
     description: (
       <>
-        For the first time ever, you’ll be able to take a step into your very
-        own game. Welcome to our Game Design Academy! This class is for students
-        who have completed the Intro to Unity Game Design course in Summer or
-        Fall 2020. Create an out of this world project that you can see, hear,
-        and lose yourself in. In this class you will further develop your Unity
-        skills, strengthen your C# skills, and think in 3D to create virtual
-        reality experiences. Note: This class is part of our new Game Design
-        Academy and will require that you make a commitment to further your
-        skills this summer in our 6-week VR Capstone.
+        Welcome to our Game Design Academy! Create an out of this world project
+        that you can see, hear, and lose yourself in. In this class you will
+        further develop your Unity skills, strengthen your C# skills, and think
+        in 3D to create virtual reality experiences. Note: This class is part of
+        our Game Design Academy and will require that you make a commitment
+        further your skills this summer in our 6-week VR Capstone.
+        <br></br>
+        <br></br>
+        <strong>
+          This class is for students who have completed the Intro to Unity Game
+          Design course in Summer or Fall 2021.
+        </strong>
       </>
     ),
   },
@@ -830,12 +833,22 @@ export const Campuses = campusRecord({
     city: City.Oakland,
     mapUrl: "https://goo.gl/maps/sqaDkSqmYtfnkQ4u6",
   },
+  mission_hs: {
+    name: "Mission High School",
+    city: City.SanFrancisco,
+    mapUrl: "https://goo.gl/maps/FdP8jWWGTktEaqmy9",
+  },
+  tech_lab: {
+    name: "Mission Bit Fillmore Tech Lab",
+    city: City.SanFrancisco,
+    mapUrl: "https://goo.gl/maps/yWAYxUExKVbEwgJ7A",
+  },
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2021-08-25T20:00:00-08:00"),
-  interview: Date.parse("2021-09-01T12:00:00-08:00"),
-  demoDay: Date.parse("2021-12-11T13:00:00-08:00"),
+  registrationDeadline: Date.parse("2022-01-16T20:00:00-08:00"),
+  interview: Date.parse("2022-01-25T12:00:00-08:00"),
+  demoDay: Date.parse("2022-04-30T13:00:00-08:00"),
 };
 
 export const FallDates: ClassDates = {
@@ -870,24 +883,24 @@ const CLASS_SCHEDULE = {
       <>
         Monday, Wednesday{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 7:00pm PST
+          4:30pm - 6:30pm PST
         </Box>
       </>
     ),
-    startDate: "September 13th",
-    endDate: "December 11th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
   TH: {
     meets: (
       <>
         Tuesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 7:00pm PST
+          4:30pm - 6:30pm PST
         </Box>
       </>
     ),
-    startDate: "September 13th",
-    endDate: "December 11th",
+    startDate: "February 8th",
+    endDate: "April 30th",
   },
   MWF: {
     meets: (
@@ -898,20 +911,20 @@ const CLASS_SCHEDULE = {
         </Box>
       </>
     ),
-    startDate: "June 14th",
-    endDate: "July 24th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
   TBD: {
     meets: (
       <>
         TBD!{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 7:00pm PST
+          4:30pm - 6:30pm PST
         </Box>
       </>
     ),
-    startDate: "September 13th",
-    endDate: "December 11th",
+    startDate: "February 7th",
+    endDate: "April 30th",
   },
 } as const;
 
@@ -920,7 +933,7 @@ function classOffering(
   campus: Campus,
   schedule: "MW" | "TH" | "MWF" | "TBD",
   formAssemblyId: string,
-  classDates: ClassDates = CourseDatesExtended
+  classDates: ClassDates = CourseDates
 ): ClassInstance {
   return {
     type: "class",
@@ -992,15 +1005,12 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   FallDatesExtended
   // ),
   // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
-  classOffering(Courses.python_class, Campuses.online, "MW", "tfa_1"),
-  classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
-  classOffering(Courses.game_class, Campuses.online, "MW", "tfa_1"),
-  classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
-  classOffering(Courses.web_class, Campuses.online, "MW", "tfa_1"),
-  classOffering(Courses.web_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.web_class, Campuses.tech_lab, "MW", "tfa_1"),
   classOffering(Courses.javascript_class, Campuses.online, "MW", "tfa_1"),
-  classOffering(Courses.javascript_class, Campuses.online, "TH", "tfa_1"),
-  classOffering(Courses.vr_beginner_class, Campuses.online, "TBD", "tfa_1"),
+  classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
+  // classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
+  classOffering(Courses.vr_class_intermediate, Campuses.online, "MW", "tfa_1"),
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
