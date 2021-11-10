@@ -43,7 +43,11 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
     require("src/getStripe") as typeof import("src/getStripe")
   ).getStripe();
   const session = await stripe.checkout.sessions.retrieve(session_id, {
-    expand: ["payment_intent", "subscription.latest_invoice.charge"],
+    expand: [
+      "customer",
+      "payment_intent",
+      "subscription.latest_invoice.charge",
+    ],
   });
   return {
     props: {
