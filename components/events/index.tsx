@@ -118,14 +118,14 @@ const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: Date.parse("2021-07-24T11:00:00-07:00"),
-    href: "https://www.eventbrite.com/e/161778875973",
+    date: Date.parse("2021-12-11T11:30:00-07:00"),
+    href: "https://www.eventbrite.com/e/mission-bit-presents-fall-2021-demo-day-tickets-211956145537",
     linkTitle: "Register",
-    title: "Summer Demo Day",
+    title: "Fall Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Summer
-        2021 Demo Day, a culminating showcase where our students display their
+        Join us in celebrating our incredibly talented students at our Fall 2021
+        Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
     ),
