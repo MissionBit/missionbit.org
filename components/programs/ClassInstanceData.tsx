@@ -40,6 +40,8 @@ export const CourseSkills = [
   "Meditation",
   "College",
   "Mentorship",
+  "SQL",
+  "Sports Analytics",
 ] as const;
 export type CourseSkill = typeof CourseSkills[number];
 
@@ -808,6 +810,18 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  sports_workshop: {
+    title: "Sports Analytics Workshop",
+    skills: ["Sports Analytics", "SQL"],
+    image: ts,
+    description: (
+      <>
+        In this hands-on workshop, we'll explore how we can use computer science
+        in sports. Using SQL, a programming language used to manage data, we'll
+        look at some sports data and learn how we can make conclusions.
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -1067,18 +1081,33 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.p5js_workshop,
-    dateString: "2021-10-19T17:00:00-07:00",
+    course: Courses.design_business_workshop,
+    dateString: "2021-12-13T17:00:00-08:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4936756",
-    who: "8th-12th graders",
+    signupUrl: "https://www.tfaforms.com/4946434",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.sports_workshop,
+    dateString: "2021-12-14T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4946434",
+    who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
     course: Courses.intro_javascript,
-    dateString: "2021-10-28T17:00:00-07:00",
+    dateString: "2021-12-15T15:00:00-08:00",
     minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4936766",
-    who: "8th-12th graders",
+    signupUrl: "https://www.tfaforms.com/4946434",
+    who: "7th - 12th graders",
+  }),
+  workshop({
+    course: Courses.beginner_web_workshop,
+    dateString: "2021-12-16T15:00:00-08:00",
+    minutes: 90,
+    signupUrl: "https://www.tfaforms.com/4946434",
+    who: "7th - 12th graders",
   }),
 ];
 
