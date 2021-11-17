@@ -1089,7 +1089,7 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   }),
   workshop({
     course: Courses.sports_workshop,
-    dateString: "2021-12-14T15:00:00-08:00",
+    dateString: "2021-12-14T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",
@@ -1097,14 +1097,14 @@ export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   }),
   workshop({
     course: Courses.intro_javascript,
-    dateString: "2021-12-15T15:00:00-08:00",
+    dateString: "2021-12-15T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.beginner_web_workshop,
-    dateString: "2021-12-16T15:00:00-08:00",
+    dateString: "2021-12-16T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",
@@ -1120,8 +1120,8 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
     who: "7th - 12th graders",
   }),
   workshop({
-    course: Courses.web_creation_wix,
-    dateString: "2021-12-14T15:00:00-08:00",
+    course: Courses.sports_workshop,
+    dateString: "2021-12-14T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",
@@ -1129,14 +1129,14 @@ export const WeekOfCodeClassInstances: ClassOrWorkshopInstance[] = [
   }),
   workshop({
     course: Courses.intro_javascript,
-    dateString: "2021-12-15T15:00:00-08:00",
+    dateString: "2021-12-15T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",
   }),
   workshop({
     course: Courses.beginner_web_workshop,
-    dateString: "2021-12-16T15:00:00-08:00",
+    dateString: "2021-12-16T17:00:00-08:00",
     minutes: 90,
     signupUrl: "https://www.tfaforms.com/4946434",
     who: "7th - 12th graders",

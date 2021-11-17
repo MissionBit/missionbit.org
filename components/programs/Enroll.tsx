@@ -93,7 +93,7 @@ function sectionIdTitle(id: SectionId): string {
     case "workshops":
       return "Workshops";
     case "week-of-code":
-      return "Mission Bit Week of Code, December 14 - 18";
+      return "Mission Bit Week of Code, December 13 - 16";
     case "courses":
       return "Classes";
     case "career-prep":
@@ -116,8 +116,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
       return (
         <Typography className={classes.copy}>
           Join us for our Week of Code! Take all workshops during this week and
-          be entered in a raffle for a chance to win a pair of Beats Flex
-          earphones.
+          be entered in a raffle for a chance to win a Nintendo Switch Lite!
         </Typography>
       );
     case "career-prep":
