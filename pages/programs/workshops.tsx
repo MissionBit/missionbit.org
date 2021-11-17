@@ -16,7 +16,7 @@ const Page: NextPage<LayoutStaticProps> = (props) => (
     description="Mission Bit offers a number of free coding courses for area high schoolers including online workshops, summer bootcamps, and programming classes."
   >
     <LandingWorkshops />
-    <Programs sections={["workshops"]} />
+    <Programs sections={["week-of-code"]} />
     <FlourishSeparator />
     <FaqWorkshops />
     <CommunityWorkshops />
