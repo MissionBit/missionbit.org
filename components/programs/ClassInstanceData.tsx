@@ -816,9 +816,10 @@ export const Courses = courseRecord({
     image: ts,
     description: (
       <>
-        In this hands-on workshop, we'll explore how we can use computer science
-        in sports. Using SQL, a programming language used to manage data, we'll
-        look at some sports data and learn how we can make conclusions.
+        In this hands-on workshop, we’ll explore how we can use computer science
+        to make important decisions in sports. Using SQL, a programming language
+        used to manage data, we’ll look at some sports data and understand why
+        3-pointers are the best shot!
       </>
     ),
   },
