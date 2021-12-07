@@ -29,11 +29,7 @@ export async function getBalanceTransactions(
   const transactions: BalanceTransaction[] = [];
   for await (const txn of stripe.balanceTransactions.list({
     created: { gt: created },
-    expand: [
-      "data.source",
-      "data.source.customer",
-      "data.source.payment_method",
-    ],
+    expand: ["data.source"],
   })) {
     created = Math.max(created, txn.created);
     if (
