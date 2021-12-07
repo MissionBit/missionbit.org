@@ -41,7 +41,7 @@
     "@sendgrid/mail": "^7.2.5",
     "@sentry/browser": "^6.3.5",
     "@stripe/react-stripe-js": "^1.6.0",
-    "@stripe/stripe-js": "^1.21.1",
+    "@stripe/stripe-js": "^1.21.2",
     "@types/micro": "^7.3.3",
     "@types/micro-cors": "^0.1.1",
     "clsx": "^1.1.1",
@@ -60,7 +60,7 @@
     "responsive-loader": "^2.1.1",
     "sitemap": "^7.0.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "stripe": "^8.121.0",
+    "stripe": "^8.191.0",
     "ts-debounce": "^3.0.0",
     "use-elapsed-time": "^3.0.2",
     "webp-loader": "^0.6.0"
