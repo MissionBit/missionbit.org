@@ -91,12 +91,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Landing: React.FC<{}> = () => {
+const Landing: React.FC<{ period: string }> = ({ period }) => {
   const classes = useStyles();
   return (
     <Container id="landing" component="section" className={classes.root}>
       <Typography variant="h2" component="h1" className={classes.title}>
-        Spring Demo Day Projects
+        {period} Demo Day Projects
       </Typography>
       <Box className={classes.buttons}>
         <IndigoButton
