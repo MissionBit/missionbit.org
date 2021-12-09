@@ -1,43 +1,9 @@
-import { NextPage } from "next";
 import * as React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Layout, getStaticProps, LayoutStaticProps } from "components/Layout";
-import oneLine from "src/oneLine";
-import Fall20PastProjectsLanding from "components/demoday/past/Fall20PastProjectsLanding";
-import Fall20StudentProjects from "components/demoday/past/Fall20StudentProjects";
+import StudentProjects from "components/demoday/past/Fall20StudentProjects";
+import { makePastProjectsPage } from "components/demoday/past/PastProjectsPage";
 
-const useStyles = makeStyles({
-  header: {
-    // display: "none"
-  },
-  footer: {
-    "& > *:not(#get-updates)": {
-      // display: "none",
-    },
-  },
+export { getStaticProps } from "components/Layout";
+export default makePastProjectsPage({
+  period: "Fall 2020",
+  projects: <StudentProjects />,
 });
-
-const title = "Fall 2020 Demo Day - Mission Bit";
-const description = oneLine`
-Fall 2020 Demo Day is a culminating showcase where our students display
-their amazing projects to our community of supporters!`;
-
-const Page: NextPage<LayoutStaticProps> = (props) => {
-  const classes = useStyles();
-
-  return (
-    <Layout
-      {...props}
-      headerClassName={classes.header}
-      footerClassName={classes.footer}
-      title={title}
-      description={description}
-    >
-      <Fall20PastProjectsLanding />
-      <Fall20StudentProjects />
-    </Layout>
-  );
-};
-
-export { getStaticProps };
-export default Page;

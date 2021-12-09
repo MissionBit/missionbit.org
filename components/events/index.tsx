@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FeaturedEvents: FeaturedEvent[] = [
+export const FeaturedEvents: FeaturedEvent[] = [
   {
     id: "alumni",
     date: Date.parse("2021-10-15T17:00:00-07:00"),
