@@ -60,8 +60,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         description: (
           <>Think IRL studio space is too expensive? Here's your answer!</>
         ),
-        href: "-",
-        ...image("placeholder"),
+        href: "https://youtu.be/gJchxf_CvIA",
+        ...image("art"),
       },
     ],
   },
