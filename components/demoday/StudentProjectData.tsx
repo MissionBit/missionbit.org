@@ -18,7 +18,7 @@ export interface ProjectProps {
 function image(postfix: string): Pick<ProjectProps, "image"> {
   return {
     image:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-projects/${postfix}.jpg`)
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-fall-projects/${postfix}.jpg`)
         .default,
   };
 }
@@ -38,7 +38,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://replit.com/@joannechen3/adventure-game?v=1",
-        ...image("placeholder"),
+        ...image("adventure"),
       },
       {
         title: '"Can" You Pick It Up?',
@@ -51,7 +51,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://han-ngo16.github.io/Can-You-Pick-It-Up/",
-        ...image("placeholder"),
+        ...image("pick"),
       },
       {
         title: "Virtual Illustration Studio",
@@ -80,7 +80,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://replit.com/@AbelG4/MissionBit-1?v=1",
-        ...image("placeholder"),
+        ...image("guesser"),
       },
       {
         title: "Movingjump",
@@ -101,7 +101,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         course: "Intro to JavaScript with Wilson",
         description: <>Interactive Piano and Drum Kit</>,
         href: "https://kevin-joseph-drumpiano-kit-project.kevincao10.repl.co/",
-        ...image("placeholder"),
+        ...image("piano"),
       },
     ],
   },
@@ -120,7 +120,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://replit.com/@ChloeWu5/MissionBit?v=1",
-        ...image("placeholder"),
+        ...image("hangman"),
       },
       {
         title: "A vs Z",
@@ -130,7 +130,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           <>Kill the zombies and collect items to get to the boss.</>
         ),
         href: "https://play.unity.com/mg/other/a-vs-z-n2",
-        ...image("placeholder"),
+        ...image("a"),
       },
       {
         title: "Image Team",
@@ -143,7 +143,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://image-final.kathleenzz.repl.co/",
-        ...image("placeholder"),
+        ...image("covid"),
       },
     ],
   },
@@ -162,7 +162,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://playlist-website.glitch.me/",
-        ...image("placeholder"),
+        ...image("music"),
       },
       {
         title: "",
@@ -185,7 +185,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           <>Advanced clock representing new year and covid impacts in 2021</>
         ),
         href: "https://clock-team.980378285haozho.repl.co/",
-        ...image("placeholder"),
+        ...image("clock"),
       },
     ],
   },
@@ -203,7 +203,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://mercury-ringed-citron.glitch.me/",
-        ...image("placeholder"),
+        ...image("sfbeats"),
       },
       {
         title: "Spikey",
@@ -224,7 +224,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://htmlcssjs-chartjs-walkthrough-2.ysabelbianca.repl.co/",
-        ...image("placeholder"),
+        ...image("music2"),
       },
     ],
   },
@@ -243,7 +243,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://ocean-guards.glitch.me/",
-        ...image("placeholder"),
+        ...image("ocean"),
       },
       {
         title: "Andy Candy",
@@ -255,8 +255,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             ever be assembled IRL!
           </>
         ),
-        href: "https://liurachel139.github.io/ice-cream-4-all/",
-        ...image("placeholder"),
+        href: "https://youtu.be/xGAIvOMPRSg",
+        ...image("andy"),
       },
     ],
   },
@@ -281,8 +281,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         students: ["Jordan Lewis"],
         course: "Intro to VR with Scott",
         description: <>Escape the trap by rising above it!</>,
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/KVefRcBcZt0",
+        ...image("soul"),
       },
     ],
   },
@@ -299,8 +299,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             against another gladiator
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/QH08mA0MfHY",
+        ...image("gladiator"),
       },
       {
         title: "Gunslinger",
