@@ -206,25 +206,25 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         ...image("sfbeats"),
       },
       {
-        title: "Spikey",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Johny Cornejo"],
-        description: <>Avoid obstacles and collect stuff!</>,
-        href: "-",
+        title: "Gunslinger",
+        course: "Intro to VR with Scott",
+        students: ["Dietrich Whitley"],
+        description: <>A Divine Chaos of Martial Machinery!</>,
+        href: "",
         ...image("placeholder"),
       },
       {
-        title: "Data Team",
-        course: "Intro to JavaScript with Wilson",
-        students: ["Ysabel Saavedra"],
+        title: "Gladiator Strikedown",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Connie Huang"],
         description: (
           <>
-            A website to inform others on popular Music genres and streaming
-            platforms.
+            3D top-down combat game where you face off in a duel to the death
+            against another gladiator
           </>
         ),
-        href: "https://htmlcssjs-chartjs-walkthrough-2.ysabelbianca.repl.co/",
-        ...image("music2"),
+        href: "https://youtu.be/QH08mA0MfHY",
+        ...image("gladiator"),
       },
     ],
   },
@@ -258,6 +258,14 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         href: "https://youtu.be/xGAIvOMPRSg",
         ...image("andy"),
       },
+      {
+        title: "Spikey",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Johny Cornejo"],
+        description: <>Avoid obstacles and collect stuff!</>,
+        href: "-",
+        ...image("placeholder"),
+      },
     ],
   },
   {
@@ -284,31 +292,18 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
         href: "https://youtu.be/KVefRcBcZt0",
         ...image("soul"),
       },
-    ],
-  },
-  {
-    room: "Breakout Room 8",
-    projects: [
       {
-        title: "Gladiator Strikedown",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Connie Huang"],
+        title: "Data Team",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Ysabel Saavedra"],
         description: (
           <>
-            3D top-down combat game where you face off in a duel to the death
-            against another gladiator
+            A website to inform others on popular Music genres and streaming
+            platforms.
           </>
         ),
-        href: "https://youtu.be/QH08mA0MfHY",
-        ...image("gladiator"),
-      },
-      {
-        title: "Gunslinger",
-        course: "Intro to VR with Scott",
-        students: ["Dietrich Whitley"],
-        description: <>A Divine Chaos of Martial Machinery!</>,
-        href: "",
-        ...image("placeholder"),
+        href: "https://htmlcssjs-chartjs-walkthrough-2.ysabelbianca.repl.co/",
+        ...image("music2"),
       },
     ],
   },
