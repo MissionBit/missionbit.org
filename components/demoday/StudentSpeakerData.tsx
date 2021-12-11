@@ -32,7 +32,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.javascript_class,
     projects: [
       {
-        title: "Climate Change",
+        title: "Image Team",
         students: [
           { name: "Cindy Zhou", ...image("cindy") },
           { name: "Kathleen Zapata", ...image("kathleen") },

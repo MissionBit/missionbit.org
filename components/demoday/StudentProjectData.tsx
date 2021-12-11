@@ -28,13 +28,14 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 1",
     projects: [
       {
-        title: "Luigi's Adventure",
+        title: "Princess Peach’s Adventure",
         students: ["Malcolm Angst, Joanne Chen, Pedro Navarrete Gonzalez"],
         course: "Intro to Python with Angela",
         description: (
           <>
-            Mario has kidnapped Princess Peach and it is up to you, Luigi, to
-            save her.
+            Mario has kidnapped your best friend Bowser, and it is up to you,
+            Princess Peach, to save him. Currently, Mario has Bowser trapped in
+            a castle.
           </>
         ),
         href: "https://replit.com/@joannechen3/adventure-game?v=1",
@@ -79,7 +80,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             guessed and also set a cap on the number of guesses allowed
           </>
         ),
-        href: "https://replit.com/@AbelG4/MissionBit-1?v=1",
+        href: "https://replit.com/@AbelG4/MissionBit#main.py",
         ...image("guesser"),
       },
       {
