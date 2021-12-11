@@ -97,7 +97,7 @@ const Landing: React.FC<{}> = () => {
   return (
     <Container id="landing" component="section" className={classes.root}>
       <Typography variant="h2" component="h1" className={classes.title}>
-        Summer 2021 Demo Day
+        Fall 2021 Demo Day
       </Typography>
       <Box className={classes.buttons}>
         <IndigoButton

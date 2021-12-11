@@ -28,41 +28,40 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 1",
     projects: [
       {
-        title: "Participation is Mandatory",
-        students: ["Blue Geisinger"],
-        course: "Intro to Unity Game Design with Daniel",
-        description: <>A puzzle game without puzzles.</>,
-        href: "http://bluubonic.itch.io/participation-is-mandatory-demo-day-2021",
-        ...image("puzzle"),
-      },
-      {
-        title: "Bub's World",
-        students: ["Kira Allen, Victoria Vella, Carolina Hernandez"],
-        course: "Intro to Unity with Joe",
+        title: "Luigi's Adventure",
+        students: ["Malcolm Angst, Joanne Chen, Pedro Navarrete Gonzalez"],
+        course: "Intro to Python with Angela",
         description: (
           <>
-            Bub's World is a first person shooter zombie game from the
-            perspective of the zombie.
+            Mario has kidnapped Princess Peach and it is up to you, Luigi, to
+            save her.
           </>
         ),
-        href: "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
-        ...image("bub"),
+        href: "https://replit.com/@joannechen3/adventure-game?v=1",
+        ...image("placeholder"),
       },
       {
-        title: "Bunny Python",
-        students: ["Emily Yan, Dina Wu"],
-        course: "Intro to Python with Ai",
-        description: <>Python review game</>,
-        href: "https://replit.com/@Emilyyaan12/Bunny-Python-Game#main.py",
-        ...image("bunny"),
+        title: '"Can" You Pick It Up?',
+        students: ["Han Ngo"],
+        course: "Intro to Unity with Ranjan",
+        description: (
+          <>
+            Game about picking up as much trash as you can in 30 seconds + Fun
+            Facts at the end
+          </>
+        ),
+        href: "https://han-ngo16.github.io/Can-You-Pick-It-Up/",
+        ...image("placeholder"),
       },
       {
-        title: "Cost of Living SF",
-        students: ["Fabian Mantilla, Rafael Perez, Zeus Flores"],
-        course: "Intro to JavaScript with Wilson",
-        description: <>PVisualization of SF rent prices.</>,
-        href: "https://js-final-project.zeusflores85.repl.co/",
-        ...image("rent"),
+        title: "Virtual Illustration Studio",
+        students: ["Ismael Peralta"],
+        course: "Intro to VR with Scott",
+        description: (
+          <>Think IRL studio space is too expensive? Here's your answer!</>
+        ),
+        href: "-",
+        ...image("placeholder"),
       },
     ],
   },
@@ -70,48 +69,39 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 2",
     projects: [
       {
-        title: "SQUEAKYTOWN HERO",
-        students: ["Claudia Reyes"],
-        course: "Intro to Unity Game Design with Daniel",
+        title: "Guess the Word",
+        students: ["Yuli ZhangHung, Afia Shaikh, Abel Gutierrez"],
+        course: "Intro to Python with Angela",
         description: (
           <>
-            SQUEAKYTOWN HERO is all about reducing waste! It shows how small
-            things like collecting trash from the streets is a small solution to
-            big problems that affect the environment.
+            This game focuses on the user having to guess the randomly generated
+            word. You can create a list from which the word would have to be
+            guessed and also set a cap on the number of guesses allowed
           </>
         ),
-        href: "https://clreyes1.github.io/STownHero1/",
-        ...image("squeaky"),
+        href: "https://replit.com/@AbelG4/MissionBit-1?v=1",
+        ...image("placeholder"),
       },
       {
-        title: "Animal Run",
-        students: ["Nathaniel Mejia Yoc, Jeremiah Riley, Leslie Rodriguez"],
-        course: "Intro to Unity Game Design with Joe",
+        title: "Movingjump",
+        students: ["Emmanuel Odenyi"],
+        course: "Intro to Unity Game Design with Ranjan",
         description: (
           <>
-            Our game is about saving animals and showing young kids how
-            important it is to save the world with animals and learning how to
-            take good care of them and showing them love and kindness.
+            2D endless sidescroller where you dodge a never-ending stream of
+            deadly blocks
           </>
         ),
-        href: "https://leslierodri.github.io/Animal-Run/Animal%20Run/index.html",
-        ...image("animal"),
+        href: "",
+        ...image("placeholder"),
       },
       {
-        title: "Treasure Adventure",
-        students: ["Sammy Rodriguez, Malcolm Angst"],
-        course: "Intro to Python with Ai",
-        description: <>Text based adventure. Click the green play button!</>,
-        href: "https://replit.com/@Sammy538/TreasureAdventureGame#main.py",
-        ...image("text"),
-      },
-      {
-        title: "Tiger Feeding",
-        students: ["Kevin Jung"],
-        course: "Intermediate VR with Cody",
-        description: <>Kevin Jung</>,
-        href: "https://youtu.be/0n9syATNDqc",
-        ...image("tiger"),
+        title: "Drum Team",
+        students: ["Kevin Cao"],
+        course: "Intro to JavaScript with Wilson",
+        description: <>Interactive Piano and Drum Kit</>,
+        href: "https://kevin-joseph-drumpiano-kit-project.kevincao10.repl.co/",
+        ...image("placeholder"),
       },
     ],
   },
@@ -119,47 +109,41 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 3",
     projects: [
       {
-        title: "Xscape",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Dejohn Thompson"],
+        title: "Hangman",
+        course: "Intro to Python with Angela",
+        students: ["Qinghe Mai, Chloe Wu, Ayannah Pruitt"],
         description: (
           <>
-            Xscape is a game which tests your mind and reaction times by tasking
-            you to pick up certain objects to escape from a scary room and move
-            onto the next level.
+            The object is for one player to guess the letters of an unknown word
+            before the player who knows the word creates a stick figure of a
+            hanged man by drawing one line for each incorrect guess.
           </>
         ),
-        href: "",
+        href: "https://replit.com/@ChloeWu5/MissionBit?v=1",
         ...image("placeholder"),
       },
       {
-        title: "Zoombie Shootout",
-        course: "Intro to Unity Game Design with Joe",
-        students: ["Jeffrey Andrade, Jordan Lewis, Yousuf Syed"],
+        title: "A vs Z",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Praise Odenyi"],
+        description: (
+          <>Kill the zombies and collect items to get to the boss.</>
+        ),
+        href: "https://play.unity.com/mg/other/a-vs-z-n2",
+        ...image("placeholder"),
+      },
+      {
+        title: "Image Team",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Cindy Zhou, Kathleen Zapata"],
         description: (
           <>
-            A futuristic first person shooter in space where you fight for your
-            survival on alien planets.
+            A website to help spread awareness about the increased cases of
+            COVID-19 in San Francisco highschools.
           </>
         ),
-        href: "https://jeffrey938.github.io/demoday/ZombieShootout2.0/index.html",
-        ...image("space"),
-      },
-      {
-        title: "Optimized Advice for Everyone",
-        course: "Intro to Python with Ai",
-        students: ["Kevin Wu, Walter Menjivar"],
-        description: <>Healthcare advisor</>,
-        href: "https://replit.com/@WalterMenjivar/Final-projet-Healthcare-advice",
-        ...image("healthcare"),
-      },
-      {
-        title: "Phuzzle VR",
-        course: "Intermediate VR with Cody",
-        students: ["Sam Dunn"],
-        description: <>Physics based puzzle game</>,
-        href: "https://youtu.be/Bs3SvSoVSzo",
-        ...image("phuzzle"),
+        href: "https://image-final.kathleenzz.repl.co/",
+        ...image("placeholder"),
       },
     ],
   },
@@ -167,39 +151,41 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 4",
     projects: [
       {
-        title: "Night Crawler",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Drew Mejia"],
+        title: "Playlists",
+        course: "Intro to Web Design with Georgina",
+        students: ["Angela So & Maya Murakami"],
         description: (
           <>
-            In Night Crawler the player experiences the annoyance of struggling
-            with insomnia and mental health by consistently repeating a cycle
-            where they are incapable of reaching their basic need of rest.
+            Our website is created to help people save time by finding different
+            playlists easier. We provide playlists with various artists, songs,
+            and genres to help meet your mood.
           </>
         ),
-        href: "",
-        ...image("night"),
+        href: "https://playlist-website.glitch.me/",
+        ...image("placeholder"),
       },
       {
-        title: "SFA",
-        course: "Intro to Web Design with Cameron",
-        students: ["Sasa Ramos, Fernando Hernandez, Alishia Aguilar Rubio"],
+        title: "",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Welmer Carvajal"],
         description: (
           <>
-            We seek to help first-generation students access academic and
-            professional support.
+            An endless sidescroller where you play as a ghost that avoids mines
+            and tries to survive as long as possible
           </>
         ),
-        href: "https://sasaramos.github.io/rising-stars/",
-        ...image("rising"),
+        href: "-",
+        ...image("placeholder"),
       },
       {
-        title: "Food at your Service",
-        course: "Intro to Python with Ai",
-        students: ["Annie Ye, Allison Kwan"],
-        description: <>Basic needs finder. Press the green play button!</>,
-        href: "https://replit.com/@allisonkwan1/demoday?v=1",
-        ...image("trivia"),
+        title: "Clock Team",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Hao Zhou, Heldana Abaraham, Victor Cruz"],
+        description: (
+          <>Advanced clock representing new year and covid impacts in 2021</>
+        ),
+        href: "https://clock-team.980378285haozho.repl.co/",
+        ...image("placeholder"),
       },
     ],
   },
@@ -207,37 +193,38 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 5",
     projects: [
       {
-        title: "The Attack of The Skeleton",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Edgar Morataya"],
-        description: (
-          <>Control the Skeleton and destroy his enemies and foes!</>
-        ),
-        href: "https://edgarm54.github.io/AttackonCube3/",
-        ...image("skeleton"),
-      },
-      {
-        title: "You Recipe",
-        course: "Intro to Web Design with Cameron",
-        students: ["Emma Chung, Salina Voong, Christian Lopez"],
+        title: "SFBeats",
+        course: "Intro to Web Design with Georgina",
+        students: ["Diego Valdez & Jason Lau"],
         description: (
           <>
-            You Recipe allows you to not only find homemade recipes, but you can
-            also share your own recipes and favorite recipes you like. Our goal
-            is to encourage users to try new foods and explore different
-            cuisines while being inclusive to everyone's dietary needs.
+            SFBeats is a website that caters to people interested in Hip Hop and
+            Rap artists in the bay area.
           </>
         ),
-        href: "https://savoong.github.io/you-recipe/",
-        ...image("recipe"),
+        href: "https://mercury-ringed-citron.glitch.me/",
+        ...image("placeholder"),
       },
       {
-        title: "Kee(y) - Turtle Insurgency: Operation Plastic",
-        course: "Intro to Python with Ornelle",
-        students: ["Elsa Li, Esther, Kurt"],
-        description: <></>,
-        href: "https://replit.com/@ElsaLi3/Operation-Plastic-by-KEEY#main.py",
-        ...image("turtles"),
+        title: "Spikey",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Johny Cornejo"],
+        description: <>Avoid obstacles and collect stuff!</>,
+        href: "-",
+        ...image("placeholder"),
+      },
+      {
+        title: "Data Team",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Ysabel Saavedra"],
+        description: (
+          <>
+            A website to inform others on popular Music genres and streaming
+            platforms.
+          </>
+        ),
+        href: "https://htmlcssjs-chartjs-walkthrough-2.ysabelbianca.repl.co/",
+        ...image("placeholder"),
       },
     ],
   },
@@ -245,47 +232,30 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 6",
     projects: [
       {
-        title: "Knock Knock (Dungeons And Doors)",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Jade Martin"],
+        title: "Ocean Guards",
+        course: "Intro to Web Design with Georgina",
+        students: ["Sarai Lopez, Sydney Ouyang, & Rigoberto Morales"],
         description: (
           <>
-            A maze game where you are stuck in a level until you find the
-            required items to escape and go to the next level. You complete the
-            game by escaping all levels.
+            Our website is about the ocean and provides information about how
+            plastics are harmful to the ocean life. We also provide
+            organizations that you can donate to in order to help bring change.
           </>
         ),
-        href: "https://jamartin6.github.io/KnockKnockMazeGame/",
-        ...image("maze"),
+        href: "https://ocean-guards.glitch.me/",
+        ...image("placeholder"),
       },
       {
-        title: "Sweet Tooth",
-        course: "Intro to Web Design with Cameron",
-        students: [
-          "Allison Hernandez, Zainab Wisniewski, Rachel Liu, Rachel He",
-        ],
+        title: "Andy Candy",
+        course: "Intro to VR with Scott",
+        students: ["Anh Vo"],
         description: (
           <>
-            We choose to make a website on the topic of ice cream because we
-            have a sweet tooth and it was a way for us to explore the Bay Area.
+            Andy Candy rocks your dessert universe with more pastries then could
+            ever be assembled IRL!
           </>
         ),
         href: "https://liurachel139.github.io/ice-cream-4-all/",
-        ...image("ice"),
-      },
-      {
-        title: "Green day snickers - Zoom joiner",
-        course: "Intro to Python with Ornelle",
-        students: ["Mats Krikhaar, John Azevedo "],
-        description: (
-          <>
-            ZoomJoiner is a program written for MacOS designed to automatically
-            open Zoom meetings (or any other browser links!) at a scheduled time
-            and date. It is written completely in python, and utilized the
-            webbrowser, rumps, and schedule libraries.
-          </>
-        ),
-        href: "",
         ...image("placeholder"),
       },
     ],
@@ -294,40 +264,25 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 7",
     projects: [
       {
-        title: "Amnesia Adventure",
-        students: ["Jalyn Mcfarland"],
-        course: "Intro to Unity Game Design with Daniel",
+        title: "Metroidvania",
+        students: ["Brian Quintanilla"],
+        course: "Intro to Unity Game Design with Ranjan",
         description: (
           <>
-            Amnesia Adventure is a game about a girl who lost her memory and
-            woke up in a strange land. Throughout her journey she will find
-            clues about who she is and how she got there.
+            2D metroidvania where the player collects keys and beats bosses to
+            progress to the next area
           </>
         ),
         href: "",
-        ...image("game"),
+        ...image("placeholder"),
       },
       {
-        title: "Asteroids",
-        students: ["Victoria, Jaquain, Emmanuel"],
-        course: "Intro to Python with Hunter",
-        description: <>Asteroids Game</>,
-        href: "https://replit.com/@VictoriaOguta/Asteroids#main.py",
-        ...image("asteroid"),
-      },
-      {
-        title: "Under the Sea",
-        students: ["Jessica, Annie, Hua"],
-        course: "Intro to Python with Ornelle",
-        description: (
-          <>
-            Under the sea is a game that focuses on how pollution has affected
-            marine life. The user can play the game by moving the
-            up/down/left/right arrows to learn more about sea pollution.
-          </>
-        ),
-        href: "https://replit.com/@JessicaNg1/UnderTheSea#main.py",
-        ...image("sea"),
+        title: "Soul Rising",
+        students: ["Jordan Lewis"],
+        course: "Intro to VR with Scott",
+        description: <>Escape the trap by rising above it!</>,
+        href: "",
+        ...image("placeholder"),
       },
     ],
   },
@@ -335,129 +290,25 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 8",
     projects: [
       {
-        title: "PKM",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Juan MacFarlane"],
+        title: "Gladiator Strikedown",
+        course: "Intro to Unity Game Design with Ranjan",
+        students: ["Connie Huang"],
         description: (
           <>
-            PKM is a role-playing game based around building a small team of
-            monsters to battle other monsters in a quest to become the best.
-          </>
-        ),
-        href: "https://juanmac18.github.io/fantastic-guacamole/PKMN%20GAME/",
-        ...image("pkm"),
-      },
-      {
-        title: "ABI (Name Acronym)",
-        course: "Intro to Python with Hunter",
-        students: ["Azalea, Benjamin, Ilyas"],
-        description: <>Pong Game</>,
-        href: "https://replit.com/@HunterMRocha/MBPong#main.py",
-        ...image("pong"),
-      },
-      {
-        title: "Poker Game",
-        course: "Intro to Python with Ornelle",
-        students: ["Luis"],
-        description: <>Poker Game</>,
-        href: "https://replit.com/@LuisMederos/poker-game#main.py",
-        ...image("poker"),
-      },
-    ],
-  },
-  {
-    room: "Breakout Room 9",
-    projects: [
-      {
-        title: "DesertRacers",
-        course: "Intro to Unity Game Design with Daniel",
-        students: ["Kami Wang"],
-        description: (
-          <>
-            DesertRacers is a single-player kart racing game where you try to
-            race around a track within 3 minutes. Along the way, there are
-            multiple difficult turns as well as speed pads that make you go
-            faster.
-          </>
-        ),
-        href: "https://kammaw-awesome.github.io/DesertRacers/",
-        ...image("desert"),
-      },
-      {
-        title: "Piggy Catcher",
-        course: "Intro to Python with Hunter",
-        students: ["Yusuf, Max, David"],
-        description: <>Reaction Game</>,
-        href: "https://replit.com/@YusufAbdolcader/Piggy-catcher#main.py",
-        ...image("pig"),
-      },
-      {
-        title: "Homelessness in SF",
-        course: "Intro to JavaScript with Wilson",
-        students: ["Elian Montano, Fernando Diaz, Joseph Izeta"],
-        description: <>Exploring the rise of homelessness in SF.</>,
-        href: "https://final-project-fernando-joseph-elian.m0ntano203.repl.co/#prevent-homelessness",
-        ...image("houseless"),
-      },
-    ],
-  },
-  {
-    room: "Breakout Room 10",
-    projects: [
-      {
-        title: "Bunny Funny Stories",
-        course: "Intro to Python with Ai",
-        students: ["Debora Choi, Kimberly Tamayo"],
-        description: <>Madlibs</>,
-        href: "https://replit.com/@KimberlyTamayo/BunnyFunnyStories?v=1",
-        ...image("funny"),
-      },
-      {
-        title: "Coronavirus",
-        course: "Intro to JavaScript with Wilson",
-        students: ["Even Michael, Isabella Hui, Kyle Curiel-Miranda"],
-        description: <>Reaction Game</>,
-        href: "https://project.kylecuriel.repl.co/",
-        ...image("covid"),
-      },
-    ],
-  },
-  {
-    room: "Breakout Room 11",
-    projects: [
-      {
-        title: "Tower Base Defense",
-        course: "Intro to Unity Game Design with Joe",
-        students: ["Griffin Guerrero Seiberling"],
-        description: (
-          <>
-            This game is a first person shooter where you are tasked with
-            defending a base.
+            3D top-down combat game where you face off in a duel to the death
+            against another gladiator
           </>
         ),
         href: "",
         ...image("placeholder"),
       },
       {
-        title: "Money Cap",
-        course: "Intro to Python with Ai",
-        students: ["Angelo Rei Ramos, Cheryl Chen"],
-        description: <>Budget Calculator</>,
-        href: "https://replit.com/@cherhchen/MoneyCap?v=1",
-        ...image("money"),
-      },
-      {
-        title: "Climate Change",
-        course: "Intro to JavaScript with Wilson",
-        students: ["Bryan Jiang Li, Sophia Johnson"],
-        description: (
-          <>
-            Our project is to inform people of how human activities have
-            impacted our planet and fueled the consequences of climate change.
-          </>
-        ),
-        href: "https://demo-day-project.sophiamj.repl.co/",
-        ...image("climate"),
+        title: "Gunslinger",
+        course: "Intro to VR with Scott",
+        students: ["Dietrich Whitley"],
+        description: <>A Divine Chaos of Martial Machinery!</>,
+        href: "",
+        ...image("placeholder"),
       },
     ],
   },

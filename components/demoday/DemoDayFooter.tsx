@@ -63,7 +63,7 @@ const DemoDayFooter: React.FC<{}> = () => {
           </VioletButton>
         </Typography>
         <Typography className={classes.column}>
-          Want to register for Fall 2021?
+          Want to register for next semester?
           <br />
           <VioletButton
             variant="contained"

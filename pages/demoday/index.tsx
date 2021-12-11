@@ -29,7 +29,7 @@ their amazing projects to our community of supporters!`;
 
 const demoDayEvent = FeaturedEvents.find((event) => event.id === "demo-day");
 // Set this to false when the current projects are populated
-const registerOnly = true;
+const registerOnly = false;
 
 const Page: NextPage<LayoutStaticProps> = (props) => {
   const classes = useStyles();
