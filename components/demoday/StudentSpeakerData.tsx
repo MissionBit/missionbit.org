@@ -43,7 +43,7 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
             COVID-19 in San Francisco highschools.
           </>
         ),
-        href: "https://image-final.kathleenzz.repl.co/",
+        href: "https://covid-in-sf-highschools.kathleenzz.repl.co",
       },
     ],
   },
