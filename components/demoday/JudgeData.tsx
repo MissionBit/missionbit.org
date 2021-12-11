@@ -10,35 +10,35 @@ export interface JudgeProps {
 function image(postfix: string): Pick<JudgeProps, "image"> {
   return {
     image:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-judges/${postfix}.jpg`)
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-fall-judges/${postfix}.jpeg`)
         .default,
   };
 }
 
 export const JudgeData: readonly JudgeProps[] = [
   {
-    name: "Nico Magaña",
-    title: "Software Engineer",
-    company: "Lyft",
-    ...image("nico"),
+    name: "Farid Vij",
+    title: "Co-Founder/COO",
+    company: "Ciitizen",
+    ...image("farid"),
   },
   {
-    name: "Ben Schmoker",
-    title: "Threat Intelligence",
-    company: "Salesforce",
-    ...image("ben"),
+    name: "Joseph Leybovich",
+    title: "Senior Unity Engineer",
+    company: "Left Field Labs",
+    ...image("joe"),
   },
   {
-    name: "Maira Garcia",
-    title: "Web Development Teaching Assistant",
-    company: "U2",
-    ...image("maira"),
+    name: "Matt Bautista",
+    title: "Engineer",
+    company: "Apple",
+    ...image("mattb"),
   },
   {
-    name: "Janki Patel",
-    title: "Senior Software Engineer",
-    company: "Gladly",
-    ...image("janki"),
+    name: "Shiva Jahangiri",
+    title: "PhD Candidate in Computer Science (Big Data, Databases)",
+    company: "UC Irvine",
+    ...image("shiva"),
   },
 ];
 

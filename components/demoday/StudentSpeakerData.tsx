@@ -22,7 +22,7 @@ export interface StudentProps {
 function image(postfix: string): Pick<StudentProps, "image"> {
   return {
     image:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-summer-students/${postfix}.jpg`)
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-fall-students/${postfix}.jpg`)
         .default,
   };
 }
@@ -34,16 +34,16 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
       {
         title: "Climate Change",
         students: [
-          { name: "Bryan Jiang Li", ...image("bryan") },
-          { name: "Sophia Johnson", ...image("sophia") },
+          { name: "Cindy Zhou", ...image("cindy") },
+          { name: "Kathleen Zapata", ...image("kathleen") },
         ],
         description: (
           <>
-            Our project is to inform people of how human activities have
-            impacted our planet and fueled the consequences of climate change.
+            A website to help spread awareness about the increased cases of
+            COVID-19 in San Francisco highschools.
           </>
         ),
-        href: "https://demo-day-project.sophiamj.repl.co/",
+        href: "https://image-final.kathleenzz.repl.co/",
       },
     ],
   },
@@ -51,39 +51,34 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.game_class,
     projects: [
       {
-        title: "Bub's World",
-        students: [
-          { name: "Victoria Vella", ...image("victoria") },
-          { name: "Kira Allen", ...image("kira") },
-          { name: "Carolina Hernandez", ...image("carolina") },
-        ],
+        title: '"Can" You Pick It Up?',
+        students: [{ name: "Han Ngo", ...image("han") }],
         description: (
           <>
-            Bub's World is a first person shooter zombie game from the
-            perspective of the zombie.
+            Game about picking up as much trash as you can in 30 seconds + Fun
+            Facts at the end
           </>
         ),
-        href: "https://konekomiaow.github.io/BubsWorld/BubsWorldFinal/index.html",
+        href: "https://han-ngo16.github.io/Can-You-Pick-It-Up/",
       },
     ],
   },
   {
-    course: Courses.web_class,
+    course: Courses.web_bootcamp,
     projects: [
       {
-        title: "SFA",
+        title: "SFBeats",
         students: [
-          { name: "Fernando Hernandez", ...image("fernando") },
-          { name: "Sasa Ramos", ...image("sasa") },
-          { name: "Alishia Rubio Agular", ...image("alishia") },
+          { name: "Diego Valdez", ...image("diego") },
+          { name: "Jason Lau", ...image("jason") },
         ],
         description: (
           <>
-            We seek to help first-generation students access academic and
-            professional support.
+            SFBeats is a website that caters to people interested in Hip Hop and
+            Rap artists in the bay area.
           </>
         ),
-        href: "https://sasaramos.github.io/rising-stars/",
+        href: "https://mercury-ringed-citron.glitch.me/",
       },
     ],
   },
