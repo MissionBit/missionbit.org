@@ -142,7 +142,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             COVID-19 in San Francisco highschools.
           </>
         ),
-        href: "https://image-final.kathleenzz.repl.co/",
+        href: "https://covid-in-sf-highschools.kathleenzz.repl.co",
         ...image("covid"),
       },
     ],
