@@ -10,7 +10,7 @@ import {
   Sections,
   SDRDatesExtended,
   TSDates,
-  CourseDates,
+  CourseDatesExtended,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import Courses from "./Courses";
@@ -152,9 +152,9 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           {/* Applicants who apply after August 31 will be placed on a waitlist. */}
           <br />
           <span className={classes.deadlineEmphasis}>
-            Application deadline:
+            Extended application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(CourseDates.registrationDeadline)}
+          {LongDateTimeFormat.format(CourseDatesExtended.registrationDeadline)}
           <br />
           <br />
           {/* <span className={classes.deadlineEmphasis}>
