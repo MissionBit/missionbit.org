@@ -874,7 +874,7 @@ export const FallDates: ClassDates = {
 
 export const CourseDatesExtended: ClassDates = {
   ...CourseDates,
-  registrationDeadline: Date.parse("2021-09-08T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2022-01-23T20:00:00-07:00"),
 };
 
 export const SDRDates: BaseClassDates = {
@@ -948,7 +948,7 @@ function classOffering(
   campus: Campus,
   schedule: "MW" | "TH" | "MWF" | "TBD",
   formAssemblyId: string,
-  classDates: ClassDates = CourseDates
+  classDates: ClassDates = CourseDatesExtended
 ): ClassInstance {
   return {
     type: "class",
