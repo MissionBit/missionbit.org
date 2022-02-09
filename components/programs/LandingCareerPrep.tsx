@@ -99,10 +99,10 @@ const LandingWorkshops: React.FC<{}> = () => {
           Become an Innovator
         </Typography>
         <Typography className={classes.copy} component="h1">
-          Our new Tech Sales Career Preparation Bootcamp for adults (18—24 years
-          of age) provides a low barrier to entry into the tech industry for
-          students who come from marginalized communities and low-income
-          backgrounds.
+          Our new Tech Start program engages young adults 17-26 years old from
+          marginalized communities and low-income backgrounds for two weeks in
+          workshops and panels. They gain foundational career skills and learn
+          how to get their foot in the door of the tech industry.
         </Typography>
         <Box className={classes.buttons}>
           <IndigoButton
