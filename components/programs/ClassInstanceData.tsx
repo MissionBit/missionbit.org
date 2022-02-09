@@ -803,10 +803,10 @@ export const Courses = courseRecord({
     image: ts,
     description: (
       <>
-        Join us for two weeks to gain foundational career skills and learn how
-        to get your foot in the door to the tech industry. Hear from a panel of
-        tech industry professionals and work with a mentor to identify and reach
-        career and educational goals! Earn a $150 stipend.
+        Our new Tech Start program engages young adults 17-26 years old from
+        marginalized communities and low-income backgrounds for two weeks in
+        workshops and panels. They gain foundational career skills and learn how
+        to get their foot in the door of the tech industry.
       </>
     ),
   },
@@ -888,7 +888,7 @@ export const SDRDatesExtended: BaseClassDates = {
 };
 
 export const TSDates: BaseClassDates = {
-  registrationDeadline: Date.parse("2021-10-29T20:00:00-07:00"),
+  registrationDeadline: Date.parse("2022-03-06T20:00:00-07:00"),
   interview: Date.parse("2021-11-112T13:00:00-07:00"),
 };
 
@@ -1004,8 +1004,8 @@ function TSClass(
         </Box>
       </>
     ),
-    startDate: "November 8th",
-    endDate: "November 18th",
+    startDate: "March 14th",
+    endDate: "March 24th",
     buttonText: "Apply",
     signupUrl: `https://www.tfaforms.com/4935022?tfa_2013=${formAssemblyId}`,
   };
@@ -1033,7 +1033,7 @@ export const SDRClassInstances: ClassOrWorkshopInstance[] = [
 ];
 
 export const TSClassInstances: ClassOrWorkshopInstance[] = [
-  TSClass(Courses.ts_class, Campuses.online, "tfa_1876"),
+  TSClass(Courses.ts_class, Campuses.online, "tfa_2026"),
 ];
 
 function workshop({
