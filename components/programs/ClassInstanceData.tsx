@@ -17,7 +17,6 @@ export const CourseSkills = [
   "UX Design",
   "Python",
   "Programming",
-  "Javascript",
   "Resume Building",
   "Career Preparation",
   "Scratch",
@@ -400,7 +399,7 @@ export const Courses = courseRecord({
       <>
         This course is interactive and the concepts covered will lay the
         foundation for using JavaScript in any environment. We’ll start off with
-        an introduction to Javascript, move on to learning about data
+        an introduction to JavaScript, move on to learning about data
         visualization and creating projects based on your personal interests,
         and finish off the semester with a final project. Beginners welcome!
       </>
@@ -570,11 +569,11 @@ export const Courses = courseRecord({
   },
   p5js_workshop: {
     title: "Coding with p5.js",
-    skills: ["p5.js", "Javascript"],
+    skills: ["p5.js", "JavaScript"],
     image: p5jsImage,
     description: (
       <>
-        Join our workshop to learn about p5.js, a fun Javascript library made
+        Join our workshop to learn about p5.js, a fun JavaScript library made
         accessible to everyone, especially beginners! In this workshop, we’ll
         explore the basics of text-based coding and specific elements of p5.js
         while getting creative with individual projects.
@@ -844,6 +843,10 @@ export const Courses = courseRecord({
 });
 
 export const Campuses = campusRecord({
+  onlineInp: {
+    name: "Online or In-Person",
+    city: City.Online,
+  },
   online: {
     name: "Online",
     city: City.Online,
@@ -879,9 +882,9 @@ export const Campuses = campusRecord({
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2022-05-08T20:00:00-08:00"),
-  interview: Date.parse("2022-05-25T12:00:00-08:00"),
-  demoDay: Date.parse("2022-07-30T13:00:00-08:00"),
+  registrationDeadline: Date.parse("2022-05-08T20:00:00-07:00"),
+  interview: Date.parse("2022-05-25T12:00:00-07:00"),
+  demoDay: Date.parse("2022-07-30T13:00:00-07:00"),
 };
 
 export const FallDates: ClassDates = {
@@ -962,7 +965,7 @@ const CLASS_SCHEDULE = {
   cow: {
     meets: <>Self-Paced </>,
     startDate: "June 21st",
-    endDate: "July 30th",
+    endDate: "August 26th",
   },
 } as const;
 
@@ -1043,10 +1046,10 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   FallDatesExtended
   // ),
   // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
-  classOffering(Courses.web_class, Campuses.online, "TWR", "tfa_1"),
-  classOffering(Courses.javascript_class, Campuses.online, "TWR", "tfa_1"),
-  classOffering(Courses.python_class, Campuses.online, "TWR", "tfa_1"),
-  classOffering(Courses.game_class, Campuses.online, "TWR", "tfa_1"),
+  classOffering(Courses.web_class, Campuses.onlineInp, "TWR", "tfa_1"),
+  classOffering(Courses.javascript_class, Campuses.onlineInp, "TWR", "tfa_1"),
+  classOffering(Courses.python_class, Campuses.onlineInp, "TWR", "tfa_1"),
+  classOffering(Courses.game_class, Campuses.onlineInp, "TWR", "tfa_1"),
   classOffering(Courses.code_your_way_python, Campuses.online, "cow", "tfa_1"),
   // classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
   // classOffering(Courses.vr_class_intermediate, Campuses.online, "TWR", "tfa_1"),
