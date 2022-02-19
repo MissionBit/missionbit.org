@@ -288,8 +288,26 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  code_your_way_python: {
+    title: "Code Your Way: Intro to Python",
+    skills: ["Python"],
+    image: python2Image,
+    description: (
+      <>
+        Mission Bit just launched its very first self-paced program in the form
+        of a Python class. We hope to expand our reach by creating a flexible
+        program that respects each student’s pace and that appeals to all
+        student schedules. Students no longer have to choose between their
+        favorite extracurricular activities and Mission Bit! This self-paced
+        option also includes a lot of support, including embedded video
+        tutorials from one of our instructor, flexible office hours, and a
+        Discord channel monitored by our volunteers, tech industry
+        professionals, to answer all your questions!
+      </>
+    ),
+  },
   web_class: {
-    title: "Intro to Web Design (In-person class!)",
+    title: "Intro to Web Design",
     skills: ["Web Design", "HTML", "CSS", "UI Design", "UX Design"],
     image: web3Image,
     description: (
@@ -861,9 +879,9 @@ export const Campuses = campusRecord({
 });
 
 export const CourseDates: ClassDates = {
-  registrationDeadline: Date.parse("2022-01-16T20:00:00-08:00"),
-  interview: Date.parse("2022-01-25T12:00:00-08:00"),
-  demoDay: Date.parse("2022-04-30T13:00:00-08:00"),
+  registrationDeadline: Date.parse("2022-05-08T20:00:00-08:00"),
+  interview: Date.parse("2022-05-25T12:00:00-08:00"),
+  demoDay: Date.parse("2022-07-30T13:00:00-08:00"),
 };
 
 export const FallDates: ClassDates = {
@@ -917,38 +935,43 @@ const CLASS_SCHEDULE = {
     startDate: "February 8th",
     endDate: "April 30th",
   },
-  MWF: {
+  TWR: {
     meets: (
       <>
-        Monday, Wednesday, Friday{" "}
+        Tuesday, Wednesday, Thursday{" "}
         <Box component="span" display="inline-block">
-          10:30am - 2:30pm PST
+          10am - 2:30pm PST
         </Box>
       </>
     ),
-    startDate: "February 7th",
-    endDate: "April 30th",
+    startDate: "June 21st",
+    endDate: "July 30th",
   },
   TBD: {
     meets: (
       <>
         TBD!{" "}
         <Box component="span" display="inline-block">
-          4:30pm - 6:30pm PST
+          10am - 2:30pm PST
         </Box>
       </>
     ),
-    startDate: "February 7th",
-    endDate: "April 30th",
+    startDate: "June 21st",
+    endDate: "July 30th",
+  },
+  cow: {
+    meets: <>Self-Paced </>,
+    startDate: "June 21st",
+    endDate: "July 30th",
   },
 } as const;
 
 function classOffering(
   course: Course,
   campus: Campus,
-  schedule: "MW" | "TH" | "MWF" | "TBD",
+  schedule: "MW" | "TH" | "TWR" | "TBD" | "cow",
   formAssemblyId: string,
-  classDates: ClassDates = CourseDatesExtended
+  classDates: ClassDates = CourseDates
 ): ClassInstance {
   return {
     type: "class",
@@ -1020,12 +1043,13 @@ export const ClassInstances: ClassOrWorkshopInstance[] = [
   //   FallDatesExtended
   // ),
   // summerClass(Courses.vr_class, Campuses.online, "MW", "tfa_2013"),
-  classOffering(Courses.web_class, Campuses.tech_lab, "MW", "tfa_1"),
-  classOffering(Courses.javascript_class, Campuses.online, "MW", "tfa_1"),
-  classOffering(Courses.python_class, Campuses.online, "TH", "tfa_1"),
-  classOffering(Courses.game_class, Campuses.online, "TH", "tfa_1"),
+  classOffering(Courses.web_class, Campuses.online, "TWR", "tfa_1"),
+  classOffering(Courses.javascript_class, Campuses.online, "TWR", "tfa_1"),
+  classOffering(Courses.python_class, Campuses.online, "TWR", "tfa_1"),
+  classOffering(Courses.game_class, Campuses.online, "TWR", "tfa_1"),
+  classOffering(Courses.code_your_way_python, Campuses.online, "cow", "tfa_1"),
   // classOffering(Courses.web_class, Campuses.mission_hs, "TH", "tfa_1"),
-  classOffering(Courses.vr_class_intermediate, Campuses.online, "MW", "tfa_1"),
+  // classOffering(Courses.vr_class_intermediate, Campuses.online, "TWR", "tfa_1"),
 ];
 
 export const SDRClassInstances: ClassOrWorkshopInstance[] = [
