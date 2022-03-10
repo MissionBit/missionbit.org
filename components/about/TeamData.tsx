@@ -353,11 +353,11 @@ const BOARD: TeamMemberProps<BoardTitle>[] = [
     title: "CEO at Kapor Foundation",
     ...image("board/allison-scott.jpg"),
   },
-  {
-    name: "Michael Walker",
-    title: "Principal Consultant, BrandGeneering, Inc",
-    ...image("board/michael_walker.jpg"),
-  },
+  // {
+  //   name: "Michael Walker",
+  //   title: "Principal Consultant, BrandGeneering, Inc",
+  //   ...image("board/michael_walker.jpg"),
+  // },
 ];
 
 const TeamData = [
