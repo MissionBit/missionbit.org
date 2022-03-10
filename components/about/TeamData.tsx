@@ -17,7 +17,8 @@ type TeamTitle =
   | "Office Administrator"
   | "Curriculum Assistant"
   | "Social Media/Marketing Intern"
-  | "Social Media Strategist";
+  | "Social Media Strategist"
+  | "Operations Manager";
 
 type School =
   | "Lowell High School"
@@ -39,7 +40,8 @@ type BoardTitle = React.ReactNode;
 type TeacherTitle =
   | "Lead Instructor"
   | "Instructor's Assistant"
-  | "Workforce Development Instructor";
+  | "Workforce Development Instructor"
+  | "Workshop Series Instructor";
 
 function image(path: string): {
   image: StaticImageImport;
@@ -152,38 +154,53 @@ const TEAM: TeamMemberProps<TeamTitle>[] = [
       </>
     ),
   },
+  {
+    name: "Shailendra Jain",
+    title: "Operations Manager",
+    ...image("core/shailendra-jain.jpg"),
+  },
 ];
 
 const TEACHERS: TeamMemberProps<TeacherTitle>[] = [
   {
-    name: "Angela Richards",
+    name: "Brent Gannetta",
     title: "Lead Instructor",
-    ...image("instructors/fall2021/angela.jpg"),
+    ...image("instructors/spring2022/brent.jpg"),
   },
   {
-    name: "Damon Routzhan",
-    title: "Workforce Development Instructor",
-    ...image("instructors/damon.jpg"),
+    name: "Brian Stapleton",
+    title: "Workshop Series Instructor",
+    ...image("instructors/spring2022/brian.jpg"),
   },
   {
-    name: "Georgina Cruz",
-    title: "Lead Instructor",
-    ...image("instructors/fall2021/georgina.jpg"),
+    name: "Frank Shang",
+    title: "Workshop Series Instructor",
+    ...image("instructors/spring2022/frank.jpg"),
   },
   {
-    name: "Ranjan Sikand",
+    name: "Imani Dawson",
+    title: "Workshop Series Instructor",
+    ...image("instructors/spring2022/imani.jpg"),
+  },
+  {
+    name: "Joe Lerner",
     title: "Lead Instructor",
-    ...image("instructors/fall2021/ranjan.jpg"),
+    ...image("instructors/spring2022/joe2.jpg"),
   },
   {
     name: "Scott Mauer",
     title: "Lead Instructor",
-    ...image("instructors/fall2021/scott.jpg"),
+    ...image("instructors/spring2022/scott.jpg"),
+  },
+  {
+    name: "Sirasit Thitirattanakorn",
+    title: "Lead Instructor",
+    ...image("instructors/spring2022/sirasit.jpg"),
   },
   {
     name: "Wilson Ng",
     title: "Lead Instructor",
-    ...image("instructors/summer2021/wilson.jpg"),
+    ...image("instructors/spring2022/wilson.jpg"),
   },
 ];
 
