@@ -22,14 +22,14 @@ interface JobOpening {
 }
 
 const JobOpenings: JobOpening[] = [
-  {
-    href: "/images/jobs/InstructorF21.pdf",
-    title: "Fall Coding Instructor",
-  },
-  {
-    href: "/images/jobs/CurriculumAssistant.pdf",
-    title: "Part Time Coding Curriculum Assistant (VR/Game Design)",
-  },
+  // {
+  //   href: "/images/jobs/InstructorF21.pdf",
+  //   title: "Fall Coding Instructor",
+  // },
+  // {
+  //   href: "/images/jobs/CurriculumAssistant.pdf",
+  //   title: "Part Time Coding Curriculum Assistant (VR/Game Design)",
+  // },
 ];
 
 const Jobs: React.FC<{}> = () => {
@@ -44,7 +44,14 @@ const Jobs: React.FC<{}> = () => {
       </Typography> */}
       {JobOpenings.length === 0 ? (
         <Typography className={classes.openings}>
-          We are no longer hiring. Please check back!
+          Check out our open positions{" "}
+          <a
+            href="https://missionbit.notion.site/Job-Board-a2e8e23be3704823b7bb62111ba77f9c"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here.
+          </a>
         </Typography>
       ) : (
         <Typography className={classes.openings} component="ul">
