@@ -205,6 +205,11 @@ const ts = {
   alt: "Student on a computer sitting on the couch.",
 };
 
+const bu = {
+  src: require("public/images/program/workshops/bu.jpg").default,
+  alt: "Picture of the Beats logo, a headphone on the side.",
+};
+
 export interface Course {
   title: React.ReactNode;
   description: React.ReactNode;
@@ -840,6 +845,20 @@ export const Courses = courseRecord({
       </>
     ),
   },
+  beats: {
+    title: "Beats Unlocked Workshop",
+    skills: ["Block Coding"],
+    image: bu,
+    description: (
+      <>
+        Beats Unlocked is a workshop experience where you create musical beats
+        using computer coding. The program is designed to walk you through every
+        step you need. Even if you’ve never written music or coded before,
+        you’ll be surprised how quickly you can create amazing beats while
+        learning basic computer coding!
+      </>
+    ),
+  },
 });
 
 export const Campuses = campusRecord({
@@ -1109,33 +1128,28 @@ function workshop({
 
 export const WorkshopInstances: ClassOrWorkshopInstance[] = [
   workshop({
-    course: Courses.design_business_workshop,
-    dateString: "2021-12-13T17:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4946434",
-    who: "7th - 12th graders",
-  }),
-  workshop({
-    course: Courses.sports_workshop,
-    dateString: "2021-12-14T17:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4946434",
+    course: Courses.beats,
+    dateString: "2022-03-30T17:00:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4970984",
     who: "7th - 12th graders",
     buttonExtra: <>New workshop!</>,
   }),
   workshop({
-    course: Courses.intro_javascript,
-    dateString: "2021-12-15T17:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4946434",
+    course: Courses.beats,
+    dateString: "2022-04-06T17:00:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4970995",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
   workshop({
-    course: Courses.beginner_web_workshop,
-    dateString: "2021-12-16T17:00:00-08:00",
-    minutes: 90,
-    signupUrl: "https://www.tfaforms.com/4946434",
+    course: Courses.beats,
+    dateString: "2022-04-20T17:00:00-07:00",
+    minutes: 120,
+    signupUrl: "https://www.tfaforms.com/4971229",
     who: "7th - 12th graders",
+    buttonExtra: <>New workshop!</>,
   }),
 ];
 
