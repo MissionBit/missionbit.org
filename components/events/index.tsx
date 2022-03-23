@@ -118,14 +118,14 @@ export const FeaturedEvents: FeaturedEvent[] = [
   },
   {
     id: "demo-day",
-    date: Date.parse("2021-12-11T11:30:00-07:00"),
-    href: "https://www.eventbrite.com/e/mission-bit-presents-fall-2021-demo-day-tickets-211956145537",
+    date: Date.parse("2022-04-30T11:00:00-07:00"),
+    href: "https://www.eventbrite.com/e/mission-bit-presents-spring-2022-demo-day-tickets-304166689757?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=escb",
     linkTitle: "Register",
-    title: "Fall Demo Day",
+    title: "Spring Demo Day",
     description: (
       <>
-        Join us in celebrating our incredibly talented students at our Fall 2021
-        Demo Day, a culminating showcase where our students display their
+        Join us in celebrating our incredibly talented students at our Spring
+        2022 Demo Day, a culminating showcase where our students display their
         amazing projects to our community of supporters!
       </>
     ),
