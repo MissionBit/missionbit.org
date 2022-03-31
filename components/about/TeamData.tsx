@@ -256,6 +256,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     title: sabTitle(2022, "Burton High School"),
   },
   {
+    name: "Nate Sirivallop",
+    ...image("sab/nate.jpg"),
+    title: sabTitle(2023, "Lowell High School"),
+  },
+  {
     name: "Oswen Martinez",
     ...image("sab/oswen-martinez.jpg"),
     title: sabTitle(2022, "San Francisco University High"),
@@ -269,6 +274,11 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     name: "Sabeen Rasheed",
     ...image("sab/sabeen-rasheed.jpg"),
     title: sabTitle(2023, "Ruth Asawa SOTA High School"),
+  },
+  {
+    name: "Sonia Lee",
+    ...image("sab/sonia.jpg"),
+    title: sabTitle(2024, "Lowell High School"),
   },
   {
     name: "Tara Tiong",

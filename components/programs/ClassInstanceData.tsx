@@ -846,13 +846,13 @@ export const Courses = courseRecord({
     ),
   },
   beats: {
-    title: "Beats Unlocked Workshop",
+    title: "Code Beats Workshop",
     skills: ["Block Coding"],
     image: bu,
     description: (
       <>
-        Beats Unlocked is a workshop experience where you create musical beats
-        using computer coding. The program is designed to walk you through every
+        Code Beats is a workshop experience where you create musical beats
+        computer coding. The program is designed to walk you through every step
         step you need. Even if you’ve never written music or coded before,
         you’ll be surprised how quickly you can create amazing beats while
         learning basic computer coding!
