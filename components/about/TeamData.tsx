@@ -221,11 +221,6 @@ const STUDENT_ADVISORY_BOARD: TeamMemberProps<StudentInfo>[] = [
     title: sabTitle(2022, "Lowell High School"),
   },
   {
-    name: "Angelo Ubas",
-    ...image("sab/angelo-ubas.jpg"),
-    title: sabTitle(2023, "Gateway High School"),
-  },
-  {
     name: "Carmen Li",
     ...image("sab/carmen-li.jpg"),
     title: sabTitle(2022, "Galileo High School"),
