@@ -22,44 +22,46 @@ export interface StudentProps {
 function image(postfix: string): Pick<StudentProps, "image"> {
   return {
     image:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-fall-students/${postfix}.jpg`)
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2022-spring-students/${postfix}.jpg`)
         .default,
   };
 }
 
 export const CourseShowcases: readonly CourseShowcaseProps[] = [
   {
-    course: Courses.javascript_class,
+    course: Courses.python_class,
     projects: [
       {
-        title: "Image Team",
+        title: "Chatbot",
         students: [
-          { name: "Cindy Zhou", ...image("cindy") },
-          { name: "Kathleen Zapata", ...image("kathleen") },
+          { name: "Treazure Vasquez", ...image("treazure") },
+          { name: "Jaymel Santos", ...image("jaymel") },
         ],
         description: (
           <>
-            A website to help spread awareness about the increased cases of
-            COVID-19 in San Francisco highschools.
+            The project goal is to inspire the user to be motivated. We've made
+            use of OpenAI to facilitate the operations and other services such
+            as Ngrok for assisting in hosting.
           </>
         ),
-        href: "https://covid-in-sf-highschools.kathleenzz.repl.co",
+        href: "https://replit.com/@Merlon/ChatBot",
       },
     ],
   },
   {
-    course: Courses.game_class,
+    course: Courses.vr_class_intermediate,
     projects: [
       {
-        title: '"Can" You Pick It Up?',
-        students: [{ name: "Han Ngo", ...image("han") }],
+        title: "Death's Apprentice",
+        students: [{ name: "Keke Ning", ...image("keke") }],
         description: (
           <>
-            Game about picking up as much trash as you can in 30 seconds + Fun
-            Facts at the end
+            Every century, the Grim Reaper chooses an apprentice at random from
+            the souls of those who have died. As an apprentice to Death, their
+            first lesson is to experience death again.
           </>
         ),
-        href: "https://han-ngo16.github.io/Can-You-Pick-It-Up/",
+        href: "",
       },
     ],
   },
@@ -67,18 +69,42 @@ export const CourseShowcases: readonly CourseShowcaseProps[] = [
     course: Courses.web_bootcamp,
     projects: [
       {
-        title: "SFBeats",
+        title: "Life In Beige",
         students: [
-          { name: "Diego Valdez", ...image("diego") },
-          { name: "Jason Lau", ...image("jason") },
+          { name: "Tania Castanon Perez", ...image("tania") },
+          { name: "Joy Jin", ...image("joy") },
+          { name: "Nicole Martinez", ...image("nicole") },
         ],
         description: (
           <>
-            SFBeats is a website that caters to people interested in Hip Hop and
-            Rap artists in the bay area.
+            Our self-care website focuses on encouraging people to incorporate
+            different things in their daily lives that will help them with any
+            stress they are carrying or to have a healthy relationship with
+            their mind and body.
           </>
         ),
-        href: "https://mercury-ringed-citron.glitch.me/",
+        href: "http://what-is-self-care.glitch.me/",
+      },
+    ],
+  },
+  {
+    course: Courses.web_bootcamp,
+    projects: [
+      {
+        title: "Far Fetched Fruits and Veggies",
+        students: [
+          { name: "Aileen Medrano", ...image("aileen") },
+          { name: "Sandra Montejo", ...image("sandra") },
+        ],
+        description: (
+          <>
+            Our project is a website for a market that sells exotic fruits and
+            vegetables. We have information of these different fruits and
+            vegetables along with recipes for them. The market also delivers
+            these fresh fruits and vegetables to its customers.
+          </>
+        ),
+        href: "https://sweet-simplistic-pine.glitch.me/",
       },
     ],
   },
