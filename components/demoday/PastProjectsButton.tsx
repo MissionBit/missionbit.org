@@ -50,6 +50,16 @@ const PastProjectsButton: React.FC<{}> = () => {
         <Typography className={classes.column}>
           <OrangeButton
             variant="contained"
+            href="/demoday/fall21"
+            size="large"
+            className={classes.buttonProjs}
+          >
+            Check out Fall 2021 Demo Day projects here!
+          </OrangeButton>
+        </Typography>
+        <Typography className={classes.column}>
+          <OrangeButton
+            variant="contained"
             href="/demoday/summer21"
             size="large"
             className={classes.buttonProjs}
