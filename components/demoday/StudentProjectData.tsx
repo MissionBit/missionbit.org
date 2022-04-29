@@ -314,7 +314,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 8",
     projects: [
       {
-        title: "Exotic Foods",
+        title: "Far Fetched Fruits and Veggies",
         students: ["Sandra Montejo, Aileen Medrano"],
         course: "Intro to Web Design with Sirasit",
         description: (
