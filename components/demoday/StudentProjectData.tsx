@@ -18,7 +18,7 @@ export interface ProjectProps {
 function image(postfix: string): Pick<ProjectProps, "image"> {
   return {
     image:
-      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2021-fall-projects/${postfix}.jpg`)
+      require(/* webpackInclude: /\.jpg$/ */ `public/images/demoday/2022-spring-projects/${postfix}.jpg`)
         .default,
   };
 }
@@ -28,41 +28,49 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 1",
     projects: [
       {
-        title: "Princess Peach’s Adventure",
-        students: ["Malcolm Angst, Joanne Chen, Pedro Navarrete Gonzalez"],
-        course: "Intro to Python with Angela",
+        title: "Life in Beige",
+        students: ["Joy Jin, Nicole Martinez, Tania Castanon Perez"],
+        course: "Intro to Web with Brent",
         description: (
           <>
-            Mario has kidnapped your best friend Bowser, and it is up to you,
-            Princess Peach, to save him. Currently, Mario has Bowser trapped in
-            a castle.
+            Our self-care website focuses on encouraging people to incorporate
+            different things in their daily lives that will help them with any
+            stress they are carrying or to just have a healthy relationship with
+            their mind and body.
           </>
         ),
-        href: "https://replit.com/@joannechen3/adventure-game?v=1",
-        ...image("adventure"),
+        href: "http://what-is-self-care.glitch.me/",
+        ...image("selfcare"),
       },
       {
-        title: '"Can" You Pick It Up?',
-        students: ["Han Ngo"],
-        course: "Intro to Unity with Ranjan",
+        title: "Mission Bit Jump",
+        students: ["Steven Wu, Emely Sarceno Bravo, Fernando Diaz"],
+        course: "Intro to Python with Brent",
         description: (
           <>
-            Game about picking up as much trash as you can in 30 seconds + Fun
-            Facts at the end
+            Our game is a version of Doodle Jump. You progress up by jumping on
+            different platforms and the further you get the more points you
+            earn. This connects to Mission Bit’s core values of smart risks and
+            community. It is a visual representation of taking smart risks and
+            it represents community because in our game, you can choose your
+            character to make everyone feel included.
           </>
         ),
-        href: "https://han-ngo16.github.io/Can-You-Pick-It-Up/",
-        ...image("pick"),
+        href: "https://replit.com/@gannettajr/MissionBitJump",
+        ...image("jump"),
       },
       {
-        title: "Virtual Illustration Studio",
-        students: ["Ismael Peralta"],
-        course: "Intro to VR with Scott",
+        title: "Gallery of National Black History",
+        students: ["Kathleen Zapata, Rafael Perez"],
+        course: "Intro to Unity with Joe",
         description: (
-          <>Think IRL studio space is too expensive? Here's your answer!</>
+          <>
+            This game is an impressive walk-through museum highlighting the
+            accomplishments of Civil Rights activists and leaders.
+          </>
         ),
-        href: "https://youtu.be/gJchxf_CvIA",
-        ...image("art"),
+        href: "https://simmer.io/@UnaverageJoe/museum",
+        ...image("museum"),
       },
     ],
   },
@@ -70,39 +78,41 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 2",
     projects: [
       {
-        title: "Guess the Word",
-        students: ["Yuli ZhangHung, Afia Shaikh, Abel Gutierrez"],
-        course: "Intro to Python with Angela",
+        title: "Mental Health Awareness Website",
+        students: ["Ahmed Nagi, Harrison Liang, Malcolm Angst"],
+        course: "Intro to Web with Brent",
         description: (
           <>
-            This game focuses on the user having to guess the randomly generated
-            word. You can create a list from which the word would have to be
-            guessed and also set a cap on the number of guesses allowed
+            Our project focuses on the aspects of mental health, regarding the
+            causes/effects of stressors in everyday life. We’ll also be
+            discussing ways to improve your mental health and limit stressors.
           </>
         ),
-        href: "https://replit.com/@AbelG4/MissionBit#main.py",
-        ...image("guesser"),
+        href: "https://innovative-shining-year.glitch.me",
+        ...image("mental"),
       },
       {
-        title: "Movingjump",
-        students: ["Emmanuel Odenyi"],
-        course: "Intro to Unity Game Design with Ranjan",
-        description: (
-          <>
-            2D endless sidescroller where you dodge a never-ending stream of
-            deadly blocks
-          </>
-        ),
+        title: "Chat Bot",
+        students: [
+          "Treazure Vasquez, Uzma Kadri, Jaymel Santos, Georgina Alano",
+        ],
+        course: "Intro to Python with Brent",
+        description: <>A bot for facilitating an open-ended conversation</>,
         href: "",
         ...image("placeholder"),
       },
       {
-        title: "Drum Team",
-        students: ["Kevin Cao"],
-        course: "Intro to JavaScript with Wilson",
-        description: <>Interactive Piano and Drum Kit</>,
-        href: "https://kevin-joseph-drumpiano-kit-project.kevincao10.repl.co/",
-        ...image("piano"),
+        title: "Snack Treasure Hunt",
+        students: ["Yuli Zhang Hung, Anne Zheng"],
+        course: "Intro to Unity with Joe",
+        description: (
+          <>
+            In this treasure hunting game, players must find delicious snacks
+            hidden in a tranquil outdoors environment!
+          </>
+        ),
+        href: "",
+        ...image("placeholder"),
       },
     ],
   },
@@ -110,41 +120,33 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 3",
     projects: [
       {
-        title: "Hangman",
-        course: "Intro to Python with Angela",
-        students: ["Qinghe Mai, Chloe Wu, Ayannah Pruitt"],
-        description: (
-          <>
-            The object is for one player to guess the letters of an unknown word
-            before the player who knows the word creates a stick figure of a
-            hanged man by drawing one line for each incorrect guess.
-          </>
-        ),
-        href: "https://replit.com/@ChloeWu5/MissionBit?v=1",
-        ...image("hangman"),
-      },
-      {
-        title: "A vs Z",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Praise Odenyi"],
-        description: (
-          <>Kill the zombies and collect items to get to the boss.</>
-        ),
-        href: "https://play.unity.com/mg/other/a-vs-z-n2",
-        ...image("a"),
-      },
-      {
-        title: "Image Team",
+        title: "Racism Education",
         course: "Intro to JavaScript with Wilson",
-        students: ["Cindy Zhou, Kathleen Zapata"],
+        students: ["Jordan Lewis, Leya Truong"],
         description: (
           <>
-            A website to help spread awareness about the increased cases of
-            COVID-19 in San Francisco highschools.
+            This project will be about Racism Education; why you ask? It’s
+            because of all of the people that dealt with racism and need help.
           </>
         ),
-        href: "https://covid-in-sf-highschools.kathleenzz.repl.co",
-        ...image("covid"),
+        href: "https://racism-education.glitch.me/",
+        ...image("racism"),
+      },
+      {
+        title: "Project 863",
+        course: "Intro to Unity with Joe",
+        students: ["Tatiana Hernandez"],
+        description: (
+          <>
+            You are a new employee at SpellBound and after seeing all the things
+            the team has dealt with, you offered to help. The team gave you the
+            task to find and collect the remaining serums. Along the way you
+            discover some things that are worth sharing with the team. Turns out
+            Project 863 is much bigger than they expected.
+          </>
+        ),
+        href: "https://simmer.io/@UnaverageJoe/863",
+        ...image("project863"),
       },
     ],
   },
@@ -152,41 +154,45 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 4",
     projects: [
       {
-        title: "Playlists",
-        course: "Intro to Web Design with Georgina",
-        students: ["Angela So & Maya Murakami"],
+        title: "Animei",
+        course: "Intro to Web Design with Sirasit",
+        students: ["Po Sang Hung (Winnie)"],
         description: (
           <>
-            Our website is created to help people save time by finding different
-            playlists easier. We provide playlists with various artists, songs,
-            and genres to help meet your mood.
+            This project was about introducing different anime to people who are
+            interested in watching anime, it was build with the knowledge I've
+            learned from the Missionbit Intro to WebDesign. You can find the
+            most popular, and or some new anime you've never seen before. The
+            idea for building this website was sharing some awesome anime I've
+            watched as well as researching some new anime I've never seen. A
+            highlight in the last section "Somethingcool" is about a very new
+            thing I discovered online which was really fun to play with.
           </>
         ),
-        href: "https://playlist-website.glitch.me/",
-        ...image("music"),
+        href: "https://anime-project-psh.glitch.me/",
+        ...image("anime"),
       },
       {
-        title: "",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Welmer Carvajal"],
-        description: (
-          <>
-            An endless sidescroller where you play as a ghost that avoids mines
-            and tries to survive as long as possible
-          </>
-        ),
-        href: "-",
-        ...image("placeholder"),
-      },
-      {
-        title: "Clock Team",
+        title: "Countdown",
         course: "Intro to JavaScript with Wilson",
-        students: ["Hao Zhou, Heldana Abaraham, Victor Cruz"],
+        students: ["Aaron Yee, David Do"],
+        description: <>Countdown till Demo Day. Productivity Tool </>,
+        href: "https://countdown.daviddo11.repl.co/",
+        ...image("countdown"),
+      },
+      {
+        title: "Anti-Runner",
+        course: "Intro to Unity with Joe",
+        students: ["Sergio Velasco Valles, Tiffany Chen, Julian Paradise"],
         description: (
-          <>Advanced clock representing new year and covid impacts in 2021</>
+          <>
+            In this game, you play as “anti-runner,” a hero tasked with
+            traversing a dangerous level. If you lose, you respawn at a
+            checkpoint!
+          </>
         ),
-        href: "https://clock-team.980378285haozho.repl.co/",
-        ...image("clock"),
+        href: "https://simmer.io/@UnaverageJoe/anti-runner",
+        ...image("antirunner"),
       },
     ],
   },
@@ -194,38 +200,36 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 5",
     projects: [
       {
-        title: "SFBeats",
-        course: "Intro to Web Design with Georgina",
-        students: ["Diego Valdez & Jason Lau"],
+        title: "Google Clone",
+        course: "Intro to Web Design with Sirasit",
+        students: ["Sahid Rizo"],
         description: (
           <>
-            SFBeats is a website that caters to people interested in Hip Hop and
-            Rap artists in the bay area.
+            A search engine provided by Google. Handling more than 3.5 billion
+            searches per day, it has a 92% share of the global search engine
+            market. It is also the most-visited website in the world.
           </>
         ),
-        href: "https://mercury-ringed-citron.glitch.me/",
-        ...image("sfbeats"),
+        href: "https://google-project1.glitch.me/",
+        ...image("google"),
       },
       {
-        title: "Gunslinger",
-        course: "Intro to VR with Scott",
-        students: ["Dietrich Whitley"],
-        description: <>A Divine Chaos of Martial Machinery!</>,
-        href: "",
-        ...image("placeholder"),
-      },
-      {
-        title: "Gladiator Strikedown",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Connie Huang"],
+        title: "Sort the Trash",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Maya Murakami, Moselle Mac"],
         description: (
-          <>
-            3D top-down combat game where you face off in a duel to the death
-            against another gladiator
-          </>
+          <>Sort the Trash - Be mindful of where you toss your trash</>
         ),
-        href: "https://youtu.be/QH08mA0MfHY",
-        ...image("gladiator"),
+        href: "https://whack-a-mole.mosellemac.repl.co/",
+        ...image("trashsorter"),
+      },
+      {
+        title: "Carnival Shooting Gallery",
+        course: "Intermediate VR with Scott",
+        students: ["Emmanuel Odenyi"],
+        description: <>Alien’s from Mars have invaded the State Fair!</>,
+        href: "https://www.youtube.com/watch?v=Po3OeuKWIYQ&ab_channel=MissionBit",
+        ...image("carnival"),
       },
     ],
   },
@@ -233,39 +237,34 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 6",
     projects: [
       {
-        title: "Ocean Guards",
-        course: "Intro to Web Design with Georgina",
-        students: ["Sarai Lopez, Sydney Ouyang, & Rigoberto Morales"],
-        description: (
-          <>
-            Our website is about the ocean and provides information about how
-            plastics are harmful to the ocean life. We also provide
-            organizations that you can donate to in order to help bring change.
-          </>
-        ),
-        href: "https://ocean-guards.glitch.me/",
-        ...image("ocean"),
+        title: "Bread4U",
+        course: "Intro to Web Design with Sirasit",
+        students: ["Jessica Zheng, Natalie Ramirez"],
+        description: <>Shop about bread.</>,
+        href: "https://spicy-innovative-provelone.glitch.me/",
+        ...image("bread4u"),
       },
       {
-        title: "Andy Candy",
-        course: "Intro to VR with Scott",
-        students: ["Anh Vo"],
-        description: (
-          <>
-            Andy Candy rocks your dessert universe with more pastries then could
-            ever be assembled IRL!
-          </>
-        ),
-        href: "https://youtu.be/xGAIvOMPRSg",
-        ...image("andy"),
+        title: "Values of Time",
+        course: "Intro to JavaScript with Wilson",
+        students: ["Princess Agyapong"],
+        description: <>Values of Time - Values to remember</>,
+        href: "https://css-clock-spring-22.princessagyapon.repl.co/",
+        ...image("valuesoftime"),
       },
       {
-        title: "Spikey",
-        course: "Intro to Unity Game Design with Ranjan",
-        students: ["Johny Cornejo"],
-        description: <>Avoid obstacles and collect stuff!</>,
-        href: "-",
-        ...image("placeholder"),
+        title: "Death's Apprentice",
+        course: "Intermediate VR with Scott",
+        students: ["Keke Ning"],
+        description: (
+          <>
+            Every century, the Grim Reaper chooses an apprentice to be the next
+            Death. You as the chosen one, will have the very first lesson of
+            Death today!
+          </>
+        ),
+        href: "https://www.youtube.com/watch?v=7v9auJq5Haw&feature=youtu.be&ab_channel=MissionBit",
+        ...image("death"),
       },
     ],
   },
@@ -273,38 +272,83 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 7",
     projects: [
       {
-        title: "Metroidvania",
-        students: ["Brian Quintanilla"],
-        course: "Intro to Unity Game Design with Ranjan",
+        title: "Animal Crossing",
+        students: ["Persephone Vaez, Angely Torres Esquivel"],
+        course: "Intro to Web Design with Sirasit",
         description: (
           <>
-            2D metroidvania where the player collects keys and beats bosses to
-            progress to the next area
+            In Animal Crossing: New Horizons you escape to a deserted island and
+            create your own paradise as you explore, create, and customize. Your
+            island getaway has a wealth of natural resources that can be used to
+            craft everything from tools to creature comforts.
           </>
         ),
-        href: "",
+        href: "https://animal-crossing-website.glitch.me/",
+        ...image("animalcrossing"),
+      },
+      {
+        title: "Drop a Beat",
+        students: ["Wenxin (Sam) Huang"],
+        course: "Intro to JavaScript with Wilson",
+        description: <>Drop a Beat - Soundboard to destress</>,
+        href: "https://badsuperficialsolution.samhuang5.repl.co/",
+        ...image("beat"),
+      },
+      {
+        title: "Escape the Space",
+        course: "Intermediate VR with Scott",
+        students: ["Kami Wang"],
+        description: (
+          <>
+            Escape the Space: You’re stuck in a large space station but there
+            are multiple corridors so you have to explore the station in order
+            to find the correct path. Good luck!
+          </>
+        ),
+        href: "https://www.youtube.com/watch?v=3gMFIAtFMdE&feature=youtu.be&ab_channel=MissionBit",
+        ...image("space"),
+      },
+    ],
+  },
+  {
+    room: "Breakout Room 8",
+    projects: [
+      {
+        title: "Exotic Foods",
+        students: ["Sandra Montejo, Aileen Medrano"],
+        course: "Intro to Web Design with Sirasit",
+        description: (
+          <>
+            Our project is about foods that are not seen or eaten everyday, in
+            our website you can learn facts these different types of foods and
+            learn how to make them into delicious meals.
+          </>
+        ),
+        href: "https://demo-day-project-aileen-and-sandra.glitch.me/",
+        ...image("exoticfood"),
+      },
+      {
+        title: "The Trash Game",
+        students: ["Phillip Chin, Phuong Anh Vo, Alexander Guarneros"],
+        course: "Intro to Unity with Joe",
+        description: (
+          <>
+            Garbage items are out on the street, and they're trying to find
+            their way to the right bin! Will it be compost, recycling, or trash?
+          </>
+        ),
+        href: "-",
         ...image("placeholder"),
       },
       {
-        title: "Soul Rising",
-        students: ["Jordan Lewis"],
-        course: "Intro to VR with Scott",
-        description: <>Escape the trap by rising above it!</>,
-        href: "https://youtu.be/KVefRcBcZt0",
-        ...image("soul"),
-      },
-      {
-        title: "Data Team",
-        course: "Intro to JavaScript with Wilson",
-        students: ["Ysabel Saavedra"],
+        title: "TREZ - Find the treasure in the maze!",
+        course: "Intermediate VR with Scott",
+        students: ["Aaron Carter"],
         description: (
-          <>
-            A website to inform others on popular Music genres and streaming
-            platforms.
-          </>
+          <>Think about how to blast your way to “treasure” and freedom.</>
         ),
-        href: "https://htmlcssjs-chartjs-walkthrough-2.ysabelbianca.repl.co/",
-        ...image("music2"),
+        href: "https://www.youtube.com/watch?v=YfnKC76jW-I&ab_channel=MissionBit",
+        ...image("trez"),
       },
     ],
   },

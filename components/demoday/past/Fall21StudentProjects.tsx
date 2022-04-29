@@ -8,7 +8,7 @@ import { Link } from "@material-ui/core";
 import StudentProjectRooms, {
   StudentProjectRoomProps,
   ProjectProps,
-} from "./Spring22StudentProjectData";
+} from "./Fall21StudentProjectData";
 import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
