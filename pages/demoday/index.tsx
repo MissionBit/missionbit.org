@@ -21,7 +21,7 @@ const useStyles = makeStyles({
   },
 });
 
-const period = "Fall 2021";
+const period = "Spring 2021";
 const title = `${period} Demo Day - Mission Bit`;
 const description = oneLine`
 ${period} Demo Day is a culminating showcase where our students display

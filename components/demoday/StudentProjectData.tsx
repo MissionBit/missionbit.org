@@ -121,7 +121,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     projects: [
       {
         title: "Racism Education",
-        course: "Intro to JavaScript with Wilson",
+        course: "Intro to Web with Brent",
         students: ["Jordan Lewis, Leya Truong"],
         description: (
           <>
@@ -263,7 +263,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             Death today!
           </>
         ),
-        href: "https://www.youtube.com/watch?v=7v9auJq5Haw&feature=youtu.be&ab_channel=MissionBit",
+        href: "https://youtu.be/z0Z3Jn9g_hk",
         ...image("death"),
       },
     ],
@@ -314,7 +314,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
     room: "Breakout Room 8",
     projects: [
       {
-        title: "Exotic Foods",
+        title: "Far Fetched Fruits and Veggies",
         students: ["Sandra Montejo, Aileen Medrano"],
         course: "Intro to Web Design with Sirasit",
         description: (
