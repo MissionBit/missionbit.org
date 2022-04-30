@@ -338,7 +338,7 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
           </>
         ),
         href: "https://simmer.io/@UnaverageJoe/trash-collection-game",
-        ...image("trash-game.jpg"),
+        ...image("trash-game"),
       },
       {
         title: "TREZ - Find the treasure in the maze!",
