@@ -111,8 +111,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             hidden in a tranquil outdoors environment!
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/vPslxxm7A_o",
+        ...image("garden"),
       },
     ],
   },
