@@ -111,8 +111,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             hidden in a tranquil outdoors environment!
           </>
         ),
-        href: "",
-        ...image("placeholder"),
+        href: "https://youtu.be/vPslxxm7A_o",
+        ...image("garden"),
       },
     ],
   },
@@ -337,8 +337,8 @@ export const StudentProjectRooms: readonly StudentProjectRoomProps[] = [
             their way to the right bin! Will it be compost, recycling, or trash?
           </>
         ),
-        href: "-",
-        ...image("placeholder"),
+        href: "https://simmer.io/@UnaverageJoe/trash-collection-game",
+        ...image("trash-game.jpg"),
       },
       {
         title: "TREZ - Find the treasure in the maze!",
