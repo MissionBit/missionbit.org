@@ -69,7 +69,7 @@ const timedAlerts: readonly TimedAlert[] = [
         <span role="img" aria-label="Party popper">
           🎉
         </span>{" "}
-        Apply for our Fall 2021 classes now! Deadline{" "}
+        Apply for our classes now! Deadline{" "}
         {ShortDateFormat.format(CourseDatesExtended.registrationDeadline)}{" "}
         <span role="img" aria-label="Party popper">
           🎉
