@@ -10,7 +10,7 @@ import {
   Sections,
   SDRDatesExtended,
   TSDates,
-  CourseDates,
+  CourseDatesExtended,
 } from "./ClassInstanceData";
 import { LongDateTimeFormat } from "src/dates";
 import Courses from "./Courses";
@@ -154,7 +154,7 @@ const SectionCopy: React.FC<{ id: SectionId }> = ({ id }) => {
           <span className={classes.deadlineEmphasis}>
             Application deadline:
           </span>{" "}
-          {LongDateTimeFormat.format(CourseDates.registrationDeadline)}
+          {LongDateTimeFormat.format(CourseDatesExtended.registrationDeadline)}
           <br />
           <br />
           {/* <span className={classes.deadlineEmphasis}>
