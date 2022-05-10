@@ -7,6 +7,8 @@ https://www.missionbits.org/* https://www.missionbit.org/:splat 301!
 https://missionbits.org/* https://www.missionbit.org/:splat 301!
 
 # Donate domains
+https://donate.missionbit.com/donate/* https://www.missionbit.org/donate/:splat 301!
+https://donate.missionbit.org/donate/* https://www.missionbit.org/donate/:splat 301!
 https://donate.missionbit.com/* https://www.missionbit.org/donate/:splat 301!
 https://donate.missionbit.org/* https://www.missionbit.org/donate/:splat 301!
 https://gala.missionbit.com/subscriptions/* https://www.missionbit.org/donate/subscriptions/:splat 301!

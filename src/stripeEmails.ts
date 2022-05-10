@@ -178,9 +178,7 @@ export async function stripeInvoicePaymentEmail(id: string): Promise<void> {
       frequency: "monthly",
       monthly: {
         next,
-        url: `${getOrigin(subscription.metadata.origin)}/donate/subscriptions/${
-          subscription.id
-        }`,
+        url: `${origin}/donate/subscriptions/${subscription.id}`,
       },
     });
   }
