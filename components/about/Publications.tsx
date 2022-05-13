@@ -26,6 +26,10 @@ interface Document {
 
 const Documents: Document[] = [
   {
+    href: "https://drive.google.com/file/d/13-yocY29Y06J4UWOXUyujvt3ufwnBDxV/view?usp=sharing",
+    title: "Mission Bit Annual Report 2021",
+  },
+  {
     href: "/annual-reports/2020/2020MissionBitAnnualReport.pdf",
     title: "Mission Bit Annual Report 2020",
   },
