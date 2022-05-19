@@ -1,3 +1,6 @@
+# Application redirects
+/attendance https://attendance.missionbit.org/ 301!
+
 # Typo domain redirects
 https://www.missionbit.com/* https://www.missionbit.org/:splat 301!
 https://missionbit.com/* https://www.missionbit.org/:splat 301!
