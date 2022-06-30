@@ -116,6 +116,10 @@ export async function stripeCheckoutSessionCompletedPaymentEmail(
         appMetadata
       )}`
     );
+    console.log(`Session metadata: ${JSON.stringify(session.metadata)}`);
+    console.log(
+      `Payment intent metadata: ${JSON.stringify(payment_intent.metadata)}`
+    );
     return;
   }
   const charge = payment_intent.charges.data[0];
