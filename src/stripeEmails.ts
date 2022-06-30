@@ -109,16 +109,12 @@ export async function stripeCheckoutSessionCompletedPaymentEmail(
       `Expecting expanded payment_intent: ${JSON.stringify(payment_intent)}`
     );
   }
-  const appMetadata = session.metadata?.app ?? null;
+  const appMetadata = payment_intent.metadata?.app ?? null;
   if (appMetadata !== APP) {
     console.log(
-      `Skipping checkout session ${id} with app metadata ${JSON.stringify(
-        appMetadata
+      `Skipping checkout session ${id} with payment_intent.metadata ${JSON.stringify(
+        payment_intent.metadata
       )}`
-    );
-    console.log(`Session metadata: ${JSON.stringify(session.metadata)}`);
-    console.log(
-      `Payment intent metadata: ${JSON.stringify(payment_intent.metadata)}`
     );
     return;
   }
