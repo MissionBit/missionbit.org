@@ -11,6 +11,7 @@ import { Frequency } from "src/stripeHelpers";
 import { MailDataRequired } from "@sendgrid/mail";
 import { ShortDateFormat, LongDateFormat } from "src/dates";
 import { getOrigin } from "src/absoluteUrl";
+import { APP } from "./stripeMetadata";
 
 const sg = getSendGrid();
 const stripe = getStripe();
@@ -108,6 +109,15 @@ export async function stripeCheckoutSessionCompletedPaymentEmail(
       `Expecting expanded payment_intent: ${JSON.stringify(payment_intent)}`
     );
   }
+  const appMetadata = payment_intent.metadata?.app ?? null;
+  if (appMetadata !== APP) {
+    console.log(
+      `Skipping checkout session ${id} with payment_intent.metadata ${JSON.stringify(
+        payment_intent.metadata
+      )}`
+    );
+    return;
+  }
   const charge = payment_intent.charges.data[0];
   await sendEmail({
     template: "receipt",
@@ -129,6 +139,15 @@ function invoiceTemplate({
   } else {
     return null;
   }
+}
+
+function legacyGetOrigin(origin?: string): string {
+  // Update any previously used production origin to legacy.missionbit.org,
+  // this will allow subscription emails to be routed to the correct place
+  return getOrigin(origin).replace(
+    /^https:\/\/(www|donate)\.missionbit\.org$/,
+    "https://legacy.missionbit.org"
+  );
 }
 
 export async function stripeInvoicePaymentEmail(id: string): Promise<void> {
@@ -156,8 +175,15 @@ export async function stripeInvoicePaymentEmail(id: string): Promise<void> {
       `Expecting expanded payment_intent ${JSON.stringify(invoice)}`
     );
   }
+  const subscriptionOrigin = subscription.metadata.origin;
+  if (!subscriptionOrigin) {
+    console.log(
+      `Skipping invoice ${invoice.id} with missing subscription origin`
+    );
+    return;
+  }
   const charge = invoice.payment_intent.charges.data[0];
-  const origin = getOrigin(subscription.metadata.origin);
+  const origin = legacyGetOrigin(subscriptionOrigin);
   if (template === "failure") {
     await sendEmail({
       template,
