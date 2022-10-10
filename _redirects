@@ -10,16 +10,14 @@ https://www.missionbits.org/* https://www.missionbit.org/:splat 301!
 https://missionbits.org/* https://www.missionbit.org/:splat 301!
 
 # Donate domains
-https://donate.missionbit.com/donate/* https://www.missionbit.org/donate/:splat 301!
-https://donate.missionbit.org/donate/* https://www.missionbit.org/donate/:splat 301!
-https://donate.missionbit.com/* https://www.missionbit.org/donate/:splat 301!
-https://donate.missionbit.org/* https://www.missionbit.org/donate/:splat 301!
-https://gala.missionbit.com/subscriptions/* https://www.missionbit.org/donate/subscriptions/:splat 301!
-https://gala.missionbit.org/subscriptions/* https://www.missionbit.org/donate/subscriptions/:splat 301!
+https://donate.missionbit.com/* https://donate.missionbit.org/donate/:splat 301!
+https://donate.missionbit.org/* https://donate.missionbit.org/donate/:splat 301!
+https://gala.missionbit.com/subscriptions/* https://legacy.missionbit.org/donate/subscriptions/:splat 301!
+https://gala.missionbit.org/subscriptions/* https://legacy.missionbit.org/donate/subscriptions/:splat 301!
 
 # Event domains
-https://gala.missionbit.com/* https://www.missionbit.org/donate 301!
-https://gala.missionbit.org/* https://www.missionbit.org/donate 301!
+https://gala.missionbit.com/* https://www.missionbit.org/gala 301!
+https://gala.missionbit.org/* https://www.missionbit.org/gala 301!
 https://bridge.missionbit.com/* https://www.missionbit.org/bridge 301!
 https://bridge.missionbit.org/* https://www.missionbit.org/bridge 301!
 
