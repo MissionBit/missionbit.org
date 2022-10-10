@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { createClient } from "@supabase/supabase-js";
 
 export interface BalanceTransaction {
   readonly id: string;
@@ -18,6 +19,68 @@ export interface BalanceTransactionBatch {
 const DONATION_TYPES = ["direct"] as const;
 type DonationType = typeof DONATION_TYPES[number];
 
+const DB_TABLE_NAME = `stripe_balance_transactions${
+  process.env.STRIPE_KEY_POSTFIX === "_LIVE" ? "" : "_test"
+}`;
+const supabase = createClient(
+  process.env.SUPABASE_PROJECT_URL!,
+  process.env.SUPABASE_PRIVATE_API_KEY!
+);
+
+function unixToISOTimestamp(unix: number): string {
+  return new Date(1000 * unix).toISOString();
+}
+
+function isoTimestampToUnix(timestamp: string): number {
+  return new Date(timestamp).getTime() / 1000;
+}
+
+async function getDbTransactions(
+  created?: number
+): Promise<{ created: number; transactions: BalanceTransaction[] }> {
+  created = created ?? dayjs(dayjs().format("YYYY-MM-01T00:00:00Z")).unix();
+  const { data, error } = await supabase
+    .from(DB_TABLE_NAME)
+    .select("id, amount, name, type, subscription, created")
+    .gte("created", unixToISOTimestamp(created))
+    .order("created", { ascending: true });
+  if (error || !data) {
+    console.error(error);
+    throw new Error(error?.message ?? "Unknown error");
+  }
+  const transactions: BalanceTransaction[] = [];
+  for (const row of data) {
+    const rowCreated = isoTimestampToUnix(row.created);
+    created = Math.max(created, rowCreated);
+    transactions.push({
+      id: row.id,
+      amount: row.amount,
+      name: row.name,
+      type: row.type,
+      subscription: row.subscription,
+      created: rowCreated,
+    });
+  }
+  return { created, transactions };
+}
+
+async function insertStripeTransactions(
+  transactions: BalanceTransaction[]
+): Promise<void> {
+  if (transactions.length === 0) {
+    return;
+  }
+  console.log(
+    await supabase.from(DB_TABLE_NAME).upsert(
+      transactions.map((row) => ({
+        ...row,
+        created: unixToISOTimestamp(row.created),
+      })),
+      { returning: "minimal", ignoreDuplicates: true }
+    )
+  );
+}
+
 export async function getBalanceTransactions(
   created?: number
 ): Promise<BalanceTransactionBatch> {
@@ -25,8 +88,10 @@ export async function getBalanceTransactions(
     require("src/getStripe") as typeof import("src/getStripe")
   ).getStripe();
   const pollTime = dayjs().unix();
-  created = created ?? dayjs(dayjs().format("YYYY-MM-01T00:00:00Z")).unix();
-  const transactions: BalanceTransaction[] = [];
+  const res = await getDbTransactions(created);
+  created = res.created;
+  const cachedTransactions = res.transactions;
+  const stripeTransactions: BalanceTransaction[] = [];
   for await (const txn of stripe.balanceTransactions.list({
     created: { gt: created },
     expand: ["data.source"],
@@ -46,7 +111,7 @@ export async function getBalanceTransactions(
           .join(" ") ||
           metadata.user_email) ??
         null;
-      transactions.push({
+      stripeTransactions.push({
         id: txn.id,
         created: txn.created,
         amount: txn.amount,
@@ -56,7 +121,12 @@ export async function getBalanceTransactions(
       });
     }
   }
-  return { pollTime, created, transactions };
+  await insertStripeTransactions(stripeTransactions);
+  return {
+    pollTime,
+    created,
+    transactions: [...cachedTransactions, ...stripeTransactions],
+  };
 }
 
 export default getBalanceTransactions;
