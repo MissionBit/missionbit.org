@@ -345,6 +345,10 @@ interface GoalValues {
   readonly goalCents: number;
 }
 
+function goalDuration({ totalCents, goalCents }: GoalValues): number {
+  return Math.max(1, 6 * Math.min(1.0, totalCents / goalCents));
+}
+
 function easeGoal(
   elapsedTime: number,
   duration: number,
@@ -375,7 +379,7 @@ function useAnimatedGoal(goal: GoalValues): GoalValues {
   const prevGoalRef = useRef(goal);
   const startGoalRef = useRef({ ...goal, totalCents: 0 });
   const animGoalRef = useRef(startGoalRef.current);
-  const duration = 6;
+  const duration = goalDuration(goal);
   const { elapsedTime, reset } = useElapsedTime({
     isPlaying: !goalEq(goal, startGoalRef.current),
     duration,
