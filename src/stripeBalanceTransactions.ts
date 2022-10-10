@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { createClient } from "@supabase/supabase-js";
+import { SupabaseClient, createClient } from "@supabase/supabase-js";
 
 export interface BalanceTransaction {
   readonly id: string;
@@ -22,10 +22,13 @@ type DonationType = typeof DONATION_TYPES[number];
 const DB_TABLE_NAME = `stripe_balance_transactions${
   process.env.STRIPE_KEY_POSTFIX === "_LIVE" ? "" : "_test"
 }`;
-const supabase = createClient(
-  process.env.SUPABASE_PROJECT_URL!,
-  process.env.SUPABASE_PRIVATE_API_KEY!
-);
+
+function getSupabaseClient(): SupabaseClient {
+  return createClient(
+    process.env.SUPABASE_PROJECT_URL!,
+    process.env.SUPABASE_PRIVATE_API_KEY!
+  );
+}
 
 function unixToISOTimestamp(unix: number): string {
   return new Date(1000 * unix).toISOString();
@@ -36,6 +39,7 @@ function isoTimestampToUnix(timestamp: string): number {
 }
 
 async function getDbTransactions(
+  supabase: SupabaseClient,
   created?: number
 ): Promise<{ created: number; transactions: BalanceTransaction[] }> {
   created = created ?? dayjs(dayjs().format("YYYY-MM-01T00:00:00Z")).unix();
@@ -65,6 +69,7 @@ async function getDbTransactions(
 }
 
 async function insertStripeTransactions(
+  supabase: SupabaseClient,
   transactions: BalanceTransaction[]
 ): Promise<void> {
   if (transactions.length === 0) {
@@ -88,7 +93,8 @@ export async function getBalanceTransactions(
     require("src/getStripe") as typeof import("src/getStripe")
   ).getStripe();
   const pollTime = dayjs().unix();
-  const res = await getDbTransactions(created);
+  const supabase = getSupabaseClient();
+  const res = await getDbTransactions(supabase, created);
   created = res.created;
   const cachedTransactions = res.transactions;
   const stripeTransactions: BalanceTransaction[] = [];
@@ -121,7 +127,7 @@ export async function getBalanceTransactions(
       });
     }
   }
-  await insertStripeTransactions(stripeTransactions);
+  await insertStripeTransactions(supabase, stripeTransactions);
   return {
     pollTime,
     created,
