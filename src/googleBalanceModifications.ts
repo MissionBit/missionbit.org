@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import { fetch } from "cross-fetch";
 
-// https://docs.google.com/spreadsheets/d/113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI/edit
+// https://docs.google.com/spreadsheets/d/1h06Ee495xC7q_WEwa9cGxBv_31hj7t_c7qcREoFacTk/edit
 // This spreadsheet must have "Anyone with the link can view" permission
-export const SPREADSHEET_ID = "113tb0FFuUusqRJTy6wMyFIBMOo5Q3Z6kWZUpdvE9CuI";
+export const SPREADSHEET_ID = "1h06Ee495xC7q_WEwa9cGxBv_31hj7t_c7qcREoFacTk";
 
 export interface BalanceModification {
   readonly name: string;
