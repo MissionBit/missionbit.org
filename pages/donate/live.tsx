@@ -174,6 +174,12 @@ const useStyles = makeStyles((theme) => ({
     gridArea: "goal",
     padding: theme.spacing(4, 2),
   },
+  goalName: {
+    paddingTop: theme.spacing(1),
+    fontSize: theme.typography.h4.fontSize,
+    fontWeight: 500,
+    textAlign: "center",
+  },
   logo: {
     objectFit: "contain",
     marginBottom: theme.spacing(2),
@@ -322,6 +328,7 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
   return (
     <Box className={classes.root} onClick={toggleSimulate}>
       <Goal
+        goalName={modifications.goalName}
         goalCents={modifications.goalCents}
         totalCents={total}
         donorCount={
@@ -343,6 +350,10 @@ interface CommonTransaction {
 interface GoalValues {
   readonly totalCents: number;
   readonly goalCents: number;
+}
+
+function goalDuration({ totalCents, goalCents }: GoalValues): number {
+  return Math.max(1, 6 * Math.min(1.0, totalCents / goalCents));
 }
 
 function easeGoal(
@@ -375,7 +386,7 @@ function useAnimatedGoal(goal: GoalValues): GoalValues {
   const prevGoalRef = useRef(goal);
   const startGoalRef = useRef({ ...goal, totalCents: 0 });
   const animGoalRef = useRef(startGoalRef.current);
-  const duration = 6;
+  const duration = goalDuration(goal);
   const { elapsedTime, reset } = useElapsedTime({
     isPlaying: !goalEq(goal, startGoalRef.current),
     duration,
@@ -400,10 +411,11 @@ function useAnimatedGoal(goal: GoalValues): GoalValues {
 }
 
 const Goal: React.FC<{
+  readonly goalName: string;
   readonly goalCents: number;
   readonly totalCents: number;
   readonly donorCount: number;
-}> = ({ donorCount, ...goalValues }) => {
+}> = ({ donorCount, goalName, ...goalValues }) => {
   const classes = useStyles();
   const { goalCents, totalCents } = useAnimatedGoal(goalValues);
   return (
@@ -447,6 +459,7 @@ const Goal: React.FC<{
           value={Math.min(100, 100 * (totalCents / goalCents))}
         />
       </Box>
+      <Typography className={classes.goalName}>{goalName}</Typography>
     </Box>
   );
 };
