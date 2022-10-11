@@ -34,7 +34,7 @@ const usdFormatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 0,
 });
 
-function dollars(cents: number) {
+export function dollars(cents: number): string {
   return usdFormatter.format(Math.floor(0.01 * cents));
 }
 
