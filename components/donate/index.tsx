@@ -18,6 +18,7 @@ import clsx from "clsx";
 import { lighten, LinearProgress, Typography } from "@material-ui/core";
 import { dollars } from "pages/donate/dashboard";
 import SectionHeading from "./SectionHeading";
+import { useBuildTime } from "components/BuildTimeContext";
 
 const VERTICAL_BREAK = "sm";
 const BAR_COLOR = "#5A6AC9";
@@ -192,8 +193,17 @@ function CampaignCard(props: {
   );
 }
 
-const Main: React.FC<DonateProps> = ({ prefill, campaign }) => {
+function useCampaign(campaign?: BalanceProps): BalanceProps | undefined {
+  const buildTime = useBuildTime();
+  const endTimestamp = campaign?.modifications.endTimestamp;
+  return endTimestamp === undefined || endTimestamp * 1000 >= buildTime
+    ? campaign
+    : undefined;
+}
+
+const Main: React.FC<DonateProps> = (props) => {
   const classes = useStyles();
+  const campaign = useCampaign(props.campaign);
   return (
     <main id="main">
       <Landing />
@@ -209,7 +219,7 @@ const Main: React.FC<DonateProps> = ({ prefill, campaign }) => {
         ) : null}
         <MakeAnOnlineGift
           className={classes.makeAnOnlineGift}
-          prefill={prefill}
+          prefill={props.prefill}
         />
         <FlourishSeparator className={classes.flourishMiddle} />
         <LearnMore className={classes.learnMore} />
