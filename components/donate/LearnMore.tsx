@@ -50,6 +50,14 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
       </BodyText>
       <LearnMoreButton
         variant="contained"
+        href="https://drive.google.com/file/d/13-yocY29Y06J4UWOXUyujvt3ufwnBDxV/view"
+        target="_blank"
+        size="large"
+      >
+        <AdobePdfLogo fontSize="small" /> 2021 Annual Report
+      </LearnMoreButton>
+      <LearnMoreButton
+        variant="contained"
         href="/annual-reports/2020/2020MissionBitAnnualReport.pdf"
         target="_blank"
         size="large"
@@ -63,14 +71,6 @@ export const LearnMore: React.FC<{ className?: string }> = ({ className }) => {
         size="large"
       >
         <AdobePdfLogo fontSize="small" /> 2019 Annual Report
-      </LearnMoreButton>
-      <LearnMoreButton
-        variant="contained"
-        href="/annual-reports/2018/mission-bit-annual-report-2018.pdf"
-        target="_blank"
-        size="large"
-      >
-        <AdobePdfLogo fontSize="small" /> 2018 Annual Report
       </LearnMoreButton>
     </Box>
   );

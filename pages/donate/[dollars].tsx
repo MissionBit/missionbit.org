@@ -1,37 +1,45 @@
 import { NextPage, GetServerSideProps } from "next";
 import * as React from "react";
+import { Layout } from "components/Layout";
+import Donate from "components/donate";
 import {
-  Layout,
-  getLayoutStaticProps,
-  LayoutStaticProps,
-} from "components/Layout";
-import Donate, { DonateProps } from "components/donate";
-import { parseDonatePrefill } from "components/donate/DonateCard";
-import { getOrigin } from "src/absoluteUrl";
+  DonatePrefill,
+  parseDonatePrefill,
+} from "components/donate/DonateCard";
+import {
+  PageProps as LivePageProps,
+  getServerSideProps as liveGetServerSideProps,
+} from "pages/donate/live";
 
-interface PageProps {
-  layout: LayoutStaticProps;
-  donate: DonateProps;
+export interface PageProps extends LivePageProps {
+  prefill?: DonatePrefill;
 }
 
-const Page: NextPage<PageProps> = ({ layout, donate }) => (
+const Page: NextPage<PageProps> = ({
+  prefill,
+  batch,
+  modifications,
+  ...layout
+}) => (
   <Layout {...layout} canonicalPath="/donate" title="Mission Bit – Donate">
-    <Donate {...donate} />
+    <Donate
+      prefill={prefill}
+      campaign={batch && modifications ? { batch, modifications } : undefined}
+    />
   </Layout>
 );
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (
   ctx
 ) => {
+  const result = await liveGetServerSideProps(ctx);
+  if ("redirect" in result || "notFound" in result) {
+    return result;
+  }
   return {
     props: {
-      layout: {
-        ...(await getLayoutStaticProps()),
-        origin: getOrigin(ctx.req.headers.origin),
-      },
-      donate: {
-        prefill: parseDonatePrefill({ ...ctx.query, ...(ctx.params ?? {}) }),
-      },
+      ...result.props,
+      prefill: parseDonatePrefill({ ...ctx.query, ...(ctx.params ?? {}) }),
     },
   };
 };

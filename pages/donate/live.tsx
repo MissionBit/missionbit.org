@@ -34,6 +34,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Collapse from "@material-ui/core/Collapse";
 import Link from "@material-ui/core/Link";
 import Image from "next/image";
+import { getOrigin } from "src/absoluteUrl";
 
 dayjs.extend(relativeTime);
 
@@ -204,7 +205,7 @@ export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
   hour12: false,
 });
 
-interface PageProps extends LayoutStaticProps {
+export interface PageProps extends LayoutStaticProps {
   readonly batch?: BalanceTransactionBatch;
   readonly modifications?: BalanceModifications;
 }
@@ -244,25 +245,31 @@ function addSimulatedTransaction(
   };
 }
 
-interface DashboardProps {
+export interface BalanceProps {
   readonly batch: BalanceTransactionBatch;
   readonly modifications: BalanceModifications;
+}
+
+interface DashboardProps extends BalanceProps {
   readonly simulate: boolean;
 }
 
-const LiveDashboard: React.FC<DashboardProps> = (initial) => {
+export interface LiveDashboardProps {
+  readonly goalName: string;
+  readonly goalCents: number;
+  readonly donors: readonly CommonTransaction[];
+  readonly donorCount: number;
+  readonly totalCents: number;
+  readonly errors: number;
+}
+
+export function useLiveDashboard(
+  initial: BalanceProps,
+  simulate = false
+): LiveDashboardProps {
   const [batch, setBatch] = useState(initial.batch);
   const [modifications, setModifications] = useState(initial.modifications);
-  const [simulate, setSimulate] = useState(false);
   const [errors, setErrors] = useState(0);
-  const classes = useStyles();
-  const batchTransactions = useMemo(() => {
-    const ignored = new Set(
-      modifications.ignoredTransactions.map((ignored) => ignored.id)
-    );
-    return batch.transactions.filter((txn) => !ignored.has(txn.id));
-  }, [batch.transactions, modifications.ignoredTransactions]);
-
   useEffect(() => {
     let mounted = true;
     (async () => {
@@ -299,13 +306,13 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
     const interval = setInterval(() => setBatch(addSimulatedTransaction), 1000);
     return () => clearInterval(interval);
   }, [simulate]);
-  const toggleSimulate = useCallback(() => {
-    setSimulate((simulate) => initial.simulate && !simulate);
-  }, [initial.simulate, setSimulate]);
-  const total = batchTransactions.reduce(
-    (amount, txn) => amount + txn.amount,
-    modifications.transactions.reduce((amount, txn) => amount + txn.amount, 0)
-  );
+
+  const batchTransactions = useMemo(() => {
+    const ignored = new Set(
+      modifications.ignoredTransactions.map((ignored) => ignored.id)
+    );
+    return batch.transactions.filter((txn) => !ignored.has(txn.id));
+  }, [batch.transactions, modifications.ignoredTransactions]);
   const donors = useMemo(() => {
     const donors: CommonTransaction[] = [];
     for (const txn of batchTransactions) {
@@ -325,15 +332,37 @@ const LiveDashboard: React.FC<DashboardProps> = (initial) => {
     donors.sort((a, b) => b.created - a.created);
     return donors;
   }, [batchTransactions, modifications.transactions]);
+  const totalCents = batchTransactions.reduce(
+    (amount, txn) => amount + txn.amount,
+    modifications.transactions.reduce((amount, txn) => amount + txn.amount, 0)
+  );
+  return {
+    goalName: modifications.goalName,
+    goalCents: modifications.goalCents,
+    donors,
+    donorCount: donors.length,
+    totalCents,
+    errors,
+  };
+}
+
+const LiveDashboard: React.FC<DashboardProps> = (initial) => {
+  const [simulate, setSimulate] = useState(false);
+  const classes = useStyles();
+  const { goalName, goalCents, donors, donorCount, totalCents } =
+    useLiveDashboard(initial, simulate);
+
+  const toggleSimulate = useCallback(() => {
+    setSimulate((simulate) => initial.simulate && !simulate);
+  }, [initial.simulate, setSimulate]);
+
   return (
     <Box className={classes.root} onClick={toggleSimulate}>
       <Goal
-        goalName={modifications.goalName}
-        goalCents={modifications.goalCents}
-        totalCents={total}
-        donorCount={
-          batchTransactions.length + modifications.transactions.length
-        }
+        goalName={goalName}
+        goalCents={goalCents}
+        totalCents={totalCents}
+        donorCount={donorCount}
       />
       <Donors transactions={donors} />
       <DonateBanner />
@@ -382,7 +411,7 @@ function goalEq(a: GoalValues, b: GoalValues): boolean {
   return a.goalCents === b.goalCents && a.totalCents === b.totalCents;
 }
 
-function useAnimatedGoal(goal: GoalValues): GoalValues {
+export function useAnimatedGoal(goal: GoalValues): GoalValues {
   const prevGoalRef = useRef(goal);
   const startGoalRef = useRef({ ...goal, totalCents: 0 });
   const animGoalRef = useRef(startGoalRef.current);
@@ -439,7 +468,7 @@ const Goal: React.FC<{
           <strong>{dollars(totalCents)}</strong> of {dollars(goalCents)}
         </Typography>
         <Typography className={classes.donorCount}>
-          {donorCount} Donors
+          {donorCount} {donorCount === 1 ? "Donor" : "Donors"}
         </Typography>
       </Box>
       <Box
@@ -543,7 +572,9 @@ const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => {
   }
 };
 
-export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (
+  ctx
+) => {
   if (typeof window !== "undefined") {
     throw new Error("Must be called server-side");
   }
@@ -554,6 +585,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   const batch = await getBalanceTransactions(modifications.startTimestamp);
   return {
     props: {
+      origin: getOrigin(ctx.req.headers.origin),
       ...layoutProps,
       batch,
       modifications,
