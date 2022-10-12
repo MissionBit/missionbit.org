@@ -368,16 +368,6 @@ export const DonateCard: React.FC<{
           >
             Donate with card <ArrowRightIcon className={classes.arrowIcon} />
           </IndigoButton>
-          <IndigoButton
-            href="https://app.overflow.co/missionbit"
-            target="_blank"
-            variant="contained"
-            rel="noopener noreferrer"
-            color="secondary"
-            className={classes.stockButton}
-          >
-            Donate Stock
-          </IndigoButton>
         </form>
       </Box>
     </Box>
