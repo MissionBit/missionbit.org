@@ -35,6 +35,10 @@ import Collapse from "@material-ui/core/Collapse";
 import Link from "@material-ui/core/Link";
 import Image from "next/image";
 import { getOrigin } from "src/absoluteUrl";
+import {
+  DonatePrefill,
+  parseDonatePrefill,
+} from "components/donate/DonateCard";
 
 dayjs.extend(relativeTime);
 
@@ -208,6 +212,7 @@ export const DateTimeFormat = new Intl.DateTimeFormat("en-US", {
 export interface PageProps extends LayoutStaticProps {
   readonly batch?: BalanceTransactionBatch;
   readonly modifications?: BalanceModifications;
+  readonly prefill?: DonatePrefill;
 }
 
 function mergeBatch(
@@ -589,6 +594,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (
       ...layoutProps,
       batch,
       modifications,
+      prefill: parseDonatePrefill({ ...ctx.query, ...(ctx.params ?? {}) }),
     },
   };
 };

@@ -8,7 +8,7 @@ import MakeAnOnlineGift from "./MakeAnOnlineGift";
 import LearnMore from "./LearnMore";
 import OtherWaysToGive from "./OtherWaysToGive";
 import PhotoFooter from "./PhotoFooter";
-import { DonatePrefill } from "./DonateCard";
+import { DEFAULT_PREFILL, DonatePrefill } from "./DonateCard";
 import {
   BalanceProps,
   useAnimatedGoal,
@@ -193,17 +193,30 @@ function CampaignCard(props: {
   );
 }
 
-function useCampaign(campaign?: BalanceProps): BalanceProps | undefined {
+function useCampaign({
+  campaign,
+  prefill = DEFAULT_PREFILL,
+}: {
+  campaign?: BalanceProps;
+  prefill?: DonatePrefill;
+}): { campaign: BalanceProps | undefined; prefill: DonatePrefill } {
   const buildTime = useBuildTime();
   const endTimestamp = campaign?.modifications.endTimestamp;
-  return endTimestamp === undefined || endTimestamp * 1000 >= buildTime
-    ? campaign
-    : undefined;
+  const presetAmounts = campaign?.modifications.presetAmounts;
+  return !endTimestamp || endTimestamp * 1000 >= buildTime
+    ? {
+        campaign,
+        prefill:
+          Array.isArray(presetAmounts) && presetAmounts.length > 0
+            ? { ...prefill, presetAmounts }
+            : prefill,
+      }
+    : { campaign: undefined, prefill };
 }
 
 const Main: React.FC<DonateProps> = (props) => {
   const classes = useStyles();
-  const campaign = useCampaign(props.campaign);
+  const { campaign, prefill } = useCampaign(props);
   return (
     <main id="main">
       <Landing />
@@ -219,7 +232,7 @@ const Main: React.FC<DonateProps> = (props) => {
         ) : null}
         <MakeAnOnlineGift
           className={classes.makeAnOnlineGift}
-          prefill={props.prefill}
+          prefill={prefill}
         />
         <FlourishSeparator className={classes.flourishMiddle} />
         <LearnMore className={classes.learnMore} />
