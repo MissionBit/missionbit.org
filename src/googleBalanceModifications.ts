@@ -24,7 +24,8 @@ export interface BalanceModifications {
   readonly goalName: string;
   readonly ignoredTransactions: readonly IgnoredCharge[];
   readonly startTimestamp: number;
-  readonly endTimestamp: number | undefined;
+  readonly endTimestamp: number | null;
+  readonly presetAmounts: readonly number[] | null;
 }
 
 function asUnknown(obj: unknown, prop: string): unknown {
@@ -128,7 +129,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
     await spreadsheetApiRequest(id, [
       "ranges=IgnoredTransactions!A2:B",
       "ranges=Adjustments!A2:E",
-      "ranges=Instructions!A2:B",
+      "ranges=Instructions!A2:D",
       "fields=sheets(properties,data.rowData(values(effectiveValue)))",
     ])
   );
@@ -158,23 +159,31 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   }
   let goalCents = 1000 * 100;
   let goalName = "Mission Bit";
+  let presetAmounts: readonly number[] | null = null;
   let startTimestamp =
     Date.parse(dayjs().format("YYYY-MM-01T00:00:00Z")) / 1000;
-  let endTimestamp = undefined;
+  let endTimestamp = null;
   for (const rowData of asArray(parsed, "Instructions")) {
     const values = asArray(rowData, "values").map(effectiveValue);
     const [nameV, amountV] = values;
     if (nameV?.stringValue === "Goal Amount" && amountV?.numberValue) {
       goalCents = Math.floor(100 * amountV.numberValue);
-    }
-    if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
+    } else if (nameV?.stringValue === "Goal Name" && amountV?.stringValue) {
       goalName = amountV.stringValue;
-    }
-    if (nameV?.stringValue === "Start Timestamp" && amountV?.stringValue) {
+    } else if (
+      nameV?.stringValue === "Start Timestamp" &&
+      amountV?.stringValue
+    ) {
       startTimestamp = Date.parse(amountV.stringValue) / 1000;
-    }
-    if (nameV?.stringValue === "End Timestamp" && amountV?.stringValue) {
+    } else if (nameV?.stringValue === "End Timestamp" && amountV?.stringValue) {
       endTimestamp = Date.parse(amountV.stringValue) / 1000;
+    } else if (
+      nameV?.stringValue === "Preset Amounts" &&
+      amountV?.numberValue
+    ) {
+      presetAmounts = values
+        .slice(1)
+        .flatMap((v) => (v?.numberValue ? [100 * v.numberValue] : []));
     }
   }
   return {
@@ -185,6 +194,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
     ignoredTransactions,
     startTimestamp,
     endTimestamp,
+    presetAmounts,
   };
 }
 

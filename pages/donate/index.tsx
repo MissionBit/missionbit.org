@@ -4,7 +4,12 @@ import { Layout } from "components/Layout";
 import { PageProps, getServerSideProps } from "pages/donate/live";
 import Donate from "components/donate";
 
-const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => (
+const Page: NextPage<PageProps> = ({
+  batch,
+  modifications,
+  prefill,
+  ...props
+}) => (
   <Layout
     {...props}
     canonicalPath="/donate"
@@ -13,6 +18,7 @@ const Page: NextPage<PageProps> = ({ batch, modifications, ...props }) => (
   >
     <Donate
       campaign={batch && modifications ? { batch, modifications } : undefined}
+      prefill={prefill}
     />
   </Layout>
 );

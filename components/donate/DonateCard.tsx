@@ -193,8 +193,6 @@ const useStyles = makeStyles((theme) => ({
   margin: {},
 }));
 
-const PRESET_AMOUNT_CENTS = [25000, 10000, 5000] as const;
-
 async function checkoutDonation(
   stripe: Stripe,
   amount: number,
@@ -229,11 +227,13 @@ function formatCents(cents: number): string {
 export interface DonatePrefill {
   frequency: Frequency;
   amount: string;
+  presetAmounts: readonly number[];
 }
 
-const DEFAULT_PREFILL: DonatePrefill = {
+export const DEFAULT_PREFILL: DonatePrefill = {
   frequency: "one-time",
   amount: "",
+  presetAmounts: [25000, 10000, 5000],
 };
 
 export function parseDonatePrefill(obj: {
@@ -333,7 +333,7 @@ export const DonateCard: React.FC<{
             onChange={handleAmountCents}
             aria-label="Preset donation amounts"
           >
-            {PRESET_AMOUNT_CENTS.map((cents) => (
+            {prefill.presetAmounts.map((cents) => (
               <ToggleButton key={cents} value={cents}>
                 ${(cents / 100).toFixed(0)}
               </ToggleButton>
