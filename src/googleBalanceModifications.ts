@@ -22,6 +22,7 @@ export interface BalanceModifications {
   readonly transactions: readonly BalanceModification[];
   readonly goalCents: number;
   readonly goalName: string;
+  readonly campaignCopy: string;
   readonly ignoredTransactions: readonly IgnoredCharge[];
   readonly startTimestamp: number;
   readonly endTimestamp: number | null;
@@ -159,6 +160,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
   }
   let goalCents = 1000 * 100;
   let goalName = "Mission Bit";
+  let campaignCopy = "";
   let presetAmounts: readonly number[] | null = null;
   let startTimestamp =
     Date.parse(dayjs().format("YYYY-MM-01T00:00:00Z")) / 1000;
@@ -184,6 +186,8 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
       presetAmounts = values
         .slice(1)
         .flatMap((v) => (v?.numberValue ? [100 * v.numberValue] : []));
+    } else if (nameV?.stringValue === "Campaign Copy" && amountV?.stringValue) {
+      campaignCopy = amountV.stringValue;
     }
   }
   return {
@@ -195,6 +199,7 @@ export async function getBalanceModifications(): Promise<BalanceModifications> {
     startTimestamp,
     endTimestamp,
     presetAmounts,
+    campaignCopy,
   };
 }
 
