@@ -262,6 +262,7 @@ interface DashboardProps extends BalanceProps {
 export interface LiveDashboardProps {
   readonly goalName: string;
   readonly goalCents: number;
+  readonly campaignCopy: string;
   readonly donors: readonly CommonTransaction[];
   readonly donorCount: number;
   readonly totalCents: number;
@@ -344,6 +345,7 @@ export function useLiveDashboard(
   return {
     goalName: modifications.goalName,
     goalCents: modifications.goalCents,
+    campaignCopy: modifications.campaignCopy,
     donors,
     donorCount: donors.length,
     totalCents,

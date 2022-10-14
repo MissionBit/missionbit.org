@@ -19,6 +19,7 @@ import { lighten, LinearProgress, Typography } from "@material-ui/core";
 import { dollars } from "pages/donate/dashboard";
 import SectionHeading from "./SectionHeading";
 import { useBuildTime } from "components/BuildTimeContext";
+import BodyText from "./BodyText";
 
 const VERTICAL_BREAK = "sm";
 const BAR_COLOR = "#5A6AC9";
@@ -106,6 +107,11 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
     },
   },
+  campaignCopy: {
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0, 2),
+    },
+  },
   progressWrapper: {
     border: "1px solid #dedede",
     borderRadius: "0.5rem",
@@ -155,7 +161,7 @@ function CampaignCard(props: {
 }): JSX.Element | null {
   const dashboard = useLiveDashboard(props.campaign);
   const classes = useStyles();
-  const { donorCount, goalName } = dashboard;
+  const { donorCount, goalName, campaignCopy } = dashboard;
   const { goalCents, totalCents } = useAnimatedGoal(dashboard);
   return (
     <Box
@@ -189,6 +195,9 @@ function CampaignCard(props: {
       <Typography className={classes.donorCount}>
         {donorCount} {donorCount === 1 ? "Donor" : "Donors"}
       </Typography>
+      {campaignCopy && (
+        <BodyText className={classes.campaignCopy}>{campaignCopy}</BodyText>
+      )}
     </Box>
   );
 }
