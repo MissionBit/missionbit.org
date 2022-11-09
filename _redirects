@@ -14,6 +14,8 @@ https://donate.missionbit.com/ https://donate.missionbit.org/ 301!
 https://gala.missionbit.com/subscriptions/* https://donate.missionbit.org/subscriptions/:splat 301!
 https://gala.missionbit.org/subscriptions/* https://donate.missionbit.org/subscriptions/:splat 301!
 https://legacy.missionbit.org/donate/subscriptions/* https://donate.missionbit.org/subscriptions/:splat 301!
+https://legacy.missionbit.org/donate/ https://www.missionbit.org/donate 302!
+https://legacy.missionbit.org/donate/* https://donate.missionbit.org/:splat 302!
 
 # Event domains
 https://gala.missionbit.com/* https://www.missionbit.org/gala 301!
